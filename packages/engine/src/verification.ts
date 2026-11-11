@@ -18,7 +18,8 @@ import type {
   VerifierRegistry, WearSystem,
 } from './types';
 import { EVIDENCE_ORDER, WEAR_SYSTEMS } from './types';
-import { canonicalJson, clipText, dayOf, isIsoTimestamp, monthsBetween, sha256Text } from './util';
+import { canonicalJson, clipText, dayOf, isIsoTimestamp, monthsApart, monthsBetween, monthsOf, sha256Text, timestampKey } from './util';
+import type { MonthCount } from './util';
 
 /** The registry with nobody in it. With it, nothing can be verified. */
 export const EMPTY_REGISTRY: VerifierRegistry = { verifiers: [] };
@@ -140,22 +141,51 @@ const lacksDetail = (a: Attestation): boolean =>
 /** The reading an attestation's entry carries: the attested figure for a mileage attestation, none otherwise. */
 const readingOf = (a: Attestation): number | null => (a.scope === 'mileage' ? a.mileage : null);
 
-/**
- * Whether one attestation stands on a day, leaving withdrawals aside. `entry` is the passport entry that carries it:
- * its author, day and reading must be the attestation's own, so nothing can be claimed by dressing the entry up.
- * The checks run in a fixed order and the first that fails is the reason given; its age is the last of them.
- */
-function judge(passport: Passport, entry: { by: string; date: string; mileage: number | null }, a: Attestation, registry: VerifierRegistry, day: string): Verdict {
+/** Lookups over a passport's entries, built once by whoever asks about many of them. */
+type Lookup = {
+  /** The first entry with each id, under `#<id>`. */
+  byId: Record<string, PassportEvent>;
+  /** The first entry carrying each attestation, under `#<attestation id>`. */
+  byAttestation: Record<string, AttestationEvent>;
+  /** subjectFingerprint, worked out once per scope. */
+  subject: (scope: AttestationScope) => string | null;
+};
+
+function lookupOf(passport: Passport): Lookup {
+  const byId: Record<string, PassportEvent> = {};
+  const byAttestation: Record<string, AttestationEvent> = {};
+  for (const e of passport.events) {
+    if (byId[`#${e.id}`] === undefined) byId[`#${e.id}`] = e;
+    if (e.type === 'attestation' && byAttestation[`#${e.attestation.id}`] === undefined) byAttestation[`#${e.attestation.id}`] = e;
+  }
+  const subjects: Record<string, string | null> = {};
+  const subject = (scope: AttestationScope): string | null => {
+    const key = `#${scope}`;
+    if (!(key in subjects)) subjects[key] = subjectFingerprint(passport, scope);
+    return subjects[key];
+  };
+  return { byId, byAttestation, subject };
+}
+
+type Entry = { by: string; date: string; mileage: number | null };
+
+/** The first checks: who made the attestation, and whether the entry that carries it is the attestation's own. */
+function judgeMaker(passport: Passport, entry: Entry, a: Attestation, registry: VerifierRegistry): { verifier: Verifier; refused: null } | { verifier: null; refused: Verdict } {
   const verifier = findVerifier(registry, a.verifierId);
-  if (!verifier) return no(VERIFICATION_REFUSALS.unknown);
-  if (verifier.active !== true) return no(VERIFICATION_REFUSALS.inactive);
-  if (!Array.isArray(verifier.scopes) || verifier.scopes.indexOf(a.scope) === -1) return no(VERIFICATION_REFUSALS.scope);
-  if (everOwned(passport, a.verifierId)) return no(VERIFICATION_REFUSALS.owner);
-  if (entry.by !== a.verifierId) return no(VERIFICATION_REFUSALS.author);
-  if (entry.date !== a.date || entry.mileage !== readingOf(a)) return no(VERIFICATION_REFUSALS.shape);
-  if (lacksDetail(a)) return no(VERIFICATION_REFUSALS.detail);
-  if (a.date > day) return no(VERIFICATION_REFUSALS.future);
-  if (a.subject !== subjectFingerprint(passport, a.scope)) return no(VERIFICATION_REFUSALS.changed);
+  const refused = (reason: string) => ({ verifier: null, refused: no(reason) });
+  if (!verifier) return refused(VERIFICATION_REFUSALS.unknown);
+  if (verifier.active !== true) return refused(VERIFICATION_REFUSALS.inactive);
+  if (!Array.isArray(verifier.scopes) || verifier.scopes.indexOf(a.scope) === -1) return refused(VERIFICATION_REFUSALS.scope);
+  if (everOwned(passport, a.verifierId)) return refused(VERIFICATION_REFUSALS.owner);
+  if (entry.by !== a.verifierId) return refused(VERIFICATION_REFUSALS.author);
+  if (entry.date !== a.date || entry.mileage !== readingOf(a)) return refused(VERIFICATION_REFUSALS.shape);
+  if (lacksDetail(a)) return refused(VERIFICATION_REFUSALS.detail);
+  return { verifier, refused: null };
+}
+
+/** The checks on what the attestation is bound to: the part of the passport it speaks for, and its signature. */
+function judgeBinding(passport: Passport, a: Attestation, registry: VerifierRegistry, verifier: Verifier, subject: Lookup['subject']): Verdict | null {
+  if (a.subject !== subject(a.scope)) return no(VERIFICATION_REFUSALS.changed);
   const check = registry ? registry.checkSignature : undefined;
   if (typeof check === 'function') {
     let good = false;
@@ -164,12 +194,44 @@ function judge(passport: Passport, entry: { by: string; date: string; mileage: n
     }
     if (!good) return no(VERIFICATION_REFUSALS.signature);
   }
+  return null;
+}
+
+/** What an attestation of a scope counts for at an age in months: nothing once it is out of date, a condition inspection by half after its first year, anything else in full. */
+function weightAtAge(scope: AttestationScope, age: number): number {
+  const limit = ATTESTATION_VALID_MONTHS[scope];
+  if (limit !== null && age >= limit) return 0;
+  return scope === 'condition' && age >= CONDITION_FULL_MONTHS ? 0.5 : 1;
+}
+
+/** Its age on a day. */
+function judgeAge(a: Attestation, day: string): Verdict {
+  const weight = weightAtAge(a.scope, monthsBetween(a.date, day));
+  return weight === 0 ? no(VERIFICATION_REFUSALS.lapsed) : { valid: true, weight, reason: '' };
+}
+
+/**
+ * Whether one attestation stands on a day, leaving withdrawals aside. `entry` is the passport entry that carries it:
+ * its author, day and reading must be the attestation's own, so nothing can be claimed by dressing the entry up.
+ * The checks run in a fixed order and the first that fails is the reason given; its age is the last of them.
+ * Only two of them turn on the day: an attestation dated after it, and one too old on it. The rest (judgeMaker,
+ * judgeBinding) are the same on every day, which attestationsOver relies on.
+ */
+function judge(passport: Passport, entry: Entry, a: Attestation, registry: VerifierRegistry, day: string, subject: Lookup['subject'] = (scope) => subjectFingerprint(passport, scope)): Verdict {
+  const maker = judgeMaker(passport, entry, a, registry);
+  if (maker.refused !== null) return maker.refused;
+  if (a.date > day) return no(VERIFICATION_REFUSALS.future);
+  const binding = judgeBinding(passport, a, registry, maker.verifier, subject);
+  if (binding !== null) return binding;
   // Age is judged last. "Out of date" is then only ever said of an attestation that is good in every other way, and
   // only such a one stays on the record after it lapses: a forgery gains nothing by being dated a long time ago.
-  const limit = ATTESTATION_VALID_MONTHS[a.scope];
-  const age = monthsBetween(a.date, day);
-  if (limit !== null && age >= limit) return no(VERIFICATION_REFUSALS.lapsed);
-  return { valid: true, weight: a.scope === 'condition' && age >= CONDITION_FULL_MONTHS ? 0.5 : 1, reason: '' };
+  return judgeAge(a, day);
+}
+
+/** True when a withdrawal of an attestation is its own verifier's, and that verifier is still registered. Nothing in it turns on the day. */
+function withdraws(e: Extract<PassportEvent, { type: 'void' }>, target: PassportEvent, authority: AttestationEvent, registry: VerifierRegistry): boolean {
+  const verifier = findVerifier(registry, e.by);
+  return authority.id === target.id && verifier !== null && verifier.active === true;
 }
 
 /**
@@ -178,21 +240,21 @@ function judge(passport: Passport, entry: { by: string; date: string; mileage: n
  * attestation counted on the day of the withdrawal and had not itself been taken back; the withdrawal then stands
  * for good, whatever later becomes of that attestation, unless the verifier leaves the registry.
  */
-function standingVoids(passport: Passport, registry: VerifierRegistry, day: string): string[] {
+function standingVoids(passport: Passport, registry: VerifierRegistry, day: string, lookup: Lookup = lookupOf(passport)): string[] {
   const out: string[] = [];
+  const taken: Record<string, true> = {};
   for (const e of passport.events) {
-    if (e.type !== 'void' || e.date > day || out.indexOf(e.target) !== -1) continue;
-    const target = passport.events.filter((t) => t.id === e.target)[0];
+    if (e.type !== 'void' || e.date > day || taken[`#${e.target}`] === true) continue;
+    const target = lookup.byId[`#${e.target}`];
     if (!target || target.type === 'registered' || target.type === 'transfer' || target.type === 'void') continue;
-    const authority = attestationEvent(passport, e.attestationId);
+    const authority = lookup.byAttestation[`#${e.attestationId}`];
     if (!authority || authority.attestation.verifierId !== e.by) continue;
     if (target.type === 'attestation') {
-      const verifier = findVerifier(registry, e.by);
-      if (authority.id === target.id && verifier !== null && verifier.active === true) out.push(e.target);
+      if (withdraws(e, target, authority, registry)) { out.push(e.target); taken[`#${e.target}`] = true; }
       continue;
     }
-    if (authority.attestation.scope !== 'documentation' || out.indexOf(authority.id) !== -1) continue;
-    if (judge(passport, authority, authority.attestation, registry, e.date).valid) out.push(e.target);
+    if (authority.attestation.scope !== 'documentation' || taken[`#${authority.id}`] === true) continue;
+    if (judge(passport, authority, authority.attestation, registry, e.date, lookup.subject).valid) { out.push(e.target); taken[`#${e.target}`] = true; }
   }
   return out;
 }
@@ -220,6 +282,13 @@ export type Standing = {
    * counts or has only lapsed; one that never counted (an unknown verifier, a bad signature, an owner) does not.
    */
   events: PassportEvent[];
+  /**
+   * Lookups over the attestations that count, so a question about one entry does not read every attestation:
+   * `counting` holds `#<entry id>` for each; `names` holds `<scope>#<record id>` for every record a documentation
+   * or modification attestation names; `readings` holds the attested odometer readings under `#<day>`. `byId`
+   * holds every entry that stands under `#<id>`.
+   */
+  index: { counting: Record<string, true>; names: Record<string, true>; readings: Record<string, number[]>; byId: Record<string, PassportEvent> };
 };
 
 /**
@@ -229,19 +298,93 @@ export type Standing = {
  */
 export function standingOf(passport: Passport, registry: VerifierRegistry, asOf: string): Standing {
   const day = dayOf(asOf);
+  const lookup = lookupOf(passport);
   const ordered = timeline(passport);
-  const voided = standingVoids(passport, registry, day);
+  const voided = standingVoids(passport, registry, day, lookup);
+  const gone: Record<string, true> = {};
+  for (const id of voided) gone[`#${id}`] = true;
   const statuses: AttestationStatus[] = [];
   for (const e of ordered) {
     if (e.type !== 'attestation') continue;
-    const verdict = judge(passport, e, e.attestation, registry, day);
-    statuses.push({ eventId: e.id, attestation: e.attestation, ...(verdict.valid && voided.indexOf(e.id) !== -1 ? no(VERIFICATION_REFUSALS.withdrawn) : verdict) });
+    const verdict = judge(passport, e, e.attestation, registry, day, lookup.subject);
+    statuses.push({ eventId: e.id, attestation: e.attestation, ...(verdict.valid && gone[`#${e.id}`] === true ? no(VERIFICATION_REFUSALS.withdrawn) : verdict) });
   }
   const attestations = statuses.filter((s) => s.valid && s.weight > 0);
   const lapsed = statuses.filter((s) => !s.valid && s.reason === VERIFICATION_REFUSALS.lapsed).map((s) => s.eventId);
-  const events = ordered.filter((e) => e.date <= day && e.type !== 'void' && voided.indexOf(e.id) === -1
-    && (e.type !== 'attestation' || attestations.some((s) => s.eventId === e.id) || lapsed.indexOf(e.id) !== -1));
-  return { day, statuses, attestations, voided, lapsed, events };
+  const index: Standing['index'] = { counting: {}, names: {}, readings: {}, byId: {} };
+  const stands: Record<string, true> = {};
+  for (const id of lapsed) stands[`#${id}`] = true;
+  for (const s of attestations) {
+    const a = s.attestation;
+    stands[`#${s.eventId}`] = true;
+    index.counting[`#${s.eventId}`] = true;
+    if (a.scope === 'documentation' || a.scope === 'modification') for (const id of a.events) index.names[`${a.scope}#${id}`] = true;
+    if (a.scope === 'mileage' && a.mileage !== null) {
+      const on = `#${a.date}`;
+      if (index.readings[on] === undefined) index.readings[on] = [];
+      index.readings[on].push(a.mileage);
+    }
+  }
+  const events = ordered.filter((e) => e.date <= day && e.type !== 'void' && gone[`#${e.id}`] !== true && (e.type !== 'attestation' || stands[`#${e.id}`] === true));
+  for (const e of events) if (index.byId[`#${e.id}`] === undefined) index.byId[`#${e.id}`] = e;
+  return { day, statuses, attestations, voided, lapsed, events, index };
+}
+
+/**
+ * The attestations that count on each of many days of one passport. standingOf works a whole standing out for one
+ * day. The stored history asks about a day for every snapshot and edition a file holds, thousands of them, and
+ * reads only which attestations counted then. So everything about an attestation that does not turn on the day
+ * (who made it, what it is bound to, its signature, whether its verifier took it back and from when) is worked out
+ * here once, and a day costs only a look at the attestations that could ever count.
+ * `on(day).attestations()` is exactly `standingOf(passport, registry, day).attestations`. `on(day).key` is the same
+ * for two days exactly when the same attestations count on both with the same weights.
+ * Asked about a moment (a timestamp) instead of a day, it answers for that moment of the day: an attestation its
+ * verifier took back at three in the afternoon still counted at nine that morning, so a grade kept at nine is not
+ * judged by a withdrawal that had not happened yet.
+ */
+export function attestationsOver(passport: Passport, registry: VerifierRegistry): (asOf: string) => { key: string; attestations: () => AttestationStatus[] } {
+  const lookup = lookupOf(passport);
+  // When each attestation was taken back, by its own verifier: the time the withdrawal was written down, when that
+  // was on the day it is dated; otherwise the start of the day it is dated. As text, a day sorts before every time
+  // of that day, so the earliest of several is simply the least.
+  const withdrawn: Record<string, string> = {};
+  for (const e of passport.events) {
+    if (e.type !== 'void') continue;
+    const target = lookup.byId[`#${e.target}`];
+    const authority = lookup.byAttestation[`#${e.attestationId}`];
+    if (!target || target.type !== 'attestation' || !authority || authority.attestation.verifierId !== e.by || !withdraws(e, target, authority, registry)) continue;
+    const key = `#${target.id}`;
+    const moment = dayOf(e.recordedAt) === e.date ? timestampKey(e.recordedAt) : e.date;
+    if (withdrawn[key] === undefined || moment < withdrawn[key]) withdrawn[key] = moment;
+  }
+  // The attestations that are good in every way that does not turn on the day, in timeline order.
+  const sound: { event: AttestationEvent; from: string; made: MonthCount; until: string | null }[] = [];
+  for (const e of timeline(passport)) {
+    if (e.type !== 'attestation') continue;
+    const maker = judgeMaker(passport, e, e.attestation, registry);
+    if (maker.refused !== null || judgeBinding(passport, e.attestation, registry, maker.verifier, lookup.subject) !== null) continue;
+    sound.push({ event: e, from: e.attestation.date, made: monthsOf(e.attestation.date), until: withdrawn[`#${e.id}`] ?? null });
+  }
+  return (asOf) => {
+    const day = dayOf(asOf);
+    const now = monthsOf(day);
+    // Everything withdrawn up to here counts as withdrawn: up to the moment asked about, or to the end of the day.
+    const upTo = isIsoTimestamp(asOf) ? timestampKey(asOf) : `${day}~`;
+    // One character for each attestation that could count: not counting, counting in full, counting by half.
+    const weights: number[] = [];
+    let key = '';
+    for (const s of sound) {
+      const weight = s.from > day || (s.until !== null && s.until <= upTo) ? 0 : weightAtAge(s.event.attestation.scope, monthsApart(s.made, now));
+      weights.push(weight);
+      key += weight === 0 ? '0' : weight === 1 ? '1' : 'h';
+    }
+    const attestations = (): AttestationStatus[] => {
+      const out: AttestationStatus[] = [];
+      for (let i = 0; i < sound.length; i++) if (weights[i] > 0) out.push({ eventId: sound[i].event.id, attestation: sound[i].event.attestation, valid: true, weight: weights[i], reason: '' });
+      return out;
+    };
+    return { key, attestations };
+  };
 }
 
 /** Every attestation on the passport with whether it counts on a day, and why not when it does not. */
@@ -336,12 +479,9 @@ export function voidEvent(passport: Passport, input: { target: string; reason: s
 /** How much stands behind an entry as a record: verified only when it is an attestation that counts, or one names it. */
 function recordEvidence(event: PassportEvent, standing: Standing): EvidenceLevel {
   // An attestation that has lapsed is still a third party's record of what they saw. It no longer verifies.
-  if (event.type === 'attestation') return standing.attestations.some((s) => s.eventId === event.id) ? 'verified' : 'documented';
-  for (const s of standing.attestations) {
-    const a = s.attestation;
-    const speaksFor = a.scope === 'documentation' || (a.scope === 'modification' && event.type === 'modification');
-    if (speaksFor && a.events.indexOf(event.id) !== -1) return 'verified';
-  }
+  if (event.type === 'attestation') return standing.index.counting[`#${event.id}`] === true ? 'verified' : 'documented';
+  // A records attestation speaks for any record it names; a modification attestation only for a modification.
+  if (standing.index.names[`documentation#${event.id}`] === true || (event.type === 'modification' && standing.index.names[`modification#${event.id}`] === true)) return 'verified';
   return event.attachments.length > 0 ? 'documented' : 'declared';
 }
 
@@ -353,10 +493,7 @@ function recordEvidence(event: PassportEvent, standing: Standing): EvidenceLevel
 function readingEvidence(event: PassportEvent, standing: Standing): EvidenceLevel {
   const record = recordEvidence(event, standing);
   if (record === 'verified' || event.mileage === null) return record;
-  for (const s of standing.attestations) {
-    const a = s.attestation;
-    if (a.scope === 'mileage' && a.mileage !== null && event.date === a.date && Math.abs(event.mileage - a.mileage) <= MILEAGE_TOLERANCE) return 'verified';
-  }
+  for (const attested of standing.index.readings[`#${event.date}`] ?? []) if (Math.abs(event.mileage - attested) <= MILEAGE_TOLERANCE) return 'verified';
   return record;
 }
 
@@ -366,7 +503,7 @@ function readingEvidence(event: PassportEvent, standing: Standing): EvidenceLeve
  * day, or is not on the passport is declared: it has no standing.
  */
 export function eventEvidence(passport: Passport, eventId: string, registry: VerifierRegistry, asOf: string, standing: Standing = standingOf(passport, registry, asOf)): EvidenceLevel {
-  const event = standing.events.filter((e) => e.id === eventId)[0];
+  const event = standing.index.byId[`#${eventId}`];
   return event ? recordEvidence(event, standing) : 'declared';
 }
 
@@ -392,28 +529,61 @@ export type MileageLog = {
 const evidenceRank = (level: EvidenceLevel): number => EVIDENCE_ORDER.indexOf(level);
 
 /**
- * The mileage log. Every reading that stands is on it, with one exception: a reading gives way to a later one for the
- * same day when both were written down on the same day. That is a slipped digit put right while the form was still
- * open, and it leaves no mark. Nothing else is ever replaced:
+ * The mileage log. Every reading that stands is on it, with one exception: a reading gives way to the next one its
+ * writer wrote for the same day, when both were written down on the same day with nothing from a later day written
+ * in between. That is a slipped digit put right by the person who made it, while it is fresh, and it leaves no mark.
+ * Nothing else is ever replaced:
  *   - an entry written on a later day cannot rewrite an old reading, whatever day it is dated. Both stand;
+ *   - nor can an entry written after others of a later day, whatever day its own timestamp names. A passport keeps
+ *     its entries in the order they were written, and that order is read here beside the timestamps: setting a
+ *     device's clock back to the day of an old reading does not put a new entry next to it;
+ *   - one owner's reading is never replaced by another's: on the day a car changes hands both of theirs stand;
  *   - a verifier's own reading is never displaced, whether its attestation still counts or has lapsed;
- *   - a reading a verifier confirmed gives way only to another verified one.
+ *   - nor is a reading on a record a verifier confirmed (while the attestation counts, and after it lapses), or one
+ *     that an attestation of the same day bears out.
  * A rollback is a reading lower than one of an earlier day. Wear is counted from the highest reading that stands, so
  * no entry an owner adds can lower it, and none can clear a rollback once the day it was written on is over.
  */
 export function mileageLog(passport: Passport, registry: VerifierRegistry, asOf: string, standing: Standing = standingOf(passport, registry, asOf)): MileageLog {
-  type Kept = { date: string; mileage: number; eventId: string; evidence: EvidenceLevel; written: string; verifier: boolean };
-  const kept: Kept[] = [];
-  // Timeline order is by day, then by when it was written: readings of one day written on one day sit side by side.
+  type Read = { event: PassportEvent; evidence: EvidenceLevel; at: number; settled: boolean };
+  // The order the passport was written in. `laterBefore[i]` is the place of the nearest entry before entry i that
+  // was written on a later day than entry i says it was, or -1 when there is none.
+  const place: Record<string, number> = {};
+  const laterBefore: number[] = [];
+  const open: number[] = [];
+  const writtenOn = passport.events.map((e) => dayOf(e.recordedAt));
+  for (let i = 0; i < writtenOn.length; i++) {
+    while (open.length > 0 && writtenOn[open[open.length - 1]] <= writtenOn[i]) open.pop();
+    laterBefore.push(open.length > 0 ? open[open.length - 1] : -1);
+    open.push(i);
+    place[`#${passport.events[i].id}`] = i;
+  }
+  // The records a verifier has stood behind, by an attestation that counts or has only lapsed. What was confirmed
+  // happened: its reading stays where it is after the attestation ages out, as an inspector's own reading does.
+  const confirmed: Record<string, true> = {};
+  for (const e of standing.events) {
+    if (e.type !== 'attestation' || (e.attestation.scope !== 'documentation' && e.attestation.scope !== 'modification')) continue;
+    for (const id of e.attestation.events) confirmed[`${e.attestation.scope}#${id}`] = true;
+  }
+  const read: Read[] = [];
   for (const e of standing.events) {
     if (e.mileage === null) continue;
-    const next: Kept = { date: e.date, mileage: e.mileage, eventId: e.id, evidence: readingEvidence(e, standing), written: dayOf(e.recordedAt), verifier: e.type === 'attestation' };
-    const last = kept.length > 0 ? kept[kept.length - 1] : null;
-    const corrects = last !== null && last.date === next.date && last.written === next.written && !last.verifier
-      && (last.evidence !== 'verified' || next.evidence === 'verified');
-    if (corrects) kept[kept.length - 1] = next;
-    else kept.push(next);
+    const evidence = readingEvidence(e, standing);
+    const settled = e.type === 'attestation' || evidence === 'verified' || confirmed[`documentation#${e.id}`] === true || (e.type === 'modification' && confirmed[`modification#${e.id}`] === true);
+    read.push({ event: e, evidence, at: place[`#${e.id}`] ?? -1, settled });
   }
+  // The readings put right. Going back through the order of writing, each reading meets the next one the same writer
+  // wrote for the same day on the same day. It gives way to it unless a verifier has had anything to do with it, or
+  // an entry written on a later day lies between the two.
+  const putRight: Record<string, true> = {};
+  const nextOf: Record<string, Read> = {};
+  for (const r of read.slice().sort((a, b) => b.at - a.at)) {
+    const key = `${r.event.date} ${dayOf(r.event.recordedAt)} ${r.event.by}`;
+    const next = nextOf[key];
+    if (next !== undefined && !r.settled && r.at >= 0 && laterBefore[next.at] < r.at) putRight[`#${r.event.id}`] = true;
+    nextOf[key] = r;
+  }
+  const kept = read.filter((r) => putRight[`#${r.event.id}`] !== true).map((r) => ({ date: r.event.date, mileage: r.event.mileage as number, eventId: r.event.id, evidence: r.evidence }));
   const readings: MileageLog['readings'] = [];
   const days: MileageLog['days'] = [];
   let rollback = false;
@@ -462,12 +632,18 @@ export function documentedRecords(passport: Passport, registry: VerifierRegistry
  * months old.
  */
 function fittedModifications(standing: Standing, counts: { install: (e: PassportEvent) => boolean; removal: (e: PassportEvent) => boolean; upkeep: (e: PassportEvent) => boolean }): ActiveModification[] {
-  const removed: string[] = [];
-  for (const e of standing.events) if (e.type === 'modification' && e.action === 'remove' && e.undoes !== null && counts.removal(e)) removed.push(e.undoes);
+  const removed: Record<string, true> = {};
+  // The newest maintenance record that counts as upkeep: one less than twelve months old. It keeps up every
+  // modification fitted before it.
+  let upkeep = '';
+  for (const e of standing.events) {
+    if (e.type === 'modification' && e.action === 'remove' && e.undoes !== null && counts.removal(e)) removed[`#${e.undoes}`] = true;
+    if (e.type === 'maintenance' && e.date > upkeep && monthsBetween(e.date, standing.day) < 12 && counts.upkeep(e)) upkeep = e.date;
+  }
   const out: ActiveModification[] = [];
   for (const e of standing.events) {
-    if (e.type !== 'modification' || e.action !== 'install' || removed.indexOf(e.id) !== -1 || !counts.install(e)) continue;
-    const kept = standing.events.some((m) => m.type === 'maintenance' && counts.upkeep(m) && m.date > e.date && monthsBetween(m.date, standing.day) < 12);
+    if (e.type !== 'modification' || e.action !== 'install' || removed[`#${e.id}`] === true || !counts.install(e)) continue;
+    const kept = upkeep > e.date;
     out.push({
       eventId: e.id, category: e.category, tier: e.tier, install: e.install, evidence: recordEvidence(e, standing), installedOn: e.date, recordedAt: e.recordedAt, installedAtMileage: e.mileage,
       upkeep: kept ? 'documented' : monthsBetween(e.date, standing.day) < 12 ? 'recent' : 'lapsed',

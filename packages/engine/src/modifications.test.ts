@@ -203,10 +203,26 @@ describe('which modifications count', () => {
     ]);
   });
 
-  it('lets a hybrid, a plug-in hybrid, a diesel and a car of unknown powertrain keep them', () => {
-    for (const powertrain of [s('hybrid' as const), s('plug-in-hybrid' as const), s('diesel' as const), null]) {
+  it('lets a hybrid, a plug-in hybrid and a diesel keep them', () => {
+    for (const powertrain of [s('hybrid' as const), s('plug-in-hybrid' as const), s('diesel' as const)]) {
       expect(resolveModifications({ ...civic, powertrain }, [mod('turbo'), mod('ecu')]).refused).toEqual([]);
     }
+  });
+
+  it('makes them wait on a car whose powertrain nobody has named', () => {
+    // A blank is not read as an engine that can take a turbocharger. Clearing the powertrain of an electric car used to
+    // let a turbocharger kit and an engine build count: 327 points of POWER and 237 of SPEED for leaving a box empty.
+    const unnamed = { ...civic, powertrain: null };
+    expect(resolveModifications(unnamed, [mod('turbo'), mod('ecu'), mod('tires')])).toEqual({
+      applied: [mod('tires')],
+      refused: [{ eventId: 'ev-ecu', category: 'ecu', reason: 'needs the powertrain on file' }, { eventId: 'ev-turbo', category: 'turbo', reason: 'needs the powertrain on file' }],
+    });
+    const cleared = applyModifications({ ...ev, powertrain: null }, [mod('turbo', 3), mod('engine', 3)]);
+    expect(cleared.applied).toEqual([]);
+    expect(cleared.spec.horsepower).toEqual(ev.horsepower);
+    // Once the powertrain is on file they count, or are refused for what it is.
+    expect(resolveModifications(civic, [mod('turbo'), mod('ecu')]).refused).toEqual([]);
+    expect(resolveModifications(ev, [mod('turbo')]).refused.map((r) => r.reason)).toEqual(['not for an electric powertrain']);
   });
 
   it('counts only the later of a turbocharger and a supercharger', () => {
@@ -324,10 +340,36 @@ describe('what a modification does to the specification', () => {
     expect(heavier.combinedMpg?.value).toBeCloseTo(16.7409, 9); // 19 x 0.90 x (1 - 0.6 x 0.035)
   });
 
-  it('leaves economy to the tier’s own multiplier when no curb weight is on file to change', () => {
+  it('charges added weight to economy with or without a curb weight on file, and lets removed weight wait for one', () => {
     const noWeight = { ...civic, curbWeightLb: null };
+    // Lighter is thriftier only when there is a curb weight on file to lighten.
     expect(applyModifications(noWeight, [mod('weight', 3)]).spec.combinedMpg).toEqual(civic.combinedMpg);
-    expect(applyModifications(noWeight, [mod('turbo', 2)]).spec.combinedMpg?.value).toBeCloseTo(31.5, 9); // 35 x 0.90
+    // Heavier costs economy either way: 35 x 0.90 for the kit x 0.991 for its 1.5% of extra weight. It used to be
+    // skipped for want of a curb weight, so clearing the weight gave back part of what the kit costs.
+    expect(applyModifications(noWeight, [mod('turbo', 2)]).spec.combinedMpg?.value).toBeCloseTo(35 * 0.9 * (1 + 0.6 * (1 - 1.015)), 9);
+    expect(applyModifications(noWeight, [mod('turbo', 2)]).spec.combinedMpg?.value).toBeCloseTo(applyModifications(civic, [mod('turbo', 2)]).spec.combinedMpg?.value as number, 9);
+  });
+
+  it('applies what costs the car whatever is on file, and makes what helps wait for the figures it rests on', () => {
+    const lift = [mod('offroad', 3)]; // 3.5% heavier, no more power: a slower time, less grip, less economy
+    const full = applyModifications(sportSedan, lift);
+    for (const cleared of [{ curbWeightLb: null }, { horsepower: null }, { curbWeightLb: null, horsepower: null }] as Partial<VehicleSpec>[]) {
+      const out = applyModifications({ ...sportSedan, ...cleared }, lift);
+      // The time on file slows by the same ratio: it rests on the parts' multipliers, not on the figures.
+      expect(out.spec.zeroToSixtySec?.value, JSON.stringify(cleared)).toBeCloseTo(full.spec.zeroToSixtySec?.value as number, 9);
+      expect(out.spec.combinedMpg?.value, JSON.stringify(cleared)).toBeCloseTo(full.spec.combinedMpg?.value as number, 9);
+    }
+    // With a skidpad figure on file and no curb weight, the added weight is charged as a share of the heaviest car there can be.
+    expect(applyModifications({ ...sportSedan, curbWeightLb: null }, lift).adjust.gripG).toBeLessThan(full.adjust.gripG);
+    expect(applyModifications({ ...sportSedan, curbWeightLb: null }, lift).adjust.gripG).toBeCloseTo(-0.07 + 15000 * 0.035 * -0.00002, 9);
+    // A quicker time waits: a turbocharger kit moves nothing on a car with no curb weight or no horsepower on file.
+    for (const cleared of [{ curbWeightLb: null }, { horsepower: null }] as Partial<VehicleSpec>[]) {
+      expect(applyModifications({ ...civic, ...cleared }, [mod('turbo', 2)]).spec.zeroToSixtySec, JSON.stringify(cleared)).toEqual(civic.zeroToSixtySec);
+    }
+    // An economy tune's lost power lowers a top speed on file even with no horsepower on file; a kit's gain does not raise one.
+    const noPower = { ...gtr, horsepower: null };
+    expect(applyModifications(noPower, [mod('eco', 3)]).spec.topSpeedMph?.value).toBeCloseTo(196 * Math.cbrt(0.97), 9);
+    expect(applyModifications(noPower, [mod('turbo', 1)]).spec.topSpeedMph).toEqual(gtr.topSpeedMph);
   });
 
   it('moves a 0-60 time on file with pounds per horsepower, to the power of 0.75', () => {
@@ -367,10 +409,26 @@ describe('what a modification does to the specification', () => {
   it('scales an ungoverned top speed on file with the cube root of the power gain', () => {
     // Turbo, Street: 25% more power is 7.7% more top speed.
     expect(applyModifications(gtr, [mod('turbo', 1)]).spec.topSpeedMph?.value).toBeCloseTo(211.1346, 3);
-    // Nobody said the figure is a limiter: it is treated as what the power allows.
-    expect(applyModifications({ ...gtr, topSpeedGoverned: null }, [mod('turbo', 1)]).spec.topSpeedMph?.value).toBeCloseTo(211.1346, 3);
     // Less power is less top speed by the same rule: economy setup, Extreme, 3% less power.
     expect(applyModifications(gtr, [mod('eco', 3)]).spec.topSpeedMph?.value).toBeCloseTo(194.0201, 3);
+  });
+
+  it('reads a blank answer to "is the top speed limited?" as whichever costs the car', () => {
+    // 'Not known' is what the sheet says until somebody answers. It used to be read as 'not limited', so a car with a
+    // top speed on file gained from every power part unless its owner volunteered that it was limited.
+    const unsaid = { ...gtr, topSpeedGoverned: null };
+    expect(applyModifications(unsaid, [mod('turbo', 1)]).spec.topSpeedMph).toEqual(gtr.topSpeedMph);
+    expect(applyModifications(unsaid, [mod('eco', 3)]).spec.topSpeedMph?.value).toBeCloseTo(194.0201, 3);
+    // Said either way, it is taken at its word.
+    expect(applyModifications({ ...gtr, topSpeedGoverned: s(false) }, [mod('turbo', 1)]).spec.topSpeedMph?.value).toBeCloseTo(211.1346, 3);
+    expect(applyModifications({ ...gtr, topSpeedGoverned: s(true) }, [mod('eco', 3)]).spec.topSpeedMph).toEqual(gtr.topSpeedMph);
+    // So clearing the answer never raises SPEED, whatever is fitted.
+    for (const stack of [[mod('turbo', 3)], [mod('eco', 3)], [mod('turbo', 3), mod('engine', 3), mod('eco', 2)]]) {
+      for (const said of [s(true), s(false)]) {
+        const withAnswer = applyModifications({ ...gtr, topSpeedGoverned: said }, stack), without = applyModifications(unsaid, stack);
+        expect(scoreSpec(without.spec, { adjust: without.adjust }).speed.value as number).toBeLessThanOrEqual(scoreSpec(withAnswer.spec, { adjust: withAnswer.adjust }).speed.value as number);
+      }
+    }
   });
 
   it('does not raise a governed top speed with power', () => {
@@ -446,10 +504,16 @@ describe('what a modification does to the specification', () => {
 
   it('never touches a null field: a missing figure stays missing', () => {
     const everything = MOD_CATEGORIES.map((category) => mod(category, 3));
-    const empty = blank('sedan');
+    // With nothing on file but the powertrain, eleven of the fourteen count (one of each group) and move nothing.
+    const empty: VehicleSpec = { ...blank('sedan'), powertrain: s('gasoline') };
     const out = applyModifications(empty, everything);
     expect(out.applied).toHaveLength(11);
     expect(out.spec).toEqual(empty);
+    // With not even that, the six combustion parts wait as well, and still nothing is written.
+    const nothing = applyModifications(blank('sedan'), everything);
+    expect(nothing.applied).toHaveLength(6);
+    expect(nothing.refused.filter((r) => r.reason === 'needs the powertrain on file')).toHaveLength(6);
+    expect(nothing.spec).toEqual(blank('sedan'));
     // The Civic has no top speed and no skidpad figure on file, and none appears. The pickup the same.
     for (const subject of [civic, truck, ev, gtr]) {
       const after = applyModifications(subject, everything).spec;

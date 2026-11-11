@@ -5,11 +5,13 @@ import { MAX_EVENTS, PASSPORT_REFUSALS, addEvent, appendEvent, createPassport, p
 import { emptySpec } from './specs';
 import type { Attachment, Attestation, AttestationScope, Passport, PassportEvent, Sourced, VehicleSpec, VerifierRegistry } from './types';
 import { publicPassport } from './public';
+import { supportedHistory } from './cards';
+import { GRADE_FORMULA } from './grading';
 import { hashString, sha256Text } from './util';
 import {
   ATTESTATION_PAYLOAD, ATTESTATION_SCOPE_LABELS, ATTESTATION_VALID_MONTHS, CONDITION_FULL_MONTHS, EMPTY_REGISTRY, MILEAGE_TOLERANCE, VERIFICATION_REFUSALS,
-  activeModifications, attestationPayload, attestationStatuses, attestationSubject, competitionConditionInputs, competitionModifications, conditionInputs, documentedRecords, eventEvidence, mileageLog,
-  recordAttestation,
+  activeModifications, attestationPayload, attestationStatuses, attestationSubject, attestationsOver, competitionConditionInputs, competitionModifications, conditionInputs, documentedRecords, eventEvidence,
+  mileageLog, recordAttestation,
   standingOf, standingReadings, subjectFingerprint, validAttestations, voidEvent, voidedEventIds,
 } from './verification';
 
@@ -482,6 +484,99 @@ describe('signatures', () => {
     ];
     expect(shared).toEqual(fresh);
   });
+
+  it('are checked once per attestation however many days of history are asked about', () => {
+    let p = parked();
+    p = ok(recordAttestation(p, signedAttestation(p, 'identity'), SIGNED, { now: NOW, eventId: id() }));
+    p = ok(recordAttestation(p, signedAttestation(p, 'originality'), SIGNED, { now: NOW, eventId: id() }));
+    // Three hundred snapshots, each on a day of its own. Each day used to have the standing worked out afresh,
+    // signatures and all: six hundred checks where two will do.
+    const day = (i: number): string => new Date(Date.UTC(2026, 0, 10) + i * 86400000).toISOString().slice(0, 10);
+    const snapshots = Array.from({ length: 300 }, (_, i) => ({
+      id: `s${i}`, at: `${day(i)}T10:00:00.000Z`, asOf: day(i), reason: 'x', formula: GRADE_FORMULA, overall: 10, grade10: 1, tier: 1,
+      categories: { identity: 50, documentation: 0, condition: 0, originality: 0, verification: 0 }, level: 'registered' as const, events: 1,
+    }));
+    const long: Passport = { ...p, snapshots };
+    checks = 0;
+    expect(supportedHistory(long, SIGNED, TODAY).snapshots).toHaveLength(300);
+    expect(checks).toBe(2);
+  });
+});
+
+describe('the attestations of many days at once', () => {
+  /** Every kind of attestation and every way one stops counting, on one passport. */
+  function busy(): Passport {
+    let p = parked();
+    let receiptId: string;
+    [p, receiptId] = receipt(p, '2025-05-20');
+    // Each is recorded on the day it is dated.
+    const on = (q: Passport, scope: AttestationScope, date: string, over: Record<string, unknown> = {}): [Passport, string, string] => {
+      const eventId = id(), attestationId = id();
+      return [ok(recordAttestation(q, blank(scope, { id: attestationId, date, ...over }), REGISTRY, { now: `${date}T12:00:00.000Z`, eventId })), eventId, attestationId];
+    };
+    [p] = on(p, 'condition', '2024-02-29', { conditionScore: 70, inPerson: false });
+    [p] = on(p, 'identity', '2024-03-15');
+    [p] = on(p, 'mileage', '2025-01-31', { mileage: 41000 });
+    [p] = on(p, 'condition', '2025-02-28', { conditionScore: 80 });
+    [p] = on(p, 'documentation', '2025-06-01', { verifierId: 'shop-bob', events: [receiptId] });
+    // One its verifier took back in May 2026, at three in the afternoon.
+    let entry: string, taken: string;
+    [p, entry, taken] = on(p, 'originality', '2026-02-01');
+    p = ok(voidEvent(p, { target: entry, reason: 'Mistake', attestationId: taken }, REGISTRY, { now: '2026-05-01T15:00:00.000Z', eventId: id() }));
+    // Three withdrawals written into the file by hand that withdraw nothing: one by another verifier, one that names
+    // another attestation as its authority, and a second, later one of the attestation already taken back.
+    const made = p.events.filter((e) => e.type === 'attestation');
+    const withdrawal = p.events[p.events.length - 1];
+    p = appendEvent(p, { ...withdrawal, id: id(), by: 'shop-bob', date: '2025-08-01', recordedAt: '2025-08-01T10:00:00.000Z', target: made[1].id, attestationId: (made[1] as Extract<PassportEvent, { type: 'attestation' }>).attestation.id } as PassportEvent);
+    p = appendEvent(p, { ...withdrawal, id: id(), date: '2025-09-01', recordedAt: '2025-09-01T10:00:00.000Z', target: made[2].id, attestationId: (made[1] as Extract<PassportEvent, { type: 'attestation' }>).attestation.id } as PassportEvent);
+    p = appendEvent(p, { ...withdrawal, id: id(), date: '2026-07-01', recordedAt: '2026-07-01T10:00:00.000Z' } as PassportEvent);
+    // And five that never count: an inactive verifier, an unknown one, one dated ahead, one bound to another VIN, one by the owner.
+    [p] = forge(p, 'identity', { verifierId: 'retired-cy', date: '2025-01-01' });
+    [p] = forge(p, 'identity', { verifierId: 'nobody', date: '2025-01-01' });
+    [p] = forge(p, 'originality', { date: '2031-06-01' });
+    [p] = forge(p, 'one-of-one', { date: '2025-03-01', subject: 'f'.repeat(64) } as Record<string, unknown>);
+    [p] = forge(p, 'specification', { verifierId: OWNER, date: '2025-03-01' });
+    return p;
+  }
+  const dayAfter = (day: string, n: number): string => new Date(Date.parse(`${day}T00:00:00.000Z`) + n * 86400000).toISOString().slice(0, 10);
+
+  it('are the same ones a standing worked out for each day would give, day by day for eight years', () => {
+    const p = busy();
+    for (const registry of [REGISTRY, EMPTY_REGISTRY, without('inspector-ann'), without('shop-bob')]) {
+      const on = attestationsOver(p, registry);
+      const states: Record<string, string> = {};
+      const keys: Record<string, string> = {};
+      for (let i = 0; i < 2922; i++) {
+        const day = dayAfter('2024-01-01', i);
+        const quick = on(day);
+        const full = standingOf(p, registry, day).attestations;
+        expect(quick.attestations(), day).toEqual(full);
+        // The key tells two days apart exactly when what counts differs.
+        const state = JSON.stringify(full.map((s) => [s.eventId, s.weight]));
+        if (keys[quick.key] === undefined) keys[quick.key] = state;
+        if (states[state] === undefined) states[state] = quick.key;
+        expect(keys[quick.key], day).toBe(state);
+        expect(states[state], day).toBe(quick.key);
+      }
+      if (registry === REGISTRY) expect(Object.keys(keys).length).toBeGreaterThan(8);
+      if (registry === EMPTY_REGISTRY) expect(Object.keys(keys)).toEqual(['']);
+    }
+  });
+
+  it('answer for a moment of the day when asked about one: a withdrawal counts once it is written', () => {
+    const p = busy();
+    const on = attestationsOver(p, REGISTRY);
+    const originality = (at: string) => on(at).attestations().some((s) => s.attestation.scope === 'originality');
+    expect(originality('2026-04-30')).toBe(true);
+    expect(originality('2026-05-01T14:59:59.999Z')).toBe(true);
+    expect(originality('2026-05-01T15:00:00.000Z')).toBe(false);
+    expect(originality('2026-05-01T15:00:00Z')).toBe(false);
+    expect(originality('2026-05-01T23:00:00.000Z')).toBe(false);
+    // Asked about the day, the day's withdrawals all count, as they do in a standing.
+    expect(originality('2026-05-01')).toBe(false);
+    expect(standingOf(p, REGISTRY, '2026-05-01').attestations.some((s) => s.attestation.scope === 'originality')).toBe(false);
+    expect(originality('2026-05-02T08:00:00.000Z')).toBe(false);
+  });
 });
 
 /* ---------------------------------------------------------------------- evidence ---- */
@@ -555,7 +650,7 @@ describe('evidence', () => {
   it('keeps a full weight for anything but a condition inspection, however old', () => {
     let p = parked();
     let receiptId: string;
-    [p, receiptId] = receipt(p, '2025-05-01');
+    [p, receiptId] = add(p, { type: 'maintenance', date: '2025-05-01', shop: 'A shop', cost: 80, attachments: [file('receipt')] }, '2025-05-01T12:00:00.000Z');
     const old = { date: '2025-06-01' };
     const made = '2025-06-02T12:00:00.000Z';
     const record = (scope: AttestationScope, over: Record<string, unknown>) => { const eventId = id(); p = ok(recordAttestation(p, blank(scope, { ...old, ...over }), REGISTRY, { now: made, eventId })); return eventId; };
@@ -624,7 +719,7 @@ describe('the mileage log', () => {
   const log = (p: Passport, registry = REGISTRY, asOf = TODAY) => mileageLog(p, registry, asOf);
 
   it('lets a slipped digit be put right the day it was written, and leaves no mark', () => {
-    let p = reading(reading(parked(), '2026-03-01', 48000), '2026-06-01', 49000);
+    let p = reading(reading(parked(), '2026-03-01', 48000, '2026-03-01T09:00:00.000Z'), '2026-06-01', 49000, '2026-06-01T09:00:00.000Z');
     p = reading(p, '2026-09-01', 500000, '2026-09-01T10:00:00.000Z');
     p = reading(p, '2026-09-01', 50000, '2026-09-01T10:05:00.000Z');
     expect(log(p).days.map((d) => d.mileage)).toEqual([48000, 49000, 50000]);
@@ -663,6 +758,110 @@ describe('the mileage log', () => {
     // Not even one written the very next day.
     const nextDay = reading(single, '2026-01-10', 30000, '2026-01-11T00:00:01.000Z');
     expect(log(nextDay).current?.value).toBe(90000);
+  });
+
+  it('cannot be got round by setting the clock back to the day the old reading was written', () => {
+    // The same car: 90,000 in January, 50,000 in October. In November the device's clock is set back to 10 January
+    // and the owner writes 40,000 for that day. By its timestamp alone it would pass for a correction made the day
+    // the 90,000 was written. The passport keeps the order it was written in, and October lies between the two.
+    let p = reading(parked(), '2026-01-10', 90000, '2026-01-10T09:00:00.000Z');
+    p = reading(p, '2026-10-01', 50000, '2026-10-01T09:00:00.000Z');
+    const setBack = reading(p, '2026-01-10', 40000, '2026-01-10T23:59:00.000Z');
+    expect(log(setBack).readings.map((r) => r.mileage)).toEqual([90000, 40000, 50000]);
+    expect(log(setBack)).toMatchObject({ rollback: true, current: { value: 90000, date: '2026-01-10' } });
+    expect(conditionInputs(setBack, REGISTRY, TODAY).mileage).toEqual({ value: 90000, evidence: 'declared' });
+    // Nor by giving the new entry an hour before the old one's.
+    const earlier = reading(p, '2026-01-10', 40000, '2026-01-10T08:00:00.000Z');
+    expect(log(earlier).readings.map((r) => r.mileage)).toEqual([40000, 90000, 50000]);
+    expect(log(earlier)).toMatchObject({ rollback: true, current: { value: 90000 } });
+    // Any entry written on a later day is enough to close the day, a reading or not.
+    let q = reading(parked(), '2026-01-10', 90000, '2026-01-10T09:00:00.000Z');
+    q = ok(addEvent(q, { id: id(), type: 'photo', subject: 'exterior', date: '2026-01-10', attachments: [file('photo')] }, { now: '2026-01-11T09:00:00.000Z', by: OWNER }));
+    q = reading(q, '2026-01-10', 40000, '2026-01-10T23:59:00.000Z');
+    expect(log(q).readings.map((r) => r.mileage)).toEqual([90000, 40000]);
+  });
+
+  it('reads the order of writing, not the clock, when the two disagree for honest reasons', () => {
+    // A buyer nine hours behind the seller. The seller hands the car over on the morning of the 11th, their time;
+    // for the buyer it is still the evening of the 10th. The buyer types a reading, sees the slip and puts it right.
+    let p = ok(transferOwnership(parked(), { eventId: id(), toOwnerId: 'owner-two', date: '2026-11-11' }, { now: '2026-11-11T09:00:00.000Z', by: OWNER }));
+    const buyer = (q: Passport, mileage: number, now: string): Passport => ok(addEvent(q, { id: id(), type: 'mileage', date: '2026-11-10', mileage }, { now, by: 'owner-two' }));
+    p = buyer(p, 500000, '2026-11-10T17:00:00.000Z');
+    p = buyer(p, 50000, '2026-11-10T17:05:00.000Z');
+    // Nothing is refused because the buyer's clock is behind the seller's entry, and the slip is put right.
+    expect(log(p, REGISTRY, '2026-11-12').readings.map((r) => r.mileage)).toEqual([50000]);
+    // The hour the clocks go back: the correction is stamped 01:10, the slip 01:50. The later entry is still the one
+    // that stands.
+    let q = reading(parked(), '2026-11-01', 500000, '2026-11-01T01:50:00.000Z');
+    q = reading(q, '2026-11-01', 50000, '2026-11-01T01:10:00.000Z');
+    expect(log(q).readings.map((r) => r.mileage)).toEqual([50000]);
+    // And two entries stamped the same instant.
+    let r = reading(parked(), '2026-11-01', 500000, '2026-11-01T09:00:00.000Z');
+    r = reading(r, '2026-11-01', 50000, '2026-11-01T09:00:00.000Z');
+    expect(log(r).readings.map((x) => x.mileage)).toEqual([50000]);
+  });
+
+  it('lets a slip be put right only by the person who made it', () => {
+    // The day a car changes hands is the one day two owners both write to it. The seller logs the odometer in the
+    // morning, hands the car over, and the buyer logs a reading in the afternoon.
+    let p = reading(parked(), '2026-11-10', 120000, '2026-11-10T09:00:00.000Z');
+    p = ok(transferOwnership(p, { eventId: id(), toOwnerId: 'owner-two', date: '2026-11-10' }, { now: '2026-11-10T10:00:00.000Z', by: OWNER }));
+    p = ok(addEvent(p, { id: id(), type: 'mileage', date: '2026-11-10', mileage: 50000 }, { now: '2026-11-10T11:00:00.000Z', by: 'owner-two' }));
+    // The buyer's reading does not take the place of the seller's: both stand, and wear is counted from the higher.
+    expect(log(p, REGISTRY, '2026-11-12').readings.map((r) => r.mileage)).toEqual([120000, 50000]);
+    expect(log(p, REGISTRY, '2026-11-12').current).toMatchObject({ value: 120000 });
+    // The buyer can still put right a slip of their own.
+    p = ok(addEvent(p, { id: id(), type: 'mileage', date: '2026-11-10', mileage: 120050 }, { now: '2026-11-10T11:05:00.000Z', by: 'owner-two' }));
+    expect(log(p, REGISTRY, '2026-11-12').readings.map((r) => r.mileage)).toEqual([120000, 120050]);
+  });
+
+  it('lets an owner put a slip right the same day even when a verifier read the odometer in between', () => {
+    // 09:00 the owner types 500,000 for 50,000. 11:00 an inspector attests 50,000. 15:00 the owner sees the slip.
+    let p = reading(parked(), '2026-11-10', 500000, '2026-11-10T09:00:00.000Z');
+    p = ok(recordAttestation(p, blank('mileage', { mileage: 50000, date: '2026-11-10' }), REGISTRY, { now: '2026-11-10T11:00:00.000Z', eventId: id() }));
+    expect(log(p).current).toMatchObject({ value: 500000, evidence: 'declared' });
+    p = reading(p, '2026-11-10', 50010, '2026-11-10T15:00:00.000Z');
+    expect(log(p).readings.map((r) => r.mileage)).toEqual([50000, 50010]);
+    expect(log(p).current).toMatchObject({ value: 50010, evidence: 'verified' });
+  });
+
+  it('keeps every reading a verifier has had to do with, whoever writes next', () => {
+    // An inspector attests 90,000 and, the same day, 30,000. Neither gives way to the other: a verifier takes a
+    // reading back by withdrawing the attestation, which stays on the record.
+    let p = ok(recordAttestation(parked(), blank('mileage', { mileage: 90000, date: '2026-11-10' }), REGISTRY, { now: '2026-11-10T09:00:00.000Z', eventId: id() }));
+    p = ok(recordAttestation(p, blank('mileage', { mileage: 30000, date: '2026-11-10' }), REGISTRY, { now: '2026-11-10T10:00:00.000Z', eventId: id() }));
+    expect(log(p).readings.map((r) => r.mileage)).toEqual([90000, 30000]);
+    // Nor years later, when both attestations have lapsed and verify nothing.
+    expect(log(p, REGISTRY, '2029-11-10').readings.map((r) => [r.mileage, r.evidence])).toEqual([[90000, 'documented'], [30000, 'documented']]);
+    // The owner's own reading, once an inspector's of the same day bears it out, is settled too: a later entry of
+    // the owner's for that day stands beside it and does not replace it.
+    let borne = reading(parked(), '2026-11-10', 50000, '2026-11-10T09:00:00.000Z');
+    borne = ok(recordAttestation(borne, blank('mileage', { mileage: 50020, date: '2026-11-10' }), REGISTRY, { now: '2026-11-10T11:00:00.000Z', eventId: id() }));
+    borne = reading(borne, '2026-11-10', 30000, '2026-11-10T15:00:00.000Z');
+    expect(log(borne).readings.map((r) => [r.mileage, r.evidence])).toEqual([[50000, 'verified'], [50020, 'verified'], [30000, 'declared']]);
+
+    // A modification fitted at 90,000, with its receipt. The owner writes 30,000 for the same day an hour later.
+    const fitted = (q: Passport): [Passport, string] => add(q, { type: 'modification', date: '2026-11-10', action: 'install', category: 'turbo', tier: 2, install: 'professional', parts: 'kit', undoes: null, mileage: 90000, attachments: [file('receipt')] }, '2026-11-10T09:00:00.000Z');
+    const [bare] = fitted(parked());
+    // Nobody has confirmed it: the later entry is the owner putting their own reading right.
+    expect(log(reading(bare, '2026-11-10', 30000, '2026-11-10T10:00:00.000Z')).readings.map((r) => r.mileage)).toEqual([30000]);
+    // A shop confirms the fitting. Its reading is no longer the owner's to put right, while the attestation counts
+    // and after it has lapsed.
+    let [q, install] = fitted(parked());
+    q = ok(recordAttestation(q, blank('modification', { verifierId: 'shop-bob', date: '2026-11-10', events: [install] }), REGISTRY, { now: '2026-11-10T09:30:00.000Z', eventId: id() }));
+    q = reading(q, '2026-11-10', 30000, '2026-11-10T10:00:00.000Z');
+    expect(log(q).readings.map((r) => [r.mileage, r.evidence])).toEqual([[90000, 'verified'], [30000, 'declared']]);
+    expect(log(q, REGISTRY, '2029-11-10').readings.map((r) => [r.mileage, r.evidence])).toEqual([[90000, 'documented'], [30000, 'declared']]);
+    // A fitting's attestation speaks for fittings. One that names a service receipt cannot be recorded, and one
+    // written into the file by hand confirms nothing about the receipt.
+    let [r, service] = receipt(parked(), '2026-11-10', { mileage: 90000 });
+    expect(recordAttestation(r, blank('modification', { verifierId: 'shop-bob', date: '2026-11-10', events: [service] }), REGISTRY, { now: NOW, eventId: id() }).ok).toBe(false);
+    let named: string;
+    [r, named] = forge(r, 'modification', { verifierId: 'shop-bob', date: '2026-11-10', events: [service] });
+    expect(statusOf(r, named).valid).toBe(true);
+    expect(eventEvidence(r, service, REGISTRY, TODAY)).toBe('documented');
+    r = reading(r, '2026-11-10', 30000, '2026-11-10T13:00:00.000Z');
+    expect(log(r).readings.map((x) => x.mileage)).toEqual([30000]);
   });
 
   it('catches a reading wound back, whichever way round the entries are dated', () => {
@@ -718,6 +917,13 @@ describe('the mileage log', () => {
     expect(log(p).current).toMatchObject({ value: 90000, evidence: 'verified' });
     // Where the shop is not registered the record is the owner's own, and the afternoon's entry does correct it.
     expect(log(p, EMPTY_REGISTRY).readings.map((r) => r.mileage)).toEqual([30000]);
+    // Two years on the shop's attestation has lapsed. What it confirmed still happened: the reading stays where it
+    // is, as an inspector's own does, and the rollback it shows does not clear itself with time.
+    const q = reading(p, '2026-12-01', 60000, '2026-12-01T09:00:00.000Z');
+    expect(log(q, REGISTRY, '2026-12-02')).toMatchObject({ rollback: true, current: { value: 90000, evidence: 'verified' } });
+    expect(standingOf(q, REGISTRY, '2028-11-11').lapsed).toHaveLength(1);
+    expect(log(q, REGISTRY, '2028-11-11').readings.map((r) => [r.mileage, r.evidence])).toEqual([[90000, 'documented'], [30000, 'declared'], [60000, 'declared']]);
+    expect(log(q, REGISTRY, '2028-11-11')).toMatchObject({ rollback: true, current: { value: 90000 } });
   });
 
   it('counts ranked wear from the highest reading a verifier took or confirmed, whatever the owner adds', () => {

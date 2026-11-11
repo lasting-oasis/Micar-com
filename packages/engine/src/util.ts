@@ -210,11 +210,16 @@ const utc = (day: string): number => Date.UTC(Number(day.slice(0, 4)), Number(da
 export const daysBetween = (a: string, b: string): number => Math.round((utc(dayOf(b)) - utc(dayOf(a))) / 86400000);
 /** Whole months from a to b, counted the way a calendar counts them. */
 export function monthsBetween(a: string, b: string): number {
-  const da = dayOf(a), db = dayOf(b);
-  let months = (Number(db.slice(0, 4)) - Number(da.slice(0, 4))) * 12 + (Number(db.slice(5, 7)) - Number(da.slice(5, 7)));
-  if (Number(db.slice(8, 10)) < Number(da.slice(8, 10))) months -= 1;
-  return months;
+  return monthsApart(monthsOf(a), monthsOf(b));
 }
+/** A day as monthsBetween reads it: a count of months and the day of the month. Worked out once for a day that is compared with many others. */
+export type MonthCount = { months: number; day: number };
+export function monthsOf(iso: string): MonthCount {
+  const d = dayOf(iso);
+  return { months: Number(d.slice(0, 4)) * 12 + Number(d.slice(5, 7)), day: Number(d.slice(8, 10)) };
+}
+/** Whole months from a to b: the months between them, less one when b's day of the month has not reached a's. */
+export const monthsApart = (a: MonthCount, b: MonthCount): number => b.months - a.months - (b.day < a.day ? 1 : 0);
 /** Years from a to b as a fraction (365.25-day years). */
 export const yearsBetween = (a: string, b: string): number => daysBetween(a, b) / 365.25;
 

@@ -188,14 +188,16 @@ export function reliabilityPoints(spec: VehicleSpec): number | null {
     + (miles === null ? 0 : clamp(((miles - r.warranty.pivotMiles) / 1000) * r.warranty.perThousandMiles, r.warranty.min, r.warranty.max));
 }
 
-/** Combined fuel economy: the figure on file, or the EPA's own blend of city and highway (55% / 45%, harmonic, to the whole number) when only those are. */
+/** Combined fuel economy: the figure on file, or the EPA's own blend of city and highway (55% / 45%, harmonic, to the whole number below) when only those are. */
 export function combinedEconomy(spec: VehicleSpec): number | null {
   const combined = val(spec.combinedMpg);
   if (combined !== null) return combined;
   const city = val(spec.cityMpg), highway = val(spec.highwayMpg);
   if (city === null || highway === null || city <= 0 || highway <= 0) return null;
-  // A whole number, as the label prints it: the blend of a label's own city and highway figures is then the label's own combined figure.
-  return Math.round(1 / (0.55 / city + 0.45 / highway));
+  // The whole number below. A label prints whole numbers, and its combined figure is worked out from city and highway
+  // figures that were not yet rounded, so the blend of the printed ones can land a mile either side of it. Rounding
+  // down keeps the blend from ever being worth more than the combined figure it stands in for.
+  return Math.floor(1 / (0.55 / city + 0.45 / highway));
 }
 
 /* --------------------------------------------------------------------- scores ---- */

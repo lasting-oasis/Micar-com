@@ -87,6 +87,7 @@ export const ES_ENGINE: Record<string, string> = {
   'A lift, all-terrain tires and skid plates. More ground clearance and durability; slower, thirstier and less sure on the road.': 'Un levantamiento, llantas todoterreno y placas protectoras. Más distancia al suelo y durabilidad; más lento, con mayor consumo y menos seguro en carretera.',
   'Low-rolling-resistance tires and an economy tune. Better economy, with a little less power, pace and grip.': 'Llantas de baja resistencia al rodamiento y una puesta a punto económica. Mejor rendimiento, con un poco menos de potencia, ritmo y agarre.',
   'not for an electric powertrain': 'no es para un tren motriz eléctrico',
+  'needs the powertrain on file': 'necesita que el tren motriz esté en la ficha',
   'replaced by a later fitment': 'reemplazada por una instalación posterior',
   'Battery': 'Batería',
 
@@ -106,6 +107,7 @@ export const ES_ENGINE: Record<string, string> = {
   'Only a verifier can record this': 'Solo un verificador puede registrar esto',
   'That is not an entry': 'Eso no es una entrada',
   'This passport holds as many entries as a passport can': 'Este pasaporte ya tiene todas las entradas que puede tener un pasaporte',
+  'This passport has had as many owners as a passport can': 'Este pasaporte ya ha tenido todos los dueños que puede tener un pasaporte',
   'That is not a kind of entry': 'Ese no es un tipo de entrada',
   'An entry needs an ID of its own': 'Una entrada necesita un ID propio',
   'The date is not a real day': 'La fecha no es un día real',
@@ -151,6 +153,7 @@ export const ES_ENGINE: Record<string, string> = {
   'One card per category': 'Una tarjeta por categoría',
   'The setup costs more than the budget': 'La configuración cuesta más que el presupuesto',
   'One of those cards is not for an electric powertrain': 'Una de esas tarjetas no es para un tren motriz eléctrico',
+  'One of those cards needs the powertrain on file': 'Una de esas tarjetas necesita que el tren motriz esté en la ficha',
   'Two of those cards cannot be fitted together': 'Dos de esas tarjetas no se pueden instalar juntas',
   'Ranked races run on verified stats': 'Las carreras clasificatorias usan estadísticas verificadas',
   'Ranked races need a specification from the catalogue or one a verifier attested': 'Las carreras clasificatorias requieren una especificación del catálogo o una que un verificador haya atestado',

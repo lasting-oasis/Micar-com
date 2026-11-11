@@ -171,6 +171,7 @@ export const SETUP_REFUSALS = {
   category: 'One card per category',
   budget: 'The setup costs more than the budget',
   electric: 'One of those cards is not for an electric powertrain',
+  powertrain: 'One of those cards needs the powertrain on file',
   together: 'Two of those cards cannot be fitted together',
 } as const;
 
@@ -193,7 +194,10 @@ export function checkSetup(spec: VehicleSpec, cardIds: readonly string[]): Resul
   }
   if (cost > SETUP_BUDGET) return { ok: false, reason: SETUP_REFUSALS.budget };
   const { refused } = resolveModifications(spec, cards.map(asModification));
-  if (refused.length > 0) return { ok: false, reason: refused[0].reason === MOD_REFUSALS.notElectric ? SETUP_REFUSALS.electric : SETUP_REFUSALS.together };
+  if (refused.length > 0) {
+    const why = refused[0].reason;
+    return { ok: false, reason: why === MOD_REFUSALS.notElectric ? SETUP_REFUSALS.electric : why === MOD_REFUSALS.noPowertrain ? SETUP_REFUSALS.powertrain : SETUP_REFUSALS.together };
+  }
   return { ok: true, value: cards };
 }
 

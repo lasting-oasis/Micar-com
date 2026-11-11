@@ -324,13 +324,16 @@ describe('missing figures', () => {
   });
 
   it('blends city and highway the way the EPA does when the combined figure is missing', () => {
-    // To the whole number, as a label prints it. The label's own combined figure is worked out from unrounded city
-    // and highway figures, so the blend of the printed ones can fall a mile short of it (34 against the Civic's 35)
-    // and is never taken in place of a combined figure that is on file.
+    // To the whole number below. The label's own combined figure is worked out from unrounded city and highway
+    // figures, so the blend of the printed ones can fall a mile short of it (34 against the Civic's 35) and is never
+    // taken in place of a combined figure that is on file.
     expect(combinedEconomy({ ...civic, combinedMpg: null })).toBe(34);
     expect(combinedEconomy(civic)).toBe(35);
     // 16 city and 22 highway is the GT-R's own 18 combined, not 18.2.
     expect(combinedEconomy({ ...gtr, combinedMpg: null })).toBe(18);
+    // Down, not to the nearest: 30 and 40 blend to 33.8, and 34 could be a mile more than the label's own figure.
+    const cell = <T,>(of: { source: unknown } | null, value: T) => ({ ...(of as object), value }) as never;
+    expect(combinedEconomy({ ...civic, combinedMpg: null, cityMpg: cell(civic.cityMpg, 30), highwayMpg: cell(civic.highwayMpg, 40) })).toBe(33);
     expect(scoreSpec({ ...civic, combinedMpg: null, cityMpg: null }).efficiency.value).toBeNull();
   });
 });

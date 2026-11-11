@@ -560,13 +560,13 @@ describe('certification levels', () => {
 
   it('judges the odometer by the day, so a corrected slip is not a rollback and a wound-back reading is', () => {
     let p = wellDocumented();
-    p = add(p, { type: 'mileage', date: '2026-09-01', mileage: 500000 }, '2026-09-01T10:00:00.000Z');
-    p = add(p, { type: 'mileage', date: '2026-09-01', mileage: 61000 }, '2026-09-01T10:05:00.000Z');
-    p = add(p, { type: 'mileage', date: '2026-11-09', mileage: 62000 });
+    p = add(p, { type: 'mileage', date: '2026-09-01', mileage: 500000 }, '2026-11-10T12:10:00.000Z');
+    p = add(p, { type: 'mileage', date: '2026-09-01', mileage: 61000 }, '2026-11-10T12:15:00.000Z');
+    p = add(p, { type: 'mileage', date: '2026-11-09', mileage: 62000 }, '2026-11-10T12:20:00.000Z');
     expect(score(p).discrepancies).toEqual([]);
     expect(points(p, 'doc.mileage')).toBe(10);
     expect(level(p).level).toBe('documented');
-    const wound = add(p, { type: 'mileage', date: '2026-11-09', mileage: 20000 }, '2026-11-10T12:00:01.000Z');
+    const wound = add(p, { type: 'mileage', date: '2026-11-09', mileage: 20000 }, '2026-11-10T12:25:00.000Z');
     expect(score(wound).discrepancies.map((d) => d.id)).toEqual(['odometer-rollback']);
     expect(level(wound).level).toBe('registered');
   });

@@ -28,6 +28,10 @@ export const MAX_EVENTS = 5000;
  * recording a withdrawal, and a hand-over can never leave a passport too long to be read back.
  */
 export const RESERVED_ENTRIES = 500;
+/** Of that room, the part only a verifier's attestation or withdrawal may use. A hand-over stops short of it. */
+export const VERIFIER_RESERVE = 250;
+/** The most ownership periods a passport holds: a hand-over past this is refused, so the passport can always be read back. */
+export const MAX_OWNERS = 500;
 /** The most grade snapshots and card editions a passport holds. A card has one edition for each level it has reached. */
 export const MAX_SNAPSHOTS = 5000;
 export const MAX_EDITIONS = 200;
@@ -65,6 +69,7 @@ export const PASSPORT_REFUSALS = {
   verifierOnly: 'Only a verifier can record this',
   shape: 'That is not an entry',
   full: 'This passport holds as many entries as a passport can',
+  owners: 'This passport has had as many owners as a passport can',
   kind: 'That is not a kind of entry',
   id: 'An entry needs an ID of its own',
   date: 'The date is not a real day',
@@ -369,6 +374,10 @@ const fileIdTaken = (passport: Passport, id: string): boolean => passport.events
  * owner, the kind is not one an owner may write (an attestation or a withdrawal comes only from a verifier), the date
  * is not a real day or is in the future, the reading or a file is not valid, the id is taken, or a removal does not
  * match a modification that is still fitted. Text is cleaned and cut to length. Never throws.
+ *
+ * `ctx.now` is the host's clock and is taken at its word: a device's clock can be wrong, and two devices in different
+ * time zones do not agree on the day. Nothing is refused for it. What the passport does keep is the order its
+ * entries were written in, and the rules that turn on "written the same day" (see mileageLog) read that order too.
  */
 export function addEvent(passport: Passport, event: unknown, ctx: { now: string; by: string }): Result<Passport> {
   if (!isRecord(ctx) || !isIsoTimestamp(ctx.now)) return refuse(PASSPORT_REFUSALS.timestamp);
@@ -406,8 +415,10 @@ export function transferOwnership(passport: Passport, input: { eventId: string; 
   const read = readEvent({ id: input.eventId, type: 'transfer', date: input.date, attachments: input.attachments, title: EVENT_TYPE_LABELS.transfer, from: ctx.by, to: input.toOwnerId }, { recordedAt: ctx.now, by: ctx.by });
   if (!read.ok) return read;
   const entry = read.value;
-  // A hand-over uses the room kept free for it, and stops at the limit a passport can be read back at.
-  if (passport.events.length >= MAX_EVENTS) return refuse(PASSPORT_REFUSALS.full);
+  // A hand-over uses the room kept free of the owner's own entries, and stops short of the part kept for verifiers.
+  // A passport also holds only so many owners: past either limit it could not be read back.
+  if (passport.events.length >= MAX_EVENTS - VERIFIER_RESERVE) return refuse(PASSPORT_REFUSALS.full);
+  if (passport.owners.length >= MAX_OWNERS) return refuse(PASSPORT_REFUSALS.owners);
   if (entry.date > dayOf(ctx.now)) return refuse(PASSPORT_REFUSALS.future);
   const period = passport.owners[passport.owners.length - 1];
   if (entry.date < period.from) return refuse(PASSPORT_REFUSALS.beforeOwnership);
@@ -482,7 +493,7 @@ function readEdition(input: unknown, position: number): CardEdition | null {
 }
 
 function readOwners(input: unknown): OwnershipPeriod[] | null {
-  if (!Array.isArray(input) || input.length === 0 || input.length > 500) return null;
+  if (!Array.isArray(input) || input.length === 0 || input.length > MAX_OWNERS) return null;
   const out: OwnershipPeriod[] = [];
   for (let i = 0; i < input.length; i++) {
     const raw: unknown = input[i];

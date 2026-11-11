@@ -3,7 +3,7 @@
 // Rarity is worked out from facts that are not performance (how many were built, age, certification, preservation),
 // so a slow car can be Mythic and a fast one Common. A card never carries a price.
 import type { GradeCeiling } from './certification';
-import { attestedOn, certify, gradeCeiling, isSlabbed } from './certification';
+import { certify, gradeCeiling, isSlabbed } from './certification';
 import { assessCondition } from './condition';
 import { catalogueMatch } from './database';
 import { GRADE_FORMULA, GRADE_WEIGHTS, grade10Of, gradeFacts, gradePassport, snapshotOf, tierOf } from './grading';
@@ -20,7 +20,7 @@ import type {
 } from './types';
 import { ATTRIBUTE_KEYS, CERTIFICATION_LEVELS, GRADE_CATEGORIES, RARITY_TIERS } from './types';
 import { clamp, dayOf, round1 } from './util';
-import { activeModifications, competitionConditionInputs, competitionModifications, conditionInputs, standingOf } from './verification';
+import { activeModifications, attestationsOver, competitionConditionInputs, competitionModifications, conditionInputs, standingOf } from './verification';
 
 export { EDITION_NAMES, RARITY_LABELS };
 
@@ -117,25 +117,43 @@ const rarityRank = (tier: RarityTier): number => RARITY_TIERS.indexOf(tier);
 /** Room for the rounding a stored score went through. */
 const SLACK = 0.051;
 
-/** The ceiling for one day, and the highest rarity a card could have carried that day. Worked out once per day asked about. */
-type Ceilings = (day: string) => { grade: GradeCeiling; rarity: RarityTier };
+/**
+ * The ceiling at one moment (a day, or a timestamp for that moment of its day), and the highest rarity a card of a
+ * given level could have carried then.
+ */
+type Ceilings = (at: string) => { grade: GradeCeiling; rarity: (level: CertificationLevel) => RarityTier };
 
 function ceilingsOf(passport: Passport, registry: VerifierRegistry): Ceilings {
-  const known: Record<string, { grade: GradeCeiling; rarity: RarityTier }> = {};
+  const known: Record<string, { grade: GradeCeiling; rarity: (level: CertificationLevel) => RarityTier }> = {};
   const spec = passport.spec;
-  // With no attestation on the passport nothing can ever have counted, and only the year (for the card's age) tells
-  // one day from another: a file padded with thousands of entries then costs no more to judge than a short one.
-  const bare = !passport.events.some((e) => e.type === 'attestation');
-  return (day) => {
-    const key = bare ? day.slice(0, 4) : day;
+  // Which attestations counted is worked out for the whole passport once. A moment's ceiling follows from those and
+  // from the year (for the card's age), so it is worked out afresh only when one of the two differs. A file padded
+  // with thousands of entries and a snapshot for every day of thirteen years then costs little more to judge than a
+  // short one: with no attestation that could ever count, one ceiling a year. Nothing is worked out (and no
+  // signature is checked) until a moment is asked about.
+  let counted: ReturnType<typeof attestationsOver> | null = null;
+  return (at) => {
+    if (counted === null) counted = attestationsOver(passport, registry);
+    const day = dayOf(at);
+    const on = counted(at);
+    const key = `${day.slice(0, 4)} ${on.key}`;
     if (known[key]) return known[key];
-    const facts = bare ? { asOf: day, attestations: [] } : attestedOn(passport, registry, day);
+    const facts = { asOf: day, attestations: on.attestations() };
     const grade = gradeCeiling(passport, registry, day, facts);
-    // The scarcity and the age are what they are; provenance is the ceiling's level; preservation is given full marks.
-    const rarity = rarityOf({
-      productionUnits: spec.productionUnits, buildNumberBacked: buildNumberCounts(spec, facts.attestations.some((s) => s.attestation.scope === 'specification')),
-      modelYear: spec.identity.year, asOf: day, level: grade.level, originality: 100, condition: 100, oneOfOneAttested: grade.oneOfOne,
-    }).tier;
+    const backed = buildNumberCounts(spec, facts.attestations.some((s) => s.attestation.scope === 'specification'));
+    // The scarcity and the age are what they are. Provenance is the card's own level, as far as the ceiling's level
+    // goes; preservation is what the ceiling's own originality and condition would earn, not full marks: with no
+    // attestation an owner's originality stops at 85 and condition at 75, and so does the rarity they can reach.
+    const tiers: Partial<Record<CertificationLevel, RarityTier>> = {};
+    const rarity = (level: CertificationLevel): RarityTier => {
+      const held = levelRank(level) < levelRank(grade.level) ? level : grade.level;
+      const found = tiers[held];
+      if (found !== undefined) return found;
+      return (tiers[held] = rarityOf({
+        productionUnits: spec.productionUnits, buildNumberBacked: backed, modelYear: spec.identity.year, asOf: day, level: held,
+        originality: grade.categories.originality, condition: grade.categories.condition, oneOfOneAttested: grade.oneOfOne,
+      }).tier);
+    };
     return (known[key] = { grade, rarity });
   };
 }
@@ -150,7 +168,8 @@ function snapshotSupported(snapshot: GradeSnapshot, at: Ceilings, today: string)
   let sum = 0;
   for (const k of GRADE_CATEGORIES) sum += snapshot.categories[k] * GRADE_WEIGHTS[k];
   if (Math.abs(snapshot.overall - round1(sum)) > SLACK || snapshot.grade10 !== grade10Of(snapshot.overall) || snapshot.tier !== tierOf(snapshot.grade10)) return false;
-  const { grade } = at(snapshot.asOf);
+  // Judged as the record stood at the moment it was written (the day is the same: checked above).
+  const { grade } = at(snapshot.at);
   if (levelRank(snapshot.level) > levelRank(grade.level) || snapshot.overall > grade.overall + SLACK) return false;
   return GRADE_CATEGORIES.every((k) => snapshot.categories[k] <= grade.categories[k] + SLACK);
 }
@@ -158,7 +177,8 @@ function snapshotSupported(snapshot: GradeSnapshot, at: Ceilings, today: string)
 /**
  * A stored edition is shown when it could be a card this engine printed: dated no later than today, raw exactly when
  * its level is Registered, wearing the finish its grade earns, with a Power Rating that is the mean of its own seven
- * attributes, and within the level, rarity and grade the record supports for its day. The attributes themselves are
+ * attributes, and within the level, the grade and the rarity (for a card of its own level) that the record supports
+ * for the moment it was printed. The attributes themselves are
  * the specification sheet's account on the day of printing: nothing here can check them, so the apps say so and the
  * public view leaves them out.
  */
@@ -170,8 +190,8 @@ function editionSupported(edition: CardEdition, at: Ceilings, today: string): bo
   const label = edition.grade10 ?? 1;
   if (edition.finish !== finishOf({ grade10: label, tier: tierOf(label) }, slabbed).finish) return false;
   if (edition.powerRating !== powerRating(edition.attributes)) return false;
-  const { grade, rarity } = at(day);
-  if (levelRank(edition.level) > levelRank(grade.level) || rarityRank(edition.rarity) > rarityRank(rarity)) return false;
+  const { grade, rarity } = at(edition.issuedAt);
+  if (levelRank(edition.level) > levelRank(grade.level) || rarityRank(edition.rarity) > rarityRank(rarity(edition.level))) return false;
   return edition.grade10 === null || edition.grade10 <= grade10Of(grade.overall) + SLACK;
 }
 

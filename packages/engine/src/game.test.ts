@@ -280,6 +280,9 @@ describe('setup cards', () => {
 
   it('refuses what the vehicle cannot take', () => {
     expect(checkSetup(evSpec, ['turbo:1'])).toEqual({ ok: false, reason: SETUP_REFUSALS.electric });
+    // With no powertrain on file a combustion card waits: clearing the powertrain is not a way round the line above.
+    expect(checkSetup({ ...evSpec, powertrain: null }, ['turbo:1'])).toEqual({ ok: false, reason: SETUP_REFUSALS.powertrain });
+    expect(checkSetup({ ...evSpec, powertrain: null }, ['tires:2', 'weight:1']).ok).toBe(true);
     expect(checkSetup(civicSpec, ['turbo:1', 'supercharger:1'])).toEqual({ ok: false, reason: SETUP_REFUSALS.together });
     expect(checkSetup(civicSpec, ['tires:1', 'offroad:1'])).toEqual({ ok: false, reason: SETUP_REFUSALS.together });
     expect(checkSetup(evSpec, ['tires:2', 'brakes:1']).ok).toBe(true);

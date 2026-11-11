@@ -5,7 +5,7 @@
 // costs in reliability and durability depends on who fitted it and whether its upkeep is documented.
 // Nothing here stores anything: the factory specification is never changed, a modified copy is returned.
 import type { ScoreAdjustments } from './normalize';
-import { ACCELERATION, HANDLING } from './rules';
+import { ACCELERATION, HANDLING, SPEC_RANGES } from './rules';
 import type { ActiveModification, InstallQuality, ModCategory, ModTier, Sourced, SpecField, VehicleSpec } from './types';
 import { isNumber, timestampKey } from './util';
 
@@ -144,8 +144,9 @@ export function modLabel(category: ModCategory, tier: ModTier): string {
 export type ModRefusal = { eventId: string; category: ModCategory; reason: string };
 
 /** Why a modification on record does not count. The apps translate these. */
-export const MOD_REFUSALS = { notElectric: 'not for an electric powertrain', replaced: 'replaced by a later fitment' } as const;
+export const MOD_REFUSALS = { notElectric: 'not for an electric powertrain', noPowertrain: 'needs the powertrain on file', replaced: 'replaced by a later fitment' } as const;
 const NOT_ELECTRIC = MOD_REFUSALS.notElectric;
+const NO_POWERTRAIN = MOD_REFUSALS.noPowertrain;
 const REPLACED = MOD_REFUSALS.replaced;
 
 /**
@@ -164,7 +165,9 @@ function byInstall(a: ActiveModification, b: ActiveModification): number {
 /**
  * Decides which of the modifications on record count for this specification.
  *
- * - A combustion-only modification on an electric powertrain is refused: "not for an electric powertrain".
+ * - A combustion-only modification on an electric powertrain is refused: "not for an electric powertrain". On a
+ *   specification with no powertrain on file it waits: "needs the powertrain on file". A blank is not read as an
+ *   engine that can take a turbocharger, or clearing the powertrain of an electric car would be worth hundreds of points.
  * - The latest install in a category (by `installedOn`, then when it was written down, then `eventId`) counts; an
  *   earlier one in the same category is refused: "replaced by a later fitment".
  * - Within a group (turbocharger and supercharger; performance tires, off-road kit and economy setup) only the
@@ -173,10 +176,10 @@ function byInstall(a: ActiveModification, b: ActiveModification): number {
  * whatever order the records arrive in. The records returned are copies.
  */
 export function resolveModifications(spec: VehicleSpec, mods: readonly ActiveModification[]): { applied: ActiveModification[]; refused: ModRefusal[] } {
-  return resolve(mods, spec.powertrain !== null && spec.powertrain.value === 'electric');
+  return resolve(mods, spec.powertrain === null ? 'blank' : spec.powertrain.value === 'electric' ? 'electric' : 'combustion');
 }
 
-function resolve(mods: readonly ActiveModification[], electric: boolean): { applied: ActiveModification[]; refused: ModRefusal[] } {
+function resolve(mods: readonly ActiveModification[], powertrain: 'combustion' | 'electric' | 'blank'): { applied: ActiveModification[]; refused: ModRefusal[] } {
   const ordered = mods.map((mod) => ({ ...mod })).sort(byInstall);
   const applied: ActiveModification[] = [];
   const refused: ModRefusal[] = [];
@@ -186,8 +189,8 @@ function resolve(mods: readonly ActiveModification[], electric: boolean): { appl
     const mod = ordered[i];
     const definition = MODS[mod.category];
     const slots = definition.group === null ? [mod.category] : [mod.category, `group:${definition.group}`];
-    if (definition.combustionOnly && electric) {
-      refused.push({ eventId: mod.eventId, category: mod.category, reason: NOT_ELECTRIC });
+    if (definition.combustionOnly && powertrain !== 'combustion') {
+      refused.push({ eventId: mod.eventId, category: mod.category, reason: powertrain === 'electric' ? NOT_ELECTRIC : NO_POWERTRAIN });
     } else if (slots.some((slot) => taken.has(slot))) {
       refused.push({ eventId: mod.eventId, category: mod.category, reason: REPLACED });
     } else {
@@ -227,20 +230,24 @@ function moved(cell: Sourced<number> | null, value: number | null): Sourced<numb
  * field is named in `changed`. Pass `changed` to scoreSpec as `derived` so the scores that read those figures say
  * they were modelled, not measured.
  * - Horsepower, torque and curb weight are multiplied by the product of the tiers' multipliers.
- * - Combined, city and highway economy are multiplied by the tiers' economy multipliers and, when a curb weight is
- *   on file, by `1 + 0.6 x (share of weight removed)`: lighter is thriftier, heavier the reverse.
+ * - Combined, city and highway economy are multiplied by the tiers' economy multipliers and by
+ *   `1 + 0.6 x (share of weight removed)`: lighter is thriftier (when a curb weight is on file), heavier the reverse.
  * - Ground clearance gets the sum of the tiers' inches.
- * - A 0-60 time on file is multiplied by `((new lb / new hp) / (old lb / old hp)) ^ 0.75`, when horsepower and
- *   curb weight are both on file, and never goes below the estimate's floor (1.9 s) unless it was already there.
- * - A top speed on file is multiplied by `(new hp / old hp) ^ (1/3)`, when horsepower is on file and the top speed
- *   is not governed. A governed top speed is not moved by power.
+ * - A 0-60 time on file is multiplied by `(weight multiplier / horsepower multiplier) ^ 0.75`, and never goes below
+ *   the estimate's floor (1.9 s) unless it was already there. A slower time is applied whatever is on file; a
+ *   quicker one waits for the horsepower and the curb weight to be on file.
+ * - A top speed on file is multiplied by `(horsepower multiplier) ^ (1/3)`. More power raises it only when the sheet
+ *   says it is not limited and the horsepower is on file (a blank answer is read as limited); less power lowers it
+ *   unless the sheet says it is limited.
+ * - A change that costs the car is never skipped because a figure is blank; a change that helps waits for the figure.
  * More power also raises horsepower per litre, which the stress terms of DURABILITY and RELIABILITY charge for.
  *
  * What goes to `adjust`:
  * - `sprintFactor` and `topSpeedFactor`: the products of the tiers' 0-60 and top-speed multipliers. scoreSpec
  *   applies them to the time and the speed it reads, on file or estimated, governed or not.
  * - `gripG`: the sum of the tiers' grip, plus `weight change in lb x HANDLING.model.gripPerLb` when a skidpad figure
- *   is on file (when it is not, the grip model reads the new weight itself).
+ *   is on file (when it is not, the grip model reads the new weight itself). With no curb weight on file, added
+ *   weight is charged as a share of the heaviest weight a specification can hold.
  * - `durabilityPoints` and `reliabilityPoints`: the sums of the tiers' points. A loss is first multiplied by
  *   `INSTALL_FACTOR[install] x UPKEEP_FACTOR[upkeep]` of its own modification; a gain is not scaled.
  *
@@ -274,25 +281,38 @@ export function applyModifications(
   const newHp = oldHp === null ? null : oldHp * horsepower;
   const newLb = oldLb === null ? null : oldLb * weight;
 
-  // Economy follows the weight only when there is a curb weight on file to change.
-  const mpg = economy * (oldLb === null ? 1 : 1 + ECONOMY_PER_WEIGHT_SHARE * (1 - weight));
+  // What the parts do to a figure on file depends only on their multipliers, so it can be worked out whether or not
+  // the horsepower and the curb weight are on file themselves. A change that costs the car something is applied
+  // either way; a change that helps waits for the figures it rests on. Otherwise a blank would be worth more than
+  // the figure: clearing the curb weight of a car with a lift kit would give back the economy the kit costs.
+  const powerOnFile = oldHp !== null && oldHp > 0;
+  const bothOnFile = powerOnFile && oldLb !== null && oldLb > 0;
+
+  // Economy follows the weight: lighter is thriftier (when there is a curb weight on file to lighten), heavier the reverse.
+  const mpg = economy * (oldLb !== null || weight > 1 ? 1 + ECONOMY_PER_WEIGHT_SHARE * (1 - weight) : 1);
   const scaled = (cell: Sourced<number> | null, factor: number): Sourced<number> | null => moved(cell, cell === null ? null : cell.value * factor);
 
   // A time on file follows pounds per horsepower by the same law the 0-60 estimate uses, and stops where the estimate
   // stops: no stack of parts takes it below the estimate's floor (a car already quicker than the floor keeps its time).
-  const sprintOnFile = spec.zeroToSixtySec === null || oldHp === null || oldLb === null || newHp === null || newLb === null
+  const sprintRatio = Math.pow(weight / horsepower, ACCELERATION.estimate.exponent);
+  const sprintOnFile = spec.zeroToSixtySec === null || !(bothOnFile || sprintRatio > 1)
     ? null
-    : Math.max(
-      spec.zeroToSixtySec.value * Math.pow((newLb / newHp) / (oldLb / oldHp), ACCELERATION.estimate.exponent),
-      Math.min(spec.zeroToSixtySec.value, ACCELERATION.estimate.floor),
-    );
+    : Math.max(spec.zeroToSixtySec.value * sprintRatio, Math.min(spec.zeroToSixtySec.value, ACCELERATION.estimate.floor));
 
-  const governed = spec.topSpeedGoverned !== null && spec.topSpeedGoverned.value === true;
-  const topOnFile = spec.topSpeedMph === null || governed || oldHp === null || newHp === null
+  // A top speed on file follows the cube root of power, unless a limiter holds it. More power raises it only when the
+  // sheet says it is not limited and the horsepower is on file: a blank answer is read as limited. Less power lowers
+  // it unless the sheet says it is limited: there a blank answer is read as not limited.
+  const limited = spec.topSpeedGoverned === null ? null : spec.topSpeedGoverned.value;
+  const speedRatio = Math.cbrt(horsepower);
+  const topOnFile = spec.topSpeedMph === null || (speedRatio > 1 ? !(limited === false && powerOnFile) : limited === true)
     ? null
-    : spec.topSpeedMph.value * Math.cbrt(newHp / oldHp);
+    : spec.topSpeedMph.value * speedRatio;
 
-  const weightGrip = spec.lateralGripG === null || oldLb === null || newLb === null ? 0 : (newLb - oldLb) * HANDLING.model.gripPerLb;
+  // With a skidpad figure on file the grip model is not run, so the weight the parts add or remove is charged here.
+  // With no curb weight on file, added weight is charged as if the car weighed the most a car can: the heaviest reading.
+  const weightGrip = spec.lateralGripG === null ? 0
+    : oldLb !== null && newLb !== null ? (newLb - oldLb) * HANDLING.model.gripPerLb
+      : weight > 1 ? SPEC_RANGES.curbWeightLb[1] * (weight - 1) * HANDLING.model.gripPerLb : 0;
 
   const after: VehicleSpec = {
     ...spec,
@@ -329,7 +349,7 @@ const ORIGINALITY_SHARE: Record<ActiveModification['evidence'], number> = { decl
  */
 export function originalityCost(mods: readonly ActiveModification[]): number {
   let cost = 0;
-  for (const mod of resolve(mods, false).applied) cost += MODS[mod.category].tiers[mod.tier - 1].originality * ORIGINALITY_SHARE[mod.evidence];
+  for (const mod of resolve(mods, 'combustion').applied) cost += MODS[mod.category].tiers[mod.tier - 1].originality * ORIGINALITY_SHARE[mod.evidence];
   // Every term is a whole number of twentieths, so two decimals hold the sum exactly: 5.4, not 5.3999999999999995.
   return Math.round(cost * 100) / 100;
 }

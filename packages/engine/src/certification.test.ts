@@ -44,9 +44,9 @@ const unmet = (p: Passport, level: CertificationLevel): string[] => certified(p)
  * The title on file is itself a documented record, so with it two service records make the three.
  */
 type Parts = { vin?: string; photos?: number; services?: number; serviceFile?: Attachment['kind']; serviceDate?: string; reading?: boolean; papers?: boolean; title?: boolean };
-function documentedCar(parts: Parts = {}): Passport {
+function documentedCar(parts: Parts = {}, from?: Passport): Passport {
   const { vin = VIN, photos = EXTERIOR_PHOTOS_FOR_DOCUMENTED, services = RECORDS_FOR_DOCUMENTED - 1, serviceFile = 'receipt', serviceDate = '2026-03-01', reading = true, papers = true, title = true } = parts;
-  let p = parked(vin);
+  let p = from ?? parked(vin);
   if (photos > 0) p = add(p, { type: 'photo', subject: 'exterior', date: '2026-02-01', attachments: Array.from({ length: photos }, () => file('photo')) });
   if (papers) p = add(p, { type: 'document', document: 'title', date: '2026-02-01', attachments: [file('title')] });
   if (title) p = add(p, { type: 'declaration', date: '2026-02-01', titleStatus: 'Clean' });
@@ -56,8 +56,8 @@ function documentedCar(parts: Parts = {}): Passport {
 }
 
 /** A car an owner has done everything for, ready for verifiers: every category an owner can lift is well above 60. */
-function readyCar(): Passport {
-  let p = documentedCar({ services: 0 });
+function readyCar(from?: Passport): Passport {
+  let p = documentedCar({ services: 0 }, from);
   p = add(p, { type: 'photo', subject: 'interior', date: '2026-02-01', attachments: [file('photo')] });
   p = add(p, { type: 'photo', subject: 'odometer', date: '2026-02-01', attachments: [file('photo')] });
   p = add(p, { type: 'declaration', date: '2026-02-01', condition: 'Excellent', accident: 'None', originality: 'stock' });
@@ -67,8 +67,8 @@ function readyCar(): Passport {
 const aRecord = (p: Passport): string => p.events.filter((e) => e.type === 'maintenance')[0].id;
 const INSPECTION = { conditionScore: 88, inPerson: true, date: '2026-10-01' };
 /** Everything Certified asks for, each part of which a test can leave out. */
-function certifiedCar(leave: { identity?: boolean; mileage?: boolean; records?: boolean; originality?: boolean; inspection?: Record<string, unknown> | null } = {}): Passport {
-  let p = readyCar();
+function certifiedCar(leave: { identity?: boolean; mileage?: boolean; records?: boolean; originality?: boolean; inspection?: Record<string, unknown> | null } = {}, from?: Passport): Passport {
+  let p = readyCar(from);
   if (leave.identity !== false) p = attest(p, 'identity');
   if (leave.mileage !== false) p = attest(p, 'mileage', { mileage: 61000 });
   if (leave.records !== false) p = attest(p, 'documentation', { events: [aRecord(p)] });
@@ -242,9 +242,10 @@ describe('Certified, one requirement at a time', () => {
 
   it('needs the inspection less than twelve months old', () => {
     // Made thirteen months ago. It still counts by half, and Verification is 87.5: only its age is in the way.
+    // The inspection is the first thing on the passport after parking; everything else was written this month.
     const made = { date: '2025-10-01' };
-    let p = certifiedCar({ inspection: null });
-    p = ok(recordAttestation(p, { id: id(), verifierId: 'inspector-ann', scope: 'condition', inPerson: true, conditionScore: 88, systems: null, mileage: null, events: [], note: '', signature: null, ...made }, REGISTRY, { now: '2025-10-02T12:00:00.000Z', eventId: id() }));
+    const inspected = ok(recordAttestation(parked(), { id: id(), verifierId: 'inspector-ann', scope: 'condition', inPerson: true, conditionScore: 88, systems: null, mileage: null, events: [], note: '', signature: null, ...made }, REGISTRY, { now: '2025-10-02T12:00:00.000Z', eventId: id() }));
+    const p = certifiedCar({ inspection: null }, inspected);
     expect(gradePassport(p, REGISTRY, TODAY).categories.verification.score).toBe(87.5);
     expect(hasInPersonInspection(gradeFacts(p, REGISTRY, TODAY))).toBe(false);
     expect(missing(p)).toEqual(['cert.inspection']);

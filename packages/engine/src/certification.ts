@@ -10,7 +10,7 @@ import { LEVEL_LABELS, LEVEL_SUMMARIES } from './labels';
 import type { CertificationLevel, CertificationResult, GradeCategoryKey, GradeReport, Passport, Requirement, VerifierRegistry } from './types';
 import { CERTIFICATION_LEVELS, GRADE_CATEGORIES } from './types';
 import { dayOf, monthsBetween, round1 } from './util';
-import { standingOf } from './verification';
+import { CONDITION_FULL_MONTHS, standingOf } from './verification';
 
 export { LEVEL_LABELS, LEVEL_SUMMARIES };
 
@@ -46,7 +46,7 @@ export const isSlabbed = (level: CertificationLevel): boolean => level !== 'regi
  */
 export function hasInPersonInspection(facts: Attested): boolean {
   return facts.attestations.some((s) => s.attestation.scope === 'condition' && s.attestation.inPerson && s.attestation.conditionScore !== null && s.weight === 1
-    && monthsBetween(s.attestation.date, facts.asOf) < 12);
+    && monthsBetween(s.attestation.date, facts.asOf) < CONDITION_FULL_MONTHS);
 }
 
 const of = (n: number, needed: number) => `${Math.min(n, needed)} of ${needed}`;

@@ -6,12 +6,12 @@ import type { RarityInput } from './cards';
 import { CATALOGUE, EXAMPLES, catalogueMatch } from './database';
 import { GRADE_FORMULA, grade10Of, tierOf } from './grading';
 import { micarIdFromBytes } from './identity';
-import { MAX_EDITIONS, MAX_SNAPSHOTS, addEvent, createPassport, parsePassport, serializePassport, updateSpec, updateVin } from './passport';
+import { MAX_EDITIONS, MAX_EVENTS, MAX_SNAPSHOTS, addEvent, appendEvent, createPassport, parsePassport, serializePassport, updateSpec, updateVin } from './passport';
 import { publicPassport } from './public';
 import { emptySpec } from './specs';
 import { ATTRIBUTE_KEYS, RARITY_TIERS } from './types';
 import type { Attachment, CardEdition, GradeSnapshot, Passport, Sourced, VehicleSpec, VerifierRegistry } from './types';
-import { EMPTY_REGISTRY, recordAttestation } from './verification';
+import { EMPTY_REGISTRY, recordAttestation, voidEvent } from './verification';
 
 const OWNER = 'owner-one';
 const TODAY = '2026-11-10';
@@ -458,10 +458,16 @@ describe('editions and snapshots', () => {
     expect(editionShown(p, raw)).toBe(true);
     const refused = (forged: CardEdition, why: string) => expect(editionShown(p, forged), why).toBe(false);
     refused({ ...slabbed, level: 'verified' }, 'a level above what the record supports');
-    // Rarity: a 2019 Documented car can be Rare at the very most, and never One-of-One without an attestation.
-    expect(editionShown(p, { ...slabbed, rarity: 'rare' })).toBe(true);
+    // Rarity: a 2019 Documented car with no attestation can be Uncommon at the very most. Its level is worth ten
+    // points and the most an owner's originality (85) and condition (75) can earn is seven: seventeen, under Rare.
+    // The ceiling once gave full preservation marks, and a file could show a Rare that no owner could have reached.
+    expect(editionShown(p, { ...slabbed, rarity: 'uncommon' })).toBe(true);
+    refused({ ...slabbed, rarity: 'rare' }, 'a rarity no owner reaches alone');
     refused({ ...slabbed, rarity: 'epic' }, 'a rarity above what the record supports');
     refused({ ...slabbed, rarity: 'one-of-one' }, 'One-of-One with nothing behind it');
+    // A card's rarity is held to its own level: a Registered card has no provenance points, so seven at most. Common.
+    expect(editionShown(p, { ...raw, rarity: 'common' })).toBe(true);
+    refused({ ...raw, rarity: 'uncommon' }, 'a Registered card with a Documented card’s rarity');
     // The grade on the label, with the finish that grade would earn.
     refused({ ...slabbed, grade10: 9.9, finish: 'rainbow' }, 'a grade above what the record supports');
     // The finish is the one the grade earns; a raw card has neither and a slabbed one has both.
@@ -480,22 +486,28 @@ describe('editions and snapshots', () => {
   it('judges a stored edition by the day it is dated, the car’s age on that day and the build number the record backs', () => {
     // An honest Documented edition, to be written into other cars' files with one thing changed.
     const { slabbed } = honestHistory();
-    // A 1986 car turns forty in 2026: fifteen age points, and with a Documented card's ten and full preservation it can be Epic.
-    const old = honestHistory({ ...civic(), identity: { ...civic().identity, year: 1986 } }).passport;
-    const epic = (issuedAt: string): CardEdition => ({ ...slabbed, rarity: 'epic', issuedAt });
-    expect(editionShown(old, epic(NOW))).toBe(true);
-    // Dated the year before, the car was thirty-nine and Rare was the most it could be. Today's age is not lent to the past.
-    expect(editionShown(old, epic('2025-12-31T12:00:00.000Z'))).toBe(false);
-    expect(editionShown(old, { ...slabbed, rarity: 'rare', issuedAt: '2025-12-31T12:00:00.000Z' })).toBe(true);
-    // Nor is the future's lent to today: the same claim dated 2042 on a 2002 car is not shown now, and Epic is beyond it today.
+    // A 2001 car turns twenty-five in 2026: eleven age points, and with a Documented card's ten and an owner's seven
+    // for preservation it can be Rare (28 points).
+    const old = honestHistory({ ...civic(), identity: { ...civic().identity, year: 2001 } }).passport;
+    const rare = (issuedAt: string): CardEdition => ({ ...slabbed, rarity: 'rare', issuedAt });
+    expect(editionShown(old, rare(NOW))).toBe(true);
+    expect(editionShown(old, { ...slabbed, rarity: 'epic' })).toBe(false);
+    // Dated the year before, the car was twenty-four and Uncommon was the most it could be. Today's age is not lent to the past.
+    expect(editionShown(old, rare('2025-12-31T12:00:00.000Z'))).toBe(false);
+    expect(editionShown(old, { ...slabbed, rarity: 'uncommon', issuedAt: '2025-12-31T12:00:00.000Z' })).toBe(true);
+    // Nor is the future's lent to today: the same claim dated 2042 on a 2002 car is not shown now, and Rare is beyond it today.
     const younger = honestHistory({ ...civic(), identity: { ...civic().identity, year: 2002 } }).passport;
-    expect(editionShown(younger, epic('2042-01-01T00:00:00.000Z'))).toBe(false);
-    expect(editionShown(younger, epic(NOW))).toBe(false);
+    expect(editionShown(younger, rare('2042-01-01T00:00:00.000Z'))).toBe(false);
+    expect(editionShown(younger, rare(NOW))).toBe(false);
+    // A forty-year-old car gets fifteen: thirty-two points, still Rare. Epic takes a verifier or a backed build number.
+    const forty = honestHistory({ ...civic(), identity: { ...civic().identity, year: 1986 } }).passport;
+    expect(editionShown(forty, rare(NOW))).toBe(true);
+    expect(editionShown(forty, { ...slabbed, rarity: 'epic' })).toBe(false);
     // A build number the owner typed lifts no ceiling: sixty built would be worth forty points if it counted.
     const typed = honestHistory(civic({ productionUnits: { value: 60, source: { kind: 'manufacturer', name: 'typed in' } } }));
-    expect(editionShown(typed.passport, { ...typed.slabbed, rarity: 'rare' })).toBe(true);
+    expect(editionShown(typed.passport, { ...typed.slabbed, rarity: 'uncommon' })).toBe(true);
+    expect(editionShown(typed.passport, { ...typed.slabbed, rarity: 'rare' })).toBe(false);
     expect(editionShown(typed.passport, { ...typed.slabbed, rarity: 'legendary' })).toBe(false);
-    expect(editionShown(typed.passport, { ...typed.slabbed, rarity: 'epic' })).toBe(false);
   });
 
   it('shows the card’s own edition, never one a file added for the level it holds', () => {
@@ -547,6 +559,101 @@ describe('editions and snapshots', () => {
     expect(p.snapshots[1].overall).toBeGreaterThan(first.overall);
     expect(p.snapshots[1].level).toBe('documented');
     expect(p.snapshots[1].formula).toBe('micar-grade-v2');
+  });
+});
+
+describe('history, judged as the record stood when it was written', () => {
+  const attestation = (scope: string, over: Record<string, unknown> = {}) =>
+    ({ id: id(), verifierId: 'inspector-ann', scope, date: '2026-11-01', inPerson: true, conditionScore: null, systems: null, mileage: null, events: [], note: '', signature: null, ...over });
+  const settle = (p: Passport, now: string): Passport => issueEdition(recordSnapshot(p, REGISTRY, { now, id: id(), reason: 'Attested' }), REGISTRY, { now, reason: 'Attested' });
+  /** Documented in the spring, then attested on the morning of 1 November: Verified, with its snapshot and its edition. */
+  function verifiedAtNine(): { passport: Passport; identityEntry: string; identityId: string } {
+    let p = settle(documented(issueEdition(parked(), REGISTRY, { now: '2026-01-05T09:00:00.000Z', reason: 'Parked' })), '2026-06-01T12:00:00.000Z');
+    const identityEntry = id(), identity = attestation('identity');
+    p = ok(recordAttestation(p, identity, REGISTRY, { now: '2026-11-01T09:00:00.000Z', eventId: identityEntry }));
+    p = ok(recordAttestation(p, attestation('mileage', { mileage: 48500 }), REGISTRY, { now: '2026-11-01T09:00:00.000Z', eventId: id() }));
+    p = ok(recordAttestation(p, attestation('originality'), REGISTRY, { now: '2026-11-01T09:00:00.000Z', eventId: id() }));
+    return { passport: settle(p, '2026-11-01T09:30:00.000Z'), identityEntry, identityId: identity.id };
+  }
+  const levels = (p: Passport, asOf: string) => supportedHistory(p, REGISTRY, asOf).editions.map((e) => e.level);
+
+  it('keeps a morning’s grade when the verifier takes the attestation back that afternoon', () => {
+    const { passport: morning, identityEntry, identityId } = verifiedAtNine();
+    expect(assemble(morning, REGISTRY, '2026-11-01').certification.level).toBe('verified');
+    expect(levels(morning, '2026-11-01')).toEqual(['registered', 'documented', 'verified']);
+    // 15:00 the same day: the inspector withdraws the identity attestation. The car is Documented again.
+    let p = ok(voidEvent(morning, { target: identityEntry, reason: 'Wrong car', attestationId: identityId }, REGISTRY, { now: '2026-11-01T15:00:00.000Z', eventId: id() }));
+    p = settle(p, '2026-11-01T15:05:00.000Z');
+    expect(assemble(p, REGISTRY, '2026-11-01').certification.level).toBe('documented');
+    // What was kept at 09:30 was true at 09:30. It used to be judged by the whole day, withdrawal included: the
+    // Verified snapshot and its edition were hidden as claiming more than the record supports.
+    const kept = supportedHistory(p, REGISTRY, '2026-11-02');
+    expect(kept.unsupported).toBe(0);
+    expect(kept.snapshots.map((s) => s.level)).toEqual(['documented', 'verified', 'documented']);
+    expect(kept.editions.map((e) => e.level)).toEqual(['registered', 'documented', 'verified']);
+    // A month on the identity is attested again. The level was lost and is regained: nothing new is printed, and
+    // the card shows the Verified edition it was given the first time.
+    p = ok(recordAttestation(p, attestation('identity', { date: '2026-12-01' }), REGISTRY, { now: '2026-12-01T10:00:00.000Z', eventId: id() }));
+    const regained = settle(p, '2026-12-01T10:05:00.000Z');
+    expect(assemble(regained, REGISTRY, '2026-12-01').certification.level).toBe('verified');
+    expect(regained.editions).toHaveLength(3);
+    expect(assemble(regained, REGISTRY, '2026-12-01').card.edition).toMatchObject({ number: 3, issuedAt: '2026-11-01T09:30:00.000Z' });
+  });
+
+  it('does not let a grade written after a withdrawal, or beside one dated back, stand on the attestation', () => {
+    const { passport: morning, identityEntry, identityId } = verifiedAtNine();
+    const withdrawn = ok(voidEvent(morning, { target: identityEntry, reason: 'Wrong car', attestationId: identityId }, REGISTRY, { now: '2026-11-01T15:00:00.000Z', eventId: id() }));
+    // A Verified snapshot written into the file for 16:00, an hour after the withdrawal.
+    const verified = morning.snapshots[morning.snapshots.length - 1];
+    expect(verified.level).toBe('verified');
+    const after: Passport = { ...withdrawn, snapshots: [...withdrawn.snapshots, { ...verified, id: 'after-the-fact', at: '2026-11-01T16:00:00.000Z' }] };
+    expect(supportedHistory(after, REGISTRY, '2026-11-02')).toMatchObject({ unsupported: 1 });
+    expect(supportedHistory(after, REGISTRY, '2026-11-02').snapshots.map((s) => s.id)).not.toContain('after-the-fact');
+    // A withdrawal dated 1 November but written down on the 5th says nothing about the hour: it counts for the whole
+    // of the day it is dated, as it does everywhere else.
+    const backdated = appendEvent(morning, { ...withdrawn.events[withdrawn.events.length - 1], id: id(), recordedAt: '2026-11-05T15:00:00.000Z' });
+    expect(supportedHistory(backdated, REGISTRY, '2026-11-06').unsupported).toBe(2);
+    expect(levels(backdated, '2026-11-06')).toEqual(['registered', 'documented']);
+    // And one written the day after leaves the day before as it was.
+    const nextDay = ok(voidEvent(morning, { target: identityEntry, reason: 'Wrong car', attestationId: identityId }, REGISTRY, { now: '2026-11-02T08:00:00.000Z', eventId: id() }));
+    expect(supportedHistory(nextDay, REGISTRY, '2026-11-03').unsupported).toBe(0);
+  });
+});
+
+describe('a passport file of any size', () => {
+  it('is judged in about the time a short one is, whatever it is padded with', () => {
+    // What a file can hold at the limits: thousands of withdrawals that name the one reading, one attestation by
+    // nobody (which once switched off the short cut for passports with none), a snapshot for every day of thirteen
+    // years and two hundred editions. Each day used to have the whole standing worked out again, and each
+    // withdrawal read the whole list twice: forty seconds to draw the card and many minutes to open the passport.
+    const base = parked();
+    const entry = (over: Record<string, unknown>) => ({ date: '2026-01-06', recordedAt: '2026-01-06T09:00:00.000Z', by: OWNER, mileage: null, title: '', note: '', attachments: [], visibility: 'private', ...over });
+    const day = (i: number): string => new Date(Date.UTC(2010, 0, 1) + i * 86400000).toISOString().slice(0, 10);
+    const snapshot = (i: number) => ({ id: `s${i}`, at: `${day(i)}T10:00:00.000Z`, asOf: day(i), reason: 'x', formula: GRADE_FORMULA, overall: 67.5, grade10: 6.8, tier: 6, categories: { identity: 55, documentation: 100, condition: 75, originality: 85, verification: 0 }, level: 'documented', events: 1 });
+    const raw = JSON.parse(serializePassport(base));
+    raw.events = [
+      ...raw.events,
+      entry({ id: 'm1', type: 'mileage', mileage: 5 }),
+      entry({ id: 'zz', type: 'attestation', by: 'nobody', attestation: { id: 'a1', verifierId: 'nobody', scope: 'documentation', date: '2026-01-06', inPerson: false, conditionScore: null, systems: null, mileage: null, events: ['m1'], note: '', signature: null, subject: null } }),
+      ...Array.from({ length: MAX_EVENTS - 3 }, (_, i) => entry({ id: `v${i}`, type: 'void', by: 'nobody', target: 'm1', reason: '', attestationId: 'a1' })),
+    ];
+    raw.snapshots = Array.from({ length: MAX_SNAPSHOTS }, (_, i) => snapshot(i));
+    raw.editions = Array.from({ length: MAX_EDITIONS }, (_, i) => ({ number: i + 1, name: 'x', issuedAt: `${day(i * 20)}T10:00:00.000Z`, level: 'registered', rarity: 'common', finish: 'raw', grade10: null, powerRating: null, attributes: { power: null, speed: null, acceleration: null, handling: null, durability: null, reliability: null, efficiency: null }, reason: 'x' }));
+    const read = ok(parsePassport(raw));
+    expect(read.dropped).toBe(0);
+    const padded = read.passport;
+    expect([padded.events.length, padded.snapshots.length, padded.editions.length]).toEqual([MAX_EVENTS, MAX_SNAPSHOTS, MAX_EDITIONS]);
+
+    const started = Date.now();
+    for (const registry of [EMPTY_REGISTRY, REGISTRY]) {
+      const history = supportedHistory(padded, registry, TODAY);
+      expect(history.snapshots.length + history.editions.length + history.unsupported).toBe(MAX_SNAPSHOTS + MAX_EDITIONS);
+      expect(assemble(padded, registry, TODAY).certification.level).toBe('registered');
+      expect(publicPassport(padded, registry, TODAY).events.length).toBeGreaterThan(0);
+      issueEdition(recordSnapshot(padded, registry, { now: NOW, id: 'again', reason: 'x' }), registry, { now: NOW, reason: 'x' });
+    }
+    // A wide margin: this takes well under a second on a slow machine, and took minutes before.
+    expect(Date.now() - started).toBeLessThan(10000);
   });
 });
 

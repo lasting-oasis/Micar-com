@@ -3,7 +3,7 @@ import { micarIdFromBytes } from './identity';
 import {
   EVENT_TYPE_LABELS, PASSPORT_REFUSALS, addEvent, appendEdition, appendSnapshot, attachmentCount, checkAttachment, checkAttestation, createPassport, currentOwner, eventById,
   everOwned, latestDeclaration, latestMileage, mileageReadings, parsePassport, serializePassport, timeline, transferOwnership, updateSpec, updateVin, MAX_EDITIONS, MAX_EVENTS,
-  MAX_SNAPSHOTS, RESERVED_ENTRIES,
+  MAX_OWNERS, MAX_SNAPSHOTS, RESERVED_ENTRIES, VERIFIER_RESERVE,
 } from './passport';
 import { emptySpec } from './specs';
 import { OWNER_EVENT_TYPES } from './types';
@@ -489,9 +489,26 @@ describe('what a file can and cannot claim', () => {
     const sold = ok(handOver(holding(ownerLimit)));
     expect(sold.events).toHaveLength(ownerLimit + 1);
     expect(ok(parsePassport(serializePassport(sold))).passport.events).toHaveLength(ownerLimit + 1);
-    // It used to be accepted on a passport at the limit too, and the result could never be opened again.
-    expect(ok(parsePassport(serializePassport(ok(handOver(holding(MAX_EVENTS - 1)))))).passport.events).toHaveLength(MAX_EVENTS);
+    // Hand-overs stop short of the room kept for verifiers: a passport passed back and forth cannot use that up,
+    // so a verifier can always still record a withdrawal.
+    const handOverLimit = MAX_EVENTS - VERIFIER_RESERVE;
+    expect(VERIFIER_RESERVE).toBeGreaterThanOrEqual(100);
+    expect(VERIFIER_RESERVE).toBeLessThan(RESERVED_ENTRIES);
+    expect(ok(parsePassport(serializePassport(ok(handOver(holding(handOverLimit - 1)))))).passport.events).toHaveLength(handOverLimit);
+    expect(reason(handOver(holding(handOverLimit)))).toBe(PASSPORT_REFUSALS.full);
     expect(reason(handOver(holding(MAX_EVENTS)))).toBe(PASSPORT_REFUSALS.full);
+  });
+
+  it('holds only as many owners as it will read back', () => {
+    // Passed back and forth between two garages until the list of owners is full.
+    let p = parked();
+    const ids = ['owner-two', OWNER];
+    for (let i = 0; i < MAX_OWNERS - 1; i++) p = ok(transferOwnership(p, { eventId: `hand-${i}`, toOwnerId: ids[i % 2], date: '2026-06-01' }, { now: NOW, by: currentOwner(p) }));
+    expect(p.owners).toHaveLength(MAX_OWNERS);
+    expect(ok(parsePassport(serializePassport(p))).passport.owners).toHaveLength(MAX_OWNERS);
+    // One more used to be accepted, and the passport could never be opened again.
+    expect(reason(transferOwnership(p, { eventId: 'one-more', toOwnerId: 'owner-three', date: '2026-06-01' }, { now: NOW, by: currentOwner(p) }))).toBe(PASSPORT_REFUSALS.owners);
+    expect(parsePassport({ ...p, owners: [...p.owners.slice(0, -1), { ...p.owners[p.owners.length - 1], to: '2026-06-01' }, { ownerId: 'owner-three', from: '2026-06-01', to: null }] }).ok).toBe(false);
   });
 
   it('stops adding snapshots and editions at the most it will read back', () => {
