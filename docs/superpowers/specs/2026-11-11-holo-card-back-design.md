@@ -51,7 +51,7 @@ On the Pages site today an owner's car tops out around Rare: higher tiers need a
 `tools/blender/build_card.py`, run inside Blender through the MCP connection or headless, idempotent like `build_strip.py` (it clears its own collection first). `MICAR_REPO` names the checkout, as the Strip scripts do.
 
 - **Size.** 63.0 mm wide; height 63 × 1481 / 1062 = 87.86 mm, the artwork's own proportions, so the art is neither stretched nor cropped. 1.0 mm thick.
-- **Corners.** Rounded to follow the frame drawn in the artwork, with the art's dark margin left around it: about 6% of the width (3.9 mm). The script measures the four corners of the master and sets the radius from them; a check render draws the cut over the art.
+- **Corners.** Rounded to follow the frame drawn in the artwork, with the art's dark margin left around it: 6.75% of the width (4.25 mm), as measured. The script measures the four corners of the master and sets the radius from the smallest of them, so the cut never reaches into the frame.
 - **Edge.** A 0.25 mm bevel in three segments with weighted normals, so the faces stay flat and the edge catches a clean highlight.
 - **Three materials, three parts:** `face` (the master PNG itself, mapped flat, UV 0..1 across the whole image), `rim` (the bevelled metal edge) and `back`.
 - **Orientation.** Upright in Blender's XZ plane facing −Y (the front view), so the glTF Y-up conversion leaves it in XY facing +Z, toward the browser's camera.
