@@ -1,5 +1,7 @@
 # The holographic card back Implementation Plan
 
+> **Status:** carried out on the branch `claude/holo-card` (pull request #9). Where the build differs from this plan, the spec's "As built" section says how and why; the plan itself is left as it was written.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Show the MiCar card-back artwork as a 3D card in the Garage whose foil answers the card's real angle, with the foil chosen by the engine's rarity tier.
