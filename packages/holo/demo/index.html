@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>MiCar card back: the four foils</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+    padding: max(14px, env(safe-area-inset-top)) 14px max(14px, env(safe-area-inset-bottom));
+    background: radial-gradient(120% 80% at 50% 38%, #232a3a 0%, #121620 55%, #080a0f 100%) fixed;
+    color: #e8ecf4; font: 15px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  h1 { margin: 0; font-size: 15px; font-weight: 600; letter-spacing: 0.02em; color: #aeb7c8; }
+  .stage { flex: 1 1 auto; min-height: 0; width: 100%; display: grid; place-items: center; container-type: size; }
+  /* three wide to four tall, as large as the room allows */
+  .frame { position: relative; width: min(100cqw, 75cqh); aspect-ratio: 3 / 4; }
+  canvas, .still { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  canvas { -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; outline: none; cursor: grab; }
+  .still { object-fit: contain; }
+  [hidden] { display: none !important; }
+  .foils { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; width: min(100%, 560px); }
+  .foils button {
+    min-height: 52px; padding: 6px 4px; border-radius: 10px; border: 1px solid #36405a; background: #171c28; color: inherit;
+    font: inherit; font-size: 13px; line-height: 1.2; cursor: pointer;
+  }
+  .foils button small { display: block; margin-top: 2px; font-size: 10.5px; color: #8e99ae; }
+  .foils button[aria-pressed="true"] { border-color: #8fb4ff; background: #1f2a44; }
+  .foils button:focus-visible { outline: 2px solid #8fb4ff; outline-offset: 2px; }
+  .hint { margin: 0; color: #8e99ae; font-size: 13px; text-align: center; }
+  .readout { margin: 0; color: #6f7a90; font: 12px/1.3 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; text-align: center; min-height: 2.6em; }
+  .readout b { color: #c9d3e6; font-weight: 600; }
+  .problem { color: #ffb4a8; }
+</style>
+</head>
+<body>
+  <h1>MiCar card back: the four foils</h1>
+  <div class="stage">
+    <div class="frame" id="frame">
+      <img class="still" id="still" alt="" hidden>
+    </div>
+  </div>
+  <div class="foils" id="foils" role="group" aria-label="Foil"></div>
+  <p class="hint" id="hint">Drag to tilt the card</p>
+  <p class="readout" id="readout" aria-live="polite"></p>
+  <script type="module" src="./demo.ts"></script>
+</body>
+</html>

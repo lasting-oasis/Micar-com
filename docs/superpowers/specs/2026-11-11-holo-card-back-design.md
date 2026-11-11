@@ -77,9 +77,10 @@ Source-only, `exports` pointing at `src/index.ts`, held to the engine's source r
 | `spring.ts` | The tilt spring: `step(state, target, dt)` and `settled(state, target)` | unit |
 | `tilt.ts` | Pointer position in the canvas to target angles | unit |
 | `mat.ts` | The few 4 × 4 matrix helpers needed | unit |
+| `scene.ts` | The numbers sent to the GPU: the camera for a canvas shape, the card's pose, the shadow, a foil's recipe as shader vectors | unit |
 | `loop.ts` | The draw-on-demand loop over an injected `requestFrame`: runs while something is moving, stops when settled | unit, with a fake frame clock |
-| `shaders.ts` | The GLSL (ES 1.00, so one source serves WebGL 1 and 2) | browser smoke |
-| `card.ts` | `createHoloCard(options)`: context, programs, the texture, pointer events, resize, context loss, `destroy()` | browser smoke |
+| `shaders.ts` | The GLSL (ES 1.00, so one source serves WebGL 1 and 2) | unit for the names it shares with the renderer; browser smoke for the rest |
+| `card.ts` | `createHoloCard(options)`: context, programs, the texture, pointer events, resize, context loss, `destroy()` | unit, against a stand-in canvas, context, frame clock, `fetch` and `Image`; browser smoke for the picture |
 | `index.ts` | The exports | |
 
 ```ts
@@ -100,11 +101,11 @@ createHoloCard(options: {
 
 **Spring.** Per axis, `v += (k (target − x) − c v) dt; x += v dt` with `k = 170 s⁻²`, `c = 20 s⁻¹` (damping ratio 0.77: a small overshoot, no ringing), stepped at 1/120 s with the frame's time clamped to 1/30 s. Settled when both axes are within 0.02° of the target and slower than 0.05°/s; the state is then snapped to the target.
 
-**Light and reflection.** One key light fixed in view space, up and to the left of the camera (`normalize(−0.30, 0.45, 0.84)`), the same light the Blender preview uses. A small procedural studio (three soft lights on a dark gradient) is evaluated along the reflection vector for the clear coat and the rim; no environment image is downloaded. The coat is weighted by Fresnel, so it strengthens at grazing angles. Colour is worked in linear light and encoded once at the end.
+**Light and reflection.** One key light fixed in view space, up and to the left of the camera (`normalize(−0.30, 0.45, 0.84)`), the same light the Blender preview uses. A small procedural studio is evaluated along the reflection vector; no environment image is downloaded. The clear coat mirrors it sharply: a key softbox where the key light is and a narrow strip to the right, both soft-edged, in a room that is otherwise black. So with the card flat neither light is in the mirror, the coat adds nothing, and the face is the artwork itself (measured on the gloss card at rest: mean colour within 1% of the master). Tilted toward the light, the softbox slides across the card as a soft patch. The rim, and the metal under the foil, see the same studio out of focus with a low bounce and a dim room. The coat is weighted by Fresnel, so it strengthens at grazing angles. The artwork is decoded with one power function and the result encoded with its exact inverse, once, at the end.
 
 **Shadow.** A soft rounded-rectangle shadow on a quad behind the card, drawn in the same canvas, sliding and softening a little with the tilt.
 
-**Performance and robustness.** One context and one card at a time, created when the inspect view opens and released (`WEBGL_lose_context`) when it closes. One texture fetch for gloss, holo and rainbow; three for prismatic. `highp` in the fragment shader where the device has it. `webglcontextlost` stops the loop and `webglcontextrestored` rebuilds; a hidden tab stops the loop. Not yet measured on a phone.
+**Performance and robustness.** One context and one card at a time, created when the inspect view opens and released (`WEBGL_lose_context`) when it closes; a canvas is used for one card only. WebGL 2 where the browser has it, because it can make the smaller copies of the artwork (mipmaps) that keep it from shimmering when drawn small; WebGL 1 otherwise, without them. One texture fetch for gloss, holo and rainbow; three for prismatic. On a card drawn small the grain and the flakes are made coarser so they stay larger than a pixel. `highp` in the fragment shader where the device has it. `webglcontextlost` stops the loop and `webglcontextrestored` rebuilds; a hidden tab stops the loop. Not yet measured on a phone.
 
 ## The foil recipe
 
@@ -115,14 +116,14 @@ All of it is worked out in the card's own frame. `Ht` is the tangent-plane part 
 - **Holo.** One set of bands, with a brightness band riding on it.
 - **Rainbow.** Two crossing sets of bands, mixed 58 / 42.
 - **Prismatic.** The face is cut into triangular facets `cell` millimetres across. Each facet has a random tilt `f`. Its phase uses `Ht − f × amp`, so each has its own colour; its brightness falls off with `|Ht − f × amp| / lobe`, so facets flash as the card turns; its edges are drawn as a thin line. The art is sampled at `uv + f × refr` three times with the offset scaled 0.6 / 1.0 / 1.4 for red, green and blue. The displacement fades to nothing near the card's border, so the art's frame stays crisp.
-- **Sparkle.** A fine cell pattern of flakes, each with its own tilt, lit only when `Ht` lines up with it, on about a fifth of the cells.
+- **Sparkle.** A cell pattern of flakes, 120 across the card, on three cells in ten. Each has its own tilt and is lit only when `Ht` lines up with it. The tilts are spread around where `Ht` sits with the card flat, so every flake has an angle within the card's reach at which it lights.
 - **Putting it together.** `out = art + colour × (add + mul × art) × mask × strength × shape + sparkle + coat`. Light off the foil is tinted by the ink over it (`mul`), plus a share that shows on dark ink too (`add`).
 
-First-pass values, from the preview the direction was approved on. They will be tuned by eye during the build; `foils.json` is the truth.
+The values after tuning in the browser against the Blender stills (holo was strengthened, and the sparkle made larger and more frequent, because in the first pass neither read at a glance). `foils.json` is the truth.
 
 | | K | S | sat | m0 – m1 | cover | strength | add | mul | sparkle | other |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| holo | 4.5 | 1.6 | 0.78 | 0.22 – 0.80 | 0 | 1.55 | 0.30 | 1.45 | 0.7 | |
+| holo | 4.5 | 1.6 | 0.78 | 0.12 – 0.60 | 0.03 | 1.9 | 0.45 | 1.20 | 1.0 | |
 | rainbow | 6.5 | 2.6 | 0.92 | 0.05 – 0.60 | 0.46 | 1.35 | 0.52 | 1.20 | 1.0 | second set: K 5.0, S 1.9 |
 | prismatic | 5.5 | 0.6 | 0.86 | 0.08 – 0.70 | 0.36 | 1.9 | 0.50 | 1.25 | 1.3 | cell 4.0 mm, refr 0.0020, amp 0.45, lobe 0.50 |
 

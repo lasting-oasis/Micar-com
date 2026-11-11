@@ -61,6 +61,7 @@ TILT = math.radians(16)  # the preview rocks through what a finger can tilt the 
 STUDIO_STRENGTH = 0.3
 STUDIO_TURN = math.radians(180)
 ART_EMISSION = 0.55
+FLAKES = 120.0           # sparkle cells across the card's width; packages/holo/src/scene.ts holds the same number
 SQRT3 = math.sqrt(3.0)
 
 
@@ -339,6 +340,15 @@ def _phase(g, half, uv, grating, sweep, across, bands, extra=None):
     return g.m('ADD', p, extra) if extra is not None else p
 
 
+def _half_at_rest():
+    """The half vector between the eye and the key light with the card flat and seen straight on, as the card's own
+    (right, up): where the foil's angle sits before anything is tilted."""
+    length = math.sqrt(sum(c * c for c in KEY_LIGHT))
+    x, y, z = KEY_LIGHT[0] / length, KEY_LIGHT[2] / length, -KEY_LIGHT[1] / length + 1.0   # the light as the eye sees it, plus the eye's own direction
+    half = math.sqrt(x * x + y * y + z * z)
+    return (x / half, y / half)
+
+
 def _band(g, phase):
     """A soft brightness band riding on the colour bands: (0.5 + 0.5 cos(pi phase)) squared."""
     return g.m('POWER', g.m('MULTIPLY_ADD', g.m('COSINE', g.m('MULTIPLY', phase, math.pi)), 0.5, 0.5), 2.0)
@@ -425,21 +435,25 @@ def foil_material(kind, img, q, name=None):
         mask = g.smooth(g.lum(art), q['m0'], q['m1'], q['cover'], 1.0)
         if kind == 'holo':
             colour = g.hsv(g.m('FRACT', phase), q['sat'])
-            intensity = g.m('MULTIPLY', g.m('MULTIPLY', mask, q['strength']), g.m('MULTIPLY_ADD', _band(g, phase), 0.6, 0.4))
+            intensity = g.m('MULTIPLY', g.m('MULTIPLY', mask, q['strength']), g.m('MULTIPLY_ADD', _band(g, phase), 0.7, 0.3))
         else:
             second = _phase(g, half, uv, (-0.34, 0.94), q['K2'], (-0.6, 0.8), q['S2'], g.m('ADD', grain, 0.33))
             colour = g.v('ADD', g.v('SCALE', g.hsv(g.m('FRACT', phase), q['sat']), scale=0.58), g.v('SCALE', g.hsv(g.m('FRACT', second), q['sat']), scale=0.42))
             intensity = g.m('MULTIPLY', g.m('MULTIPLY', mask, q['strength']), g.m('MULTIPLY_ADD', _band(g, second), 0.45, 0.55))
 
-    # Sparkle: tiny flakes, each lit only when the half vector lines up with its own tilt, on a fifth of the cells.
+    # Sparkle: flakes on three cells in ten, each lit only when the half vector lines up with its own tilt. The tilts
+    # are spread around where the half vector sits with the card flat, so every flake has an angle within the card's
+    # reach at which it lights. The same numbers as the browser's shader (packages/holo/src/shaders.ts).
     flakes = g.node('ShaderNodeTexVoronoi', voronoi_dimensions='2D', feature='F1')
     g.put(flakes.inputs['Vector'], square)
-    flakes.inputs['Scale'].default_value = 190.0
+    flakes.inputs['Scale'].default_value = FLAKES
     flake = flakes.outputs['Color']
-    flake_tilt = g.v('MULTIPLY', g.v('SCALE', g.v('SUBTRACT', flake, (0.5, 0.5, 0.5)), scale=1.1), (1.0, 1.0, 0.0))
-    glint = g.m('POWER', g.m('SUBTRACT', 1.0, g.m('DIVIDE', g.v('LENGTH', g.v('SUBTRACT', half, flake_tilt), out=1), 0.11), clamp=True), 3.0)
-    gate = g.m('MULTIPLY', g.m('GREATER_THAN', g.sep(flake)[2], 0.80), g.m('LESS_THAN', flakes.outputs['Distance'], 0.34))
-    sparkle = g.m('MULTIPLY', g.m('MULTIPLY', glint, gate), g.m('MULTIPLY', q['sparkle'], g.m('MULTIPLY_ADD', mask, 0.7, 0.3)))
+    at_rest = _half_at_rest()
+    spread = g.v('MULTIPLY', g.v('SCALE', g.v('SUBTRACT', flake, (0.5, 0.5, 0.5)), scale=0.8), (1.0, 1.0, 0.0))
+    flake_tilt = g.v('ADD', spread, (at_rest[0], at_rest[1], 0.0))
+    glint = g.m('POWER', g.m('SUBTRACT', 1.0, g.m('DIVIDE', g.v('LENGTH', g.v('SUBTRACT', half, flake_tilt), out=1), 0.16), clamp=True), 2.0)
+    gate = g.m('MULTIPLY', g.m('GREATER_THAN', g.sep(flake)[2], 0.70), g.m('LESS_THAN', flakes.outputs['Distance'], 0.34))
+    sparkle = g.m('MULTIPLY', g.m('MULTIPLY', glint, gate), g.m('MULTIPLY', q['sparkle'], g.m('MULTIPLY_ADD', mask, 0.55, 0.45)))
 
     # Light off the foil is tinted by the ink over it (mul), plus a share that shows on dark ink too (add).
     tint = g.v('ADD', g.v('SCALE', art, scale=q['mul']), (q['add'], q['add'], q['add']))

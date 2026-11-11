@@ -1,6 +1,7 @@
 node_modules/
 site/
 apps/*/dist/
+packages/*/dist-demo/
 .DS_Store
 
 # Blender backups

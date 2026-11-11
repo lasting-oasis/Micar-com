@@ -11,7 +11,9 @@
   },
   "scripts": {
     "test": "vitest run",
-    "typecheck": "bash scripts/check.sh"
+    "typecheck": "bash scripts/check.sh",
+    "demo": "vite demo --host",
+    "demo:build": "vite build demo --base ./ --outDir ../dist-demo --emptyOutDir"
   },
   "devDependencies": {
     "typescript": "7.0.2",
