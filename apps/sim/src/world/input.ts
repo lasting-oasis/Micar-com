@@ -5,6 +5,7 @@
 // physics step and calls `clearEdges()` after the step that consumed them (Night Tuner cleared
 // shiftUp/shiftDn/hop after each 1/120 s step); the other edges it reads once per frame and clears too.
 import { NO_INPUT, type Input } from './physics';
+import { DRIFT_KICK_STEPS, releaseSticks, stickToInput, touchSticks } from './sticks';
 
 /** Night Tuner's KM: physical key -> held control */
 export const KM: Readonly<Record<string, string>> = {
@@ -76,6 +77,9 @@ export class InputMap {
   private buttons: { b: HTMLElement; k: string; down: (e: PointerEvent) => void }[] = [];
   /** which button each finger is on (by pointer id); a finger that slid off every button is kept, on null */
   private fingers = new Map<number, string | null>();
+  /** the phone's Drift button: was it held on the last step, and how many steps of hand brake are left from pressing it */
+  private driftWas = false;
+  private kick = 0;
 
   constructor(private readonly opts: { manual: () => boolean; hydraulics: () => boolean }) {}
 
@@ -170,7 +174,7 @@ export class InputMap {
   clearEdges(): void { const e = this.edge; e.shiftUp = e.shiftDn = e.hop = e.reset = e.enter = e.map = e.camera = e.lookBack = e.lights = e.horn = e.drift = e.pause = e.laneL = e.laneR = false; }
 
   /** Release every held key and button (blur, pause). */
-  readonly releaseAll = (): void => { for (const k in this.keys) this.keys[k] = false; for (const k in this.touch) this.touch[k] = false; this.fingers.clear(); this.paint(); };
+  readonly releaseAll = (): void => { for (const k in this.keys) this.keys[k] = false; for (const k in this.touch) this.touch[k] = false; this.fingers.clear(); this.paint(); releaseSticks(); this.driftWas = false; this.kick = 0; };
 
   readonly onKeyDown = (e: KeyboardEvent): void => {
     if (typingTarget(e.target)) return;
@@ -214,6 +218,9 @@ export class InputMap {
   }
   private padEdge(gp: Pad, i: number): boolean { const p = !!(gp.buttons[i] && gp.buttons[i].pressed), was = !!this.gpPrev[i]; this.gpPrev[i] = p; return p && !was; }
 
+  /** The phone's Drift button is held: the scene drives in drift mode while it is. */
+  driftHeld(): boolean { return touchSticks.drift; }
+
   /** Night Tuner's buildInput. Returns one reused object: copy it if you keep it past the step. */
   build(): Input {
     const I = Object.assign(this.out, NO_INPUT), K = this.keys, T = this.touch, kit = this.opts.hydraulics();
@@ -223,6 +230,18 @@ export class InputMap {
     I.nos = !!(K.nos || T.nos); I.hb = !!(K.hb || T.hb); I.manual = !!this.opts.manual();
     I.hyd = hyd; I.hydF = !!K.fwd; I.hydR = !!K.back; I.hydL = !!K.left; I.hydRt = !!K.right;
     I.shiftUp = this.edge.shiftUp; I.shiftDn = this.edge.shiftDn; I.hop = this.edge.hop && kit;
+    // the phone's sticks and hold buttons, merged with the rest (the larger wins)
+    const S = touchSticks, st = stickToInput(S.steerX, S.gasY);
+    if (st.steer !== 0 && Math.abs(st.steer) >= Math.abs(I.steer)) I.steer = st.steer;
+    I.fwd = Math.max(I.fwd, st.fwd); I.back = Math.max(I.back, st.back);
+    if (S.nos) I.nos = true;
+    if (S.drift && !this.driftWas) this.kick = DRIFT_KICK_STEPS; // pressing Drift pulls the hand brake briefly
+    this.driftWas = S.drift;
+    if (this.kick > 0) { this.kick--; I.hb = true; }
+    if (S.laneL) { this.edge.laneL = true; S.laneL = false; }
+    if (S.laneR) { this.edge.laneR = true; S.laneR = false; }
+    if (S.shiftUp) { this.edge.shiftUp = I.shiftUp = true; S.shiftUp = false; }
+    if (S.shiftDn) { this.edge.shiftDn = I.shiftDn = true; S.shiftDn = false; }
     const gp = pad();
     if (gp) {
       const ax = gp.axes[0] || 0; if (Math.abs(ax) > .15) I.steer = Math.sign(ax) * Math.min(1, (Math.abs(ax) - .15) / .85);

@@ -12,6 +12,8 @@ import { ReplacePrompt } from '../strip/ReplacePrompt';
 import { RENTAL_FLEET, canRent, isVisitor } from './rental';
 import { TEST_CARS } from './tester';
 import { useLang, t } from '../i18n';
+import { TouchSticks } from './TouchSticks';
+import { getOptions } from './options';
 
 const tap = (t: DriveTap) => useDriveUi.setState({ tap: t });
 // App's phone layout (its isMobile): the D-pad drives (its ◀ ▶ taps change a drag's lane), these add
@@ -135,6 +137,7 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
     return () => { clearInterval(iv); ro?.disconnect(); };
   }, [driving]);
   const [touch, setTouch] = useState(phoneLayout);
+  const sticks = getOptions().controls === 'sticks';
   useEffect(() => { const f = () => setTouch(phoneLayout()); window.addEventListener('resize', f); return () => window.removeEventListener('resize', f); }, []);
   // a banner that does not hold fades after 1.6 s
   const [shownBanner, setShownBanner] = useState(banner);
@@ -224,11 +227,13 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
           </div>
 
           {/* always mounted (InputMap wires the [data-k] buttons once, on getting in): shown and hidden by style */}
-          <div className="fixed left-4 bottom-6 flex gap-2.5 touch-none select-none" style={{ display: touch && driving && !results ? 'flex' : 'none', paddingBottom: 'env(safe-area-inset-bottom)' }}>
+          {/* the stick layout (the default) or the old buttons, chosen in the Garage's options */}
+          {touch && driving && !results && sticks && <TouchSticks gears={gears} />}
+          <div className="fixed left-4 bottom-6 flex gap-2.5 touch-none select-none" style={{ display: touch && driving && !results && !sticks ? 'flex' : 'none', paddingBottom: 'env(safe-area-inset-bottom)' }}>
             <Btn k="left" label="◀" />
             <Btn k="right" label="▶" />
           </div>
-          <div className="fixed right-4 bottom-6 grid grid-cols-2 gap-2.5 touch-none select-none" style={{ display: touch && driving && !results ? 'grid' : 'none', paddingBottom: 'env(safe-area-inset-bottom)' }}>
+          <div className="fixed right-4 bottom-6 grid grid-cols-2 gap-2.5 touch-none select-none" style={{ display: touch && driving && !results && !sticks ? 'grid' : 'none', paddingBottom: 'env(safe-area-inset-bottom)' }}>
             <Btn k="dn" label="▼ Gear" hidden={!gears} />
             <Btn k="up" label="▲ Gear" hidden={!gears} />
             <Btn k="nos" label="NOS" />
@@ -236,7 +241,8 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
             <Btn k="brk" label="Brake" />
             <Btn k="thr" label="Gas" />
           </div>
-          <div className="fixed right-4 flex flex-col gap-3" style={{ bottom: 'calc(248px + env(safe-area-inset-bottom, 0px))', display: touch && driving && !results && !paused ? undefined : 'none' }}>
+          {/* beside the gas stick in the stick layout (above it would run off a landscape phone), above the buttons otherwise */}
+          <div className="fixed right-4 flex flex-col gap-3" style={{ ...(sticks ? { right: 'max(174px, calc(env(safe-area-inset-right, 0px) + 166px))', bottom: 'calc(24px + env(safe-area-inset-bottom, 0px))' } : { bottom: 'calc(248px + env(safe-area-inset-bottom, 0px))' }), display: touch && driving && !results && !paused ? undefined : 'none' }}>
             <TapBtn t="pause" label="II" aria="Pause" hidden={district !== 'strip' || mapOpen} />
             <TapBtn t="reset" label="R" aria="Reset the car" hidden={mapOpen} />
             <TapBtn t="map" label="Map" aria="Map" hidden={district !== 'strip' || (eventLive && !mapOpen)} />

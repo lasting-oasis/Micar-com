@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { InputMap } from './input';
+import { DRIFT_KICK_STEPS, releaseSticks, setSteerStick, touchSticks } from './sticks';
+import { afterEach } from 'vitest';
 
 describe('InputMap', () => {
   it('builds an input from held keys and edges', () => {
@@ -83,5 +85,40 @@ describe('InputMap', () => {
     expect(im.keys.look).toBe(true);
     im.onKeyUp(ev('KeyB'));
     expect(im.keys.look).toBe(false);
+  });
+
+  describe('the phone sticks', () => {
+    afterEach(releaseSticks);
+    it('drive the same input as the buttons, with the gas stick braking then reversing when pulled', () => {
+      const im = new InputMap({ manual: () => false, hydraulics: () => false });
+      setSteerStick(-1); touchSticks.gasY = 1;
+      expect(im.build()).toMatchObject({ steer: -1, fwd: 1, back: 0 });
+      touchSticks.gasY = -1; expect(im.build()).toMatchObject({ fwd: 0, back: 1 });
+      setSteerStick(0); touchSticks.gasY = 0; expect(im.build()).toMatchObject({ steer: 0, fwd: 0, back: 0 });
+    });
+    it('a key still wins over a stick that is barely moved', () => {
+      const im = new InputMap({ manual: () => false, hydraulics: () => false });
+      im.keys.right = true; setSteerStick(-.3);
+      expect(im.build().steer).toBe(1);
+    });
+    it('pressing Drift pulls the hand brake for 0.3 s, holding it keeps drift mode, NOS is held', () => {
+      const im = new InputMap({ manual: () => false, hydraulics: () => false });
+      touchSticks.drift = true; touchSticks.nos = true;
+      let hb = 0; for (let i = 0; i < DRIFT_KICK_STEPS + 10; i++) { const I = im.build(); if (I.hb) hb++; expect(I.nos).toBe(true); }
+      expect(hb).toBe(DRIFT_KICK_STEPS);
+      expect(im.driftHeld()).toBe(true);
+      touchSticks.drift = false; im.build(); touchSticks.drift = true;
+      expect(im.build().hb).toBe(true); // a fresh press pulls it again
+    });
+    it('a flick of the steering stick changes a drag lane once; releaseAll lets go of everything', () => {
+      const im = new InputMap({ manual: () => false, hydraulics: () => false });
+      touchSticks.shiftUp = true; expect(im.build().shiftUp).toBe(true); expect(touchSticks.shiftUp).toBe(false);
+      im.clearEdges(); expect(im.build().shiftUp).toBe(false);
+      setSteerStick(.9); im.build(); expect(im.edge.laneR).toBe(true);
+      im.clearEdges(); setSteerStick(1); im.build(); expect(im.edge.laneR).toBe(false);
+      touchSticks.gasY = 1; touchSticks.drift = true; im.releaseAll();
+      expect(im.build()).toMatchObject({ steer: 0, fwd: 0, hb: false });
+      expect(im.driftHeld()).toBe(false);
+    });
   });
 });
