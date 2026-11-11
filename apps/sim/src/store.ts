@@ -210,6 +210,10 @@ function reflectGraphicsQuality(q: 'high' | 'low') {
 const initialGraphicsQuality = loadGraphicsQuality();
 reflectGraphicsQuality(initialGraphicsQuality);
 
+/** How long a pending bay order waits for the server before the bay lets go of it. */
+export const ORDER_TIMEOUT_MS = 10_000;
+let orderTimer: ReturnType<typeof setTimeout> | null = null;
+
 export const useGameStore = create<StoreState>((set, get) => ({
   socket: null,
   gameState: null,
@@ -342,6 +346,9 @@ export const useGameStore = create<StoreState>((set, get) => ({
       const s = get(); if (!s.socket || s.orderPending) return;
       s.socket.emit('bay_order', { carId, door, lines, quote });
       set({ orderPending: true });
+      // a reply that never comes must not leave ordering stuck; a new order replaces the old timer
+      if (orderTimer) clearTimeout(orderTimer);
+      orderTimer = setTimeout(() => { orderTimer = null; set({ orderPending: false }); }, ORDER_TIMEOUT_MS);
   },
   clearLastOrder: () => set({ lastOrder: null }),
   openGarage: (carId, tab) => {
@@ -376,7 +383,7 @@ export const useGameStore = create<StoreState>((set, get) => ({
       // session (the gate keypad at spawn).
       myWorldPos: null, drivingFuel: null, drivingSpeed: 0, gatePrompt: false, activeInteraction: null, driveNotice: null,
       activeInspectionCarId: null, activeInspectionShopType: null, isBankModalOpen: false, isInsuranceModalOpen: false,
-      strip: null, octane: 0, garageCarId: null });
+      strip: null, octane: 0, garageCarId: null, bayTab: 'custom', orderPending: false, lastOrder: null });
   },
   connect: (opts) => {
     const isDev = ['5173', '5174', '5175', '5176', '5177', '5178', '5179'].includes(window.location.port);
@@ -484,6 +491,7 @@ export const useGameStore = create<StoreState>((set, get) => ({
       s.emit('join', { mode: 'session', session });
   },
   signOut: () => {
+      set({ bayTab: 'custom', orderPending: false, lastOrder: null });
       const s = get().socket; if (!s) return;
       writeSession(null);
       s.emit('sign_out', {});
