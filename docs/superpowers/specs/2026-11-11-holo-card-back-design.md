@@ -44,7 +44,7 @@ On the Pages site today an owner's car tops out around Rare: higher tiers need a
 5. **It draws only while it moves.** One frame when it is ready, frames while the spring is unsettled, one last frame when it settles, then no more `requestAnimationFrame` calls until the next touch.
 6. **The inspect view takes the finger; an inline card would not.** In the full-screen view nothing scrolls behind the card, so the canvas uses `touch-action: none` and both axes tilt. The component also has a scroll-friendly mode (`touch-action: pan-y`: vertical swipes scroll the page, the card returns to flat when the browser takes the gesture) for any later use inside a scrolling page. This build uses only the first.
 7. **A still stands in when WebGL cannot.** No WebGL, a failed shader, a failed download or a lost context that does not come back within two seconds: the view shows a still of that foil instead. With "reduce motion" on, the live card is drawn once, flat, and does not tilt.
-8. **The master artwork is kept byte for byte.** The uploaded PNG is committed unchanged as the master, `assets/cards/micar-card-back.png` (1062 × 1481, 4.0 MB, SHA-256 `5bd441b57e7becbb812469ae4f61eebbea991c59ad955293dee80ce1852c3c95`). The site loads a WebP encoded from it at quality 95 (measured: 0.75 MB; lossless would be 2.5 MB). The encode is done by a script and records its PSNR against the master.
+8. **The master artwork is kept byte for byte.** The uploaded PNG is committed unchanged as the master, `assets/cards/micar-card-back.png` (1062 × 1481, 4.0 MB, SHA-256 `5bd441b57e7becbb812469ae4f61eebbea991c59ad955293dee80ce1852c3c95`). The site loads an AVIF encoded from it at quality 90 with full colour resolution (measured: 0.75 MB, PSNR 39.3 dB against the master), and keeps a WebP at quality 95 for a browser that cannot read AVIF (0.77 MB). WebP always halves the colour resolution, which this finely coloured artwork shows in the numbers: 43 dB on brightness but 32.5 dB over the whole picture, at any quality setting. That is why AVIF is first. Lossless would be 2.5 MB. The encode is done by a script that prints each copy's PSNR and fails under its floor.
 
 ## The card (Blender)
 
@@ -64,7 +64,7 @@ On the Pages site today an owner's car tops out around Rare: higher tiers need a
 
 No `.blend` is committed: the script rebuilds the scene from the master artwork.
 
-`tools/cards/encode_art.py` (Python with Pillow) writes `apps/value/public/cards/back.webp` from `assets/cards/micar-card-back.png` and prints the size and the PSNR.
+`tools/cards/encode_art.py` (Python with Pillow) writes `apps/value/public/cards/back.avif` and `back.webp` from `assets/cards/micar-card-back.png` and prints each one's size and PSNR.
 
 ## The renderer (`packages/holo`)
 
@@ -87,7 +87,7 @@ type FoilId = 'gloss' | 'holo' | 'rainbow' | 'prismatic';
 foilForRarity(tier: string): FoilId;                    // unknown tier -> 'gloss'
 webglAvailable(): boolean;
 createHoloCard(options: {
-  canvas: HTMLCanvasElement; meshUrl: string; artUrl: string; foil: FoilId;
+  canvas: HTMLCanvasElement; meshUrl: string; artUrls: string[]; foil: FoilId;   // the first artwork the browser can decode is used
   touch?: 'capture' | 'scroll';                         // default 'scroll'
   reducedMotion?: boolean; maxPixelRatio?: number;      // default 2
   onError?: (error: Error) => void;                     // the host shows the still
@@ -151,7 +151,7 @@ One thing learned from the preview: the artwork is itself drawn in rainbow colou
 
 ## Tests
 
-- **Unit (vitest, in value's run):** the files in the table above; `foilForRarity` over the engine's own `RARITY_TIERS` (every tier maps, and Rare, Epic, Legendary, Mythic and One-of-One map as this document says); the Spanish coverage of the new strings; the shipped files exist and are inside their budgets (`card.glb`, `back.webp`, the four stills).
+- **Unit (vitest, in value's run):** the files in the table above; `foilForRarity` over the engine's own `RARITY_TIERS` (every tier maps, and Rare, Epic, Legendary, Mythic and One-of-One map as this document says); the Spanish coverage of the new strings; the shipped files exist and are inside their budgets (`card.glb`, `back.avif`, `back.webp`, the four stills).
 - **Browser smoke (`apps/value/e2e/card-back.smoke.mjs`, Playwright with software GL):** builds and serves the value app, opens `#/garage/card-backs`, and for each foil: the canvas draws something that is not blank; two different tilts give different pixels; a foil other than gloss differs from gloss at the same tilt; after the pointer leaves, `requestAnimationFrame` stops being called; Close releases the context. Run by hand before the pull request and its screenshots attached. It is not wired into `ci.yml` in this change.
 - **On a phone:** software GL says nothing about speed or about iOS Safari. Before the pull request is merged the owner tries a privately published demo page of the same component on an iPhone.
 

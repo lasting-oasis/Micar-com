@@ -21,7 +21,7 @@
 - Garage styling: rules in `apps/value/src/garage/garage.css` under `.dp`, class names prefixed `gar-`, no Tailwind utilities, 44 px targets, no horizontal scroll at 375 px.
 - Every visitor-facing string goes through `t()` with a Spanish entry in `apps/value/src/garage/es-card.ts` ("tarjeta", "usted", the site's own word "foil").
 - No file under `.github/workflows` changes.
-- Budgets: `card.glb` ≤ 100 KB, `back.webp` ≤ 900 KB, each `back-<foil>.webp` ≤ 150 KB.
+- Budgets: `card.glb` ≤ 100 KB, `back.avif` and `back.webp` ≤ 900 KB each, each `back-<foil>.webp` ≤ 150 KB.
 - Foil by tier: common, uncommon → `gloss`; rare → `holo`; epic → `rainbow`; legendary, mythic, one-of-one → `prismatic`; anything else → `gloss`.
 - Tilt 16° each way; spring `k = 170`, `c = 20`, step 1/120 s, frame time clamped to 1/30 s; settled within 0.02° and 0.05°/s; pixel ratio capped at 2; canvas 3:4; card 72% of canvas height; key light `normalize(-0.30, 0.45, 0.84)`.
 - Commits end with the session's attribution lines.
@@ -41,10 +41,10 @@
 **Files:**
 - Create: `assets/cards/micar-card-back.png` (the upload, copied byte for byte)
 - Create: `tools/cards/encode_art.py`
-- Create: `apps/value/public/cards/back.webp` (written by the script)
+- Create: `apps/value/public/cards/back.avif`, `apps/value/public/cards/back.webp` (written by the script)
 
 **Interfaces:**
-- Produces: `apps/value/public/cards/back.webp`, 1062 × 1481, quality 95. Later tasks load it as the face texture.
+- Produces: `apps/value/public/cards/back.avif` (quality 90, 4:4:4) and `back.webp` (quality 95), both 1062 × 1481. Later tasks load the first one the browser can decode as the face texture.
 
 - [ ] **Step 1: Copy the master and check its hash**
 
@@ -53,12 +53,12 @@ Expected: `5bd441b57e7becbb812469ae4f61eebbea991c59ad955293dee80ce1852c3c95`
 
 - [ ] **Step 2: Write `tools/cards/encode_art.py`**
 
-`python3 tools/cards/encode_art.py` reads the master, refuses to run if its SHA-256 is not the one above, writes the WebP (`quality=95, method=6`), decodes it again and prints `size`, `bytes` and `PSNR` (per-channel MSE over RGB against the master). Exit code 1 if the decoded size differs, the file is over 900 KB or the PSNR is under 38 dB.
+`python3 tools/cards/encode_art.py` reads the master, refuses to run if its SHA-256 is not the one above, writes both copies, decodes each again and prints its size, bytes and PSNR (over RGB, and over brightness alone). Exit code 1 if a decoded size differs, a file is over 900 KB, or a PSNR is under its floor: 38 dB for the AVIF, 32 dB for the WebP (whose format halves colour resolution), 42 dB on brightness for both.
 
 - [ ] **Step 3: Run it**
 
 Run: `python3 tools/cards/encode_art.py`
-Expected: `1062x1481`, under 900 KB, PSNR printed and at least 38 dB, exit 0.
+Expected: both `1062x1481` and under 900 KB; the AVIF at least 38 dB, the WebP at least 32 dB and 42 dB on brightness; exit 0.
 
 - [ ] **Step 4: Commit** (`Card back: the master artwork and its web copy`)
 
@@ -259,7 +259,7 @@ it('refuses what it cannot read, and says why', () => {
 
 ```ts
 export type HoloCardOptions = {
-  canvas: HTMLCanvasElement; meshUrl: string; artUrl: string; foil: FoilId;
+  canvas: HTMLCanvasElement; meshUrl: string; artUrls: string[]; foil: FoilId;
   touch?: 'capture' | 'scroll'; reducedMotion?: boolean; maxPixelRatio?: number; onError?: (error: Error) => void;
 };
 export type HoloCard = { ready: Promise<void>; setFoil(foil: FoilId): void; resize(): void; destroy(): void };
@@ -277,7 +277,7 @@ it('says WebGL is unavailable where there is no document', () => { expect(webglA
 it('reports a failure through onError and rejects ready when the canvas gives no context', async () => {
   const canvas = { getContext: () => null, style: {}, addEventListener() {}, removeEventListener() {}, getBoundingClientRect: () => ({ left: 0, top: 0, width: 0, height: 0 }) } as unknown as HTMLCanvasElement;
   const seen: Error[] = [];
-  const card = createHoloCard({ canvas, meshUrl: 'x', artUrl: 'y', foil: 'holo', onError: (e) => seen.push(e) });
+  const card = createHoloCard({ canvas, meshUrl: 'x', artUrls: ['y'], foil: 'holo', onError: (e) => seen.push(e) });
   await expect(card.ready).rejects.toThrow(/WebGL/);
   expect(seen).toHaveLength(1);
   card.destroy(); card.destroy();
@@ -310,7 +310,7 @@ export default function CardBacks(): JSX.Element;                               
 ```
 
 - Strings (English keys, each with a Spanish entry): `Card back`, `Drag to tilt the card`, `The back of the card: {rarity}, {foil}`, `Card backs`, `Every card carries the same back. Its foil follows the card's rarity: earned, never sold.`, `Show the {foil} back`, and the four `FOIL_LABELS`. `Close` already exists.
-- Asset URLs: `${import.meta.env.BASE_URL}cards/card.glb`, `cards/back.webp`, `cards/back-<foil>.webp`.
+- Asset URLs: `${import.meta.env.BASE_URL}cards/card.glb`, `cards/back.avif` then `cards/back.webp`, `cards/back-<foil>.webp`.
 
 - [ ] **Step 1: Write the failing tests**
 
@@ -342,7 +342,7 @@ and add `FOIL_LABELS` to `TABLES` in `es.test.ts`, which then fails until the Sp
 - Consumes: the built value app.
 - Produces: `pnpm --filter @micar/value smoke:card`, exit 0 on success, screenshots in `apps/value/e2e/out/` (ignored by git).
 
-- [ ] **Step 1: Write the budgets test** (`card.glb` ≤ 100 000 bytes, `back.webp` ≤ 900 000, each still ≤ 150 000, all present) and run it → pass.
+- [ ] **Step 1: Write the budgets test** (`card.glb` ≤ 100 000 bytes, `back.avif` and `back.webp` ≤ 900 000 each, each still ≤ 150 000, all present) and run it → pass.
 - [ ] **Step 2: Write the smoke.** Chrome through Playwright (`channel: 'chrome'`, software GL flags), an init script that counts `requestAnimationFrame` calls. On `#/garage/card-backs`, for each foil: open it; the canvas is not blank; the gloss card at rest correlates better with the artwork than with the artwork flipped top to bottom; a pointer at the right edge changes the pixels; a foil other than gloss differs from gloss at the same tilt; after `pointercancel` and 1.5 s the frame count stops rising; resizing the window still draws; Close removes the canvas. Then open and close twenty times and check one more draw. Then lose the context through `WEBGL_lose_context` and check the still is showing within three seconds. Then with `prefers-reduced-motion` the card draws once and a pointer move changes nothing.
 - [ ] **Step 3: Run it** — `pnpm --filter @micar/value build && pnpm --filter @micar/value smoke:card` → every check prints `ok`, exit 0.
 - [ ] **Step 4: Run everything** — `pnpm --filter @micar/value test`, `pnpm --filter @micar/sim test`, `bash packages/holo/scripts/check.sh`, `bash packages/engine/scripts/check.sh`, `pnpm -r --if-present build` → all pass.
