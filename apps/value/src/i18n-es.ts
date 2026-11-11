@@ -2,8 +2,11 @@
 // Terms follow what US dealers already use in Spanish: concesionario, intercambio (trade-in),
 // precio de etiqueta (sticker price), millaje, versión (trim), título de salvamento, Guía del Comprador.
 // src/i18n.test.ts fails if a string in the code, a data table or the engine's output has no entry here.
+import { GARAGE_ES } from './garage/es';
 
 export const ES: Record<string, string> = {
+  // ---- The Garage (garage/es.ts). Spread first, so a phrase the rest of the site already translates keeps that translation.
+  ...GARAGE_ES,
   // ---- Navigation -------------------------------------------------------------------------
   'Site': 'Sitio',
   'Value a car': 'Calcular el valor',
@@ -432,7 +435,20 @@ export const ES: Record<string, string> = {
   'graded': 'calificado',
   'the grade': 'la calificación',
   'Gem mint, for cars': 'Gem mint, para autos',
-  'One number from 1 to 10, like a graded card, except you can move it. Four parts: how the car is, how its model holds value against its class, how much of its story is on record, and how many miles it carries for its age. This is {car}. Try it.': 'Un número del 1 al 10, como una tarjeta calificada, solo que usted puede moverlo. Cuatro partes: cómo está el auto, cómo conserva su valor frente a su clase, cuánta de su historia está registrada y cuántas millas lleva para su edad. Este es su {car}. Pruébelo.',
+  'One number from 1 to 10, like a graded card, except you can move it. Five categories, each scored on its own: who the car is, how much of its story is on record, the condition it is in, how original it is, and what an independent party has verified. This page is told only the condition and the miles, so this is where {car} starts.':
+    'Un número del 1 al 10, como una tarjeta calificada, solo que usted puede moverlo. Cinco categorías, cada una con su propio puntaje: quién es el auto, cuánta de su historia está registrada, en qué estado está, qué tan original es y qué ha verificado un tercero independiente. Esta página solo conoce el estado y las millas, así que aquí empieza su {car}.',
+  // The starting grade: the Garage's five-category grade, from what the home page is told.
+  'starting grade': 'calificación inicial',
+  'out of 10': 'de 10',
+  'out of 10 · from the condition and the miles you typed': 'de 10 · con el estado y las millas que usted escribió',
+  'add records in the Garage to raise this': 'agregue registros en el Garaje para subirla',
+  'only an independent verifier can raise this': 'solo un verificador independiente puede subirla',
+  'That is all this page is told about the car, and your own word on its condition counts up to 60. The other categories read its VIN, its papers, its photographs and its records. Those are kept in the Garage.':
+    'Eso es todo lo que esta página sabe del auto, y su propia palabra sobre el estado cuenta hasta 60. Las demás categorías leen su VIN, sus papeles, sus fotografías y sus registros. Todo eso se guarda en el Garaje.',
+  'each category is scored 0 to 100 on its own · the same five the Garage grades by · a card reads RAW there until its records take it to Documented':
+    'cada categoría se puntúa de 0 a 100 por separado · las mismas cinco con las que califica el Garaje · allí una tarjeta dice RAW hasta que sus registros la llevan a Documentado',
+  'Park it in the Garage': 'Estaciónelo en el Garaje',
+  'Park it in the Garage and its records raise the grade from here.': 'Estaciónelo en el Garaje y sus registros subirán la calificación desde aquí.',
   'Value today': 'Valor hoy',
   'one record, two faces. same QR.': 'un registro, dos caras. el mismo QR.',
   "The calculator stays free and anonymous. The record that prints a dealer's window sheet is the record that becomes a card. {yel}": 'La calculadora sigue gratis y anónima. El registro que imprime la hoja de ventana del concesionario es el que se convierte en tarjeta. {yel}',
@@ -445,7 +461,7 @@ export const ES: Record<string, string> = {
   'The shine is earned': 'El brillo se gana',
   'Foil follows the grade and is never for sale. A 9.8 Showroom throws rainbows; a 5.4 Daily is matte chrome. You can tell the grade from across the room.': 'El foil sigue a la calificación y nunca se vende. Un 9.8 Showroom lanza arcoíris; un 5.4 Daily es cromo mate. La calificación se nota desde el otro lado del salón.',
   'The back tells the story': 'El reverso cuenta la historia',
-  "The rear label carries the chart: your car on its model's curve, with every service, mod and mileage check marked on the line.": 'La etiqueta trasera lleva la gráfica: su auto sobre la curva de su modelo, con cada servicio, modificación y chequeo de millaje marcado en la línea.',
+  "The back carries the grade's five categories, each with where it stands, and the chart: your car on its model's curve.": 'El reverso lleva las cinco categorías de la calificación, cada una con su puntaje, y la gráfica: su auto sobre la curva de su modelo.',
   'Raw until slabbed, then minted once': 'Raw hasta el estuche, acuñada una sola vez',
   'A valued car is a raw card. Three entries later it goes in the case, gets its first grade, and is minted with a set, a number and its stamps. The grade can move. The minting never does.': 'Un auto valorado es una tarjeta raw. Tres entradas después entra al estuche, recibe su primera calificación y se acuña con una serie, un número y sus sellos. La calificación puede moverse. La acuñación, nunca.',
   'world': 'mundo',
@@ -495,7 +511,7 @@ export const ES: Record<string, string> = {
   'The grade is free, for everyone, forever. A Keyholder pays for the work behind a Verified card: receipts checked, odometer photos read, the VIN history pulled, a certificate every quarter.': 'La calificación es gratis, para todos, para siempre. Un Keyholder paga por el trabajo detrás de una tarjeta Verificada: recibos revisados, fotos del odómetro leídas, el historial del VIN consultado, un certificado cada trimestre.',
   'Charlotte · Series 1': 'Charlotte · Serie 1',
   'verified': 'verificado',
-  'would read {g} {tier} · verified': 'diría {g} {tier} · verificado',
+  'starting grade {g} · verified work raises it': 'calificación inicial {g} · el trabajo verificado la sube',
   'member': 'miembro',
   'since': 'desde',
   'Yearly': 'Anual',
@@ -548,8 +564,6 @@ export const ES: Record<string, string> = {
   'your car': 'su auto',
   'expected curve': 'curva esperada',
   'range': 'rango',
-  '{n} entries on the trail': '{n} entradas en el historial',
-  'your entries will mark this line': 'sus entradas marcarán esta línea',
   'MiCar grade': 'Calificación MiCar',
   'ungraded': 'sin calificar',
   'scan to see the car': 'escanee para ver el auto',
@@ -561,45 +575,17 @@ export const ES: Record<string, string> = {
   'Inspect the card': 'Inspeccionar la tarjeta',
   'tap the card to inspect it': 'toque la tarjeta para inspeccionarla',
   'Close': 'Cerrar',
-  'Slab · sealed today': 'Estuche · sellado hoy',
   'Raw card · not yet in a case': 'Tarjeta raw · todavía sin estuche',
-  'Trail': 'Historial',
-  '{n} entries · {m} months': '{n} entradas · {m} meses',
-  'receipts on file': 'recibos archivados',
-  'odometer photos': 'fotos del odómetro',
-  '{n} accident on record': '{n} accidente registrado',
   'no accidents on record': 'sin accidentes registrados',
-  '{n} more entries put it in the case; it would grade {g}': '{n} entradas más la ponen en el estuche; calificaría {g}',
   'Flip the card': 'Voltear la tarjeta',
   'UV light': 'Luz UV',
   "move to tilt · the QR opens the car's page": 'mueva para inclinar · el QR abre la página del auto',
-  'This car, as it is': 'Este auto, tal como está',
-  'Three entries in': 'Con tres entradas',
-  'A year on record': 'Un año registrado',
-  'Two years, verified': 'Dos años, verificado',
-  'Accidents on record': 'Accidentes registrados',
-  'One': 'Uno',
-  'Two or more': 'Dos o más',
-  'Holds value vs its class': 'Conserva valor frente a su clase',
-  'Miles vs expected': 'Millas frente a lo esperado',
-  'Trail entries': 'Entradas del historial',
-  'Months parked': 'Meses estacionado',
-  'Receipts attached to service and mods': 'Recibos adjuntos a servicios y modificaciones',
-  'Odometer photo on the last mileage check': 'Foto del odómetro en el último chequeo de millaje',
-  'Keyholder: entries verified by MiCar count double': 'Keyholder: las entradas verificadas por MiCar cuentan doble',
-  'Try:': 'Pruebe:',
   'condition': 'condición',
   'curve': 'curva',
-  'trail': 'historial',
   'miles': 'millas',
-  'curve = 6 + 0.4 × (% vs class) · trail = entries/12 × 5 + months/24 × 3 + receipts + photo (verified entries count double) · miles = 5 − (% vs expected)/8': 'curva = 6 + 0.4 × (% frente a su clase) · historial = entradas/12 × 5 + meses/24 × 3 + recibos + foto (las verificadas cuentan doble) · millas = 5 − (% frente a lo esperado)/8',
-  'Ungraded': 'Sin calificar',
-  'MiCar grade · slabbed · reads {g} on the label': 'Calificación MiCar · en estuche · la etiqueta dice {g}',
-  '{n} more entries to slab · would grade {g}': '{n} entradas más para el estuche · calificaría {g}',
-  // tiers, finishes and the four parts (looked up by name)
+  // tiers (looked up by name) and the raw card
   'Parts': 'Piezas', 'Project': 'Proyecto', 'Rough': 'Tosco', 'Worn': 'Gastado', 'Daily': 'Diario', 'Driver': 'Driver', 'Garage-kept': 'De garaje', 'Concours': 'Concurso', 'Showroom': 'Showroom',
-  'no case yet': 'todavía sin estuche', 'matte chrome': 'cromo mate', 'blue foil': 'foil azul', 'holo foil': 'foil holo', 'rainbow foil': 'foil arcoíris',
-  'Curve': 'Curva',
+  'no case yet': 'todavía sin estuche',
 };
 
 export const ES_MONTHS = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];

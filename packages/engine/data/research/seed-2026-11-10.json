@@ -1,0 +1,853 @@
+{
+ "gathered": "2026-11-10",
+ "method": "Web search results and their summaries. Pages could not be opened, so no figure here was checked against a primary document.",
+ "records": [
+  {
+   "id": "2024-honda-civic-sedan-lx",
+   "year": 2024,
+   "make": "Honda",
+   "model": "Civic Sedan",
+   "trim": "LX",
+   "bodyClass": "sedan",
+   "fields": [
+    {
+     "key": "engineDescription",
+     "text": "2.0-liter (1,996 cc) naturally aspirated in-line 4-cylinder, 16-valve DOHC i-VTEC, multi-point fuel injection",
+     "publisher": "Honda (American Honda newsroom, hondanews.com)",
+     "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f091c7d-2024-honda-civic-sedan-specifications-features",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.edmunds.com/honda/civic/2024/st-402002842/features-specs/",
+     "note": "2024 Civic Sedan spec sheet, LX/Sport engine: In-Line 4-Cylinder, 1,996 cc, 16-Valve DOHC i-VTEC, multi-point injection, 10.8:1 compression. Honda Information Center's 2024 trim sheet words it '2.0-liter, DOHC VTEC 4-cylinder engine'. 'Naturally aspirated' is Honda's wording in its 2022 launch material for this generation. Read from search-result summary; page not opened."
+    },
+    {
+     "key": "displacementL",
+     "number": 2,
+     "publisher": "Honda (American Honda newsroom, hondanews.com)",
+     "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f091c7d-2024-honda-civic-sedan-specifications-features",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.fueleconomy.gov/feg/Find.do?action=sbs&id=47071",
+     "note": "Honda's sheet gives 1,996 cc and Honda markets the engine as 2.0-liter; EPA lists it as 2.0 L."
+    },
+    {
+     "key": "cylinders",
+     "number": 4,
+     "publisher": "Honda (American Honda newsroom, hondanews.com)",
+     "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f091c7d-2024-honda-civic-sedan-specifications-features",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.fueleconomy.gov/feg/Find.do?action=sbs&id=47071",
+     "note": "In-line 4-cylinder; EPA listing also shows 4 cyl."
+    },
+    {
+     "key": "aspiration",
+     "text": "naturally-aspirated",
+     "publisher": "Honda (American Honda newsroom, hondanews.com)",
+     "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-53541be6030b25a47a2899aba12a4c35-all-new-2022-civic-sedan-arrives-at-honda-dealerships-today-raising-compact-sedan-game",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "Explicit wording ('a naturally aspirated 2.0-liter (LX and Sport) or a turbocharged 1.5-liter (EX and Touring)') is from Honda's 2022 Civic Sedan launch release / press kit for this generation. The 2024 spec sheet lists the same 1,996 cc, 158-hp engine for the LX with no turbocharger. Not stated in a 2024-specific page that surfaced."
+    },
+    {
+     "key": "fuelType",
+     "text": "gasoline",
+     "publisher": "Honda (American Honda newsroom, hondanews.com)",
+     "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f091c7d-2024-honda-civic-sedan-specifications-features",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.fueleconomy.gov/feg/Find.do?action=sbs&id=47071",
+     "note": "Honda sheet: Required Fuel - Regular Unleaded (12.4-gal tank). EPA rates it on regular gasoline."
+    },
+    {
+     "key": "horsepower",
+     "number": 158,
+     "publisher": "Honda (American Honda newsroom, hondanews.com)",
+     "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f091c7d-2024-honda-civic-sedan-specifications-features",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.edmunds.com/honda/civic/2024/st-402002842/features-specs/",
+     "note": "158 hp @ 6,500 rpm (SAE net), LX and Sport. EX/Touring use the 180-hp 1.5 turbo. The 2025 model-year LX changed to a 150-hp 2.0-liter; that figure does not apply to this car. Also on Honda Information Center's 2024 LX sheet."
+    },
+    {
+     "key": "torqueLbFt",
+     "number": 138,
+     "publisher": "Honda (American Honda newsroom, hondanews.com)",
+     "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f091c7d-2024-honda-civic-sedan-specifications-features",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.edmunds.com/honda/civic/2024/st-402002842/features-specs/",
+     "note": "138 lb-ft @ 4,200 rpm (SAE net). Also on Honda Information Center's 2024 LX sheet."
+    },
+    {
+     "key": "transmission",
+     "text": "Continuously Variable Transmission (CVT)",
+     "publisher": "Honda (American Honda newsroom, hondanews.com)",
+     "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f091c7d-2024-honda-civic-sedan-specifications-features",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.edmunds.com/honda/civic/2024/st-402002842/features-specs/",
+     "note": "Honda's sheet identifies the LX/Sport unit as its M-CVT (the turbo trims use a different LL-CVT). The LX has no paddle shifters; the Sport adds them."
+    },
+    {
+     "key": "transmissionType",
+     "text": "cvt",
+     "publisher": "Honda (American Honda newsroom, hondanews.com)",
+     "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f091c7d-2024-honda-civic-sedan-specifications-features",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.fueleconomy.gov/feg/Find.do?action=sbs&id=47071",
+     "note": "EPA lists the same car as 'Automatic (variable gear ratios)'."
+    },
+    {
+     "key": "drivetrain",
+     "text": "FWD",
+     "publisher": "Honda (American Honda newsroom, hondanews.com)",
+     "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-53541be6030b25a47a2899aba12a4c35-all-new-2022-civic-sedan-arrives-at-honda-dealerships-today-raising-compact-sedan-game",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.edmunds.com/honda/civic/2024/st-402002842/features-specs/",
+     "note": "Honda's 2022 launch material for this generation says the 2.0-liter 'powers the front wheels through a Continuously Variable Transmission'. No 2024-specific Honda drivetrain line surfaced in search; Edmunds' 2024 LX page lists front-wheel drive, and California's Drive Clean listing for the 2024 Civic 4Dr 2.0L CVT also shows front-wheel drive."
+    },
+    {
+     "key": "curbWeightLb",
+     "number": 2877,
+     "publisher": "Honda (American Honda newsroom, hondanews.com)",
+     "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f091c7d-2024-honda-civic-sedan-specifications-features",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.edmunds.com/honda/civic/2024/st-402002842/features-specs/",
+     "note": "LX column of the 2024 Civic Sedan spec sheet: 2,877 lb (Sport 2,935, EX 3,004, Touring 3,077). The same LX figure appears on automobiles.honda.com's 2024 trim comparison, Honda Information Center, Edmunds and cars.com. Other numbers seen (2,928, 3,054, 2,895 lb) belong to other body styles, trims or markets - see conflicts."
+    },
+    {
+     "key": "zeroToSixtySec",
+     "number": 9.7,
+     "publisher": "Consumer Reports",
+     "url": "https://www.consumerreports.org/cars/honda/civic/2024/road-test-report/",
+     "sourceKind": "instrumented-test",
+     "basis": "measured-test",
+     "note": "Measured by Consumer Reports on its tested Civic SPORT sedan (2022 test car, carried on CR's 2022-2024 Civic pages) with the same 158-hp 2.0L / CVT / FWD powertrain - not an LX. Per Honda the Sport weighs 2,935 lb vs the LX's 2,877 lb and wears 18-inch wheels. Honda publishes no 0-60 claim. No Car and Driver or MotorTrend test of a 2.0-liter 11th-generation sedan surfaced (their tests found were of the 1.5-turbo Touring, about 7.4-7.5 s), so there is no second measured result. Read from a search summary of a paywalled page."
+    },
+    {
+     "key": "epaCityMpg",
+     "number": 31,
+     "publisher": "EPA fueleconomy.gov",
+     "url": "https://www.fueleconomy.gov/feg/Find.do?action=sbs&id=47071",
+     "sourceKind": "agency",
+     "basis": "government-rating",
+     "corroboratingUrl": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f08fa05-2024-honda-civic-sedan-pricing-and-epa-ratings",
+     "note": "2024 Honda Civic 4Dr, 2.0 L 4-cyl, Automatic (variable gear ratios), regular gasoline, EPA vehicle ID 47071. The Sport's AV-S7 CVT listing is rated lower (30/37/33); do not mix."
+    },
+    {
+     "key": "epaHighwayMpg",
+     "number": 40,
+     "publisher": "EPA fueleconomy.gov",
+     "url": "https://www.fueleconomy.gov/feg/Find.do?action=sbs&id=47071",
+     "sourceKind": "agency",
+     "basis": "government-rating",
+     "corroboratingUrl": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f08fa05-2024-honda-civic-sedan-pricing-and-epa-ratings",
+     "note": "Same EPA listing (ID 47071). Honda's 2024 pricing release shows LX 31/40/35."
+    },
+    {
+     "key": "epaCombinedMpg",
+     "number": 35,
+     "publisher": "EPA fueleconomy.gov",
+     "url": "https://www.fueleconomy.gov/feg/Find.do?action=sbs&id=47071",
+     "sourceKind": "agency",
+     "basis": "government-rating",
+     "corroboratingUrl": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f08fa05-2024-honda-civic-sedan-pricing-and-epa-ratings",
+     "note": "Same EPA listing (ID 47071); 2.9 gal/100 mi. Honda's 2024 pricing release and Edmunds both show 35 combined for the LX."
+    },
+    {
+     "key": "groundClearanceIn",
+     "number": 5.3,
+     "publisher": "CarEdge",
+     "url": "https://caredge.com/honda/civic/2024/",
+     "sourceKind": "aggregator",
+     "basis": "republished",
+     "corroboratingUrl": "https://integration.honda.ca/civic_sedan/2022/specs",
+     "note": "Aggregator figure for the 2024 LX. Honda's US sources that surfaced (newsroom spec sheet, Information Center, consumer site) do not list ground clearance. Honda Canada's 2022 Civic Sedan spec page lists 134 mm no-load for LX/EX/Sport/Touring (same generation, Canadian market, metric - left unconverted), which is consistent. Other aggregators disagree: AutoPadre 4.8 in (matches the Type R figure), Auto123 4.4 in (trim unclear). Weak - treat with caution."
+    },
+    {
+     "key": "construction",
+     "text": "unibody",
+     "publisher": "Auto123",
+     "url": "https://www.auto123.com/en/news/honda-civic-2022-devoilee/68072",
+     "sourceKind": "aggregator",
+     "basis": "republished",
+     "corroboratingUrl": "https://neofiliac.com/product/2858/honda-civic",
+     "note": "No Honda document using the word 'unibody' or 'unit-body' surfaced. Honda's 2022 press kit describes the Advanced Compatibility Engineering (ACE) body structure and 'the most rigid Civic body'. 'Unibody' is the wording of Auto123's coverage of the 2022 reveal and of a third-party spec listing for the 11th-generation sedan. Applies to the generation, not specifically to the 2024 LX."
+    },
+    {
+     "key": "suspensionFront",
+     "text": "MacPherson strut",
+     "publisher": "Honda (American Honda newsroom, hondanews.com)",
+     "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f091c7d-2024-honda-civic-sedan-specifications-features",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "Listed for all trims. Honda Information Center's 2024 LX sheet also lists a MacPherson strut front suspension (same publisher, so not an independent corroboration)."
+    },
+    {
+     "key": "suspensionRear",
+     "text": "Multi-link",
+     "publisher": "Honda (American Honda newsroom, hondanews.com)",
+     "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f091c7d-2024-honda-civic-sedan-specifications-features",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "Listed for all trims. Honda Information Center's 2024 LX sheet also lists a multi-link rear suspension (same publisher, so not an independent corroboration)."
+    },
+    {
+     "key": "brakesFront",
+     "text": "Power-assisted ventilated disc, 11.1 in",
+     "publisher": "Honda (American Honda newsroom, hondanews.com)",
+     "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f091c7d-2024-honda-civic-sedan-specifications-features",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "Same size listed across LX, Sport, EX and Touring. Honda's 2024 trim comparison (automobiles.honda.com) repeats 11.1 in / 10.2 in and the Information Center LX sheet lists 4-wheel disc brakes (same publisher)."
+    },
+    {
+     "key": "brakesRear",
+     "text": "Power-assisted solid disc, 10.2 in",
+     "publisher": "Honda (American Honda newsroom, hondanews.com)",
+     "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f091c7d-2024-honda-civic-sedan-specifications-features",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.detroitaxle.com/?p=917367",
+     "note": "Rear disc on the LX, not a drum. A parts-fitment listing gives a 10.24 in (260 mm) rear rotor for the 2024 LX. Search summaries of cars.com LX pages were inconsistent (one read 'drum', a later one disc front and rear); Honda's own sheets are unambiguous."
+    },
+    {
+     "key": "powertrainWarrantyYears",
+     "number": 5,
+     "publisher": "Honda (automobiles.honda.com)",
+     "url": "https://automobiles.honda.com/2024/civic-sedan/warranty",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.consumeraffairs.com/automotive/honda-civic-extended-warranty.html",
+     "note": "5-Year/60,000-Mile Powertrain Limited Warranty, whichever comes first; basic New Vehicle Limited Warranty is 3 years/36,000 miles."
+    },
+    {
+     "key": "powertrainWarrantyMiles",
+     "number": 60000,
+     "publisher": "Honda (automobiles.honda.com)",
+     "url": "https://automobiles.honda.com/2024/civic-sedan/warranty",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.consumeraffairs.com/automotive/honda-civic-extended-warranty.html",
+     "note": "5-Year/60,000-Mile Powertrain Limited Warranty, whichever comes first."
+    },
+    {
+     "key": "baseMsrpUsd",
+     "number": 23950,
+     "publisher": "Honda (American Honda newsroom, hondanews.com)",
+     "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f08fa05-2024-honda-civic-sedan-pricing-and-epa-ratings",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.edmunds.com/honda/civic/2024/st-402002842/features-specs/",
+     "note": "2024 Civic Sedan LX (2.0L) MSRP excluding the $1,095 destination charge; $25,045 with destination. Figures of $25,045 and $25,100 on other sites include destination; the 2025 LX is $24,250."
+    }
+   ],
+   "notFound": [
+    "topSpeedMph",
+    "topSpeedGoverned",
+    "lateralGripG",
+    "braking70to0Ft",
+    "braking60to0Ft"
+   ],
+   "conflicts": [
+    {
+     "key": "curbWeightLb",
+     "values": "2,877 lb (Honda newsroom 2024 sedan spec sheet LX column; Honda consumer site; Honda Information Center; Edmunds; cars.com LX) vs 2,928 lb (a second cars.com 'LX' page and KBB's table, which mix in the hatchback) vs 3,054 lb (Yahoo Autos buyer's guide, trim unspecified) vs 2,895 lb (Auto123, Canadian LX-B)",
+     "resolution": "Used 2,877 lb: Honda's own figure for the US 2024 Civic Sedan LX, repeated by two independent listings. The others belong to a different body style, an unspecified trim or the Canadian market."
+    },
+    {
+     "key": "zeroToSixtySec",
+     "values": "9.7 s (Consumer Reports, measured, Civic Sport 2.0L CVT) vs 9.2 s (motorandwheels.com and gearshifters.org, no test named) vs about 8.5 s (Autobytel pre-launch estimate) vs 8.68 s and 9.47 s (MotorMatchup simulations) vs about 7.9 s (autofiles.com listing, unsourced)",
+     "resolution": "Used 9.7 s: the only figure tied to a named, measured test of the 2.0-liter/CVT powertrain. It is from a Sport, not an LX, and has no second measured result behind it. Estimates, simulations and unsourced listings were rejected."
+    },
+    {
+     "key": "groundClearanceIn",
+     "values": "5.3 in (CarEdge, 2024 and 2022 LX pages) vs 4.8 in (AutoPadre, model-wide; equals the Civic Type R figure on Honda's sheets) vs 4.4 in (Auto123, trim unclear); cars.com shows N/A",
+     "resolution": "Used 5.3 in because Honda Canada's 2022 Civic Sedan sheet gives 134 mm no-load for the same generation, which agrees with it. Still aggregator-sourced; no US Honda document listing it was found."
+    },
+    {
+     "key": "baseMsrpUsd",
+     "values": "$23,950 (Honda newsroom pricing release; Edmunds LX page; cars.com) vs $25,045 (Edmunds trims page and Yahoo, includes $1,095 destination) vs $25,100 and $22,100 (KBB; the latter looks like a used-market value) vs $24,250 (Edmunds 'At a Glance', which is the 2025 LX price)",
+     "resolution": "Used $23,950, Honda's published MSRP excluding destination."
+    },
+    {
+     "key": "brakesRear",
+     "values": "Solid rear disc, 10.2 in (Honda newsroom spec sheet; Honda consumer site; Honda Information Center '4-wheel disc brakes'; parts listing 10.24 in rotor) vs 'drum' (one search summary of a cars.com LX page; a later summary of cars.com read disc front and rear)",
+     "resolution": "Used Honda's rear-disc specification; the drum reading is unconfirmed and contradicted by every Honda source."
+    },
+    {
+     "key": "topSpeedMph",
+     "values": "126 mph (Yahoo Autos buyer's guide, trim and basis unstated) vs 127 mph (MotorMatchup simulation for LX CVT) vs 112 mph and 126 mph (carindigo, internally inconsistent) vs '125-130 mph' (fatboysoffroad estimate)",
+     "resolution": "None used. No Honda figure and no instrumented test of a 2.0-liter sedan gives a top speed or says whether it is governed, so topSpeedMph and topSpeedGoverned are left as not found."
+    }
+   ],
+   "summary": "Twenty of the 24 fields come from Honda's own 2024 newsroom spec sheet, pricing release, consumer site and 2022 launch material (engine, 158 hp / 138 lb-ft, CVT, FWD, 2,877-lb LX curb weight, suspension, brakes, MSRP, warranty) plus EPA fueleconomy.gov for 31/40/35 mpg, with Edmunds corroborating the key numbers; everything was read from search-result summaries because pages could not be opened. Two fields rest on aggregator or secondary sites alone and are the weakest entries: ground clearance (5.3 in from CarEdge, with other aggregators saying 4.8 and 4.4 in) and unibody construction (Auto123's wording, no Honda document found). The only measured 0-60 (9.7 s, Consumer Reports) is from a Civic Sport with the same 2.0L/CVT powertrain rather than an LX and has no second test behind it, and no manufacturer or instrumented top speed, skidpad or braking figure for an LX-spec car was found (the Car and Driver and MotorTrend sedan tests that surfaced were of the 1.5-turbo Touring), so those five fields are listed as not found; MPGe, EV range and production units do not apply to this car."
+  },
+  {
+   "id": "2024-nissan-gt-r-nismo",
+   "year": 2024,
+   "make": "Nissan",
+   "model": "GT-R",
+   "trim": "NISMO",
+   "bodyClass": "sports-car",
+   "fields": [
+    {
+     "key": "engineDescription",
+     "text": "NISMO-tuned 3.8-liter DOHC 24-valve twin-turbocharged V6 (VR38DETT) with NISMO GT3 twin-turbo system",
+     "publisher": "Nissan USA Newsroom (2024 GT-R press kit)",
+     "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.nissanusa.com/interactivebrochures/sportscars/gtr/gt-r-trim-levels/index.html?nav=top",
+     "note": "Press kit lists bore x stroke 95.5 x 88.4 mm and 9.0:1 compression. The 'DOHC 24-valve' wording is from nissanusa.com's 2024 trim page."
+    },
+    {
+     "key": "displacementL",
+     "number": 3.8,
+     "publisher": "Nissan USA Newsroom (2024 GT-R press kit)",
+     "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.fueleconomy.gov/feg/bymodel/2024_Nissan_GT-R.shtml",
+     "note": "Press kit: 3.8-liter, bore x stroke 95.5 x 88.4 mm. EPA lists 3.8 L."
+    },
+    {
+     "key": "cylinders",
+     "number": 6,
+     "publisher": "Nissan USA Newsroom (2024 GT-R press kit)",
+     "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.fueleconomy.gov/feg/bymodel/2024_Nissan_GT-R.shtml",
+     "note": "V6. EPA lists 6 cyl."
+    },
+    {
+     "key": "aspiration",
+     "text": "twin-turbocharged",
+     "publisher": "Nissan USA Newsroom (2024 GT-R press kit)",
+     "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "Press kit describes a twin-turbo V6 with the NISMO GT3 twin-turbo system."
+    },
+    {
+     "key": "fuelType",
+     "text": "gasoline",
+     "publisher": "Nissan USA Newsroom (2024 GT-R press kit)",
+     "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.fueleconomy.gov/feg/bymodel/2024_Nissan_GT-R.shtml",
+     "note": "Premium unleaded; the press kit recommends 93 AKI for the NISMO. EPA lists premium gasoline."
+    },
+    {
+     "key": "horsepower",
+     "number": 600,
+     "publisher": "Nissan USA Newsroom (2024 GT-R press kit)",
+     "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.edmunds.com/nissan/gt-r/2024/",
+     "note": "600 hp @ 6,800 rpm, NISMO only (Premium and T-spec are 565 hp). nissanusa.com and Edmunds give the same figure."
+    },
+    {
+     "key": "torqueLbFt",
+     "number": 481,
+     "publisher": "Nissan USA Newsroom (2024 GT-R press kit)",
+     "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.edmunds.com/nissan/gt-r/2024/",
+     "note": "481 lb-ft @ 3,600-5,600 rpm, NISMO only (Premium and T-spec are 467 lb-ft)."
+    },
+    {
+     "key": "transmission",
+     "text": "6-speed dual-clutch sequential rear transaxle",
+     "publisher": "Nissan USA Newsroom (2024 GT-R press kit)",
+     "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.edmunds.com/nissan/gt-r/2024/",
+     "note": "EPA lists it as Automatic (AM-S6). Edmunds describes a 6-speed dual-clutch automatic."
+    },
+    {
+     "key": "transmissionType",
+     "text": "dual-clutch",
+     "publisher": "Nissan USA Newsroom (2024 GT-R press kit)",
+     "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim"
+    },
+    {
+     "key": "drivetrain",
+     "text": "AWD",
+     "publisher": "Nissan USA Newsroom (2024 GT-R press kit)",
+     "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "ATTESA E-TS all-wheel drive with rear-mounted transaxle. The NISMO gained a front limited-slip differential for 2024."
+    },
+    {
+     "key": "curbWeightLb",
+     "number": 3867,
+     "publisher": "Nissan USA Newsroom (2024 GT-R press kit)",
+     "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.edmunds.com/nissan/gt-r/2024/st-402012987/features-specs",
+     "note": "NISMO table in the press kit: 2,119 lb front + 1,748 lb rear = 3,867 lb, 54/46 split, GVWR 4,727 lb. The Premium/T-spec table shows 3,935 lb. Edmunds' NISMO page also lists 3,867 lb. Some listings show 3,865 lb (see conflicts)."
+    },
+    {
+     "key": "zeroToSixtySec",
+     "number": 2.9,
+     "publisher": "Motor1.com (relaying Nissan's claim)",
+     "url": "https://www.motor1.com/reviews/404395/2020-nissan-gt-r-nismo-coupe-review/",
+     "sourceKind": "aggregator",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.gtrlife.com/threads/motortrend-best-drivers-car-2017-gtr-nismo-11th-place.270865/",
+     "note": "Not a 2024-model-year figure and not from Nissan's own pages: Nissan's 2024 US press kit and nissanusa.com give no 0-60 time. Motor1's review of the 2020 GT-R NISMO (same 600-hp powertrain) says 'Nissan says the GT-R Nismo will hit 60 miles per hour in 2.9 seconds' with launch control, and its spec table repeats 2.9 s. Corroboration is a measured one: MotorTrend recorded 2.9 s on a 2017 NISMO (and on a 2015 NISMO), as quoted on the GT-R Life forum. MotorWeek's own test of a 2020 NISMO recorded 3.3 s (see conflicts)."
+    },
+    {
+     "key": "topSpeedMph",
+     "number": 196,
+     "publisher": "evo (relaying Nissan's claim)",
+     "url": "https://www.evo.co.uk/nissan/gt-r/nismo",
+     "sourceKind": "aggregator",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.mobile.de/auto/nissan/gt-r/2009/coupe/modell/daten-fakten/",
+     "note": "Nissan USA publishes no top speed for the 2024 GT-R NISMO. 196 mph is Nissan's European-market claim for the 600 PS GT-R NISMO as shown in evo's spec panel; mobile.de states that Nissan gives 315 km/h for the same car. It is not a US-market or 2024-specific figure. US outlets commonly quote 205 mph without a traceable Nissan source (see conflicts). Whether the US car is electronically limited was not sourced."
+    },
+    {
+     "key": "epaCityMpg",
+     "number": 16,
+     "publisher": "EPA fueleconomy.gov",
+     "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Nissan_GT-R.shtml",
+     "sourceKind": "agency",
+     "basis": "government-rating",
+     "corroboratingUrl": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
+     "note": "The search showed a single 2024 GT-R entry (6 cyl, 3.8 L, Automatic AM-S6, premium gasoline), not split by trim. Nissan's press kit repeats 16/22/18 in the NISMO specifications."
+    },
+    {
+     "key": "epaHighwayMpg",
+     "number": 22,
+     "publisher": "EPA fueleconomy.gov",
+     "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Nissan_GT-R.shtml",
+     "sourceKind": "agency",
+     "basis": "government-rating",
+     "corroboratingUrl": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
+     "note": "Single 2024 GT-R entry, not split by trim. Nissan's press kit repeats 16/22/18 in the NISMO specifications."
+    },
+    {
+     "key": "epaCombinedMpg",
+     "number": 18,
+     "publisher": "EPA fueleconomy.gov",
+     "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Nissan_GT-R.shtml",
+     "sourceKind": "agency",
+     "basis": "government-rating",
+     "corroboratingUrl": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
+     "note": "Single 2024 GT-R entry, not split by trim. Nissan's press kit repeats 16/22/18 in the NISMO specifications; KBB's NISMO page shows the same."
+    },
+    {
+     "key": "lateralGripG",
+     "number": 1.02,
+     "publisher": "MotorTrend test data as quoted on GT-R Life (forum)",
+     "url": "https://www.gtrlife.com/threads/motortrend-best-drivers-car-2017-gtr-nismo-11th-place.270865/",
+     "sourceKind": "aggregator",
+     "basis": "republished",
+     "note": "NOT the 2024 car. This is MotorTrend's skidpad average for a 2017 GT-R NISMO (Best Driver's Car 2017), quoted second-hand on a forum. Same R35 generation and NISMO trim with the same rated output, but it predates the 2020 tire, turbo and brake update and the 2024 front limited-slip differential. MotorTrend's 2015 NISMO first test recorded 1.06 g. No 2020-2024 NISMO skidpad test could be reached."
+    },
+    {
+     "key": "braking60to0Ft",
+     "number": 104,
+     "publisher": "MotorTrend test data as quoted on GT-R Life (forum)",
+     "url": "https://www.gtrlife.com/threads/motortrend-best-drivers-car-2017-gtr-nismo-11th-place.270865/",
+     "sourceKind": "aggregator",
+     "basis": "republished",
+     "note": "NOT the 2024 car. This is MotorTrend's 60-0 mph stop for a 2017 GT-R NISMO, quoted second-hand on a forum. That car had steel rotors; the 2024 NISMO has carbon-ceramic rotors (fitted since 2020), so treat it as indicative only. FastestLaps lists 97 ft for MotorTrend's 2015 NISMO test. No 2020-2024 NISMO braking test could be reached."
+    },
+    {
+     "key": "construction",
+     "text": "unibody",
+     "publisher": "Nissan USA Newsroom (2024 GT-R press kit)",
+     "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "Body/Chassis table lists a unibody in steel, carbon fiber and die-cast aluminum. The NISMO has a carbon-fiber roof, hood, front fenders and trunk lid."
+    },
+    {
+     "key": "suspensionFront",
+     "text": "Independent double wishbone (aluminum) with NISMO-tuned springs and Bilstein DampTronic 3-mode driver-adjustable mono-tube dampers",
+     "publisher": "Nissan USA Newsroom (2024 GT-R press kit)",
+     "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "Press kit lists linear-rate front springs for the NISMO and unique NISMO shock settings and spring rates."
+    },
+    {
+     "key": "suspensionRear",
+     "text": "Independent multi-link (aluminum) with NISMO-tuned springs and Bilstein DampTronic 3-mode driver-adjustable mono-tube dampers",
+     "publisher": "Nissan USA Newsroom (2024 GT-R press kit)",
+     "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "Press kit lists progressive-rate rear springs for the NISMO. nissanusa.com's trim page adds a 17.3 mm hollow rear stabilizer bar."
+    },
+    {
+     "key": "brakesFront",
+     "text": "Brembo six-piston monoblock calipers; 16.14 x 1.50 in full-floating, vented and drilled carbon-ceramic rotors",
+     "publisher": "Nissan USA Newsroom (2024 GT-R press kit)",
+     "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "nissanusa.com gives the same 16.14 in front carbon-ceramic rotor size with 6-piston calipers."
+    },
+    {
+     "key": "brakesRear",
+     "text": "Brembo four-piston monoblock calipers; 15.35 x 1.26 in full-floating, vented and drilled carbon-ceramic rotors",
+     "publisher": "Nissan USA Newsroom (2024 GT-R press kit)",
+     "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "nissanusa.com gives the same 15.35 in rear carbon-ceramic rotor size with 4-piston calipers."
+    },
+    {
+     "key": "powertrainWarrantyYears",
+     "number": 5,
+     "publisher": "Nissan USA (2024 GT-R Warranty Information Booklet)",
+     "url": "https://www.nissanusa.com/content/dam/Nissan/us/manuals-and-guides/gtr/2024/2024-nissan-gtr-warranty-booklet.pdf",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.edmunds.com/nissan/gt-r/2024/st-402012987/features-specs",
+     "note": "Booklet wording: powertrain coverage is 60 months or 60,000 miles, whichever occurs first. Edmunds lists 5 yr / 60,000 mi drivetrain for the NISMO."
+    },
+    {
+     "key": "powertrainWarrantyMiles",
+     "number": 60000,
+     "publisher": "Nissan USA (2024 GT-R Warranty Information Booklet)",
+     "url": "https://www.nissanusa.com/content/dam/Nissan/us/manuals-and-guides/gtr/2024/2024-nissan-gtr-warranty-booklet.pdf",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.edmunds.com/nissan/gt-r/2024/st-402012987/features-specs",
+     "note": "60 months or 60,000 miles, whichever occurs first."
+    },
+    {
+     "key": "baseMsrpUsd",
+     "number": 221090,
+     "publisher": "Nissan USA Newsroom (2024 GT-R press kit)",
+     "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.edmunds.com/nissan/gt-r/2024/st-402012987/features-specs",
+     "note": "Excludes the $1,895 destination and handling charge. Nissan's launch pricing release listed the NISMO at $220,990; the press kit table, nissanusa.com Build & Price, Edmunds and Cars.com show $221,090 (see conflicts)."
+    }
+   ],
+   "notFound": [
+    "topSpeedGoverned",
+    "braking70to0Ft",
+    "groundClearanceIn",
+    "productionUnits"
+   ],
+   "conflicts": [
+    {
+     "key": "zeroToSixtySec",
+     "values": "2.9 s (Nissan's claim with launch control, per Motor1's 2020 NISMO review; MotorTrend measured 2.9 s on 2015 and 2017 NISMOs, per GT-R Life forum reposts; 0-60specs and FastestLaps list a Car and Driver 2.9 s for the 2015 NISMO) vs 3.3 s (MotorWeek's own test of a 2020 NISMO, https://motorweek.org/road_tests/2020-nissan-gt-r-nismo/) vs 2.48 s (TopSpeed's 2020 'Driven' review, public-road run with no stated method; repeated by a Wikipedia list) vs spec-site estimates from 2.4 to 3.3 s",
+     "resolution": "Used 2.9 s: it is the only figure attributed to Nissan and it matches two MotorTrend instrumented tests of the same trim. MotorWeek's 3.3 s is the only measured result found on a publisher's own page for a 2020-on NISMO; use it instead if a strictly first-hand measured figure is required. No 2024-model-year test could be reached."
+    },
+    {
+     "key": "topSpeedMph",
+     "values": "196 mph / 315 km/h (Nissan's European claim, per evo, mobile.de and zeperfs) vs 205 mph (Motor1's 2020 NISMO spec table, TopSpeed, CarBuzz, U.S. News; none traced to a Nissan publication) vs 204 mph / 328 km/h (Wikipedia, 2016-2025 GT-R) vs 212 mph (Motor Matchup simulation)",
+     "resolution": "Used 196 mph because it is the only figure explicitly attributed to the manufacturer. Nissan USA publishes no top speed for the 2024 car, so this is a Europe-market claim for the same 600 PS NISMO, not a US or 2024-specific number."
+    },
+    {
+     "key": "curbWeightLb",
+     "values": "3,867 lb (Nissan 2024 press kit NISMO table; Edmunds NISMO page) vs 3,865 lb (Motor Matchup's 2024 NISMO listing; Motor1's 2020 NISMO spec table)",
+     "resolution": "Used 3,867 lb: it is Nissan's 2024 figure, its axle weights add up (2,119 + 1,748), and Edmunds matches it."
+    },
+    {
+     "key": "baseMsrpUsd",
+     "values": "$221,090 (Nissan 2024 press kit table, nissanusa.com Build & Price, Edmunds, Cars.com) vs $220,990 (Nissan's launch pricing release, https://usa.nissannews.com/releases/2024-nissan-gt-r-pricing-starts-at-120990; KBB's $222,885 is that figure plus $1,895 destination)",
+     "resolution": "Used $221,090, the figure in Nissan's current press kit; the $100 gap applies to every trim and looks like a mid-year price change. Use $220,990 if the launch MSRP is wanted."
+    },
+    {
+     "key": "lateralGripG",
+     "values": "1.02 g (MotorTrend, 2017 NISMO, via GT-R Life) vs 1.06 g (MotorTrend, 2015 NISMO first test, via GT-R Life) vs 1.08 g (FastestLaps model page, test not identified)",
+     "resolution": "Used the 2017 test as the most recent identifiable instrumented result for the trim. None is a 2020-2024 car, so drop the field if only a current-specification test is acceptable."
+    },
+    {
+     "key": "braking60to0Ft",
+     "values": "104 ft (MotorTrend, 2017 NISMO, via GT-R Life) vs 97 ft (MotorTrend, 2015 NISMO, via FastestLaps)",
+     "resolution": "Used the 2017 figure so grip and braking come from the same test. Both cars had steel rotors, unlike the carbon-ceramic 2024 NISMO, so drop the field if only a current-specification test is acceptable."
+    }
+   ],
+   "summary": "22 of 26 fields come from Nissan's own 2024 press kit and warranty booklet or from EPA fueleconomy.gov (all read from search-result summaries, since pages could not be opened); the other 4 (0-60, top speed, skidpad grip and 60-0 braking) rest on aggregator-class third-party relays, because Car and Driver, MotorTrend and Road & Track are blocked to the search tool and the web-search budget ran out before any 2020-2024 NISMO instrumented test could be reached. Weakest: grip and braking are MotorTrend numbers for a 2017 NISMO with steel brakes quoted on a forum, top speed is Nissan's European 196 mph claim relayed by evo (US outlets quote an unattributed 205 mph), and 0-60 is Nissan's 2.9 s claim relayed by Motor1 (MotorWeek itself measured 3.3 s on a 2020 NISMO). Not sourced: whether top speed is governed, 70-0 braking, a US ground clearance (Nissan Japan's spec sheet lists 110 mm for the JDM NISMO, left unconverted under the no-conversion rule) and any official build count; the EV fields do not apply."
+  },
+  {
+   "id": "2024-toyota-prius-le-fwd",
+   "year": 2024,
+   "make": "Toyota",
+   "model": "Prius",
+   "trim": "LE FWD",
+   "bodyClass": "hatchback",
+   "fields": [
+    {
+     "key": "engineDescription",
+     "text": "2.0-liter inline four-cylinder gasoline engine (M20A-FXS, Atkinson cycle) paired with two motor-generators; Toyota fifth-generation hybrid system",
+     "publisher": "Toyota USA Newsroom",
+     "url": "https://pressroom.toyota.com/stunning-style-and-elevated-efficiency-the-2024-toyota-prius/",
+     "corroboratingUrl": "https://attachments.priuschat.com/attachment-files/2022/12/230557_2023_Toyota_Prius_Product_Information_Final_12052022.pdf",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "The 2024 release describes a fifth-generation hybrid system pairing a 2.0L inline-four with two motor-generators through a planetary-type CVT. The engine code M20A-FXS appears in Toyota pressroom text; the code and the words 'Atkinson cycle' are also in Toyota's 2023 Prius Product Information sheet (corroborating link, a copy hosted on PriusChat, previous model year of the same generation). Read from search-result excerpts, not from the opened page."
+    },
+    {
+     "key": "displacementL",
+     "number": 2,
+     "publisher": "Toyota USA Newsroom",
+     "url": "https://pressroom.toyota.com/stunning-style-and-elevated-efficiency-the-2024-toyota-prius/",
+     "corroboratingUrl": "https://fueleconomy.gov/feg/Find.do?action=sbs&id=47243",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "Toyota describes a 2.0L engine; the EPA listing for the 2024 Prius reads 2.0 L, 4 cyl."
+    },
+    {
+     "key": "cylinders",
+     "number": 4,
+     "publisher": "Toyota USA Newsroom",
+     "url": "https://pressroom.toyota.com/stunning-style-and-elevated-efficiency-the-2024-toyota-prius/",
+     "corroboratingUrl": "https://fueleconomy.gov/feg/Find.do?action=sbs&id=47243",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "Toyota: 2.0L inline-four. EPA listing: 2.0 L, 4 cyl, Automatic (variable gear ratios)."
+    },
+    {
+     "key": "fuelType",
+     "text": "hybrid",
+     "publisher": "Toyota USA Newsroom",
+     "url": "https://pressroom.toyota.com/stunning-style-and-elevated-efficiency-the-2024-toyota-prius/",
+     "corroboratingUrl": "https://www.cars.com/research/toyota-prius-2024/specs/",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "Non-plug-in gasoline-electric hybrid (Cars.com: 'Gas/Electric Hybrid'); the EPA rates it on regular gasoline. The plug-in car is the separate Prius Prime."
+    },
+    {
+     "key": "horsepower",
+     "number": 194,
+     "publisher": "Toyota USA Newsroom",
+     "url": "https://pressroom.toyota.com/stunning-style-and-elevated-efficiency-the-2024-toyota-prius/",
+     "corroboratingUrl": "https://www.automotive-fleet.com/news/2024-toyota-prius-overview",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "Net combined hybrid system output for front-wheel-drive models; Toyota quotes 196 net hp with e-AWD. Automotive Fleet (trade press restating Toyota's announcement) and Edmunds (194 hp @ 6,000 rpm for the LE) give the same figure. KBB and CarsDirect list 150 hp, which is the gasoline engine alone; one Cars.com LE page shows 196 hp."
+    },
+    {
+     "key": "torqueLbFt",
+     "number": 152,
+     "publisher": "Toyota USA Newsroom",
+     "url": "https://pressroom.toyota.com/stunning-style-and-elevated-efficiency-the-2024-toyota-prius/",
+     "corroboratingUrl": "https://autoinformed.com/?p=87470",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "CAVEAT: this is not a combined system torque. Toyota's 2024 release headline reads 'Powerful Hybrid System with up to 196-hp and 152 lb.-ft. of torque' and does not say which component the 152 lb-ft describes; AutoInformed attributes 152 lb-ft to the front-drive motor-generator. Aggregators (Cars.com, AutoPadre, Auto123, KBB, CarsDirect) list 139 lb-ft @ 4,400 rpm, which is the gasoline engine alone. Toyota publishes no total system torque in the results found."
+    },
+    {
+     "key": "transmission",
+     "text": "Planetary-type continuously variable transmission with two motor-generators (EPA: Automatic, variable gear ratios)",
+     "publisher": "Toyota USA Newsroom",
+     "url": "https://pressroom.toyota.com/stunning-style-and-elevated-efficiency-the-2024-toyota-prius/",
+     "corroboratingUrl": "https://fueleconomy.gov/feg/Find.do?action=sbs&id=47243",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "Wording follows Toyota's release (engine and two motor-generators linked through a planetary-type CVT) and the EPA transmission descriptor."
+    },
+    {
+     "key": "transmissionType",
+     "text": "ecvt",
+     "publisher": "Toyota USA Newsroom",
+     "url": "https://pressroom.toyota.com/stunning-style-and-elevated-efficiency-the-2024-toyota-prius/",
+     "corroboratingUrl": "https://carsart.net/details/2023-toyota-prius-v-xw60-20-197-hp-hybrid-e-cvt",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "Classification: Toyota's release describes a planetary-type CVT joined to two motor-generators, i.e. the electronically controlled hybrid CVT; the release excerpt itself does not use the term 'eCVT'. The corroborating link is an aggregator listing that labels the same-generation 2.0 hybrid Prius 'e-CVT' (2023, non-US listing)."
+    },
+    {
+     "key": "drivetrain",
+     "text": "FWD",
+     "publisher": "Toyota USA Newsroom",
+     "url": "https://pressroom.toyota.com/stunning-style-and-elevated-efficiency-the-2024-toyota-prius/",
+     "corroboratingUrl": "https://fueleconomy.gov/feg/Find.do?action=sbs&id=47243",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "The LE is sold as front-wheel drive or with optional e-AWD; this record is the front-wheel-drive car (Toyota: '194 net hp on Front-Wheel Drive (FWD) equipped models'). The EPA's base 2024 Prius entry is the front-drive configuration."
+    },
+    {
+     "key": "curbWeightLb",
+     "number": 3097,
+     "publisher": "Kelley Blue Book",
+     "url": "https://www.kbb.com/toyota/prius/2024/specs",
+     "corroboratingUrl": "https://attachments.priuschat.com/attachment-files/2022/12/230557_2023_Toyota_Prius_Product_Information_Final_12052022.pdf",
+     "sourceKind": "aggregator",
+     "basis": "republished",
+     "note": "KBB lists 3,097 lb for the 2024 LE; Edmunds' 2024 trim comparison and TheCarConnection give the same. No Toyota document for model year 2024 was surfaced; the corroborating link is Toyota's own 2023 Prius Product Information sheet (same generation, copy hosted on PriusChat), which lists 'Curb Weight 3097 lbs. (LE)'. Cars.com and AutoPadre show 3,230 lb on LE pages; iSeeCars lists 3,230 lb against the AWD LE."
+    },
+    {
+     "key": "zeroToSixtySec",
+     "number": 7.2,
+     "publisher": "Toyota USA Newsroom",
+     "url": "https://pressroom.toyota.com/stunning-style-and-elevated-efficiency-the-2024-toyota-prius/",
+     "corroboratingUrl": "https://www.autoblog.com/buy/2024-Toyota-Prius/review/",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "Toyota's estimate for front-wheel-drive models (7.0 s with AWD); Autoblog restates it. Measured results found are for other cars of the same generation: Car and Driver recorded 7.1 s with a 2023 Prius Limited FWD (syndicated at https://autos.yahoo.com/tested-2023-toyota-prius-drives-120000770.html) and Edmunds recorded 7.7 s with a front-drive 2023 test car (https://www.edmunds.com/toyota/prius/2023/). No instrumented test of an LE was found."
+    },
+    {
+     "key": "epaCityMpg",
+     "number": 57,
+     "publisher": "EPA fueleconomy.gov",
+     "url": "https://fueleconomy.gov/feg/Find.do?action=sbs&id=47243",
+     "corroboratingUrl": "https://www.cars.com/research/toyota-prius-2024",
+     "sourceKind": "agency",
+     "basis": "government-rating",
+     "note": "EPA entry '2024 Toyota Prius', 2.0 L, 4 cyl, Automatic (variable gear ratios), regular gasoline: the front-drive base (LE) listing, vehicle id 47243. The XLE/Limited and AWD versions carry separate, lower ratings."
+    },
+    {
+     "key": "epaHighwayMpg",
+     "number": 56,
+     "publisher": "EPA fueleconomy.gov",
+     "url": "https://fueleconomy.gov/feg/Find.do?action=sbs&id=47243",
+     "corroboratingUrl": "https://www.cars.com/research/toyota-prius-2024",
+     "sourceKind": "agency",
+     "basis": "government-rating",
+     "note": "Same EPA entry as the city figure (front-drive base LE listing, vehicle id 47243)."
+    },
+    {
+     "key": "epaCombinedMpg",
+     "number": 57,
+     "publisher": "EPA fueleconomy.gov",
+     "url": "https://fueleconomy.gov/feg/Find.do?action=sbs&id=47243",
+     "corroboratingUrl": "https://pressroom.toyota.com/stunning-style-and-elevated-efficiency-the-2024-toyota-prius/",
+     "sourceKind": "agency",
+     "basis": "government-rating",
+     "note": "57 mpg combined for the front-drive base (LE) listing; Toyota's release quotes 'up to 57 MPG combined on FWD models'. For comparison the EPA rates the FWD XLE/Limited at 52 combined and the AWD LE at 54 combined."
+    },
+    {
+     "key": "groundClearanceIn",
+     "number": 5.6,
+     "publisher": "Kelley Blue Book",
+     "url": "https://www.kbb.com/toyota/prius/2024/specs",
+     "corroboratingUrl": "https://www.edmunds.com/toyota/prius/2024/trims",
+     "sourceKind": "aggregator",
+     "basis": "republished",
+     "note": "KBB and Edmunds both list 5.6 in. for the 2024 LE (KBB's 2023 table shows 5.6 in. for the LE and 6.0 in. for XLE and Limited). No Toyota document carrying this figure was surfaced."
+    },
+    {
+     "key": "suspensionFront",
+     "text": "Strut",
+     "publisher": "Auto123",
+     "url": "https://www.auto123.com/en/specs/toyota/prius/toyota-prius-2023-xle-awd-e-435202/",
+     "corroboratingUrl": "https://www.cars.com/research/toyota-prius-2023/specs/433308/",
+     "sourceKind": "aggregator",
+     "basis": "republished",
+     "note": "Belongs to another configuration: the quoted value ('Suspension Type - Front: Strut') is from Auto123's 2023 Prius XLE AWD-e page (same generation). The search summary reports that Cars.com's 2023 Prius LE page gives a similar front/rear split. No source for the 2024 LE FWD specifically, and no Toyota source, was surfaced."
+    },
+    {
+     "key": "suspensionRear",
+     "text": "Multi-link",
+     "publisher": "Auto123",
+     "url": "https://www.auto123.com/en/specs/toyota/prius/toyota-prius-2023-xle-awd-e-435202/",
+     "corroboratingUrl": "https://www.cars.com/research/toyota-prius-2023/specs/433308/",
+     "sourceKind": "aggregator",
+     "basis": "republished",
+     "note": "Belongs to another configuration: the quoted value ('Suspension Type - Rear: Multi-Link') is from Auto123's 2023 Prius XLE AWD-e page (same generation). The search summary reports that Cars.com's 2023 Prius LE page gives a similar split. No source for the 2024 LE FWD specifically, and no Toyota source, was surfaced."
+    },
+    {
+     "key": "brakesFront",
+     "text": "Ventilated disc",
+     "publisher": "Toyota (2023 Prius Product Information sheet, copy hosted on PriusChat)",
+     "url": "https://attachments.priuschat.com/attachment-files/2022/12/230557_2023_Toyota_Prius_Product_Information_Final_12052022.pdf",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "From Toyota's product information sheet for model year 2023 (same generation), found as a copy on a forum's attachment server; no 2024 sheet was surfaced. Toyota's 2024 release describes the Electronically Controlled Brake (ECB) system that blends regenerative and hydraulic braking."
+    },
+    {
+     "key": "powertrainWarrantyYears",
+     "number": 5,
+     "publisher": "Toyota USA Newsroom",
+     "url": "https://pressroom.toyota.com/stunning-style-and-elevated-efficiency-the-2024-toyota-prius/",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "Stated by Toyota as 60 months: 'Additional 60-month warranties cover the powertrain for 60,000 miles'. Separately: basic warranty 36 months/36,000 miles, hybrid-related components 8 years/100,000 miles, hybrid battery 10 years/150,000 miles."
+    },
+    {
+     "key": "powertrainWarrantyMiles",
+     "number": 60000,
+     "publisher": "Toyota USA Newsroom",
+     "url": "https://pressroom.toyota.com/stunning-style-and-elevated-efficiency-the-2024-toyota-prius/",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "Powertrain coverage of 60 months/60,000 miles per Toyota's 2024 Prius release. Hybrid-related components are covered 8 years/100,000 miles and the hybrid battery 10 years/150,000 miles."
+    },
+    {
+     "key": "baseMsrpUsd",
+     "number": 27650,
+     "publisher": "Toyota USA Newsroom",
+     "url": "https://pressroom.toyota.com/stunning-style-and-elevated-efficiency-the-2024-toyota-prius/",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "Launch MSRP for the 2024 LE grade (front-wheel drive) in Toyota's release of October 10, 2023, excluding dealer processing and handling; a toyota.com snippet also showed 'LE $27,650 Base MSRP'. The EPA fueleconomy.gov listing for this car shows $27,950, which may be a later in-year price; that could not be checked."
+    }
+   ],
+   "conflicts": [
+    {
+     "key": "horsepower",
+     "values": "194 hp (Toyota newsroom for FWD models; Automotive Fleet; Edmunds LE) vs 196 hp (one Cars.com LE page; this is Toyota's e-AWD figure) vs 150 hp (KBB, CarsDirect: gasoline engine alone)",
+     "resolution": "194 hp recorded: Toyota's own net system figure for front-wheel-drive models."
+    },
+    {
+     "key": "torqueLbFt",
+     "values": "152 lb-ft (Toyota 2024 release headline, 'up to 196-hp and 152 lb.-ft. of torque'; AutoInformed attributes it to the front motor-generator) vs 139 lb-ft @ 4,400 rpm (Cars.com, AutoPadre, Auto123, KBB, CarsDirect: gasoline engine alone)",
+     "resolution": "152 lb-ft recorded because it is the only torque figure found with a manufacturer source behind it. It is not a combined system torque, and Toyota's text does not say which component it describes. If the database wants engine torque, 139 lb-ft is the figure, but it was found only on aggregator sites."
+    },
+    {
+     "key": "curbWeightLb",
+     "values": "3,097 lb (KBB, Edmunds, TheCarConnection, Motor Matchup for the 2024 LE; Toyota's 2023 Product Information sheet for the LE) vs 3,230 lb (Cars.com LE pages, AutoPadre LE; iSeeCars lists 3,230 lb against the AWD LE)",
+     "resolution": "3,097 lb recorded for the front-drive LE: it matches Toyota's own 2023 LE figure, and iSeeCars ties 3,230 lb to the AWD LE."
+    },
+    {
+     "key": "zeroToSixtySec",
+     "values": "7.2 s (Toyota estimate, FWD) vs 7.1 s (Car and Driver measured, 2023 Limited FWD, via Yahoo Autos syndication) vs 7.7 s (Edmunds measured, front-drive 2023 test car)",
+     "resolution": "Toyota's 7.2 s recorded with basis manufacturer-claim. Both measured results are from other trims or unspecified trims of the 2023 car, not an LE."
+    },
+    {
+     "key": "baseMsrpUsd",
+     "values": "$27,650 (Toyota newsroom launch release of October 10, 2023, excluding dealer processing and handling; toyota.com snippet) vs $27,950 (MSRP shown on the EPA fueleconomy.gov listing); Car and Driver's syndicated Prius comparison quotes a $29,045 starting price without the excerpt saying what it includes",
+     "resolution": "$27,650 recorded as Toyota's published launch MSRP. The higher figures may reflect a later in-year price or the inclusion of delivery charges; this could not be checked because the search budget ran out."
+    },
+    {
+     "key": "braking70to0Ft",
+     "values": "171 ft (Car and Driver test of a 2023 Prius Limited FWD on 19-inch tires, via https://autos.yahoo.com/tested-2023-toyota-prius-drives-120000770.html) vs 194 ft (search excerpts of Car and Driver's Prius vs Prius Prime comparison, https://autos.yahoo.com/toyota-prius-prius-prime-hybrids-140000505.html) vs 174 ft (a repost of that comparison on invoice-pricing.com)",
+     "resolution": "Not recorded. The tested car was a Limited on 19-inch tires, not an LE on 17-inch tires, and the excerpts disagree with each other. The same comparison gives 0.87 g on the skidpad for that Limited, also not recorded."
+    },
+    {
+     "key": "topSpeedMph",
+     "values": "112 mph (unattributed figure in an excerpt of a 2023 Prius Limited review) vs 132 mph and 122 mph (Motor Matchup simulated estimates for 2023 Limited variants)",
+     "resolution": "Not recorded. No manufacturer figure and no instrumented-test top speed was surfaced, so whether the car is speed-limited is also unsourced."
+    }
+   ],
+   "notFound": [
+    "aspiration",
+    "construction",
+    "topSpeedMph",
+    "topSpeedGoverned",
+    "lateralGripG",
+    "braking70to0Ft",
+    "braking60to0Ft",
+    "brakesRear"
+   ],
+   "summary": "Every value was read from web-search result summaries (pages could not be opened), and the shared search budget ran out before top speed, a 2024 Toyota spec sheet, rear brakes and the MSRP discrepancy could be chased. Of 21 recorded fields, 14 trace to Toyota's own material (13 to the 2024 Prius newsroom release, front brakes to Toyota's 2023 product-information sheet found as a copy on PriusChat), 3 to EPA fueleconomy.gov, and 4 rest on aggregator sites as primary source: curb weight (KBB/Edmunds 3,097 lb, matched by Toyota's 2023 LE figure), ground clearance (KBB/Edmunds), and front and rear suspension type (Auto123/Cars.com pages for the 2023 car, another configuration). Weakest points: torque (Toyota's headline 152 lb-ft is apparently the front motor's figure, while aggregators list 139 lb-ft for the engine alone, and no system torque is published); the MSRP ($27,650 at launch vs $27,950 on fueleconomy.gov); no top speed at all; no skidpad or braking figure, because the only instrumented test found was Car and Driver's 2023 Limited FWD on 19-inch tires, left out as a different trim; and aspiration, construction and rear brakes, which no result stated in words (Toyota's text names a 2.0L Atkinson-cycle four and the TNGA-C platform only)."
+  }
+ ]
+}

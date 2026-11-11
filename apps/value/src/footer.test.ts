@@ -32,7 +32,7 @@ describe('footer data', () => {
       ['world', 'world', 'https://micar-sim.onrender.com/'],
       ['world', 'strip', 'https://micar-sim.onrender.com/strip'],
       ['world', 'shop', 'https://micar-sim.onrender.com/shop'],
-      ['world', 'garage', 'https://lasting-oasis.github.io/Micar-com/garage/'],
+      ['world', 'garage', 'https://lasting-oasis.github.io/Micar-com/#/garage'],
       ['about', 'built', 'https://github.com/lasting-oasis/Micar-com'],
       ['about', 'keyholder', 'https://lasting-oasis.github.io/Micar-com/#keyholder'],
     ]);
@@ -64,9 +64,9 @@ describe('footer data', () => {
     expect(FOOTER_SOON).toEqual({ en: 'soon', es: 'pronto' });
   });
 
-  it('only the source link opens a new tab, only Garage is soon', () => {
+  it('only the source link opens a new tab, and nothing is marked soon now the Garage is open', () => {
     expect(links.filter((l) => l.external).map((l) => l.id)).toEqual(['built']);
-    expect(links.filter((l) => l.soon).map((l) => l.id)).toEqual(['garage']);
+    expect(links.filter((l) => l.soon).map((l) => l.id)).toEqual([]);
   });
 
   it('site routes resolve', () => {
@@ -101,15 +101,28 @@ describe('footerHtml', () => {
     }
     expect(html).toContain('© 2031 MiCar');
     expect(html).toContain(FOOTER_ESTIMATES.es);
-    expect(html).toContain('<em>pronto</em>');
+    expect(html).not.toContain('<em>');
     expect(html).not.toContain('The grade');
+  });
+
+  it('still tags a link that is marked soon, in both languages', () => {
+    const garage = find('garage');
+    const link = FOOTER_COLUMNS.flatMap((c) => c.links).find((l) => l.id === 'garage')!;
+    expect(garage.soon).toBeUndefined();
+    link.soon = true;
+    try {
+      expect(footerHtml('es', 2031)).toContain('Garaje<em>pronto</em></a>');
+      expect(footerHtml('en', 2031)).toContain('Garage<em>soon</em></a>');
+    } finally {
+      delete link.soon;
+    }
   });
 
   it('renders English and escapes text', () => {
     const html = footerHtml('en', 2031);
     expect(html).toContain('How it&#39;s built');
     expect(html).not.toContain("How it's built");
-    expect(html).toContain('<em>soon</em>');
+    expect(html).not.toContain('<em>');
     // The escaper covers all five characters; check it through a label that carries them.
     const tricky = FOOTER_COLUMNS[0].links[0].label;
     const saved = tricky.en;

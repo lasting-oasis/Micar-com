@@ -285,6 +285,7 @@ export const homeUrl = () => siteRoot();
 export const carPageUrl = (code: string) => `${siteRoot()}#/c/${code}`;
 export const stickerPageUrl = (code?: string) => `${siteRoot()}#/sticker${code ? `/${code}` : ''}`;
 export const calculatorUrl = () => `${siteRoot()}#/value`;
+export const garageUrl = (id?: string) => `${siteRoot()}#/garage${id ? `/${id}` : ''}`;
 
 // ---- Engine inputs ----------------------------------------------------------------------
 

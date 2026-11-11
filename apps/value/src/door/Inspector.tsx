@@ -3,16 +3,14 @@ import { useEffect, useRef, useState } from 'react';
 import { carName } from '../car/record';
 import { usd } from '../car/value';
 import { t } from '../i18n';
-import { finishOf, type Card, type GradeInputs, gradeOf } from './card';
-import { Slab } from './Slab';
-
-const FINISH: Record<string, string> = { raw: 'no case yet', standard: 'matte chrome', blue: 'blue foil', holo: 'holo foil', rainbow: 'rainbow foil' };
+import { gradeFor, type Card, type GradeInputs } from './card';
+import { Categories, Slab } from './Slab';
 
 export function Inspector({ card, g, onClose }: { card: Card; g?: GradeInputs; onClose: () => void }) {
   const [flipped, setFlipped] = useState(false);
   const [uv, setUv] = useState(false);
   const close = useRef<HTMLButtonElement>(null);
-  const grade = g ? gradeOf(g) : card.grade;
+  const grade = gradeFor(card, g);
   const gi = g ?? card.g;
   useEffect(() => {
     close.current?.focus();
@@ -29,19 +27,14 @@ export function Inspector({ card, g, onClose }: { card: Card; g?: GradeInputs; o
       <div className="ins-body">
         <Slab card={card} g={g} flipped={flipped} onFlip={() => setFlipped((f) => !f)} live className="ins-slab" />
         <div className="ins-info">
-          <div className="serial">{grade.slabbed ? t('Slab · sealed today') : t('Raw card · not yet in a case')}</div>
+          <div className="serial">{t('Raw card · not yet in a case')}</div>
           <h3>{carName(r)}</h3>
-          <div className="ins-grade"><b>{grade.slabbed ? grade.G.toFixed(1) : 'RAW'}</b><span>{grade.slabbed ? t(grade.name) : t('ungraded')}<small>{t('MiCar grade')} · {t(FINISH[finishOf(grade)])}</small></span></div>
-          <div className="bars">
-            {([['Condition', grade.C], ['Curve', grade.K], ['Trail', grade.T], ['Miles', grade.M]] as [string, number][]).map(([k, v]) => (
-              <div className={`bar ${k === 'Trail' ? 'blue' : ''}`} key={k}><span>{t(k)}</span><i><b style={{ width: `${v * 10}%` }} /></i><output>{v.toFixed(1)}</output></div>
-            ))}
-          </div>
+          <div className="ins-grade"><b>{grade.G.toFixed(1)}</b><span>{t('starting grade')}<small>{t('out of 10')} · {t('no case yet')}</small></span></div>
+          <Categories grade={grade} />
           <div className="ins-facts">
             <span>{t('Value now')} <b>{usd(card.value)}</b> · {t('most sell {low} to {high}', { low: usd(card.snap.val.range.low), high: usd(card.snap.val.range.high) })}</span>
-            <span>{t('Trail')} <b>{t('{n} entries · {m} months', { n: gi.entries, m: gi.months })}</b>{gi.receipts ? ` · ${t('receipts on file')}` : ''}{gi.photo ? ` · ${t('odometer photos')}` : ''}</span>
-            <span>{t(r.condition)} · {r.mileage.toLocaleString('en-US')} mi · {gi.acc ? t('{n} accident on record', { n: gi.acc }) : t('no accidents on record')}</span>
-            {!grade.slabbed && <span>{t('{n} more entries put it in the case; it would grade {g}', { n: Math.max(0, 3 - gi.entries), g: grade.G.toFixed(1) })}</span>}
+            <span>{t(gi.cond)} · {gi.mileage.toLocaleString('en-US')} mi · {gi.accident === 'None' ? t('no accidents on record') : `${t('Accident history')}: ${t(gi.accident)}`}</span>
+            <span>{t('Park it in the Garage and its records raise the grade from here.')}</span>
           </div>
           <div className="ins-btns">
             <button type="button" className="ghostbtn" onClick={() => setFlipped((f) => !f)}>{t('Flip the card')}</button>

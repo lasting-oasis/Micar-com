@@ -11,5 +11,6 @@ export default defineConfig(({ mode }) => ({
   plugins: [react(), tailwindcss(), ...(mode === 'single' ? [viteSingleFile()] : [])],
   build: mode === 'single' ? { outDir: 'dist-single' } : {},
   // Vitest swaps CSS for an empty string, ?raw included. footer.test.ts reads the shared footer's stylesheet and index.css as text.
-  test: { css: { include: [/footer\.css/, /index\.css/] } },
+  // The engine package's own tests run with this suite, so they gate every deploy the way value's do (CI names packages one by one).
+  test: { css: { include: [/footer\.css/, /index\.css/] }, include: ['src/**/*.test.{ts,tsx}', '../../packages/engine/src/**/*.test.ts'] },
 }))

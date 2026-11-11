@@ -1,0 +1,165 @@
+/* The Garage. Everything here sits inside <div class="dp gar">, so the home page's slab, tokens and buttons apply
+   and these rules only add to them. Class names start with gar-. The card scales with its own width (cqw units
+   against the case), so one set of rules serves a 150px card in a grid and a 380px card on a page. */
+
+/* ---------- The collectible card ---------- */
+.dp .gar-card { --rar: #aeb6c2; }
+.dp .gar-card.rar-uncommon { --rar: #5fbf86; }
+.dp .gar-card.rar-rare { --rar: #79a6ff; }
+.dp .gar-card.rar-epic { --rar: #b58cff; }
+.dp .gar-card.rar-legendary { --rar: #ffd23f; }
+.dp .gar-card.rar-mythic { --rar: #ff7a9c; }
+.dp .gar-card.rar-one-of-one { --rar: #ffffff; }
+.dp .gar-card .acrylic { container-type: inline-size; }
+.dp .gar-card:not(.raw) .acrylic { box-shadow: inset 0 0 0 1px rgba(255,255,255,.14), inset 0 0 28px rgba(188,214,255,.14), 0 34px 60px rgba(0,0,0,.65), 0 0 34px color-mix(in srgb, var(--rar) 26%, transparent); }
+.dp .gar-card .sl-label::before { background: var(--rar); }
+.dp .gar-card.rar-one-of-one .sl-label::before { background: conic-gradient(from 180deg, #ff5e5e, #ffd23f, #5fff8a, #4fd9ff, #6b7bff, #ff5ef1, #ff5e5e); }
+.dp .gar-label { grid-template-columns: auto 1fr auto; gap: 2.6cqw; padding: 2.2cqw 2.6cqw 2.2cqw 3.6cqw; }
+.dp .gar-label .lab-g small, .dp .gar-pr small { font: 700 clamp(5.5px, 2.3cqw, 8.5px)/1 var(--cond); letter-spacing: .16em; text-transform: uppercase; color: var(--paper-mute); white-space: nowrap; }
+.dp .gar-label .lab-g b, .dp .gar-pr b { font: italic 800 clamp(19px, 10cqw, 36px)/.95 var(--cond); font-variant-numeric: tabular-nums; }
+.dp .gar-label .lab-g em, .dp .gar-pr em { font: 700 clamp(6px, 2.7cqw, 9.5px)/1 var(--cond); letter-spacing: .1em; text-transform: uppercase; color: var(--paper-ink); font-style: normal; white-space: nowrap; }
+.dp .gar-label .lab-n strong { font-size: clamp(9px, 4.1cqw, 14px); }
+.dp .gar-label .lab-n span { font-size: clamp(6.5px, 2.9cqw, 10px); }
+.dp .gar-label .lab-n i { font-size: clamp(8px, 3.6cqw, 12px); }
+.dp .gar-pr { display: grid; line-height: 1; text-align: right; justify-items: end; padding-left: 2.2cqw; border-left: 1px solid rgba(24,32,43,.16); }
+
+.dp .gar-art { grid-template-rows: minmax(0, 1fr) auto; }
+.dp .gar-art > img.render { inset: 0 0 auto 0; height: 64%; object-position: 50% 46%; }
+.dp .gar-art > img.render.photo { object-position: 50% 50%; }
+.dp .gar-top { position: relative; z-index: 5; display: flex; align-items: flex-start; gap: 2.4cqw; padding: 3.4cqw; min-height: 0; }
+.dp .gar-rar { font: 800 clamp(7px, 3.1cqw, 12px)/1 var(--cond); letter-spacing: .16em; text-transform: uppercase; padding: 1.5cqw 2.6cqw; border-radius: 999px; background: rgba(5,7,13,.78); border: 1px solid var(--rar); color: var(--rar); white-space: nowrap; }
+.dp .rar-one-of-one .gar-rar { color: #0b0d12; border-color: #fff; background: conic-gradient(from 90deg, #ffb3b3, #ffe9a3, #b8ffcd, #b3ecff, #c3c9ff, #ffb8f8, #ffb3b3); }
+.dp .gar-eg { font: 400 clamp(9px, 4.6cqw, 18px)/1 var(--marker); color: var(--paint); transform: rotate(-6deg); text-shadow: 0 2px 0 rgba(0,0,0,.7); margin-top: 1cqw; }
+.dp .gar-seal { --s: clamp(26px, 17cqw, 64px); margin-left: auto; }
+.dp .gar-seal span { font-size: clamp(4px, 2.1cqw, 8px); letter-spacing: .12em; }
+.dp .gar-box { position: relative; z-index: 5; display: grid; gap: clamp(2px, 1.5cqw, 6px); padding: 7cqw 3.6cqw 3.2cqw;
+  background: linear-gradient(180deg, rgba(5,7,13,0), rgba(5,7,13,.88) 16%, #05070d 34%); }
+.dp .gar-row { display: grid; grid-template-columns: 34% 1fr 4.4ch; gap: 2.2cqw; align-items: center; font: 700 clamp(7px, 3.5cqw, 13px)/1 var(--cond); letter-spacing: .08em; text-transform: uppercase; color: #c9d0dd; }
+.dp .gar-row span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dp .gar-row span abbr { display: none; text-decoration: none; }
+.dp .gar-row i { position: relative; display: block; height: clamp(4px, 2.3cqw, 9px); background: rgba(255,255,255,.1); border-radius: 999px; overflow: hidden; }
+.dp .gar-row i b { display: block; height: 100%; background: linear-gradient(90deg, var(--paint-2), var(--paint)); border-radius: 999px; transition: width .5s var(--ease-out); }
+.dp .gar-row i u { position: absolute; top: 0; bottom: 0; width: 2px; background: #fff; opacity: .85; }
+.dp .gar-row output { text-align: right; color: var(--ink); font-variant-numeric: tabular-nums; letter-spacing: .02em; }
+.dp .gar-row output.up { color: var(--gain); }
+.dp .gar-row output.down { color: var(--loss); }
+.dp .gar-row.none { opacity: .55; }
+.dp .gar-foot { display: flex; justify-content: space-between; align-items: center; gap: 2cqw; margin-top: 1.2cqw; min-height: 5cqw; font: 700 clamp(6px, 2.7cqw, 11px)/1 var(--cond); letter-spacing: .1em; text-transform: uppercase; color: var(--haze); }
+.dp .gar-mods { display: flex; flex-wrap: wrap; gap: 1.2cqw; min-width: 0; }
+.dp .gar-mods b { border: 1px solid #3a4458; border-radius: 3px; padding: .9cqw 1.6cqw; font-weight: 700; color: #c9d0dd; white-space: nowrap; }
+.dp .gar-mods b.documented { border-color: var(--paint); color: var(--paint); }
+.dp .gar-mods b.verified { border-color: var(--paint); background: var(--paint); color: #0b0d12; }
+.dp .gar-ed { white-space: nowrap; }
+
+.dp .gar-back { display: flex; flex-direction: column; padding: 4.6cqw 0 0; }
+.dp .gar-back h4 { margin: 0 4cqw; font: 400 clamp(11px, 5.4cqw, 21px)/1 var(--marker); color: var(--paint); transform: rotate(-3deg); position: relative; z-index: 5; }
+.dp .gar-back .gar-box { background: none; padding: 5cqw 3.6cqw 2cqw; gap: clamp(3px, 2.4cqw, 10px); }
+.dp .gar-back .gar-row { grid-template-columns: 40% 1fr 3.4ch; }
+.dp .gar-back .gar-row i b { background: linear-gradient(90deg, var(--blue), var(--blue-2)); }
+.dp .gar-line { position: relative; z-index: 5; margin: 1.5cqw 0 0; font: 700 clamp(8px, 3.6cqw, 14px)/1.3 var(--cond); letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
+.dp .gar-line.gar-none { margin: 5cqw 4cqw; text-transform: none; letter-spacing: .01em; font: 500 clamp(9px, 3.7cqw, 14px)/1.4 var(--body); color: #c3cad8; }
+.dp .gar-meta { position: relative; z-index: 5; margin-top: auto; display: grid; gap: 1.4cqw; padding: 3.6cqw; border-top: 1px solid rgba(255,255,255,.12); font: 600 clamp(6px, 2.8cqw, 11px)/1.2 var(--cond); letter-spacing: .1em; text-transform: uppercase; color: var(--haze); }
+
+/* A small card (two to a row on a phone, a rival in a race) drops the name from the label and shortens the attribute names. */
+@container (max-width: 215px) {
+  .dp .gar-label { grid-template-columns: 1fr auto; }
+  /* The "example" and "house card" stamps stay at every size: a small card must never pass for an owner's. */
+  .dp .gar-label .lab-n, .dp .gar-ed { display: none; }
+  .dp .gar-row { grid-template-columns: 4.6ch 1fr 4.4ch; }
+  .dp .gar-row span b { display: none; }
+  .dp .gar-row span abbr { display: inline; }
+  .dp .gar-box { padding-top: 9cqw; }
+  .dp .gar-foot { min-height: 0; }
+}
+
+/* ---------- The page ---------- */
+.dp.gar { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
+.dp.gar > main { flex: 1; }
+.dp .gar-head { padding-block: 40px 28px; display: grid; gap: 14px; }
+.dp .gar-head h1 { font: italic 900 clamp(38px, 7vw, 76px)/.92 var(--cond); text-transform: uppercase; letter-spacing: -.01em; }
+.dp .gar-head h1 .mi { color: var(--paint); }
+.dp .gar-head .lede { margin-top: 0; }
+.dp .gar-notice { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; color: var(--haze); font: 600 13px/1.4 var(--cond); letter-spacing: .08em; text-transform: uppercase; }
+.dp .gar-notice .marker { font-size: 17px; text-transform: none; letter-spacing: 0; transform: rotate(-3deg); display: inline-block; }
+.dp .gar-actions { display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: center; margin-top: 6px; }
+/* The paint under the first button hangs below the row: what follows it in the header (a status line) starts clear of it. */
+.dp .gar-head .gar-actions { padding-bottom: 14px; }
+.dp .gar-sec { padding-block: 36px; border-top: 1px solid var(--line); }
+.dp .gar-sec > h2 { font: italic 800 clamp(24px, 3.4vw, 36px)/1 var(--cond); text-transform: uppercase; letter-spacing: .01em; }
+.dp .gar-sec > h2 + p { color: #c3cad8; max-width: 68ch; margin-top: 10px; }
+.dp .gar-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(250px, 44vw), 1fr)); gap: 30px 22px; margin-top: 26px; }
+.dp .gar-grid .gar-cell { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.dp .gar-grid .gar-cell > a, .dp .gar-grid .gar-cell > button { display: block; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; }
+.dp .gar-cap { font: 700 13px/1.25 var(--cond); letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
+.dp .gar-cap small { display: block; font: 600 11px/1.3 var(--cond); letter-spacing: .1em; color: var(--haze); }
+.dp .gar-empty { margin-top: 22px; padding: 22px; border: 1px dashed #3a4458; border-radius: 10px; color: #c3cad8; max-width: 60ch; }
+
+/* One car's page: the card on the left, the work on the right. */
+.dp .gar-car { display: grid; grid-template-columns: minmax(260px, 360px) minmax(0, 1fr); gap: 36px; align-items: start; padding-block: 28px 56px; }
+.dp .gar-car .gar-side { position: sticky; top: 64px; display: grid; gap: 14px; justify-items: center; }
+.dp .gar-car .gar-side .gar-card { width: min(340px, 82vw); }
+.dp .gar-hint { font: 400 15px/1.2 var(--marker); color: var(--paint); transform: rotate(-2deg); }
+.dp .gar-back-link { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font: 600 14px/1 var(--cond); letter-spacing: .1em; text-transform: uppercase; color: var(--haze); }
+.dp .gar-back-link:hover { color: var(--ink); }
+
+/* Tabs */
+.dp .gar-tabs { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid var(--line); margin-bottom: 22px; }
+.dp .gar-tabs::-webkit-scrollbar { display: none; }
+.dp .gar-tabs button { flex: none; border: 0; background: none; cursor: pointer; min-height: 44px; padding: 0 14px; font: 700 14px/1 var(--cond); letter-spacing: .1em; text-transform: uppercase; color: var(--haze); border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.dp .gar-tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--paint); }
+.dp .gar-tabs button:hover { color: var(--ink); }
+
+/* Panels, facts and small pieces every tab uses */
+/* One column that can shrink: without the minmax a long child (a button that will not wrap, a wide table) sets the
+   column's width and pushes the whole panel past a narrow screen. */
+.dp .gar-panel { display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; min-width: 0; }
+.dp .gar-panel h3 { font: 700 20px/1.1 var(--cond); text-transform: uppercase; letter-spacing: .06em; }
+.dp .gar-panel p { color: #c3cad8; max-width: 70ch; }
+.dp .gar-note { border-left: 2px solid var(--paint); padding-left: 12px; color: #c3cad8; font-size: 15px; max-width: 70ch; }
+.dp .gar-note.blue { border-left-color: var(--blue-2); }
+.dp .gar-chip { display: inline-flex; align-items: center; gap: 6px; font: 700 11px/1 var(--cond); letter-spacing: .12em; text-transform: uppercase; padding: 5px 8px; border: 1px solid var(--line); border-radius: 4px; color: var(--haze); white-space: nowrap; }
+.dp .gar-chip.on { border-color: var(--paint); color: var(--paint); }
+.dp .gar-chip.blue { border-color: var(--blue-2); color: var(--blue-2); }
+.dp .gar-chip.gain { border-color: var(--gain); color: var(--gain); }
+.dp .gar-chip.loss { border-color: var(--loss); color: var(--loss); }
+.dp .gar-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.dp .gar-table { width: 100%; border-collapse: collapse; font: 600 15px/1.25 var(--cond); letter-spacing: .03em; }
+.dp .gar-table th { text-align: left; font: 700 11px/1.2 var(--cond); letter-spacing: .14em; text-transform: uppercase; color: var(--haze); padding: 8px 10px 8px 0; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.dp .gar-table td { padding: 10px 10px 10px 0; border-bottom: 1px solid var(--line); vertical-align: middle; }
+.dp .gar-table td.num, .dp .gar-table th.num { text-align: right; padding-right: 0; padding-left: 10px; font-variant-numeric: tabular-nums; }
+.dp .gar-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.dp .gar-up { color: var(--gain); } .dp .gar-down { color: var(--loss); }
+
+/* Forms */
+.dp .gar-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 14px 18px; }
+.dp .gar-form label, .dp .gar-field { display: grid; gap: 6px; min-width: 0; font: 600 12px/1.2 var(--cond); letter-spacing: .12em; text-transform: uppercase; color: var(--haze); }
+.dp .gar-form .wide { grid-column: 1 / -1; }
+.dp .gar-form input, .dp .gar-form select, .dp .gar-form textarea, .dp .gar-input {
+  width: 100%; min-width: 0; min-height: 44px; background: #0a0d12; border: 1px solid #3a4458; color: var(--ink); font: 500 16px/1.3 var(--body); padding: 9px 10px; border-radius: 6px; }
+.dp .gar-form textarea { min-height: 88px; resize: vertical; }
+.dp .gar-form input:focus, .dp .gar-form select:focus, .dp .gar-form textarea:focus, .dp .gar-input:focus { border-color: var(--paint); outline: none; box-shadow: 0 0 0 3px rgba(255,210,63,.2); }
+.dp .gar-form input[aria-invalid="true"] { border-color: var(--loss); }
+.dp .gar-form .gar-check { grid-template-columns: auto 1fr; align-items: center; gap: 10px; text-transform: none; letter-spacing: .02em; font: 500 15px/1.3 var(--body); color: var(--ink); min-height: 44px; }
+.dp .gar-form .gar-check input { width: 20px; height: 20px; min-height: 0; accent-color: var(--paint); padding: 0; }
+.dp .gar-err { color: var(--loss); font: 600 13px/1.3 var(--cond); letter-spacing: .06em; text-transform: none; }
+.dp .gar-help { color: var(--haze); font: 500 13px/1.35 var(--body); letter-spacing: 0; text-transform: none; }
+.dp .gar-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; border: 1px solid #3a4458; background: none; color: var(--ink); font: 700 14px/1 var(--cond); letter-spacing: .1em; text-transform: uppercase; padding: 0 16px; border-radius: 6px; cursor: pointer; transition: border-color .2s, background .2s; }
+.dp .gar-btn:hover { border-color: var(--paint); }
+.dp .gar-btn.primary { background: var(--paint); border-color: var(--paint); color: #0b0d12; }
+.dp .gar-btn.primary:hover { background: #ffe07a; }
+.dp .gar-btn.danger:hover { border-color: var(--loss); color: var(--loss); }
+.dp .gar-btn:disabled { opacity: .45; cursor: not-allowed; }
+.dp .gar-btns { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+/* A label too long for the column wraps inside its button and keeps a full-height target. */
+.dp .gar-btns .gar-btn { max-width: 100%; line-height: 1.15; padding-block: 8px; }
+
+@media (max-width: 900px) {
+  .dp .gar-car { grid-template-columns: 1fr; gap: 24px; }
+  .dp .gar-car .gar-side { position: static; }
+}
+@media (max-width: 720px) {
+  .dp .gar-head { padding-block: 26px 20px; }
+  .dp .gar-sec { padding-block: 28px; }
+  .dp .gar-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 12px; }
+  .dp .gar-table { font-size: 14px; }
+}

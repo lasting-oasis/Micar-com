@@ -7,7 +7,7 @@ export const SHOP_URL = `${WORLD_URL}shop`;
 export type Door = 'home' | 'value' | 'garage' | 'world' | 'dealers' | 'shops';
 export const DOORS: { id: Door; label: string; href: string; soon?: boolean }[] = [
   { id: 'value', label: 'Value a car', href: `${SITE_URL}#/value` },
-  { id: 'garage', label: 'Garage', href: `${SITE_URL}#card`, soon: true },
+  { id: 'garage', label: 'Garage', href: `${SITE_URL}#/garage` },
   { id: 'world', label: 'World', href: WORLD_URL },
   { id: 'dealers', label: 'For dealers', href: `${SITE_URL}#/sticker` },
   { id: 'shops', label: 'For shops', href: SHOP_URL },

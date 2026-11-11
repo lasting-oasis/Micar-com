@@ -13,10 +13,19 @@ body{margin:0;background:#0e1217;color:#e7eaee;font:18px/1.5 Barlow,system-ui,sa
 main{flex:1;display:grid;place-items:center;text-align:center;padding:24px 16px}
 main p{margin:0}
 b{color:#ffd23f}
+main a{color:#e7eaee;text-decoration:underline;text-underline-offset:4px;display:inline-block;padding:12px 8px}
 </style>
 </head>
 <body>
-<main><p><b>MiCar Garage</b><br>Park it. Grade it. Trade it.<br>Opening in Charlotte.</p></main>
+<main><p><b>MiCar Garage</b><br>Park it. Grade it. Trade it.<br><a href="../#/garage">Open the Garage</a></p></main>
+<script>
+// /garage/ is the Garage's old address. The Garage now lives in the app at #/garage: forward there, keeping any
+// query (?lang=es), without a history entry. Without scripts the link above does the same.
+(function () {
+  var base = location.pathname.replace(/garage\/?[^/]*$/, '');
+  location.replace(location.origin + base + location.search + '#/garage');
+})();
+</script>
 <!-- footer -->
 </body>
 </html>

@@ -27,6 +27,7 @@ const TabLoading = () => (
 );
 import { LIBRARY_BOOKS } from './libraryData';
 import { getCarSpec, specLine } from './carSpecs';
+import { CardStats } from './world/CardStats';
 
 
 // Fixed points of interest in the world (x, z world coords) shown on the map.
@@ -2475,6 +2476,7 @@ function App() {
                             <span>{car.daysOnLot} Days on Lot</span>
                           </div>
                           <ConditionDisplay car={car} expandedCarId={expandedCarId} setExpandedCarId={setExpandedCarId} />
+                          <CardStats car={car} />
                           {!car.preInspected ? (
                             <div className="text-center bg-purple-500/20 border border-purple-500/50 rounded py-1.5 mt-2">
                               <span className="text-[10px] uppercase text-purple-300 font-bold tracking-widest w-full inline-block">Needs Safety Pre-Inspection (DMV)</span>
