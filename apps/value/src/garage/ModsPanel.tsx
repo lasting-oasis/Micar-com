@@ -6,6 +6,7 @@ import { ATTRIBUTE_KEYS, ATTRIBUTE_LABELS, EVENT_TYPE_LABELS, EVIDENCE_LABELS, M
 import type { ActiveModification, Assembly, InstallQuality, ModCategory, ModTier, Passport } from '@micar/engine';
 import { t } from '../i18n';
 import type { FileStore } from './files';
+import { useEntryDate } from './dates';
 import { useFocusBack } from './focus';
 import { newId, stamp } from './ids';
 import { keepFiles, odometerNote, readingsInView } from './PassportPanel';
@@ -28,7 +29,8 @@ type Props = {
 export function ModsPanel({ passport, assembly, today, canWrite, files, onRecord }: Props) {
   const [pick, setPick] = useState<{ category: ModCategory; tier: ModTier } | null>(null);
   const [install, setInstall] = useState<InstallQuality>('professional');
-  const [date, setDate] = useState(today);
+  // The fitting date offered is today by the clock at this draw, not the day the tab was opened: see useEntryDate.
+  const { today: now, date, pick: setDate } = useEntryDate();
   const [mileage, setMileage] = useState('');
   const [parts, setParts] = useState('');
   const [picked, setPicked] = useState<File[]>([]);
@@ -41,7 +43,7 @@ export function ModsPanel({ passport, assembly, today, canWrite, files, onRecord
   // The reading written with a modification goes on the odometer log like any other, so it gets the same warning,
   // and the same second, deliberate press before a reading the form has a warning about is written.
   const readings = useMemo(() => readingsInView(passport, today), [passport, today]);
-  const warning = odometerNote(mileage, date, readings, today);
+  const warning = odometerNote(mileage, date, readings, now);
   const reading = `${date}|${mileage}`;
   const [asked, setAsked] = useState('');
   const confirming = warning !== '' && asked === reading;
@@ -163,7 +165,7 @@ export function ModsPanel({ passport, assembly, today, canWrite, files, onRecord
           {canWrite && <>
             <div className="gar-form">
               <label>{t('Fitted by')}<select value={install} onChange={(e) => setInstall(e.target.value as InstallQuality)}>{(Object.keys(INSTALL_LABELS) as InstallQuality[]).map((k) => <option key={k} value={k}>{t(INSTALL_LABELS[k])}</option>)}</select></label>
-              <label>{t('Date')}<input type="date" value={date} max={today} required onChange={(e) => { setDate(e.target.value); setAsked(''); }} /></label>
+              <label>{t('Date')}<input type="date" value={date} max={now} required onChange={(e) => { setDate(e.target.value); setAsked(''); }} /></label>
               <label>{t('Odometer')} <small>(mi)</small><input type="number" inputMode="numeric" min={0} max={2000000} step={1} value={mileage} aria-describedby="gar-fit-odo-note" onChange={(e) => { setMileage(e.target.value); setAsked(''); }} />
                 <span id="gar-fit-odo-note" className="gar-err" role="status">{t(warning)}</span>
               </label>

@@ -10,6 +10,7 @@ import type { Attachment, OwnerEventType, Passport, PassportEvent, PhotoSubject,
 import { ACCIDENTS, CONDITIONS, TITLES } from '../engine/data';
 import { locale, t } from '../i18n';
 import { attachmentKind, checkFile, sha256Hex, type FileStore } from './files';
+import { useEntryDate } from './dates';
 import { useFocusBack } from './focus';
 import { newId, normalizeGarageId, stamp } from './ids';
 import { vinNote } from './Park';
@@ -116,9 +117,10 @@ export function readingsInView(passport: Passport, today: string): { date: strin
   return mileageLog(passport, REGISTRY, latest).readings;
 }
 
-function AddEntry({ today, files, onRecord, readings }: Pick<Props, 'today' | 'files' | 'onRecord'> & { readings: readonly { date: string; mileage: number }[] }) {
+function AddEntry({ files, onRecord, readings }: Pick<Props, 'files' | 'onRecord'> & { readings: readonly { date: string; mileage: number }[] }) {
   const [type, setType] = useState<OwnerEventType>('maintenance');
-  const [date, setDate] = useState(today);
+  // Today by the clock at this draw, not the day the tab was opened: see useEntryDate.
+  const { today, date, pick: setDate } = useEntryDate();
   const [mileage, setMileage] = useState('');
   const [title, setTitle] = useState('');
   const [note, setNote] = useState('');
@@ -324,9 +326,9 @@ function VinEditor({ passport, onVin, onDone }: { passport: Passport; onVin: Pro
   );
 }
 
-function Transfer({ today, files, onTransfer }: Pick<Props, 'today' | 'files' | 'onTransfer'>) {
+function Transfer({ files, onTransfer }: Pick<Props, 'files' | 'onTransfer'>) {
   const [to, setTo] = useState('');
-  const [date, setDate] = useState(today);
+  const { today, date, pick: setDate } = useEntryDate();
   const [picked, setPicked] = useState<File[]>([]);
   const [message, setMessage] = useState('');
   // The ID as the engine will store it, once what was typed is a real Garage ID. Null until then.
@@ -454,7 +456,7 @@ export function PassportPanel({ passport, today, holding, garageIds, files, onRe
         </div>
       )}
 
-      {canWrite && <AddEntry today={today} files={files} onRecord={onRecord} readings={readings} />}
+      {canWrite && <AddEntry files={files} onRecord={onRecord} readings={readings} />}
 
       <div>
         <h3>{t('Timeline')}</h3>
@@ -508,7 +510,7 @@ export function PassportPanel({ passport, today, holding, garageIds, files, onRe
         <p className="gar-help">{t('Your Garage ID is {id}. Give it to a seller to receive a car.', { id: garageIds[0] })}</p>
       </div>
 
-      {canWrite && <Transfer today={today} files={files} onTransfer={onTransfer} />}
+      {canWrite && <Transfer files={files} onTransfer={onTransfer} />}
     </div>
   );
 }
