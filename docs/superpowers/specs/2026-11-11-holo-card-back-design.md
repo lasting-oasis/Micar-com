@@ -144,12 +144,14 @@ One thing learned from the preview: the artwork is itself drawn in rainbow colou
 
 | What goes wrong | What happens |
 | --- | --- |
+| The model and the artwork are still on their way | The still for that foil holds the card's place, at the live card's size, until the live card has drawn. The hint to drag it is shown only from then on |
 | No WebGL, or the context cannot be made | The still for that foil. No error shown: the card back is decoration, not data |
 | The `.glb` or the artwork fails to load, or the `.glb` is not what the reader expects | `onError`; the still |
 | A shader fails to compile or link | `onError` with the driver's log in the console; the still |
 | The context is lost | The loop stops; on restore everything is rebuilt and redrawn; if it has not come back within two seconds, `onError`; the still |
 | An unknown rarity tier | `gloss` |
 | The still itself fails to load | The dialog shows the rarity and foil name on the dark backdrop, and Close still works |
+| A browser too old for `<dialog>` (iOS before 15.4) | The view is shown as an ordinary box over the page; its Close button closes it. Escape does not |
 
 ## Tests
 
@@ -173,6 +175,16 @@ One thing learned from the preview: the artwork is itself drawn in rainbow colou
 - **For the owner: the look.** The first-pass values came from one preview session. Each foil's strength, band width, facet size and sparkle are meant to be tuned with the owner on the phone demo.
 - **Measured later:** frame rate on an iPhone, and the shader under iOS Safari's precision rules.
 
+## How it looks
+
+Screenshots from the finished build, taken in desktop Chrome with software GL (not on a phone).
+
+![The live card. Columns: gloss, standard holo, full-spectrum rainbow, refractive prismatic. Rows: flat; tilted; tilted toward the key light, whose reflection crosses the card; tilted away.](2026-11-11-holo-card-back/live-four-foils.jpg)
+
+![The live card (top) above Blender's still of the same foil in the same pose (bottom).](2026-11-11-holo-card-back/live-above-blender-below.jpg)
+
+![The Garage at 375 px: the four-backs page, the inspect view, and the inspect view in Spanish.](2026-11-11-holo-card-back/garage-on-a-phone.jpg)
+
 ## As built
 
 What differs from the design as it was approved, and why. Each was decided during the build and none changes what the visitor was promised.
@@ -188,4 +200,6 @@ What differs from the design as it was approved, and why. Each was decided durin
 - **`scene.ts`** holds the camera, pose, shadow and foil numbers apart from `card.ts`, so they are tested without a browser. **`garage/back.ts`** is the plan's `cardBack.ts` under another name: `cardBack` and `CardBack` are the same file name on Windows and macOS.
 - **The dialog closes by its button and Escape**, not by a click on the ground around the card: a drag that starts beside the card would close it by accident.
 - **The hint to drag the card is shown only while the card can be dragged**: not under a still, and not with motion reduced.
+- **The still also holds the card's place while the files load**, drawn at the live card's size. On a slow connection the view was otherwise empty for as long as the download took. Found by the review at the end.
+- **Close works where `<dialog>` does not exist.** There the element has no `close()`, and the button would have thrown. Found by the review at the end.
 - **A re-export of `card.glb` is the same model but not always the same bytes**: the rim's UVs, which nothing reads, differ in their last bit from run to run.
