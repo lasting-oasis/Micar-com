@@ -1,11 +1,14 @@
-// The card. Front: the car, the value, the label with the grade and a QR that opens the car's page.
-// Back: the value ahead on the model's curve, and the four parts of the grade. Raw cards have no case.
+// The card. Front: the car, the value, the label with the starting grade and a QR that opens the car's page.
+// Back: the five categories of that grade, each with where it starts and how it rises, and the value ahead on the
+// model's curve. A card on the home page is raw: it goes in a case in the Garage, when its records put it there.
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
+import { GRADE_CATEGORIES } from '@micar/engine';
 import { carPageUrl } from '../car/record';
 import { qrSvg } from '../car/qr';
 import { usd } from '../car/value';
+import { GRADE_CATEGORY_NAMES } from '../garage/CollectibleCard';
 import { t } from '../i18n';
-import { categoryOf, gradeOf, type Card, type Grade, type GradeInputs } from './card';
+import { categoryOf, gradeFor, type Card, type Grade, type GradeInputs } from './card';
 
 const BASE = import.meta.env.BASE_URL;
 
@@ -33,9 +36,29 @@ export function useLive(enabled: boolean) {
   return ref;
 }
 
+/**
+ * The five categories of a starting grade: each with its score out of 100 and, for the ones the home page cannot
+ * know, the line that says how it is raised.
+ */
+export function Categories({ grade }: { grade: Grade }) {
+  return (
+    <div className="bars cats">
+      {GRADE_CATEGORIES.map((k) => {
+        const score = grade.report.categories[k].score, note = grade.notes[k];
+        return (
+          <div className={`bar ${note ? 'blue' : ''}`} key={k}>
+            <span>{t(GRADE_CATEGORY_NAMES[k])}</span><i><b style={{ width: `${score}%` }} /></i><output>{Math.round(score)}</output>
+            {note && <em>{t(note)}</em>}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 type Props = {
   card: Card;
-  /** Grade inputs to show instead of the card's own (the simulator drives this). */
+  /** Grade inputs to show instead of the card's own (the grade section drives this). */
   g?: GradeInputs;
   flipped?: boolean;
   onFlip?: () => void;
@@ -46,15 +69,16 @@ type Props = {
 };
 
 export function Slab({ card, g, flipped = false, onFlip, live = false, mini = false, className = '', serial }: Props) {
-  const grade = useMemo(() => (g ? gradeOf(g) : card.grade), [g, card]);
+  const grade = useMemo(() => gradeFor(card, g), [g, card]);
   const link = carPageUrl(card.code);
   const qr = useQr(link);
   const ref = useLive(live);
   const cat = categoryOf(card.r.body);
-  const style = { '--foil': grade.foil } as CSSProperties;
+  // Foil follows a grade a card has earned in its case. A starting grade has none yet.
+  const style = { '--foil': 0 } as CSSProperties;
   const toggle = () => onFlip?.();
   return (
-    <div ref={ref} className={`slab ${grade.slabbed ? '' : 'raw'} ${flipped ? 'flipped' : ''} ${live ? 'live' : ''} ${mini ? 'mini' : ''} ${className}`} style={style}
+    <div ref={ref} className={`slab raw ${flipped ? 'flipped' : ''} ${live ? 'live' : ''} ${mini ? 'mini' : ''} ${className}`} style={style}
       role={onFlip ? 'button' : undefined} tabIndex={onFlip ? 0 : undefined} aria-label={onFlip ? t('The card. Press Enter to flip it.') : undefined}
       onClick={onFlip ? toggle : undefined} onKeyDown={onFlip ? (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } } : undefined}>
       <div className="slab-in">
@@ -72,10 +96,11 @@ export function Slab({ card, g, flipped = false, onFlip, live = false, mini = fa
         <div className="sl-face back"><div className="acrylic">
           <Label card={card} grade={grade} qr={qr} serial={serial} />
           <div className="art chart">
+            <h4>{t('starting grade')}</h4>
+            <Categories grade={grade} />
             <h4>{t('value ahead')}</h4>
             <div className="chwrap"><Curve card={card} /></div>
             <div className="legend"><span><i style={{ background: 'var(--paint)' }} />{t('your car')}</span><span><i style={{ background: 'var(--haze)', height: 2 }} />{t('expected curve')}</span><span><i style={{ background: 'var(--blue-2)' }} />{t('range')}</span></div>
-            <div className="stats"><small>{grade.slabbed ? t('{n} entries on the trail', { n: g?.entries ?? 0 }) : t('your entries will mark this line')}</small></div>
             <div className="foil" /><div className="glare" />
           </div>
           <div className="uvmark">MiCar<br />{t('authentic')}<br />{serial ?? t('unminted')}</div>
@@ -89,7 +114,7 @@ function Label({ card, grade, qr, serial }: { card: Card; grade: Grade; qr: stri
   const r = card.r;
   return (
     <div className="sl-label">
-      <div className="lab-g"><small>{t('MiCar grade')}</small><b>{grade.slabbed ? grade.G.toFixed(1) : 'RAW'}</b><em>{grade.slabbed ? t(grade.name) : t('ungraded')}</em></div>
+      <div className="lab-g"><small>{t('starting grade')}</small><b>{grade.G.toFixed(1)}</b><em>{t('out of 10')}</em></div>
       <div className="lab-n"><strong>{r.year} {r.model || r.modelText || t(r.body)}</strong><span>{r.trim ? `${r.trim} · ` : ''}{serial ?? t('unminted')}</span><i>{t('scan to see the car')}</i></div>
       <div className="qr" title={t("Scan: opens the car's page")} dangerouslySetInnerHTML={qr ? { __html: qr } : undefined} />
     </div>

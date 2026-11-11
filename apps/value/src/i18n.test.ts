@@ -8,6 +8,7 @@ import { CALIBRATION, MODELS } from './engine/models';
 import { TRAIT_NOTES } from './engine/models';
 import { prefillMsrp } from './engine/prefill';
 import { STICKERS } from './engine/stickers';
+import { RAISE_BY_VERIFIER, RAISE_IN_GARAGE } from './door/card';
 import { valuate, type Inputs } from './engine/valuation';
 import { DEFAULT_WARRANTY, FEATURES, FEATURE_GROUPS } from './car/record';
 import { MARKET_OPTIONS, URGENCY_OPTIONS, defaults, parse } from './urlState';
@@ -44,6 +45,8 @@ describe('Spanish table', () => {
       ...MARKET_OPTIONS.filter((o) => o.value !== 'auto').flatMap((o) => [o.name, o.desc]), 'Auto', ...URGENCY_OPTIONS.flatMap((o) => [o.name, o.desc]),
       ...FEATURES.map((f) => f.label), ...FEATURE_GROUPS, DEFAULT_WARRANTY, 'Enter a 5-digit ZIP first.', 'Lookup failed.',
       ...Object.values(TRAIT_NOTES),
+      // The home page's starting grade: how each category it cannot know is raised.
+      RAISE_IN_GARAGE, RAISE_BY_VERIFIER,
     ];
     expect(keys.filter((k) => !(k in ES))).toEqual([]);
     expect(MAKES.some((m) => m.name === 'Other')).toBe(true);

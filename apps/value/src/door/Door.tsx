@@ -11,7 +11,7 @@ import calibration from '../data/calibration.json';
 import stickers from '../data/stickers.json';
 import samples from '../data/listing-samples.json';
 import { Bay } from './Bay';
-import { doorDefaults, gradeOf, makeCard, recordFrom, sampleCard, settle, type Card, type DoorInput, type GradeInputs } from './card';
+import { doorDefaults, gradeFor, makeCard, recordFrom, sampleCard, settle, type Card, type DoorInput, type GradeInputs } from './card';
 import { GradeSim } from './GradeSim';
 import { Inspector } from './Inspector';
 import { Slab, useQr } from './Slab';
@@ -174,7 +174,7 @@ export default function Door() {
           <div className="ghost" style={{ right: '-2%', top: 40 }}>{t('graded')}</div>
           <div className="eyebrow marker"><Key />{t('the grade')}</div>
           <h2 className="painted big">{t('Gem mint, for cars')}</h2>
-          <p className="lede">{t("One number from 1 to 10, like a graded card, except you can move it. Four parts: how the car is, how its model holds value against its class, how much of its story is on record, and how many miles it carries for its age. This is {car}. Try it.", { car: carName(shown.r) })}</p>
+          <p className="lede">{t("One number from 1 to 10, like a graded card, except you can move it. Five categories, each scored on its own: who the car is, how much of its story is on record, the condition it is in, how original it is, and what an independent party has verified. This page is told only the condition and the miles, so this is where {car} starts.", { car: carName(shown.r) })}</p>
           <GradeSim card={shown} g={shownG} onChange={setG} />
         </div></section>
         <World card={shown} />
@@ -220,7 +220,7 @@ function CardSection({ card, g }: { card: Card; g: GradeInputs }) {
         <div className="feat"><ul>
           <li><span className="k">A</span><div><h3>{t('The label')}</h3><p>{t("Grade, tier, the car, the serial, and a QR that opens the car's page. Printed on both sides, like a real slab.")}</p></div></li>
           <li><span className="k">B</span><div><h3>{t('The shine is earned')}</h3><p>{t('Foil follows the grade and is never for sale. A 9.8 Showroom throws rainbows; a 5.4 Daily is matte chrome. You can tell the grade from across the room.')}</p></div></li>
-          <li><span className="k">C</span><div><h3>{t('The back tells the story')}</h3><p>{t("The rear label carries the chart: your car on its model's curve, with every service, mod and mileage check marked on the line.")}</p></div></li>
+          <li><span className="k">C</span><div><h3>{t('The back tells the story')}</h3><p>{t("The back carries the grade's five categories, each with where it stands, and the chart: your car on its model's curve.")}</p></div></li>
           <li><span className="k">D</span><div><h3>{t('Raw until slabbed, then minted once')}</h3><p>{t('A valued car is a raw card. Three entries later it goes in the case, gets its first grade, and is minted with a set, a number and its stamps. The grade can move. The minting never does.')}</p></div></li>
         </ul></div>
       </div>
@@ -293,8 +293,7 @@ function Verbs({ card, now }: { card: Card; now: Date }) {
 
 function Keyholder({ card, g }: { card: Card; g: GradeInputs }) {
   const [yearly, setYearly] = useState(true);
-  const verified = useMemo(() => ({ ...g, verified: true, receipts: true, photo: true, entries: Math.max(g.entries, 3) }), [g]);
-  const grade = gradeOf(verified);
+  const grade = gradeFor(card, g);
   return (
     <section className="sec gutter" id="keyholder"><div className="inner">
       <div className="eyebrow marker"><Key />{t('keyholder')}</div>
@@ -304,7 +303,7 @@ function Keyholder({ card, g }: { card: Card; g: GradeInputs }) {
         <div>
           <div className="kcard-wrap"><div className="kcard">
             <div className="top"><span><span className="mi">Mi</span>Car <small>Keyholder</small></span><small>{t('Charlotte · Series 1')}</small></div>
-            <div className="mid"><div className="seal"><span>MiCar<br />{t('verified')}</span></div><div className="who"><b>{card.r.year} {card.r.model || card.r.modelText}</b><span>{t('would read {g} {tier} · verified', { g: grade.G.toFixed(1), tier: t(grade.name) })}</span></div></div>
+            <div className="mid"><div className="seal"><span>MiCar<br />{t('verified')}</span></div><div className="who"><b>{card.r.year} {card.r.model || card.r.modelText}</b><span>{t('starting grade {g} · verified work raises it', { g: grade.G.toFixed(1) })}</span></div></div>
             <div className="bot"><span>{t('member')}<b>MC-·····</b></span><span>{t('since')}<b>{new Date().getFullYear()}</b></span></div>
           </div></div>
           <div className="price">

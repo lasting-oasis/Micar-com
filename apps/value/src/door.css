@@ -255,7 +255,7 @@
 .dp .sl-label { position: relative; z-index: 5; background: var(--paper); color: var(--paper-ink); border-radius: 5px; padding: 7px 8px 7px 11px; display: grid; grid-template-columns: auto 1fr auto; gap: 8px; align-items: center; overflow: hidden; }
 .dp .sl-label::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--paint); }
 .dp .lab-g { display: grid; line-height: 1; }
-.dp .lab-g small { font: 700 7px/1 var(--cond); letter-spacing: .16em; text-transform: uppercase; color: var(--paper-mute); }
+.dp .lab-g small { font: 700 7px/1.15 var(--cond); letter-spacing: .16em; text-transform: uppercase; color: var(--paper-mute); max-width: 12ch; }
 .dp .lab-g b { font: italic 800 30px/.95 var(--cond); font-variant-numeric: tabular-nums; }
 .dp .lab-g em { font: 700 8.5px/1 var(--cond); letter-spacing: .1em; text-transform: uppercase; color: var(--paper-ink); font-style: normal; }
 .dp .lab-n { min-width: 0; display: grid; gap: 2px; line-height: 1; }
@@ -287,9 +287,13 @@
 .dp .mini .lab-g b { font-size: 22px; } .dp .mini .stats { font-size: 7px; } .dp .mini .stats b { font-size: 15px; } .dp .mini .lab-g small { font-size: 6px; } .dp .mini .lab-g em { font-size: 7px; }
 @media (hover: none) { .dp .live .foil { animation: sheen 6s ease-in-out infinite alternate; } }
 @keyframes sheen { from { background-position: 20% 30%; } to { background-position: 80% 70%; } }
-/* chart on the back */
-.dp .art.chart { grid-template-rows: auto 1fr auto auto; padding: 8px 8px 0; gap: 4px; }
+/* the back: the starting grade's five categories, then the chart */
+.dp .art.chart { grid-template-rows: auto auto auto 1fr auto; padding: 8px 8px 0; gap: 4px; }
 .dp .art.chart .stats { grid-row: auto; margin: 0 0 8px; }
+.dp .art.chart .cats { position: relative; z-index: 2; gap: 4px; margin: 7px 0 4px; }
+.dp .art.chart .cats .bar { grid-template-columns: 92px 1fr 20px; gap: 3px 6px; font-size: 9.5px; letter-spacing: .06em; }
+.dp .art.chart .cats .bar i { height: 6px; }
+.dp .art.chart .cats .bar em { font-size: 9.5px; }
 .dp .chwrap { min-height: 0; display: grid; place-items: center; position: relative; z-index: 2; }
 .dp .chwrap .ch { max-height: 100%; }
 .dp .art.chart h4 { margin: 0; font: 400 clamp(13px, 1.5vw, 19px)/1 var(--marker); color: var(--paint); transform: rotate(-3deg); z-index: 2; position: relative; }
@@ -381,6 +385,9 @@
 .dp .bar i { height: 10px; background: rgba(255,255,255,.07); border-radius: 5px; overflow: hidden; display: block; }
 .dp .bar i b { display: block; height: 100%; background: var(--paint); border-radius: 5px; transition: width .4s var(--ease-out); }
 .dp .bar.blue i b { background: var(--blue-2); }
+.dp .cats .bar { grid-template-columns: 128px 1fr 36px; row-gap: 4px; }
+.dp .cats .bar em { grid-column: 1 / -1; font: 400 12px/1.15 var(--marker); letter-spacing: 0; text-transform: none; font-style: normal; color: var(--blue-2); }
+.dp .sim-note { margin: 18px 0 0; max-width: 60ch; font: 400 15px/1.5 var(--body); color: #c3cad8; }
 .dp .bar output { text-align: right; color: var(--ink); font-variant-numeric: tabular-nums; }
 .dp .formula { font: 600 13px/1.6 var(--cond); letter-spacing: .06em; color: var(--haze); border-left: 2px solid var(--paint); padding-left: 12px; }
 .dp .formula b { color: var(--ink); }
