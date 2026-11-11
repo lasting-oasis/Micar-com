@@ -1,8 +1,9 @@
 // The Garage: the cars parked on this device, as cards, and the page of one of them.
 // Nothing here leaves the browser: the cars are kept by garage/store.ts and their files by garage/files.ts.
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { BODY_CLASSES, BODY_CLASS_LABELS, LEVEL_LABELS, checkIdentity, micarIdFromBytes, normalizeMicarId, ownerSource } from '@micar/engine';
+import { BODY_CLASSES, BODY_CLASS_LABELS, LEVEL_LABELS, RARITY_LABELS, checkIdentity, micarIdFromBytes, normalizeMicarId, ownerSource } from '@micar/engine';
 import type { Assembly, BodyClass, Passport, Sourced, VehicleSpec } from '@micar/engine';
+import { foilForRarity } from '@micar/holo';
 import { garageUrl } from '../car/record';
 import { Footer } from '../Footer';
 import { Strip } from '../Strip';
@@ -10,6 +11,9 @@ import { t, tx } from '../i18n';
 import '../door.css';
 import './garage.css';
 import './panels.css';
+import { CARD_BACKS } from './back';
+import { CardBack } from './CardBack';
+import CardBacks from './CardBacks';
 import { CollectibleCard } from './CollectibleCard';
 import { Examples } from './Examples';
 import { useFocusBack } from './focus';
@@ -248,6 +252,7 @@ export const tabId = (name: Tab): string => `gar-tab-${name.toLowerCase().replac
 function CarPage({ passport, g, today }: { passport: Passport; g: GarageHandle; today: string }) {
   const [tab, setTab] = useState<Tab>('Stats');
   const [flipped, setFlipped] = useState(false);
+  const [back, setBack] = useState(false);
   const [confirming, setConfirming] = useState(false);
   const removeOpener = useFocusBack(confirming);
   const [stuck, setStuck] = useState(false);
@@ -293,6 +298,9 @@ function CarPage({ passport, g, today }: { passport: Passport; g: GarageHandle; 
         <aside className="gar-side">
           <CollectibleCard card={assembly.card} report={assembly.report} photoUrl={photo} live flipped={flipped} onFlip={() => setFlipped((f) => !f)} />
           <span className="gar-hint">{t('tap the card to turn it over')}</span>
+          <button type="button" className="gar-btn" onClick={() => setBack(true)}>{t('Card back')}</button>
+          {/* The back's foil is earned by the card's rarity, as the engine worked it out; nothing here changes it. */}
+          {back && <CardBack foil={foilForRarity(assembly.card.rarity.tier)} rarity={t(RARITY_LABELS[assembly.card.rarity.tier])} title={[assembly.card.title, assembly.card.subtitle].filter(Boolean).join(' ')} onClose={() => setBack(false)} />}
         </aside>
         <div className="gar-main">
           <h1 className="gar-title">{assembly.card.title}{assembly.card.subtitle && <small> {assembly.card.subtitle}</small>}</h1>
@@ -365,14 +373,17 @@ function useToday(): string {
 export default function Garage({ code }: { code?: string }) {
   const g = useGarage();
   const today = useToday();
-  const id = code ? normalizeMicarId(code) ?? code : null;
+  // The four card backs have a page of their own. Its word is looked for before any car: a MiCar ID starts "MC-".
+  const backs = code === CARD_BACKS;
+  const id = code && !backs ? normalizeMicarId(code) ?? code : null;
   const car = id ? findCar(g.state, id) : null;
   return (
     <div className="dp gar">
       <Strip current="garage" />
       <main className="gutter">
         <div className="inner">
-          {!id && <Home g={g} today={today} />}
+          {backs && <CardBacks />}
+          {!id && !backs && <Home g={g} today={today} />}
           {id && car && <CarPage key={car.micarId} passport={car} g={g} today={today} />}
           {id && !car && (
             <header className="gar-head">

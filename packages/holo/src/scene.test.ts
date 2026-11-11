@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { FOILS } from './foils';
 import { multiply, transformPoint, translation } from './mat';
-import { CANVAS_ASPECT, FILL, KEY_LIGHT, foilUniforms, framing, pose, shadowFor } from './scene';
+import { CANVAS_ASPECT, FILL, KEY_LIGHT, WIDTH_FILL, foilUniforms, framing, pose, shadowFor } from './scene';
 import { MAX_TILT } from './tilt';
 
 const HALF_WIDTH = 0.5 * (63 / 87.86);      // the card is one unit tall
@@ -9,7 +9,7 @@ const CORNERS: [number, number, number][] = [[-HALF_WIDTH, -0.5, 0], [HALF_WIDTH
 
 /** Where a point of the card lands in the picture (-1..1 each way) for a canvas shape and a tilt. */
 function seen(aspect: number, point: [number, number, number], tilt = { x: 0, y: 0 }): [number, number, number] {
-  const { distance, projection } = framing(aspect);
+  const { distance, projection } = framing(aspect, 2 * HALF_WIDTH);
   return transformPoint(multiply(projection, multiply(translation(0, 0, -distance), pose(tilt).rotation)), point);
 }
 
@@ -24,11 +24,28 @@ describe('the camera', () => {
     expect(seen(2, [0, 0.5, 0])[1]).toBeCloseTo(0.72, 6);
   });
 
-  it('shrinks the card in a narrower canvas, so it keeps the share of the width it has at 3:4', () => {
-    const atRest = seen(3 / 4, [HALF_WIDTH, 0, 0])[0];
-    expect(seen(0.5, [HALF_WIDTH, 0, 0])[0]).toBeCloseTo(atRest, 6);
-    expect(seen(0.3, [HALF_WIDTH, 0, 0])[0]).toBeCloseTo(atRest, 6);
-    expect(seen(0.5, [0, 0.5, 0])[1]).toBeLessThan(0.72);
+  it('gives the card 84% of the width of a canvas too narrow for 72% of its height', () => {
+    // a phone held upright: the room is taller than 3:4, and the card should use its width
+    for (const aspect of [0.55, 0.45, 0.3]) {
+      expect(seen(aspect, [HALF_WIDTH, 0, 0])[0]).toBeCloseTo(WIDTH_FILL, 6);
+      expect(seen(aspect, [0, 0.5, 0])[1]).toBeLessThan(0.72);
+    }
+    expect(WIDTH_FILL).toBe(0.84);
+  });
+
+  it('changes over without a jump where the two limits meet', () => {
+    const meet = (WIDTH_FILL / 0.72) * (2 * HALF_WIDTH);      // the canvas shape at which 72% of the height is 84% of the width
+    const below = seen(meet - 1e-6, [HALF_WIDTH, 0.5, 0]), above = seen(meet + 1e-6, [HALF_WIDTH, 0.5, 0]);
+    expect(below[0]).toBeCloseTo(above[0], 4);
+    expect(below[1]).toBeCloseTo(above[1], 4);
+    expect(above[1]).toBeCloseTo(0.72, 4);
+  });
+
+  it('frames a card of another shape by that shape', () => {
+    const square = framing(0.5, 1);
+    const p = transformPoint(multiply(square.projection, translation(0, 0, -square.distance)), [0.5, 0, 0]);
+    expect(p[0]).toBeCloseTo(WIDTH_FILL, 6);
+    expect(framing(0.5, Number.NaN).fill).toBeCloseTo(framing(0.5).fill, 9);     // a shape that makes no sense: the card's own
   });
 
   it('keeps every corner inside the picture and inside the depth range at full tilt, whatever the canvas', () => {

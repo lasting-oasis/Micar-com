@@ -16,7 +16,7 @@ import type { Angles, Spring } from './spring';
 import { tiltTarget, viewport } from './tilt';
 
 export type HoloCardOptions = {
-  /** A canvas of its own for this card, three wide to four tall. Its CSS size is the host's business. */
+  /** A canvas of its own for this card: three wide to four tall, or taller. Its CSS size is the host's business. */
   canvas: HTMLCanvasElement;
   /** The card model: the .glb tools/blender/export_card.py writes. */
   meshUrl: string;
@@ -291,7 +291,7 @@ export function createHoloCard(options: HoloCardOptions): HoloCard {
     context.clearColor(0, 0, 0, 0);
     context.clear(context.COLOR_BUFFER_BIT | context.DEPTH_BUFFER_BIT);
 
-    const { distance, fill, projection } = framing(width / height);
+    const { distance, fill, projection } = framing(width / height, 1 / prepared.aspect);
     const turned = pose(spring);
     const modelView = multiply(translation(0, 0, -distance), turned.rotation);
 

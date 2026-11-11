@@ -10,8 +10,12 @@ import { MAX_TILT } from './tilt';
 export const FOV = (24 * Math.PI) / 180;
 /** The card's share of the picture's height, which leaves room for the tilt and the shadow. */
 export const FILL = 0.72;
-/** The canvas the card is framed for: three wide to four tall. */
+/** Its share of the width, in a canvas too narrow for that: a phone held upright. */
+export const WIDTH_FILL = 0.84;
+/** The canvas the card is framed for: three wide to four tall. A taller one works too; a wider one wastes pixels. */
 export const CANVAS_ASPECT = 3 / 4;
+/** A trading card: 63 mm wide for 87.86 tall. Used when the model's own shape is not given. */
+const CARD_SHAPE = 63 / 87.86;
 /** The card's corner radius as a share of its width, measured from the artwork by tools/blender/build_card.py. */
 export const CORNER = 0.0675;
 
@@ -21,13 +25,15 @@ const LIGHT_LENGTH = Math.hypot(LIGHT[0], LIGHT[1], LIGHT[2]);
 export const KEY_LIGHT: [number, number, number] = [LIGHT[0] / LIGHT_LENGTH, LIGHT[1] / LIGHT_LENGTH, LIGHT[2] / LIGHT_LENGTH];
 
 /**
- * Where the camera sits for a canvas of this shape (width over height), with the card one unit tall at the origin.
- * In a canvas narrower than 3:4 the card is drawn smaller, so it keeps the share of the width it has at 3:4 and is
- * never cut off at the sides. A shape that makes no sense is taken as 3:4.
+ * Where the camera sits for a canvas of this shape (width over height), with the card one unit tall at the origin
+ * and `cardShape` wide. The card takes 72% of the picture's height, or 84% of its width where the canvas is too
+ * narrow for that, so on a phone held upright it is as large as the screen's width allows and is never cut off at
+ * the sides. A shape that makes no sense is taken as 3:4 for the canvas, and as a trading card's for the card.
  */
-export function framing(aspect: number): { distance: number; fill: number; projection: Mat4 } {
+export function framing(aspect: number, cardShape: number = CARD_SHAPE): { distance: number; fill: number; projection: Mat4 } {
   const shape = aspect > 0 && Number.isFinite(aspect) ? aspect : CANVAS_ASPECT;
-  const fill = FILL * Math.min(1, shape / CANVAS_ASPECT);
+  const card = cardShape > 0 && Number.isFinite(cardShape) ? cardShape : CARD_SHAPE;
+  const fill = Math.min(FILL, (WIDTH_FILL * shape) / card);
   const distance = distanceToFill(FOV, fill);
   return { distance, fill, projection: perspective(FOV, shape, distance - 1, distance + 1) };
 }
