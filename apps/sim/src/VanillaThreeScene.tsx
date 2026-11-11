@@ -23,7 +23,9 @@ import { StripScene, STRIP_SPAWN } from './world/strip/scene';
 import { routePoint } from './world/strip/routes';
 import type { EventResults } from './world/strip/events';
 import { Hud, fmtT, type HudState } from './world/hud';
-import { Audio as NtAudio } from './world/audio';
+import { Audio as NtAudio, soundMode } from './world/audio';
+import { soundFactsFor } from './sound/carSound';
+import { getCarSpec } from './carSpecs';
 import { getOptions } from './world/options';
 import { InputMap } from './world/input';
 import { ChaseCamera } from './world/cameras';
@@ -635,7 +637,7 @@ export function VanillaThreeScene() {
         let hudSized = false;
         const driveCam = new THREE.PerspectiveCamera(64, window.innerWidth / window.innerHeight, 1, 6500);
         const chase = new ChaseCamera(driveCam);
-        const audio = new NtAudio(getOptions().mute); // the Garage's Options: Sound
+        const audio = new NtAudio(getOptions().mute, soundMode(window.location.search)); // the Garage's Options: Sound; ?sound=model: the physical engine model
         const resumeAudio = () => audio.resume();
         window.addEventListener('keydown', resumeAudio);
         window.addEventListener('pointerdown', resumeAudio);
@@ -652,7 +654,10 @@ export function VanillaThreeScene() {
         const drivenCar = (): InvCar | undefined => meNow()?.inventory.find(c => c.id === localDrivingCarId);
         const specOf = (car: InvCar): VehicleSpec => {
             const key = `${car.id}|${car.make}|${car.model}|${styleOf(car)}|${!!car.rental}|${!!car.testCar}`;
-            if (!driveSpec || driveSpec.key !== key) driveSpec = { key, spec: specFor({ make: car.make, model: car.model, bodyStyle: styleOf(car), rental: car.rental, testCar: car.testCar }) };
+            if (!driveSpec || driveSpec.key !== key) {
+                driveSpec = { key, spec: specFor({ make: car.make, model: car.model, bodyStyle: styleOf(car), rental: car.rental, testCar: car.testCar }) };
+                audio.setCar(soundFactsFor({ engine: getCarSpec(car, styleOf(car)).engine, bodyStyle: styleOf(car), redline: driveSpec.spec.redline }));
+            }
             return driveSpec.spec;
         };
         const perfKey = (b: { cfg: CarCfg; tune: Tune }) => JSON.stringify(b.cfg.perf) + JSON.stringify(b.tune);
