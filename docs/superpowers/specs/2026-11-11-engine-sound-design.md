@@ -28,7 +28,7 @@ All of it is in `apps/sim/src/sound/`. It has no dependencies and does not touch
 
 1. **Firing table** (`firing.ts`). From cylinder count, layout and crank type: the crank angle at which each cylinder fires and which bank it is on. Firing is evenly spaced over 720°. A cross-plane V8 gives each bank the uneven pattern 90-180-180-270; a flat-plane V8 gives each bank an even 180°. A flat-four fires two on one side, then two on the other. A firing order can be given; `checkFiring` rejects one that does not match the crank type.
 2. **Crank clock** (`engineSound.ts`). The crank angle advances each sample by the rpm. When it passes a firing angle, that cylinder writes one exhaust pulse.
-3. **Pulse.** A sharp blow-down followed by a slower push as the piston clears the cylinder. Its size follows engine load, displacement per cylinder and boost. With the throttle shut a small motored pulse remains. Each pulse varies a little at random, more at idle than under load.
+3. **Pulse.** A sharp blow-down followed by a slower push as the piston clears the cylinder. Its size follows engine load, displacement per cylinder and boost. With the pedal off at speed the fuel is cut and a smaller air-only pulse remains; as the revs fall towards idle the fuel comes back, so the engine fires at idle with the pedal off. Each pulse varies a little at random, more at idle than under load.
 4. **Runners.** Each bank's pulses travel down that bank's runner, a delay set by its length.
 5. **Layout.** `single`: everything joins into one pipe. `merge`: two bank pipes of given lengths join into one. `dual`: two pipes run to the back, with a crossover that mixes a given share between them.
 6. **Pipe.** Each pipe is a chain of sections: front pipe, catalyst, middle pipe, muffler, tailpipe. Each section carries a wave travelling back and a wave travelling forward. Where the pipe area changes, part of the wave reflects. The open end reflects most of the low sound back inverted and lets the rest out. This is what gives each pipe length its own resonances.
@@ -56,7 +56,8 @@ These are the same for every car and are not tuned per car.
 | `PIPE_LOSS_PER_M` | 0.02 | loss per metre of pipe |
 | `RISE_SOFT`, `RISE_HARD` | 1.6 ms, 0.6 ms | pulse rise time at light and full load |
 | `PUSH_SHARE` | 0.3 | size of the push against the blow-down |
-| `MOTORED` | 0.05 | pulse size with the throttle shut |
+| `MOTORED` | 0.18 | pulse size with the fuel cut, against full load; an estimate, not measured from a car |
+| `FUEL_BACK_RPM`, `FUEL_BACK_BAND` | 1800, 500 rpm | with the pedal off, fuel returns over this band as the revs fall, so the engine fires at idle |
 | `JITTER_LOAD`, `JITTER_IDLE` | 0.05, 0.14 | random variation between pulses |
 | `TURBINE_GAIN` | 0.55 | how much a turbo lets through |
 | `CHAMBER_AREA` | 9 | chamber area against pipe area |
@@ -90,6 +91,20 @@ A Garage turbo on a naturally aspirated engine switches its induction to turbo.
 - `carSound.test.ts`: reading the catalog string and the class defaults.
 - `world/audio.test.ts`: the switch and the frame inputs.
 - `e2e/sound.smoke.mjs`: renders one second through the built processor in Chromium and fails if it is silent or out of range. It runs in CI beside the Strip smoke test.
+
+## Measured from the clips
+
+Nobody has listened yet, so the ten clips were measured instead (2026-11-11). No clipping, no clicks, no dropouts, no offset. The order lines and pipe resonances show as expected on spectrograms. Levels, RMS:
+
+| Part of the clip | Level |
+|---|---|
+| idle | -35 to -46 dB |
+| full-throttle pull | -12 to -15 dB |
+| lift-off | -46 to -58 dB (-23 dB for the car with overrun pops) |
+
+The first measurement found the engine falling almost silent (-62 dB) with the pedal off, including at idle in the game. That is fixed and covered by three tests.
+
+Still open from the measurements: idle sits 23 to 31 dB under full throttle. The old synth keeps idle about 7 dB under full throttle, so against the tyre and wind sounds the new idle may be faint and the new full throttle loud. This needs ears to settle.
 
 ## Cost
 

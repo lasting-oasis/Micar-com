@@ -14,7 +14,9 @@ const PIPE_LOSS_PER_M = 0.02; // wall loss per metre travelled
 const RISE_SOFT = 0.0016;     // s: pulse rise time at no load
 const RISE_HARD = 0.0006;     // s: pulse rise time at full load
 const PUSH_SHARE = 0.3;       // size of the piston's push after the blow-down, against the blow-down
-const MOTORED = 0.05;         // size of an air-only pulse (fuel cut) against a full-load one
+const MOTORED = 0.18;         // size of an air-only pulse (fuel cut) against a full-load one; an estimate, not measured
+const FUEL_BACK_RPM = 1800;   // with the pedal off, fuel is fully back by this many rpm less the band below
+const FUEL_BACK_BAND = 500;   // rpm over which it comes back
 const JITTER_LOAD = 0.05;     // cycle-to-cycle variation at speed
 const JITTER_IDLE = 0.14;     // extra variation near idle
 const TURBINE_GAIN = 0.55;    // class estimate: what a turbine leaves of a pulse
@@ -132,13 +134,15 @@ export class EngineSound {
   }
 
   private fire(i: number, frac: number): void {
-    const rpm = this.rpmS, load = Math.max(0, this.loadS), firing = this.cut < 0.5 && this.thrS > 0.03;
+    const rpm = this.rpmS, load = Math.max(0, this.loadS);
+    // Fuel: on with the pedal down; with the pedal off it is cut on the overrun and comes back as the revs near idle, as an engine computer does.
+    const pedal = Math.min(1, this.thrS / 0.06), nearIdle = Math.min(1, Math.max(0, (FUEL_BACK_RPM - rpm) / FUEL_BACK_BAND));
+    const fuel = this.cut < 0.5 ? Math.max(pedal, nearIdle) : 0, firing = fuel > 0.5;
     const idle = Math.max(0, 1 - rpm / (0.45 * this.redline));
-    let amp: number, rise: number;
-    if (firing) {
-      amp = this.a0 * (0.22 + 0.78 * load) * (1 + 0.6 * this.boostS) * (1 + (JITTER_LOAD + JITTER_IDLE * idle * idle) * this.gauss());
-      rise = RISE_SOFT + (RISE_HARD - RISE_SOFT) * load;
-    } else { amp = this.a0 * MOTORED * (0.4 + 0.6 * this.thrS); rise = RISE_SOFT * 1.3; }
+    const fired = this.a0 * (0.22 + 0.78 * load) * (1 + 0.6 * this.boostS) * (1 + (JITTER_LOAD + JITTER_IDLE * idle * idle) * this.gauss());
+    const motored = this.a0 * MOTORED * (0.6 + 0.4 * this.thrS);
+    let amp = motored + (fired - motored) * fuel;
+    let rise = RISE_SOFT * 1.3 + (RISE_SOFT + (RISE_HARD - RISE_SOFT) * load - RISE_SOFT * 1.3) * fuel;
     if (this.turbo) { amp *= TURBINE_GAIN; rise *= 1.8; }
     const half = Math.min(0.08, 30 / Math.max(300, rpm)); // 180 crank degrees, in seconds
     const at = Math.max(0, this.evDelay[i] - frac + (firing ? idle * 1.5 * this.gauss() : 0));

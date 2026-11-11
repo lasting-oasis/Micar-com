@@ -68,6 +68,25 @@ describe('EngineSound: load, pipes and add-ons', () => {
   it('is louder at full load than at light load', () => {
     expect(rmsDb(render(facts({}), {})[0]) - rmsDb(render(facts({}), { throttle: 0.15, load: 0.1 })[0])).toBeGreaterThan(6);
   });
+  it('idles with the pedal off: the engine keeps firing near idle speed', () => {
+    const off = rmsDb(render(facts({}), { rpm: 800, throttle: 0, load: 0 })[0]);
+    const cracked = rmsDb(render(facts({}), { rpm: 800, throttle: 0.08, load: 0.05 })[0]);
+    expect(cracked - off).toBeLessThan(4);
+  });
+  it('on the overrun the exhaust is well down on full load but still there', () => {
+    const full = rmsDb(render(facts({}), { rpm: 5000 })[0]);
+    const lifted = rmsDb(render(facts({}), { rpm: 5000, throttle: 0, load: -0.5 })[0]);
+    expect(full - lifted).toBeGreaterThan(12);
+    expect(full - lifted).toBeLessThan(26);
+  });
+  it('coming down to idle with the pedal off never steps the level by more than 6 dB between 200 rpm steps', () => {
+    let last = NaN;
+    for (let rpm = 2600; rpm >= 800; rpm -= 200) {
+      const db = rmsDb(render(facts({}), { rpm, throttle: 0, load: -0.2 }, 1)[0]);
+      if (!Number.isNaN(last)) expect(Math.abs(db - last)).toBeLessThan(6);
+      last = db;
+    }
+  });
   it('a cut engine (limiter, shift) is much quieter than a firing one', () => {
     expect(rmsDb(render(facts({}), {})[0]) - rmsDb(render(facts({}), { cut: 1 })[0])).toBeGreaterThan(10);
   });
