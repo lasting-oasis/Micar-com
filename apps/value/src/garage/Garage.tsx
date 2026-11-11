@@ -21,7 +21,7 @@ import { PassportPanel } from './PassportPanel';
 import { RacePanel } from './RacePanel';
 import { SpecForm } from './SpecForm';
 import { StatsPanel } from './StatsPanel';
-import { assembleCar, exportGarage, findCar, garageIds, holdingOf, importGarage, ownsCar, park, record, removeCar, replaceSpec, replaceVin, takeUpGarage, transfer, type GarageState, type Restorable } from './store';
+import { assembleCar, exportGarage, filesOnlyOf, findCar, garageIds, holdingOf, importGarage, ownsCar, park, record, removeCar, replaceSpec, replaceVin, takeUpGarage, transfer, type GarageState, type Restorable } from './store';
 import { useFileUrl, useGarage, type GarageHandle } from './useGarage';
 import { HOLDING_WORDS, RENAMED_NOTE, TABS, type Tab } from './words';
 
@@ -94,7 +94,8 @@ function Home({ g, today }: { g: GarageHandle; today: string }) {
       const text = await file.text();
       const result = importGarage(g.latest(), text);
       if (!result.ok) { setMessage(t(result.reason)); return; }
-      g.apply(result.value.state);
+      // A passport file can be megabytes. One this browser has no room to keep would stop it keeping the whole garage.
+      if (!g.applyIfKept(result.value.state)) { setMessage(t('That file is too large for this browser to keep, so nothing was brought in.')); return; }
       setMessage(t('{added} added, {updated} updated, {skipped} left out.', { added: result.value.added, updated: result.value.updated, skipped: result.value.skipped }));
       // Bringing a file in never changes this garage's IDs. A backup that names others is offered, and taken up only on a yes.
       setOffered(result.value.restorable);
@@ -271,10 +272,13 @@ function CarPage({ passport, g, today }: { passport: Passport; g: GarageHandle; 
     return null;
   };
   const onRecord = (event: Record<string, unknown>, reason: string) => commit(record(g.latest(), passport.micarId, event, { now: stamp(), snapshotId: newId(), reason }));
-  const remove = async () => {
-    for (const e of passport.events) for (const a of e.attachments) { try { await g.files.remove(a.id); } catch { /* already gone */ } }
-    g.apply(removeCar(g.latest(), passport.micarId));
+  const remove = () => {
+    // The car goes at once; its files follow, in one go, and only the ones no other car here names.
+    const before = g.latest();
+    const files = filesOnlyOf(before, passport.micarId);
+    g.apply(removeCar(before, passport.micarId));
     try { window.location.hash = '#/garage'; } catch { /* no window */ }
+    g.files.removeAll(files).catch(() => { /* already gone, or the browser would not open its store */ });
   };
 
   return (
@@ -323,7 +327,7 @@ function CarPage({ passport, g, today }: { passport: Passport; g: GarageHandle; 
           </div>
           <div className="gar-danger">
             {confirming
-              ? <span className="gar-btns"><span className="gar-help" role="status">{t('Take this car and its files out of this garage? The passport file keeps its history but not its photographs and receipts: save any of those you want first.')}</span><button type="button" className="gar-btn danger" onClick={() => { void remove(); }}>{t('Yes, remove it')}</button><button type="button" className="gar-btn" autoFocus onClick={() => setConfirming(false)}>{t('Cancel')}</button></span>
+              ? <span className="gar-btns"><span className="gar-help" role="status">{t('Take this car and its files out of this garage? The passport file keeps its history but not its photographs and receipts: save any of those you want first.')}</span><button type="button" className="gar-btn danger" onClick={remove}>{t('Yes, remove it')}</button><button type="button" className="gar-btn" autoFocus onClick={() => setConfirming(false)}>{t('Cancel')}</button></span>
               : <button type="button" className="gar-btn danger" ref={removeOpener} onClick={() => setConfirming(true)}>{t('Remove from this garage')}</button>}
           </div>
         </div>

@@ -19,6 +19,12 @@ export type GarageHandle = {
   /** False when this browser is not keeping the garage. True until that is known, so the warning never flashes. */
   persisted: boolean;
   apply: (next: GarageState) => void;
+  /**
+   * Makes a change only if this browser can keep it. For the one kind of change that can be too big: bringing a file
+   * in. A browser that has been keeping the garage and has no room for this is left as it was, so the cars already
+   * here go on being saved. Returns false when the change was not made.
+   */
+  applyIfKept: (next: GarageState) => boolean;
   files: FileStore;
 };
 
@@ -53,7 +59,13 @@ export function useGarage(): GarageHandle {
   }, []);
 
   const apply = (next: GarageState) => { now.current = next; setState(next); setPersisted(saveGarage(browserStorage(), next)); };
-  return { state, latest: () => now.current, skipped: loaded.skipped, persisted: persisted && (!filesKnown || files.kind === 'indexeddb'), apply, files };
+  const applyIfKept = (next: GarageState): boolean => {
+    // A browser that is not keeping the garage anyway (no storage, a private window) takes the change in memory as before.
+    if (persisted && !saveGarage(browserStorage(), next)) return false;
+    apply(next);
+    return true;
+  };
+  return { state, latest: () => now.current, skipped: loaded.skipped, persisted: persisted && (!filesKnown || files.kind === 'indexeddb'), apply, applyIfKept, files };
 }
 
 /** An object URL for a stored file, made when asked for and released when no longer shown. Null until it is ready or when the file is gone. */

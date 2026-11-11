@@ -174,8 +174,34 @@ export function transfer(state: GarageState, micarId: string, input: { eventId: 
   return { ok: true, value: put(state, moved.value) };
 }
 
-/** Takes a car out of this garage. The files it pointed at are removed by the page. */
+/** Takes a car out of this garage. The files it pointed at are removed by the page (see filesOnlyOf). */
 export const removeCar = (state: GarageState, micarId: string): GarageState => ({ ...state, passports: state.passports.filter((p) => p.micarId !== micarId) });
+
+/**
+ * The files to delete when a car leaves the garage: the ones its passport names that no other car here names.
+ * A passport file comes from someone else and can name any file ID, including the ID of a photograph or receipt
+ * that belongs to another car in this garage (IDs travel in every passport file the owner has shared). Deleting by
+ * the departing passport's word alone would let such a file take the other car's files with it.
+ */
+export function filesOnlyOf(state: GarageState, micarId: string): string[] {
+  const elsewhere: Record<string, true> = {};
+  for (const p of state.passports) {
+    if (p.micarId === micarId) continue;
+    for (const e of p.events) for (const a of e.attachments) elsewhere[`#${a.id}`] = true;
+  }
+  const out: string[] = [];
+  const seen: Record<string, true> = {};
+  const car = findCar(state, micarId);
+  if (!car) return out;
+  for (const e of car.events) {
+    for (const a of e.attachments) {
+      if (elsewhere[`#${a.id}`] === true || seen[`#${a.id}`] === true) continue;
+      seen[`#${a.id}`] = true;
+      out.push(a.id);
+    }
+  }
+  return out;
+}
 
 /* ----------------------------------------------------------- export and import ---- */
 

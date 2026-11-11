@@ -14,6 +14,8 @@ export type FileStore = {
   put(id: string, blob: Blob): Promise<void>;
   get(id: string): Promise<Blob | null>;
   remove(id: string): Promise<void>;
+  /** Removes many files in one go. An id with no file is passed over. */
+  removeAll(ids: readonly string[]): Promise<void>;
 };
 
 export function memoryFileStore(): FileStore {
@@ -23,6 +25,7 @@ export function memoryFileStore(): FileStore {
     put: async (id, blob) => { files.set(id, blob); },
     get: async (id) => files.get(id) ?? null,
     remove: async (id) => { files.delete(id); },
+    removeAll: async (ids) => { for (const id of ids) files.delete(id); },
   };
 }
 
@@ -58,6 +61,16 @@ export async function openFileStore(): Promise<FileStore> {
         return found instanceof Blob ? found : null;
       },
       remove: async (id) => { await request(objects('readwrite').delete(id)); },
+      // One transaction for the lot: a passport can name a hundred thousand files, and a transaction each would take minutes.
+      removeAll: (ids) => new Promise<void>((resolve, reject) => {
+        if (ids.length === 0) { resolve(); return; }
+        const work = db.transaction(STORE, 'readwrite');
+        const store = work.objectStore(STORE);
+        for (const id of ids) store.delete(id);
+        work.oncomplete = () => resolve();
+        work.onerror = () => reject(work.error ?? new Error('IndexedDB transaction failed'));
+        work.onabort = () => reject(work.error ?? new Error('IndexedDB transaction was aborted'));
+      }),
     };
   } catch {
     return memoryFileStore();

@@ -16,6 +16,16 @@ describe('the file store', () => {
     await store.remove('A1');
     expect(await store.get('A1')).toBeNull();
   });
+
+  it('removes many at once, and passes over an id with no file', async () => {
+    const store = memoryFileStore();
+    for (const fileId of ['A', 'B', 'C']) await store.put(fileId, new Blob([fileId]));
+    await store.removeAll(['A', 'missing', 'C']);
+    expect([await store.get('A'), await store.get('C')]).toEqual([null, null]);
+    expect(await store.get('B')).not.toBeNull();
+    await store.removeAll([]);
+    expect(await store.get('B')).not.toBeNull();
+  });
 });
 
 describe('checkFile', () => {

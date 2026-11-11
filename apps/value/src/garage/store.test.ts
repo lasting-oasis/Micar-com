@@ -3,7 +3,7 @@ import { PASSPORT_REFUSALS, emptySpec, micarIdFromBytes } from '@micar/engine';
 import type { Passport, Sourced, VehicleSpec } from '@micar/engine';
 import { garageIdFromBytes, normalizeGarageId } from './ids';
 import {
-  GARAGE_KEY, MAX_FORMER_IDS, QUARANTINE_KEY, STORE_REFUSALS, assembleCar, emptyGarage, exportGarage, findCar, garageIds, holdingOf, importGarage, loadGarage, ownsCar, park, record,
+  GARAGE_KEY, MAX_FORMER_IDS, QUARANTINE_KEY, STORE_REFUSALS, assembleCar, emptyGarage, exportGarage, filesOnlyOf, findCar, garageIds, holdingOf, importGarage, loadGarage, ownsCar, park, record,
   removeCar, replaceSpec, replaceVin, saveGarage, takeUpGarage, transfer,
 } from './store';
 import type { GarageState, GarageStorage, Restorable } from './store';
@@ -473,5 +473,30 @@ describe('removing a car', () => {
     expect(after.passports.map((p) => p.micarId)).toEqual([micarId(2)]);
     expect(findCar(after, CAR)).toBeNull();
     expect(removeCar(after, CAR)).toEqual(after);
+  });
+
+  it('takes with it only the files no other car here names', () => {
+    // Two cars, each with a receipt of its own.
+    const photo = (fileId: string) => ({ id: fileId, kind: 'receipt', name: 'r.jpg', mime: 'image/jpeg', size: 10, sha256: null });
+    const entry = (fileIds: string[]): Record<string, unknown> => ({ ...receipt('2026-06-01'), id: id(), attachments: fileIds.map(photo) });
+    let state = parkCar(parkCar(emptyGarage(ME)), micarId(2));
+    state = write(state, entry(['mine-1', 'mine-2']));
+    state = write(state, entry(['other-1']), micarId(2));
+    expect(filesOnlyOf(state, CAR)).toEqual(['mine-1', 'mine-2']);
+    expect(filesOnlyOf(state, micarId(2))).toEqual(['other-1']);
+    expect(filesOnlyOf(state, micarId(9))).toEqual([]);
+    // A passport file from someone else can name any file ID: here, the IDs of the first car's receipts (they travel
+    // in every passport file its owner has shared). Removing that car must not take the first car's files with it.
+    const theirs = write(parkCar(emptyGarage(BUYER), micarId(3)), entry(['mine-1', 'mine-2', 'theirs-1']), micarId(3));
+    // Written into the file by hand, the same ID can even be named twice: it is listed once.
+    const file = JSON.parse(exportGarage(theirs, NOW, micarId(3)));
+    const named = file.passports[0].events[file.passports[0].events.length - 1];
+    file.passports[0].events.push({ ...named, id: 'again', attachments: [named.attachments[2]] });
+    const both = ok(importGarage(state, JSON.stringify(file))).state;
+    expect(car(both, micarId(3)).events.filter((e) => e.attachments.some((a) => a.id === 'theirs-1'))).toHaveLength(2);
+    expect(filesOnlyOf(both, micarId(3))).toEqual(['theirs-1']);
+    // And the first car's own files stay for as long as any car here names them.
+    expect(filesOnlyOf(both, CAR)).toEqual([]);
+    expect(filesOnlyOf(removeCar(both, micarId(3)), CAR)).toEqual(['mine-1', 'mine-2']);
   });
 });
