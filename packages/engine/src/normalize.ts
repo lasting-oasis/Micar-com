@@ -214,7 +214,7 @@ export type ScoreAdjustments = {
    * the estimate from the factory figures been one. Set when parts that move power or weight are fitted.
    */
   topSpeedCeilingMph?: number | null;
-  /** True when more power would have raised a top speed on file, and did not because the sheet does not say whether it is limited. */
+  /** True when parts add power that would raise the top speed if the sheet said it is not limited, and that answer is blank. */
   topSpeedHeld?: boolean;
 };
 export type ScoreOptions = {
@@ -268,8 +268,9 @@ export function scoreSpec(spec: VehicleSpec, options: ScoreOptions = {}): Attrib
   const overCeiling = estimatedTop !== null && ceiling !== null && estimatedTop > ceiling;
   const rawTop = spec.topSpeedMph ? spec.topSpeedMph.value : overCeiling ? ceiling : estimatedTop;
   const top = rawTop === null ? null : Math.round(rawTop * topFactor * 10) / 10;
-  // When a gain was held only because nobody has said whether the top speed is limited, that answer would firm the score up.
-  const unanswered: SpecField[] = spec.topSpeedGoverned === null && (overCeiling || adjust.topSpeedHeld === true) ? ['topSpeedGoverned'] : [];
+  // When a gain from added power was held only because nobody has said whether the top speed is limited, that answer
+  // would firm the score up. An estimate held for another reason (a lighter car) is waiting for nothing.
+  const unanswered: SpecField[] = adjust.topSpeedHeld === true && (spec.topSpeedMph !== null || overCeiling) ? ['topSpeedGoverned'] : [];
   const speed = made(
     spec, top === null ? null : score1000(top, SPEED.anchors), spec.topSpeedMph ? 'measured' : 'estimated', top, 'mph',
     spec.topSpeedMph ? ['topSpeedMph'] : present(spec, ['horsepower', 'curbWeightLb']),

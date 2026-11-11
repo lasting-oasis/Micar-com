@@ -66,8 +66,14 @@ export function ModsPanel({ passport, assembly, today, canWrite, files, onRecord
       date, mileage: typed !== null && Number.isFinite(typed) ? typed : null, title: '', note: '', attachments: [], visibility: 'private',
     }, { now: stamp(), by: currentOwner(passport) });
     let after;
-    if (written.ok) after = assembleCar(written.value, today).stats.vehicle;
-    else {
+    // A reading typed with the fitting goes on the odometer log, and wear is counted from it: the page says when the
+    // figures include that, so the reading's doing is not taken for the part's.
+    let withReading = false;
+    if (written.ok) {
+      const assembled = assembleCar(written.value, today);
+      after = assembled.stats.vehicle;
+      withReading = assembled.condition.mileage !== assembly.condition.mileage;
+    } else {
       // The entry cannot be written as it stands (a date ahead of today, a passport that is full): show what the part does all the same.
       const candidate: ActiveModification = { eventId: 'preview', category: pick.category, tier: pick.tier, install, evidence: 'declared', installedOn: date > today ? today : date, recordedAt: '9999-12-31T23:59:59.999Z', installedAtMileage: null, upkeep: 'recent' };
       after = vehicleStats({ spec: passport.spec, modifications: [...fitted, candidate], condition: assembly.condition }).vehicle;
@@ -75,9 +81,10 @@ export function ModsPanel({ passport, assembly, today, canWrite, files, onRecord
     const before = assembly.stats.vehicle;
     const deltas = ATTRIBUTE_KEYS.map((k) => ({ k, d: after.scores[k].value !== null && before.scores[k].value !== null ? (after.scores[k].value as number) - (before.scores[k].value as number) : 0 }));
     const rating = after.powerRating !== null && before.powerRating !== null ? after.powerRating - before.powerRating : null;
-    // More power raises a top speed only when the sheet says it is not limited. When that answer is blank, say so.
-    const held = after.scores.speed.missing.indexOf('topSpeedGoverned') !== -1 && before.scores.speed.missing.indexOf('topSpeedGoverned') === -1;
-    return { deltas, rating, held };
+    // More power raises a top speed only when the sheet says it is not limited. When this part adds power and that
+    // answer is blank, say so: with or without other parts already waiting on it.
+    const held = MODS[pick.category].tiers[pick.tier - 1].horsepower > 1 && after.scores.speed.missing.indexOf('topSpeedGoverned') !== -1;
+    return { deltas, rating, held, withReading };
   }, [pick, install, date, mileage, today, fitted, passport, assembly]);
 
   const fit = async (e: React.FormEvent) => {
@@ -162,6 +169,7 @@ export function ModsPanel({ passport, assembly, today, canWrite, files, onRecord
             {preview.rating !== null && preview.rating !== 0 && <span className="gar-chip on">{t('Power rating')} {signed(preview.rating)}</span>}
           </div>
           {preview.held && <p className="gar-help">{t('More power raises the top speed only once the spec sheet says it is not electronically limited. That answer is blank, so Speed stays where it is.')}</p>}
+          {preview.withReading && <p className="gar-help" role="status">{t('These figures include the wear counted from the odometer reading typed here, not only what the part does.')}</p>}
           {canWrite && <>
             <div className="gar-form">
               <label>{t('Fitted by')}<select value={install} onChange={(e) => setInstall(e.target.value as InstallQuality)}>{(Object.keys(INSTALL_LABELS) as InstallQuality[]).map((k) => <option key={k} value={k}>{t(INSTALL_LABELS[k])}</option>)}</select></label>

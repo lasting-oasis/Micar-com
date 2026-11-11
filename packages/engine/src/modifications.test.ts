@@ -663,6 +663,19 @@ describe('trade-offs', () => {
     expect(answered.adjust.topSpeedHeld).toBe(false);
     expect(scoreSpec(answered.spec, { adjust: answered.adjust }).speed.missing).toEqual([]);
     expect(applyModifications(onFile, [mod('eco', 3)]).adjust.topSpeedHeld).toBe(false);
+    // Only added power waits on that answer. A lighter car's estimate is held too, but no answer would move it, so
+    // none is asked for; and a figure whose horsepower is not on file is waiting for the horsepower.
+    const lighter = applyModifications(civic, [mod('weight', 3)]);
+    expect(lighter.adjust).toMatchObject({ topSpeedHeld: false, topSpeedCeilingMph: 120.7 });
+    expect(scoreSpec(lighter.spec, { adjust: lighter.adjust }).speed).toMatchObject({ metric: 120.7, missing: ['topSpeedMph'] });
+    const noPower = applyModifications({ ...onFile, horsepower: null }, [mod('turbo', 2)]);
+    expect(noPower.adjust.topSpeedHeld).toBe(false);
+    expect(scoreSpec(noPower.spec, { adjust: noPower.adjust }).speed.missing).toEqual([]);
+    // An estimate already at its class's limiter does not rise with the power, so nothing was held back.
+    const capped = { ...civic, horsepower: s(250), torqueLbFt: s(250), curbWeightLb: s(4000), zeroToSixtySec: null };
+    const tuned = applyModifications(capped, [mod('ecu', 1)]);
+    expect(scoreSpec(tuned.spec, { adjust: tuned.adjust }).speed.metric).toBe(scoreSpec(capped).speed.metric);
+    expect(scoreSpec(tuned.spec, { adjust: tuned.adjust }).speed.missing).toEqual(['topSpeedMph']);
     // What lowers an estimate still lowers it, whatever the sheet says: the economy setup takes power away.
     expect(values(civic, [mod('eco', 3)]).speed as number).toBeLessThan(506);
     expect(values(limited, [mod('eco', 3)]).speed as number).toBeLessThan(506);

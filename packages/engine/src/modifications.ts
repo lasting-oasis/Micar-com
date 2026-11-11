@@ -250,8 +250,9 @@ function moved(cell: Sourced<number> | null, value: number | null): Sourced<numb
  *   applies them to the time and the speed it reads, on file or estimated, governed or not.
  * - `topSpeedCeilingMph`: with no top speed on file, the estimate from the factory figures moved as a figure on file
  *   would have been (null when no part moves power or weight). scoreSpec lets the estimate from the modified figures
- *   go no higher. `topSpeedHeld`: true when more power would have raised a top speed on file and did not,
- *   for want of an answer to "is it limited?"; scoreSpec then names that field as missing.
+ *   go no higher. `topSpeedHeld`: true when the parts add power that would raise the top speed, on file or estimated,
+ *   if the sheet said it is not limited, and the answer is blank; scoreSpec then names that field as missing (for an
+ *   estimate, only when the estimate was in fact held back).
  * - `gripG`: the sum of the tiers' grip, plus `weight change in lb x HANDLING.model.gripPerLb` when a skidpad figure
  *   is on file (when it is not, the grip model reads the new weight itself). With no curb weight on file, added
  *   weight is charged as a share of the heaviest weight a specification can hold.
@@ -322,7 +323,10 @@ export function applyModifications(
   // estimate further still lowers it. (With nothing fitted that moves power or weight the estimate cannot move.)
   const atFactory = spec.topSpeedMph === null && (horsepower !== 1 || weight !== 1) ? estimateTopSpeedMph(spec) : null;
   const topCeiling = atFactory === null ? null : atFactory * topRatio;
-  const topHeld = spec.topSpeedMph !== null && speedRatio > 1 && limited === null;
+  // True when the parts add power that would raise the top speed (a figure on file, or the estimate) if the sheet
+  // said it is not limited, and nobody has said either way. Nothing else is waiting on that answer: not a lighter
+  // car, and not a figure whose horsepower is not on file.
+  const topHeld = speedRatio > 1 && limited === null && powerOnFile;
 
   // With a skidpad figure on file the grip model is not run, so the weight the parts add or remove is charged here.
   // With no curb weight on file, added weight is charged as if the car weighed the most a car can: the heaviest reading.
