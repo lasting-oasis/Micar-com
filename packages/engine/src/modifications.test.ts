@@ -74,7 +74,7 @@ const values = (spec: VehicleSpec, mods: readonly ActiveModification[]): Record<
   return Object.fromEntries(ATTRIBUTE_KEYS.map((k) => [k, scores[k].value])) as Record<AttributeKey, number | null>;
 };
 
-const NO_ADJUSTMENT = { gripG: 0, durabilityPoints: 0, reliabilityPoints: 0, sprintFactor: 1, topSpeedFactor: 1 };
+const NO_ADJUSTMENT = { gripG: 0, durabilityPoints: 0, reliabilityPoints: 0, sprintFactor: 1, topSpeedFactor: 1, topSpeedCeilingMph: null, topSpeedHeld: false };
 
 // Freezes a fixture all the way down, so a function that tried to change it would throw.
 const frozen = <T>(value: T): T => {
@@ -638,8 +638,52 @@ describe('trade-offs', () => {
   it('a turbocharger kit raises POWER and ACCELERATION and lowers RELIABILITY and EFFICIENCY', () => {
     expect(values(civic, [])).toEqual({ power: 404, speed: 506, acceleration: 370, handling: 565, durability: 635, reliability: 855, efficiency: 720 });
     // 229 hp and 200 lb-ft; 0-60 in 7.42 s; 31.2 mpg; 115 hp per litre and the kit's own 100 points off reliability.
-    // The estimated top speed climbs from 120.7 to 132.2 mph with the power, and 43 lb more costs a point of modelled grip.
-    expect(values(civic, [mod('turbo', 2)])).toEqual({ power: 533, speed: 590, acceleration: 526, handling: 564, durability: 595, reliability: 746, efficiency: 675 });
+    // 43 lb more costs a point of modelled grip. The sheet does not say whether the top speed is limited, so the
+    // estimate stays where the factory figures put it (120.7 mph) and SPEED says which answer it is waiting for.
+    expect(values(civic, [mod('turbo', 2)])).toEqual({ power: 533, speed: 506, acceleration: 526, handling: 564, durability: 595, reliability: 746, efficiency: 675 });
+    const held = applyModifications(civic, [mod('turbo', 2)]);
+    expect(held.adjust.topSpeedCeilingMph).toBe(120.7);
+    expect(scoreSpec(held.spec, { adjust: held.adjust }).speed).toMatchObject({ metric: 120.7, basis: 'estimated', missing: ['topSpeedMph', 'topSpeedGoverned'] });
+    // Said to be limited, it is held the same way, and nothing is missing on that account.
+    const limited = { ...civic, topSpeedGoverned: s(true) };
+    expect(values(limited, [mod('turbo', 2)]).speed).toBe(506);
+    expect(scoreSpec(applyModifications(limited, [mod('turbo', 2)]).spec, { adjust: applyModifications(limited, [mod('turbo', 2)]).adjust }).speed.missing).toEqual(['topSpeedMph']);
+    // Said not to be limited, the estimate climbs to 132.2 mph with the power.
+    const free = { ...civic, topSpeedGoverned: s(false) };
+    expect(applyModifications(free, [mod('turbo', 2)]).adjust.topSpeedCeilingMph).toBeNull();
+    expect(values(free, [mod('turbo', 2)])).toEqual({ power: 533, speed: 590, acceleration: 526, handling: 564, durability: 595, reliability: 746, efficiency: 675 });
+    // A top speed on file that more power would have raised, and did not for want of the answer, says so too.
+    const onFile = { ...civic, topSpeedMph: s(121) };
+    const waiting = applyModifications(onFile, [mod('turbo', 2)]);
+    expect(waiting.adjust).toMatchObject({ topSpeedHeld: true, topSpeedCeilingMph: null });
+    expect(scoreSpec(waiting.spec, { adjust: waiting.adjust }).speed).toMatchObject({ metric: 121, missing: ['topSpeedGoverned'] });
+    const answered = applyModifications({ ...onFile, topSpeedGoverned: s(true) }, [mod('turbo', 2)]);
+    expect(answered.adjust.topSpeedHeld).toBe(false);
+    expect(scoreSpec(answered.spec, { adjust: answered.adjust }).speed.missing).toEqual([]);
+    expect(applyModifications(onFile, [mod('eco', 3)]).adjust.topSpeedHeld).toBe(false);
+    // What lowers an estimate still lowers it, whatever the sheet says: the economy setup takes power away.
+    expect(values(civic, [mod('eco', 3)]).speed as number).toBeLessThan(506);
+    expect(values(limited, [mod('eco', 3)]).speed as number).toBeLessThan(506);
+    // And a lighter car is held like a stronger one.
+    expect(values(civic, [mod('weight', 3)]).speed).toBe(506);
+    expect(values(free, [mod('weight', 3)]).speed as number).toBeGreaterThanOrEqual(506);
+  });
+
+  it('gains no more from a cleared top speed with parts fitted than it does at the factory', () => {
+    // A sedan limited to 112 mph. Its estimate (120.7 mph) is above that, as an estimate can be for a car slower than
+    // its figures suggest: clearing the top speed is worth 70 points with nothing fitted. With a turbocharger kit it
+    // used to be worth 211, and 314 with an engine build and a tune as well: the estimate climbed with the power
+    // that the figure on file was, rightly, not allowed to follow.
+    const slow = { ...civic, topSpeedMph: s(112), topSpeedGoverned: s(true) };
+    const cleared = { ...slow, topSpeedMph: null };
+    expect([values(slow, []).speed, values(cleared, []).speed]).toEqual([436, 506]);
+    for (const stack of [[mod('turbo', 3)], [mod('engine', 3), mod('ecu', 3), mod('turbo', 3)], [mod('supercharger', 2), mod('weight', 3), mod('tires', 3)]]) {
+      expect(values(slow, stack).speed).toBe(436);
+      expect(values(cleared, stack).speed).toBe(506);
+      // With the answer blank it is the same.
+      expect(values({ ...slow, topSpeedGoverned: null }, stack).speed).toBe(436);
+      expect(values({ ...cleared, topSpeedGoverned: null }, stack).speed).toBe(506);
+    }
   });
 
   it('an off-road kit raises DURABILITY and ground clearance and lowers HANDLING and EFFICIENCY', () => {

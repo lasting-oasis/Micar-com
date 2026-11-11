@@ -61,7 +61,9 @@ export function ModsPanel({ passport, assembly, today, canWrite, files, onRecord
     const before = assembly.stats.vehicle;
     const deltas = ATTRIBUTE_KEYS.map((k) => ({ k, d: after.scores[k].value !== null && before.scores[k].value !== null ? (after.scores[k].value as number) - (before.scores[k].value as number) : 0 }));
     const rating = after.powerRating !== null && before.powerRating !== null ? after.powerRating - before.powerRating : null;
-    return { deltas, rating };
+    // More power raises a top speed only when the sheet says it is not limited. When that answer is blank, say so.
+    const held = after.scores.speed.missing.indexOf('topSpeedGoverned') !== -1 && before.scores.speed.missing.indexOf('topSpeedGoverned') === -1;
+    return { deltas, rating, held };
   }, [pick, install, date, today, fitted, passport.spec, assembly]);
 
   const fit = async (e: React.FormEvent) => {
@@ -145,6 +147,7 @@ export function ModsPanel({ passport, assembly, today, canWrite, files, onRecord
             {preview.deltas.every((x) => x.d === 0) && <span className="gar-chip">{t('No change to the rated attributes')}</span>}
             {preview.rating !== null && preview.rating !== 0 && <span className="gar-chip on">{t('Power rating')} {signed(preview.rating)}</span>}
           </div>
+          {preview.held && <p className="gar-help">{t('More power raises the top speed only once the spec sheet says it is not electronically limited. That answer is blank, so Speed stays where it is.')}</p>}
           {canWrite && <>
             <div className="gar-form">
               <label>{t('Fitted by')}<select value={install} onChange={(e) => setInstall(e.target.value as InstallQuality)}>{(Object.keys(INSTALL_LABELS) as InstallQuality[]).map((k) => <option key={k} value={k}>{t(INSTALL_LABELS[k])}</option>)}</select></label>

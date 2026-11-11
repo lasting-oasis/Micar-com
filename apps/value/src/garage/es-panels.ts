@@ -144,6 +144,8 @@ export const ES_PANELS: Record<string, string> = {
     'Este archivo es el respaldo del garaje {theirs}. Sus autos son de solo lectura aquí, a menos que este navegador adopte ese ID de garaje. Hágalo solo si el garaje es suyo. Su ID de garaje actual, {mine}, se conserva y sigue recibiendo autos.',
   'Take up {id}': 'Adoptar {id}', 'Keep things as they are': 'Dejar todo como está',
   'Show all {n} entries': 'Mostrar las {n} entradas', 'Show all {n} grades': 'Mostrar las {n} calificaciones',
+  'More power raises the top speed only once the spec sheet says it is not electronically limited. That answer is blank, so Speed stays where it is.':
+    'Más potencia aumenta la velocidad máxima solo cuando la ficha técnica dice que no está limitada electrónicamente. Esa respuesta está en blanco, así que la Velocidad se queda donde está.',
   'This file is a backup of this garage from a browser that also answers to {ids}. A car parked under one of those is read-only here until this browser answers to it too. Do that only if the file is yours. The Garage ID you give out stays {mine}.':
     'Este archivo es un respaldo de este garaje hecho en un navegador que también responde a {ids}. Un auto estacionado con uno de esos ID es de solo lectura aquí hasta que este navegador también responda a él. Hágalo solo si el archivo es suyo. El ID de garaje que usted da sigue siendo {mine}.',
   'This browser now answers to {ids} too, and the cars parked under them are yours to write to. It still gives out Garage ID {id}.':

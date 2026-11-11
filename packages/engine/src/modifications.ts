@@ -4,6 +4,7 @@
 // the modelled indexes, and carries its price: a turbo kit gives power and takes reliability and economy. What it
 // costs in reliability and durability depends on who fitted it and whether its upkeep is documented.
 // Nothing here stores anything: the factory specification is never changed, a modified copy is returned.
+import { estimateTopSpeedMph } from './normalize';
 import type { ScoreAdjustments } from './normalize';
 import { ACCELERATION, HANDLING, SPEC_RANGES } from './rules';
 import type { ActiveModification, InstallQuality, ModCategory, ModTier, Sourced, SpecField, VehicleSpec } from './types';
@@ -238,13 +239,18 @@ function moved(cell: Sourced<number> | null, value: number | null): Sourced<numb
  *   quicker one waits for the horsepower and the curb weight to be on file.
  * - A top speed on file is multiplied by `(horsepower multiplier) ^ (1/3)`. More power raises it only when the sheet
  *   says it is not limited and the horsepower is on file (a blank answer is read as limited); less power lowers it
- *   unless the sheet says it is limited.
+ *   unless the sheet says it is limited. With no top speed on file, the estimate is held the same way: see
+ *   `topSpeedCeilingMph` below.
  * - A change that costs the car is never skipped because a figure is blank; a change that helps waits for the figure.
  * More power also raises horsepower per litre, which the stress terms of DURABILITY and RELIABILITY charge for.
  *
  * What goes to `adjust`:
  * - `sprintFactor` and `topSpeedFactor`: the products of the tiers' 0-60 and top-speed multipliers. scoreSpec
  *   applies them to the time and the speed it reads, on file or estimated, governed or not.
+ * - `topSpeedCeilingMph`: the top speed the factory figures would be estimated at, when none is on file and the
+ *   sheet does not say the top speed is not limited (null otherwise). scoreSpec lets the estimate from the modified
+ *   figures go no higher. `topSpeedHeld`: true when more power would have raised a top speed on file and did not,
+ *   for want of an answer to "is it limited?"; scoreSpec then names that field as missing.
  * - `gripG`: the sum of the tiers' grip, plus `weight change in lb x HANDLING.model.gripPerLb` when a skidpad figure
  *   is on file (when it is not, the grip model reads the new weight itself). With no curb weight on file, added
  *   weight is charged as a share of the heaviest weight a specification can hold.
@@ -307,6 +313,12 @@ export function applyModifications(
   const topOnFile = spec.topSpeedMph === null || (speedRatio > 1 ? !(limited === false && powerOnFile) : limited === true)
     ? null
     : spec.topSpeedMph.value * speedRatio;
+  // An estimated top speed is held the same way. Unless the sheet says the top speed is not limited, the estimate
+  // from the figures as the parts leave them may not pass the estimate from the factory figures: otherwise clearing a
+  // limited car's top speed would let a turbocharger raise it after all. What lowers the estimate still lowers it.
+  // (The estimate reads horsepower and curb weight, so only more of the one or less of the other can raise it.)
+  const topCeiling = spec.topSpeedMph === null && limited !== false && (horsepower > 1 || weight < 1) ? estimateTopSpeedMph(spec) : null;
+  const topHeld = spec.topSpeedMph !== null && speedRatio > 1 && limited === null;
 
   // With a skidpad figure on file the grip model is not run, so the weight the parts add or remove is charged here.
   // With no curb weight on file, added weight is charged as if the car weighed the most a car can: the heaviest reading.
@@ -329,7 +341,7 @@ export function applyModifications(
   const changed = MOVABLE.filter((field) => after[field] !== spec[field]);
   return {
     spec: after,
-    adjust: { gripG: grip + weightGrip, durabilityPoints: durability, reliabilityPoints: reliability, sprintFactor: sprint, topSpeedFactor: topSpeed },
+    adjust: { gripG: grip + weightGrip, durabilityPoints: durability, reliabilityPoints: reliability, sprintFactor: sprint, topSpeedFactor: topSpeed, topSpeedCeilingMph: topCeiling, topSpeedHeld: topHeld },
     changed,
     applied,
     refused,

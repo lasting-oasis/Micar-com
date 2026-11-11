@@ -206,7 +206,16 @@ export function combinedEconomy(spec: VehicleSpec): number | null {
  * Changes a modification makes that are not a specification figure: grip in g, points on the two modelled indexes,
  * and multipliers on the 0-60 time and the top speed that apply whether those were on file or estimated.
  */
-export type ScoreAdjustments = { gripG?: number; durabilityPoints?: number; reliabilityPoints?: number; sprintFactor?: number; topSpeedFactor?: number };
+export type ScoreAdjustments = {
+  gripG?: number; durabilityPoints?: number; reliabilityPoints?: number; sprintFactor?: number; topSpeedFactor?: number;
+  /**
+   * The most an estimated top speed may be, before `topSpeedFactor`: what the factory figures give. Set when parts
+   * are fitted and the sheet does not say the top speed is not limited, so an estimate is held as a figure on file is.
+   */
+  topSpeedCeilingMph?: number | null;
+  /** True when more power would have raised a top speed on file, and did not because the sheet does not say whether it is limited. */
+  topSpeedHeld?: boolean;
+};
 export type ScoreOptions = {
   /** Estimate a missing top speed, 0-60 or torque from other figures. Default true. With false those scores are 'unavailable'. */
   estimates?: boolean;
@@ -250,12 +259,19 @@ export function scoreSpec(spec: VehicleSpec, options: ScoreOptions = {}): Attrib
 
   // SPEED
   const topFactor = adjust.topSpeedFactor ?? 1;
-  const rawTop = spec.topSpeedMph ? spec.topSpeedMph.value : estimates ? estimateTopSpeedMph(spec) : null;
+  const estimatedTop = spec.topSpeedMph || !estimates ? null : estimateTopSpeedMph(spec);
+  // With parts fitted, an estimate may not pass what the factory figures give unless the sheet says the top speed is
+  // not limited: the same rule a top speed on file is held to, so the blank is never worth more than the figure.
+  const ceiling = adjust.topSpeedCeilingMph ?? null;
+  const overCeiling = estimatedTop !== null && ceiling !== null && estimatedTop > ceiling;
+  const rawTop = spec.topSpeedMph ? spec.topSpeedMph.value : overCeiling ? ceiling : estimatedTop;
   const top = rawTop === null ? null : Math.round(rawTop * topFactor * 10) / 10;
+  // When a gain was held only because nobody has said whether the top speed is limited, that answer would firm the score up.
+  const unanswered: SpecField[] = spec.topSpeedGoverned === null && (overCeiling || adjust.topSpeedHeld === true) ? ['topSpeedGoverned'] : [];
   const speed = made(
     spec, top === null ? null : score1000(top, SPEED.anchors), spec.topSpeedMph ? 'measured' : 'estimated', top, 'mph',
     spec.topSpeedMph ? ['topSpeedMph'] : present(spec, ['horsepower', 'curbWeightLb']),
-    spec.topSpeedMph ? [] : ['topSpeedMph', ...absent(spec, ['horsepower', 'curbWeightLb'])],
+    spec.topSpeedMph ? unanswered : ['topSpeedMph', ...absent(spec, ['horsepower', 'curbWeightLb']), ...unanswered],
     topFactor !== 1 || reads(['topSpeedMph']),
   );
 
