@@ -167,9 +167,15 @@
 /* ---------- The card back ---------- */
 /* The stage the live card is drawn on: three wide to four tall, as its camera frames it. HoloCard.tsx puts the canvas
    in; where the card cannot be drawn live, a still of the same foil, framed the same way, takes its place. */
-.dp .gar-holo { position: relative; width: 100%; aspect-ratio: 3 / 4; }
+.dp .gar-holo { position: relative; width: 100%; aspect-ratio: 3 / 4; container-type: size; }
 .dp .gar-holo > canvas, .dp .gar-holo > img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .dp .gar-holo > img { object-fit: contain; }
+/* The still is framed for a 3:4 stage. On a taller one the live card takes 84% of the width, so the still is drawn
+   larger to match and the card does not change size when the live one takes over: 162.7% of the stage's width is
+   84% / (63 / 87.86) / 72%, the camera's own rule (packages/holo/src/scene.ts: WIDTH_FILL, the card's shape, FILL). */
+@supports (height: 1cqh) {
+  .dp .gar-holo > img { inset: auto; left: 50%; top: 50%; width: auto; max-width: none; height: min(100cqh, 162.7cqw); aspect-ratio: 3 / 4; transform: translate(-50%, -50%); }
+}
 .dp .gar-holo > canvas { cursor: grab; outline: none; -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent; }
 .dp .gar-holo > canvas:active { cursor: grabbing; }
 .dp .gar-holo-wrap { display: grid; gap: 10px; justify-items: center; width: 100%; min-width: 0; }
@@ -178,7 +184,8 @@
 /* The inspect view: a modal dialog over the whole screen. The ground is a touch lighter behind the card, so its
    shadow has something to fall on. Nothing scrolls behind it while it is open. */
 html:has(.dp .gar-cardback[open]) { overflow: hidden; }
-.dp .gar-cardback { position: fixed; inset: 0; width: 100vw; height: 100vh; height: 100dvh; max-width: none; max-height: none; margin: 0; border: 0;
+/* z-index is for a browser too old for modal dialogs, where this is an ordinary box that has to lie over the page. */
+.dp .gar-cardback { position: fixed; inset: 0; z-index: 90; width: 100vw; height: 100vh; height: 100dvh; max-width: none; max-height: none; margin: 0; border: 0;
   padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(18px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
   color: var(--ink); font: 16px/1.5 var(--body); overflow: hidden; overscroll-behavior: contain;
   background: radial-gradient(120% 80% at 50% 40%, #262d3d 0%, #141923 55%, #07090d 100%); }

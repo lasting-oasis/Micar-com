@@ -20,3 +20,13 @@ export const CARD_MODEL = `${BASE}cards/card.glb`;
 export const CARD_ART = [`${BASE}cards/back.avif`, `${BASE}cards/back.webp`];
 /** A still of the card with this foil: what stands in where the live card cannot be drawn. */
 export const stillOf = (foil: FoilId): string => `${BASE}cards/back-${foil}.webp`;
+
+/**
+ * Closes the inspect view. A browser that has dialogs closes its own, and the dialog's close event then tells the
+ * page. One too old to have them (the element is there, its close() is not) has only the page to tell, and so does
+ * a dialog that never opened. Either way the Close button is never a dead end.
+ */
+export function shut(dialog: { open?: boolean; close?: () => void } | null, onClose: () => void): void {
+  if (dialog && dialog.open && typeof dialog.close === 'function') dialog.close();
+  else onClose();
+}

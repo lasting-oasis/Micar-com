@@ -130,9 +130,10 @@ async function rest(page, quiet = 500, limit = 30000) {
   return last - start;
 }
 const tile = (page, foil) => page.locator('.gar-backtile').nth(FOILS.indexOf(foil));
+/** Opens a back and waits until the live card has drawn: the canvas is there and the still that held its place is gone. */
 async function open(page, foil) {
   await tile(page, foil).click();
-  await page.waitForSelector('dialog.gar-cardback[open] .gar-holo canvas');
+  await page.waitForFunction(() => document.querySelector('dialog.gar-cardback[open] .gar-holo canvas') !== null && document.querySelector('dialog.gar-cardback .gar-holo img') === null);
   await rest(page);
 }
 async function close(page) {
@@ -334,7 +335,23 @@ try {
   ok(await garage.evaluate(() => document.activeElement?.textContent === 'Card back'), 'Close gives the keyboard back to the "Card back" button');
   await garage.close();
 
-  // ---- 9. Spanish ----
+  // ---- 9. a slow connection: the still holds the card's place until the live card has drawn ----
+  const slow = await newPage(browser);
+  await slow.route('**/cards/card.glb', (route) => setTimeout(() => route.continue(), 2000));
+  await slow.goto(site.base + '#/garage/card-backs', { waitUntil: 'networkidle' });
+  await tile(slow, 'rainbow').click();
+  await slow.waitForSelector('dialog.gar-cardback[open]');
+  await slow.waitForTimeout(400);
+  ok(await slow.evaluate(() => { const img = document.querySelector('dialog.gar-cardback .gar-holo img'); return img !== null && /back-rainbow\.webp$/.test(img.getAttribute('src')) && img.complete && img.naturalWidth === 720; }), 'while the model is still on its way, the still of that foil holds the card\'s place');
+  ok(await slow.locator('dialog.gar-cardback .gar-hint').count() === 0, 'and nobody is told to drag it yet');
+  await slow.waitForFunction(() => document.querySelector('dialog.gar-cardback .gar-holo img') === null, null, { timeout: 15000 });
+  await rest(slow);
+  const slowBox = await stage(slow).boundingBox();
+  ok(await slow.locator('dialog.gar-cardback canvas').count() === 1 && spread(await look(slow, stage(slow), cardOn(slowBox))) > 25, 'when the model arrives the live card takes over');
+  ok(await slow.locator('dialog.gar-cardback .gar-hint').count() === 1, 'and now the hint to drag it is shown');
+  await slow.close();
+
+  // ---- 10. Spanish ----
   const es = await newPage(browser);
   await es.goto(site.base + '?lang=es#/garage/card-backs', { waitUntil: 'networkidle' });
   ok(await tile(es, 'holo').getAttribute('aria-label') === 'Mostrar el reverso: Holográfico estándar', 'the page speaks Spanish');

@@ -1,6 +1,7 @@
 // The card back on a page: the live card where the browser can draw it, and a still of the same foil where it
 // cannot (no WebGL, a file that would not load, a context that was lost for good). The card is decoration, not
-// data, so a failure is never shown as an error: the still simply takes its place.
+// data, so a failure is never shown as an error: the still simply takes its place. The still also holds the card's
+// place while the live card's files are on their way, so a slow connection shows a card, not an empty view.
 import { useEffect, useRef, useState } from 'react';
 import { createHoloCard, webglAvailable } from '@micar/holo';
 import type { FoilId, HoloCard as LiveCard } from '@micar/holo';
@@ -23,6 +24,7 @@ export function HoloCard({ foil, label, touch = 'scroll', hint }: Props) {
   const live = useRef<LiveCard | null>(null);
   const wanted = useRef(foil);
   const [still, setStill] = useState(() => !webglAvailable());
+  const [drawn, setDrawn] = useState(false);
   const [flat] = useState(reducedMotion);
   const [missing, setMissing] = useState<FoilId | null>(null);
 
@@ -38,10 +40,13 @@ export function HoloCard({ foil, label, touch = 'scroll', hint }: Props) {
       onError: (error) => { console.warn(`MiCar card back: ${error.message}`); setStill(true); },
     });
     live.current = card;
+    // ready rejects when the card fails (onError has shown the still) or is destroyed first: nothing more to do.
+    card.ready.then(() => { if (live.current === card) setDrawn(true); }, () => {});
     return () => {
       live.current = null;
       card.destroy();
       canvas.remove();
+      setDrawn(false);
     };
   }, [still, touch, flat]);
 
@@ -54,10 +59,10 @@ export function HoloCard({ foil, label, touch = 'scroll', hint }: Props) {
     <div className="gar-holo-wrap">
       <div className="gar-holo-room">
         <div className="gar-holo" ref={stage} role="img" aria-label={label}>
-          {still && missing !== foil && <img src={stillOf(foil)} alt="" width={720} height={960} draggable={false} onError={() => setMissing(foil)} />}
+          {(still || !drawn) && missing !== foil && <img src={stillOf(foil)} alt="" width={720} height={960} draggable={false} onError={() => setMissing(foil)} />}
         </div>
       </div>
-      {hint && !still && !flat && <p className="gar-hint">{hint}</p>}
+      {hint && drawn && !still && !flat && <p className="gar-hint">{hint}</p>}
     </div>
   );
 }

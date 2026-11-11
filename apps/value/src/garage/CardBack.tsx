@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import { FOIL_LABELS } from '@micar/holo';
 import type { FoilId } from '@micar/holo';
 import { t } from '../i18n';
+import { shut } from './back';
 import { HoloCard } from './HoloCard';
 
 type Props = {
@@ -20,7 +21,7 @@ export function CardBack({ foil, rarity, title, onClose }: Props) {
   useEffect(() => {
     const el = dialog.current;
     if (!el || el.open) return;
-    // A browser too old for modal dialogs still shows it, as an ordinary open one.
+    // A browser too old for modal dialogs still shows it, as an ordinary open one (garage.css lays it over the page).
     try { el.showModal(); } catch { el.setAttribute('open', ''); }
   }, []);
   const name = t(FOIL_LABELS[foil]);
@@ -28,7 +29,7 @@ export function CardBack({ foil, rarity, title, onClose }: Props) {
     <dialog ref={dialog} className="gar-cardback" aria-label={t('Card back: {title}', { title })} onClose={onClose}>
       <HoloCard foil={foil} touch="capture" label={t('The back of the card: {rarity}, {foil}', { rarity, foil: name })} hint={t('Drag to tilt the card')} />
       <p className="gar-cardback-name"><b>{rarity}</b><span>{name}</span></p>
-      <button type="button" className="gar-btn" autoFocus onClick={() => dialog.current?.close()}>{t('Close')}</button>
+      <button type="button" className="gar-btn" autoFocus onClick={() => shut(dialog.current, onClose)}>{t('Close')}</button>
     </dialog>
   );
 }

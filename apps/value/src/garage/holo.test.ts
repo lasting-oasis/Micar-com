@@ -1,10 +1,10 @@
 // The card back in the Garage: the foil table against the engine's own list of rarities, the route word, and
 // where the page looks for the card's files.
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { RARITY_TIERS, normalizeMicarId } from '@micar/engine';
 import { FOIL_IDS, foilForRarity } from '@micar/holo';
 import { routeFromHash } from '../route';
-import { CARD_ART, CARD_BACKS, CARD_MODEL, stillOf, tiersOf } from './back';
+import { CARD_ART, CARD_BACKS, CARD_MODEL, shut, stillOf, tiersOf } from './back';
 
 describe('card backs and the engine', () => {
   it('gives every rarity the engine knows a foil', () => {
@@ -47,5 +47,31 @@ describe('the card\'s files', () => {
   it('offer the artwork with full colour first, and the one every browser reads second', () => {
     const base = import.meta.env.BASE_URL;
     expect(CARD_ART).toEqual([`${base}cards/back.avif`, `${base}cards/back.webp`]);
+  });
+});
+
+describe('closing the inspect view', () => {
+  it('lets a browser that has dialogs close its own, and waits to be told', () => {
+    const dialog = { open: true, close: vi.fn() };
+    const onClose = vi.fn();
+    shut(dialog, onClose);
+    expect(dialog.close).toHaveBeenCalledTimes(1);
+    expect(onClose).not.toHaveBeenCalled();           // the dialog's own close event is what tells the page
+  });
+
+  it('closes it itself in a browser too old to have dialogs, where the element has no close()', () => {
+    for (const dialog of [{}, { open: true }, null]) {
+      const onClose = vi.fn();
+      shut(dialog, onClose);
+      expect(onClose).toHaveBeenCalledTimes(1);
+    }
+  });
+
+  it('closes it itself when the dialog never opened', () => {
+    const dialog = { open: false, close: vi.fn() };
+    const onClose = vi.fn();
+    shut(dialog, onClose);
+    expect(dialog.close).not.toHaveBeenCalled();
+    expect(onClose).toHaveBeenCalledTimes(1);
   });
 });

@@ -358,6 +358,26 @@ describe('tilting', () => {
     expect(w.frames.pending()).toBe(0);
   });
 
+  it('returns flat when the finger slides off the card, where the page keeps the right to scroll', async () => {
+    const w = await resting();                       // scroll mode: the pointer is not captured, so it can leave
+    w.canvasEvents.fire('pointerdown', finger(300, 0));
+    w.frames.untilIdle();
+    w.canvasEvents.fire('pointerleave', finger(340, -20));
+    w.frames.untilIdle();
+    expectTurn(w.sent, IDENTITY);
+    w.canvasEvents.fire('pointermove', finger(150, 200));          // and it does not pick the tilt up again by itself
+    expect(w.frames.pending()).toBe(0);
+  });
+
+  it('does not let a second finger leaving end the first finger\'s tilt', async () => {
+    const w = await resting();
+    w.canvasEvents.fire('pointerdown', finger(300, 0, 1));
+    w.frames.untilIdle();
+    w.canvasEvents.fire('pointerleave', finger(10, 10, 2));
+    w.frames.untilIdle();
+    expectTurn(w.sent, pose(tiltTarget(300, 0, RECT)).turn);
+  });
+
   it('follows the first finger and ignores a second', async () => {
     const w = await resting();
     w.canvasEvents.fire('pointerdown', finger(225, 100, 1));
