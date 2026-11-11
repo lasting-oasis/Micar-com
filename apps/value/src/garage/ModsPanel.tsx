@@ -2,14 +2,14 @@
 // stats by stated rules, trade-offs included; the preview shows exactly what it would do to this car before it is
 // fitted. A modification is declared until a receipt is attached, and counts in ranked play only once verified.
 import { useMemo, useState } from 'react';
-import { ATTRIBUTE_KEYS, ATTRIBUTE_LABELS, EVENT_TYPE_LABELS, EVIDENCE_LABELS, MODS, MOD_CATEGORIES, MOD_TIER_NAMES, activeModifications, vehicleStats } from '@micar/engine';
+import { ATTRIBUTE_KEYS, ATTRIBUTE_LABELS, EVENT_TYPE_LABELS, EVIDENCE_LABELS, MODS, MOD_CATEGORIES, MOD_TIER_NAMES, activeModifications, addEvent, currentOwner, vehicleStats } from '@micar/engine';
 import type { ActiveModification, Assembly, InstallQuality, ModCategory, ModTier, Passport } from '@micar/engine';
 import { t } from '../i18n';
 import type { FileStore } from './files';
 import { useFocusBack } from './focus';
-import { newId } from './ids';
+import { newId, stamp } from './ids';
 import { keepFiles, odometerNote, readingsInView } from './PassportPanel';
-import { REGISTRY } from './store';
+import { REGISTRY, assembleCar } from './store';
 
 export const INSTALL_LABELS: Record<InstallQuality, string> = { professional: 'A professional shop', owner: 'The owner', unknown: 'Not known' };
 export const UPKEEP_LABELS: Record<ActiveModification['upkeep'], string> = { documented: 'Upkeep documented', recent: 'Recently fitted', lapsed: 'No upkeep on record' };
@@ -52,19 +52,31 @@ export function ModsPanel({ passport, assembly, today, canWrite, files, onRecord
   const fitted = useMemo(() => activeModifications(passport, REGISTRY, today), [passport, today]);
   const { applied, refused } = assembly.modifications;
 
-  // What the picked card would do to this car, worked out by the same engine that scores it once fitted.
+  // What the picked card would do to this car: the entry is written on a copy of the passport, by the engine's own
+  // writer, and the copy is assembled as the real one will be. So the preview counts what the real entry will count:
+  // the date it is fitted on (a part fitted over a year ago with no upkeep on record costs more), the odometer
+  // reading typed with it, and the order it is written in.
   const preview = useMemo(() => {
     if (!pick) return null;
-    // Written down after everything already on the passport, as the real entry will be: of two fitted the same day the later one counts.
-    const candidate: ActiveModification = { eventId: 'preview', category: pick.category, tier: pick.tier, install, evidence: 'declared', installedOn: date > today ? today : date, recordedAt: '9999-12-31T23:59:59.999Z', installedAtMileage: null, upkeep: 'recent' };
-    const after = vehicleStats({ spec: passport.spec, modifications: [...fitted, candidate], condition: assembly.condition }).vehicle;
+    const typed = mileage.trim() === '' ? null : Number(mileage);
+    const written = addEvent(passport, {
+      id: newId(), type: 'modification', action: 'install', category: pick.category, tier: pick.tier, install, parts: '', undoes: null,
+      date, mileage: typed !== null && Number.isFinite(typed) ? typed : null, title: '', note: '', attachments: [], visibility: 'private',
+    }, { now: stamp(), by: currentOwner(passport) });
+    let after;
+    if (written.ok) after = assembleCar(written.value, today).stats.vehicle;
+    else {
+      // The entry cannot be written as it stands (a date ahead of today, a passport that is full): show what the part does all the same.
+      const candidate: ActiveModification = { eventId: 'preview', category: pick.category, tier: pick.tier, install, evidence: 'declared', installedOn: date > today ? today : date, recordedAt: '9999-12-31T23:59:59.999Z', installedAtMileage: null, upkeep: 'recent' };
+      after = vehicleStats({ spec: passport.spec, modifications: [...fitted, candidate], condition: assembly.condition }).vehicle;
+    }
     const before = assembly.stats.vehicle;
     const deltas = ATTRIBUTE_KEYS.map((k) => ({ k, d: after.scores[k].value !== null && before.scores[k].value !== null ? (after.scores[k].value as number) - (before.scores[k].value as number) : 0 }));
     const rating = after.powerRating !== null && before.powerRating !== null ? after.powerRating - before.powerRating : null;
     // More power raises a top speed only when the sheet says it is not limited. When that answer is blank, say so.
     const held = after.scores.speed.missing.indexOf('topSpeedGoverned') !== -1 && before.scores.speed.missing.indexOf('topSpeedGoverned') === -1;
     return { deltas, rating, held };
-  }, [pick, install, date, today, fitted, passport.spec, assembly]);
+  }, [pick, install, date, mileage, today, fitted, passport, assembly]);
 
   const fit = async (e: React.FormEvent) => {
     e.preventDefault();

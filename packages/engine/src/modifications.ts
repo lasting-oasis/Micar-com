@@ -4,7 +4,7 @@
 // the modelled indexes, and carries its price: a turbo kit gives power and takes reliability and economy. What it
 // costs in reliability and durability depends on who fitted it and whether its upkeep is documented.
 // Nothing here stores anything: the factory specification is never changed, a modified copy is returned.
-import { estimateTopSpeedMph } from './normalize';
+import { combinedEconomy, estimateTopSpeedMph } from './normalize';
 import type { ScoreAdjustments } from './normalize';
 import { ACCELERATION, HANDLING, SPEC_RANGES } from './rules';
 import type { ActiveModification, InstallQuality, ModCategory, ModTier, Sourced, SpecField, VehicleSpec } from './types';
@@ -233,13 +233,14 @@ function moved(cell: Sourced<number> | null, value: number | null): Sourced<numb
  * - Horsepower, torque and curb weight are multiplied by the product of the tiers' multipliers.
  * - Combined, city and highway economy are multiplied by the tiers' economy multipliers and by
  *   `1 + 0.6 x (share of weight removed)`: lighter is thriftier (when a curb weight is on file), heavier the reverse.
+ *   With no combined figure on file, one is written from the factory blend of city and highway, moved the same way.
  * - Ground clearance gets the sum of the tiers' inches.
  * - A 0-60 time on file is multiplied by `(weight multiplier / horsepower multiplier) ^ 0.75`, and never goes below
  *   the estimate's floor (1.9 s) unless it was already there. A slower time is applied whatever is on file; a
  *   quicker one waits for the horsepower and the curb weight to be on file.
  * - A top speed on file is multiplied by `(horsepower multiplier) ^ (1/3)`. More power raises it only when the sheet
  *   says it is not limited and the horsepower is on file (a blank answer is read as limited); less power lowers it
- *   unless the sheet says it is limited. With no top speed on file, the estimate is held the same way: see
+ *   unless the sheet says it is limited. With no top speed on file, the estimate is held to the same rule: see
  *   `topSpeedCeilingMph` below.
  * - A change that costs the car is never skipped because a figure is blank; a change that helps waits for the figure.
  * More power also raises horsepower per litre, which the stress terms of DURABILITY and RELIABILITY charge for.
@@ -247,9 +248,9 @@ function moved(cell: Sourced<number> | null, value: number | null): Sourced<numb
  * What goes to `adjust`:
  * - `sprintFactor` and `topSpeedFactor`: the products of the tiers' 0-60 and top-speed multipliers. scoreSpec
  *   applies them to the time and the speed it reads, on file or estimated, governed or not.
- * - `topSpeedCeilingMph`: the top speed the factory figures would be estimated at, when none is on file and the
- *   sheet does not say the top speed is not limited (null otherwise). scoreSpec lets the estimate from the modified
- *   figures go no higher. `topSpeedHeld`: true when more power would have raised a top speed on file and did not,
+ * - `topSpeedCeilingMph`: with no top speed on file, the estimate from the factory figures moved as a figure on file
+ *   would have been (null when no part moves power or weight). scoreSpec lets the estimate from the modified figures
+ *   go no higher. `topSpeedHeld`: true when more power would have raised a top speed on file and did not,
  *   for want of an answer to "is it limited?"; scoreSpec then names that field as missing.
  * - `gripG`: the sum of the tiers' grip, plus `weight change in lb x HANDLING.model.gripPerLb` when a skidpad figure
  *   is on file (when it is not, the grip model reads the new weight itself). With no curb weight on file, added
@@ -310,14 +311,17 @@ export function applyModifications(
   // it unless the sheet says it is limited: there a blank answer is read as not limited.
   const limited = spec.topSpeedGoverned === null ? null : spec.topSpeedGoverned.value;
   const speedRatio = Math.cbrt(horsepower);
-  const topOnFile = spec.topSpeedMph === null || (speedRatio > 1 ? !(limited === false && powerOnFile) : limited === true)
-    ? null
-    : spec.topSpeedMph.value * speedRatio;
-  // An estimated top speed is held the same way. Unless the sheet says the top speed is not limited, the estimate
-  // from the figures as the parts leave them may not pass the estimate from the factory figures: otherwise clearing a
-  // limited car's top speed would let a turbocharger raise it after all. What lowers the estimate still lowers it.
-  // (The estimate reads horsepower and curb weight, so only more of the one or less of the other can raise it.)
-  const topCeiling = spec.topSpeedMph === null && limited !== false && (horsepower > 1 || weight < 1) ? estimateTopSpeedMph(spec) : null;
+  // What the parts' power does to a top speed: raised only when the sheet says not limited and the horsepower is on
+  // file, lowered unless the sheet says limited, otherwise left alone.
+  const topRatio = speedRatio > 1 ? (limited === false && powerOnFile ? speedRatio : 1) : limited === true ? 1 : speedRatio;
+  const topOnFile = spec.topSpeedMph === null ? null : spec.topSpeedMph.value * topRatio;
+  // An estimated top speed is held to the same rule. The estimate from the figures as the parts leave them may not
+  // pass what a figure on file would have become: the estimate from the factory figures, moved by that same ratio.
+  // Otherwise clearing a limited car's top speed would let a turbocharger raise it after all, and a lighter car or
+  // one that stays at its class's limiter would gain or keep what a figure on file would not. What lowers the
+  // estimate further still lowers it. (With nothing fitted that moves power or weight the estimate cannot move.)
+  const atFactory = spec.topSpeedMph === null && (horsepower !== 1 || weight !== 1) ? estimateTopSpeedMph(spec) : null;
+  const topCeiling = atFactory === null ? null : atFactory * topRatio;
   const topHeld = spec.topSpeedMph !== null && speedRatio > 1 && limited === null;
 
   // With a skidpad figure on file the grip model is not run, so the weight the parts add or remove is charged here.
@@ -326,12 +330,19 @@ export function applyModifications(
     : oldLb !== null && newLb !== null ? (newLb - oldLb) * HANDLING.model.gripPerLb
       : weight > 1 ? SPEC_RANGES.curbWeightLb[1] * (weight - 1) * HANDLING.model.gripPerLb : 0;
 
+  // With no combined figure on file the score blends city and highway and rounds down. Blended after the parts have
+  // moved them, the fraction that rounding took off the factory blend would come back: so the parts' factor is
+  // applied to the factory blend, as it would be to a combined figure on file.
+  const factoryBlend = spec.combinedMpg === null && mpg !== 1 && spec.cityMpg !== null ? combinedEconomy(spec) : null;
+  const blended: Sourced<number> | null = factoryBlend === null || spec.cityMpg === null ? null
+    : { value: factoryBlend * mpg, source: { ...spec.cityMpg.source, kind: spec.cityMpg.source.kind === 'illustrative' ? 'illustrative' : 'owner', note: AFTER_MODIFICATIONS } };
+
   const after: VehicleSpec = {
     ...spec,
     horsepower: moved(spec.horsepower, newHp),
     torqueLbFt: scaled(spec.torqueLbFt, torque),
     curbWeightLb: moved(spec.curbWeightLb, newLb),
-    combinedMpg: scaled(spec.combinedMpg, mpg),
+    combinedMpg: spec.combinedMpg === null ? blended : scaled(spec.combinedMpg, mpg),
     cityMpg: scaled(spec.cityMpg, mpg),
     highwayMpg: scaled(spec.highwayMpg, mpg),
     zeroToSixtySec: moved(spec.zeroToSixtySec, sprintOnFile),

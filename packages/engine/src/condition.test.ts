@@ -314,12 +314,14 @@ describe('brakes and tires', () => {
 /* -------------------------------------------------------------------- battery ---- */
 
 describe('the battery', () => {
-  it('wears only on hybrid, plug-in hybrid and electric powertrains', () => {
-    for (const powertrain of ['hybrid', 'plug-in-hybrid', 'electric'] as const) {
+  it('wears on hybrid, plug-in hybrid and electric powertrains, and where the powertrain has not been named', () => {
+    // A blank powertrain is read as one with a battery to wear. Read as one without, clearing a hybrid's powertrain
+    // took its battery wear away: the blank was worth more than the figure.
+    for (const powertrain of ['hybrid', 'plug-in-hybrid', 'electric', null] as const) {
       const { battery } = assessCondition(car({ powertrain, mileage: { value: 75000, evidence: 'documented' } })).systems;
       expect(battery).toEqual({ system: 'battery', wear: 0.5, basis: 'modelled', evidence: 'documented', sinceMileage: null, sinceDate: null });
     }
-    for (const powertrain of ['gasoline', 'diesel', null] as const) {
+    for (const powertrain of ['gasoline', 'diesel'] as const) {
       const { battery } = assessCondition(car({ powertrain, modelYear: 2010, mileage: { value: 160000, evidence: 'documented' } })).systems;
       expect(battery).toEqual(nobodyKnows('battery'));
     }

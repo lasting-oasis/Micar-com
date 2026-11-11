@@ -247,55 +247,78 @@ describe('ranked play and the modifications it counts', () => {
 });
 
 describe('a blank field under modifications', () => {
-  // Complete specifications of several kinds, each with every figure a modification can read on file. The measured
-  // top speed, 0-60 time and skidpad figure stay on file throughout: a car that is in fact slower than its estimate
-  // scores lower once its real figure is entered, and that is not what is checked here.
-  const KEPT = ['identity', 'topSpeedMph', 'zeroToSixtySec', 'lateralGripG'];
-  const complete = (spec: VehicleSpec, over: Partial<VehicleSpec> = {}): VehicleSpec => ({
-    ...spec, construction: s('unibody'), suspensionGrade: s('standard'), brakeGrade: s('standard'), cityMpg: spec.combinedMpg, highwayMpg: spec.combinedMpg, lateralGripG: s(0.86),
-    topSpeedGoverned: s(false), ...over,
-  });
+  // Complete specifications of several kinds, each with every figure a modification can read on file. City and
+  // highway economy differ from the combined figure, as on a real label.
+  const MEASURED = ['topSpeedMph', 'zeroToSixtySec', 'lateralGripG'];
+  const complete = (spec: VehicleSpec, over: Partial<VehicleSpec> = {}): VehicleSpec => {
+    const combined = spec.combinedMpg ? spec.combinedMpg.value : 30;
+    return {
+      ...spec, construction: s('unibody'), suspensionGrade: s('standard'), brakeGrade: s('standard'), cityMpg: s(combined - 3), highwayMpg: s(combined + 5), lateralGripG: s(0.86),
+      topSpeedGoverned: s(false), ...over,
+    };
+  };
   const SPECS: [string, VehicleSpec][] = [
-    ['civic', complete(civic)], ['civic, limited', complete(civic, { topSpeedGoverned: s(true) })],
+    ['civic', complete(civic)], ['civic, limited', complete(civic, { topSpeedGoverned: s(true) })], ['civic, nobody has said', complete(civic, { topSpeedGoverned: null })],
     ['truck', complete(truck, { topSpeedGoverned: s(true), suspensionGrade: s('offroad'), construction: s('body-on-frame') })], ['truck, not limited', complete(truck, { topSpeedGoverned: s(false) })],
     ['electric', complete(ev, { topSpeedGoverned: s(true) })], ['electric, not limited', complete(ev)],
     ['hybrid', complete(civic, { powertrain: s('hybrid'), transmissionType: s('ecvt'), horsepower: s(194), combinedMpg: s(52) })],
     ['quick', complete(civic, { horsepower: s(700), torqueLbFt: s(650), curbWeightLb: s(3600), zeroToSixtySec: s(2.4), topSpeedMph: s(205), lateralGripG: s(1.05), induction: s('twin-turbo'), displacementL: s(4), cylinders: s(8), drivetrain: s('AWD'), transmissionType: s('dual-clutch') })],
+    // A car whose figures on file are better than anything they would be estimated at.
+    ['better than its estimates', complete(civic, { topSpeedMph: s(140), zeroToSixtySec: s(6.9), lateralGripG: s(0.95), topSpeedGoverned: null })],
+    ['at its class limiter, limited', complete(civic, { horsepower: s(205), topSpeedMph: s(137), topSpeedGoverned: s(true) })],
   ];
-  const fieldsOf = (spec: VehicleSpec) => (Object.keys(spec) as (keyof VehicleSpec)[]).filter((f) => KEPT.indexOf(f) === -1 && spec[f] !== null);
+  const fieldsOf = (spec: VehicleSpec) => (Object.keys(spec) as (keyof VehicleSpec)[]).filter((f) => f !== 'identity' && spec[f] !== null);
   // A combustion-only part waits for the powertrain to be named. Clearing the powertrain then takes the part off the
   // car altogether, its costs with its gains, which is what removing the part does: it is not a blank beating a figure.
   const COMBUSTION: ModCategory[] = ['engine', 'ecu', 'intake-exhaust', 'turbo', 'supercharger', 'nitrous'];
+  // The wear a passport would hand in for the specification as it stands: the powertrain is read off the sheet.
+  const worn = (spec: VehicleSpec) => condition({ modelYear: 2012, powertrain: spec.powertrain ? spec.powertrain.value : null, mileage: { value: 150000, evidence: 'documented' } });
+  /**
+   * A measured figure (top speed, 0-60, skidpad) is cleared too, wherever it is no worse than the estimate that
+   * takes its place at the factory: a car slower than its estimate scores lower once its real figure is entered,
+   * and that is the estimate's doing, not the parts'.
+   */
+  const comparable = (field: keyof VehicleSpec, spec: VehicleSpec): boolean => {
+    if (MEASURED.indexOf(field) === -1) return true;
+    const full = baseStats(spec).scores, cleared = baseStats({ ...spec, [field]: null }).scores;
+    return ATTRIBUTE_KEYS.every((k) => cleared[k].value === null || (full[k].value !== null && (cleared[k].value as number) <= (full[k].value as number)));
+  };
 
-  it('never raises an attribute of the vehicle or the ranked layer, whatever is fitted', () => {
+  it('never raises an attribute of the vehicle or the ranked layer, whatever is fitted and however worn the car', () => {
     const fitted = (list: [ModCategory, ModTier][]): ActiveModification[] => list.map(([category, tier], i) => mod(category, tier, 'verified', { installedOn: `2026-0${1 + i}-01` }));
     const STACKS: [ModCategory, ModTier][][] = [
-      [['turbo', 3]], [['engine', 3], ['ecu', 3]], [['offroad', 3]], [['eco', 3], ['aero', 3]], [['weight', 3], ['tires', 3]], [['supercharger', 3], ['offroad', 3]],
-      [['nitrous', 3], ['intake-exhaust', 3], ['transmission', 3]], [['suspension', 3], ['brakes', 3]], [['turbo', 1], ['weight', 1], ['eco', 2]],
+      [], [['turbo', 3]], [['engine', 3], ['ecu', 3]], [['offroad', 3]], [['eco', 3], ['aero', 3]], [['weight', 3], ['tires', 3]], [['supercharger', 3], ['offroad', 3]],
+      [['nitrous', 3], ['intake-exhaust', 3], ['transmission', 3]], [['suspension', 3], ['brakes', 3]], [['turbo', 1], ['weight', 1], ['eco', 2]], [['aero', 2]], [['aero', 1], ['offroad', 3]],
     ];
-    let checked = 0;
+    let checked = 0, measured = 0;
     for (const [name, spec] of SPECS) {
       for (const stack of STACKS) {
         const mods = fitted(stack);
-        const full = vehicleStats({ spec, modifications: mods });
-        for (const field of fieldsOf(spec)) {
-          if (field === 'powertrain' && stack.some(([category]) => COMBUSTION.indexOf(category) !== -1)) continue;
-          const cleared = vehicleStats({ spec: { ...spec, [field]: null }, modifications: mods });
-          for (const layer of ['vehicle', 'competition'] as const) {
-            for (const k of ATTRIBUTE_KEYS) {
-              const was = full[layer].scores[k].value, is = cleared[layer].scores[k].value;
-              if (is !== null && (was === null || is > was)) throw new Error(`${name} with ${stack.map((m) => m.join(':')).join(' + ')}: clearing ${field} raised ${layer} ${k} from ${was} to ${is}`);
+        for (const wear of [false, true]) {
+          const full = vehicleStats({ spec, modifications: mods, competitionModifications: mods, condition: wear ? worn(spec) : null, competitionCondition: wear ? worn(spec) : null });
+          for (const field of fieldsOf(spec)) {
+            if (field === 'powertrain' && stack.some(([category]) => COMBUSTION.indexOf(category) !== -1)) continue;
+            if (!comparable(field, spec)) continue;
+            const blank = { ...spec, [field]: null };
+            const cleared = vehicleStats({ spec: blank, modifications: mods, competitionModifications: mods, condition: wear ? worn(blank) : null, competitionCondition: wear ? worn(blank) : null });
+            for (const layer of ['vehicle', 'competition'] as const) {
+              for (const k of ATTRIBUTE_KEYS) {
+                const was = full[layer].scores[k].value, is = cleared[layer].scores[k].value;
+                if (is !== null && (was === null || is > was)) throw new Error(`${name}${wear ? ', worn' : ''} with ${stack.map((m) => m.join(':')).join(' + ') || 'nothing fitted'}: clearing ${field} raised ${layer} ${k} from ${was} to ${is}`);
+              }
             }
+            checked += 1;
+            if (MEASURED.indexOf(field) !== -1) measured += 1;
           }
-          checked += 1;
         }
       }
     }
-    expect(checked).toBeGreaterThan(1000);
+    expect(checked).toBeGreaterThan(5000);
+    expect(measured).toBeGreaterThan(200);
   });
 
   it('never raises a free-play race score, whatever cards are in the setup', () => {
-    const SETUPS = [...SETUP_CARDS.filter((c) => c.tier === 3).map((c) => [c.id]), ['turbo:3', 'engine:3'], ['supercharger:3', 'offroad:3'], ['eco:3', 'aero:3'], ['offroad:3', 'aero:3'], ['weight:3', 'tires:3']];
+    const SETUPS = [...SETUP_CARDS.filter((c) => c.tier === 3).map((c) => [c.id]), ['turbo:3', 'engine:3'], ['supercharger:3', 'offroad:3'], ['eco:3', 'aero:3'], ['offroad:3', 'aero:3'], ['weight:3', 'tires:3'], ['aero:2'], ['aero:1'], ['eco:2']];
     const scores = (spec: VehicleSpec, cardIds: string[]): Record<string, number | null> | null => {
       const entrant = entrantWithSetup({ id: 'car', name: 'car', spec, cardIds });
       if (!entrant.ok) return null; // a setup the vehicle cannot take starts nobody
@@ -308,6 +331,7 @@ describe('a blank field under modifications', () => {
       for (const cardIds of SETUPS) {
         const full = scores(spec, cardIds);
         for (const field of fieldsOf(spec)) {
+          if (!comparable(field, spec)) continue;
           const cleared = scores({ ...spec, [field]: null }, cardIds);
           if (cleared === null) continue;
           for (const mode of RACE_MODES) {

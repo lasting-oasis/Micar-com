@@ -197,7 +197,8 @@ export function combinedEconomy(spec: VehicleSpec): number | null {
   // The whole number below. A label prints whole numbers, and its combined figure is worked out from city and highway
   // figures that were not yet rounded, so the blend of the printed ones can land a mile either side of it. Rounding
   // down keeps the blend from ever being worth more than the combined figure it stands in for.
-  return Math.floor(1 / (0.55 / city + 0.45 / highway));
+  // (The small allowance is for arithmetic: 48 and 48 blend to 47.99999999999999, and are 48.)
+  return Math.floor(1 / (0.55 / city + 0.45 / highway) + 1e-9);
 }
 
 /* --------------------------------------------------------------------- scores ---- */
@@ -209,8 +210,8 @@ export function combinedEconomy(spec: VehicleSpec): number | null {
 export type ScoreAdjustments = {
   gripG?: number; durabilityPoints?: number; reliabilityPoints?: number; sprintFactor?: number; topSpeedFactor?: number;
   /**
-   * The most an estimated top speed may be, before `topSpeedFactor`: what the factory figures give. Set when parts
-   * are fitted and the sheet does not say the top speed is not limited, so an estimate is held as a figure on file is.
+   * The most an estimated top speed may be, before `topSpeedFactor`: what a figure on file would have become, had
+   * the estimate from the factory figures been one. Set when parts that move power or weight are fitted.
    */
   topSpeedCeilingMph?: number | null;
   /** True when more power would have raised a top speed on file, and did not because the sheet does not say whether it is limited. */
@@ -260,8 +261,9 @@ export function scoreSpec(spec: VehicleSpec, options: ScoreOptions = {}): Attrib
   // SPEED
   const topFactor = adjust.topSpeedFactor ?? 1;
   const estimatedTop = spec.topSpeedMph || !estimates ? null : estimateTopSpeedMph(spec);
-  // With parts fitted, an estimate may not pass what the factory figures give unless the sheet says the top speed is
-  // not limited: the same rule a top speed on file is held to, so the blank is never worth more than the figure.
+  // With parts fitted, an estimate may not pass what a figure on file would have become under the same parts (more
+  // power raises it only when the sheet says the top speed is not limited), so the blank is never worth more than
+  // the figure.
   const ceiling = adjust.topSpeedCeilingMph ?? null;
   const overCeiling = estimatedTop !== null && ceiling !== null && estimatedTop > ceiling;
   const rawTop = spec.topSpeedMph ? spec.topSpeedMph.value : overCeiling ? ceiling : estimatedTop;

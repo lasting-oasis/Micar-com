@@ -334,6 +334,10 @@ describe('missing figures', () => {
     // Down, not to the nearest: 30 and 40 blend to 33.8, and 34 could be a mile more than the label's own figure.
     const cell = <T,>(of: { source: unknown } | null, value: T) => ({ ...(of as object), value }) as never;
     expect(combinedEconomy({ ...civic, combinedMpg: null, cityMpg: cell(civic.cityMpg, 30), highwayMpg: cell(civic.highwayMpg, 40) })).toBe(33);
+    // Down, but not below a figure the arithmetic only just misses: 48 and 48 blend to 47.99999999999999, and are 48.
+    for (let mpg = 1; mpg <= 250; mpg++) {
+      expect(combinedEconomy({ ...civic, combinedMpg: null, cityMpg: cell(civic.cityMpg, mpg), highwayMpg: cell(civic.highwayMpg, mpg) }), `${mpg} and ${mpg}`).toBe(mpg);
+    }
     expect(scoreSpec({ ...civic, combinedMpg: null, cityMpg: null }).efficiency.value).toBeNull();
   });
 });

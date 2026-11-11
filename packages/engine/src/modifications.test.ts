@@ -648,10 +648,12 @@ describe('trade-offs', () => {
     const limited = { ...civic, topSpeedGoverned: s(true) };
     expect(values(limited, [mod('turbo', 2)]).speed).toBe(506);
     expect(scoreSpec(applyModifications(limited, [mod('turbo', 2)]).spec, { adjust: applyModifications(limited, [mod('turbo', 2)]).adjust }).speed.missing).toEqual(['topSpeedMph']);
-    // Said not to be limited, the estimate climbs to 132.2 mph with the power.
+    // Said not to be limited, the estimate climbs to 132.2 mph with the power. It may go as far as a figure on file
+    // would have gone (120.7 mph by the cube root of the power gained) and no further.
     const free = { ...civic, topSpeedGoverned: s(false) };
-    expect(applyModifications(free, [mod('turbo', 2)]).adjust.topSpeedCeilingMph).toBeNull();
+    expect(applyModifications(free, [mod('turbo', 2)]).adjust.topSpeedCeilingMph).toBeCloseTo(120.7 * Math.cbrt(MODS.turbo.tiers[1].horsepower), 9);
     expect(values(free, [mod('turbo', 2)])).toEqual({ power: 533, speed: 590, acceleration: 526, handling: 564, durability: 595, reliability: 746, efficiency: 675 });
+    expect(scoreSpec(applyModifications(free, [mod('turbo', 2)]).spec, { adjust: applyModifications(free, [mod('turbo', 2)]).adjust }).speed).toMatchObject({ metric: 132.2, missing: ['topSpeedMph'] });
     // A top speed on file that more power would have raised, and did not for want of the answer, says so too.
     const onFile = { ...civic, topSpeedMph: s(121) };
     const waiting = applyModifications(onFile, [mod('turbo', 2)]);
@@ -667,6 +669,31 @@ describe('trade-offs', () => {
     // And a lighter car is held like a stronger one.
     expect(values(civic, [mod('weight', 3)]).speed).toBe(506);
     expect(values(free, [mod('weight', 3)]).speed as number).toBeGreaterThanOrEqual(506);
+  });
+
+  it('moves an estimated top speed as it would the same figure on file, down as well as up', () => {
+    // A heavy 250 hp sedan is estimated at its class's limiter. The economy setup takes power away: a figure on file
+    // (with no word on a limiter) comes down by the cube root of the power lost, while the estimate, still at the
+    // limiter with the power it has left, used to stay where it was. Clearing the top speed gave the loss back.
+    const heavy = { ...civic, horsepower: s(250), torqueLbFt: s(250), curbWeightLb: s(4000), zeroToSixtySec: null };
+    const estimate = scoreSpec(heavy).speed.metric as number;
+    const eco = [mod('eco', 3)];
+    expect(scoreSpec(applyModifications(heavy, eco).spec).speed.metric).toBe(estimate);
+    const onFile = values({ ...heavy, topSpeedMph: s(estimate) }, eco).speed as number;
+    expect(onFile).toBeLessThan(values({ ...heavy, topSpeedMph: s(estimate) }, []).speed as number);
+    expect(values(heavy, eco).speed).toBe(onFile);
+    // Said to be limited, neither moves.
+    const limited = { ...heavy, topSpeedGoverned: s(true) };
+    expect(values(limited, eco).speed).toBe(values(limited, []).speed);
+    expect(values({ ...limited, topSpeedMph: s(estimate) }, eco).speed).toBe(values({ ...limited, topSpeedMph: s(estimate) }, []).speed);
+    // The blend of city and highway economy is moved as a combined figure on file would be: the parts' factor is
+    // applied to the factory blend, so the fraction that rounding took off does not come back.
+    const label = { ...civic, combinedMpg: s(18), cityMpg: s(16), highwayMpg: s(22) };
+    const blank = { ...label, combinedMpg: null };
+    expect(values(blank, []).efficiency).toBe(values(label, []).efficiency);
+    for (const stack of [[mod('aero', 2)], [mod('aero', 1)], [mod('turbo', 1)], [mod('offroad', 3)], [mod('eco', 2)]]) expect(values(blank, stack).efficiency).toBe(values(label, stack).efficiency);
+    expect(applyModifications(blank, [mod('aero', 2)]).changed).toContain('combinedMpg');
+    expect(applyModifications(blank, []).spec.combinedMpg).toBeNull();
   });
 
   it('gains no more from a cleared top speed with parts fitted than it does at the factory', () => {

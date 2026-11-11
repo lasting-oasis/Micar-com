@@ -98,7 +98,8 @@ function lastReading(inputs: ConditionInputs, system: WearSystem): number | null
  * What a caller should know about the result:
  * - With no mileage on file, or from a replacement that came without an odometer reading, only the years count.
  * - Brakes and tires are 'unknown' (wear 0, no penalty) until a documented replacement or an inspection gives them a state.
- * - The battery is 'unknown' unless the powertrain is hybrid, plug-in hybrid or electric.
+ * - The battery is 'unknown' on a petrol or diesel powertrain. It wears on a hybrid, plug-in hybrid or electric one,
+ *   and on a vehicle whose powertrain nobody has named.
  * - A declared accident or title sets a floor under body wear: Minor 0.25, Major 0.6, Rebuilt 0.5, Salvage 0.8.
  * - The newest inspection that read a system replaces its wear with the inspector's figure, at evidence 'verified'.
  * - Modelled wear carries the weakest evidence among what it was counted from: the mileage reading (when miles were
@@ -111,7 +112,9 @@ function lastReading(inputs: ConditionInputs, system: WearSystem): number | null
 export function assessCondition(inputs: ConditionInputs): ConditionState {
   const reading = inputs.mileage !== null && isNumber(inputs.mileage.value) ? inputs.mileage : null;
   const built = `${inputs.modelYear}-01-01`;
-  const electrified = inputs.powertrain === 'hybrid' || inputs.powertrain === 'plug-in-hybrid' || inputs.powertrain === 'electric';
+  // With no powertrain on file the vehicle is read as one with a traction battery to wear: a blank is read as the
+  // option that costs most, here as everywhere, or clearing a hybrid's powertrain would take its battery wear away.
+  const electrified = inputs.powertrain === null || inputs.powertrain === 'hybrid' || inputs.powertrain === 'plug-in-hybrid' || inputs.powertrain === 'electric';
   const bodyFloor = Math.max(inputs.accident === null ? 0 : ACCIDENT_FLOOR[inputs.accident], inputs.titleStatus === null ? 0 : TITLE_FLOOR[inputs.titleStatus]);
 
   const systems = {} as Record<WearSystem, SystemWear>;
