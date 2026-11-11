@@ -11,12 +11,16 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { io as connect, type Socket } from 'socket.io-client';
 import { signMagic, signSession } from './accounts';
-import { freshStrip } from './data';
+import { EVENTS, freshStrip, stageOf } from './data';
+import { partPrice } from './payout';
 import { RENTAL_DENIED, VISITOR_DENIED } from './stripFlow';
+import { TESTER_MONEY, TESTER_REFUSED, TESTER_REP } from './tester';
+import { ATTEMPTS_PER_IP } from './testerKey';
 
 const APP = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const SECRET = 'wiring-test-only-secret'; // a throwaway value for this child process, not a real secret
 const ACCOUNT = 'acct-wiring';
+const TESTER = 'wiring-tester-key'; // a throwaway tester key for this child process, not a real secret
 let child: ChildProcess;
 let dir: string;
 let url: string;
@@ -44,7 +48,7 @@ beforeAll(async () => {
   child = spawn(process.execPath, [path.join(APP, 'node_modules/tsx/dist/cli.mjs'), path.join(APP, 'server.ts')], {
     cwd: dir,
     env: { PATH: process.env.PATH ?? '', HOME: process.env.HOME ?? dir, TMPDIR: tmpdir(), NODE_ENV: 'production', PORT: '0', MAGIC_SECRET: SECRET,
-      RESEND_API_URL: mailUrl, RESEND_API_KEY: 'fake-key-for-the-local-mailer', MAGIC_FROM: 'test@example.com' },
+      RESEND_API_URL: mailUrl, RESEND_API_KEY: 'fake-key-for-the-local-mailer', MAGIC_FROM: 'test@example.com', TESTER_KEY: TESTER },
     stdio: ['ignore', 'pipe', 'pipe'],
   });
   child.stderr!.on('data', (d) => { err += d; });
@@ -244,6 +248,154 @@ describe('server wiring', () => {
     expect(typeof a.session).toBe('string'); expect(e.session).toBe(a.session);
     await close(req2, clk2);
   }, 30_000);
+
+  // ---- the tester key (TESTER_KEY in the server's environment) ----
+  /** True when no `event` reaches `s` within `ms`. */
+  const quiet = (s: Socket, event: string, ms = 500) => new Promise<boolean>(resolve => {
+    const on = () => { clearTimeout(timer); s.off(event, on); resolve(false); };
+    const timer = setTimeout(() => { s.off(event, on); resolve(true); }, ms);
+    s.on(event, on);
+  });
+  const mine = (u: any, id: string) => u.players[id];
+
+  it('the tester key makes a guest a tester: money never short, every stage open, the key never in a name', async () => {
+    const watcher = client(); await join(watcher, { mode: 'guest', name: 'Watcher' });
+    const sawPool = next<any>(watcher, 'update', u => Object.values<any>(u.players).some(p => p.name === 'Pool'));
+    const t = client(); const init = await join(t, { mode: 'guest', name: `Pool#${TESTER}` });
+    const me = mine(init.state, init.id);
+    expect(me).toMatchObject({ name: 'Pool', guest: true, tester: true, money: TESTER_MONEY });
+    expect(me.strip.rep).toBe(TESTER_REP);
+    expect(JSON.stringify(init)).not.toContain(TESTER);
+    // other players see a guest called Pool: no flag, no money, no key
+    const seen = Object.values<any>((await sawPool).players).find(p => p.name === 'Pool');
+    expect(seen.tester).toBeUndefined();
+    expect(seen.money).toBe(0);
+    // the key sent on its own field works the same way
+    const t2 = client(); const init2 = await join(t2, { mode: 'guest', name: 'Pool Two', testerKey: TESTER });
+    expect(mine(init2.state, init2.id)).toMatchObject({ name: 'Pool Two', tester: true, money: TESTER_MONEY });
+    // a wrong key does not join at all: it is refused with the reason, nobody new appears, and the same socket can
+    // then join as an ordinary guest
+    const g = client();
+    let refused = next<any>(g, 'join_refused'); const noInit = quiet(g, 'init');
+    g.emit('join', { mode: 'guest', name: 'Pool#not-the-key' });
+    expect(await refused).toEqual({ why: 'wrong', reason: TESTER_REFUSED });
+    expect(await noInit).toBe(true);
+    const init3 = await join(g, { mode: 'guest', name: 'Pool' });
+    expect(mine(init3.state, init3.id)).toMatchObject({ name: 'Pool', money: 500 });
+    expect(mine(init3.state, init3.id).tester).toBeUndefined();
+    expect(Object.values<any>(init3.state.players).filter(p => p.name === 'Pool')).toHaveLength(2); // the tester above and this guest: the refused join left nobody behind
+    // a wrong key on a socket that is already in leaves its player as it was
+    refused = next<any>(g, 'join_refused');
+    g.emit('join', { mode: 'guest', name: 'Other', testerKey: 'still-not-the-key' });
+    expect((await refused).why).toBe('wrong');
+    const rented = next<any>(g, 'update', u => u.players[init3.id]?.inventory?.some((c: any) => c.rental));
+    g.emit('rent_car', { key: 'ronin' });
+    expect(mine(await rented, init3.id)).toMatchObject({ name: 'Pool', money: 0 });
+    // a short tail after a name is not a try at the key: it joins as a guest, is told nothing, and is never counted
+    // as a miss (more of them than the limit, and the right key below still works)
+    const mikes: Socket[] = []; let told = 0;
+    for (let i = 0; i <= ATTEMPTS_PER_IP; i++) {
+      const m = client(); mikes.push(m); m.on('join_refused', () => { told++; });
+      const mi = await join(m, { mode: 'guest', name: `Mike#123${i}` });
+      expect(mine(mi.state, mi.id)).toMatchObject({ name: 'Mike', money: 500 });
+      expect(mine(mi.state, mi.id).tester).toBeUndefined();
+    }
+    await close(...mikes);
+    expect(told).toBe(0);
+    // a dealer who types a key after the name is not a tester, and the key is not shown as part of the name
+    const d = client(); const init4 = await join(d, { name: `Dealer Pool#${TESTER}`, lotScale: 'Small' });
+    expect(mine(init4.state, init4.id).name).toBe('Dealer Pool');
+    expect(mine(init4.state, init4.id).tester).toBeUndefined();
+    await close(watcher, t, t2, g, d);
+  });
+
+  it('a tester takes any car, keeps it across events, tunes it with every part, and swaps it; nobody else can', async () => {
+    const t = client(); const init = await join(t, { mode: 'guest', name: 'Pool', testerKey: TESTER });
+    const id = init.id;
+    // any car on the list, owned for the session (not a rental)
+    let upd = next<any>(t, 'update', u => mine(u, id).inventory.length === 1);
+    t.emit('test_car', { make: 'Chevy', model: 'Corvette' });
+    const car = mine(await upd, id).inventory[0];
+    expect(car).toMatchObject({ make: 'Chevy', model: 'Corvette', bodyStyle: 'sports', testCar: true, district: 'strip' });
+    expect(car.rental).toBeUndefined();
+    // a car that is not on the list is refused
+    const notListed = next<any>(t, 'strip_denied');
+    t.emit('test_car', { make: 'Chevy', model: 'Nope' });
+    expect((await notListed).reason).toBe('That car is not on the list.');
+    // the top part tier (stage 3) fits at once: the tester's REP opens every stage, and the money is there
+    const q = partPrice('perf.engine', 3, stageOf(TESTER_REP));
+    expect(q.ok).toBe(true);
+    const price = (q as { ok: true; price: number }).price;
+    upd = next<any>(t, 'update', u => mine(u, id).strip?.cars?.[car.id]?.cfg?.perf?.engine === 3);
+    t.emit('strip_buy_part', { carId: car.id, key: 'perf.engine', v: 3, price });
+    expect(mine(await upd, id).money).toBe(TESTER_MONEY - price);
+    // ...and it is never short: the next thing the tester does starts from the full amount again
+    upd = next<any>(t, 'update', u => mine(u, id).strip?.cars?.[car.id]?.tune?.aero === 1);
+    t.emit('strip_tune', { carId: car.id, tune: { turbo: 0, nitrous: 0, aero: 1, bias: 0, ride: 0, stiff: 0, steer: 0, gears: 0 } });
+    expect(mine(await upd, id).money).toBe(TESTER_MONEY);
+    // the highest-stage event opens for a tester, and quitting it does not take the car away (a rental would go back)
+    const top = [...EVENTS].sort((a, b) => b.stage - a.stage)[0];
+    t.emit('sync_car_pos', { carId: car.id, district: 'strip' });
+    const noRefusal = quiet(t, 'strip_denied');
+    t.emit('enter_event', { eventId: top.id });
+    expect(await noRefusal).toBe(true);
+    t.emit('quit_event', { eventId: top.id });
+    upd = next<any>(t, 'update', u => mine(u, id).strip?.cars?.[car.id]?.tune?.aero === -1);
+    t.emit('strip_tune', { carId: car.id, tune: { turbo: 0, nitrous: 0, aero: -1, bias: 0, ride: 0, stiff: 0, steer: 0, gears: 0 } });
+    expect(mine(await upd, id).inventory.map((c: any) => c.id)).toEqual([car.id]);
+    // a test car cannot be turned into money: the visitor gate still stands
+    const gated = next<any>(t, 'strip_denied');
+    t.emit('take_title_loan', { carId: car.id });
+    expect((await gated).reason).toBe(VISITOR_DENIED);
+    // a tester session is not saved to an account
+    const noAccount = next<any>(t, 'strip_denied');
+    t.emit('request_link', { email: 'pool@example.com' });
+    expect((await noAccount).reason).toBe('A tester session is not saved to an account');
+    expect(linkFor('pool@example.com')).toBeUndefined();
+    // another car replaces it; giving it back empties the garage; the first car's parts are still on file
+    upd = next<any>(t, 'update', u => mine(u, id).inventory.some((c: any) => c.model === 'Mustang'));
+    t.emit('test_car', { make: 'Ford', model: 'Mustang' });
+    const after = mine(await upd, id);
+    expect(after.inventory.map((c: any) => c.model)).toEqual(['Mustang']);
+    expect(after.strip.cars[car.id].cfg.perf.engine).toBe(3);
+    upd = next<any>(t, 'update', u => mine(u, id).inventory.length === 0);
+    t.emit('test_car_return');
+    await upd;
+    // an ordinary guest gets no test car, and the same event stays locked for them
+    const g = client(); const gi = await join(g, { mode: 'guest', name: 'Plain' });
+    const no1 = next<any>(g, 'strip_denied');
+    g.emit('test_car', { make: 'Chevy', model: 'Corvette' });
+    expect((await no1).reason).toBe('That car is not for rent.');
+    if (top.stage > 1) {
+      const locked = next<any>(g, 'strip_denied');
+      g.emit('enter_event', { eventId: top.id });
+      await locked;
+    }
+    const check = next<any>(g, 'update', u => !!mine(u, gi.id));
+    g.emit('rent_car', { key: 'civet' });
+    expect(mine(await check, gi.id).inventory.every((c: any) => !c.testCar)).toBe(true);
+    await close(t, g);
+  });
+
+  it('five wrong keys from one address shut the key out, the right one included (this test must stay the last to use the key)', async () => {
+    for (let i = 0; i < ATTEMPTS_PER_IP; i++) {
+      const s = client(); const refused = next<any>(s, 'join_refused');
+      s.emit('join', { mode: 'guest', name: 'Guess', testerKey: `wrong-key-${i}` });
+      expect(await refused).toEqual({ why: 'wrong', reason: TESTER_REFUSED });
+      await close(s);
+    }
+    const s = client(); const refused = next<any>(s, 'join_refused'); const noInit = quiet(s, 'init');
+    s.emit('join', { mode: 'guest', name: 'Pool', testerKey: TESTER });
+    expect(await refused).toEqual({ why: 'locked', reason: 'Too many wrong keys. Try again in 10 minutes.' });
+    expect(await noInit).toBe(true);
+    // without the key the same socket still gets in, as an ordinary guest
+    const init = await join(s, { mode: 'guest', name: 'Pool' });
+    expect(mine(init.state, init.id).tester).toBeUndefined();
+    expect(mine(init.state, init.id).money).toBe(500);
+    await close(s);
+  });
+
+  it('the tester key never reaches the server log', () => { expect(out).not.toContain(TESTER); });
 
   it('the server wrote nothing to stderr', () => { expect(err).toBe(''); });
 });

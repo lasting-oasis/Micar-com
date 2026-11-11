@@ -35,6 +35,7 @@ export type Car = {
   accidents?: number;     // accident history (affects collateral value / risk)
   basePrice?: number;     // original sticker baseline used for title-loan valuation
   rental?: boolean;       // Strip rental: stock car, returned (not sold) when the event ends
+  testCar?: boolean;      // a tester's car in the Strip: any model, owned for the session, worth nothing
 };
 
 export const FUEL_PRICE_PER_UNIT = 9; // $ per gas unit (full tank from empty ≈ $900)
@@ -101,6 +102,7 @@ export type EconomicState = {
 export type Player = {
   id: string; name: string; money: number;
   guest?: boolean; accountId?: string; // guest visitors have no account yet
+  tester?: boolean; // joined the Strip with the server's tester key: money is never short, every stage is open
   inventory: Car[]; lotPosition: { x: number; z: number };
   worldPosition?: { x: number; y: number; z: number; rotation: number; district?: 'town' | 'strip' }; // district: relayed in player_positions
   partsInventory: Record<string, number>; // Maps part name to quantity owned

@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import { useGameStore, loadSession } from '../store';
+import { useGameStore, loadSession, testerKeyFor, forgetTester } from '../store';
 import { useLang, t } from '../i18n';
 import { useGoogleSignIn, useEmailLink } from './useSignIn';
+import { KEY_FIELD_MAX, NAME_MAX, clipTyped, splitTesterName } from '../world/tester';
 
 // The Strip's front door (/strip): join as a guest with the starting cash, or sign in. Reads the store only.
 // What it may offer (Google, email) comes from GET /api/caps, fetched on mount; init.caps arrives too late for a card that unmounts on join.
@@ -22,7 +23,15 @@ export function StripEntry() {
   const [name, setName] = useState(readName);
   const [busy, setBusy] = useState(false);
   const [note, setNote] = useState('');
+  const [, refresh] = useState(0);
   const started = useRef(false);
+  // Tester mode: the owner types the server's key after the name ("Name#key"). The key is sent beside the name, never
+  // as part of it, and once the server has taken it this device remembers it for that name. A key the server does not
+  // take refuses the join and says why; the next press then joins as an ordinary guest (the saved key is not sent again).
+  const refused = useGameStore(s => s.joinRefused);
+  const typed = splitTesterName(name);
+  const savedKey = typed.key || refused ? undefined : testerKeyFor(typed.name);
+  useEffect(() => { if (refused) setBusy(false); }, [refused]);
 
   // A join that never completes (server down, blocked socket) frees the button again.
   useEffect(() => {
@@ -57,13 +66,15 @@ export function StripEntry() {
     if (joined) { useGameStore.getState().clearDriveNotice(); setHoldCard(false); return; } // an email link is on its way: carry on as the guest already joined
     if (busy) return;
     setNote('');
-    const n = name.trim();
+    const n = typed.name;
+    if (typed.key) setName(n); // the key does not stay on screen
     writeName(n);
     setBusy(true);
-    connect({ mode: 'guest', name: n });
+    const testerKey = typed.key ?? savedKey;
+    connect({ mode: 'guest', name: n, ...(testerKey ? { testerKey } : {}) });
   };
 
-  const joinGuest = () => connect({ mode: 'guest', name: name.trim() });
+  const joinGuest = () => connect({ mode: 'guest', name: typed.name });
   const g = useGoogleSignIn(joinGuest);
   const mail = useEmailLink(joinGuest);
 
@@ -97,9 +108,15 @@ export function StripEntry() {
         <form className="flex flex-col gap-5" onSubmit={(e) => { e.preventDefault(); race(); }}>
         <label className="flex flex-col gap-2">
           <span className="font-cond font-semibold uppercase tracking-[0.14em] text-xs text-haze">{t(lang, 'strip.nameLabel')}</span>
-          <input type="text" autoFocus maxLength={24} value={name} onChange={(e) => setName(e.target.value)}
+          <input type="text" autoFocus maxLength={NAME_MAX + 1 + KEY_FIELD_MAX} autoComplete="off" autoCorrect="off" spellCheck={false} value={name} onChange={(e) => setName(clipTyped(e.target.value))}
             className="w-full min-h-[48px] bg-[#0a0d12] border border-[#3a4458] rounded-lg px-4 py-3 font-cond text-lg tracking-wide text-ink focus:outline-none focus:border-market focus:ring-4 focus:ring-market/20 transition-all" />
         </label>
+        {savedKey && !joined && (
+          <p className="-mt-3 flex items-center justify-between gap-3 text-[13px] text-haze">
+            <span>{t(lang, 'strip.testerSaved')}</span>
+            <button type="button" onClick={() => { forgetTester(); refresh(x => x + 1); }} className="min-h-[32px] px-2 underline underline-offset-2 hover:text-ink">{t(lang, 'strip.testerForget')}</button>
+          </p>
+        )}
         <button type="submit" disabled={busy && !joined} className={`${BTN} bg-market text-[#0b0d12] hover:brightness-110`}>
           {busy && !joined ? t(lang, 'strip.joining') : joined ? t(lang, 'strip.continue') : t(lang, 'strip.guest')}
         </button>
@@ -121,7 +138,7 @@ export function StripEntry() {
             </button>
           </form>
         ))}
-        {(note || g.note || mail.note || (joined && driveNotice)) && <p role="alert" className="text-sm text-red-300">{note || g.note || mail.note || driveNotice}</p>}
+        {(note || refused || g.note || mail.note || (joined && driveNotice)) && <p role="alert" className="text-sm text-red-300">{note || refused || g.note || mail.note || driveNotice}</p>}
         <p className="text-sm text-haze">{t(lang, 'strip.footnote')}</p>
         <p className="text-[11px] text-ink/50 text-center">{t(lang, 'strip.osm')}</p>
         </>}

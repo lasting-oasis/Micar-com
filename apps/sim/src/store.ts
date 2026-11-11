@@ -9,7 +9,7 @@ import { isRental } from './world/rental';
 
 // How a visitor joins: as a Strip guest, with a saved session token, or the original dealer/shop setup.
 export type ConnectOpts =
-  | { mode: 'guest'; name: string }
+  | { mode: 'guest'; name: string; testerKey?: string } // testerKey: what the owner typed after their name ("Name#key")
   | { mode: 'session'; session: string }
   | { mode: 'dealer'; name: string; lotScale: 'Small' | 'Medium' | 'Large'; careerFocus?: 'dealership' | 'standalone'; shopSpecialty?: 'mechanic' | 'body' | 'dual' };
 export type AccountView = { id: string; identity: Identity; allowanceToday: boolean };
@@ -22,6 +22,18 @@ export const SESSION_KEY = 'micar.session';
 const readSession = (): string | null => { try { return localStorage.getItem(SESSION_KEY); } catch { return null; } };
 const writeSession = (v: string | null) => { try { if (v === null) localStorage.removeItem(SESSION_KEY); else localStorage.setItem(SESSION_KEY, v); } catch { /* storage blocked: this page only */ } };
 export const loadSession = readSession;
+
+// A tester key the server accepted is kept on this device with the name it was typed after, so that name gets in again
+// without retyping it. Kept when the server takes it and dropped when the server calls it wrong (never before the
+// answer); every access is in a try/catch.
+export const TESTER_STORE = 'micar.tester';
+const readTester = (): { name: string; key: string } | null => {
+  try { const j = JSON.parse(localStorage.getItem(TESTER_STORE) || 'null'); return j && typeof j.name === 'string' && typeof j.key === 'string' && j.key ? { name: j.name, key: j.key } : null; } catch { return null; }
+};
+const writeTester = (v: { name: string; key: string } | null) => { try { if (v) localStorage.setItem(TESTER_STORE, JSON.stringify(v)); else localStorage.removeItem(TESTER_STORE); } catch { /* storage blocked: this page only */ } };
+/** The saved tester key for this name on this device, if there is one (names compare without case). */
+export const testerKeyFor = (name: string): string | undefined => { const t = readTester(); return t && t.name.toLowerCase() === name.trim().toLowerCase() ? t.key : undefined; };
+export const forgetTester = () => writeTester(null);
 
 
 interface StoreState {
@@ -44,7 +56,12 @@ interface StoreState {
   pendingLink: LinkPayload | null;        // the payload to resend with confirmReplace: true
   linkSent: boolean;
   connectFailed: boolean;
+  /** why the server refused the join from the Strip's entry card (a tester key it did not take); cleared by the next join */
+  joinRefused: string | null;
   rentCar: (key: string) => void;
+  /** tester mode: take a car from the test list (it replaces the one held), or give the held one back */
+  takeTestCar: (make: string, model: string) => void;
+  returnTestCar: () => void;
   requestLink: (email: string) => void;
   linkAccount: (payload: LinkPayload) => void;
   claimAllowance: () => void;
@@ -206,6 +223,7 @@ export const useGameStore = create<StoreState>((set, get) => ({
   pendingLink: null,
   linkSent: false,
   connectFailed: false,
+  joinRefused: null,
   linkedElsewhere: null,
   linkChoice: null,
   timeOfDay: 8.0,
@@ -336,7 +354,7 @@ export const useGameStore = create<StoreState>((set, get) => ({
   disconnect: () => {
     const socket = get().socket;
     if (socket) socket.disconnect();
-    set({ socket: null, gameState: null, playerId: null, account: null, linkPrompt: null, pendingLink: null, linkSent: false, holdCard: false, linkedElsewhere: null, linkChoice: null, drivingCarId: null, chatMessages: [], unreadChat: 0, playerPositions: {},
+    set({ socket: null, gameState: null, playerId: null, account: null, linkPrompt: null, pendingLink: null, linkSent: false, holdCard: false, linkedElsewhere: null, linkChoice: null, joinRefused: null, drivingCarId: null, chatMessages: [], unreadChat: 0, playerPositions: {},
       // Per-session prompts and modal state: left set, they reappear in the next
       // session (the gate keypad at spawn).
       myWorldPos: null, drivingFuel: null, drivingSpeed: 0, gatePrompt: false, activeInteraction: null, driveNotice: null,
@@ -347,14 +365,17 @@ export const useGameStore = create<StoreState>((set, get) => ({
     const isDev = ['5173', '5174', '5175', '5176', '5177', '5178', '5179'].includes(window.location.port);
     const socketUrl = isDev ? `http://${window.location.hostname}:3000` : window.location.origin;
     const socket = io(socketUrl);
-    
+    set({ joinRefused: null });
+
     // A linked player who reconnects rejoins on the saved session, not as the guest the socket first joined as.
     let viaSession = opts.mode === 'session', joins = 0;
+    // the tester key this connection joins with; dropped for good once the server has refused it
+    let testerKey = opts.mode === 'guest' ? opts.testerKey : undefined;
     const emitJoin = () => {
         const saved = joins++ > 0 && get().account ? readSession() : null;
         viaSession = !!saved || opts.mode === 'session';
         if (saved) socket.emit('join', { mode: 'session', session: saved });
-        else if (opts.mode === 'guest') socket.emit('join', { mode: 'guest', name: opts.name });
+        else if (opts.mode === 'guest') socket.emit('join', { mode: 'guest', name: opts.name, ...(testerKey ? { testerKey } : {}) });
         else if (opts.mode === 'session') socket.emit('join', { session: opts.session });
         else {
             const { name, lotScale, careerFocus, shopSpecialty } = opts;
@@ -372,9 +393,23 @@ export const useGameStore = create<StoreState>((set, get) => ({
     socket.on('init', (data) => {
         // A session join that comes back without an account means the server fell back to a guest: the token is dead
         if (viaSession && !data.account) writeSession(null);
+        // a tester key is kept with its name only once the server has taken it
+        if (opts.mode === 'guest' && testerKey && !viaSession && data.state?.players?.[data.id]?.tester) writeTester({ name: opts.name, key: testerKey });
         // sign_out answers with a fresh guest init: the old token is spent
         set({ caps: data.caps ? { ...NO_CAPS, ...data.caps } : get().caps, account: data.account || null, linkPrompt: null, pendingLink: null });
         set({ gameState: data.state, playerId: data.id, timeOfDay: data.state.timeOfDay, chatMessages: data.state.chatLog || [], unreadChat: 0, ...mirrorStrip(data.state, data.id) });
+    });
+    // The server did not take the tester key, so it did not join us. A key it calls wrong is no longer worth keeping.
+    // From the entry card: stop, and let the card say why (its button then joins as an ordinary guest). After a dropped
+    // connection, with the world already up: carry on as an ordinary guest, and say why in the world.
+    socket.on('join_refused', (d: { why?: string; reason?: string }) => {
+        const reason = typeof d?.reason === 'string' && d.reason ? d.reason : 'The Strip refused that.';
+        if (d?.why === 'wrong' && testerKey && readTester()?.key === testerKey) writeTester(null);
+        testerKey = undefined;
+        if (get().playerId) { set({ driveNotice: reason }); emitJoin(); return; }
+        socket.disconnect();
+        if (get().socket === socket) set({ socket: null });
+        set({ joinRefused: reason });
     });
     socket.on('account_linked', (d: { account: AccountView; session?: string }) => {
         if (typeof d?.session === 'string') writeSession(d.session);
@@ -407,6 +442,8 @@ export const useGameStore = create<StoreState>((set, get) => ({
     set({ socket });
   },
   rentCar: (key) => { const s = get().socket; if (s) s.emit('rent_car', { key }); },
+  takeTestCar: (make, model) => { const s = get().socket; if (s) s.emit('test_car', { make, model }); },
+  returnTestCar: () => { const s = get().socket; if (s) s.emit('test_car_return'); },
   requestLink: (email) => { const s = get().socket; if (s) s.emit('request_link', { email }); set({ linkSent: false }); },
   linkAccount: (payload) => {
       const s = get().socket; if (!s) return;

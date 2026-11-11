@@ -33,6 +33,10 @@ describe('world data', () => {
     expect(rec.wins).toEqual({ sp1: 2, royal_gp: 1 }); expect(rec.best).toEqual({ ci1: 90, royal_gp: 80 });
   });
   it('a rented fleet car drives on its artifact spec', () => { const s = specFor({ make: 'Brute', model: '440', bodyStyle: 'sports', rental: true }); expect(s.mass).toBe(1720); expect(s.drive).toBe('RWD'); expect(s.redline).toBe(6200); });
+  it("a tester's fleet car is the fleet's car too; a tester's real model is fitted like anyone's", () => {
+    expect(specFor({ make: 'Brute', model: '440', bodyStyle: 'sports', testCar: true })).toEqual(specFor({ make: 'Brute', model: '440', bodyStyle: 'sports', rental: true }));
+    expect(specFor({ make: 'Ford', model: 'Mustang', bodyStyle: 'sports', testCar: true })).toEqual(specFor({ make: 'Ford', model: 'Mustang', bodyStyle: 'sports' }));
+  });
   it('the same make and model without rental takes the archetype path', () => { expect(specFor({ make: 'Brute', model: '440', bodyStyle: 'sports' }).id).toBe('sports'); });
   it('the five fleet specs are distinct in character and spread at least 2 s to 100', () => {
     const f = Object.values(FLEET_SPECS); const pk = (s: typeof f[0]) => Math.max(...s.tq.map(q => q[1]));

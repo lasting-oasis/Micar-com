@@ -10,6 +10,7 @@ import { useGameStore } from '../store';
 import { AccountPanel } from '../strip/AccountPanel';
 import { ReplacePrompt } from '../strip/ReplacePrompt';
 import { RENTAL_FLEET, canRent, isVisitor } from './rental';
+import { TEST_CARS } from './tester';
 import { useLang, t } from '../i18n';
 
 const tap = (t: DriveTap) => useDriveUi.setState({ tap: t });
@@ -40,6 +41,34 @@ function Counter() {
   if (!me) return null;
   const ok = canRent(me);
   const broke = !account && !ok.ok && ok.reason === 'Not enough money';
+  // Tester mode (the server's tester key): every car on the list, kept until it is swapped
+  if (me.tester) {
+    const makes = [...new Set(TEST_CARS.map(c => (c.fleet ? '' : c.make)))];
+    return (
+      // a long list: on a phone it stops short of the right edge, where the lobby's pause button sits
+      <div className="pointer-events-auto absolute left-4 right-16 bottom-6 md:left-auto md:right-20 md:bottom-auto md:top-24 md:w-[340px] max-h-[calc(100dvh-6rem)] overflow-y-auto overscroll-contain rounded-xl border border-market/40 bg-night/95 p-5 text-white shadow-2xl" role="dialog" aria-label={t(lang, 'strip.counter')}>
+        <div className="flex items-baseline justify-between gap-4 mb-2">
+          <div className="font-cond italic font-black uppercase text-2xl md:text-3xl leading-none text-market">{t(lang, 'strip.counter')}</div>
+          <div className="font-cond font-bold text-lg tabular-nums">{money(me.money)}</div>
+        </div>
+        <p className="font-sans text-[13px] text-white/80 mb-3">{t(lang, 'strip.testerLine')}</p>
+        {makes.map(make => (
+          <div key={make || 'fleet'} className="mb-3">
+            <div className="font-cond font-semibold uppercase tracking-[0.14em] text-xs text-haze mb-1.5">{make || t(lang, 'strip.fleet')}</div>
+            <div className="flex flex-col gap-1.5">
+              {TEST_CARS.filter(c => (c.fleet ? '' : c.make) === make).map(c => (
+                <button key={`${c.make} ${c.model}`} type="button" disabled={pending} onClick={() => { setPending(true); useGameStore.getState().takeTestCar(c.make, c.model); }}
+                  className={`${rowBtn} flex items-center gap-3 border border-market/60 enabled:hover:bg-market enabled:hover:text-night disabled:opacity-45 disabled:cursor-not-allowed`}>
+                  <span className="w-4 h-4 rounded-full border border-white/30 flex-none" style={{ background: c.color }} aria-hidden="true" />
+                  <span className="flex-1 min-w-0 font-extrabold text-lg leading-tight truncate">{c.make} {c.model}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
   return (
     <div className="pointer-events-auto absolute inset-x-4 bottom-6 md:inset-x-auto md:left-auto md:right-20 md:bottom-auto md:top-24 md:w-[340px] max-h-[calc(100dvh-6rem)] overflow-y-auto rounded-xl border border-market/40 bg-night/95 p-5 text-white shadow-2xl" role="dialog" aria-label={t(lang, 'strip.counter')}>
       <div className="flex items-baseline justify-between gap-4 mb-3">
@@ -90,6 +119,7 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
   // a Strip visitor (a guest or an account holder) has no town to go back to; an account holder can sign out
   const visitor = useGameStore(s => isVisitor(s.playerId ? s.gameState?.players[s.playerId] : undefined));
   const signedIn = useGameStore(s => !!s.account);
+  const tester = useGameStore(s => !!(s.playerId && s.gameState?.players[s.playerId]?.tester));
   // App's car panel sits at the top centre: the HUD's arrow drops below its bottom edge (topInset)
   useEffect(() => {
     if (!driving) { if (useDriveUi.getState().topInset) useDriveUi.setState({ topInset: 0 }); return; }
@@ -177,6 +207,8 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
                 <button onClick={() => tap('resume')} className="min-h-[44px] rounded-lg bg-market py-2 font-cond font-extrabold uppercase italic text-night">Resume</button>
                 {eventLive && <button onClick={() => tap('restart')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Restart event</button>}
                 {eventLive && <button onClick={() => tap('quit')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Quit event</button>}
+                {tester && !lobby && !eventLive && <button onClick={() => tap('garage')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Garage</button>}
+                {tester && !lobby && !eventLive && <button onClick={() => tap('swapcar')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Swap car</button>}
                 {!visitor && <button onClick={() => tap('town')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Back to town</button>}
                 {visitor && <button onClick={() => useDriveUi.setState({ account: true })} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Account</button>}
                 {visitor && lobby && signedIn && <button onClick={() => tap('signout')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Sign out</button>}

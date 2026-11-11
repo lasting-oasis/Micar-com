@@ -27,7 +27,7 @@ export function GarageMenu({ onQuickRace }: { onQuickRace?: (eventId: string) =>
   const close = useGameStore(s => s.closeGarage);
 
   // spec: specFor scales an archetype to the real car (~20 ms), so once per car
-  const spec = useMemo(() => car ? specFor({ make: car.make, model: car.model, bodyStyle: car.bodyStyle, rental: car.rental }) : null, [car?.id, car?.make, car?.model, car?.bodyStyle, car?.rental]);
+  const spec = useMemo(() => car ? specFor({ make: car.make, model: car.model, bodyStyle: car.bodyStyle, rental: car.rental, testCar: car.testCar }) : null, [car?.id, car?.make, car?.model, car?.bodyStyle, car?.rental, car?.testCar]);
   const style: BodyStyle = useMemo(() => { const s = car ? (car.bodyStyle ?? deriveStyle(car.model)) : 'sedan'; return (STYLES as string[]).includes(s) ? s as BodyStyle : 'sedan'; }, [car?.bodyStyle, car?.model]);
   const fallback = useMemo(() => ({ cfg: clone(STOCK_CFG), tune: clone(TUNE_DEF), owned: [] as string[] }), [carId]);
 
@@ -150,8 +150,9 @@ export function GarageMenu({ onQuickRace }: { onQuickRace?: (eventId: string) =>
     <div className="fixed inset-0 z-[10000] bg-background text-ink font-sans select-none overflow-hidden" role="dialog" aria-label="Garage">
       <canvas ref={sceneCanvas} className="absolute inset-0 w-full h-full block touch-none" />
 
-      {/* header: the car, its style stars; money, REP and stage */}
-      <div className="absolute top-4 left-4 right-4 md:left-6 md:right-6 flex justify-between items-start gap-4 pointer-events-none">
+      {/* header: the car, its style stars; money, REP and stage. Above the menu column: on a narrow screen the column's
+          box reaches up under "Drive", and the way out has to stay tappable. */}
+      <div className="absolute z-10 top-4 left-4 right-4 md:left-6 md:right-6 flex justify-between items-start gap-4 pointer-events-none">
         <div className="min-w-0">
           <div className="font-cond italic font-black text-2xl md:text-3xl leading-none truncate">{spec.name} <span className="text-haze text-lg not-italic font-semibold">· {spec.drive}</span></div>
           <div className="mt-1 flex items-center gap-2 text-market text-sm" aria-label={`Style ${rating.toFixed(1)} of 10`}>

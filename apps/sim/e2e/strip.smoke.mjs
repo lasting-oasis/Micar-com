@@ -2,6 +2,8 @@
 // starter car, so no auction window is needed): town -> gate -> Strip -> drag -> results -> Garage -> a performance part.
 //   pnpm --filter @micar/sim build && SMOKE=1 NODE_ENV=production PORT=3123 pnpm --filter @micar/sim start &
 // A second run follows: a guest at /strip rents a car at the counter ($500 -> $0), races the drag, and the rental is returned.
+// A third, when the server and this script were both started with the same TESTER_KEY (any throwaway value of 8+ characters):
+// tester mode on a phone-sized screen, from the key typed after the name to the Garage and back.
 //   BASE=http://localhost:3123/ pnpm --filter @micar/sim exec node e2e/strip.smoke.mjs
 // Exits 1 on any failed assertion or page error. Software GL (swiftshader), so it runs headless with no display; the game
 // is slow there (~3 fps), so the drag waits on the results card, not on a clock.
@@ -147,6 +149,53 @@ try {
   ok(gm === prizeN, `the guest's money is the prize paid ($${gm})`);
   const held = await G(() => window.__micar.cars());
   ok(held.length === 0, `the rental is gone from the inventory (${held.length} cars)`);
+
+  // 9. tester mode: "Name#key" at /strip -> every car, money that refills -> the Garage from the pause menu -> swap.
+  //    The key is never printed. Phone-sized, where the Garage's "Drive" once sat under the menu column.
+  const KEY = process.env.TESTER_KEY;
+  if (!KEY) console.log('skip the tester run: no TESTER_KEY was given to this script');
+  else {
+    await g.close();
+    const t = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1 });
+    t.setDefaultTimeout(60000);
+    await t.addInitScript(() => { try { localStorage.setItem('cds.graphics', 'low'); } catch {} });
+    t.on('console', m => { if (m.type() === 'error' && !/ERR_TUNNEL_CONNECTION_FAILED|ERR_NAME_NOT_RESOLVED|ERR_INTERNET_DISCONNECTED/.test(m.text())) errs.push('tester console.error: ' + m.text().split(KEY).join('<key>')); });
+    t.on('pageerror', e => errs.push('tester pageerror: ' + e.message.split(KEY).join('<key>')));
+    const T = (fn, arg) => t.evaluate(fn, arg);
+    await t.goto(BASE.replace(/\/?$/, '/') + 'strip', { waitUntil: 'domcontentloaded' });
+    await t.fill('input[type=text]', `TestBot#${KEY}`);
+    await t.getByRole('button', { name: /Race as guest/i }).click();
+    const counter = t.locator('[aria-label="Rental counter"]');
+    await counter.waitFor({ timeout: 90000 });
+    await t.waitForFunction(() => window.__micar.money() === 1000000, null, { timeout: 30000 });
+    ok(true, 'the key after the name made a tester: $1,000,000 at the counter');
+    ok(await T(() => localStorage.getItem('micar.name')) === 'TestBot', 'the key did not become part of the name');
+    ok(!(await t.content()).includes(KEY), 'the key is nowhere on the page');
+    await counter.getByRole('button', { name: /Chevy Corvette/i }).click();
+    await t.waitForFunction(() => window.__micar.pose().driving === true, null, { timeout: 120000 });
+    ok(true, 'took a Corvette from the list and is driving it');
+    await t.waitForTimeout(1500);
+    await t.keyboard.press('Escape');
+    await t.getByRole('button', { name: 'Garage', exact: true }).click();
+    await t.waitForSelector('[role=dialog][aria-label="Garage"]');
+    await t.waitForSelector('div.grid.grid-cols-12', { timeout: 120000 });
+    await t.locator('[role=option]', { hasText: 'Performance' }).first().click();
+    await t.waitForTimeout(500);
+    await t.locator('[role=option]', { hasText: 'Engine' }).first().click();
+    await t.waitForTimeout(500);
+    await t.locator('[role=option]', { hasText: '$9,800' }).first().click(); // Engine, extreme tier: a stage 3 part
+    await t.locator('[role=option]', { hasText: 'Extreme' }).filter({ hasText: 'Equipped' }).waitFor({ timeout: 30000 });
+    ok(true, 'the pause menu opened the Garage, and the top engine ($9,800, stage 3) went on');
+    await t.getByRole('button', { name: 'Drive' }).first().click();
+    await t.waitForSelector('[role=dialog][aria-label="Garage"]', { state: 'detached' });
+    ok(await T(() => window.__micar.pose().driving === true), '"Drive" left the Garage: back in the car');
+    await t.waitForTimeout(1500);
+    await t.keyboard.press('Escape');
+    await t.getByRole('button', { name: 'Swap car', exact: true }).click();
+    await counter.waitFor({ timeout: 120000 });
+    await t.waitForFunction(() => window.__micar.money() === 1000000, null, { timeout: 30000 });
+    ok(true, '"Swap car" is back at the counter, the money full again');
+  }
 
   ok(errs.length === 0, 'no page errors');
 } catch (e) {

@@ -27,6 +27,8 @@ jobs:
           NODE_ENV: production
           SMOKE: '1'
         run: |
+          # a throwaway tester key, made here and gone with the job: the smoke's tester run needs the server to have one
+          export TESTER_KEY="smoke-$(openssl rand -hex 12)"
           pnpm start > "$RUNNER_TEMP/server.log" 2>&1 &
           for i in $(seq 1 60); do curl -sf http://localhost:3123/ > /dev/null && break; sleep 1; done
           status=0

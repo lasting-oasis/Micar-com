@@ -37,6 +37,8 @@ One GitHub Pages site serves the door at the root, `/value/` as an alias that fo
 
 `/strip` on the sim server: race as a guest with $500, rent a stock car at the counter for $500 an event, or make an account (Google or an emailed link) to keep progress and collect a $1,000 daily allowance. Accounts need four Render env vars (names only, set in the Render dashboard, never committed): `GOOGLE_CLIENT_ID`, `MAGIC_SECRET`, `RESEND_API_KEY`, `MAGIC_FROM`. Without them the guest path still works.
 
+Tester mode, the owner's way to try any car without earning it first: set one more Render env var, `TESTER_KEY` (8 to 128 characters, set in the dashboard, never committed), then type `Name#key` on the `/strip` card. That guest gets every car on the list, $1,000,000 that refills, every stage and part, and **Garage** and **Swap car** in the pause menu. The key is sent beside the name, never shown as part of it, and the device remembers it for that name ("Forget it" on the card drops it). A tester's cars and builds last until the page is closed or reloaded, and a tester cannot be linked to an account. Without the variable tester mode is off.
+
 ## Run it
 
 ```

@@ -2148,6 +2148,14 @@ function App() {
         </Suspense>
       </ChunkBoundary>
       <RacingHud isMobile={isMobile} />
+      {/* the Garage opens only on a car that is owned: for a visitor that is a tester's car (a rental stays stock) */}
+      {garageCarId && (
+        <ChunkBoundary className="fixed inset-0 z-[10000] grid place-items-center bg-background">
+          <Suspense fallback={<div className="fixed inset-0 z-[10000] bg-background" />}>
+            <GarageMenu onQuickRace={id => useDriveUi.setState({ quick: id })} />
+          </Suspense>
+        </ChunkBoundary>
+      )}
       {/* phones drive with the D-pad (the lobby has none: the counter takes the screen) */}
       {isMobile && drivingCarIdForPrompt && !driving && <div className="fixed left-6 bottom-6 z-[999] pointer-events-none select-none"><TouchDPad /></div>}
     </>

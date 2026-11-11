@@ -11,7 +11,7 @@ export type EventReward = { cash: number; octane: number; rep: number; stamps: s
 export const STAMP_NAME: Readonly<Record<string, string>> = { 'strip:first-win': 'First win', 'strip:drag': 'Drag winner', 'strip:drift': 'Drift winner', 'strip:outrun': 'Outrun' };
 export const stampName = (id: string): string => STAMP_NAME[id] ?? id.replace(/^strip:/, '').replace(/-/g, ' ');
 /** what a tap on the layer asks the 3D view to do */
-export type DriveTap = 'enter' | 'continue' | 'resume' | 'town' | 'restart' | 'quit' | 'pause' | 'reset' | 'map' | 'signout';
+export type DriveTap = 'enter' | 'continue' | 'resume' | 'town' | 'restart' | 'quit' | 'pause' | 'reset' | 'map' | 'signout' | 'garage' | 'swapcar';
 
 /** Night Tuner's controls help line (#help), for the HUD on getting in and the pause menu */
 export const HELP: Record<District, string> = {

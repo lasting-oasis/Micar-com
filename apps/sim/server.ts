@@ -9,11 +9,14 @@ import { GameState, Car, Player, FractionalVehicle, FUEL_PRICE_PER_UNIT } from '
 import { EVENTS, carState, freshStrip, getV, isOwned, okey, stageOf, withV, type PartValue } from './src/world/data.js';
 import { applyPayout, clampTune, ensureStrip, outrunEvent, partPrice, validateEnter, validateFinish, validateOutrun, ENTRY_TTL_MS, type EventEntry } from './src/world/payout.js';
 import { MECHANIC_LIB, BODY_LIB } from './src/constants.js';
+import { CAR_CATALOG } from './src/carCatalog.js';
 import { GATE_RETURN } from './src/scene/world/gateSpot.js';
 import { RENTAL_FLEET, canRent, isRental, isVisitor, rent, type RentalKey } from './src/world/rental.js';
 import { MAGIC_TTL_MS, allowSend, clientIp, newSendLog, pruneSendLog, applyRecord, attachAccount, liveHolder, bootState, claimAllowance, findAccount, linkGuest, saveRecord, signMagic, signSession, utcDay, verifyGoogle, verifyMagic, verifySession, type Account, type Identity, type Jwk } from './src/world/accounts.js';
 import { RENTAL_DENIED, VISITOR_DENIED, VISITOR_EVENTS, closeEvent, guestPlayer, hostIsVacant, isUntouchedGuest, linkTarget, pickHost, quitEvent, sanitizePosition } from './src/world/stripFlow.js';
 import { coalescingSaver, loadOrQuarantine, writeAtomic } from './src/world/persistence.js';
+import { grantTester, heldTestCar, returnTestCar, setTestCar, splitTesterName, testCarDef, topUp } from './src/world/tester.js';
+import { checkTesterKey, configuredTesterKey, isKeyAttempt, newAttemptLog, refusalText } from './src/world/testerKey.js';
 import { TRACKS } from './src/world/strip/district.js';
 import { readTrackSync, setTrackDir } from './src/world/strip/districtNode.js';
 
@@ -125,6 +128,12 @@ const CAPS = {
     googleClientId: process.env.GOOGLE_CLIENT_ID ?? null, // public: the browser needs it for Google sign-in
     magic: !!(process.env.RESEND_API_KEY && process.env.MAGIC_SECRET && process.env.MAGIC_FROM),
 };
+// Tester mode (src/world/tester.ts): off unless TESTER_KEY is set to 8-128 characters. The key is compared, never
+// sent, stored or logged; misses are rationed per address and overall (src/world/testerKey.ts).
+const TESTER_KEY = configuredTesterKey(process.env.TESTER_KEY);
+if (process.env.TESTER_KEY && !TESTER_KEY) console.log('TESTER_KEY is set but is not 8 to 128 characters long: tester mode stays off');
+const testerAttempts = newAttemptLog();
+const TESTER_NO_ACCOUNT = 'A tester session is not saved to an account';
 const DEFAULT_ORIGIN = 'https://micar-sim.onrender.com';
 // Resend's endpoint; RESEND_API_URL overrides it only so the wiring test can point the server at a local fake.
 const RESEND_URL = process.env.RESEND_API_URL || 'https://api.resend.com/emails';
@@ -146,11 +155,11 @@ let googleForcedAt = 0;
 const redact = (s: string) => s.slice(0, 3) + '…';
 const accountView = (a: Account) => ({ id: a.id, identity: a.identities[0], allowanceToday: a.lastAllowance === utcDay(Date.now()) });
 const issueSession = (accountId: string) => process.env.MAGIC_SECRET ? signSession(accountId, Date.now(), process.env.MAGIC_SECRET) : null;
-// The state a client may see: never the accounts (identities are private), nor other players' account ids.
+// The state a client may see: never the accounts (identities are private), nor other players' account ids or tester flag.
 const publicState = (viewerId: string) => {
     const { accounts: _accounts, ...rest } = gameState;
     const players: Record<string, Player> = {};
-    for (const [pid, p] of Object.entries(gameState.players)) players[pid] = pid === viewerId ? p : { ...p, accountId: undefined };
+    for (const [pid, p] of Object.entries(gameState.players)) players[pid] = pid === viewerId ? p : { ...p, accountId: undefined, tester: undefined };
     return { ...rest, players };
 };
 
@@ -271,6 +280,7 @@ function broadcastState(io: Server, state: GameState) {
                     gateCode: undefined,   // never reveal another player's gate code
                     shareHoldings: {},     // portfolios are private
                     accountId: undefined,  // account ids are private
+                    tester: undefined,     // and so is who is testing
                     inventory: p.inventory ? p.inventory.map((c: any) => ({ ...c, buyPrice: 0 })) : []
                 };
             }
@@ -429,42 +439,6 @@ const CAR_MAKES = [
     { name: 'Chevy', msrp: 23000 },
     { name: 'BMW', msrp: 45000 }
 ];
-
-// Real model line-ups per make, each tagged with the body style that drives its
-// 3D silhouette. The generator picks a make, then a random model from it, so the
-// auction shows specific models across varied styles instead of identical sedans.
-const CAR_CATALOG: Record<string, { model: string; style: string }[]> = {
-    Toyota: [
-        { model: 'Camry', style: 'sedan' }, { model: 'Corolla', style: 'sedan' },
-        { model: 'RAV4', style: 'suv' }, { model: 'Tacoma', style: 'truck' },
-        { model: 'Tundra', style: 'truck' }, { model: 'Prius', style: 'hatchback' },
-        { model: 'Sienna', style: 'van' }, { model: 'Supra', style: 'sports' },
-    ],
-    Ford: [
-        { model: 'F-150', style: 'truck' }, { model: 'Ranger', style: 'truck' },
-        { model: 'Mustang', style: 'sports' }, { model: 'Explorer', style: 'suv' },
-        { model: 'Escape', style: 'suv' }, { model: 'Focus', style: 'hatchback' },
-        { model: 'Fusion', style: 'sedan' },
-    ],
-    Honda: [
-        { model: 'Civic', style: 'sedan' }, { model: 'Accord', style: 'sedan' },
-        { model: 'CR-V', style: 'suv' }, { model: 'Pilot', style: 'suv' },
-        { model: 'Odyssey', style: 'van' }, { model: 'Fit', style: 'hatchback' },
-        { model: 'Ridgeline', style: 'truck' },
-    ],
-    Chevy: [
-        { model: 'Silverado', style: 'truck' }, { model: 'Colorado', style: 'truck' },
-        { model: 'Camaro', style: 'sports' }, { model: 'Corvette', style: 'sports' },
-        { model: 'Equinox', style: 'suv' }, { model: 'Tahoe', style: 'suv' },
-        { model: 'Malibu', style: 'sedan' },
-    ],
-    BMW: [
-        { model: '3 Series', style: 'sedan' }, { model: '5 Series', style: 'sedan' },
-        { model: 'X5', style: 'suv' }, { model: 'X3', style: 'suv' },
-        { model: 'M4', style: 'coupe' }, { model: '4 Series', style: 'coupe' },
-        { model: 'Z4', style: 'sports' },
-    ],
-};
 
 // Wide, realistic automotive paint palette.
 const CAR_COLORS = ['#b91c1c', '#1d4ed8', '#15803d', '#f8fafc', '#0f172a', '#64748b', '#0e7490', '#7c3aed', '#ea580c', '#facc15', '#0d9488', '#9f1239', '#374151', '#c2410c', '#a16207', '#1e3a8a', '#0891b2', '#4d7c0f', '#7e22ce', '#b45309'];
@@ -1006,7 +980,9 @@ io.on('connection', (socket) => {
     // A Strip visitor (a guest or a Strip account holder) may send only the Strip's own events (VISITOR_EVENTS): no
     // dealer handler ever runs for one, so no money made there can be carried into an account.
     socket.use(([event], next) => {
-        if (isVisitor(gameState.players[socket.id]) && !VISITOR_EVENTS.has(event)) { socket.emit('strip_denied', { reason: VISITOR_DENIED }); return; }
+        const sender = gameState.players[socket.id];
+        if (sender?.tester) topUp(sender); // a tester's money is never short, whatever they do next
+        if (isVisitor(sender) && !VISITOR_EVENTS.has(event)) { socket.emit('strip_denied', { reason: VISITOR_DENIED }); return; }
         next();
     });
     const deny = (reason: string) => socket.emit('strip_denied', { reason });
@@ -1018,15 +994,15 @@ io.on('connection', (socket) => {
         return car;
     };
 
-    // A visitor in the Strip: a fresh guest, or (account) the account's saved progress.
-    const spawnVisitor = (name: unknown, account?: Account) => {
+    // A visitor in the Strip: a fresh guest, or (account) the account's saved progress, or (tester) a guest in tester mode.
+    const spawnVisitor = (name: unknown, account?: Account, tester = false) => {
       const now = Date.now();
       const p = guestPlayer(socket.id, typeof name === 'string' ? name.trim().slice(0, 24) : '', now);
       if (account) {
           applyRecord(p, structuredClone(account.player)); // a copy: the record changes only via persistAccount
           p.accountId = account.id;
           p.guest = false;
-      }
+      } else if (tester) grantTester(p);
       gameState.players[socket.id] = p;
       lastOutrunAt.set(socket.id, now); // they start in the Strip: the outrun clock starts now
       socket.emit('init', { id: socket.id, state: publicState(socket.id), caps: CAPS, ...(account ? { account: accountView(account) } : {}) });
@@ -1035,7 +1011,26 @@ io.on('connection', (socket) => {
     };
 
     socket.on('join', (msg: any) => {
-      const { name, lotScale, careerFocus, shopSpecialty } = (msg && typeof msg === 'object' ? msg : {}) as any;
+      const { name: typedName, lotScale, careerFocus, shopSpecialty } = (msg && typeof msg === 'object' ? msg : {}) as any;
+      // "Name#key": what follows the first '#' is a tester key and never part of anyone's name, on any join
+      const typed = splitTesterName(typedName);
+      const name = typeof typedName === 'string' && typedName.includes('#') ? typed.name : typedName;
+      // Tester mode: a plain guest join (never a session, an account or a dealer) that carries the server's tester key,
+      // on its own field or after the name. A key that is not taken refuses the join before anything changes, and says
+      // why; the entry card then offers the ordinary guest join. Anything too short to be a key is not a try at one.
+      let tester = false;
+      if (msg?.mode === 'guest' && typeof msg.session !== 'string') {
+          const key = typeof msg.testerKey === 'string' ? msg.testerKey : typed.key;
+          if (isKeyAttempt(key)) {
+              const verdict = checkTesterKey(key, TESTER_KEY, testerAttempts, clientIp(socket.handshake.headers as any, socket.handshake.address), Date.now());
+              if (verdict.ok) tester = true;
+              else {
+                  console.log('--- TESTER KEY REFUSED ---', { why: verdict.why });
+                  socket.emit('join_refused', { why: verdict.why, reason: refusalText(verdict) });
+                  return;
+              }
+          }
+      }
       // a re-join on the same socket replaces its player: save an account holder's progress first
       const prior = gameState.players[socket.id];
       if (prior?.accountId) persistAccount(prior);
@@ -1066,9 +1061,9 @@ io.on('connection', (socket) => {
           }
           // a visitor never runs the day: a host re-joining as one hands it on
           if (gameState.hostId === socket.id) gameState.hostId = pickHost(gameState.players, socket.id);
-          const p = spawnVisitor(name, account);
+          const p = spawnVisitor(name, account, tester);
           if (lost) deny('Your saved account was not found on this server');
-          console.log('--- VISITOR JOIN ---', { account: !!account });
+          console.log('--- VISITOR JOIN ---', { account: !!account, tester });
           pushChat(io, { id: `${Date.now()}-j`, playerId: '', name: 'System', text: `${p.name} entered the world`, ts: Date.now(), system: true });
           return;
       }
@@ -1382,12 +1377,35 @@ io.on('connection', (socket) => {
       broadcastState(io, gameState);
   });
 
+  // A tester's car: any model on the list, owned for the session (kept across events, open to the Garage), one at a
+  // time. Only a tester gets one; like every visitor's car it can never be sold, borrowed against or scrapped.
+  socket.on('test_car', ({ make, model } = {} as any) => {
+      const player = gameState.players[socket.id];
+      if (!player) return;
+      if (!player.tester) { deny('That car is not for rent.'); return; }
+      const def = testCarDef(make, model);
+      if (!def) { deny('That car is not on the list.'); return; }
+      if (activeEvents.has(socket.id)) { deny('Finish or quit the event first.'); return; }
+      setTestCar(player, def, Date.now());
+      drivenCar.delete(socket.id);
+      broadcastState(io, gameState);
+  });
+  socket.on('test_car_return', () => {
+      const player = gameState.players[socket.id];
+      if (!player?.tester || !heldTestCar(player)) return;
+      if (activeEvents.has(socket.id)) { deny('Finish or quit the event first.'); return; }
+      returnTestCar(player);
+      drivenCar.delete(socket.id);
+      broadcastState(io, gameState);
+  });
+
   socket.on('request_link', async ({ email } = {} as any) => {
       const player = gameState.players[socket.id];
       if (!player) return;
       // only a guest makes an account (and only once): nobody else has a reason to send a sign-in email
       if (player.accountId) { deny('already signed in'); return; }
       if (!player.guest) { deny('Accounts are made from the Strip for now'); return; }
+      if (player.tester) { deny(TESTER_NO_ACCOUNT); return; }
       const now = Date.now();
       const last = lastLinkAt.get(socket.id);
       if (last !== undefined && now - last < LINK_COOLDOWN_MS) { deny('Try again in a minute'); return; }
@@ -1420,6 +1438,7 @@ io.on('connection', (socket) => {
       // accounts are made from the Strip only for now: a dealer's join cash is not carried into one
       // (checked before any token is read, so a magic link stays unspent)
       if (!clicker.guest) { deny('Accounts are made from the Strip for now'); return; }
+      if (clicker.tester) { deny(TESTER_NO_ACCOUNT); return; } // a tester's money and cars are not a record to keep
       let identity: Identity | undefined;
       let magicToken: string | undefined;
       if (typeof google === 'string' && google) {
@@ -1437,7 +1456,7 @@ io.on('connection', (socket) => {
           identity = { kind: 'email', email: addr };
       } else { deny('Sign-in failed'); return; }
       // the socket may have left or re-joined while Google's keys were fetched
-      if (gameState.players[socket.id] !== clicker || clicker.accountId || !clicker.guest) return;
+      if (gameState.players[socket.id] !== clicker || clicker.accountId || !clicker.guest || clicker.tester) return;
       // A magic link opened in another tab (or device) than the guest tab that asked for it: the clicking tab proved it
       // controls the address, so it chooses where the sign-in lands (link_choice), never the asking tab silently. The
       // choice step spends nothing: the same link is resent with target 'requester' or 'here'.
@@ -1446,7 +1465,7 @@ io.on('connection', (socket) => {
           const req = linkRequests.get(identity.email);
           const reqPlayer = req ? gameState.players[req.socketId] : undefined;
           const pick = choice === 'requester' || choice === 'here' ? choice : undefined;
-          const who = linkTarget(req && { socketId: req.socketId, connected: io.sockets.sockets.has(req.socketId), guest: !!reqPlayer?.guest && !reqPlayer.accountId }, socket.id, pick);
+          const who = linkTarget(req && { socketId: req.socketId, connected: io.sockets.sockets.has(req.socketId), guest: !!reqPlayer?.guest && !reqPlayer.accountId && !reqPlayer.tester }, socket.id, pick);
           if (who.to === 'choose') {
               if (magicToken) { usedMagic.delete(magicToken); usedMagicUntil.delete(magicToken); }
               socket.emit('link_choice', { email: identity.email, requester: true });

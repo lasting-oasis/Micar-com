@@ -229,8 +229,8 @@ const specCache = new Map<string, VehicleSpec>();
 export const specCacheSize = () => specCache.size;
 
 /** The body-style archetype with the style's grip and ride height, fitted to the real car's 0-60 and top speed when known (the fit runs on the chassis that drives). Fleet cars keep their authored specs. Cached per car type. */
-export function specFor(car: { make?: string; model?: string; bodyStyle?: string; rental?: boolean }): VehicleSpec {
-  const fleet = car.rental ? FLEET_NAMES[`${car.make} ${car.model}`] : undefined;
+export function specFor(car: { make?: string; model?: string; bodyStyle?: string; rental?: boolean; testCar?: boolean }): VehicleSpec {
+  const fleet = car.rental || car.testCar ? FLEET_NAMES[`${car.make} ${car.model}`] : undefined; // a tester's fleet car is the fleet's car
   if (fleet) return clone(FLEET_SPECS[fleet]);
   const style: BodyStyle = isStyle(car.bodyStyle) ? car.bodyStyle : 'sedan';
   const key = `${car.make}|${car.model}|${style}|${!!car.rental}`;

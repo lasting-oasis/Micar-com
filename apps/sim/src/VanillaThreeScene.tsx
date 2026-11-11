@@ -32,6 +32,7 @@ import { CarFeelAdapter } from './scene/carFeelAdapter';
 import { useDriveUi, type ShownResults } from './world/driveUi';
 import { DriveLayer } from './world/DriveLayer';
 import { RENTAL_BAY, RENTAL_FLEET, type RentalKey, canRent, heldRental, isVisitor } from './world/rental';
+import { heldTestCar, testCarDef } from './world/tester';
 
 export function VanillaThreeScene() {
     const mountRef = useRef<HTMLDivElement>(null);
@@ -618,7 +619,8 @@ export function VanillaThreeScene() {
         let lastStripRec: StripRecord | null | undefined;
         let driftMode = false, paused = false, resultsShown = false, countdownSeen = false;
         let lobby = false, lobbyChecked = false, restarting = false;
-        let rentalId: string | null = null;  // the rental being driven
+        let rentalId: string | null = null;  // the rental (or a tester's car) being driven
+        let drivingTestCar = false;          // it is a tester's car: kept across events, given back only by a swap
         // a Strip visitor: a guest or an account holder (no lot in the town)
         const visitor = (): boolean => isVisitor(stateRef.current.gameState?.players[stateRef.current.playerId || '']);
         let lastShift = 0, lastBov = false, lastNos = false;
@@ -644,13 +646,13 @@ export function VanillaThreeScene() {
         const isDrag = () => district === 'strip' && strip?.runner.active?.type === 'drag';
         const manualNow = () => getOptions().manual || isDrag();
         const im = new InputMap({ manual: manualNow, hydraulics: () => !!(localDrivingCarId && buildOf(localDrivingCarId).cfg.hydraulics) });
-        type InvCar = { id: string; make?: string; model: string; bodyStyle?: string; fuel?: number; rental?: boolean };
+        type InvCar = { id: string; make?: string; model: string; bodyStyle?: string; fuel?: number; rental?: boolean; testCar?: boolean };
         const styleOf = (car: InvCar) => (car.bodyStyle || deriveStyle(car.model)) as BodyStyle;
         const meNow = () => { const st = stateRef.current; return st.gameState?.players[st.playerId || '']; };
         const drivenCar = (): InvCar | undefined => meNow()?.inventory.find(c => c.id === localDrivingCarId);
         const specOf = (car: InvCar): VehicleSpec => {
-            const key = `${car.id}|${car.make}|${car.model}|${styleOf(car)}|${!!car.rental}`;
-            if (!driveSpec || driveSpec.key !== key) driveSpec = { key, spec: specFor({ make: car.make, model: car.model, bodyStyle: styleOf(car), rental: car.rental }) };
+            const key = `${car.id}|${car.make}|${car.model}|${styleOf(car)}|${!!car.rental}|${!!car.testCar}`;
+            if (!driveSpec || driveSpec.key !== key) driveSpec = { key, spec: specFor({ make: car.make, model: car.model, bodyStyle: styleOf(car), rental: car.rental, testCar: car.testCar }) };
             return driveSpec.spec;
         };
         const perfKey = (b: { cfg: CarCfg; tune: Tune }) => JSON.stringify(b.cfg.perf) + JSON.stringify(b.tune);
@@ -875,7 +877,7 @@ export function VanillaThreeScene() {
             const S = strip, mesh = carMeshes[carId];
             if (!S || !mesh || driver || !beginDriving(carId)) return false;
             const D = driver as Driver | null; if (!D) return false;
-            lobby = false; S.leaveLobby(); rentalId = carId;
+            lobby = false; S.leaveLobby(); rentalId = carId; drivingTestCar = !!meNow()?.inventory.find(c => c.id === carId)?.testCar;
             // the server's driven car: an event locks it, and closing the event hands it back
             socketEmit('sync_car_pos', { carId, district: 'strip' });
             D.place(RENTAL_BAY.x, RENTAL_BAY.z, RENTAL_BAY.h);
@@ -893,9 +895,12 @@ export function VanillaThreeScene() {
             strip?.exit(); // ends what is left of the event, gives the car group back (the caller disposes it)
             mendEngine();
             dropCar();
-            // on the results card when one is up; else (an outrun, a quit, a card already closed) as a banner
-            if (resultsShown) useDriveUi.setState({ returned: money });
+            // on the results card when one is up; else (an outrun, a quit, a card already closed) as a banner.
+            // A tester's car was swapped, not returned from a rental: nothing to say.
+            if (drivingTestCar) useDriveUi.setState({ returned: null });
+            else if (resultsShown) useDriveUi.setState({ returned: money });
             else { useDriveUi.setState({ returned: null }); say(`Rental returned — $${Math.round(money).toLocaleString('en-US')} on hand`); }
+            drivingTestCar = false;
             enterLobby();
         };
         /** One lobby frame: Esc / II pauses (Sign out for account holders), Enter / Continue closes the results card;
@@ -991,6 +996,10 @@ export function VanillaThreeScene() {
                     else if (tapped === 'town' && !visitor()) leave = true;
                     else if (tapped === 'restart' && a && !a.results) { paused = false; restarting = true; try { startEventById(a.ev.id, a.quick); } finally { restarting = false; } } // cleanup (quit_event, restart: true), then enter_event
                     else if (tapped === 'quit' && a && !a.results) { paused = false; S.runner.quit(); mendEngine(); chase.reset(V); } // quit_event
+                    // tester mode, between events: the Garage on this car (stopped where it stands: the world runs on
+                    // under the Garage), or back to the counter for another one
+                    else if (tapped === 'garage' && meNow()?.tester && !a) { paused = false; im.releaseAll(); D.place(V.x, V.z, V.h); st.openGarage(id); }
+                    else if (tapped === 'swapcar' && meNow()?.tester && !a) { paused = false; st.returnTestCar(); }
                 } else {
                     if (pauseK) paused = true;
                     else if (mapK && free) S.toggleMap(true);
@@ -1091,6 +1100,8 @@ export function VanillaThreeScene() {
             pixelRatio: () => renderer.getPixelRatio(),
             /** rent a car at the counter (the same call the counter's buttons make) */
             rent: (key: string): boolean => { const me = meNow(); if (!me || !RENTAL_FLEET.some(f => f.key === key) || !canRent(me, key as RentalKey).ok) return false; useGameStore.getState().rentCar(key); return true; },
+            /** tester mode: take a car from the test list (the same call the tester's counter makes) */
+            testCar: (make: string, model: string): boolean => { if (!meNow()?.tester || !testCarDef(make, model)) return false; useGameStore.getState().takeTestCar(make, model); return true; },
             /** in the rental lobby (a Strip visitor without a car) */
             lobby: () => lobby,
             startEvent: (id: string) => startEventById(id),
@@ -1431,7 +1442,7 @@ export function VanillaThreeScene() {
                     delete aiDriveSequence[carId];
                 });
                 // in the lobby, a rental (just rented, or held from before) is driven at once
-                if (lobby && !driver) { const r = heldRental(me); if (r && carMeshes[r.id]) driveRental(r.id); }
+                if (lobby && !driver) { const r = heldRental(me) ?? heldTestCar(me); if (r && carMeshes[r.id]) driveRental(r.id); } // a tester's car too
             }
 
             // Passive Automatic Car Wash
