@@ -11,7 +11,7 @@ import { applyPayout, clampTune, ensureStrip, outrunEvent, partPrice, validateEn
 import { MECHANIC_LIB, BODY_LIB } from './src/constants.js';
 import { CAR_CATALOG } from './src/carCatalog.js';
 import { DOORS, applyOrder, isOrderLine, quoteOrder, type OrderCtx, type WorkOrder } from './src/bay/order.js';
-import { explainCondition } from './src/bay/faults.js';
+import { explainCondition, overallCondition } from './src/bay/faults.js';
 import { guarded, handlerErrorLog } from './src/world/safeHandler.js';
 import { REPAIR_JOBS, repairJobFor } from './src/bay/catalog.js';
 import { GATE_RETURN } from './src/scene/world/gateSpot.js';
@@ -159,11 +159,13 @@ let googleForcedAt = 0;
 const redact = (s: string) => s.slice(0, 3) + '…';
 const accountView = (a: Account) => ({ id: a.id, identity: a.identities[0], allowanceToday: a.lastAllowance === utcDay(Date.now()) });
 const issueSession = (accountId: string) => process.env.MAGIC_SECRET ? signSession(accountId, Date.now(), process.env.MAGIC_SECRET) : null;
+/** Another player as a viewer sees them: no work orders, and nothing of what they spent on a car. */
+const othersView = (p: Player): Player => ({ ...p, accountId: undefined, tester: undefined, orders: [], inventory: (p.inventory ?? []).map(c => ({ ...c, recon: 0 })) });
 // The state a client may see: never the accounts (identities are private), nor other players' account ids or tester flag.
 const publicState = (viewerId: string) => {
     const { accounts: _accounts, ...rest } = gameState;
     const players: Record<string, Player> = {};
-    for (const [pid, p] of Object.entries(gameState.players)) players[pid] = pid === viewerId ? p : { ...p, accountId: undefined, tester: undefined };
+    for (const [pid, p] of Object.entries(gameState.players)) players[pid] = pid === viewerId ? p : othersView(p);
     return { ...rest, players };
 };
 
@@ -285,7 +287,8 @@ function broadcastState(io: Server, state: GameState) {
                     shareHoldings: {},     // portfolios are private
                     accountId: undefined,  // account ids are private
                     tester: undefined,     // and so is who is testing
-                    inventory: p.inventory ? p.inventory.map((c: any) => ({ ...c, buyPrice: 0 })) : []
+                    orders: [],            // work orders are private
+                    inventory: p.inventory ? p.inventory.map((c: any) => ({ ...c, buyPrice: 0, recon: 0 })) : []   // so is what was paid and spent
                 };
             }
         }
@@ -404,6 +407,7 @@ const tickFractionalMarket = () => {
     });
 };
 
+let repairSeq = 0;
 const generateRepairs = (issueCount: number, type: 'mechanic' | 'body') => {
     let condition = 100;
     const repairs: any[] = [];
@@ -411,7 +415,7 @@ const generateRepairs = (issueCount: number, type: 'mechanic' | 'body') => {
     for (let j = 0; j < issueCount; j++) {
         const issue = lib[Math.floor(Math.random() * lib.length)];
         repairs.push({
-            id: `rep-${type.substring(0, 1)}-${Date.now()}-${Math.floor(Math.random()*1000)}`,
+            id: `rep-${type.substring(0, 1)}-${Date.now()}-${repairSeq++}`,
             name: issue.name,
             partName: issue.partName,
             type,
@@ -426,7 +430,7 @@ const generateRepairs = (issueCount: number, type: 'mechanic' | 'body') => {
 /** Gives a car a fault for every point of condition it lost that no fault accounts for. */
 let faultSeq = 0;
 const explainCar = (car: Car) => { explainCondition(car, Math.random, () => `rep-x-${Date.now()}-${faultSeq++}`); };
-const explainAll = (p: Player) => { for (const c of p.inventory) explainCar(c); };
+const explainAll = (p: Player) => { for (const c of p.inventory) if (c && typeof c === 'object') explainCar(c); };
 
 // Per-owner gate access code, generated once when a player connects and stored
 // on their account so it persists with the saved game state.
@@ -1395,13 +1399,15 @@ io.on('connection', (socket) => {
       const refused = q.lines.find(l => l.status !== 'ok');
       if (refused) { deny(refused.reason ?? 'That order is not valid.'); broadcastState(io, gameState); return; }
       if (quote !== q.total) { deny('The price changed. Try again.'); broadcastState(io, gameState); return; }
-      if (player.money < q.total) { deny('Not enough cash for this order.'); broadcastState(io, gameState); return; }
+      if (q.total > 0 && player.money < q.total) { deny('Not enough cash for this order.'); broadcastState(io, gameState); return; }
+      // the label is built before anything changes: a trade-in's make comes from the client and may be anything
+      const label = [car.year, car.make, car.model].filter(x => typeof x === 'string' || typeof x === 'number').join(' ');
       const result = applyOrder(ctx, lines, Math.random);
       player.money -= result.total;
       player.balanceSheet.totalExpenses += result.total;
       player.balanceSheet.lastTickExpense += result.total;
-      const order: WorkOrder = { ...result, id: 'wo-' + Date.now() + '-' + orderSeq++, carId, car: `${car.year} ${car.make} ${car.model}`, door: door as WorkOrder['door'], day: gameState.day };
-      player.orders = [order, ...(player.orders ?? [])].slice(0, 30);
+      const order: WorkOrder = { ...result, id: 'wo-' + Date.now() + '-' + orderSeq++, carId, car: label, door: door as WorkOrder['door'], day: gameState.day };
+      player.orders = [{ ...order, stages: [] }, ...(player.orders ?? [])].slice(0, 30);   // the stages are static text: the reply carries them, the record does not
       persistAccount(player);
       socket.emit('bay_result', { order });
       broadcastState(io, gameState);
@@ -1721,15 +1727,16 @@ io.on('connection', (socket) => {
           finalPrincipal = Math.max(0, finalPrincipal - allowance);
 
           const unparkedCount = player.inventory.filter(c => !c.isProcessed).length;
+          const bodyCondition = 30 + Math.floor(Math.random() * 50), mechanicCondition = 30 + Math.floor(Math.random() * 50);
           const tradedIn: Car = {
               id: `trd-${Date.now()}`,
               vin: generateVIN(),
               make: tradeIn.make,
               model: tradeIn.model,
               year: tradeIn.year,
-              condition: 30 + Math.floor(Math.random() * 50),
-              bodyCondition: 30 + Math.floor(Math.random() * 50),
-              mechanicCondition: 30 + Math.floor(Math.random() * 50),
+              condition: overallCondition(bodyCondition, mechanicCondition),
+              bodyCondition,
+              mechanicCondition,
               titleStatus: 'Clean',
               daysOnLot: 0,
               color: 'Trade-In Silver',
