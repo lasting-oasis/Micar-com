@@ -31,7 +31,7 @@ export type WorkOrder = OrderResult & { id: string; carId: string; car: string; 
 const slotOfFault = (f: RepairDef): SlotId | null => repairJobFor(f.partName)?.slot ?? null;
 
 const partName = (key: string, v: PartValue): string => {
-  const cat = CATS[key];
+  const cat = Object.prototype.hasOwnProperty.call(CATS, key) ? CATS[key] : undefined;
   const item = cat?.items.find(i => i.v === v);
   return cat && item ? cat.n + ': ' + item.n : key;
 };
@@ -73,7 +73,7 @@ export function quoteOrder(c: OrderCtx, lines: OrderLine[]): Quote {
       repairsSeen.add(f.id);
       let price: number;
       if ((stock[f.partName] ?? 0) > 0) { stock[f.partName]--; price = 0; }
-      else price = Math.round(f.cost * (c.hasMechanic ? MECHANIC_RATE : 1));
+      else price = Math.floor(f.cost * (c.hasMechanic ? MECHANIC_RATE : 1));
       closed.add(f.id);
       q = { line, slot, n: f.name, price, status: 'ok' };
     }
@@ -83,8 +83,8 @@ export function quoteOrder(c: OrderCtx, lines: OrderLine[]): Quote {
   lines.forEach((line, i) => {
     if (line.kind === 'repair') return;
     const { key, v } = line;
-    const slot = PART_KEYS[key]?.slot ?? null;
     const price = partPrice(key, v, c.stage);
+    const slot = price.ok ? PART_KEYS[key]?.slot ?? null : null;
     if (tooMany) { out[i] = refused(line, partName(key, v), slot, 'Too many lines.'); return; }
     if (!price.ok) { out[i] = refused(line, partName(key, v), slot, price.reason); return; }
     const n = partName(key, v);

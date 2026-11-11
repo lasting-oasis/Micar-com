@@ -128,8 +128,8 @@ export function applyPayout(player: Player, ev: EventDef, pos: number, failed: b
 
 /** The catalog price of part key=v, or why it can't be bought at this stage. */
 export function partPrice(key: string, v: PartValue, stage: number): { ok: true; price: number } | { ok: false; reason: string } {
+  if (!Object.prototype.hasOwnProperty.call(CATS, key)) return { ok: false, reason: 'Unknown part.' };
   const cat = CATS[key];
-  if (!cat) return { ok: false, reason: 'Unknown part.' };
   const it = cat.items.find(i => i.v === v);
   if (!it) return { ok: false, reason: 'Unknown part.' };
   if ((it.stage ?? 1) > stage) return { ok: false, reason: `Needs stage ${it.stage}.` };
