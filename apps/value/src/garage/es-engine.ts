@@ -105,6 +105,7 @@ export const ES_ENGINE: Record<string, string> = {
   'Only the current owner can write to this passport': 'Solo el dueño actual puede escribir en este pasaporte',
   'Only a verifier can record this': 'Solo un verificador puede registrar esto',
   'That is not an entry': 'Eso no es una entrada',
+  'This passport holds as many entries as a passport can': 'Este pasaporte ya tiene todas las entradas que puede tener un pasaporte',
   'That is not a kind of entry': 'Ese no es un tipo de entrada',
   'An entry needs an ID of its own': 'Una entrada necesita un ID propio',
   'The date is not a real day': 'La fecha no es un día real',

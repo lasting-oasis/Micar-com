@@ -158,6 +158,23 @@ describe('wear', () => {
   });
 });
 
+describe('the specification a layer was scored from', () => {
+  it('carries that layer’s modifications, so a race reads the clearance of the car it is racing', () => {
+    const lifted = [mod('offroad', 3, 'declared')];
+    const stats = vehicleStats({ spec: truck, modifications: lifted });
+    expect(stats.vehicleSpec.groundClearanceIn?.value).toBeCloseTo(9.4 + 3.5, 9);
+    // The kit is only declared, so ranked play races the factory truck.
+    expect(stats.competitionSpec.groundClearanceIn?.value).toBe(9.4);
+    expect(stats.competitionSpec).toEqual(truck);
+    const verified = vehicleStats({ spec: truck, modifications: [mod('offroad', 3, 'verified')] });
+    expect(verified.competitionSpec.groundClearanceIn?.value).toBeCloseTo(12.9, 9);
+    // With nothing fitted both are the specification itself.
+    const stock = vehicleStats({ spec: truck });
+    expect(stock.vehicleSpec).toBe(truck);
+    expect(stock.competitionSpec).toBe(truck);
+  });
+});
+
 describe('ranked play', () => {
   it('is worn only by the condition assessed from verified inputs, whatever the vehicle’s own condition says', () => {
     const verified = condition({ mileage: { value: 180000, evidence: 'verified' } });

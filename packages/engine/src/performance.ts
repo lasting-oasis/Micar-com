@@ -43,7 +43,7 @@ function scoreWith(spec: VehicleSpec, mods: readonly ActiveModification[], optio
   return scoreSpec(modified.spec, { ...options, adjust: modified.adjust, derived: modified.changed });
 }
 
-function buildLayer(spec: VehicleSpec, mods: readonly ActiveModification[], condition: ConditionState | null, least: EvidenceLevel, options: ScoreOptions): { layer: StatLayer; adjustments: StatAdjustment[] } {
+function buildLayer(spec: VehicleSpec, mods: readonly ActiveModification[], condition: ConditionState | null, least: EvidenceLevel, options: ScoreOptions): { layer: StatLayer; adjustments: StatAdjustment[]; spec: VehicleSpec } {
   const adjustments: StatAdjustment[] = [];
   const applied = inOrder(resolveModifications(spec, mods.filter((m) => atLeast(m.evidence, least))).applied);
 
@@ -80,7 +80,7 @@ function buildLayer(spec: VehicleSpec, mods: readonly ActiveModification[], cond
 
   const worn = {} as AttributeScores;
   for (const k of ATTRIBUTE_KEYS) worn[k] = { ...scores[k], value: shown[k] };
-  return { layer: layerOf(worn), adjustments };
+  return { layer: layerOf(worn), adjustments, spec: applied.length === 0 ? spec : applyModifications(spec, applied).spec };
 }
 
 /** The three layers of one vehicle's stats. Pure: the same inputs always give the same layers, and none is changed. */
@@ -96,6 +96,8 @@ export function vehicleStats(inputs: StatsInputs): VehicleStats {
     competition: competition.layer,
     adjustments: vehicle.adjustments,
     competitionAdjustments: competition.adjustments,
+    vehicleSpec: vehicle.spec,
+    competitionSpec: competition.spec,
   };
 }
 

@@ -5,6 +5,7 @@
 // This module is the owner's door. Attestations and withdrawals come only from verifiers, through verification.ts.
 // Everything read from outside (a form, a stored file, an import) is checked field by field and never trusted.
 import { isMicarId } from './identity';
+import { EDITION_NAMES } from './labels';
 import { parseSpec } from './specs';
 import { CERTIFICATION_LEVELS, GRADE_CATEGORIES, MOD_CATEGORIES, OWNER_EVENT_TYPES, RARITY_TIERS, WEAR_SYSTEMS } from './types';
 import type {
@@ -19,6 +20,8 @@ import { normalizeVin } from './vin';
 /* -------------------------------------------------------------------- limits ---- */
 
 export const MAX_ATTACHMENTS = 20;
+/** The most entries one passport holds. A lifetime of careful records is a few hundred; a file with more than this is not a passport. */
+export const MAX_EVENTS = 5000;
 export const MAX_MILEAGE = 2000000;
 export const MAX_FILE_BYTES = 200 * 1024 * 1024;
 export const MAX_COST = 10000000;
@@ -52,6 +55,7 @@ export const PASSPORT_REFUSALS = {
   notOwner: 'Only the current owner can write to this passport',
   verifierOnly: 'Only a verifier can record this',
   shape: 'That is not an entry',
+  full: 'This passport holds as many entries as a passport can',
   kind: 'That is not a kind of entry',
   id: 'An entry needs an ID of its own',
   date: 'The date is not a real day',
@@ -362,6 +366,7 @@ export function addEvent(passport: Passport, event: unknown, ctx: { now: string;
   const read = readEvent(event, { recordedAt: ctx.now, by: ctx.by });
   if (!read.ok) return read;
   let entry = read.value;
+  if (passport.events.length >= MAX_EVENTS) return refuse(PASSPORT_REFUSALS.full);
   if (entry.date > dayOf(ctx.now)) return refuse(PASSPORT_REFUSALS.future);
   if (passport.events.some((e) => e.id === entry.id)) return refuse(PASSPORT_REFUSALS.id);
   if (entry.attachments.some((a) => fileIdTaken(passport, a.id))) return refuse(PASSPORT_REFUSALS.attachments);
@@ -437,10 +442,11 @@ function readSnapshot(input: unknown): GradeSnapshot | null {
   return { id, at, asOf, reason: clipText(input.reason, 120), formula, overall, grade10, tier, categories, level: level as CertificationLevel, events };
 }
 
-function readEdition(input: unknown): CardEdition | null {
+function readEdition(input: unknown, position: number): CardEdition | null {
   if (!isRecord(input)) return null;
   const { number: no, issuedAt, level, rarity, finish, grade10, powerRating } = input;
-  if (!isNumber(no) || !Number.isInteger(no) || no < 1 || !isIsoTimestamp(issuedAt)) return null;
+  // Editions are numbered in the order they were printed: a file cannot skip ahead.
+  if (no !== position || !isIsoTimestamp(issuedAt)) return null;
   if (!among(CERTIFICATION_LEVELS, level) || !among(RARITY_TIERS, rarity) || !among(FINISHES, finish)) return null;
   if (grade10 !== null && !(isNumber(grade10) && grade10 >= 1 && grade10 <= 10)) return null;
   if (powerRating !== null && !(isNumber(powerRating) && powerRating >= 0 && powerRating <= 1000)) return null;
@@ -452,7 +458,8 @@ function readEdition(input: unknown): CardEdition | null {
     attributes[k] = v as number | null;
   }
   return {
-    number: no, name: clipText(input.name, 60), issuedAt, level: level as CertificationLevel, rarity: rarity as RarityTier, finish: finish as CardFinish,
+    // A stored edition is given the name of its level, whatever the file called it.
+    number: position, name: EDITION_NAMES[level as CertificationLevel], issuedAt, level: level as CertificationLevel, rarity: rarity as RarityTier, finish: finish as CardFinish,
     grade10: grade10 as number | null, powerRating: powerRating as number | null, attributes, reason: clipText(input.reason, 120),
   };
 }
@@ -492,12 +499,15 @@ export function parsePassport(input: unknown): Result<{ passport: Passport; drop
   const owners = readOwners(data.owners);
   if (!owners) return refuse(PASSPORT_REFUSALS.owner);
   if (!Array.isArray(data.events) || !Array.isArray(data.snapshots) || !Array.isArray(data.editions)) return refuse(PASSPORT_REFUSALS.shape);
+  // A file far larger than any passport is refused before any of it is read.
+  if (data.events.length > MAX_EVENTS || data.snapshots.length > MAX_EVENTS || data.editions.length > MAX_EVENTS) return refuse(PASSPORT_REFUSALS.full);
 
   const events: PassportEvent[] = [];
+  const seen: Record<string, true> = {};
   let dropped = 0;
   for (const raw of data.events) {
     const read = readEvent(raw, null);
-    if (read.ok && !events.some((e) => e.id === read.value.id)) events.push(read.value);
+    if (read.ok && seen[`#${read.value.id}`] !== true) { seen[`#${read.value.id}`] = true; events.push(read.value); }
     else dropped += 1;
   }
   const snapshots: GradeSnapshot[] = [];
@@ -508,7 +518,7 @@ export function parsePassport(input: unknown): Result<{ passport: Passport; drop
   }
   const editions: CardEdition[] = [];
   for (const raw of data.editions) {
-    const edition = readEdition(raw);
+    const edition = readEdition(raw, editions.length + 1);
     if (!edition) return refuse(PASSPORT_REFUSALS.shape);
     editions.push(edition);
   }

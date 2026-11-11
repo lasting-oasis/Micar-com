@@ -5,8 +5,8 @@
 // Nothing here reads the grade, the rarity or a value, and nothing that happens here changes them.
 import { useMemo, useState } from 'react';
 import {
-  ATTRIBUTE_KEYS, ATTRIBUTE_LABELS, CATALOGUE, MODS, MOD_CATEGORIES, MOD_TIER_NAMES, RACE_MODES, RACE_MODE_RULES, SETUP_BUDGET, SETUP_CARDS, baseStats, catalogueMatch,
-  checkSetup, entrantFromLayer, entrantWithSetup, hashString, pickRivals, race, raceClassOf, series,
+  ATTRIBUTE_KEYS, ATTRIBUTE_LABELS, CATALOGUE, MODS, MOD_CATEGORIES, MOD_TIER_NAMES, RACE_MODES, RACE_MODE_RULES, SETUP_BUDGET, SETUP_CARDS, baseStats, checkSetup,
+  entrantFromLayer, entrantWithSetup, hashString, pickRivals, race, raceClassOf, series,
 } from '@micar/engine';
 import type { Assembly, Passport, RaceEntrant, RaceMode, RaceResult, SeriesResult } from '@micar/engine';
 import { t } from '../i18n';
@@ -43,7 +43,7 @@ function Result({ result, me }: { result: RaceResult; me: string }) {
 export function RacePanel({ passport, assembly }: { passport: Passport; assembly: Assembly }) {
   const [mode, setMode] = useState<RaceMode>('drag');
   // A specification its owner typed in is theirs to enjoy in free play. Ranked takes the catalogue's own figures or attested ones.
-  const trusted = useMemo(() => assembly.specificationAttested || catalogueMatch(passport.spec) !== null, [assembly.specificationAttested, passport.spec]);
+  const trusted = assembly.specificationAttested || assembly.catalogueSpecification;
   const [ranked, setRanked] = useState(trusted);
   const [setup, setSetup] = useState<string[]>([]);
   const [round, setRound] = useState(0);
@@ -55,8 +55,9 @@ export function RacePanel({ passport, assembly }: { passport: Passport; assembly
   const cost = setup.reduce((sum, id) => sum + (SETUP_CARDS.filter((c) => c.id === id)[0]?.cost ?? 0), 0);
 
   const player: RaceEntrant | null = useMemo(() => {
-    if (ranked) return entrantFromLayer({ id: passport.micarId, name, spec: passport.spec, layer: assembly.stats.competition, basis: 'competition', trusted });
-    if (setup.length === 0) return entrantFromLayer({ id: passport.micarId, name, spec: passport.spec, layer: assembly.stats.vehicle, basis: 'vehicle' });
+    // Each layer races on the specification it was scored from, so a lift kit on the passport counts off-road when its layer counts it.
+    if (ranked) return entrantFromLayer({ id: passport.micarId, name, spec: assembly.stats.competitionSpec, layer: assembly.stats.competition, basis: 'competition', trusted });
+    if (setup.length === 0) return entrantFromLayer({ id: passport.micarId, name, spec: assembly.stats.vehicleSpec, layer: assembly.stats.vehicle, basis: 'vehicle' });
     const built = entrantWithSetup({ id: passport.micarId, name, spec: passport.spec, cardIds: setup });
     return built.ok ? built.value : null;
   }, [ranked, trusted, setup, passport, assembly, name]);

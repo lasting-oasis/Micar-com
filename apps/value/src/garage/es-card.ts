@@ -47,7 +47,7 @@ export const ES_CARD: Record<string, string> = {
   'Registered': 'Registrado', 'Certified': 'Certificado',
   'The vehicle is on record with an owner.': 'El vehículo está registrado con un dueño.',
   'Its identity and history are backed by files the owner attached.': 'Su identidad y su historial están respaldados por archivos que adjuntó el dueño.',
-  'An independent party has checked its identity and its records.': 'Un tercero independiente revisó su identidad y sus registros.',
+  'An independent party has checked its identity, and its mileage or its records.': 'Un tercero independiente revisó su identidad, y su millaje o sus registros.',
   'An independent inspector has examined the vehicle in person.': 'Un inspector independiente examinó el vehículo en persona.',
   // Rarity
   'Common': 'Común', 'Uncommon': 'Poco común', 'Rare': 'Rara', 'Epic': 'Épica', 'Legendary': 'Legendaria', 'Mythic': 'Mítica', 'One-of-One': 'Única',

@@ -17,4 +17,5 @@ export * from './verification';
 export * from './grading';
 export * from './certification';
 export * from './cards';
+export * from './public';
 export * from './game';

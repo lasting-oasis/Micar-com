@@ -116,6 +116,40 @@ describe('ids', () => {
   });
 });
 
+describe('cleaning text twice', () => {
+  it('changes nothing the second time, so stored text reads back exactly', () => {
+    const cases = ['a'.repeat(1999) + ' tail that goes past the cut', 'x'.repeat(119) + ' y', 'c'.repeat(39) + ' red', '  padded  ', 'tab\tand\nnewline', 'short'];
+    for (const text of cases) {
+      for (const max of [40, 120, 2000]) {
+        const once = clipText(text, max);
+        expect(clipText(once, max), `${text.slice(0, 12)} at ${max}`).toBe(once);
+        expect(once.length).toBeLessThanOrEqual(max);
+        expect(once).toBe(once.trim());
+      }
+    }
+    // The cut that used to leave a trailing space.
+    expect(clipText('x'.repeat(119) + ' y', 120)).toBe('x'.repeat(119));
+  });
+
+  it('never leaves half of a character at the cut', () => {
+    const car = '\u{1F697}';
+    const cut = clipText('ab' + car + car, 5);
+    expect(cut).toBe('ab' + car);
+    expect(clipText('abc' + car, 4)).toBe('abc');
+    expect(clipText('a\ud800b', 10)).toBe('ab');
+  });
+});
+
+describe('timestamps', () => {
+  it('are one form only: a real day, a real time and a Z', () => {
+    for (const good of ['2026-11-10T14:03:00.000Z', '2026-11-10T00:00:00Z', '2024-02-29T23:59:59.9Z']) expect(isIsoTimestamp(good), good).toBe(true);
+    for (const bad of [
+      '2026-11-10T14:03:00.000+14:00', '2026-11-10T24:00:00.000Z', '2026-11-10T14:60:00.000Z', '2026-11-10T14:03:00.000Z junk', '2026-11-10 14:03:00.000Z', '2026-11-10T14:03:00.000',
+      '2026-02-30T10:00:00.000Z', '2026-11-10T14:03Z', '2026-11-10T14:03:00.0000Z', 20261110, null,
+    ]) expect(isIsoTimestamp(bad), String(bad)).toBe(false);
+  });
+});
+
 describe('canonical text', () => {
   it('is the same whatever order an object was built in', () => {
     expect(canonicalJson({ b: 1, a: [2, { d: null, c: 'x' }] })).toBe('{"a":[2,{"c":"x","d":null}],"b":1}');

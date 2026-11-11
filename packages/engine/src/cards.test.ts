@@ -1,9 +1,12 @@
 import { describe, expect, it } from 'vitest';
-import { EDITION_NAMES, RARITY_THRESHOLDS, SCARCITY_UNBACKED, assemble, buildNumberCounts, catalogueCard, exampleCard, finishOf, issueEdition, rarityOf, recordSnapshot } from './cards';
+import {
+  EDITION_NAMES, RARITY_THRESHOLDS, SCARCITY_UNBACKED, assemble, buildNumberCounts, catalogueCard, exampleCard, finishOf, issueEdition, rarityOf, recordSnapshot, supportedHistory,
+} from './cards';
 import type { RarityInput } from './cards';
-import { CATALOGUE, EXAMPLES } from './database';
+import { CATALOGUE, EXAMPLES, catalogueMatch } from './database';
 import { micarIdFromBytes } from './identity';
-import { addEvent, createPassport, updateSpec } from './passport';
+import { addEvent, createPassport, parsePassport, serializePassport, updateSpec, updateVin } from './passport';
+import { publicPassport } from './public';
 import { emptySpec } from './specs';
 import { ATTRIBUTE_KEYS, RARITY_TIERS } from './types';
 import type { Attachment, Passport, Sourced, VehicleSpec, VerifierRegistry } from './types';
@@ -43,7 +46,8 @@ function documented(p: Passport = parked()): Passport {
   return p;
 }
 
-const rarity = (over: Partial<RarityInput> = {}) => rarityOf({ productionUnits: null, modelYear: 2024, asOf: TODAY, level: 'registered', originality: 0, condition: 0, oneOfOneAttested: false, ...over });
+// A build number in these tests is one that can be relied on, unless a test says otherwise.
+const rarity = (over: Partial<RarityInput> = {}) => rarityOf({ productionUnits: null, buildNumberBacked: true, modelYear: 2024, asOf: TODAY, level: 'registered', originality: 0, condition: 0, oneOfOneAttested: false, ...over });
 
 describe('rarity', () => {
   it('uses the seven names of the brief, in order', () => {
@@ -53,7 +57,7 @@ describe('rarity', () => {
 
   it('takes no attribute and no rating, so performance cannot move it', () => {
     // The input type has no field for a score: this is the whole list of what rarity may read.
-    const keys: Record<keyof RarityInput, true> = { productionUnits: true, specificationAttested: true, modelYear: true, asOf: true, level: true, originality: true, condition: true, oneOfOneAttested: true };
+    const keys: Record<keyof RarityInput, true> = { productionUnits: true, buildNumberBacked: true, modelYear: true, asOf: true, level: true, originality: true, condition: true, oneOfOneAttested: true };
     expect(Object.keys(rarity()).sort()).toEqual(['factors', 'score', 'tier']);
     expect(Object.keys(keys)).toHaveLength(8);
     // Two cars with the same paperwork and very different performance get the same rarity.
@@ -104,21 +108,31 @@ describe('rarity', () => {
     expect(rarity({ oneOfOneAttested: true }).tier).toBe('one-of-one');
   });
 
-  it('does not count a build number the owner typed in, or anyone could type a 1', () => {
-    const typed = (value: number, kind: 'owner' | 'illustrative' = 'owner') => ({ value, source: { kind } });
-    for (const kind of ['owner', 'illustrative'] as const) {
-      const one = rarity({ productionUnits: typed(1, kind) });
-      expect(one.tier).toBe('common');
-      expect(one.score).toBe(0);
-      expect(one.factors[0]).toMatchObject({ id: 'scarcity', points: 0, detail: SCARCITY_UNBACKED });
-      expect(buildNumberCounts(typed(1, kind))).toBe(false);
+  it('does not count a build number nothing stands behind, or anyone could type a 1', () => {
+    for (const units of [1, 60]) {
+      const typed = rarity({ productionUnits: s(units), buildNumberBacked: false });
+      expect(typed.tier).toBe('common');
+      expect(typed.score).toBe(0);
+      expect(typed.factors[0]).toMatchObject({ id: 'scarcity', points: 0, detail: SCARCITY_UNBACKED });
     }
-    expect(rarity({ productionUnits: typed(60) }).factors[0].points).toBe(0);
-    // A published source counts, and so does a verifier's attestation of the specification the figure is part of.
-    for (const kind of ['manufacturer', 'agency', 'test', 'reference'] as const) expect(rarity({ productionUnits: { value: 60, source: { kind } } }).factors[0].points).toBe(40);
-    expect(rarity({ productionUnits: typed(60), specificationAttested: true }).factors[0]).toMatchObject({ points: 40, detail: '60 built' });
-    expect(rarity({ productionUnits: typed(1), specificationAttested: true }).tier).toBe('one-of-one');
-    expect(buildNumberCounts(null, true)).toBe(false);
+    expect(rarity({ productionUnits: s(60), buildNumberBacked: true }).factors[0]).toMatchObject({ points: 40, detail: '60 built' });
+    expect(rarity({ productionUnits: s(1), buildNumberBacked: true }).tier).toBe('one-of-one');
+  });
+
+  it('relies on a passport’s build number only when the specification is the catalogue’s own or a verifier attested it', () => {
+    const entry = CATALOGUE[0];
+    const fromCatalogue: VehicleSpec = { ...entry.spec, productionUnits: entry.spec.productionUnits };
+    // The catalogue's own entry is itself; add a build number to it and it is no longer the catalogue's.
+    expect(catalogueMatch(fromCatalogue)).not.toBeNull();
+    const added: VehicleSpec = { ...entry.spec, productionUnits: { value: 1, source: { kind: 'manufacturer', name: 'the maker', url: 'https://example.invalid/press' } } };
+    if (entry.spec.productionUnits === null) {
+      expect(buildNumberCounts(fromCatalogue, false)).toBe(false);
+      // The label says "manufacturer". On a passport that label is the holder's own word, so it decides nothing.
+      expect(buildNumberCounts(added, false)).toBe(false);
+      expect(assemble(parked(added), REGISTRY, TODAY).rarity).toMatchObject({ tier: 'common', score: 0 });
+    }
+    expect(buildNumberCounts(added, true)).toBe(true);
+    expect(buildNumberCounts(civic(), true)).toBe(false);
   });
 });
 
@@ -145,7 +159,8 @@ describe('assembling a card', () => {
     expect(card.grade.slabbed).toBe(true);
     expect(card.grade.grade10).toBe(a.report.grade10);
     expect(card.rarity.tier).toBe('uncommon');
-    expect(card.quality).toBe('reference');
+    // The fixture's figures are labelled "reference", but they are not the catalogue's: on a passport that label is the holder's word.
+    expect(card.quality).toBe('owner');
     expect(card.illustrative).toBe(false);
     expect(card.photoAttachmentId).not.toBeNull();
     expect(JSON.stringify(card)).not.toMatch(/price|value now|msrp|\$/i);
@@ -180,25 +195,48 @@ describe('assembling a card', () => {
     expect(JSON.stringify(p)).toBe(before);
   });
 
+  const attestSpec = (p: Passport): Passport =>
+    ok(recordAttestation(p, { id: id(), verifierId: 'inspector-ann', scope: 'specification', date: '2026-11-01', inPerson: false, conditionScore: null, systems: null, mileage: null, events: [], note: '', signature: null }, REGISTRY, { now: NOW, eventId: id() }));
+
   it('marks the data verified only on a verifier’s word', () => {
     const p = documented();
-    expect(assemble(p, REGISTRY, TODAY).card.quality).toBe('reference');
-    const attested = ok(recordAttestation(p, { id: id(), verifierId: 'inspector-ann', scope: 'specification', date: '2026-11-01', inPerson: false, conditionScore: null, systems: null, mileage: null, events: [], note: '', signature: null }, REGISTRY, { now: NOW, eventId: id() }));
+    expect(assemble(p, REGISTRY, TODAY).card.quality).toBe('owner');
+    const attested = attestSpec(p);
     expect(assemble(attested, REGISTRY, TODAY).card.quality).toBe('verified');
-    expect(assemble(attested, EMPTY_REGISTRY, TODAY).card.quality).toBe('reference');
+    expect(assemble(attested, EMPTY_REGISTRY, TODAY).card.quality).toBe('owner');
     expect(assemble(p, REGISTRY, TODAY).specificationAttested).toBe(false);
     expect(assemble(attested, REGISTRY, TODAY).specificationAttested).toBe(true);
     // The attestation was for the specification as it stood. Raise a figure afterwards and it no longer vouches for it.
     const tuned = ok(updateSpec(attested, civic({ horsepower: s(900) }), { by: OWNER }));
-    expect(assemble(tuned, REGISTRY, TODAY).card.quality).toBe('reference');
+    expect(assemble(tuned, REGISTRY, TODAY).card.quality).toBe('owner');
     expect(assemble(tuned, REGISTRY, TODAY).specificationAttested).toBe(false);
   });
 
-  it('gives a parked car no rarity for a build number its owner typed', () => {
+  it('never takes a source label on a passport at its word', () => {
+    // Every figure relabelled "manufacturer" in the file. Nothing checks a label, so the card claims nothing from it.
+    const relabelled = civic();
+    for (const field of Object.keys(relabelled) as (keyof VehicleSpec)[]) {
+      const cell = relabelled[field];
+      if (field !== 'identity' && cell !== null) (cell as Sourced<unknown>).source = { kind: 'manufacturer', name: 'the maker', url: 'https://example.invalid/press' };
+    }
+    const a = assemble(parked(relabelled), REGISTRY, TODAY);
+    expect(a.card.quality).toBe('owner');
+    expect(a.catalogueSpecification).toBe(false);
+    // A passport whose specification is the catalogue's own, figure for figure, carries the catalogue's standing.
+    const house = assemble(parked(CATALOGUE[0].spec), REGISTRY, TODAY);
+    expect(house.catalogueSpecification).toBe(true);
+    expect(house.card.quality).toBe('reference');
+  });
+
+  it('gives a parked car no rarity for a build number nothing stands behind', () => {
     const typed = parked(civic({ productionUnits: { value: 1, source: { kind: 'owner' } } }));
     expect(assemble(typed, REGISTRY, TODAY).rarity).toMatchObject({ tier: 'common', score: 0 });
-    const published = parked(civic({ productionUnits: s(1) }));
-    expect(assemble(published, REGISTRY, TODAY).rarity.tier).toBe('one-of-one');
+    // The same figure labelled as published: still the holder's own word.
+    const labelled = parked(civic({ productionUnits: { value: 1, source: { kind: 'manufacturer' } } }));
+    expect(assemble(labelled, REGISTRY, TODAY).rarity).toMatchObject({ tier: 'common', score: 0 });
+    // A verifier attests the specification the figure is part of: now it counts.
+    expect(assemble(attestSpec(labelled), REGISTRY, TODAY).rarity.tier).toBe('one-of-one');
+    expect(assemble(attestSpec(labelled), EMPTY_REGISTRY, TODAY).rarity.tier).toBe('common');
   });
 });
 
@@ -270,6 +308,77 @@ describe('editions and snapshots', () => {
     expect(p.editions[1].grade10).not.toBeNull();
     expect(Object.keys(p.editions[1].attributes)).toEqual([...ATTRIBUTE_KEYS]);
     expect(assemble(p, EMPTY_REGISTRY, TODAY).card.serial).toBe(`${MICAR_ID} · E2`);
+  });
+
+  it('prints one edition for each level reached, and shows the one for the level held now', () => {
+    let p = issueEdition(parked(), EMPTY_REGISTRY, { now: '2026-01-05T09:00:00.000Z', reason: 'Parked' });
+    p = issueEdition(documented(p), EMPTY_REGISTRY, { now: NOW, reason: 'Maintenance' });
+    expect(p.editions.map((e) => e.level)).toEqual(['registered', 'documented']);
+    // The VIN is cleared: the car is Registered again. That is not a milestone, so nothing is printed,
+    // and the card goes back to showing the edition it was given as a Registered car.
+    const lost = ok(updateVin(p, '', { by: OWNER }));
+    expect(assemble(lost, EMPTY_REGISTRY, TODAY).certification.level).toBe('registered');
+    expect(issueEdition(lost, EMPTY_REGISTRY, { now: NOW, reason: 'VIN updated' })).toBe(lost);
+    expect(assemble(lost, EMPTY_REGISTRY, TODAY).card.edition).toMatchObject({ number: 1, name: 'Registration Edition' });
+    // Put back, it is Documented again and shows the Documented edition it already has. Toggling prints nothing.
+    const back = ok(updateVin(lost, VIN, { by: OWNER }));
+    expect(issueEdition(back, EMPTY_REGISTRY, { now: NOW, reason: 'VIN updated' })).toBe(back);
+    expect(assemble(back, EMPTY_REGISTRY, TODAY).card.edition).toMatchObject({ number: 2, name: 'Documented Edition' });
+    expect(back.editions).toHaveLength(2);
+  });
+
+  it('does not show history a file wrote for itself', () => {
+    const honest = recordSnapshot(issueEdition(documented(), EMPTY_REGISTRY, { now: NOW, reason: 'Maintenance' }), EMPTY_REGISTRY, { now: NOW, id: 'snap-real', reason: 'Maintenance' });
+    const real = assemble(honest, EMPTY_REGISTRY, TODAY);
+    // Added by hand in a text editor: an in-person Certified 9.9, and a One-of-One Certified Edition.
+    const forged: Passport = {
+      ...honest,
+      snapshots: [...honest.snapshots, {
+        id: 'snap-forged', at: NOW, asOf: TODAY, reason: 'Inspected in person', formula: 'micar-grade-v2', overall: 98.7, grade10: 9.9, tier: 10,
+        categories: { identity: 100, documentation: 100, condition: 98, originality: 100, verification: 100 }, level: 'certified', events: honest.events.length,
+      }],
+      editions: [...honest.editions, {
+        number: honest.editions.length + 1, name: 'Certified Edition', issuedAt: NOW, level: 'certified', rarity: 'one-of-one', finish: 'rainbow', grade10: 9.9, powerRating: 999,
+        attributes: { power: 999, speed: 999, acceleration: 999, handling: 999, durability: 999, reliability: 999, efficiency: 999 }, reason: 'Inspected in person',
+      }],
+    };
+    const read = ok(parsePassport(serializePassport(forged))).passport;
+    for (const registry of [EMPTY_REGISTRY, REGISTRY]) {
+      const kept = supportedHistory(read, registry);
+      expect(kept.unsupported).toBe(2);
+      expect(kept.snapshots.map((s) => s.id)).toEqual(honest.snapshots.map((s) => s.id));
+      expect(kept.editions.map((e) => e.level)).toEqual(honest.editions.map((e) => e.level));
+      // The card, the level and the public view are the honest car's.
+      const a = assemble(read, registry, TODAY);
+      expect(a.certification.level).toBe('documented');
+      expect(a.card.edition).toEqual(real.card.edition);
+      const shown = publicPassport(read, registry, TODAY);
+      expect(JSON.stringify(shown)).not.toContain('certified');
+      expect(JSON.stringify(shown)).not.toContain('one-of-one');
+      expect(shown.snapshots.every((s) => s.categories.verification === 0)).toBe(true);
+    }
+    // Writing to the forged passport appends real history after it and compares with the last real snapshot, not the forged one.
+    expect(recordSnapshot(read, EMPTY_REGISTRY, { now: NOW, id: 'snap-next', reason: 'Nothing happened' })).toBe(read);
+    expect(issueEdition(read, EMPTY_REGISTRY, { now: NOW, reason: 'Nothing happened' })).toBe(read);
+    // Smaller lies are caught too: a Documented snapshot that claims a score no owner can reach alone.
+    const padded: Passport = { ...honest, snapshots: [{ ...honest.snapshots[0], id: 'snap-padded', overall: 80, grade10: 8, tier: 8, categories: { ...honest.snapshots[0].categories, identity: 100 } }] };
+    expect(supportedHistory(padded, EMPTY_REGISTRY).snapshots).toEqual([]);
+  });
+
+  it('shows a Verified history when a registered verifier’s attestations stand behind it', () => {
+    const attest = (p: Passport, scope: string, over: Record<string, unknown> = {}): Passport =>
+      ok(recordAttestation(p, { id: id(), verifierId: 'inspector-ann', scope, date: '2026-11-01', inPerson: true, conditionScore: null, systems: null, mileage: null, events: [], note: '', signature: null, ...over }, REGISTRY, { now: NOW, eventId: id() }));
+    let p = attest(attest(documented(), 'identity'), 'mileage', { mileage: 48100 });
+    p = attest(p, 'originality');
+    p = recordSnapshot(issueEdition(p, REGISTRY, { now: NOW, reason: 'Attestation' }), REGISTRY, { now: NOW, id: 'snap-verified', reason: 'Attestation' });
+    expect(assemble(p, REGISTRY, TODAY).certification.level).toBe('verified');
+    expect(supportedHistory(p, REGISTRY)).toMatchObject({ unsupported: 0 });
+    expect(supportedHistory(p, REGISTRY).editions.map((e) => e.level)).toContain('verified');
+    // The same file read where that verifier is not registered supports none of it.
+    const elsewhere = supportedHistory(p, EMPTY_REGISTRY);
+    expect(elsewhere.editions.some((e) => e.level === 'verified')).toBe(false);
+    expect(elsewhere.snapshots.some((s) => s.level === 'verified')).toBe(false);
+    expect(assemble(p, EMPTY_REGISTRY, TODAY).card.edition.name).toBe('Documented Edition');
   });
 
   it('keeps each grade as it stood and never writes the same one twice', () => {

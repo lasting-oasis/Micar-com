@@ -36,7 +36,8 @@ certification.level;       // 'documented'
 | `performance.ts` | The three stat layers with every adjustment itemised |
 | `vin.ts`, `identity.ts` | VIN check digit and model year; the MiCar ID |
 | `passport.ts` | The vehicle's identity and append-only history |
-| `verification.ts` | Verifiers, attestations, evidence levels and the public view |
+| `verification.ts` | Verifiers, attestations, evidence levels and the mileage log |
+| `public.ts` | The public view: what anyone may be shown of a passport |
 | `grading.ts` | The five-part grade |
 | `certification.ts` | Registered, Documented, Verified, Certified |
 | `cards.ts` | Rarity, finish, editions, snapshots and `assemble()` |
@@ -195,6 +196,8 @@ Five categories, each 0 to 100, each scored on its own. The report reads no attr
 
 Discrepancies are reported with the grade: a VIN that fails its own check digit, a VIN coded for another model year, an odometer rollback, a record a verifier withdrew.
 
+**The odometer is judged by the day** (`mileageLog`). A day's reading is the last one written that day, so a slipped digit corrected the same day leaves no mark; a verifier's reading is never displaced by one the owner typed. A rollback is a later day that reads lower than an earlier day. Wear is counted from the highest reading on the log, so winding it back gains nothing. An inspector's reading stays on the log after its twelve months are up: it stops verifying, and a rollback it proved does not clear itself with time.
+
 ### Certification
 
 | Level | Needs |
@@ -214,6 +217,7 @@ A passport is the vehicle's persistent identity and history: a MiCar ID, the fac
 - **Events** are only ever added. An owner writes photographs, maintenance, repairs, mileage updates, inspection reports, modifications, restorations, documents and declarations. Attestations and withdrawals come only from verifiers, through `recordAttestation` and `voidEvent`.
 - **Ownership transfer** closes one period and opens the next. The MiCar ID, the events, the snapshots and the editions stay with the vehicle.
 - **Grade snapshots** are appended, each with its formula name. History is never rewritten.
+- **Stored history is checked before it is shown** (`supportedHistory`). A snapshot or a card edition is a stored copy of a past result, and a passport file is its holder's to edit. Each is held against the most the passport could have earned on its day going only by what verifiers had attested by then (`gradeCeiling`): with none, Documented and what an owner can reach alone. A file that claims a Certified 9.9 or a One-of-One it never earned shows none of it, on the card, in the history or in the public view.
 - **The public view** (`publicPassport`) is the only projection meant to leave the owner's device: no VIN (only "VIN on file"), no owner ids, no file names or fingerprints, no notes, no costs, no shop names, days blurred to months, mileage rounded down to the thousand.
 
 The engine holds a file's name, type, size and fingerprint. The file itself stays with the host.
@@ -233,11 +237,11 @@ The engine holds a file's name, type, size and fingerprint. The file itself stay
 
 Under 10 Common, 10 Uncommon, 25 Rare, 40 Epic, 55 Legendary, 70 Mythic. One-of-One is never reached by score: it needs a build number of exactly one, or a verifier's attestation.
 
-A build number counts only when it came from a published source or a verifier attested the specification (`buildNumberCounts`). One the owner typed in is shown on the sheet and scores nothing, or anyone could type a 1.
+A passport's build number counts only when its specification is the catalogue's own, figure for figure, or a verifier attested it (`buildNumberCounts`). One the owner typed in is shown on the sheet and scores nothing, or anyone could type a 1. The source named beside a figure decides nothing: on a passport an owner holds, that label is part of the file like everything else. For the same reason a card's data quality is never better than `owner` on the labels' say-so.
 
 **Finish** is the slab's own, and follows the grade: raw until Documented, then standard, blue at tier 7, holo at 9, rainbow at 10. Foil is never for sale.
 
-**Editions.** `issueEdition` prints a new edition when the vehicle has none, or its level or rarity tier has changed. Earlier editions stay in the passport.
+**Editions.** One edition per level reached: Registration, Documented, Verified, Certified. `issueEdition` prints the edition for the level the card holds the first time it holds it. Earlier editions stay in the passport, a level lost and regained does not print again, and a card that drops a level shows the edition it was given for the level it is back at.
 
 ## Card races
 
@@ -254,6 +258,8 @@ Five modes, each weighing the attributes that decide that kind of race. Nothing 
 `score = weighted attributes × terrain × luck`. Terrain is 1 except off-road, where it is the drivetrain (4WD 1, AWD 0.9, RWD 0.72, FWD 0.68) times ground clearance (`0.8 + 0.04 per inch above 5`, from 0.8 to 1.05; a class default when none is on file). Luck is within ±4%, from a seeded generator keyed on the seed, the mode and the entrant, so a race is the same in any entrant order and can be replayed. An entrant with no rating for an attribute the mode needs is left out, with the reason.
 
 Ranked races take only `base` and `competition` stats, and only from an entrant whose specification is `trusted`: the catalogue's own, figure for figure (`catalogueMatch`), or one a verifier attested (`assemble(...).specificationAttested`). `entrantFromLayer` marks an entry untrusted unless the host says otherwise, so figures an owner typed in cannot win a ranked race. Free play takes anything, including a setup: up to six points of modification cards (a card costs its tier), applied to the factory specification through the modification engine. Classes by Power Rating: D under 450, C, B from 550, A from 650, S from 750, X from 850.
+
+A layer races on the specification it was scored from (`stats.vehicleSpec`, `stats.competitionSpec`), so a lift kit on the passport counts off-road exactly when its layer counts it. An id entered twice starts nobody, and a race only one car could start awards no series points.
 
 The game reads attributes, drivetrain, clearance and class. It never reads a grade, a rarity or a value, and nothing that happens in a race changes them.
 

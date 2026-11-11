@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { micarIdFromBytes } from './identity';
 import {
   EVENT_TYPE_LABELS, PASSPORT_REFUSALS, addEvent, appendEdition, appendSnapshot, attachmentCount, checkAttachment, checkAttestation, createPassport, currentOwner, eventById,
-  everOwned, latestDeclaration, latestMileage, mileageReadings, parsePassport, serializePassport, timeline, transferOwnership, updateSpec, updateVin,
+  everOwned, latestDeclaration, latestMileage, mileageReadings, parsePassport, serializePassport, timeline, transferOwnership, updateSpec, updateVin, MAX_EVENTS,
 } from './passport';
 import { emptySpec } from './specs';
 import { OWNER_EVENT_TYPES } from './types';
@@ -434,6 +434,44 @@ describe('storing and loading', () => {
     expect('admin' in read).toBe(false);
     expect('secret' in read.events[1]).toBe(false);
     expect('path' in read.events[1].attachments[0]).toBe(false);
+  });
+});
+
+describe('what a file can and cannot claim', () => {
+  it('reads back exactly what the engine wrote, even when a text was cut at a space', () => {
+    let p = ok(createPassport({ micarId: 'MC-0000-0000-0000', now: '2024-01-02T09:00:00.000Z', ownerId: OWNER, spec: civic, color: 'c'.repeat(39) + ' red', eventId: 'reg' }));
+    p = ok(add(p, {
+      type: 'maintenance', date: '2026-06-01', note: 'a'.repeat(1999) + ' tail that goes past the cut', shop: 'x'.repeat(119) + ' y', cost: 10, title: 't'.repeat(119) + ' z',
+      attachments: [{ id: 'f-long', kind: 'receipt', name: 'n'.repeat(119) + ' long name.pdf', mime: 'application/pdf', size: 10, sha256: null }],
+    }));
+    const text = serializePassport(p);
+    const again = ok(parsePassport(text));
+    expect(again.dropped).toBe(0);
+    expect(serializePassport(again.passport)).toBe(text);
+  });
+
+  it('numbers editions in the order they were printed and names each after its level', () => {
+    const base = JSON.parse(serializePassport(parked())) as Record<string, unknown>;
+    const edition = (over: Record<string, unknown>) => ({
+      number: 1, name: 'Registration Edition', issuedAt: NOW, level: 'registered', rarity: 'common', finish: 'raw', grade10: null, powerRating: null,
+      attributes: { power: null, speed: null, acceleration: null, handling: null, durability: null, reliability: null, efficiency: null }, reason: 'Parked', ...over,
+    });
+    // A file that calls its second printing "Certified Edition, number 7" is refused for the number and renamed for the level.
+    expect(parsePassport({ ...base, editions: [edition({}), edition({ number: 7 })] }).ok).toBe(false);
+    expect(parsePassport({ ...base, editions: [edition({ number: 2 })] }).ok).toBe(false);
+    const read = ok(parsePassport({ ...base, editions: [edition({ name: 'Certified Edition' }), edition({ number: 2, level: 'documented', name: 'One of a kind' })] })).passport;
+    expect(read.editions.map((e) => [e.number, e.name, e.level])).toEqual([[1, 'Registration Edition', 'registered'], [2, 'Documented Edition', 'documented']]);
+  });
+
+  it('is not a passport when it holds more entries than a passport can', () => {
+    const base = JSON.parse(serializePassport(parked())) as { events: unknown[] };
+    const one = base.events[0] as Record<string, unknown>;
+    const many = Array.from({ length: MAX_EVENTS + 1 }, (_, i) => ({ ...one, id: `e${i}` }));
+    expect(reason(parsePassport({ ...base, events: many }))).toBe(PASSPORT_REFUSALS.full);
+    // At the limit it still reads, quickly, and the owner's door then says the passport is full.
+    const full = ok(parsePassport({ ...base, events: many.slice(0, MAX_EVENTS) })).passport;
+    expect(full.events).toHaveLength(MAX_EVENTS);
+    expect(reason(add(full, { type: 'mileage', date: '2026-06-01', mileage: 10 }))).toBe(PASSPORT_REFUSALS.full);
   });
 });
 

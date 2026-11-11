@@ -15,7 +15,7 @@ function rarityDetail(factor: RarityFactor, assembly: Assembly, passport: Passpo
   if (factor.id === 'scarcity') {
     const units = passport.spec.productionUnits;
     if (units === null) return t('No build number on file');
-    return buildNumberCounts(units, specificationAttested) ? t('{n} built', { n: units.value.toLocaleString('en-US') }) : t(SCARCITY_UNBACKED);
+    return buildNumberCounts(passport.spec, specificationAttested) ? t('{n} built', { n: units.value.toLocaleString('en-US') }) : t(SCARCITY_UNBACKED);
   }
   if (factor.id === 'age') return t('{n} years since the model year', { n: Math.max(0, Number(asOf.slice(0, 4)) - passport.spec.identity.year) });
   if (factor.id === 'provenance') return t(EDITION_NAMES[certification.level]);
@@ -100,6 +100,7 @@ export function GradePanel({ assembly, passport }: { assembly: Assembly; passpor
           ))}
         </ul>
         <p className="gar-help">{t('Rarity is how collectible the car is: how many were built, its age, how far it is certified and how well it is preserved. It never reads a stat, so a slow car can be rare and a fast one common. One of One takes a published build of exactly one, or a verifier’s word.')}</p>
+        <p className="gar-help">{t('A build number counts when the specification is the MiCar catalogue’s own or a verifier has attested it. One you typed in is kept on the sheet and scores nothing.')}</p>
       </div>
 
       <div>

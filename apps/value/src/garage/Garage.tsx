@@ -25,6 +25,9 @@ import { useFileUrl, useGarage, type GarageHandle } from './useGarage';
 import { TABS, type Tab } from './words';
 
 
+/** The largest garage or passport file the page will read. */
+const MAX_IMPORT_BYTES = 20 * 1024 * 1024;
+
 /** Saves text as a file the owner keeps. */
 function download(name: string, text: string) {
   try {
@@ -73,6 +76,8 @@ function Home({ g, today }: { g: GarageHandle; today: string }) {
   };
   const onImport = async (file: File | undefined) => {
     if (!file) return;
+    // A garage file is text and small. Anything this large is not one, and is not read.
+    if (file.size > MAX_IMPORT_BYTES) { setMessage(t('That file is too large to be a garage or passport file.')); return; }
     try {
       const text = await file.text();
       const result = importGarage(g.latest(), text);
@@ -187,6 +192,11 @@ function CarPage({ passport, g, today }: { passport: Passport; g: GarageHandle; 
             {tab === 'Spec sheet' && (
               <div className="gar-panel">
                 <p className="gar-note">{t('The factory specification of this exact configuration. It is kept as it was entered, each figure with its source; the scores are worked out from it and stored nowhere in it.')}</p>
+                <p className={`gar-note ${assembly.specificationAttested || assembly.catalogueSpecification ? 'blue' : ''}`}>{assembly.specificationAttested
+                  ? t('An independent verifier has attested this specification as it stands.')
+                  : assembly.catalogueSpecification
+                    ? t('This sheet is the MiCar reference catalogue’s own, figure for figure: reference data, not verified.')
+                    : t('This sheet, and the sources named beside its figures, are this passport’s own account. Nothing on it has been independently verified.')}</p>
                 {mine
                   ? <SpecForm spec={passport.spec} today={today} onChange={(spec) => setMessage(t(commit(replaceSpec(g.latest(), passport.micarId, spec, { now: stamp(), snapshotId: newId() })) ?? ''))} />
                   : <p className="gar-help">{t('This car has been transferred. Its passport is read-only here. Send the new owner the passport file.')}</p>}

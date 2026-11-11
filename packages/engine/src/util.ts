@@ -10,15 +10,28 @@ export function numberIn(v: unknown, lo: number, hi: number): number | null {
   return isNumber(v) && v >= lo && v <= hi ? v : null;
 }
 
-/** Text from anything, trimmed, control characters removed, cut to max characters. */
+/**
+ * Text from anything: control characters removed, runs of white space made one space, trimmed, and cut to at most
+ * `max` characters. Cleaning text that is already clean changes nothing, so a stored text reads back exactly as it
+ * was stored: the cut never leaves a trailing space or half of a character behind.
+ */
 export function clipText(v: unknown, max: number): string {
   if (typeof v !== 'string') return '';
-  let out = '';
+  let clean = '';
   for (const ch of v) {
     const c = ch.charCodeAt(0);
-    out += c < 32 || c === 127 ? ' ' : ch;
+    // A lone half of a surrogate pair is not a character.
+    if (ch.length === 1 && c >= 0xd800 && c <= 0xdfff) continue;
+    clean += c < 32 || c === 127 ? ' ' : ch;
   }
-  return out.replace(/\s+/g, ' ').trim().slice(0, max);
+  clean = clean.replace(/\s+/g, ' ').trim();
+  if (clean.length <= max) return clean;
+  let out = '';
+  for (const ch of clean) {
+    if (out.length + ch.length > max) break;
+    out += ch;
+  }
+  return out.trimEnd();
 }
 
 /**
@@ -164,9 +177,15 @@ export function isIsoDate(v: unknown): v is string {
   return t.getUTCFullYear() === y && t.getUTCMonth() === mo - 1 && t.getUTCDate() === d;
 }
 
-/** True for a timestamp Date can read that starts with a real day (2026-11-10T14:03:00.000Z). */
+const CLOCK = /^T([01]\d|2[0-3]):[0-5]\d:[0-5]\d(\.\d{1,3})?Z$/;
+
+/**
+ * True for a timestamp in the one form the engine writes and reads: a real day, a real time of day and a Z
+ * (2026-11-10T14:03:00.000Z). An offset, a 24:00 or anything after the Z is refused, so two timestamps always
+ * compare as text the way they compare as times.
+ */
 export function isIsoTimestamp(v: unknown): v is string {
-  return typeof v === 'string' && v.length >= 20 && v.length <= 35 && v[10] === 'T' && isIsoDate(v.slice(0, 10)) && Number.isFinite(Date.parse(v));
+  return typeof v === 'string' && v.length >= 20 && v.length <= 24 && isIsoDate(v.slice(0, 10)) && CLOCK.test(v.slice(10));
 }
 
 /** The day part of a day or a timestamp. */

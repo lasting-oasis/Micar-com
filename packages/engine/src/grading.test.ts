@@ -493,6 +493,33 @@ describe('certification levels', () => {
     expect(level(inPerson, REGISTRY, '2027-11-15').level).toBe('verified');
   });
 
+  it('keeps Certified when a later check is made from photographs', () => {
+    let p = attest(attest(wellDocumented(), 'identity'), 'mileage', { mileage: 60000 });
+    p = attest(p, 'documentation', { events: [p.events[10].id] });
+    p = attest(p, 'originality');
+    p = attest(p, 'condition', { conditionScore: 92, inPerson: true, date: '2026-09-01' });
+    expect(level(p).level).toBe('certified');
+    // More verification never lowers the level: the in-person inspection is still on the passport and still in its year.
+    const followUp = attest(p, 'condition', { conditionScore: 95, inPerson: false, date: '2026-10-01' });
+    expect(level(followUp).level).toBe('certified');
+    expect(level(followUp).requirements.filter((r) => r.id === 'cert.inspection')[0].met).toBe(true);
+    // The condition score follows the newest inspection.
+    expect(score(followUp).categories.condition.score).toBe(95);
+  });
+
+  it('judges the odometer by the day, so a corrected slip is not a rollback and a wound-back reading is', () => {
+    let p = wellDocumented();
+    p = add(p, { type: 'mileage', date: '2026-09-01', mileage: 500000 }, '2026-09-01T10:00:00.000Z');
+    p = add(p, { type: 'mileage', date: '2026-09-01', mileage: 61000 }, '2026-09-01T10:05:00.000Z');
+    p = add(p, { type: 'mileage', date: '2026-11-09', mileage: 62000 });
+    expect(score(p).discrepancies).toEqual([]);
+    expect(points(p, 'doc.mileage')).toBe(10);
+    expect(level(p).level).toBe('documented');
+    const wound = add(p, { type: 'mileage', date: '2026-11-09', mileage: 20000 }, '2026-11-10T12:00:01.000Z');
+    expect(score(wound).discrepancies.map((d) => d.id)).toEqual(['odometer-rollback']);
+    expect(level(wound).level).toBe('registered');
+  });
+
   it('gathers its facts once when handed them', () => {
     const p = wellDocumented();
     const facts = gradeFacts(p, REGISTRY, TODAY);

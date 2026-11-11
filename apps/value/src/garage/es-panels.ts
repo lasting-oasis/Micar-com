@@ -114,4 +114,14 @@ export const ES_PANELS: Record<string, string> = {
   'Save the VIN': 'Guardar el VIN',
   'Correct the VIN': 'Corregir el VIN',
   'Enter the VIN': 'Ingresar el VIN',
+  // Supported history, the odometer guard, the sheet's standing
+  'A build number counts when the specification is the MiCar catalogue’s own or a verifier has attested it. One you typed in is kept on the sheet and scores nothing.': 'Un número de unidades fabricadas cuenta cuando la especificación es la del catálogo de MiCar o un verificador la ha atestado. Uno que usted escribió se conserva en la ficha y no suma puntos.',
+  'That is lower than the highest reading on this passport. A lower reading on a later day is recorded as an odometer rollback.': 'Eso es menor que la lectura más alta de este pasaporte. Una lectura menor en un día posterior se registra como retroceso del odómetro.',
+  'That is a long way above the last reading. Check the digits: a reading can be corrected today and not after.': 'Eso está muy por encima de la última lectura. Revise los dígitos: una lectura se puede corregir hoy, no después.',
+  '1 entry in this file’s grade or edition history claims more than the passport’s own record supports. It is not shown.': '1 entrada del historial de calificaciones o ediciones de este archivo afirma más de lo que respalda el propio registro del pasaporte. No se muestra.',
+  '{n} entries in this file’s grade or edition history claim more than the passport’s own record supports. They are not shown.': '{n} entradas del historial de calificaciones o ediciones de este archivo afirman más de lo que respalda el propio registro del pasaporte. No se muestran.',
+  'That file is too large to be a garage or passport file.': 'Ese archivo es demasiado grande para ser un archivo de garaje o de pasaporte.',
+  'An independent verifier has attested this specification as it stands.': 'Un verificador independiente ha atestado esta especificación tal como está.',
+  'This sheet is the MiCar reference catalogue’s own, figure for figure: reference data, not verified.': 'Esta ficha es la del catálogo de referencia de MiCar, cifra por cifra: datos de referencia, sin verificar.',
+  'This sheet, and the sources named beside its figures, are this passport’s own account. Nothing on it has been independently verified.': 'Esta ficha, y las fuentes que aparecen junto a sus cifras, son lo que este pasaporte dice de sí mismo. Nada en ella ha sido verificado de forma independiente.',
 };

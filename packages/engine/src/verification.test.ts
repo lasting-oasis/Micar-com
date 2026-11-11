@@ -3,10 +3,11 @@ import { micarIdFromBytes } from './identity';
 import { addEvent, appendEvent, createPassport, parsePassport, serializePassport, transferOwnership, updateSpec, updateVin } from './passport';
 import { emptySpec } from './specs';
 import type { Attachment, Attestation, AttestationScope, Passport, PassportEvent, Sourced, VehicleSpec, VerifierRegistry } from './types';
+import { publicPassport } from './public';
 import { hashString, sha256Text } from './util';
 import {
   ATTESTATION_PAYLOAD, ATTESTATION_SCOPE_LABELS, ATTESTATION_VALID_MONTHS, CONDITION_FULL_MONTHS, EMPTY_REGISTRY, MILEAGE_TOLERANCE, VERIFICATION_REFUSALS,
-  activeModifications, attestationPayload, attestationStatuses, attestationSubject, competitionConditionInputs, conditionInputs, documentedRecords, eventEvidence, publicPassport, recordAttestation,
+  activeModifications, attestationPayload, attestationStatuses, attestationSubject, competitionConditionInputs, conditionInputs, documentedRecords, eventEvidence, mileageLog, recordAttestation,
   standingOf, standingReadings, subjectFingerprint, validAttestations, voidEvent, voidedEventIds,
 } from './verification';
 
@@ -214,6 +215,10 @@ describe('validity windows', () => {
     // Looking back to a day before it was made, it had not been made yet.
     expect(statusOf(p, identity, REGISTRY, '2026-10-31')).toMatchObject({ valid: false, reason: VERIFICATION_REFUSALS.future });
     expect(standingOf(p, REGISTRY, '2026-10-31').events.some((e) => e.type === 'attestation')).toBe(false);
+    // Once lapsed, an attestation is still on the record as something a third party wrote down; it just verifies nothing.
+    const late = standingOf(p, REGISTRY, '2028-11-01');
+    expect(late.lapsed.sort()).toEqual([mileage, records].sort());
+    expect(late.attestations.map((x) => x.eventId)).toEqual([identity]);
   });
 
   it('counts a condition inspection in full for a year, at half weight for the next, and then not at all', () => {
@@ -496,6 +501,72 @@ describe('odometer readings', () => {
     expect(conditionInputs(p, REGISTRY, TODAY).mileage).toEqual({ value: 61500, evidence: 'declared' });
     expect(conditionInputs(p, REGISTRY, '2026-06-01').mileage).toEqual({ value: 50000, evidence: 'documented' });
     expect(conditionInputs(parked(), REGISTRY, TODAY).mileage).toBeNull();
+  });
+});
+
+describe('the mileage log, day by day', () => {
+  const reading = (p: Passport, date: string, mileage: number, now = NOW): Passport => add(p, { type: 'mileage', date, mileage }, now)[0];
+  const log = (p: Passport, registry = REGISTRY, asOf = TODAY) => mileageLog(p, registry, asOf);
+
+  it('takes a day’s last reading as its word, so a slipped digit corrected the same day leaves no mark', () => {
+    let p = reading(reading(parked(), '2026-03-01', 48000), '2026-06-01', 49000);
+    p = reading(p, '2026-09-01', 500000, '2026-09-01T10:00:00.000Z');
+    p = reading(p, '2026-09-01', 50000, '2026-09-01T10:05:00.000Z');
+    expect(log(p).days.map((d) => d.mileage)).toEqual([48000, 49000, 50000]);
+    expect(log(p).rollback).toBe(false);
+    // The next ordinary reading, weeks later, is an ordinary reading. It used to brand the car with a rollback for good.
+    p = reading(p, '2026-11-09', 51000);
+    expect(log(p)).toMatchObject({ rollback: false, current: { value: 51000, date: '2026-11-09' } });
+    expect(conditionInputs(p, REGISTRY, TODAY).mileage).toEqual({ value: 51000, evidence: 'declared' });
+  });
+
+  it('catches a reading wound back, on a later day or on the same one', () => {
+    const base = reading(reading(parked(), '2026-02-01', 48000), '2026-08-01', 100000);
+    expect(log(reading(base, '2026-09-01', 60000)).rollback).toBe(true);
+    // Rewriting the latest day's reading below an older day's is a rollback too.
+    const rewound = reading(base, '2026-08-01', 30000, '2026-11-10T12:00:01.000Z');
+    expect(log(rewound).days.map((d) => d.mileage)).toEqual([48000, 30000]);
+    expect(log(rewound).rollback).toBe(true);
+    // Wear is counted from the highest reading on the log, so winding it back gains nothing.
+    expect(conditionInputs(rewound, REGISTRY, TODAY).mileage).toEqual({ value: 48000, evidence: 'declared' });
+    expect(conditionInputs(reading(base, '2026-09-01', 60000), REGISTRY, TODAY).mileage?.value).toBe(100000);
+  });
+
+  it('never lets a reading the owner typed displace a verifier’s reading of the same day', () => {
+    let p = reading(parked(), '2026-02-01', 48000);
+    [p] = attest(p, 'mileage', { mileage: 190000 });
+    p = reading(p, '2026-11-01', 20000, '2026-11-10T12:00:01.000Z');
+    expect(log(p).days.map((d) => [d.mileage, d.evidence])).toEqual([[48000, 'declared'], [190000, 'verified']]);
+    expect(log(p).current).toMatchObject({ value: 190000, evidence: 'verified' });
+    // With no verifier registered there is no verified reading, and the day's last word is the owner's.
+    expect(log(p, EMPTY_REGISTRY).days.map((d) => d.mileage)).toEqual([48000, 20000]);
+    expect(log(p, EMPTY_REGISTRY).rollback).toBe(true);
+  });
+
+  it('keeps a verifier’s reading on the record after its twelve months are up', () => {
+    // Recorded the day after the inspector read the odometer, a year before today.
+    const attested = id();
+    let p = ok(recordAttestation(parked(), blank('mileage', { mileage: 190000, date: '2025-11-01' }), REGISTRY, { now: '2025-11-02T12:00:00.000Z', eventId: attested }));
+    p = reading(p, '2026-10-05', 60000, '2026-10-05T12:00:00.000Z');
+    // Inside the window: verified, and the lower reading after it is a rollback.
+    expect(log(p, REGISTRY, '2026-10-10')).toMatchObject({ rollback: true, current: { value: 190000, evidence: 'verified' } });
+    // A month later the attestation has lapsed. It verifies nothing now, but the inspector still read 190,000 that day:
+    // the reading stays in the log, and so does the rollback. Waiting it out clears nothing.
+    expect(statusOf(p, attested, REGISTRY, '2026-11-10')).toMatchObject({ valid: false, reason: VERIFICATION_REFUSALS.lapsed });
+    const later = standingOf(p, REGISTRY, '2026-11-10');
+    expect(later.lapsed).toEqual([attested]);
+    expect(later.events.some((e) => e.id === attested)).toBe(true);
+    expect(log(p, REGISTRY, '2026-11-10')).toMatchObject({ rollback: true, current: { value: 190000, evidence: 'documented' } });
+    expect(eventEvidence(p, attested, REGISTRY, '2026-11-10')).toBe('documented');
+    expect(validAttestations(p, REGISTRY, '2026-11-10', 'mileage')).toEqual([]);
+    // Ranked play reads verified readings only, so it no longer reads this one.
+    expect(competitionConditionInputs(p, REGISTRY, '2026-11-10').mileage).toBeNull();
+    // The public view still lists the entry, and no longer calls it verified.
+    const shown = publicPassport(p, REGISTRY, '2026-11-10').events.filter((e) => e.type === 'attestation');
+    expect(shown).toMatchObject([{ scope: 'mileage', mileage: 190000, verified: false }]);
+    // An attestation that never counted leaves nothing behind: an unknown verifier's reading is not on the record.
+    expect(log(p, EMPTY_REGISTRY, '2026-11-10').days.map((d) => d.mileage)).toEqual([60000]);
+    expect(standingOf(p, EMPTY_REGISTRY, '2026-11-10').lapsed).toEqual([]);
   });
 });
 

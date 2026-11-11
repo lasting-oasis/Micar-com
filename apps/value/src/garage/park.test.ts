@@ -33,3 +33,19 @@ describe('what the page says about a VIN as it is typed', () => {
     expect(new Set(said).size).toBe(VIN_NOTES.length);
   });
 });
+
+describe('what the form says about an odometer reading before it is written', () => {
+  it('says nothing about an ordinary reading, or when there is nothing to compare with', async () => {
+    const { ODOMETER_NOTES, odometerNote } = await import('./PassportPanel');
+    expect(odometerNote('51000', 50000)).toBe('');
+    expect(odometerNote('50000', 50000)).toBe('');
+    expect(odometerNote('', 50000)).toBe('');
+    expect(odometerNote('500000', null)).toBe('');
+    expect(odometerNote('abc', 50000)).toBe('');
+    // A slipped digit, and a reading below the highest on the log.
+    expect(odometerNote('500000', 50000)).toBe(ODOMETER_NOTES[1]);
+    expect(odometerNote('80001', 50000)).toBe(ODOMETER_NOTES[1]);
+    expect(odometerNote('80000', 50000)).toBe('');
+    expect(odometerNote('49999', 50000)).toBe(ODOMETER_NOTES[0]);
+  });
+});

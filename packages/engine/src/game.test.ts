@@ -137,10 +137,13 @@ describe('a race', () => {
     expect(race('drag', [], 1).rows).toEqual([]);
   });
 
-  it('refuses the same entrant twice', () => {
-    const result = race('drag', [gtr, gtr, civic], 1);
-    expect(result.rows).toHaveLength(2);
-    expect(result.excluded).toEqual([{ id: 'gtr', name: 'gtr', reason: EXCLUSION_REASONS.twice }]);
+  it('starts nobody under an id entered twice, whichever order they arrive in', () => {
+    const stock = gtr, tuned = { ...gtr, name: 'gtr tuned', attributes: { ...gtr.attributes, power: 1000 } };
+    const a = race('drag', [stock, tuned, civic, truck], 1), b = race('drag', [truck, tuned, civic, stock], 1);
+    expect(a.rows.map((r) => r.id)).toEqual(b.rows.map((r) => r.id));
+    expect(a.rows.map((r) => r.id).sort()).toEqual(['civic', 'truck']);
+    expect(a.excluded.map((e) => [e.id, e.reason])).toEqual([['gtr', EXCLUSION_REASONS.twice], ['gtr', EXCLUSION_REASONS.twice]]);
+    expect(a.winnerId).toBe(b.winnerId);
   });
 });
 
@@ -228,6 +231,19 @@ describe('a series', () => {
 
   it('has no champion when no race could be decided', () => {
     expect(series([gtr], 1).championId).toBeNull();
+  });
+
+  it('awards nothing for a race only one car could start', () => {
+    // The second car has no EFFICIENCY rating, so it cannot start endurance or economy. Those two are not races.
+    const partial = { ...flat('partial', 990), attributes: { ...flat('partial', 990).attributes, efficiency: null } };
+    const whole = flat('whole', 300);
+    const result = series([whole, partial], 4);
+    expect(result.races.filter((r) => r.winnerId === null).map((r) => r.mode).sort()).toEqual(['economy', 'endurance']);
+    const points = (id: string) => result.standings.filter((row) => row.id === id)[0].points;
+    // Three decided races: the stronger car wins them, and the weaker one gets second place in each, not twenty free points.
+    expect(points('partial')).toBe(3 * SERIES_POINTS[0]);
+    expect(points('whole')).toBe(3 * SERIES_POINTS[1]);
+    expect(result.championId).toBe('partial');
   });
 });
 

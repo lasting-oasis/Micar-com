@@ -11,13 +11,20 @@ import type {
 import { GRADE_CATEGORIES } from './types';
 import { clamp, dayOf, monthsBetween, round1 } from './util';
 import type { AttestationStatus, Standing } from './verification';
-import { activeModifications, documentedRecords, standingOf, standingReadings } from './verification';
+import { activeModifications, documentedRecords, mileageLog, standingOf } from './verification';
 import { checkVin, vinMatchesYear } from './vin';
 
 export const GRADE_FORMULA = 'micar-grade-v2';
 
 /** How much each category counts toward the overall grade. They add up to 1. */
 export const GRADE_WEIGHTS: Record<GradeCategoryKey, number> = { identity: 0.2, documentation: 0.25, condition: 0.25, originality: 0.15, verification: 0.15 };
+
+/**
+ * The most each category can score on what an owner does alone. Identity keeps 45 points for an independent check,
+ * a self-reported condition stops at 75 even with the full photo set, originality stops at 85 until it is verified,
+ * and Verification counts attestations only. The grade below is built so these hold; the tests check that they do.
+ */
+export const OWNER_CEILING: Record<GradeCategoryKey, number> = { identity: 55, documentation: 100, condition: 75, originality: 85, verification: 0 };
 
 export const GRADE_CATEGORY_LABELS: Record<GradeCategoryKey, string> = {
   identity: 'Identity and authenticity',
@@ -97,10 +104,11 @@ export type GradeFacts = {
   photos: Record<PhotoSubject, number>;
   attachments: Record<AttachmentKind, number>;
   hasPapers: boolean;
-  /** Mileage readings in timeline order, withdrawn events left out. */
+  /** The mileage log: one reading for each day that has any, in order, withdrawn entries left out. */
   readings: { date: string; mileage: number }[];
   /** How many different days carry a reading. */
   readingDays: number;
+  /** True when a later day reads lower than an earlier day. A slipped digit corrected the same day is not one. */
   rollback: boolean;
   /** What the owner has most recently declared, each statement taken from the newest standing entry that makes it. */
   declaration: { condition: ConditionBand | null; accident: AccidentHistory | null; titleStatus: TitleStatus | null; originality: 'stock' | 'modified' | null };
@@ -152,15 +160,8 @@ export function gradeFacts(passport: Passport, registry: VerifierRegistry, asOf:
     if (e.type === 'transfer') { transfers += 1; if (e.attachments.length > 0) transfersWithFile += 1; }
   }
 
-  const readings = standingReadings(passport, registry, asOf, standing).map((r) => ({ date: r.date, mileage: r.mileage }));
-  const days: string[] = [];
-  let rollback = false, highest = -1, highestDay = '';
-  for (const r of readings) {
-    if (days.indexOf(r.date) === -1) days.push(r.date);
-    // A lower reading on a later day is a rollback. A second reading on the same day is a correction, not one.
-    if (r.mileage < highest && r.date > highestDay) rollback = true;
-    if (r.mileage > highest) { highest = r.mileage; highestDay = r.date; }
-  }
+  const log = mileageLog(passport, registry, asOf, standing);
+  const readings = log.days.map((r) => ({ date: r.date, mileage: r.mileage }));
 
   const vinText = passport.vin;
   const check = vinText ? checkVin(vinText) : null;
@@ -169,7 +170,7 @@ export function gradeFacts(passport: Passport, registry: VerifierRegistry, asOf:
     asOf: standing.day, events, voided,
     records: documentedRecords(passport, registry, asOf, standing),
     photos, attachments, hasPapers,
-    readings, readingDays: days.length, rollback,
+    readings, readingDays: readings.length, rollback: log.rollback,
     declaration,
     modifications: resolveModifications(passport.spec, activeModifications(passport, registry, asOf, standing)).applied,
     declaredOriginality, restorationsNotOem,
@@ -280,6 +281,9 @@ function gradeOriginality(facts: GradeFacts): CategoryScore {
   if (!facts.declaredOriginality) return category('originality', items, 50, 50, GRADE_CAP_REASONS.undeclared);
   return category('originality', items, 100 - cost - restoration, verified ? null : 85, verified ? GRADE_CAP_REASONS.none : GRADE_CAP_REASONS.unverifiedOriginality);
 }
+
+/** The Verification score alone, from the attestations that count. Nothing an owner writes is read. */
+export const verificationScore = (facts: GradeFacts): number => gradeVerification(facts).score;
 
 function gradeVerification(facts: GradeFacts): CategoryScore {
   const has = (scope: AttestationStatus['attestation']['scope']) => attested(facts, scope).length > 0;

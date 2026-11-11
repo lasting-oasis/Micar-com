@@ -4,7 +4,7 @@
 // receipt documents a claim and stops there. An attestation counts only when its verifier is in the registry the
 // host supplies, is active, is allowed that kind of attestation, and has never owned the vehicle.
 // This module is the only way an attestation enters a passport, and the only place that decides whether one counts.
-// It also builds the public view, because what the public may be told depends on what has been verified.
+// What the public may be shown of a passport is built in public.ts, from the standing worked out here.
 //
 // What a passport file can and cannot prove. A passport kept on its owner's device is the owner's to edit, so:
 //   - with a signature checker in the registry, every attestation that counts is one its verifier really signed, for
@@ -12,13 +12,13 @@
 //   - without one, the host is vouching for where the passport is kept;
 //   - either way a holder can leave things out (a poor inspection, a withdrawal). Only a store the owner cannot
 //     write to can prove nothing is missing.
-import { EVENT_TYPE_LABELS, appendEvent, checkAttestation, currentOwner, everOwned, isId, timeline } from './passport';
+import { EVENT_TYPE_LABELS, appendEvent, checkAttestation, everOwned, isId, timeline } from './passport';
 import type {
-  ActiveModification, AttachmentKind, Attestation, AttestationScope, ConditionInputs, EvidenceLevel, Passport, PassportEvent, PublicEvent, PublicPassport, Result, Verifier,
+  ActiveModification, Attestation, AttestationScope, ConditionInputs, EvidenceLevel, Passport, PassportEvent, Result, Verifier,
   VerifierRegistry, WearSystem,
 } from './types';
 import { WEAR_SYSTEMS } from './types';
-import { canonicalJson, clipText, dayOf, isIsoTimestamp, monthOf, monthsBetween, sha256Text } from './util';
+import { canonicalJson, clipText, dayOf, isIsoTimestamp, monthsBetween, sha256Text } from './util';
 
 /** The registry with nobody in it. With it, nothing can be verified. */
 export const EMPTY_REGISTRY: VerifierRegistry = { verifiers: [] };
@@ -205,7 +205,16 @@ export type Standing = {
   attestations: AttestationStatus[];
   /** The ids of the records and attestations that verifiers have withdrawn. */
   voided: string[];
-  /** What stands, in timeline order: dated on or before the day, not withdrawn, and, for an attestation, one that counts. */
+  /**
+   * The entries of attestations whose only shortfall is age. They verify nothing any more, but what they recorded
+   * happened: an inspector's odometer reading stays in the mileage log after its twelve months are up, or a rollback
+   * it proved would clear itself with time.
+   */
+  lapsed: string[];
+  /**
+   * What stands, in timeline order: dated on or before the day and not withdrawn. An attestation stands when it
+   * counts or has only lapsed; one that never counted (an unknown verifier, a bad signature, an owner) does not.
+   */
   events: PassportEvent[];
 };
 
@@ -225,8 +234,10 @@ export function standingOf(passport: Passport, registry: VerifierRegistry, asOf:
     statuses.push({ eventId: e.id, attestation: e.attestation, ...(verdict.valid && voided.indexOf(e.id) !== -1 ? no(VERIFICATION_REFUSALS.withdrawn) : verdict) });
   }
   const attestations = statuses.filter((s) => s.valid && s.weight > 0);
-  const events = ordered.filter((e) => e.date <= day && e.type !== 'void' && voided.indexOf(e.id) === -1 && (e.type !== 'attestation' || attestations.some((s) => s.eventId === e.id)));
-  return { day, statuses, attestations, voided, events };
+  const lapsed = statuses.filter((s) => !s.valid && s.reason === VERIFICATION_REFUSALS.lapsed).map((s) => s.eventId);
+  const events = ordered.filter((e) => e.date <= day && e.type !== 'void' && voided.indexOf(e.id) === -1
+    && (e.type !== 'attestation' || attestations.some((s) => s.eventId === e.id) || lapsed.indexOf(e.id) !== -1));
+  return { day, statuses, attestations, voided, lapsed, events };
 }
 
 /** Every attestation on the passport with whether it counts on a day, and why not when it does not. */
@@ -318,7 +329,8 @@ export function voidEvent(passport: Passport, input: { target: string; reason: s
 
 /** How much stands behind an entry as a record: verified only when it is an attestation that counts, or one names it. */
 function recordEvidence(event: PassportEvent, standing: Standing): EvidenceLevel {
-  if (event.type === 'attestation') return 'verified';
+  // An attestation that has lapsed is still a third party's record of what they saw. It no longer verifies.
+  if (event.type === 'attestation') return standing.attestations.some((s) => s.eventId === event.id) ? 'verified' : 'documented';
   for (const s of standing.attestations) {
     const a = s.attestation;
     const speaksFor = a.scope === 'documentation' || (a.scope === 'modification' && event.type === 'modification');
@@ -359,6 +371,41 @@ export function standingReadings(passport: Passport, registry: VerifierRegistry,
   return out;
 }
 
+/** The odometer as the passport knows it: one reading for each day that has any, whether the log ever runs backwards, and the reading to count wear from. */
+export type MileageLog = {
+  /** One reading per day, in order: the day's final word. */
+  days: { date: string; mileage: number; eventId: string; evidence: EvidenceLevel }[];
+  /** True when a later day reads lower than an earlier day. */
+  rollback: boolean;
+  /** The highest reading on the log. An odometer does not run backwards, so wear is counted from here. Null with no reading. */
+  current: { value: number; evidence: EvidenceLevel; date: string; eventId: string } | null;
+};
+
+/**
+ * The mileage log, judged day by day. A day's reading is the last one written that day, so a slipped digit corrected
+ * the same day leaves no mark, except that a verifier's reading is never displaced by one the owner typed. A rollback
+ * is a later day that reads lower than an earlier day, which also catches a same-day entry winding the latest
+ * reading back below an older one.
+ */
+export function mileageLog(passport: Passport, registry: VerifierRegistry, asOf: string, standing: Standing = standingOf(passport, registry, asOf)): MileageLog {
+  const days: MileageLog['days'] = [];
+  for (const r of standingReadings(passport, registry, asOf, standing)) {
+    const last = days.length > 0 ? days[days.length - 1] : null;
+    if (last !== null && last.date === r.date) {
+      if (last.evidence !== 'verified' || r.evidence === 'verified') days[days.length - 1] = r;
+    } else {
+      days.push(r);
+    }
+  }
+  let rollback = false;
+  let current: MileageLog['current'] = null;
+  for (const d of days) {
+    if (current !== null && d.mileage < current.value) rollback = true;
+    if (current === null || d.mileage >= current.value) current = { value: d.mileage, evidence: d.evidence, date: d.date, eventId: d.eventId };
+  }
+  return { days, rollback, current };
+}
+
 const RECORD_TYPES: readonly PassportEvent['type'][] = ['maintenance', 'repair', 'inspection', 'restoration', 'modification', 'document'];
 
 /**
@@ -395,14 +442,17 @@ export function activeModifications(passport: Passport, registry: VerifierRegist
   return out;
 }
 
-/** What the condition engine needs, read from the passport as it stands on a day. */
+/**
+ * What the condition engine needs, read from the passport as it stands on a day. The mileage is the highest reading
+ * on the log (mileageLog), so an entry that winds the odometer back never lowers the wear counted from it.
+ */
 export function conditionInputs(passport: Passport, registry: VerifierRegistry, asOf: string, standing: Standing = standingOf(passport, registry, asOf)): ConditionInputs {
-  let mileage: ConditionInputs['mileage'] = null;
+  const log = mileageLog(passport, registry, asOf, standing);
+  const mileage: ConditionInputs['mileage'] = log.current === null ? null : { value: log.current.value, evidence: log.current.evidence };
   const replacements: ConditionInputs['replacements'] = [];
   const inspections: ConditionInputs['inspections'] = [];
   const declared: { accident: ConditionInputs['accident']; titleStatus: ConditionInputs['titleStatus'] } = { accident: null, titleStatus: null };
   for (const e of standing.events) {
-    if (e.mileage !== null) mileage = { value: e.mileage, evidence: readingEvidence(e, standing) };
     if (e.type === 'repair' && e.system !== null && (e.work === 'replacement' || e.work === 'rebuild')) replacements.push({ system: e.system, date: e.date, mileage: e.mileage, evidence: recordEvidence(e, standing) });
     if (e.type === 'declaration') {
       if (e.accident !== null) declared.accident = e.accident;
@@ -420,7 +470,7 @@ export function conditionInputs(passport: Passport, registry: VerifierRegistry, 
 }
 
 /**
- * What the condition engine may know for ranked play: verified inputs and nothing else. The newest reading a
+ * What the condition engine may know for ranked play: verified inputs and nothing else. The highest reading a
  * verifier took or confirmed (a later reading the owner typed does not replace it), the replacements a verifier
  * confirmed (a receipt alone resets nothing here), and inspectors' readings. Declared accidents and titles are left
  * out. Because nothing an owner writes is in this list, nothing an owner writes can move a ranked score, up or down.
@@ -428,45 +478,8 @@ export function conditionInputs(passport: Passport, registry: VerifierRegistry, 
 export function competitionConditionInputs(passport: Passport, registry: VerifierRegistry, asOf: string, standing: Standing = standingOf(passport, registry, asOf)): ConditionInputs {
   const all = conditionInputs(passport, registry, asOf, standing);
   let mileage: ConditionInputs['mileage'] = null;
-  for (const e of standing.events) if (e.mileage !== null && readingEvidence(e, standing) === 'verified') mileage = { value: e.mileage, evidence: 'verified' };
+  for (const e of standing.events) {
+    if (e.mileage !== null && readingEvidence(e, standing) === 'verified' && (mileage === null || e.mileage >= mileage.value)) mileage = { value: e.mileage, evidence: 'verified' };
+  }
   return { ...all, mileage, replacements: all.replacements.filter((r) => r.evidence === 'verified'), accident: null, titleStatus: null };
-}
-
-/* ------------------------------------------------------------ the public view ---- */
-
-/**
- * What anyone may be shown of a passport. It is the only projection meant to leave the owner's device.
- * Left out entirely: the VIN (only whether one is on file), every owner's id, every file's name, id and fingerprint,
- * every note, cost, shop and inspector, the specification's sources, what an attestation said, and anything withdrawn.
- * Blurred: a day becomes its month (for entries, grade snapshots and card editions alike, so a snapshot cannot give
- * away the day of the entry that caused it), and a reading is rounded down to the thousand. A title is shown only
- * when the owner marked that entry public; otherwise the entry carries the plain name of its kind.
- */
-export function publicPassport(passport: Passport, registry: VerifierRegistry, asOf: string, standing: Standing = standingOf(passport, registry, asOf)): PublicPassport {
-  const events: PublicEvent[] = standing.events.map((e) => {
-    const attachments: Partial<Record<AttachmentKind, number>> = {};
-    for (const a of e.attachments) attachments[a.kind] = (attachments[a.kind] ?? 0) + 1;
-    const own = e.type !== 'attestation' && e.visibility === 'public' && e.title !== '';
-    return {
-      type: e.type, month: monthOf(e.date), title: own ? e.title : EVENT_TYPE_LABELS[e.type], mileage: e.mileage === null ? null : Math.floor(e.mileage / 1000) * 1000, attachments,
-      verified: recordEvidence(e, standing) === 'verified', scope: e.type === 'attestation' ? e.attestation.scope : null,
-    };
-  });
-  const owner = currentOwner(passport);
-  const since = passport.owners.filter((o) => o.ownerId === owner && o.to === null)[0];
-  const id = passport.spec.identity;
-  return {
-    micarId: passport.micarId,
-    createdMonth: monthOf(passport.createdAt),
-    identity: { year: id.year, make: id.make, model: id.model, trim: id.trim, bodyClass: id.bodyClass },
-    color: passport.color,
-    vinOnFile: passport.vin !== '',
-    ownerCount: passport.owners.length,
-    currentOwnerSince: since ? monthOf(since.from) : monthOf(passport.createdAt),
-    events,
-    snapshots: passport.snapshots.map((s) => ({ month: monthOf(s.asOf), formula: s.formula, overall: s.overall, grade10: s.grade10, tier: s.tier, categories: { ...s.categories }, level: s.level })),
-    editions: passport.editions.map((e) => ({
-      number: e.number, name: e.name, month: monthOf(e.issuedAt), level: e.level, rarity: e.rarity, finish: e.finish, grade10: e.grade10, powerRating: e.powerRating, attributes: { ...e.attributes },
-    })),
-  };
 }

@@ -3,8 +3,8 @@
 // the passport keeps their name, size and fingerprint; a file moves a claim from declared to documented and no further.
 import { useMemo, useState } from 'react';
 import {
-  ATTESTATION_SCOPE_LABELS, EVENT_TYPE_LABELS, EVIDENCE_LABELS, LEVEL_LABELS, MODS, MOD_TIER_NAMES, WEAR_SYSTEMS, WEAR_SYSTEM_LABELS, eventEvidence, maskVin, publicPassport, standingOf,
-  timeline,
+  ATTESTATION_SCOPE_LABELS, EVENT_TYPE_LABELS, EVIDENCE_LABELS, LEVEL_LABELS, MODS, MOD_TIER_NAMES, WEAR_SYSTEMS, WEAR_SYSTEM_LABELS, eventEvidence, maskVin, mileageLog,
+  publicPassport, standingOf, supportedHistory, timeline,
 } from '@micar/engine';
 import type { Attachment, OwnerEventType, Passport, PassportEvent, PhotoSubject, Standing, WearSystem } from '@micar/engine';
 import { ACCIDENTS, CONDITIONS, TITLES } from '../engine/data';
@@ -60,7 +60,26 @@ async function store(files: FileStore, picked: File[], entry: Parameters<typeof 
   return { attachments, refused: '' };
 }
 
-function AddEntry({ today, files, onRecord }: Pick<Props, 'today' | 'files' | 'onRecord'>) {
+/** How far above the last reading a new one can be before the form asks the owner to look again. */
+const ODOMETER_JUMP = 30000;
+
+/**
+ * What the form says about an odometer reading before it is written. A reading can be corrected the same day and
+ * never after, so a slipped digit is worth catching here.
+ */
+export function odometerNote(text: string, last: number | null): string {
+  const miles = Number(text);
+  if (text.trim() === '' || !Number.isFinite(miles) || last === null) return '';
+  if (miles < last) return 'That is lower than the highest reading on this passport. A lower reading on a later day is recorded as an odometer rollback.';
+  if (miles > last + ODOMETER_JUMP) return 'That is a long way above the last reading. Check the digits: a reading can be corrected today and not after.';
+  return '';
+}
+export const ODOMETER_NOTES = [
+  'That is lower than the highest reading on this passport. A lower reading on a later day is recorded as an odometer rollback.',
+  'That is a long way above the last reading. Check the digits: a reading can be corrected today and not after.',
+] as const;
+
+function AddEntry({ today, files, onRecord, lastReading }: Pick<Props, 'today' | 'files' | 'onRecord'> & { lastReading: number | null }) {
   const [type, setType] = useState<OwnerEventType>('maintenance');
   const [date, setDate] = useState(today);
   const [mileage, setMileage] = useState('');
@@ -126,7 +145,10 @@ function AddEntry({ today, files, onRecord }: Pick<Props, 'today' | 'files' | 'o
           <select value={type} onChange={(e) => setType(e.target.value as OwnerEventType)}>{ENTRY_TYPES.map((k) => <option key={k} value={k}>{t(EVENT_TYPE_LABELS[k])}</option>)}</select>
         </label>
         <label>{t('Date')}<input type="date" value={date} max={today} required onChange={(e) => setDate(e.target.value)} /></label>
-        <label>{t('Odometer')} <small>(mi)</small><input type="number" inputMode="numeric" min={0} max={2000000} step={1} value={mileage} required={type === 'mileage'} onChange={(e) => setMileage(e.target.value)} /></label>
+        <label>{t('Odometer')} <small>(mi)</small>
+          <input type="number" inputMode="numeric" min={0} max={2000000} step={1} value={mileage} required={type === 'mileage'} aria-describedby="gar-odo-note" onChange={(e) => setMileage(e.target.value)} />
+          <span id="gar-odo-note" className="gar-err" role="status">{t(odometerNote(mileage, lastReading))}</span>
+        </label>
         {type === 'photo' && <label>{t('What the photos show')}<select value={subject} onChange={(e) => setSubject(e.target.value as PhotoSubject)}>{(Object.keys(PHOTO_SUBJECT_LABELS) as PhotoSubject[]).map((k) => <option key={k} value={k}>{t(PHOTO_SUBJECT_LABELS[k])}</option>)}</select></label>}
         {type === 'repair' && <>
           <label>{t('System')}<select value={system} onChange={(e) => setSystem(e.target.value as WearSystem | '')}><option value="">{t('Not one system')}</option>{WEAR_SYSTEMS.map((k) => <option key={k} value={k}>{t(WEAR_SYSTEM_LABELS[k])}</option>)}</select></label>
@@ -268,6 +290,9 @@ export function PassportPanel({ passport, today, canWrite, garageId, files, onRe
   const events = useMemo(() => timeline(passport).slice().reverse(), [passport]);
   const standing = useMemo(() => standingOf(passport, REGISTRY, today), [passport, today]);
   const shared = useMemo(() => publicPassport(passport, REGISTRY, today, standing), [passport, today, standing]);
+  // Stored grades and editions are shown only when the passport's own record supports them: a file can say anything.
+  const history = useMemo(() => supportedHistory(passport, REGISTRY), [passport]);
+  const lastReading = useMemo(() => mileageLog(passport, REGISTRY, today, standing).current?.value ?? null, [passport, today, standing]);
   const [showPublic, setShowPublic] = useState(false);
   const [editingVin, setEditingVin] = useState(false);
   return (
@@ -303,7 +328,7 @@ export function PassportPanel({ passport, today, canWrite, garageId, files, onRe
         </div>
       )}
 
-      {canWrite && <AddEntry today={today} files={files} onRecord={onRecord} />}
+      {canWrite && <AddEntry today={today} files={files} onRecord={onRecord} lastReading={lastReading} />}
 
       <div>
         <h3>{t('Timeline')}</h3>
@@ -313,11 +338,14 @@ export function PassportPanel({ passport, today, canWrite, garageId, files, onRe
       <div>
         <h3>{t('Grade history')}</h3>
         <p className="gar-help">{t('Each grade is kept as it stood. History is never rewritten.')}</p>
+        {history.unsupported > 0 && <p className="gar-note gar-warn" role="status">{history.unsupported === 1
+          ? t('1 entry in this file’s grade or edition history claims more than the passport’s own record supports. It is not shown.')
+          : t('{n} entries in this file’s grade or edition history claim more than the passport’s own record supports. They are not shown.', { n: history.unsupported })}</p>}
         <div className="gar-scroll">
           <table className="gar-table">
             <thead><tr><th>{t('Date')}</th><th>{t('Why')}</th><th>{t('Level')}</th><th className="num">{t('Overall')}</th><th className="num">{t('Grade')}</th></tr></thead>
             <tbody>
-              {passport.snapshots.slice().reverse().map((s) => (
+              {history.snapshots.slice().reverse().map((s) => (
                 <tr key={s.id}><td>{day(s.asOf)}</td><td>{t(s.reason)}</td><td>{t(LEVEL_LABELS[s.level])}</td><td className="num">{s.overall.toFixed(1)}</td><td className="num">{s.level === 'registered' ? 'RAW' : s.grade10.toFixed(1)}</td></tr>
               ))}
             </tbody>
@@ -329,7 +357,7 @@ export function PassportPanel({ passport, today, canWrite, garageId, files, onRe
         <h3>{t('Card editions')}</h3>
         <p className="gar-help">{t('A new edition is printed at each milestone. Earlier ones stay with the car.')}</p>
         <ul className="gar-list">
-          {passport.editions.slice().reverse().map((e) => (
+          {history.editions.slice().reverse().map((e) => (
             <li key={e.number}><b>{t('Ed. {n}', { n: e.number })}</b> · {t(e.name)} · {day(e.issuedAt)} · {e.powerRating === null ? t('Power rating not complete') : t('Power rating {n}', { n: e.powerRating })}{e.grade10 !== null ? ` · ${t('Grade {n}', { n: e.grade10.toFixed(1) })}` : ''}</li>
           ))}
         </ul>

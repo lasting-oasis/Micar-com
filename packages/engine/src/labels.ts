@@ -41,10 +41,15 @@ export const LEVEL_LABELS: Record<CertificationLevel, string> = {
 };
 
 /** What each certification level means, in one line. */
+/** Each certification level prints its own edition of the card. */
+export const EDITION_NAMES: Record<CertificationLevel, string> = {
+  registered: 'Registration Edition', documented: 'Documented Edition', verified: 'Verified Edition', certified: 'Certified Edition',
+};
+
 export const LEVEL_SUMMARIES: Record<CertificationLevel, string> = {
   registered: 'The vehicle is on record with an owner.',
   documented: 'Its identity and history are backed by files the owner attached.',
-  verified: 'An independent party has checked its identity and its records.',
+  verified: 'An independent party has checked its identity, and its mileage or its records.',
   certified: 'An independent inspector has examined the vehicle in person.',
 };
 

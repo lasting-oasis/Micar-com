@@ -88,12 +88,13 @@ export function race(mode: RaceMode, entrants: readonly RaceEntrant[], seed: num
   const needed = ATTRIBUTE_KEYS.filter((k) => weights[k] !== undefined);
   const rows: RaceRow[] = [];
   const excluded: RaceResult['excluded'] = [];
-  const seen: string[] = [];
-  // Work through the entrants in id order so that a duplicate is refused the same way whatever order they came in.
+  const entered: Record<string, number> = {};
+  for (const e of entrants) entered[`#${e.id}`] = (entered[`#${e.id}`] ?? 0) + 1;
+  // An id entered more than once starts nobody: there is no telling which entry was meant, and choosing by the
+  // order they arrived in would make the result depend on it.
   const ordered = entrants.slice().sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
   for (const e of ordered) {
-    if (seen.indexOf(e.id) !== -1) { excluded.push({ id: e.id, name: e.name, reason: EXCLUSION_REASONS.twice }); continue; }
-    seen.push(e.id);
+    if (entered[`#${e.id}`] > 1) { excluded.push({ id: e.id, name: e.name, reason: EXCLUSION_REASONS.twice }); continue; }
     if (options.ranked && (e.basis === 'vehicle' || e.basis === 'setup')) { excluded.push({ id: e.id, name: e.name, reason: EXCLUSION_REASONS.ranked }); continue; }
     if (options.ranked && e.trusted !== true) { excluded.push({ id: e.id, name: e.name, reason: EXCLUSION_REASONS.untrusted }); continue; }
     const lacking = needed.filter((k) => e.attributes[k] === null);
@@ -119,12 +120,17 @@ export function race(mode: RaceMode, entrants: readonly RaceEntrant[], seed: num
 export const SERIES_POINTS: readonly number[] = [10, 6, 4, 3, 2, 1];
 export type SeriesResult = { seed: number; races: RaceResult[]; standings: { id: string; name: string; points: number; wins: number; total: number }[]; championId: string | null };
 
-/** A series: every mode once (or the modes given), points by finishing place. The same field, five different tests. */
+/**
+ * A series: every mode once (or the modes given), points by finishing place. The same field, five different tests.
+ * Only a race that was decided (two or more starters) awards points, so nobody wins a series on races run alone.
+ */
 export function series(entrants: readonly RaceEntrant[], seed: number, options: { modes?: readonly RaceMode[]; ranked?: boolean } = {}): SeriesResult {
   const modes = options.modes ?? RACE_MODES;
   const races = modes.map((mode, i) => race(mode, entrants, seed + i, { ranked: options.ranked }));
   const table: Record<string, { id: string; name: string; points: number; wins: number; total: number }> = {};
   for (const r of races) {
+    // A race only one car could start was not a race: it awards nothing.
+    if (r.winnerId === null) continue;
     for (const row of r.rows) {
       const line = table[row.id] ?? (table[row.id] = { id: row.id, name: row.name, points: 0, wins: 0, total: 0 });
       line.points += row.position <= SERIES_POINTS.length ? SERIES_POINTS[row.position - 1] : 0;

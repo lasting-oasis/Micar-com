@@ -274,6 +274,13 @@ export type VehicleStats = {
   competition: StatLayer;
   adjustments: StatAdjustment[];
   competitionAdjustments: StatAdjustment[];
+  /**
+   * The specification each layer was scored from: the factory one with that layer's modifications applied. What a
+   * race reads beside the scores (ground clearance, drivetrain) comes from the layer being raced, so a lift kit on
+   * the passport counts off-road exactly when its layer counts it.
+   */
+  vehicleSpec: VehicleSpec;
+  competitionSpec: VehicleSpec;
 };
 
 /* ---------------------------------------------------------------- the passport ---- */
