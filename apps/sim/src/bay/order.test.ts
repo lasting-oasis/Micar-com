@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { isOrderLine, isWorkOrder, applyOrder, quoteOrder, MAX_LINES, type OrderCtx, type OrderLine } from './order';
 import { PIPELINES } from './slots';
-import { ctx, fault, fix, part } from './testing';
+import type { RepairDef } from '../types';
+import { clone, ctx, fault, fix, part } from './testing';
 
 describe('bay order', () => {
   it('a repair costs its library price, 20% less with a Master Mechanic, nothing with the part in stock', () => { expect(quoteOrder(ctx(), [fix('f1')]).total).toBe(250); expect(quoteOrder(ctx({ hasMechanic: true }), [fix('f1')]).total).toBe(200); expect(quoteOrder(ctx({ partsInventory: { 'Brake Pad Set': 1 } }), [fix('f1')]).total).toBe(0); });
@@ -23,6 +24,64 @@ describe('bay order', () => {
   it('a part key that is only on Object.prototype is refused, never thrown on', () => { for (const k of ['constructor', '__proto__']) { const q = quoteOrder(ctx(), [part(k, 1)]); expect(q.lines).toHaveLength(1); expect(q.lines[0]).toMatchObject({ status: 'refused', reason: 'Unknown part.' }); } });
   it('a Master Mechanic price is rounded down, as the server does today', () => { const c = ctx({ hasMechanic: true }); c.car.activeRepairs = [fault('f9', 'Brake Pad Set')]; c.car.activeRepairs[0].cost = 252; expect(quoteOrder(c, [fix('f9')]).total).toBe(201); });
   it('apply: a part that renews a fault is still fitted when the repair on it fails', () => { const c = ctx({ stage: 2 }), r = applyOrder(c, [fix('f2'), part('perf.trans', 2)], () => 0.1); expect(r.lines.map(l => l.outcome)).toEqual(['failed', 'done']); expect(r.total).toBe(6100); expect(c.build.cfg.perf.trans).toBe(2); expect(c.car.activeRepairs!.some(f => f.id === 'f2')).toBe(false); });
+  it('the same lines quote the same in any order', () => {
+    for (const ls of [[part('color', '#c8102e'), part('finish', 'candy')], [part('finish', 'candy'), part('color', '#c8102e')]]) {
+      const q = quoteOrder(ctx(), ls);
+      expect(q.ok).toBe(true); expect(q.total).toBe(1900);
+      const byKey = (k: string) => q.lines.find(l => l.line.kind === 'install' && l.line.key === k)!;
+      expect(byKey('finish').replaces).toEqual(['Faded Paint']); expect(byKey('color').replaces).toBeUndefined();
+    }
+    for (const ls of [[part('perf.ecu', 1), part('perf.engine', 1)], [part('perf.engine', 1), part('perf.ecu', 1)]]) {
+      const q = quoteOrder(ctx({}, [fault('f5', 'Spark Plugs & Coils')]), ls);
+      expect(q.ok).toBe(true); expect(q.total).toBe(2700);
+      expect(q.lines.find(l => l.line.kind === 'install' && l.line.key === 'perf.engine')!.replaces).toEqual(['Misfiring Engine']);
+    }
+  });
+  it('the same lines apply the same in any order', () => {
+    for (const ls of [[fix('f3'), part('color', '#c8102e'), part('finish', 'candy')], [fix('f3'), part('finish', 'candy'), part('color', '#c8102e')]]) {
+      const c = ctx(), r = applyOrder(c, ls, () => 0.1);
+      expect(r.lines[0]).toMatchObject({ outcome: 'failed', price: 800 });
+      expect(r.lines.slice(1).map(l => l.outcome)).toEqual(['done', 'done']);
+      expect(r.total).toBe(2700);
+      expect(c.car.activeRepairs!.some(f => f.id === 'f3')).toBe(false);
+      expect(c.car.bodyCondition).toBe(100);
+    }
+  });
+  it('stock goes to the dearest repair, whatever the order', () => {
+    const m1: RepairDef = { id: 'm1', name: 'Misfiring Engine', partName: 'Spark Plugs & Coils', type: 'mechanic', cost: 150, conditionImpact: 5 };
+    const m2: RepairDef = { ...m1, id: 'm2', cost: 60, conditionImpact: 2 };
+    for (const ls of [[fix('m2'), fix('m1')], [fix('m1'), fix('m2')]]) {
+      const mk = () => ctx({ partsInventory: { 'Spark Plugs & Coils': 1 } }, [clone(m1), clone(m2)]);
+      expect(quoteOrder(mk(), ls).total).toBe(60);
+      const c = mk(), r = applyOrder(c, ls, () => 0.5);
+      expect(r.total).toBe(60); expect(c.partsInventory['Spark Plugs & Coils']).toBe(0);
+      expect(c.car.activeRepairs!.some(f => f.id === 'm1' || f.id === 'm2')).toBe(false);
+    }
+  });
+  it('stock for two equal repairs goes to the fault whose id sorts first, whatever the order', () => {
+    for (const ls of [[fix('e2'), fix('e1')], [fix('e1'), fix('e2')]]) {
+      const q = quoteOrder(ctx({ partsInventory: { 'Brake Pad Set': 1 } }, [fault('e2', 'Brake Pad Set'), fault('e1', 'Brake Pad Set')]), ls);
+      expect(q.total).toBe(250);
+      expect(q.lines.find(l => l.line.kind === 'repair' && l.line.repairId === 'e1')!.price).toBe(0);
+    }
+  });
+  it('a stocked part is used up even when the repair fails', () => {
+    const c = ctx({ partsInventory: { 'Brake Pad Set': 1 } }), r = applyOrder(c, [fix('f1')], () => 0.1);
+    expect(r.lines[0]).toMatchObject({ outcome: 'failed', price: 0 }); expect(c.partsInventory['Brake Pad Set']).toBe(0); expect(c.car.activeRepairs!.some(f => f.id === 'f1')).toBe(true);
+  });
+  it("a part's price has to cover the faults it renews together, not one at a time", () => {
+    const mk = () => ctx({}, [fault('f4', 'Head Gasket Kit'), fault('f6', 'Head Gasket Kit')]);
+    expect(quoteOrder(mk(), [part('perf.engine', 1)]).lines[0]).toMatchObject({ status: 'held', reason: 'Fix first: Blown Head Gasket' });
+    const q = quoteOrder(mk(), [fix('f4'), part('perf.engine', 1)]);
+    expect(q.ok).toBe(true); expect(q.total).toBe(3300); expect(q.lines[1].replaces).toEqual(['Blown Head Gasket']);
+  });
+  it('a repair closes one fault, the one it was for, even when two share an id', () => {
+    const c = ctx(); c.car.activeRepairs = [fault('d1', 'Brake Pad Set', 10), fault('d1', 'Brake Pad Set', 10)]; c.car.mechanicCondition = 80;
+    applyOrder(c, [fix('d1')], () => 0.5);
+    expect(c.car.activeRepairs).toHaveLength(1); expect(c.car.mechanicCondition).toBe(90);
+    applyOrder(c, [fix('d1')], () => 0.5);
+    expect(c.car.activeRepairs).toHaveLength(0); expect(c.car.mechanicCondition).toBe(100);
+  });
   it('isWorkOrder accepts a work order and nothing else', () => {
     const wo = { id: 'wo-1', carId: 'c1', car: '2019 Toyota Camry', door: 'garage', day: 3, total: 10, lines: [], stages: [] };
     expect(isWorkOrder(wo)).toBe(true);
