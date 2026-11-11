@@ -5,9 +5,9 @@ import { useMemo, useState } from 'react';
 import { ATTRIBUTE_KEYS, ATTRIBUTE_LABELS, EVENT_TYPE_LABELS, EVIDENCE_LABELS, MODS, MOD_CATEGORIES, MOD_TIER_NAMES, activeModifications, vehicleStats } from '@micar/engine';
 import type { ActiveModification, Assembly, InstallQuality, ModCategory, ModTier, Passport } from '@micar/engine';
 import { t } from '../i18n';
-import { attachmentKind, checkFile, sha256Hex, type FileStore } from './files';
+import type { FileStore } from './files';
 import { newId } from './ids';
-import { FILE_REFUSALS } from './PassportPanel';
+import { keepFiles } from './PassportPanel';
 import { REGISTRY } from './store';
 
 export const INSTALL_LABELS: Record<InstallQuality, string> = { professional: 'A professional shop', owner: 'The owner', unknown: 'Not known' };
@@ -58,13 +58,9 @@ export function ModsPanel({ passport, assembly, today, canWrite, files, onRecord
     if (!pick || busy) return;
     setBusy(true); setMessage('');
     try {
-      for (const file of picked) { const no = checkFile(file); if (no) { setMessage(t(FILE_REFUSALS[no])); return; } }
-      const attachments = [];
-      for (const file of picked) {
-        const id = newId();
-        await files.put(id, file);
-        attachments.push({ id, kind: attachmentKind(file.type, 'repair'), name: file.name, mime: file.type, size: file.size, sha256: await sha256Hex(file) });
-      }
+      const kept = await keepFiles(files, picked, 'repair');
+      if (kept.refused) { setMessage(t(kept.refused)); return; }
+      const attachments = kept.attachments;
       // No title is stored: the timeline names a modification from its category and tier, in the reader's language.
       const no = onRecord({
         id: newId(), type: 'modification', action: 'install', category: pick.category, tier: pick.tier, install, parts: parts.trim(), undoes: null,

@@ -52,13 +52,23 @@ async function store(files: FileStore, picked: File[], entry: Parameters<typeof 
     const no = checkFile(file);
     if (no) return { attachments: [], refused: FILE_REFUSALS[no] };
   }
-  for (const file of picked) {
-    const id = newId();
-    await files.put(id, file);
-    attachments.push({ id, kind: attachmentKind(file.type, entry), name: file.name, mime: file.type, size: file.size, sha256: await sha256Hex(file) });
+  try {
+    for (const file of picked) {
+      const id = newId();
+      await files.put(id, file);
+      attachments.push({ id, kind: attachmentKind(file.type, entry), name: file.name, mime: file.type, size: file.size, sha256: await sha256Hex(file) });
+    }
+  } catch (error) {
+    // One file could not be kept (the device is full, say): the ones already kept for this entry are taken back out,
+    // so no file is left on the device with no entry pointing at it.
+    for (const a of attachments) { try { await files.remove(a.id); } catch { /* already gone */ } }
+    throw error;
   }
   return { attachments, refused: '' };
 }
+
+/** Keeps the files picked for an entry on this device. Shared with the Mods tab, so both keep files the same way. */
+export const keepFiles = store;
 
 /** How far above the last reading a new one can be before the form asks the owner to look again. */
 const ODOMETER_JUMP = 30000;
