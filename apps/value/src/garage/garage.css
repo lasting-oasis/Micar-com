@@ -163,3 +163,52 @@
   .dp .gar-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 12px; }
   .dp .gar-table { font-size: 14px; }
 }
+
+/* ---------- The card back ---------- */
+/* The stage the live card is drawn on: three wide to four tall, as its camera frames it. HoloCard.tsx puts the canvas
+   in; where the card cannot be drawn live, a still of the same foil, framed the same way, takes its place. */
+.dp .gar-holo { position: relative; width: 100%; aspect-ratio: 3 / 4; container-type: size; }
+.dp .gar-holo > canvas, .dp .gar-holo > img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.dp .gar-holo > img { object-fit: contain; }
+/* The still is framed for a 3:4 stage. On a taller one the live card takes 84% of the width, so the still is drawn
+   larger to match and the card does not change size when the live one takes over: 162.7% of the stage's width is
+   84% / (63 / 87.86) / 72%, the camera's own rule (packages/holo/src/scene.ts: WIDTH_FILL, the card's shape, FILL). */
+@supports (height: 1cqh) {
+  .dp .gar-holo > img { inset: auto; left: 50%; top: 50%; width: auto; max-width: none; height: min(100cqh, 162.7cqw); aspect-ratio: 3 / 4; transform: translate(-50%, -50%); }
+}
+.dp .gar-holo > canvas { cursor: grab; outline: none; -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent; }
+.dp .gar-holo > canvas:active { cursor: grabbing; }
+.dp .gar-holo-wrap { display: grid; gap: 10px; justify-items: center; width: 100%; min-width: 0; }
+.dp .gar-holo-room { width: 100%; min-width: 0; }
+
+/* The inspect view: a modal dialog over the whole screen. The ground is a touch lighter behind the card, so its
+   shadow has something to fall on. Nothing scrolls behind it while it is open. */
+html:has(.dp .gar-cardback[open]) { overflow: hidden; }
+/* z-index is for a browser too old for modal dialogs, where this is an ordinary box that has to lie over the page. */
+.dp .gar-cardback { position: fixed; inset: 0; z-index: 90; width: 100vw; height: 100vh; height: 100dvh; max-width: none; max-height: none; margin: 0; border: 0;
+  padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(18px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  color: var(--ink); font: 16px/1.5 var(--body); overflow: hidden; overscroll-behavior: contain;
+  background: radial-gradient(120% 80% at 50% 40%, #262d3d 0%, #141923 55%, #07090d 100%); }
+.dp .gar-cardback[open] { display: grid; grid-template-rows: minmax(0, 1fr) auto auto; justify-items: center; gap: 12px; }
+.dp .gar-cardback::backdrop { background: #07090d; }
+/* The card as large as the room allows. The stage takes the room's whole height and as much of its width as three
+   to four needs: all of it on a phone held upright, where the card then fills 84% of the screen's width. */
+.dp .gar-cardback .gar-holo-wrap { grid-template-rows: minmax(0, 1fr) auto; height: 100%; min-height: 0; }
+.dp .gar-cardback .gar-holo-room { height: 100%; min-height: 0; display: grid; place-items: center; container-type: size; }
+.dp .gar-cardback .gar-holo { aspect-ratio: auto; height: 100%; width: min(100%, 62vh); width: min(100cqw, 75cqh); }
+.dp .gar-cardback-name { display: grid; gap: 2px; justify-items: center; text-align: center; max-width: 100%; }
+.dp .gar-cardback-name b { font: italic 800 clamp(15px, 4.3vw, 28px)/1.05 var(--cond); letter-spacing: .04em; text-transform: uppercase; text-wrap: balance; }
+.dp .gar-cardback-name span { font: 600 13px/1.3 var(--cond); letter-spacing: .12em; text-transform: uppercase; color: var(--haze); }
+.dp .gar-cardback .gar-btn { min-width: 132px; }
+
+/* The four backs, side by side: two to a row on a phone. */
+.dp .gar-backs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; padding-block: 4px 56px; }
+.dp .gar-backtile { display: grid; gap: 4px; justify-items: center; align-content: start; min-width: 0; padding: 6px 4px 14px; text-align: center; cursor: pointer;
+  background: none; border: 1px solid transparent; border-radius: 12px; color: var(--ink); transition: border-color .2s, background .2s; }
+.dp .gar-backtile:hover { border-color: #3a4458; background: rgba(255,255,255,.02); }
+.dp .gar-backtile img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: contain; }
+.dp .gar-backtile b { font: 700 15px/1.15 var(--cond); letter-spacing: .08em; text-transform: uppercase; }
+.dp .gar-backtile small { font: 600 12px/1.3 var(--cond); letter-spacing: .1em; text-transform: uppercase; color: var(--haze); }
+@media (max-width: 760px) {
+  .dp .gar-backs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 10px; }
+}

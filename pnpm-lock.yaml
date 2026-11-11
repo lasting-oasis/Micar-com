@@ -104,6 +104,9 @@ importers:
       '@micar/engine':
         specifier: workspace:*
         version: link:../../packages/engine
+      '@micar/holo':
+        specifier: workspace:*
+        version: link:../../packages/holo
       '@types/qrcode':
         specifier: 1.5.6
         version: 1.5.6
@@ -141,6 +144,9 @@ importers:
       oxlint:
         specifier: 1.90.0
         version: 1.90.0
+      playwright:
+        specifier: 1.63.0
+        version: 1.63.0
       tailwindcss:
         specifier: 4.3.3
         version: 4.3.3
@@ -170,6 +176,21 @@ importers:
       vite:
         specifier: 8.3.5
         version: 8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15)
+      vitest:
+        specifier: 5.0.5
+        version: 5.0.5(@types/node@24.19.2)(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15))
+
+  packages/holo:
+    devDependencies:
+      typescript:
+        specifier: 7.0.2
+        version: 7.0.2
+      vite:
+        specifier: 8.3.5
+        version: 8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15)
+      vite-plugin-singlefile:
+        specifier: 2.3.4
+        version: 2.3.4(rollup@4.67.5)(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15))
       vitest:
         specifier: 5.0.5
         version: 5.0.5(@types/node@24.19.2)(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15))

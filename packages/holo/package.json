@@ -1,0 +1,24 @@
+{
+  "name": "@micar/holo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MiCar's card back: a 3D card whose foil answers its real angle. One WebGL shader, a tilt spring and a draw-on-demand loop, reading the card model Blender exports. Pure TypeScript, no dependencies, no React: each app compiles it with its own toolchain.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./foils.json": "./src/foils.json",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "bash scripts/check.sh",
+    "demo": "vite demo --config demo/vite.config.ts --host",
+    "demo:build": "vite build demo --config demo/vite.config.ts"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2",
+    "vite": "8.3.5",
+    "vite-plugin-singlefile": "2.3.4",
+    "vitest": "5.0.5"
+  }
+}

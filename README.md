@@ -28,6 +28,8 @@ apps/explainer the explainer videos (Remotion, EN + ES)
 packages/brand the identity: tokens, the five doors, the strip's stylesheet, the favicon
 packages/engine the card platform's rules, in pure TypeScript for both apps: specifications and their sources,
                the seven scores, wear, modifications, the passport, verification, the grade, cards and races
+packages/holo  the back of a card: the owner's artwork on a 3D card whose foil answers its real angle
+               (WebGL, no dependencies). The Garage shows it; the foil follows the card's rarity
 assets/        concept pages, card art, Blender sources, the explainer's voices
 docs/          the plan, the product spec, the merge notes
 tools/         the Pages site builder and the merge kit
@@ -45,7 +47,9 @@ Tester mode, the owner's way to try any car without earning it first: set one mo
 corepack enable && pnpm install
 pnpm --filter @micar/value dev      # the door and the calculator
 pnpm --filter @micar/sim dev        # the world (and /shop)
-pnpm test                           # value's tests, which include the engine's, gate every deploy
+pnpm test                           # value's tests, which include the engine's and the card back's, gate every deploy
+pnpm --filter @micar/holo demo      # the card back by itself: the four foils on a bare page
+pnpm --filter @micar/value build && pnpm --filter @micar/value smoke:card   # the card back in a real browser (run by hand)
 pnpm site                           # builds the Pages tree into site/
 ```
 
@@ -58,3 +62,5 @@ Node 22, pnpm 10. Each app keeps its own React and Tailwind versions; the worksp
 - `docs/micar-monorepo-merge.md`: how the three repos became one, with every commit kept.
 - `docs/superpowers/specs/2026-11-10-collectible-card-platform-design.md`: the card platform: the three layers (factory stats, this vehicle's stats, the grade), what counts as verified, the passport, rarity, the races.
 - `packages/engine/README.md`: every formula the cards use, in words and tables, and how to call the engine.
+- `docs/superpowers/specs/2026-11-11-holo-card-back-design.md`: the card back: the artwork kept as it is, a foil per rarity, how Blender builds the card and the browser plays it.
+- `packages/holo/README.md`: how to use the card back, how its files are made, and what has and has not been checked.

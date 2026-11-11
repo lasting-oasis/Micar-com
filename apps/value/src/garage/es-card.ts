@@ -61,4 +61,13 @@ export const ES_CARD: Record<string, string> = {
   'Engine': 'Motor', 'ECU': 'ECU', 'Intake': 'Admisión', 'Turbo': 'Turbo', 'Blower': 'Compresor', 'Nitrous': 'Nitro', 'Trans': 'Transm.',
   'Susp': 'Susp.', 'Tires': 'Llantas', 'Brakes': 'Frenos', 'Weight': 'Peso', 'Aero': 'Aero', 'Off-road': 'Todoterreno', 'Eco': 'Eco',
   '{title}, {kind}. Press Enter to turn the card over.': '{title}, {kind}. Presione Enter para voltear la tarjeta.',
+  // The card back: its inspect view, the four-backs page and the foils' names (@micar/holo's FOIL_LABELS)
+  'Card back': 'Reverso de la tarjeta',
+  'Card back: {title}': 'Reverso de la tarjeta: {title}',
+  'The back of the card: {rarity}, {foil}': 'El reverso de la tarjeta: {rarity}, {foil}',
+  'Drag to tilt the card': 'Arrastre para inclinar la tarjeta',
+  'Card backs': 'Reversos de la tarjeta',
+  "Every card carries the same back. Its foil follows the card's rarity: earned, never sold.": 'Todas las tarjetas llevan el mismo reverso. Su foil sigue a la rareza de la tarjeta: se gana, nunca se vende.',
+  'Show the {foil} back': 'Mostrar el reverso: {foil}',
+  'Gloss': 'Brillo', 'Standard holo': 'Holográfico estándar', 'Full-spectrum rainbow': 'Arcoíris de espectro completo', 'Refractive prismatic': 'Prismático refractivo',
 };

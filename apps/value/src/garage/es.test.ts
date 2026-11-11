@@ -7,6 +7,7 @@ import {
   QUALITY_LABELS, RACE_MODE_RULES, RARITY_FACTOR_LABELS, RARITY_LABELS, REQUIREMENT_LABELS, SCARCITY_UNBACKED, SETUP_REFUSALS, SOURCE_KIND_LABELS, SPEC_FIELD_LABELS, TIER_NAMES,
   VERIFICATION_REFUSALS, WEAR_SYSTEM_LABELS,
 } from '@micar/engine';
+import { FOIL_LABELS } from '@micar/holo';
 import { ES } from '../i18n-es';
 import { ATTRIBUTE_SHORT, GRADE_CATEGORY_NAMES, GRADE_CATEGORY_SHORT, MOD_SHORT } from './CollectibleCard';
 import { GARAGE_ES, GARAGE_PARTS } from './es';
@@ -41,6 +42,8 @@ export const TABLES: Record<string, Record<string, string>> = {
   EXCLUSION_REASONS: listed([EXCLUSION_REASONS.ranked, EXCLUSION_REASONS.untrusted, EXCLUSION_REASONS.twice, ...Object.values(EXCLUSION_REASONS.missing)]),
   // The page itself.
   TABS: listed(TABS), HOLDING_WORDS: listed(Object.values(HOLDING_WORDS)), RENAMED_NOTE: listed([RENAMED_NOTE]),
+  // The card back: the foils' names come from @micar/holo.
+  FOIL_LABELS,
 };
 
 describe('Garage Spanish', () => {
