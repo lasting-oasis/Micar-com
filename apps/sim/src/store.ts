@@ -17,6 +17,8 @@ export type ConnectOpts =
 export type AccountView = { id: string; identity: Identity; allowanceToday: boolean };
 export type Caps = { google: boolean; googleClientId: string | null; magic: boolean };
 export const NO_CAPS: Caps = { google: false, googleClientId: null, magic: false };
+/** Whether an init is for another account than the one the store had (by id; no account on both sides is the same). */
+export const accountChanged = (before?: { id?: string } | null, after?: { id?: string } | null): boolean => (before?.id ?? null) !== (after?.id ?? null);
 export type LinkPayload = { google?: string; magic?: string; confirmReplace?: boolean; target?: 'requester' | 'here' };
 
 // The signed-in session token lives in localStorage; every access is in a try/catch (blocked storage = guest only).
@@ -165,7 +167,7 @@ interface StoreState {
   placeOrder: (carId: string, door: Door, lines: OrderLine[], quote: number) => void;
   clearLastOrder: () => void;
   closeGarage: () => void;
-  // buyPart is taken by the parts counter (partName, cost), so the Garage's actions carry "Strip".
+  // buyPart is taken by the parts counter (partName), so the Garage's actions carry "Strip".
   /** Pay for a Night Tuner part, own it and fit it (optimistic; emits strip_buy_part). */
   buyStripPart: (carId: string, key: string, v: PartValue, price: number) => void;
   /** Fit an owned part (optimistic; emits strip_equip). */
@@ -420,6 +422,8 @@ export const useGameStore = create<StoreState>((set, get) => ({
         // a tester key is kept with its name only once the server has taken it
         if (opts.mode === 'guest' && testerKey && !viaSession && data.state?.players?.[data.id]?.tester) writeTester({ name: opts.name, key: testerKey });
         // sign_out answers with a fresh guest init: the old token is spent
+        // another account's bay state never carries over, even from a bay_result that arrived after a sign-out; a reconnect keeps it
+        if (accountChanged(get().account, data.account)) set({ bayTab: 'custom', orderPending: false, lastOrder: null });
         set({ caps: data.caps ? { ...NO_CAPS, ...data.caps } : get().caps, account: data.account || null, linkPrompt: null, pendingLink: null });
         set({ gameState: data.state, playerId: data.id, timeOfDay: data.state.timeOfDay, chatMessages: data.state.chatLog || [], unreadChat: 0, ...mirrorStrip(data.state, data.id) });
     });

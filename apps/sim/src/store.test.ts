@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
-import { useGameStore, ORDER_TIMEOUT_MS } from './store';
+import { useGameStore, ORDER_TIMEOUT_MS, accountChanged } from './store';
 import type { GameState } from './types';
 
 describe('openGarage', () => {
@@ -74,5 +74,15 @@ describe('an unanswered order', () => {
     expect(useGameStore.getState().orderPending).toBe(true);
     vi.advanceTimersByTime(5000); // t = 15s
     expect(useGameStore.getState().orderPending).toBe(false);
+  });
+});
+
+describe('accountChanged', () => {
+  it('tells a new account from a reconnect', () => {
+    expect(accountChanged(null, undefined)).toBe(false);
+    expect(accountChanged(null, { id: 'a' })).toBe(true);
+    expect(accountChanged({ id: 'a' }, null)).toBe(true);
+    expect(accountChanged({ id: 'a' }, { id: 'a' })).toBe(false);
+    expect(accountChanged({ id: 'a' }, { id: 'b' })).toBe(true);
   });
 });
