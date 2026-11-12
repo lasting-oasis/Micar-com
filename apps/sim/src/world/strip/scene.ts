@@ -17,13 +17,14 @@ import { carParams, makeVehicle, resetVehicle, type Vehicle } from '../physics';
 import { WORLD_PER_M } from '../units';
 import { buildRentalLot } from '../../scene/world/rentalLot';
 import { RENTAL_BAY, RENTAL_CAM, RENTAL_KIOSK } from '../rental';
-import { buildHub, mountTrack, radialTexture, routeRibbon, laneRibbon, gateMeshes, disposeGate, ACCENT, CHROME, GRASS, SKY, TUBE_BLUE, type Hub, type Loader, type Mounted, type ParkOpts, type SceneMarker } from './park';
+import { buildHub, mountTrack, nameSprite, radialTexture, routeRibbon, laneRibbon, gateMeshes, disposeGate, ACCENT, CHROME, GRASS, SKY, TUBE_BLUE, type Hub, type Loader, type Mounted, type ParkOpts, type SceneMarker } from './park';
 import { HUB, SPAWN, loadTrack, routeFor, trackLoaded, trackOfEvent, type TrackData, type TrackId } from './district';
 import { zoneBounds, zoneRoads, zoneWalls, type Zone } from './zone';
-import { nearestRoadPoint, snapToRoad, type Pt, type RoadData } from './routes';
+import { nearestRoadPoint, snapToRoad, type Pt, type RoadData, type Route } from './routes';
+import type { Sample } from './remote';
 import { hubPoint, shortestPath } from './roadGraph';
 import { collideCar, collideWalls, makeAI, parkAI, separateAIs, setWallZone, setWander, stepAI, type AI } from './ai';
-import { EventRunner, DRAG_LANES, nearEvent, nearRival, playerAccel, playerTopMs, startOutrun, updateOutrun, type ActiveEvent, type EventFx, type EventResults, type Outrun } from './events';
+import { EventRunner, DRAG_LANES, nearEvent, nearRival, playerAccel, playerTopMs, startOutrun, updateOutrun, type ActiveEvent, type EventFx, type EventResults, type NetField, type Outrun, type Racer } from './events';
 
 const W = WORLD_PER_M;
 /** how close (m) the player must be to a portal or return marker */
@@ -63,6 +64,10 @@ export type StripSceneOpts = {
   onResults?(r: EventResults): void;
   /** a live event ended without results: quit with R, left the Strip, or replaced by another start (once per event) */
   onEventQuit?(ev: EventDef): void;
+  /** the player's run just ended, at the line or by failing (once per event): before the pause that precedes the results */
+  onPlayerFinish?(a: ActiveEvent): void;
+  /** a challenge race: where another racer's car is now (world/raceNet.ts keeps their poses); null before the first arrives */
+  remotePose?: (pid: string, route: Route) => Sample | null;
   /** an outrun was decided (once per outrun) */
   onOutrun?(won: boolean, rival: AI): void;
   /** a near miss with traffic above 22 m/s (Night Tuner paid $50) */
@@ -125,7 +130,10 @@ export class StripScene {
     this.fx = {
       banner: (t, bad, hold) => opts.onBanner(t, bad, hold),
       sfx: n => opts.onSfx(n),
-      spawnRacerMesh: (cfg: VisualCfg) => this.spawnCar(pick(RACER_STYLES), cfg.color, cfg),
+      // a person in a challenge drives the car the room lends, stock, under their name; the computer's racers are kitted coupes
+      spawnRacerMesh: (cfg: VisualCfg, who?: { style: string; name: string }) => who
+        ? this.spawnCar((STYLES as string[]).includes(who.style) ? who.style as BodyStyle : 'coupe', cfg.color, undefined, who.name)
+        : this.spawnCar(pick(RACER_STYLES), cfg.color, cfg),
       disposeMesh: m => this.disposeCar(m as THREE.Group),
       placeCp: (p, t) => this.placeCp(p, t),
       stage,
@@ -134,6 +142,7 @@ export class StripScene {
     this.runner = new EventRunner(this.PV, this.ais, this.fx, () => this.PV.P, () => zoneRoads(this.zone));
     this.runner.onCleanup = () => this.dropRibbon();
     this.runner.onAbandon = ev => opts.onEventQuit?.(ev);
+    this.runner.onFinish = a => opts.onPlayerFinish?.(a);
   }
   private stage(): number { return this.fx.stage(); }
 
@@ -157,11 +166,14 @@ export class StripScene {
   }
 
   // ------------------------------------------------------------------------------ cars
-  /** A lofted car in the Strip; with `cfg`, Night Tuner's kit on it (its neon light left out: the light count stays fixed). */
-  private spawnCar(style: BodyStyle, color: string, cfg?: VisualCfg): THREE.Group {
+  /** A lofted car in the Strip; with `cfg`, Night Tuner's kit on it (its neon light left out: the light count stays fixed);
+   *  with `label`, that name on a tag over it (another person in a challenge). */
+  private spawnCar(style: BodyStyle, color: string, cfg?: VisualCfg, label?: string): THREE.Group {
     const g = buildCarModel(style, color).group;
     g.userData.strip = { style, wheelR: anchorsFor(style).wheelR } satisfies CarRec;
     setCarLights(g, 'on');
+    const tag = label ? nameSprite(label) : null; // null without a DOM (tests)
+    if (tag) { tag.scale.set(5 * W, 1.25 * W, 1); tag.position.set(0, 2.8 * W, 0); g.add(tag); g.userData.tag = tag; }
     if (cfg) {
       const kit: PartsKit = attachParts(g, cfg, style, (cfg as Partial<CarCfg>).perf?.brakes ?? 0);
       if (kit.neonLight) { kit.neonLight.removeFromParent(); kit.neonLight.dispose(); kit.neonLight = null; }
@@ -176,6 +188,8 @@ export class StripScene {
     const kit = g.userData.ntParts as PartsKit | undefined;
     if (kit) disposeParts(kit);
     this.kitted.delete(g);
+    const tag = g.userData.tag as THREE.Sprite | undefined;
+    if (tag) { tag.removeFromParent(); tag.material.map?.dispose(); tag.material.dispose(); g.userData.tag = undefined; }
     disposeCarModel(g);
   }
   private spawnTraffic(count: number): void {
@@ -358,7 +372,7 @@ export class StripScene {
     return false;
   }
   /** Start an event, mounting its circuit first when the player is not on it. */
-  async startEvent(ev: EventDef, o: { quick?: boolean } = {}): Promise<void> {
+  async startEvent(ev: EventDef, o: { quick?: boolean; net?: NetField } = {}): Promise<void> {
     this.load();
     const id = trackOfEvent(ev.id), gen = this.gen;
     if (this.zone.kind !== 'track' || this.zone.track.id !== id) await this.enterTrack(id);
@@ -378,7 +392,8 @@ export class StripScene {
   /** The player's collisions for one physics sub-step (the zone's walls, then the AI cars except in a drag race); returns the impact. */
   collide(V: Vehicle): number {
     let imp = collideWalls(V); const a = this.runner.active;
-    if (!(a && a.type === 'drag')) for (const A of this.ais) { const r = collideCar(V, A); if (r > 0) { imp = Math.max(imp, r); if (A.kind === 'traffic' && !a && r > 2 && A.nm <= 0) A.nm = 3; } }
+    // people in a challenge pass through each other: each is a moment out of date on the other screens, so a touch would be decided by lag
+    if (!(a && a.type === 'drag')) for (const A of this.ais) { if ((A as Racer).remote) continue; const r = collideCar(V, A); if (r > 0) { imp = Math.max(imp, r); if (A.kind === 'traffic' && !a && r > 2 && A.nm <= 0) A.nm = 3; } }
     return imp;
   }
 
@@ -402,6 +417,7 @@ export class StripScene {
         }
       }
       separateAIs(this.noRacers);
+      this.placePeople(a);
       run.update(dt);
       const b = run.active;
       if (b && b.results && this.reported !== b) { this.reported = b; const r = run.results(); if (r) this.opts.onResults?.(r); }
@@ -425,6 +441,19 @@ export class StripScene {
     if (this.gpsMesh) this.gpsMesh.visible = !a;
     for (const g of this.kitted) syncKitLod(g);
     if (this.carGroup) syncKitLod(this.carGroup);
+  }
+  /** A challenge: the other racers stand where their own browsers put them. One who is home rolls on from its poses but
+   *  keeps the distance and score it finished with; one who is out of the race (parked) stays off the track. */
+  private placePeople(a: ActiveEvent | null): void {
+    const where = this.opts.remotePose;
+    if (!a?.net || !where) return;
+    for (const R of a.racers) {
+      if (!R.remote || !R.pid || R.parked) continue;
+      const p = where(R.pid, a.route);
+      if (!p) continue; // no pose yet: on its grid place
+      R.x = p.x; R.z = p.z; R.h = p.h; R.v = p.v;
+      if (!R.done) { R.s = p.s; R.score = p.sc; }
+    }
   }
   /** Night Tuner's updateMarkers: pulse the open markers, dim the locked ones, hide all during an event; blink the rivals' tags */
   private updateMarkers(t: number): void {

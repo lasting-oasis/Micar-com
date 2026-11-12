@@ -46,13 +46,17 @@ export function radialTexture(): THREE.CanvasTexture | null {
   return ctex(128, 128, g => { const r = g.createRadialGradient(64, 64, 0, 64, 64, 64); r.addColorStop(0, 'rgba(255,255,255,1)'); r.addColorStop(.35, 'rgba(255,255,255,.55)'); r.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = r; g.fillRect(0, 0, 128, 128); }, { srgb: false });
 }
 
-/** A park-name sign (dark rounded box, paint-yellow text), 12 x 3 m, 6 m up; null without a DOM. The caller owns it (disposeSign). */
+/** A name sign (dark rounded box, paint-yellow text): a park's at 12 x 3 m, 6 m up (the scene resizes it for a racer's name tag); null without a DOM. The caller owns it (disposeSign). */
 export function nameSprite(text: string): THREE.Sprite | null {
   const tex = ctex(512, 128, (g, w, h) => {
     g.fillStyle = '#0e1217'; g.beginPath(); if (g.roundRect) g.roundRect(0, 0, w, h, 18); else g.rect(0, 0, w, h); g.fill();
     g.strokeStyle = ACCENT; g.lineWidth = 6; g.stroke();
-    g.fillStyle = ACCENT; g.textAlign = 'center'; g.font = "italic 900 74px 'Barlow Condensed','Arial Narrow',sans-serif";
-    g.fillText(text, w / 2, 92);
+    // a long name (a racer's, up to 24 characters) is set smaller so that it fits the box
+    const face = (px: number) => `italic 900 ${px}px 'Barlow Condensed','Arial Narrow',sans-serif`;
+    let px = 74; g.fillStyle = ACCENT; g.textAlign = 'center'; g.font = face(px);
+    const wide = g.measureText(text).width;
+    if (wide > w - 48) { px = Math.max(26, Math.floor(px * (w - 48) / wide)); g.font = face(px); }
+    g.fillText(text, w / 2, h / 2 + px * 28 / 74);
   });
   if (!tex) return null;
   const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false }));

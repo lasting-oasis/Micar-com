@@ -3,7 +3,7 @@ import path from 'node:path';
 import * as THREE from 'three';
 import { HUB, markerFor } from './district';
 import { readTrackSync, setTrackDir } from './districtNode';
-import { buildHub, mountTrack, roadRibbons, markerMeshes, routeRibbon, gateMeshes } from './park';
+import { buildHub, mountTrack, nameSprite, roadRibbons, markerMeshes, routeRibbon, gateMeshes } from './park';
 import { buildRoute } from './routes';
 import { WORLD_PER_M as W } from '../units';
 
@@ -208,7 +208,7 @@ describe('park', () => {
     hub.dispose();
 
     // a minimal DOM: a canvas whose 2D context swallows every call
-    const ctx = new Proxy({}, { get: () => () => {}, set: () => true });
+    const ctx = new Proxy({}, { get: (_t, k) => k === 'measureText' ? (text: string) => ({ width: text.length * 34 }) : () => {}, set: () => true });
     vi.stubGlobal('document', { createElement: () => ({ width: 0, height: 0, getContext: () => ctx }) });
     try {
       const h = buildHub({ loadModel: null });
@@ -221,6 +221,23 @@ describe('park', () => {
       h.setVisible(false); expect(sign.visible).toBe(false); h.setVisible(true);
       h.dispose();
       expect(mat).toHaveBeenCalled(); expect(tex).toHaveBeenCalled();
+    } finally { vi.unstubAllGlobals(); }
+  });
+  it("a long name is set smaller so that it fits the sign: a racer's name tag", () => {
+    // a canvas that records the fonts it is given, and measures text at 34 px a character at 74 px
+    const fonts: string[] = [];
+    let px = 74;
+    const ctx = new Proxy({}, {
+      get: (_t, k) => k === 'measureText' ? (text: string) => ({ width: text.length * 34 * px / 74 }) : () => {},
+      set: (_t, k, v) => { if (k === 'font') { fonts.push(String(v)); px = Number(/(\d+)px/.exec(String(v))![1]); } return true; },
+    });
+    vi.stubGlobal('document', { createElement: () => ({ width: 0, height: 0, getContext: () => ctx }) });
+    try {
+      const short = nameSprite('Royal Park')!;                   // 340 px of 512: as it was
+      expect(fonts[fonts.length - 1]).toContain('74px');
+      const long = nameSprite('W'.repeat(24))!;                  // 816 px at 74: set at 42 px to fit 464
+      expect(fonts[fonts.length - 1]).toContain('42px');
+      short.material.map?.dispose(); short.material.dispose(); long.material.map?.dispose(); long.material.dispose();
     } finally { vi.unstubAllGlobals(); }
   });
 });
