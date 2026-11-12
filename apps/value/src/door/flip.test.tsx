@@ -2,6 +2,8 @@
 // a card whose tap already means something (the bay's showcase opens the inspect view, a Garage tile opens the
 // car) gets a corner button instead. Read from markup; the turning itself is e2e/every-card.smoke.mjs.
 import { describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { EXAMPLES, exampleCard } from '@micar/engine';
 import { CollectibleCard } from '../garage/CollectibleCard';
@@ -48,5 +50,20 @@ describe.each([
 describe('the corner button on its own', () => {
   it('says which way the card is', () => {
     expect(renderToStaticMarkup(<FlipCue flipped onFlip={() => {}} />)).toContain('aria-pressed="true"');
+  });
+});
+
+describe('which face shows', () => {
+  const css = readFileSync(fileURLToPath(new URL('../door.css', import.meta.url)), 'utf8');
+  const rules = css.split('\n').filter((line) => line.includes('.sl-face'));
+
+  it('is said by visibility: the back hidden until the card is turned, the front hidden once it is', () => {
+    expect(rules).toContain('.dp .sl-face.back { transform: rotateY(180deg); visibility: hidden; }');
+    expect(rules).toContain('.dp .slab.flipped .sl-face.back { visibility: visible; }');
+    expect(rules).toContain('.dp .slab.flipped .sl-face.front { visibility: hidden; }');
+  });
+
+  it('is never left to backface-visibility, which a browser that draws the card flat gets wrong', () => {
+    expect(rules.join('\n')).not.toContain('backface-visibility');
   });
 });

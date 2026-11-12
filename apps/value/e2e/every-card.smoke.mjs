@@ -34,7 +34,8 @@ const turned = (card) => card.evaluate(async (el) => {
   const img = el.querySelector('.sl-face.back .cb-card img');
   if (!el.classList.contains('flipped') || !img) return false;
   if (!img.complete) await img.decode().catch(() => {});
-  return img.naturalWidth > 0 && img.getBoundingClientRect().width > 40;
+  const seen = (face) => getComputedStyle(el.querySelector(face)).visibility === 'visible';
+  return img.naturalWidth > 0 && img.getBoundingClientRect().width > 40 && seen('.sl-face.back') && !seen('.sl-face.front');
 });
 
 async function turns(page, card, name, by) {
@@ -55,8 +56,10 @@ const site = process.env.BASE ? { base: process.env.BASE, close() {} } : await s
 const browser = await chromium.launch({ args: ['--no-sandbox'] }).catch(() => chromium.launch({ channel: 'chrome', args: ['--no-sandbox'] }));
 let failed = false;
 try {
-  for (const [label, viewport] of [['desktop', { width: 1280, height: 900 }], ['phone', { width: 390, height: 844 }]]) {
-    const page = await browser.newPage({ viewport, hasTouch: label === 'phone' });
+  // The third pass draws every card flat, as iPhone Safari does: the turn must still show the back, not the front in a mirror.
+  for (const [label, viewport, flat] of [['desktop', { width: 1280, height: 900 }], ['phone', { width: 390, height: 844 }], ['flat phone', { width: 390, height: 844 }, true]]) {
+    const page = await browser.newPage({ viewport, hasTouch: label !== 'desktop' });
+    if (flat) await page.addInitScript(() => addEventListener('DOMContentLoaded', () => { const style = document.createElement('style'); style.textContent = '.dp .slab-in { filter: opacity(1); }'; document.head.append(style); }));
     page.on('pageerror', (e) => errors.push(String(e)));
     page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
     await page.goto(site.base + '?lang=en', { waitUntil: 'networkidle' });
