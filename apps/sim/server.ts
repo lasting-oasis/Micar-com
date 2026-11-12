@@ -15,9 +15,10 @@ import { explainCondition, overallCondition } from './src/bay/faults.js';
 import { guarded, handlerErrorLog } from './src/world/safeHandler.js';
 import { REPAIR_JOBS, repairJobFor } from './src/bay/catalog.js';
 import { GATE_RETURN } from './src/scene/world/gateSpot.js';
-import { RENTAL_FLEET, canRent, isRental, isVisitor, rent, type RentalKey } from './src/world/rental.js';
+import { RENTAL_FLEET, canRent, heldLoan, heldRental, isRental, isVisitor, lend, rent, returnLoan, type RentalKey } from './src/world/rental.js';
+import { SLOT_COLORS, claimFinish, createRoom, holdsLoan, invitation, joinRoom, leaveRoom, markReady, normalizeCode, quitRace, roomView, setRace, startRace, sweep, tick, type DenyWhy, type Room } from './src/world/race.js';
 import { MAGIC_TTL_MS, allowSend, clientIp, newSendLog, pruneSendLog, applyRecord, attachAccount, liveHolder, bootState, claimAllowance, findAccount, linkGuest, saveRecord, signMagic, signSession, utcDay, verifyGoogle, verifyMagic, verifySession, type Account, type Identity, type Jwk } from './src/world/accounts.js';
-import { RENTAL_DENIED, VISITOR_DENIED, VISITOR_EVENTS, closeEvent, guestPlayer, hostIsVacant, isUntouchedGuest, linkTarget, pickHost, quitEvent, sanitizePosition } from './src/world/stripFlow.js';
+import { RENTAL_DENIED, STRIP_LIMIT, VISITOR_DENIED, VISITOR_EVENTS, closeEvent, guestPlayer, hostIsVacant, isUntouchedGuest, linkTarget, pickHost, quitEvent, sanitizePosition } from './src/world/stripFlow.js';
 import { coalescingSaver, loadOrQuarantine, writeAtomic } from './src/world/persistence.js';
 import { grantTester, heldTestCar, returnTestCar, setTestCar, splitTesterName, testCarDef, topUp } from './src/world/tester.js';
 import { checkTesterKey, configuredTesterKey, isKeyAttempt, newAttemptLog, refusalText } from './src/world/testerKey.js';
@@ -118,8 +119,58 @@ const stripPositions = new Map<string, any>();
 const lastPaidAt = new Map<string, number>();
 /** A socket's player was replaced (a re-join, a sign-out, a superseded session): nothing of the old run's live state stays. */
 function resetSocketState(socketId: string) {
+    leaveRace(socketId); // first: the lent car goes back while the old player record is still the socket's
     for (const m of [activeEvents, drivenCar, stripPositions, lastOutrunAt, lastPaidAt] as Map<string, unknown>[]) m.delete(socketId);
 }
+
+// --- Challenge races -----------------------------------------------------------
+// A race between people, started from a link. The rules are in src/world/race.ts; this is the wiring. Rooms live in
+// memory, like players: a restart ends them all.
+const raceRooms = new Map<string, Room>();
+/** The room each socket is in: one at a time. */
+const raceOf = new Map<string, string>();
+/** When each socket last made a room (one every ROOM_GAP_MS), and last sent a pose (one every POSE_GAP_MS). */
+const lastRoomAt = new Map<string, number>();
+const lastPoseAt = new Map<string, number>();
+const ROOM_GAP_MS = 3000, POSE_GAP_MS = 40;
+const raceChannel = (code: string) => 'race:' + code;
+
+/** After any change to a room: the lent cars are made to match it (a racer holds one until a DNF, or until the race
+ *  closes), and every member is sent the room. `changed`: an inventory already changed on the way here. */
+function syncRoom(room: Room, changed = false) {
+    const now = Date.now();
+    for (const m of room.members) {
+        const player = gameState.players[m.id];
+        if (!player) continue;
+        const has = !!heldLoan(player), should = holdsLoan(room, m.id);
+        if (should && !has) { lend(player, room.car, room.code, SLOT_COLORS[m.slot % SLOT_COLORS.length], now); changed = true; }
+        else if (!should && has) { returnLoan(player); drivenCar.delete(m.id); changed = true; }
+    }
+    io.to(raceChannel(room.code)).emit('race_room', roomView(room));
+    if (changed) broadcastState(io, gameState);
+}
+
+/** A socket leaves its room (it left, dropped, re-joined or signed out): its lent car goes back and the room is told. */
+function leaveRace(socketId: string) {
+    const code = raceOf.get(socketId);
+    lastPoseAt.delete(socketId);
+    if (!code) return;
+    raceOf.delete(socketId);
+    const room = raceRooms.get(code), player = gameState.players[socketId];
+    const had = !!(player && returnLoan(player));
+    if (had) drivenCar.delete(socketId);
+    io.sockets.sockets.get(socketId)?.leave(raceChannel(code));
+    if (room) { leaveRoom(room, socketId, Date.now()); syncRoom(room, had); }
+    else if (had) broadcastState(io, gameState);
+}
+
+// Once a second: what only the clock decides in a room (the slow are left behind, the finish window closes, a race
+// nobody finishes ends), and the rooms nobody has been in for two minutes go.
+setInterval(() => {
+    const now = Date.now();
+    for (const room of raceRooms.values()) if (tick(room, now)) syncRoom(room);
+    sweep(raceRooms, now);
+}, 1000);
 
 // Timestamp of the last accepted end_day, used to throttle host day-advances.
 let lastEndDayAt = 0;
@@ -1277,6 +1328,7 @@ io.on('connection', (socket) => {
   socket.on('enter_event', ({ eventId } = {} as any) => {
       const player = gameState.players[socket.id];
       if (!player) return;
+      if (heldLoan(player)) { deny('Finish the challenge first.'); return; } // a lent car never earns: no paid event in it
       const ev = EVENTS.find(e => e.id === eventId);
       if (!ev) { activeEvents.delete(socket.id); return; }
       const ok = validateEnter(player.worldPosition?.district, ev, stageOf(stripOf(player).rep));
@@ -1323,6 +1375,7 @@ io.on('connection', (socket) => {
   socket.on('finish_outrun', ({ won } = {} as any) => {
       const player = gameState.players[socket.id];
       if (!player) return;
+      if (heldLoan(player)) return; // in a challenge: no outrun is paid, and the lent car stays where the room put it
       const now = Date.now();
       // An outrun (won or lost) ends the run in a rental, unless it happened inside a live event.
       const returned = !liveEntry(now) && endEvent(socket.id, drivenCar.get(socket.id));
@@ -1419,6 +1472,7 @@ io.on('connection', (socket) => {
       const player = gameState.players[socket.id];
       if (!player) return;
       if (!RENTAL_FLEET.some(f => f.key === key)) { deny('That car is not for rent.'); return; }
+      if (raceOf.has(socket.id)) { deny('Leave the challenge first.'); return; } // the room lends the car for its races
       const ok = canRent(player, key as RentalKey);
       if (!ok.ok) { deny(ok.reason); return; }
       rent(player, key as RentalKey, Date.now());
@@ -1433,6 +1487,7 @@ io.on('connection', (socket) => {
       if (!player.tester) { deny('That car is not for rent.'); return; }
       const def = testCarDef(make, model);
       if (!def) { deny('That car is not on the list.'); return; }
+      if (raceOf.has(socket.id)) { deny('Leave the challenge first.'); return; }
       if (activeEvents.has(socket.id)) { deny('Finish or quit the event first.'); return; }
       setTestCar(player, def, Date.now());
       drivenCar.delete(socket.id);
@@ -1446,6 +1501,107 @@ io.on('connection', (socket) => {
       drivenCar.delete(socket.id);
       broadcastState(io, gameState);
   });
+
+  // --- Challenge races --------------------------------------------------------
+  // A room, its link, the lent cars and the result (the rules: src/world/race.ts). Every payload is read defensively:
+  // nothing here trusts its shape. A refusal is race_denied { why }; the page words it.
+  const raceNo = (why: DenyWhy) => socket.emit('race_denied', { why });
+  const fields = (msg: unknown): Record<string, unknown> => (msg && typeof msg === 'object' && !Array.isArray(msg) ? msg as Record<string, unknown> : {});
+  const myRoom = (): Room | undefined => { const code = raceOf.get(socket.id); return code ? raceRooms.get(code) : undefined; };
+  /** Nobody with a car in hand, or an event entered, makes or joins a challenge. */
+  const handsFull = (player: Player) => !!heldRental(player) || !!heldTestCar(player) || activeEvents.has(socket.id);
+  /** This socket is in `room` now, and in no other. */
+  const enterRoom = (room: Room) => {
+      if (raceOf.get(socket.id) !== room.code) leaveRace(socket.id);
+      raceOf.set(socket.id, room.code);
+      socket.join(raceChannel(room.code));
+      syncRoom(room);
+  };
+
+  // the server's clock, for a page to measure its own against: the green light is named on this clock
+  socket.on('race_time', (...args: unknown[]) => { const answer = args[args.length - 1]; if (typeof answer === 'function') answer(Date.now()); });
+
+  socket.on('race_create', (msg: unknown) => {
+      const player = gameState.players[socket.id];
+      if (!player) return;
+      if (handsFull(player)) { raceNo('holding'); return; }
+      const now = Date.now(), last = lastRoomAt.get(socket.id);
+      if (last !== undefined && now - last < ROOM_GAP_MS) { raceNo('slow'); return; }
+      const { eventId, car } = fields(msg);
+      const made = createRoom(raceRooms, { id: socket.id, name: player.name }, { eventId, car }, stageOf(stripOf(player).rep), Math.random);
+      if (!made.ok) { raceNo(made.why); return; }
+      lastRoomAt.set(socket.id, now);
+      enterRoom(made.room);
+  });
+
+  socket.on('race_join', (msg: unknown) => {
+      const player = gameState.players[socket.id];
+      if (!player) return;
+      if (handsFull(player)) { raceNo('holding'); return; }
+      const code = normalizeCode(fields(msg).code), room = code ? raceRooms.get(code) : undefined;
+      if (!room) { raceNo('gone'); return; }
+      const joined = joinRoom(room, { id: socket.id, name: player.name });
+      if (!joined.ok) { raceNo(joined.why); return; }
+      enterRoom(room);
+  });
+
+  socket.on('race_set', (msg: unknown) => {
+      const player = gameState.players[socket.id], room = myRoom();
+      if (!player || !room) return;
+      const { eventId, car } = fields(msg);
+      const set = setRace(room, socket.id, { eventId, car }, stageOf(stripOf(player).rep));
+      if (!set.ok) { raceNo(set.why); return; }
+      syncRoom(room);
+  });
+
+  socket.on('race_start', () => {
+      const room = myRoom();
+      if (!room) return;
+      const started = startRace(room, socket.id, Date.now());
+      if (!started.ok) { raceNo(started.why); return; }
+      syncRoom(room); // lends every racer the car
+  });
+
+  // on the grid in the lent car, the circuit loaded
+  socket.on('race_ready', () => {
+      const room = myRoom();
+      if (room && markReady(room, socket.id, Date.now()).ok) syncRoom(room);
+  });
+
+  // A racer's pose, about fifteen times a second: relayed to the others in the room and kept nowhere.
+  socket.on('race_pose', (msg: unknown) => {
+      const room = myRoom();
+      if (!room || room.phase !== 'racing' || !Array.isArray(msg) || msg.length !== 7) return;
+      const me = room.members.find(m => m.id === socket.id);
+      if (!me || (me.state !== 'racing' && me.state !== 'finished')) return;
+      for (const n of msg) if (typeof n !== 'number' || !Number.isFinite(n)) return;
+      const now = Date.now(), last = lastPoseAt.get(socket.id);
+      if (last !== undefined && now - last < POSE_GAP_MS) return;
+      lastPoseAt.set(socket.id, now);
+      const [t, x, z, h, v, s, sc] = msg as number[];
+      const within = (n: number, lim: number) => Math.max(-lim, Math.min(lim, n));
+      socket.to(raceChannel(room.code)).volatile.emit('race_pose',
+          [socket.id, t, within(x, STRIP_LIMIT), within(z, STRIP_LIMIT), within(h, 1000), within(v, 200), within(s, STRIP_LIMIT), Math.max(0, Math.min(9_999_999, sc))]);
+  });
+
+  // The racer's own word on their finish: race.ts decides whether that time stands, or the server's own.
+  socket.on('race_finish', (msg: unknown) => {
+      const room = myRoom();
+      if (!room) return;
+      const { time, score, failed } = fields(msg);
+      const claimed = claimFinish(room, socket.id, { time, score, failed }, Date.now());
+      if (!claimed.ok) { raceNo(claimed.why); return; }
+      syncRoom(room); // a DNF's car goes back now; everyone's when the race closes
+  });
+
+  socket.on('race_quit', () => {
+      const room = myRoom();
+      if (!room) return;
+      quitRace(room, socket.id, Date.now());
+      syncRoom(room);
+  });
+
+  socket.on('race_leave', () => leaveRace(socket.id));
 
   socket.on('request_link', async ({ email } = {} as any) => {
       const player = gameState.players[socket.id];
@@ -1539,6 +1695,7 @@ io.on('connection', (socket) => {
       }
       const { account, replaced } = linkGuest(gameState.accounts, identity, player, Date.now());
       if (replaced) { // the guest's run (and any rental it held) is set aside for the saved one
+          leaveRace(targetId); // and its place in a challenge room: the saved player was never in it
           applyRecord(player, structuredClone(account.player));
           explainAll(player);
           drivenCar.delete(targetId);
@@ -2329,6 +2486,7 @@ io.on('connection', (socket) => {
     const gone = gameState.players[socket.id];
     if (gone?.accountId) persistAccount(gone);
     lastLinkAt.delete(socket.id);
+    lastRoomAt.delete(socket.id);
     resetSocketState(socket.id);
     const leaving = gameState.players[socket.id];
     delete gameState.players[socket.id];
@@ -2349,6 +2507,14 @@ async function startServer() {
 
     // What the Strip entry card may offer before anyone has joined (init.caps arrives too late for it)
     app.get('/api/caps', (_req, res) => { res.set('Cache-Control', 'no-store'); res.json(CAPS); });
+    // What a challenge link shows before its reader has joined: who is hosting, which race, which car. The code is the key.
+    app.get('/api/race/:code', (req, res) => {
+        res.set('Cache-Control', 'no-store');
+        res.set('Access-Control-Allow-Origin', '*'); // the page under the Vite dev server asks from another port
+        const code = normalizeCode(req.params.code), room = code ? raceRooms.get(code) : undefined;
+        if (!room) { res.status(404).json({ ok: false }); return; }
+        res.json({ ok: true, ...invitation(room) });
+    });
 
     if (process.env.NODE_ENV !== 'production') {
         const { createServer: createViteServer } = await import('vite');

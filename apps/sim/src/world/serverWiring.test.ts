@@ -14,6 +14,7 @@ import { signMagic, signSession } from './accounts';
 import { EVENTS, freshStrip, stageOf } from './data';
 import { partPrice } from './payout';
 import { RENTAL_DENIED, VISITOR_DENIED } from './stripFlow';
+import { SLOT_COLORS, type RoomView } from './race';
 import { TESTER_MONEY, TESTER_REFUSED, TESTER_REP } from './tester';
 import { ATTEMPTS_PER_IP } from './testerKey';
 
@@ -508,6 +509,188 @@ describe('server wiring', () => {
     for (const e of ['rent_car', 'strip_buy_part', 'perform_specific_repair']) expect(errs).toContain(e);
     for (const e of ['buy_part', 'bay_order']) expect(errs).not.toContain(e);
     await close(g, d);
+  }, 30_000);
+
+  // ---- challenge races: a room, a link, lent cars, one green light (race.ts has the rules; this is the wiring)
+  const roomSeen = (s: Socket, pred: (r: RoomView) => boolean = () => true) => next<RoomView>(s, 'race_room', pred, 15_000);
+  const raceDenied = (s: Socket) => next<{ why: string }>(s, 'race_denied');
+  const guest = async (name: string) => { const s = client(); const i = await join(s, { mode: 'guest', name }); return { s, id: i.id as string }; };
+  const lookup = async (code: string) => { const r = await fetch(`${url}/api/race/${code}`); return { status: r.status, cache: r.headers.get('cache-control'), body: await r.json() as any }; };
+  const makeRoom = (host: { s: Socket }, eventId = 'royal_drag', car = 'ronin') => { const r = roomSeen(host.s); host.s.emit('race_create', { eventId, car }); return r; };
+  const joinRoomAs = (who: { s: Socket }, code: string) => { const r = roomSeen(who.s); who.s.emit('race_join', { code }); return r; };
+  const loanOf = (p: any) => p.inventory.find((c: any) => c.loan);
+
+  it('three guests race a challenge from a link: lent cars, one green light, a result, and no money moved', async () => {
+    const a = await guest('Ana'), b = await guest('Bo'), c = await guest('Cy'), outsider = await guest('Out');
+    const made = await makeRoom(a), code = made.code;
+    expect(code).toMatch(/^[ABCDEFGHJKMNPQRSTUVWXYZ2-9]{6}$/);
+    expect(made).toMatchObject({ eventId: 'royal_drag', car: 'ronin', hostId: a.id, phase: 'open', raceNo: 0, goAt: null, last: null });
+    expect(made.members.map(m => [m.id, m.name, m.state])).toEqual([[a.id, 'Ana', 'waiting']]);
+    // what the link shows before anyone joins
+    const inv = await lookup(code);
+    expect(inv.status).toBe(200); expect(inv.cache).toBe('no-store');
+    expect(inv.body).toEqual({ ok: true, host: 'Ana', eventId: 'royal_drag', car: 'ronin', count: 1, max: 4, phase: 'open' });
+    for (const bad of ['zzzzzz', 'nope']) { const r = await lookup(bad); expect(r.status).toBe(404); expect(r.body).toEqual({ ok: false }); }
+    // the others come in by the code as people type it, and every member is told
+    const two = roomSeen(a.s, r => r.members.length === 2);
+    expect((await joinRoomAs(b, code.toLowerCase())).members).toHaveLength(2);
+    await two;
+    const three = roomSeen(a.s, r => r.members.length === 3);
+    expect((await joinRoomAs(c, ` ${code.slice(0, 3)}-${code.slice(3)} `)).members.map(m => m.name)).toEqual(['Ana', 'Bo', 'Cy']);
+    await three;
+    // only the host starts
+    const notHost = raceDenied(b.s); b.s.emit('race_start'); expect((await notHost).why).toBe('host');
+    // Start: everyone is loading, and each is lent the car in the colour of a different grid place
+    const loading = [a, b, c].map(p => roomSeen(p.s, r => r.phase === 'loading'));
+    const lent = [a, b, c].map(p => mineAfter(p.s, p.id, me => !!loanOf(me)));
+    a.s.emit('race_start');
+    const view = (await Promise.all(loading))[0];
+    expect(view.raceNo).toBe(1);
+    expect(view.members.map(m => m.state)).toEqual(['loading', 'loading', 'loading']);
+    expect(view.members.map(m => m.slot).sort()).toEqual([0, 1, 2]);
+    const cars = (await Promise.all(lent)).map(loanOf);
+    for (const car of cars) expect(car).toMatchObject({ rental: true, loan: code, make: 'Ronin', model: 'GT' });
+    for (const [i, p] of [a, b, c].entries()) expect(cars[i].color).toBe(SLOT_COLORS[view.members.find(m => m.id === p.id)!.slot]);
+    expect(new Set(cars.map(x => x.color)).size).toBe(3);
+    // a paid event cannot be entered in a lent car
+    const noEvent = next<any>(a.s, 'strip_denied'); a.s.emit('enter_event', { eventId: 'royal_drag' }); expect((await noEvent).reason).toBe('Finish the challenge first.');
+    // everyone ready: one green light for all, five seconds on
+    const going = [a, b, c].map(p => roomSeen(p.s, r => r.phase === 'racing'));
+    const t0 = Date.now();
+    for (const p of [a, b, c]) p.s.emit('race_ready');
+    const go = (await Promise.all(going))[0], goAt = go.goAt!;
+    expect(goAt).toBeGreaterThanOrEqual(t0 + 5000 - 50); expect(goAt).toBeLessThanOrEqual(Date.now() + 5000 + 50);
+    expect(go.members.map(m => m.state)).toEqual(['racing', 'racing', 'racing']);
+    // a pose goes to the other racers under its sender's id: not back to the sender, and to nobody outside the room
+    const atA = next<any[]>(a.s, 'race_pose'), atC = next<any[]>(c.s, 'race_pose'), outside = quiet(outsider.s, 'race_pose', 400), echo = quiet(b.s, 'race_pose', 400);
+    b.s.emit('race_pose', [goAt, 1, 2, 0.5, 30, 100, 0]);
+    expect(await atA).toEqual([b.id, goAt, 1, 2, 0.5, 30, 100, 0]); expect(await atC).toEqual([b.id, goAt, 1, 2, 0.5, 30, 100, 0]);
+    expect(await outside).toBe(true); expect(await echo).toBe(true);
+    // a finish before any car could be home is refused
+    const tooSoon = raceDenied(a.s); a.s.emit('race_finish', { time: 1, score: 0, failed: false }); expect((await tooSoon).why).toBe('state');
+    // c quits: a DNF, whose car goes back at once while the others keep theirs
+    const quitSeen = roomSeen(a.s, r => r.members.find(m => m.id === c.id)?.state === 'dnf');
+    const cBack = mineAfter(c.s, c.id, me => !loanOf(me)), aKeeps = mineAfter(a.s, a.id);
+    c.s.emit('race_quit');
+    expect((await quitSeen).members.map(m => [m.name, m.state, m.why])).toEqual([['Ana', 'racing', null], ['Bo', 'racing', null], ['Cy', 'dnf', 'quit']]);
+    expect((await cBack).inventory).toEqual([]);
+    expect(loanOf(await aKeeps)).toBeTruthy();
+    // once the quarter mile's floor has passed (402 m at 50 m/s: 8.04 s after the green light) a finish is taken
+    await new Promise(r => setTimeout(r, Math.max(0, goAt + 8_150 - Date.now())));
+    const aHome = roomSeen(a.s, r => r.members.find(m => m.id === a.id)?.state === 'finished');
+    const claim = (Date.now() - goAt) / 1000;
+    a.s.emit('race_finish', { time: claim, score: 0, failed: false });
+    const home = await aHome;
+    expect(home.members.find(m => m.id === a.id)!.time).toBeCloseTo(claim, 2); // its own time stands: it agrees with the server's clock
+    expect(home.phase).toBe('racing');
+    expect(home.closesAt).toBeGreaterThan(Date.now() + 55_000); // the others have a minute
+    // b claims a time nobody could drive and gets the server's figure; with nobody left racing the race closes
+    const closed = [a, b, c].map(p => roomSeen(p.s, r => r.phase === 'open' && !!r.last));
+    const back = [a, b, c].map(p => mineAfter(p.s, p.id, me => !loanOf(me)));
+    const bSent = (Date.now() - goAt) / 1000;
+    b.s.emit('race_finish', { time: 1, score: 0, failed: false });
+    const done = (await Promise.all(closed))[0];
+    expect(done.last!.raceNo).toBe(1);
+    expect(done.last!.rows.map(r => [r.name, r.pos, r.why])).toEqual([['Ana', 1, null], ['Bo', 2, null], ['Cy', 3, 'quit']]);
+    const bTime = done.last!.rows[1].time!;
+    expect(bTime).toBeGreaterThanOrEqual(bSent - 0.01); expect(bTime).toBeLessThan(bSent + 0.5);
+    expect(done.members.map(m => m.state)).toEqual(['waiting', 'waiting', 'waiting']);
+    expect(done.goAt).toBeNull(); expect(done.closesAt).toBeNull();
+    // the cars are back and nothing was won or lost
+    for (const me of await Promise.all(back)) {
+      expect(me.inventory).toEqual([]); expect(me.money).toBe(500); expect(me.octane).toBe(0); expect(me.stamps).toEqual([]);
+      expect(me.strip).toMatchObject({ rep: 0, wins: {}, best: {}, cars: {} });
+    }
+    await close(a.s, b.s, c.s, outsider.s);
+  }, 60_000);
+
+  it('the host leaving hands the room on, and an empty room can be joined again by its code', async () => {
+    const h = await guest('Hal'), m = await guest('Mo');
+    const code = (await makeRoom(h)).code;
+    await joinRoomAs(m, code);
+    const handed = roomSeen(m.s, r => r.hostId === m.id);
+    h.s.close();
+    expect((await handed).members.map(x => x.name)).toEqual(['Mo']);
+    m.s.emit('race_leave');
+    await new Promise(r => setTimeout(r, 300));
+    expect((await lookup(code)).body).toEqual({ ok: true, host: '', eventId: 'royal_drag', car: 'ronin', count: 0, max: 4, phase: 'open' });
+    // whoever comes back to it by the code hosts it
+    const n = await guest('Nia'), back = await joinRoomAs(n, code);
+    expect(back.hostId).toBe(n.id); expect(back.members.map(x => x.name)).toEqual(['Nia']);
+    // one room at a time: making another leaves this one
+    const other = await makeRoom(n, 'harbour_gp', 'civet');
+    expect(other.code).not.toBe(code);
+    expect((await lookup(code)).body.count).toBe(0);
+    await close(m.s, n.s);
+  }, 30_000);
+
+  it('a racer who drops stays on the result as a DNF, and the room carries on under a new host', async () => {
+    const x = await guest('Xi'), y = await guest('Yo');
+    const code = (await makeRoom(x)).code;
+    await joinRoomAs(y, code);
+    const loading = [x, y].map(p => roomSeen(p.s, r => r.phase === 'loading'));
+    x.s.emit('race_start');
+    await Promise.all(loading);
+    const going = roomSeen(y.s, r => r.phase === 'racing');
+    x.s.emit('race_ready'); y.s.emit('race_ready');
+    await going;
+    const alone = roomSeen(y.s, r => r.members.length === 1);
+    x.s.close(); // the host's connection drops after the start
+    expect(await alone).toMatchObject({ hostId: y.id, phase: 'racing' });
+    const over = roomSeen(y.s, r => r.phase === 'open' && !!r.last), carBack = mineAfter(y.s, y.id, me => !loanOf(me));
+    y.s.emit('race_quit');
+    expect((await over).last!.rows.map(r => [r.name, r.time, r.why])).toEqual([['Yo', null, 'quit'], ['Xi', null, 'left']]);
+    expect((await carBack).money).toBe(500);
+    await close(y.s);
+  }, 30_000);
+
+  it('the refusals: few, full, gone, pick, host, holding, slow; and no renting from inside a room', async () => {
+    const g = await Promise.all(['R1', 'R2', 'R3', 'R4', 'R5'].map(guest));
+    const code = (await makeRoom(g[0])).code;
+    let d = raceDenied(g[0].s); g[0].s.emit('race_start'); expect((await d).why).toBe('few');
+    for (const p of g.slice(1, 4)) await joinRoomAs(p, code);
+    d = raceDenied(g[4].s); g[4].s.emit('race_join', { code }); expect((await d).why).toBe('full');
+    d = raceDenied(g[4].s); g[4].s.emit('race_join', { code: 'ZZZZZZ' }); expect((await d).why).toBe('gone');
+    d = raceDenied(g[4].s); g[4].s.emit('race_join', { code: 'not a code' }); expect((await d).why).toBe('gone');
+    d = raceDenied(g[4].s); g[4].s.emit('race_create', { eventId: 'ardennes_gp', car: 'ronin' }); expect((await d).why).toBe('pick'); // a new guest is at stage 1; it opens at 5
+    d = raceDenied(g[1].s); g[1].s.emit('race_set', { eventId: 'harbour_gp', car: 'civet' }); expect((await d).why).toBe('host');
+    // the host changes the race, and everyone is told
+    const changed = roomSeen(g[3].s, r => r.eventId === 'harbour_gp');
+    g[0].s.emit('race_set', { eventId: 'harbour_gp', car: 'civet' });
+    expect(await changed).toMatchObject({ eventId: 'harbour_gp', car: 'civet' });
+    // no car from the counter while in a room
+    const noRent = next<any>(g[1].s, 'strip_denied'); g[1].s.emit('rent_car', { key: 'civet' }); expect((await noRent).reason).toBe('Leave the challenge first.');
+    // and no room while holding a car from the counter
+    await rentOne(g[4].s, g[4].id);
+    d = raceDenied(g[4].s); g[4].s.emit('race_create', { eventId: 'royal_drag', car: 'ronin' }); expect((await d).why).toBe('holding');
+    d = raceDenied(g[4].s); g[4].s.emit('race_join', { code }); expect((await d).why).toBe('holding');
+    // rooms are not made in a burst; the refusal leaves the first room alone
+    const solo = await guest('Burst'), first = (await makeRoom(solo)).code;
+    d = raceDenied(solo.s); solo.s.emit('race_create', { eventId: 'royal_drag', car: 'ronin' }); expect((await d).why).toBe('slow');
+    expect((await lookup(first)).body.count).toBe(1);
+    // a tester takes no car while in a room, and with a car in hand joins none
+    const tt = client(), ti = await join(tt, { mode: 'guest', name: 'RoomTester', testerKey: TESTER });
+    await joinRoomAs({ s: tt }, first);
+    const noTest = next<any>(tt, 'strip_denied'); tt.emit('test_car', { make: 'Ford', model: 'Mustang' }); expect((await noTest).reason).toBe('Leave the challenge first.');
+    tt.emit('race_leave'); await new Promise(r => setTimeout(r, 200));
+    const gotCar = mineAfter(tt, ti.id, me => me.inventory.some((c: any) => c.testCar)); tt.emit('test_car', { make: 'Ford', model: 'Mustang' }); await gotCar;
+    d = raceDenied(tt); tt.emit('race_join', { code: first }); expect((await d).why).toBe('holding');
+    await close(solo.s, tt, ...g.map(p => p.s));
+  }, 30_000);
+
+  it('junk on every race message stops nobody', async () => {
+    const g = await guest('Junk');
+    let turnedAway = false; g.s.on('strip_denied', (d: any) => { if (d?.reason === VISITOR_DENIED) turnedAway = true; });
+    for (const ev of ['race_time', 'race_create', 'race_join', 'race_set', 'race_start', 'race_ready', 'race_pose', 'race_finish', 'race_quit', 'race_leave'])
+      for (const junk of [null, 'x', 42, {}, [], undefined]) g.s.emit(ev, junk);
+    for (const pose of [[NaN, 1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6, 7, 8], ['a', 1, 2, 3, 4, 5, 6], [Infinity, 1, 2, 3, 4, 5, 6]]) g.s.emit('race_pose', pose);
+    await new Promise(r => setTimeout(r, 400));
+    // the clock still answers, and the same socket still makes a room
+    const ts = await new Promise<number>(res => g.s.emit('race_time', (t: number) => res(t)));
+    expect(Math.abs(ts - Date.now())).toBeLessThan(2000);
+    expect((await makeRoom(g)).members).toHaveLength(1);
+    expect(turnedAway).toBe(false); // every one of them is open to a visitor
+    await close(g.s);
   }, 30_000);
 
   it('five wrong keys from one address shut the key out, the right one included (this test must stay the last to use the key)', async () => {
