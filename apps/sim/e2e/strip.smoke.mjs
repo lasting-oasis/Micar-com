@@ -209,7 +209,7 @@ try {
     await m.getByRole('button', { name: /Race as guest/i }).click();
     const counter = m.locator('[aria-label="Rental counter"]');
     await counter.waitFor({ timeout: 90000 });
-    await counter.locator('button').first().click();
+    await counter.getByRole('button', { name: /Ronin GT/i }).click(); // by name: the counter's first row is "Challenge a friend"
     await m.waitForFunction(() => window.__micar.pose().driving === true, null, { timeout: 120000 });
     ok(await m.getByRole('slider', { name: 'Steering' }).isVisible() && await m.getByRole('slider', { name: 'Gas and brake' }).isVisible(), 'a phone drives with the steering and gas sticks');
     ok(!(await m.locator('[data-k="thr"]').isVisible()), 'the old buttons are hidden');

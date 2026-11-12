@@ -35,5 +35,7 @@ jobs:
           BASE=http://localhost:3123/ node e2e/strip.smoke.mjs || status=$?
           # the engine sound model, rendered through the built audio worklet
           BASE=http://localhost:3123/ node e2e/sound.smoke.mjs || status=$?
+          # a challenge race: one link, two browsers, the same quarter mile at the same moment
+          BASE=http://localhost:3123/ node e2e/challenge.smoke.mjs || status=$?
           if [ "$status" != 0 ]; then echo "--- server log"; tail -50 "$RUNNER_TEMP/server.log"; fi
           exit $status
