@@ -1,9 +1,10 @@
 // Smoke test for a challenge race, against a running server (production build): two browsers and one link.
 //   pnpm --filter @micar/sim build && NODE_ENV=production PORT=3123 pnpm --filter @micar/sim start &
 //   BASE=http://localhost:3123/ pnpm --filter @micar/sim exec node e2e/challenge.smoke.mjs
-// The host makes a drag challenge at the rental counter and reads its link. The friend opens the link, sees who is
-// challenging and to what, and joins. The host starts; both drive the quarter mile in the lent car; both results cards
-// list both drivers; both are back in the waiting room with their $500 and no car, and the host can start again.
+// The host makes a drag challenge at the rental counter and reads its link, reloads the page and comes back to the same
+// room. The friend opens the link, sees who is challenging and to what, and joins. The host starts; both drive the quarter
+// mile in the lent car; both results cards list both drivers; both are back in the waiting room with their $500 and no
+// car. The host starts a second race in the same room; the friend quits it, then the host, and the room is open again.
 // Two browsers, not two tabs of one: a tab in the background is throttled, and the race is timed on the wall clock.
 // Exits 1 on a failed assertion or a page error. Software GL (swiftshader), so it runs headless with no display; the
 // game is slow there, so every step waits on the page's own state, never on a clock.
@@ -28,6 +29,8 @@ async function driver(who) {
 // what the page shows, as it is written (innerText would give it as styled: the cards' headings are upper-cased by CSS)
 const text = (d) => d.p.evaluate(() => document.body.textContent);
 const state = (d) => d.p.evaluate(() => ({ pose: window.__micar.pose(), event: window.__micar.event(), race: window.__micar.race(), money: window.__micar.money(), cars: window.__micar.cars().length }));
+/** Out of the race by the pause menu. */
+const quit = async (d) => { await d.p.keyboard.press('Escape'); await d.p.getByRole('button', { name: /Quit event/i }).click(); };
 
 /** Hold the throttle and shift at the redline (a drag is always manual) until the results card is up. */
 async function driveTheQuarter(d) {
@@ -57,7 +60,17 @@ try {
   await host.p.waitForSelector('[aria-label="Waiting room"]');
   const link = await host.p.locator('input[aria-label="Send this link"]').inputValue();
   ok(/\/strip\?race=[A-Z2-9]{6}$/.test(link), `the host has a link to send (${link})`);
-  ok(new URL(host.p.url()).searchParams.get('race') === new URL(link).searchParams.get('race'), "the host's own address carries the room: a reload comes back to it");
+  ok(new URL(host.p.url()).searchParams.get('race') === new URL(link).searchParams.get('race'), "the host's own address carries the room");
+  // a reload: the page opens on the invitation to its own room (empty meanwhile, and still naming its host) and joins it again
+  await host.p.reload({ waitUntil: 'domcontentloaded' });
+  await host.p.waitForSelector('text=challenged you');
+  ok(/HostBot challenged you/i.test(await text(host)), 'after a reload the link still opens on the challenge');
+  await host.p.fill('input[type=text]', 'HostBot');
+  await host.p.getByRole('button', { name: 'Join the race' }).click();
+  await host.p.waitForSelector('[aria-label="Waiting room"]', { timeout: 120000 });
+  ok(await host.p.locator('input[aria-label="Send this link"]').inputValue() === link, 'the reload came back to the same room, by the same link');
+  await host.p.waitForFunction(() => window.__micar.race()?.members === 1);
+  ok(true, 'and the host is alone in it: the page that was reloaded away is gone from the room');
 
   // 2. the friend opens the link: the invitation, then the same waiting room
   await friend.p.goto(link, { waitUntil: 'domcontentloaded' });
@@ -108,7 +121,30 @@ try {
   }
   ok(await host.p.getByRole('button', { name: 'Start race' }).isEnabled(), 'the host can start the next one');
 
-  // 6. the friend leaves: back at the counter, and the address forgets the room
+  // 6. a second race in the same room: the cars are lent again. The friend quits it, then the host.
+  await host.p.getByRole('button', { name: 'Start race' }).click();
+  for (const d of [host, friend]) {
+    await d.p.waitForFunction(() => window.__micar.event()?.state === 'race' && window.__micar.race()?.phase === 'racing', null, { timeout: 180000 });
+    const s = await state(d);
+    ok(s.cars === 1 && s.race.me === 'racing', `${d.who}: the second race is on, in a car lent again`);
+  }
+  await quit(friend);
+  await friend.p.waitForSelector('[aria-label="Waiting room"]', { timeout: 60000 });
+  await friend.p.waitForFunction(() => window.__micar.cars().length === 0 && window.__micar.race()?.me === 'dnf');
+  ok((await state(friend)).race.phase === 'racing', 'the friend quit: back in the waiting room with the car returned, while the race goes on');
+  ok((await state(host)).event?.state === 'race', 'the host races on');
+  // the host quitting leaves nobody racing: the race closes, and the last one out is shown how it ended
+  await quit(host);
+  await host.p.waitForFunction(() => document.body.textContent.includes('Continue [Enter]'), null, { timeout: 60000 });
+  ok(/Did not finish/i.test(await text(host)), 'the host quit last: the card says how the race ended');
+  await host.p.keyboard.press('Enter');
+  await host.p.waitForSelector('[aria-label="Waiting room"]', { timeout: 60000 });
+  for (const d of [host, friend]) {
+    await d.p.waitForFunction(() => window.__micar.race()?.phase === 'open' && window.__micar.cars().length === 0);
+    ok((await state(d)).money === 500, `${d.who}: the room is open again after two quits, nothing won or lost`);
+  }
+
+  // 7. the friend leaves: back at the counter, and the address forgets the room
   await friend.p.getByRole('button', { name: 'Leave' }).click();
   await friend.p.waitForSelector('[aria-label="Rental counter"]');
   ok(!new URL(friend.p.url()).searchParams.has('race'), "the friend left: the room is out of the address");
