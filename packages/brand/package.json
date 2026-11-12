@@ -11,6 +11,7 @@
     "./tokens.css": "./src/tokens.css",
     "./strip.css": "./src/strip.css",
     "./footer": "./src/footer.ts",
+    "./analytics": "./src/analytics.ts",
     "./footer.css": "./src/footer.css",
     "./favicon.svg": "./src/favicon.svg"
   }

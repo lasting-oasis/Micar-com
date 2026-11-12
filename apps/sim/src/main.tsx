@@ -18,6 +18,7 @@ import { useLang, t, getLang } from './i18n'
 import { Strip } from './Strip'
 import { Footer } from './Footer'
 import { routeFromLocation, SHOP_TABS, type ShopTab } from './route'
+import { installAnalytics } from '@micar/brand/analytics'
 // Global error catcher.
 // - Development: full-screen overlay with message, source and stack (as before).
 // - Production: a small dismissable notice, so a harmless error (often from a
@@ -146,6 +147,8 @@ function GatewayPortal() {
     </div>
   );
 }
+
+installAnalytics('world') // visitor counts; does nothing until a token is set in packages/brand/src/analytics.ts
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

@@ -8,6 +8,7 @@ import Door from './door/Door.tsx'
 import Garage from './garage/Garage.tsx'
 import { useLang } from './i18n.tsx'
 import { routeFromHash, sectionFromHash } from './route.ts'
+import { installAnalytics } from '@micar/brand/analytics'
 
 // Hash routes keep the site a single static page on GitHub Pages:
 //   (none)              home page, unless the URL carries calculator fields (links shared before #/value existed)
@@ -45,6 +46,8 @@ function Router() {
   if (route.view === 'garage') return <Garage code={route.code} />
   return <Door />
 }
+
+installAnalytics('door') // visitor counts; does nothing until a token is set in packages/brand/src/analytics.ts
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
