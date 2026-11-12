@@ -8,6 +8,8 @@ import type { AttributeKey, BodyClass, CardAttribute, CollectibleCard as CardDat
 import { useLive } from '../door/Slab';
 import { foilForRarity } from '@micar/holo';
 import { t } from '../i18n';
+import { FlipCue, useFlip } from '../door/flip';
+import type { Turn } from '../door/flip';
 import { BackFace } from './BackFace';
 
 const BASE = import.meta.env.BASE_URL;
@@ -45,6 +47,8 @@ type Props = {
   photoUrl?: string | null;
   flipped?: boolean;
   onFlip?: () => void;
+  /** How the card turns over (door/flip.tsx). A tap, unless the tap is already taken. */
+  turn?: Turn;
   live?: boolean;
   mini?: boolean;
   className?: string;
@@ -82,17 +86,17 @@ function Label({ card }: { card: CardData }) {
   );
 }
 
-export function CollectibleCard({ card, photoUrl = null, flipped = false, onFlip, live = false, mini = false, className = '' }: Props) {
+export function CollectibleCard({ card, photoUrl = null, flipped = false, onFlip, turn = 'tap', live = false, mini = false, className = '' }: Props) {
   const ref = useLive(live);
   const style = { '--foil': card.foil } as CSSProperties;
-  const toggle = () => onFlip?.();
-  const classes = ['slab', 'gar-card', `rar-${card.rarity.tier}`, card.grade.slabbed ? '' : 'raw', flipped ? 'flipped' : '', live ? 'live' : '', mini ? 'mini' : '', className].filter(Boolean).join(' ');
+  const { isFlipped, toggle, tap } = useFlip(flipped, onFlip, turn);
+  const classes = ['slab', 'gar-card', `rar-${card.rarity.tier}`, card.grade.slabbed ? '' : 'raw', isFlipped ? 'flipped' : '', live ? 'live' : '', mini ? 'mini' : '', className].filter(Boolean).join(' ');
   const sealed = card.level === 'verified' || card.level === 'certified';
   return (
     <div ref={ref} className={classes} style={style}
-      role={onFlip ? 'button' : undefined} tabIndex={onFlip ? 0 : undefined}
-      aria-label={onFlip ? t('{title}, {kind}. Press Enter to turn the card over.', { title: [card.title, card.subtitle].filter(Boolean).join(' '), kind: standing(card) }) : undefined}
-      onClick={onFlip ? toggle : undefined} onKeyDown={onFlip ? (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } } : undefined}>
+      role={tap ? 'button' : undefined} tabIndex={tap ? 0 : undefined}
+      aria-label={tap ? t('{title}, {kind}. Press Enter to turn the card over.', { title: [card.title, card.subtitle].filter(Boolean).join(' '), kind: standing(card) }) : undefined}
+      onClick={tap ? toggle : undefined} onKeyDown={tap ? (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } } : undefined}>
       <div className="slab-in">
         <div className="sl-face front"><div className="acrylic">
           <Label card={card} />
@@ -121,6 +125,7 @@ export function CollectibleCard({ card, photoUrl = null, flipped = false, onFlip
           <div className="uvmark">MiCar<br />{t('authentic')}<br />{card.micarId}</div>
         </div></div>
       </div>
+      {turn !== 'page' && <FlipCue flipped={isFlipped} onFlip={turn === 'corner' ? toggle : undefined} />}
     </div>
   );
 }

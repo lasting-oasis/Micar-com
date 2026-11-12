@@ -125,7 +125,7 @@ export default function Door() {
       <header className="hero gutter" id="top">
         <div className="inner">
           <Bay open={open} onSettled={settled} onInspect={card ? () => setInspecting(true) : undefined}
-            showcase={card ? <Slab card={card} g={g ?? undefined} /> : null} showcaseClass={showcaseClass}
+            showcase={card ? <Slab card={card} g={g ?? undefined} turn="corner" /> : null} showcaseClass={showcaseClass}
             readout={readout} readoutSmall={readoutSmall} stamp={t('Valued')} stampHit={stampHit}
             paint={lang === 'es' ? <>¿Qué hay<br />en su<br />garaje?</> : <>What's in<br />your<br />garage?</>}>
           <form className="console" ref={formRef} onSubmit={submit} aria-label={t("What's in your garage?")}>
