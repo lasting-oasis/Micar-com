@@ -18,6 +18,9 @@ export const tiersOf = (foil: FoilId): RarityTier[] => RARITY_TIERS.filter((tier
 export const CARD_MODEL = `${BASE}cards/card.glb`;
 /** The artwork, best first: the AVIF keeps full colour resolution, the WebP is for a browser that cannot read AVIF. */
 export const CARD_ART = [`${BASE}cards/back.avif`, `${BASE}cards/back.webp`];
+/** The artwork at half size, for a card's back face: the small AVIF first, then the WebP. */
+export const CARD_FACE_AVIF = `${BASE}cards/back-face.avif`;
+export const CARD_FACE = `${BASE}cards/back-face.webp`;
 /** A still of the card with this foil: what stands in where the live card cannot be drawn. */
 export const stillOf = (foil: FoilId): string => `${BASE}cards/back-${foil}.webp`;
 

@@ -11,7 +11,13 @@ copies of the same pixels into apps/value/public/cards/:
               (4:2:0), which on artwork this finely coloured costs fidelity that no quality setting buys back:
               measured on the master, its brightness channel matches to 43 dB but the whole picture only to 32.5.
 
-The artwork is never edited: no resize, no crop, no colour change. Each copy is decoded again and compared with
+Two more are the small ones every card on the site turns over to show: the same picture at half size (531x741),
+for a back face a few hundred pixels wide, where the full-size copies would cost a page three quarters of a megabyte.
+
+  back-face.avif   quality 68, full colour resolution. Loaded first.
+  back-face.webp   quality 80. For a browser that cannot read AVIF.
+
+The artwork is never edited: no crop, no colour change, and no resize but that one plain halving. Each copy is decoded again and compared with
 the master, and the script prints its size and its PSNR. It exits 1 when a copy is the wrong size, over its
 budget or too far from the master.
 
@@ -29,6 +35,13 @@ MASTER = os.path.join(REPO, 'assets', 'cards', 'micar-card-back.png')
 OUT_DIR = os.path.join(REPO, 'apps', 'value', 'public', 'cards')
 MASTER_SHA256 = '5bd441b57e7becbb812469ae4f61eebbea991c59ad955293dee80ce1852c3c95'
 BUDGET_BYTES = 900_000
+FACE_SIZE = (531, 741)          # the master (1062x1481) halved
+FACE_BUDGET_BYTES = 160_000
+# name, Pillow format, save options, the least PSNR accepted against the halved master
+FACES = [
+    ('back-face.avif', 'AVIF', {'quality': 68, 'subsampling': '4:4:4', 'speed': 4}, 31.0),
+    ('back-face.webp', 'WEBP', {'quality': 80, 'method': 6}, 27.0),
+]
 
 # name, Pillow format, save options, the least PSNR accepted over the whole picture, and over brightness alone
 COPIES = [
@@ -75,6 +88,17 @@ def main():
             problems.append(f'{name}: PSNR {whole:.1f} dB is under {least} dB')
         if bright < least_luma:
             problems.append(f'{name}: brightness PSNR {bright:.1f} dB is under {least_luma} dB')
+    face = master.resize(FACE_SIZE, Image.LANCZOS)
+    for name, fmt, options, least in FACES:
+        path = os.path.join(OUT_DIR, name)
+        face.save(path, fmt, **options)
+        size = os.path.getsize(path)
+        near = psnr(face, Image.open(path).convert('RGB'))
+        print(f'{name}: {FACE_SIZE[0]}x{FACE_SIZE[1]}, {size} bytes, PSNR {near:.1f} dB against the halved master')
+        if size > FACE_BUDGET_BYTES:
+            problems.append(f'{name}: {size} bytes is over the {FACE_BUDGET_BYTES} byte budget')
+        if near < least:
+            problems.append(f'{name}: PSNR {near:.1f} dB is under {least} dB')
     for p in problems:
         print('FAILED: ' + p, file=sys.stderr)
     return 1 if problems else 0

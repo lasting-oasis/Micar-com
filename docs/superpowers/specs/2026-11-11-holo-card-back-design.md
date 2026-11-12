@@ -205,3 +205,25 @@ What differs from the design as it was approved, and why. Each was decided durin
 - **A re-export of `card.glb` is the same model but not always the same bytes**: the rim's UVs, which nothing reads, differ in their last bit from run to run.
 - **The demo is one self-contained file**, and `createHoloCard` reads a model handed over in a `data:` address without a request, so the demo can be published as a single page that asks the network for nothing.
 - **The one review was done by the author** after the last task, not by a second reviewer as the plan wrote. It is weaker for that.
+
+## The back on every card (added the same day, at the owner's request)
+
+The owner asked for the new back on every card on the site, in place of the old one, with the rarity made plain.
+
+- **Every card turns over to the card back.** The Garage's card (`CollectibleCard`) and the home page's card (`Slab`)
+  both show `garage/BackFace.tsx` on their back face: the artwork, whole and uncropped, at half size
+  (`back-face.avif`, then `back-face.webp`, written by `tools/cards/encode_art.py`), under CSS foil layers that
+  follow the pointer. It is CSS, not WebGL, because a page holds dozens of cards and a browser allows only a few
+  WebGL contexts. The live 3D card stays the inspect view behind the "Card back" button.
+- **What the old backs showed is no longer on the card.** The Garage card's grade report is in the car's Grade tab.
+  The home page card's five starting-grade bars are in the grade section below it; its "value ahead" chart is not
+  shown anywhere now (`Curve` is still exported from `door/Slab.tsx`).
+- **Rarity.** On the front, the rarity is a filled plate in the tier's colour and the art is framed in the same
+  colour. On the back, the rarity and its foil are named under the picture, never on it.
+- **The home page's card has no rarity.** It is a starting-grade card, not an engine card, so it wears the plain
+  gloss back and names no rarity. Nothing in the engine was changed to give it one.
+- **Not checked:** a phone. On a touch screen the holo and rainbow bands drift slowly, as the front's foil already did.
+- **The four backs are on the home page.** `garage/FoilShelf.tsx`, the section after the card (`#backs`): all four
+  foils side by side, each with what it is made of and the rarities that earn it, and a link to
+  `#/garage/card-backs`, where each can be tilted in 3D. That page is linked from here now. The card section's
+  third point no longer says the back carries the grade's categories and the chart.
