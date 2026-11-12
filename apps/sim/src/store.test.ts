@@ -118,6 +118,23 @@ describe('a challenge room', () => {
     raceHandlers(quiet).onInit();
     expect(quiet.sent()).toEqual([]);
   });
+  it('a sign-in that swaps this run for a saved one joins the room again; one that keeps the run changes nothing', () => {
+    // the server takes the old run out of its room when a saved player replaces it (link_account), and sends no init
+    const s = stub(), h = raceHandlers(s);
+    useGameStore.setState({ raceCode: 'K7M2QX', race: view(), raceNote: 'missed' });
+    h.onLinked({ replaced: false }); // a new account made from this run: still the same player, still in the room
+    expect(s.sent()).toEqual([]);
+    expect(useGameStore.getState().race!.code).toBe('K7M2QX');
+    for (const junk of [null, undefined, {}, { replaced: 'yes' }]) h.onLinked(junk as never);
+    expect(s.sent()).toEqual([]);
+    h.onLinked({ replaced: true });
+    expect(s.sent()).toEqual([['race_join', { code: 'K7M2QX' }]]);
+    expect(useGameStore.getState()).toMatchObject({ race: null, raceNote: null, raceCode: 'K7M2QX' });
+    const quiet = stub();
+    useGameStore.setState({ raceCode: null });
+    raceHandlers(quiet).onLinked({ replaced: true }); // in no room: nothing to come back to
+    expect(quiet.sent()).toEqual([]);
+  });
   it('a gone or full room is forgotten; other refusals keep the room', () => {
     const h = raceHandlers(stub());
     for (const why of ['gone', 'full'] as const) {

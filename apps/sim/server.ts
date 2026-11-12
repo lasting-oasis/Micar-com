@@ -133,6 +133,8 @@ const raceOf = new Map<string, string>();
 const lastRoomAt = new Map<string, number>();
 const lastPoseAt = new Map<string, number>();
 const ROOM_GAP_MS = 3000, POSE_GAP_MS = 40;
+/** A pose's time is the sender's reading of this server's clock: one further off than this is replaced by the server's own. */
+const POSE_SKEW_MS = 5000;
 const raceChannel = (code: string) => 'race:' + code;
 
 /** After any change to a room: the lent cars are made to match it (a racer holds one until a DNF, or until the race
@@ -143,15 +145,17 @@ function syncRoom(room: Room, changed = false) {
         const player = gameState.players[m.id];
         if (!player) continue;
         const has = !!heldLoan(player), should = holdsLoan(room, m.id);
-        if (should && !has) { lend(player, room.car, room.code, SLOT_COLORS[m.slot % SLOT_COLORS.length], now); changed = true; }
+        if (should && !has) { lend(player, room.car, SLOT_COLORS[m.slot % SLOT_COLORS.length], now); changed = true; }
         else if (!should && has) { returnLoan(player); drivenCar.delete(m.id); changed = true; }
     }
     io.to(raceChannel(room.code)).emit('race_room', roomView(room));
     if (changed) broadcastState(io, gameState);
 }
 
-/** A socket leaves its room (it left, dropped, re-joined or signed out): its lent car goes back and the room is told. */
-function leaveRace(socketId: string) {
+/** A socket leaves its room: its lent car goes back and the room is told. `left`: the player chose to (Leave, or into
+ *  another room); otherwise the socket dropped, re-joined or changed its player, and a room it leaves empty keeps its link
+ *  longer (race.ts: a phone that went to a messenger to send the link is asleep, not gone). */
+function leaveRace(socketId: string, left = false) {
     const code = raceOf.get(socketId);
     lastPoseAt.delete(socketId);
     if (!code) return;
@@ -160,12 +164,12 @@ function leaveRace(socketId: string) {
     const had = !!(player && returnLoan(player));
     if (had) drivenCar.delete(socketId);
     io.sockets.sockets.get(socketId)?.leave(raceChannel(code));
-    if (room) { leaveRoom(room, socketId, Date.now()); syncRoom(room, had); }
+    if (room) { leaveRoom(room, socketId, Date.now(), !left); syncRoom(room, had); }
     else if (had) broadcastState(io, gameState);
 }
 
 // Once a second: what only the clock decides in a room (the slow are left behind, the finish window closes, a race
-// nobody finishes ends), and the rooms nobody has been in for two minutes go.
+// nobody finishes ends), and the rooms nobody has been in for too long go (two minutes after a Leave, fifteen after a drop).
 setInterval(() => {
     const now = Date.now();
     for (const room of raceRooms.values()) if (tick(room, now)) syncRoom(room);
@@ -1512,7 +1516,7 @@ io.on('connection', (socket) => {
   const handsFull = (player: Player) => !!heldRental(player) || !!heldTestCar(player) || activeEvents.has(socket.id);
   /** This socket is in `room` now, and in no other. */
   const enterRoom = (room: Room) => {
-      if (raceOf.get(socket.id) !== room.code) leaveRace(socket.id);
+      if (raceOf.get(socket.id) !== room.code) leaveRace(socket.id, true);
       raceOf.set(socket.id, room.code);
       socket.join(raceChannel(room.code));
       syncRoom(room);
@@ -1528,7 +1532,9 @@ io.on('connection', (socket) => {
       const now = Date.now(), last = lastRoomAt.get(socket.id);
       if (last !== undefined && now - last < ROOM_GAP_MS) { raceNo('slow'); return; }
       const { eventId, car } = fields(msg);
-      const made = createRoom(raceRooms, { id: socket.id, name: player.name }, { eventId, car }, stageOf(stripOf(player).rep), Math.random);
+      // rationed by address too (race.ts): the gap above is per socket, and a script makes a new socket for every room
+      const made = createRoom(raceRooms, { id: socket.id, name: player.name }, { eventId, car }, stageOf(stripOf(player).rep), Math.random,
+          clientIp(socket.handshake.headers as any, socket.handshake.address));
       if (!made.ok) { raceNo(made.why); return; }
       lastRoomAt.set(socket.id, now);
       enterRoom(made.room);
@@ -1581,7 +1587,7 @@ io.on('connection', (socket) => {
       const [t, x, z, h, v, s, sc] = msg as number[];
       const within = (n: number, lim: number) => Math.max(-lim, Math.min(lim, n));
       socket.to(raceChannel(room.code)).volatile.emit('race_pose',
-          [socket.id, t, within(x, STRIP_LIMIT), within(z, STRIP_LIMIT), within(h, 1000), within(v, 200), within(s, STRIP_LIMIT), Math.max(0, Math.min(9_999_999, sc))]);
+          [socket.id, Math.abs(t - now) <= POSE_SKEW_MS ? t : now, within(x, STRIP_LIMIT), within(z, STRIP_LIMIT), within(h, 1000), within(v, 200), within(s, STRIP_LIMIT), Math.max(0, Math.min(9_999_999, sc))]);
   });
 
   // The racer's own word on their finish: race.ts decides whether that time stands, or the server's own.
@@ -1601,7 +1607,7 @@ io.on('connection', (socket) => {
       syncRoom(room);
   });
 
-  socket.on('race_leave', () => leaveRace(socket.id));
+  socket.on('race_leave', () => leaveRace(socket.id, true));
 
   socket.on('request_link', async ({ email } = {} as any) => {
       const player = gameState.players[socket.id];

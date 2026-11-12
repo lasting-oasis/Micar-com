@@ -49,10 +49,11 @@ describe('rental', () => {
 });
 
 describe('a lent car', () => {
-  it('costs nothing, is a rental, and carries the room code and the colour of its grid place', () => {
-    const p = player(0); const car = lend(p, 'ronin', 'K7M2QX', '#e8463c', 1700000000000);
+  it('costs nothing, is a rental, and carries the colour of its grid place and nothing that names its room', () => {
+    const p = player(0); const car = lend(p, 'ronin', '#e8463c', 1700000000000);
     expect(p.money).toBe(0);
-    expect(car).toMatchObject({ make: 'Ronin', model: 'GT', bodyStyle: 'coupe', rental: true, loan: 'K7M2QX', color: '#e8463c', district: 'strip', fuel: 100, buyPrice: 0, ownerId: 'p1' });
+    // every player's cars are sent to everyone connected, and a room's code is its key: the car says only that it is lent
+    expect(car).toMatchObject({ make: 'Ronin', model: 'GT', bodyStyle: 'coupe', rental: true, loan: true, color: '#e8463c', district: 'strip', fuel: 100, buyPrice: 0, ownerId: 'p1' });
     expect(car.vin).toHaveLength(17);
     expect(p.inventory).toEqual([car]);
     expect(heldLoan(p)).toBe(car); expect(heldRental(p)).toBe(car);
@@ -61,7 +62,7 @@ describe('a lent car', () => {
     expect(specFor(car)).toEqual(FLEET_SPECS.ronin); // it drives as the fleet's car
   });
   it('goes back with its part record; a paid rental is not a loan', () => {
-    const p = player(500); const car = lend(p, 'civet', 'ABCDEF', '#ffd23f', 5);
+    const p = player(500); const car = lend(p, 'civet', '#ffd23f', 5);
     p.strip = { rep: 0, cars: { [car.id]: { cfg: {}, tune: {}, owned: [] } }, wins: {}, best: {} };
     expect(returnLoan(p)).toBe(car); expect(p.inventory).toEqual([]); expect(p.strip.cars).toEqual({});
     expect(p.money).toBe(500);

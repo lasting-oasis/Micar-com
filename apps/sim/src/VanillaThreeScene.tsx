@@ -37,7 +37,7 @@ import { RENTAL_BAY, RENTAL_FLEET, type RentalKey, canRent, heldRental, isVisito
 import { heldTestCar, testCarDef } from './world/tester';
 import { SLOT_COLORS, type RoomView } from './world/race';
 import { remotes, serverNow } from './world/raceNet';
-import { raceLabel, rowsOf } from './strip/challengeCopy';
+import { cardOf, newsOf, raceLabel } from './strip/challengeCopy';
 import { getLang, t } from './i18n';
 
 export function VanillaThreeScene() {
@@ -661,7 +661,7 @@ export function VanillaThreeScene() {
         const isDrag = () => district === 'strip' && strip?.runner.active?.type === 'drag';
         const manualNow = () => getOptions().manual || isDrag();
         const im = new InputMap({ manual: manualNow, hydraulics: () => !!(localDrivingCarId && buildOf(localDrivingCarId).cfg.hydraulics) });
-        type InvCar = { id: string; make?: string; model: string; bodyStyle?: string; fuel?: number; rental?: boolean; testCar?: boolean; loan?: string };
+        type InvCar = { id: string; make?: string; model: string; bodyStyle?: string; fuel?: number; rental?: boolean; testCar?: boolean; loan?: boolean };
         const styleOf = (car: InvCar) => (car.bodyStyle || deriveStyle(car.model)) as BodyStyle;
         const meNow = () => { const st = stateRef.current; return st.gameState?.players[st.playerId || '']; };
         const drivenCar = (): InvCar | undefined => meNow()?.inventory.find(c => c.id === localDrivingCarId);
@@ -747,42 +747,31 @@ export function VanillaThreeScene() {
             if (lossy) sk.volatile.emit('race_pose', pose); else sk.emit('race_pose', pose); // a pose lost on the way is replaced by the next
         };
         const endChallenge = () => { challenge = null; fieldRoom = cardRoom = null; poseAccum = 0; };
-        /** The results card of the race this view drove, from the room: it fills in while the others are still out, and
-         *  is final once the room has closed the race. */
+        /** The results card of the race this view drove, from the room (challengeCopy.cardOf): it fills in while the
+         *  others are still out, and is final once the room has closed the race. */
         const challengeCard = (): ShownResults | null => {
-            const st = useGameStore.getState(), room = st.race, me = st.playerId ?? '', ch = challenge;
+            const st = useGameStore.getState(), room = st.race, ch = challenge;
             if (!room || !ch || room.code !== ch.code) return null;
-            const lang = getLang(), words = { dnf: t(lang, 'strip.ch.dnf'), racing: t(lang, 'strip.ch.racing') };
-            const closed = room.last && room.last.raceNo === ch.raceNo ? room.last : null;
-            const eventId = closed ? closed.eventId : room.eventId, drift = EVENTS.find(e => e.id === eventId)?.type === 'drift';
-            // while it runs: those home first (by time; a drift by score), then those still racing, then those who are out
-            const rank = (m: { state: string }) => (m.state === 'finished' ? 0 : m.state === 'racing' ? 1 : 2);
-            const rows = closed ? closed.rows
-                : room.members.filter(m => m.state === 'racing' || m.state === 'finished' || m.state === 'dnf')
-                    .sort((p, q) => rank(p) - rank(q) || (drift ? q.score - p.score : (p.time ?? 0) - (q.time ?? 0)));
-            const at = rows.findIndex(r => r.id === me), mine = rows[at];
-            const out = !mine || !!mine.why, place = at + 1;
-            const title = out ? t(lang, 'strip.ch.out') : closed && place === 1 ? t(lang, 'strip.ch.won')
-                : t(lang, 'strip.ch.place').replace('{n}', String(place)).replace('{of}', String(rows.length));
-            return { title, sub: raceLabel(eventId), pos: place, failed: null, rows: rowsOf(rows, me, drift, words), pending: !closed };
+            const lang = getLang();
+            const card = cardOf(room, ch.raceNo, st.playerId ?? '', { dnf: t(lang, 'strip.ch.dnf'), racing: t(lang, 'strip.ch.racing') });
+            const title = card.title === 'out' ? t(lang, 'strip.ch.out') : card.title === 'won' ? t(lang, 'strip.ch.won')
+                : t(lang, 'strip.ch.place').replace('{n}', String(card.place)).replace('{of}', String(card.of));
+            return { title, sub: raceLabel(card.eventId), pos: card.place, failed: null, rows: card.rows, pending: card.pending };
         };
         const showChallengeCard = () => {
             const card = challengeCard();
             cardRoom = useGameStore.getState().race;
             if (card) useDriveUi.setState({ results: card, reward: null });
         };
-        /** The room's news for the runner: a racer who is home (with their time), or out of the race (quit, left, left
-         *  behind at the start). Each is told once. */
+        /** The room's news for the runner (challengeCopy.newsOf): a racer who is home (with their time), or out of the
+         *  race (quit, left, left behind at the start). Each is told once. */
         const tellRunner = (a: ActiveEvent, room: RoomView) => {
             const ch = challenge;
             if (!ch || !strip) return;
-            const closed = room.last && room.last.raceNo === ch.raceNo ? room.last : null;
             for (const R of a.racers) {
                 if (!R.remote || !R.pid || ch.told.has(R.pid)) continue;
-                const row = closed?.rows.find(x => x.id === R.pid), m = room.members.find(x => x.id === R.pid);
-                if (row) { ch.told.add(R.pid); strip.runner.remoteDone(R.pid, row.why ? null : row.time); }
-                else if (m?.state === 'finished') { ch.told.add(R.pid); strip.runner.remoteDone(R.pid, m.time); }
-                else if (!m || m.state === 'waiting' || m.state === 'dnf') { ch.told.add(R.pid); strip.runner.remoteDone(R.pid, null); }
+                const news = newsOf(room, ch.raceNo, R.pid);
+                if (news) { ch.told.add(R.pid); strip.runner.remoteDone(R.pid, news.time); }
             }
         };
         /** In the lent car, the room racing (or about to): onto the grid of its race, with the others it lists. */

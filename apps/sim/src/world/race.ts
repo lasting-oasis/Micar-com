@@ -12,9 +12,16 @@ export { CODE_ALPHABET, CODE_LEN, makeCode, normalizeCode } from './raceCode';
 /** A room holds at most this many people (the grid has four places), and a race needs at least two. */
 export const RACE_MAX = 4, RACE_MIN = 2;
 export const ROOMS_MAX = 100;
+/** The rooms one address may hold at a time: a fifth of them all, so that no one script can take every room. */
+export const ROOMS_PER_ADDRESS = 20;
 /** After Start a browser has this long to sit on the grid; the green light is named this far ahead; once the first car is
- *  home the rest have the window; an empty room keeps its link this long; a race closes this long after its event's cap. */
-export const LOAD_TIMEOUT_MS = 30_000, GO_LEAD_MS = 5_000, FINISH_WINDOW_MS = 60_000, EMPTY_TTL_MS = 120_000, CAP_SLACK_MS = 30_000;
+ *  home the rest have the window; a race closes this long after its event's cap. */
+export const LOAD_TIMEOUT_MS = 30_000, GO_LEAD_MS = 5_000, FINISH_WINDOW_MS = 60_000, CAP_SLACK_MS = 30_000;
+/** An empty room keeps its link this long: two minutes once its last member has left it, fifteen when the last
+ *  connection dropped (a phone that went to a messenger to send the link is asleep, not gone). */
+export const EMPTY_TTL_MS = 120_000, DROPPED_TTL_MS = 900_000;
+/** A name as a room shows it: text of at most this many characters (the Strip's own limit; the town's browsers are not held to it). */
+const NAME_MAX = 24;
 /** A browser's own time stands when it is at most this far under the server's figure (a slow connection), and at most
  *  CLAIM_LATE_S over it (two clocks never agree to the millisecond). */
 export const CLAIM_TOLERANCE_S = 0.5, CLAIM_LATE_S = 0.1;
@@ -40,7 +47,10 @@ export type Room = {
   last: LastRace | null;
   /** the last start was called off: too few were ready */
   note: 'called-off' | null;
-  emptySince: number | null;
+  /** since when nobody is in it, and how long it is kept from then */
+  emptySince: number | null; emptyFor: number;
+  /** the name of the last member to host it (the link names them while the room waits empty); the address it was made from */
+  hostName: string; from: string;
 };
 /** What the members are sent. */
 export type RoomView = Pick<Room, 'code' | 'eventId' | 'car' | 'hostId' | 'phase' | 'raceNo' | 'members' | 'goAt' | 'closesAt' | 'last' | 'note'>;
@@ -54,7 +64,9 @@ const no = (why: DenyWhy): Denied => ({ ok: false, why });
 const OK: Ok = { ok: true };
 const find = (room: Room, id: string): Member | undefined => room.members.find(m => m.id === id);
 const eventOf = (room: Room): EventDef | undefined => EVENTS.find(e => e.id === room.eventId);
-const member = (who: { id: string; name: string }): Member => ({ id: who.id, name: who.name, slot: 0, state: 'waiting', time: null, score: 0, why: null });
+const nameOf = (raw: unknown): string => (typeof raw === 'string' ? raw.trim().slice(0, NAME_MAX) : '') || 'Racer';
+const member = (who: { id: string; name: string }): Member => ({ id: who.id, name: nameOf(who.name), slot: 0, state: 'waiting', time: null, score: 0, why: null });
+const setHost = (room: Room, m: Member | undefined): void => { room.hostId = m?.id ?? ''; if (m) room.hostName = m.name; };
 const row = (m: Member): ResultRow => ({ id: m.id, name: m.name, pos: 0, time: m.time, score: m.score, why: m.why });
 const toWaiting = (m: Member): void => { m.state = 'waiting'; m.time = null; m.score = 0; m.why = null; };
 const count = (room: Room, state: MemberState): number => room.members.filter(m => m.state === state).length;
@@ -66,16 +78,20 @@ function checkChoice(pick: Choice, stage: number): { ok: true; eventId: string; 
   return { ok: true, eventId: ev.id, car: car.key };
 }
 
-export function createRoom(rooms: Map<string, Room>, host: { id: string; name: string }, pick: Choice, stage: number, rand: () => number): { ok: true; room: Room } | Denied {
+/** A new room, `host` in it. `from`: the address asking (none: no ration by address). */
+export function createRoom(rooms: Map<string, Room>, host: { id: string; name: string }, pick: Choice, stage: number, rand: () => number, from = ''): { ok: true; room: Room } | Denied {
   if (rooms.size >= ROOMS_MAX) return no('busy');
+  if (from && [...rooms.values()].filter(r => r.from === from).length >= ROOMS_PER_ADDRESS) return no('busy');
   const choice = checkChoice(pick, stage);
   if (!choice.ok) return choice;
   let code = makeCode(rand);
   for (let tries = 0; rooms.has(code) && tries < 50; tries++) code = makeCode(rand);
   if (rooms.has(code)) return no('busy');
+  const first = member(host);
   const room: Room = {
-    code, eventId: choice.eventId, car: choice.car, hostId: host.id, phase: 'open', raceNo: 0, members: [member(host)],
-    startedAt: null, goAt: null, closesAt: null, gone: [], last: null, note: null, emptySince: null,
+    code, eventId: choice.eventId, car: choice.car, hostId: first.id, phase: 'open', raceNo: 0, members: [first],
+    startedAt: null, goAt: null, closesAt: null, gone: [], last: null, note: null, emptySince: null, emptyFor: EMPTY_TTL_MS,
+    hostName: first.name, from,
   };
   rooms.set(code, room);
   return { ok: true, room };
@@ -85,21 +101,23 @@ export function createRoom(rooms: Map<string, Room>, host: { id: string; name: s
 export function joinRoom(room: Room, who: { id: string; name: string }): Ok | Denied {
   if (find(room, who.id)) return OK;
   if (room.members.length >= RACE_MAX) return no('full');
-  room.members.push(member(who));
-  if (!room.hostId) room.hostId = who.id; // the room had emptied out: whoever comes back to it hosts
+  const m = member(who);
+  room.members.push(m);
+  if (!room.hostId) setHost(room, m); // the room had emptied out: whoever comes back to it hosts
   room.emptySince = null;
   return OK;
 }
 
-export function leaveRoom(room: Room, id: string, now: number): void {
+/** Out of the room. `dropped`: the connection went rather than the member leaving (it decides how long an empty room is kept). */
+export function leaveRoom(room: Room, id: string, now: number, dropped = false): void {
   const i = room.members.findIndex(m => m.id === id);
   if (i < 0) return;
   const [m] = room.members.splice(i, 1);
   // past the green light a racer stays on the result: with the time if they had finished, else as a DNF
   if (room.phase === 'racing' && (m.state === 'racing' || m.state === 'finished' || m.state === 'dnf'))
     room.gone.push(m.state === 'finished' ? row(m) : { ...row(m), time: null, why: m.state === 'dnf' ? m.why : 'left' });
-  if (room.hostId === id) room.hostId = room.members[0]?.id ?? '';
-  if (room.members.length === 0) room.emptySince = now;
+  if (room.hostId === id) setHost(room, room.members[0]);
+  if (room.members.length === 0) { room.emptySince = now; room.emptyFor = dropped ? DROPPED_TTL_MS : EMPTY_TTL_MS; }
   settle(room, now);
 }
 
@@ -183,10 +201,10 @@ export function tick(room: Room, now: number): boolean {
   return false;
 }
 
-/** Drops the rooms nobody has been in for EMPTY_TTL_MS; returns their codes. */
+/** Drops the rooms nobody has been in for as long as they are kept (leaveRoom); returns their codes. */
 export function sweep(rooms: Map<string, Room>, now: number): string[] {
   const dead: string[] = [];
-  for (const [code, room] of rooms) if (room.members.length === 0 && room.emptySince !== null && now - room.emptySince >= EMPTY_TTL_MS) dead.push(code);
+  for (const [code, room] of rooms) if (room.members.length === 0 && room.emptySince !== null && now - room.emptySince >= room.emptyFor) dead.push(code);
   for (const code of dead) rooms.delete(code);
   return dead;
 }
@@ -203,7 +221,7 @@ export function roomView(room: Room): RoomView {
 }
 
 export function invitation(room: Room): Invitation {
-  return { host: find(room, room.hostId)?.name ?? '', eventId: room.eventId, car: room.car, count: room.members.length, max: RACE_MAX, phase: room.phase };
+  return { host: room.hostName, eventId: room.eventId, car: room.car, count: room.members.length, max: RACE_MAX, phase: room.phase };
 }
 
 // ---- the phases

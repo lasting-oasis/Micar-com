@@ -65,10 +65,11 @@ export function returnRental(player: Player): Car | undefined {
   return car;
 }
 
-/** The fleet car lent for a challenge race (`code`: its room): a rental that costs nothing, in the colour of its grid place. */
-export function lend(player: Player, key: RentalKey, code: string, color: string, now: number): Car {
+/** The fleet car lent for a challenge race: a rental that costs nothing, in the colour of its grid place. It says that it
+ *  is lent and not by which room: every player's cars are sent to everyone connected, and a room's code is its key. */
+export function lend(player: Player, key: RentalKey, color: string, now: number): Car {
   const car = fleetCar(player, key, now, 'LOAN' + String(now % 1e13).padStart(13, '0'));
-  car.color = color; car.loan = code;
+  car.color = color; car.loan = true;
   return car;
 }
 

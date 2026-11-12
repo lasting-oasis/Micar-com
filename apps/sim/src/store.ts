@@ -279,6 +279,9 @@ export function raceHandlers(socket: { emit(ev: string, ...args: unknown[]): unk
       dropRemotes();
       if (code) socket.emit('race_join', { code });
     },
+    /** A sign-in (account_linked). One that swapped this run for a saved one took the old run out of its room, and no
+     *  init follows it: back into the room, as the saved player. One that kept the run changed nothing here. */
+    onLinked(d: { replaced?: boolean } | null | undefined): void { if (d?.replaced === true) this.onInit(); },
   };
 }
 
@@ -523,10 +526,11 @@ export const useGameStore = create<StoreState>((set, get) => ({
         if (get().socket === socket) set({ socket: null });
         set({ joinRefused: reason });
     });
-    socket.on('account_linked', (d: { account: AccountView; session?: string }) => {
+    socket.on('account_linked', (d: { account: AccountView; session?: string; replaced?: boolean }) => {
         if (typeof d?.session === 'string') writeSession(d.session);
         // signed in (maybe by a link opened in another tab): the entry card, if held for the email, gives way to the world
         set({ account: d.account, linkPrompt: null, pendingLink: null, holdCard: false, linkSent: false, linkChoice: null });
+        race.onLinked(d);
     });
     // the prompt shows in the world (the entry card gives way); a link clicked in another tab comes with its token, for Confirm
     socket.on('account_replace_prompt', (d: { money: number; magic?: string }) => set({ linkPrompt: { money: d?.money ?? 0 }, driveNotice: null, holdCard: false,

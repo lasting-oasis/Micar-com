@@ -37,7 +37,7 @@ export type Car = {
   accidents?: number;     // accident history (affects collateral value / risk)
   basePrice?: number;     // original sticker baseline used for title-loan valuation
   rental?: boolean;       // Strip rental: stock car, returned (not sold) when the event ends
-  loan?: string;          // lent for a challenge race (the room's code): a rental that costs nothing and goes back when the race closes
+  loan?: boolean;         // lent for a challenge race: a rental that costs nothing and goes back when the race closes
   testCar?: boolean;      // a tester's car in the Strip: any model, owned for the session, worth nothing
 };
 

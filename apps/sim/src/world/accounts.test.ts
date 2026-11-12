@@ -119,7 +119,7 @@ describe('saved records and email limits', () => {
     expect(Object.keys(g.strip.cars)).toHaveLength(3); // the live record is untouched
   });
   it('a car lent for a challenge is never saved, nor its part record', () => {
-    const g = guest(); const car = lend(g, 'ronin', 'K7M2QX', '#ffd23f', 5);
+    const g = guest(); const car = lend(g, 'ronin', '#ffd23f', 5);
     g.strip.cars[car.id] = { cfg: {}, owned: ['a'] };
     const rec = saveRecord(g);
     expect(rec.inventory.map((c: any) => c.id)).toEqual(['own-1']);

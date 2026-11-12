@@ -13,7 +13,7 @@ import { io as connect, type Socket } from 'socket.io-client';
 import { signMagic, signSession } from './accounts';
 import { EVENTS, freshStrip, stageOf } from './data';
 import { partPrice } from './payout';
-import { RENTAL_DENIED, VISITOR_DENIED } from './stripFlow';
+import { RENTAL_DENIED, STRIP_LIMIT, VISITOR_DENIED } from './stripFlow';
 import { SLOT_COLORS, type RoomView } from './race';
 import { TESTER_MONEY, TESTER_REFUSED, TESTER_REP } from './tester';
 import { ATTEMPTS_PER_IP } from './testerKey';
@@ -522,6 +522,7 @@ describe('server wiring', () => {
 
   it('three guests race a challenge from a link: lent cars, one green light, a result, and no money moved', async () => {
     const a = await guest('Ana'), b = await guest('Bo'), c = await guest('Cy'), outsider = await guest('Out');
+    const overheard: string[] = []; outsider.s.onAny((...all: unknown[]) => { overheard.push(JSON.stringify(all)); }); // everything someone outside the room is sent
     const made = await makeRoom(a), code = made.code;
     expect(code).toMatch(/^[ABCDEFGHJKMNPQRSTUVWXYZ2-9]{6}$/);
     expect(made).toMatchObject({ eventId: 'royal_drag', car: 'ronin', hostId: a.id, phase: 'open', raceNo: 0, goAt: null, last: null });
@@ -549,7 +550,7 @@ describe('server wiring', () => {
     expect(view.members.map(m => m.state)).toEqual(['loading', 'loading', 'loading']);
     expect(view.members.map(m => m.slot).sort()).toEqual([0, 1, 2]);
     const cars = (await Promise.all(lent)).map(loanOf);
-    for (const car of cars) expect(car).toMatchObject({ rental: true, loan: code, make: 'Ronin', model: 'GT' });
+    for (const car of cars) expect(car).toMatchObject({ rental: true, loan: true, make: 'Ronin', model: 'GT' });
     for (const [i, p] of [a, b, c].entries()) expect(cars[i].color).toBe(SLOT_COLORS[view.members.find(m => m.id === p.id)!.slot]);
     expect(new Set(cars.map(x => x.color)).size).toBe(3);
     // a paid event cannot be entered in a lent car
@@ -566,6 +567,24 @@ describe('server wiring', () => {
     b.s.emit('race_pose', [goAt, 1, 2, 0.5, 30, 100, 0]);
     expect(await atA).toEqual([b.id, goAt, 1, 2, 0.5, 30, 100, 0]); expect(await atC).toEqual([b.id, goAt, 1, 2, 0.5, 30, 100, 0]);
     expect(await outside).toBe(true); expect(await echo).toBe(true);
+    // in a live race: junk is not passed on, a wild pose is cut down to the Strip's size and the server's own time, and a burst is thinned
+    const heard: any[][] = [], hear = (pose: any[]) => { heard.push(pose); };
+    a.s.on('race_pose', hear);
+    await new Promise(r => setTimeout(r, 80)); // past the 40 ms that space a racer's poses
+    for (const junk of [null, 'x', 42, {}, [NaN, 1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6, 7, 8], ['a', 1, 2, 3, 4, 5, 6], [Infinity, 1, 2, 3, 4, 5, 6]]) b.s.emit('race_pose', junk);
+    b.s.emit('race_pose', [1e300, 1e300, -1e300, 1e300, 1e300, 1e300, 1e300]);
+    // twelve more, 5 ms apart (each its own packet, so nothing but the server's own spacing thins them)
+    const t1 = Date.now();
+    for (let i = 0; i < 12; i++) { await new Promise(r => setTimeout(r, 5)); b.s.emit('race_pose', [goAt, i, 2, 0.5, 30, 100, 0]); }
+    const spent = Date.now() - t1;
+    await new Promise(r => setTimeout(r, 300));
+    a.s.off('race_pose', hear);
+    expect(heard.length).toBeGreaterThanOrEqual(1);
+    expect(heard.length).toBeLessThanOrEqual(2 + Math.floor(spent / 40)); // one in 40 ms goes on, however fast they come
+    const [from, wildT, ...wild] = heard[0];
+    expect(from).toBe(b.id);
+    expect(wild).toEqual([STRIP_LIMIT, -STRIP_LIMIT, 1000, 200, STRIP_LIMIT, 9_999_999]);
+    expect(Math.abs(wildT - Date.now())).toBeLessThan(5000); // a time nowhere near the server's is replaced by the server's
     // a finish before any car could be home is refused
     const tooSoon = raceDenied(a.s); a.s.emit('race_finish', { time: 1, score: 0, failed: false }); expect((await tooSoon).why).toBe('state');
     // c quits: a DNF, whose car goes back at once while the others keep theirs
@@ -601,6 +620,9 @@ describe('server wiring', () => {
       expect(me.inventory).toEqual([]); expect(me.money).toBe(500); expect(me.octane).toBe(0); expect(me.stamps).toEqual([]);
       expect(me.strip).toMatchObject({ rep: 0, wins: {}, best: {}, cars: {} });
     }
+    // the code is the key to the room: nobody outside it was ever sent it
+    expect(overheard.length).toBeGreaterThan(5);
+    expect(overheard.join('\n')).not.toContain(code);
     await close(a.s, b.s, c.s, outsider.s);
   }, 60_000);
 
@@ -613,7 +635,7 @@ describe('server wiring', () => {
     expect((await handed).members.map(x => x.name)).toEqual(['Mo']);
     m.s.emit('race_leave');
     await new Promise(r => setTimeout(r, 300));
-    expect((await lookup(code)).body).toEqual({ ok: true, host: '', eventId: 'royal_drag', car: 'ronin', count: 0, max: 4, phase: 'open' });
+    expect((await lookup(code)).body).toEqual({ ok: true, host: 'Mo', eventId: 'royal_drag', car: 'ronin', count: 0, max: 4, phase: 'open' }); // nobody is in: the link still names the last to host
     // whoever comes back to it by the code hosts it
     const n = await guest('Nia'), back = await joinRoomAs(n, code);
     expect(back.hostId).toBe(n.id); expect(back.members.map(x => x.name)).toEqual(['Nia']);
@@ -692,6 +714,56 @@ describe('server wiring', () => {
     expect(turnedAway).toBe(false); // every one of them is open to a visitor
     await close(g.s);
   }, 30_000);
+
+  it('a sign-in that swaps the run, a sign-out and a session taken over elsewhere each leave the room, and the page can come back', async () => {
+    const h = await guest('RoomHost'), code = (await makeRoom(h)).code;
+    // 1. a guest in the room signs in to a saved account: the saved player was never in the room
+    const g = await guest('Signer');
+    await joinRoomAs(g, code);
+    let gone = roomSeen(h.s, r => r.members.length === 1);
+    const linked = next<any>(g.s, 'account_linked');
+    g.s.emit('link_account', { magic: signMagic('saved@example.com', Date.now(), SECRET) });
+    expect((await linked).replaced).toBe(true); // what the page goes by to join again (store: raceHandlers.onLinked)
+    expect((await gone).members.map(m => m.name)).toEqual(['RoomHost']);
+    const back = await joinRoomAs(g, code);
+    expect(back.members.map(m => [m.id, m.name])).toEqual([[h.id, 'RoomHost'], [g.id, 'Saved']]);
+    // 2. signing out makes a guest of the socket again (a new init: the page joins again from it) and takes it out of the room
+    gone = roomSeen(h.s, r => r.members.length === 1);
+    const again = next<any>(g.s, 'init');
+    g.s.emit('sign_out');
+    await gone; await again;
+    expect((await lookup(code)).body.count).toBe(1);
+    await close(g.s);
+    // 3. the same account opened in a second tab takes the session: the first tab's place in the room goes
+    const t1 = client(); await join(t1, { mode: 'session', session: signSession(ACCOUNT, Date.now(), SECRET) });
+    expect((await joinRoomAs({ s: t1 }, code)).members).toHaveLength(2);
+    gone = roomSeen(h.s, r => r.members.length === 1);
+    const t2 = client(); await join(t2, { mode: 'session', session: signSession(ACCOUNT, Date.now(), SECRET) });
+    await gone;
+    await close(h.s, t1, t2);
+  }, 30_000);
+
+  it('one address holds twenty rooms at a time and no more; another address still gets its own', async () => {
+    // the address is the last hop of X-Forwarded-For (the hosting proxy's), as for sign-in mail and the tester key
+    const guestFrom = async (addr: string, name: string) => {
+      const s = connect(url, { transports: ['websocket'], forceNew: true, extraHeaders: { 'x-forwarded-for': addr } }); open.push(s);
+      return { s, id: (await join(s, { mode: 'guest', name })).id as string };
+    };
+    const flood = await Promise.all(Array.from({ length: 21 }, (_, i) => guestFrom('203.0.113.50', 'Flood' + i)));
+    for (const p of flood.slice(0, 20)) expect((await makeRoom(p)).members).toHaveLength(1);
+    const d = raceDenied(flood[20].s); flood[20].s.emit('race_create', { eventId: 'royal_drag', car: 'ronin' }); expect((await d).why).toBe('busy');
+    const honest = await guestFrom('198.51.100.7', 'Honest');
+    expect((await makeRoom(honest)).members).toHaveLength(1);
+    await close(honest.s, ...flood.map(p => p.s));
+  }, 30_000);
+
+  it('a junk entry in a saved inventory stops no challenge being made or joined', async () => {
+    const s = client(), si = await join(s, { mode: 'session', session: signSession(JUNK, Date.now(), SECRET) });
+    expect((await makeRoom({ s })).members.map(m => m.id)).toEqual([si.id]);
+    const h = await guest('JunkHost'), code = (await makeRoom(h)).code;
+    expect((await joinRoomAs({ s }, code)).members.map(m => m.name)).toEqual(['JunkHost', 'Junk']);
+    await close(s, h.s);
+  }, 40_000);
 
   it('five wrong keys from one address shut the key out, the right one included (this test must stay the last to use the key)', async () => {
     for (let i = 0; i < ATTEMPTS_PER_IP; i++) {

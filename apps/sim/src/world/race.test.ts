@@ -64,6 +64,34 @@ describe('making and joining a room', () => {
     expect(createRoom(full, who('z'), { eventId: 'royal_drag', car: 'ronin' }, 1, rand)).toEqual({ ok: false, why: 'busy' });
     expect(full.size).toBe(100);
   });
+  it('one address holds at most twenty rooms at a time, and holds up nobody else', () => {
+    const rooms = new Map<string, Room>();
+    let seed = 1; const rand = () => (seed = (seed * 16807) % 2147483647) / 2147483647; // a different code every time
+    const make = (i: number, from?: string) => createRoom(rooms, who('h' + i), { eventId: 'royal_drag', car: 'ronin' }, 1, rand, from);
+    for (let i = 0; i < 20; i++) expect(make(i, '203.0.113.9').ok).toBe(true);
+    expect(make(20, '203.0.113.9')).toEqual({ ok: false, why: 'busy' });
+    expect(rooms.size).toBe(20);
+    expect(make(21, '198.51.100.7').ok).toBe(true); // another address
+    // a room of the first address empties and goes: there is room for one more from it
+    const first = [...rooms.values()][0];
+    leaveRoom(first, 'h0', 0); expect(sweep(rooms, 120_000)).toEqual([first.code]);
+    expect(make(22, '203.0.113.9').ok).toBe(true);
+    expect(make(23, '203.0.113.9')).toEqual({ ok: false, why: 'busy' });
+    // a caller that names no address is not rationed (the hundred rooms still are)
+    const free = new Map<string, Room>();
+    for (let i = 0; i < 30; i++) expect(createRoom(free, who('f' + i), { eventId: 'royal_drag', car: 'ronin' }, 1, rand).ok).toBe(true);
+  });
+  it('a name is text of at most 24 characters, whatever a browser sent', () => {
+    const rooms = new Map<string, Room>();
+    const made = createRoom(rooms, { id: 'h', name: { a: 1 } as never }, { eventId: 'royal_drag', car: 'ronin' }, 1, () => 0.3);
+    if (!made.ok) throw new Error('refused');
+    expect(made.room.members[0].name).toBe('Racer');
+    expect(invitation(made.room).host).toBe('Racer');
+    joinRoom(made.room, { id: 'j', name: 'x'.repeat(5000) });
+    joinRoom(made.room, { id: 'k', name: '  Ana  ' });
+    joinRoom(made.room, { id: 'l', name: null as never });
+    expect(made.room.members.map(x => x.name)).toEqual(['Racer', 'x'.repeat(24), 'Ana', 'Racer']);
+  });
   it('two rooms never share a code', () => {
     const rooms = new Map<string, Room>();
     const rand = seq(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, .5, .5, .5, .5, .5, .5); // the second room draws the first one's code, then another
@@ -332,6 +360,29 @@ describe('quitting and leaving', () => {
     expect(sweep(rooms, 320_000)).toEqual([room.code]);
     expect(rooms.has(room.code)).toBe(false);
   });
+  it('a room emptied by a dropped connection keeps its link for fifteen minutes', () => {
+    // the host shares the link from a phone: the browser goes to sleep behind the messenger and the connection drops
+    const rooms = new Map<string, Room>();
+    const made = createRoom(rooms, who('a'), { eventId: 'royal_drag', car: 'ronin' }, 1, () => 0.3);
+    if (!made.ok) throw new Error('refused');
+    const room = made.room;
+    leaveRoom(room, 'a', 1000, true);
+    expect(sweep(rooms, 1000 + 120_000)).toEqual([]);   // two minutes on, the friend's link still opens
+    expect(sweep(rooms, 1000 + 899_999)).toEqual([]);
+    expect(invitation(room)).toMatchObject({ host: 'A', count: 0 }); // and still says who is challenging
+    expect(joinRoom(room, who('b'))).toEqual({ ok: true }); // the friend comes in first, and hosts until the other is back
+    expect(room).toMatchObject({ hostId: 'b', emptySince: null });
+    // the last one out decides how long the link lasts: a drop, fifteen minutes; a Leave, two
+    leaveRoom(room, 'b', 2_000_000, true);
+    expect(sweep(rooms, 2_000_000 + 899_999)).toEqual([]);
+    expect(sweep(rooms, 2_000_000 + 900_000)).toEqual([room.code]);
+    const again = createRoom(rooms, who('c'), { eventId: 'royal_drag', car: 'ronin' }, 1, () => 0.3);
+    if (!again.ok) throw new Error('refused');
+    joinRoom(again.room, who('d'));
+    leaveRoom(again.room, 'c', 0, true); leaveRoom(again.room, 'd', 5000);
+    expect(sweep(rooms, 5000 + 119_999)).toEqual([]);
+    expect(sweep(rooms, 5000 + 120_000)).toEqual([again.room.code]);
+  });
 });
 
 describe('what the server reads off a room', () => {
@@ -356,6 +407,7 @@ describe('what the server reads off a room', () => {
     expect(roomView(room)).toMatchObject({ code: room.code, eventId: 'royal_drag', car: 'ronin', hostId: 'a', phase: 'open', raceNo: 0 });
     expect(invitation(room)).toEqual({ host: 'A', eventId: 'royal_drag', car: 'ronin', count: 3, max: 4, phase: 'open' });
     for (const id of ['a', 'b', 'c']) leaveRoom(room, id, 0);
-    expect(invitation(room)).toEqual({ host: '', eventId: 'royal_drag', car: 'ronin', count: 0, max: 4, phase: 'open' });
+    // nobody is in it: the link still names the last to host it
+    expect(invitation(room)).toEqual({ host: 'C', eventId: 'royal_drag', car: 'ronin', count: 0, max: 4, phase: 'open' });
   });
 });
