@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import crypto from 'node:crypto';
 import { LINK_BUSY, LINK_IP_BUSY, LINK_WINDOW_MS, allowSend, clientIp, newSendLog, ALLOWANCE, signMagic, verifyMagic, signSession, verifySession, verifyGoogle, linkGuest, claimAllowance, saveRecord, applyRecord, attachAccount, liveHolder, identityKey, bootState, utcDay } from './accounts';
+import { lend } from './rental';
 const S = 'test-secret';
 const guest = (money = 1350) => ({ id: 's1', name: 'Pool', money, octane: 40, stamps: ['strip:first-win'], strip: { rep: 150, cars: {}, wins: { dr1: 1 }, best: { dr1: 9.8 } }, inventory: [{ id: 'rental-1', rental: true }, { id: 'own-1' }] } as any);
 describe('magic links', () => {
@@ -116,6 +117,14 @@ describe('saved records and email limits', () => {
     g.strip.cars = { 'rental-1': { cfg: {}, owned: ['a'] }, 'rental-9-old': { cfg: {}, owned: [] }, 'own-1': { cfg: {}, owned: ['b'] } };
     expect(Object.keys(saveRecord(g).strip!.cars)).toEqual(['own-1']);
     expect(Object.keys(g.strip.cars)).toHaveLength(3); // the live record is untouched
+  });
+  it('a car lent for a challenge is never saved, nor its part record', () => {
+    const g = guest(); const car = lend(g, 'ronin', 'K7M2QX', '#ffd23f', 5);
+    g.strip.cars[car.id] = { cfg: {}, owned: ['a'] };
+    const rec = saveRecord(g);
+    expect(rec.inventory.map((c: any) => c.id)).toEqual(['own-1']);
+    expect(Object.keys(rec.strip!.cars)).toEqual([]);
+    expect(g.inventory).toContain(car); // the live player still holds it
   });
   it('email sends: 3 per address and 30 in all per rolling hour, counted only when allowed', () => {
     const log = newSendLog();
