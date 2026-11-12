@@ -8,6 +8,9 @@ import type { Identity } from './world/accounts';
 import { isRental } from './world/rental';
 import type { Tab } from './bay/slots';
 import { isWorkOrder, type Door, type OrderLine, type WorkOrder } from './bay/order';
+import { routeFromLocation, withRace } from './route';
+import type { DenyWhy, RoomView } from './world/race';
+import { dropRemotes, syncClock, takePose } from './world/raceNet';
 
 // How a visitor joins: as a Strip guest, with a saved session token, or the original dealer/shop setup.
 export type ConnectOpts =
@@ -38,6 +41,12 @@ const writeTester = (v: { name: string; key: string } | null) => { try { if (v) 
 /** The saved tester key for this name on this device, if there is one (names compare without case). */
 export const testerKeyFor = (name: string): string | undefined => { const t = readTester(); return t && t.name.toLowerCase() === name.trim().toLowerCase() ? t.key : undefined; };
 export const forgetTester = () => writeTester(null);
+
+/** Where the server answers plain requests: this origin, or port 3000 when the page runs under the Vite dev server. */
+export const apiBase = (): string => {
+  const isDev = ['5173', '5174', '5175', '5176', '5177', '5178', '5179'].includes(window.location.port);
+  return isDev ? `http://${window.location.hostname}:3000` : '';
+};
 
 
 interface StoreState {
@@ -174,6 +183,20 @@ interface StoreState {
   equipStripPart: (carId: string, key: string, v: PartValue) => void;
   /** Save the dyno tune (optimistic; emits strip_tune). */
   setStripTune: (carId: string, tune: Tune) => void;
+
+  // A challenge race (world/race.ts): the room this page is in, as the server last sent it.
+  race: RoomView | null;
+  /** the room this page means to be in (from a link, or made here): joined again after every reconnect, and shown in the address */
+  raceCode: string | null;
+  /** the server's last refusal, until the next thing asked of the room */
+  raceDenied: DenyWhy | null;
+  /** 'missed': a race went without this page (it was still loading at the start) */
+  raceNote: 'missed' | null;
+  createRace: (eventId: string, car: string) => void;
+  joinRace: (code: string) => void;
+  setRace: (eventId: string, car: string) => void;
+  startRace: () => void;
+  leaveRace: () => void;
 }
 
 const cloneJ = <T,>(o: T): T => JSON.parse(JSON.stringify(o)) as T;
@@ -212,6 +235,53 @@ function reflectGraphicsQuality(q: 'high' | 'low') {
 const initialGraphicsQuality = loadGraphicsQuality();
 reflectGraphicsQuality(initialGraphicsQuality);
 
+/** The page's address follows its room (?race=CODE), on /strip only: a reload comes back to the room. */
+function showRace(code: string | null): void {
+  try {
+    if (typeof window === 'undefined' || routeFromLocation(window.location).view !== 'strip') return;
+    const next = withRace(window.location.href, code);
+    if (next !== window.location.href) window.history.replaceState(null, '', next);
+  } catch { /* sandboxed: the room is still joined, a reload just forgets it */ }
+}
+/** Out of the room, for this page: nothing of it is kept. */
+function forgetRace(): void {
+  useGameStore.setState({ race: null, raceCode: null, raceDenied: null, raceNote: null });
+  dropRemotes();
+  showRace(null);
+}
+
+/** What the store does with a challenge room's messages. `connect` registers these on the socket, and calls onInit
+ *  whenever the server has (re)made this socket's player: the server then knows the socket from nothing, room included. */
+export function raceHandlers(socket: { emit(ev: string, ...args: unknown[]): unknown }) {
+  return {
+    race_room(view: RoomView): void {
+      if (!view || typeof view !== 'object' || typeof view.code !== 'string' || !Array.isArray(view.members)) return;
+      const st = useGameStore.getState(), prev = st.race && st.race.code === view.code ? st.race : null, me = st.playerId;
+      const was = prev?.members.find(m => m.id === me)?.state, now = view.members.find(m => m.id === me)?.state;
+      let raceNote = st.raceNote;
+      if (view.phase === 'loading') raceNote = null;
+      else if (prev && was === 'loading' && now === 'waiting' && view.phase === 'racing' && prev.raceNo === view.raceNo) raceNote = 'missed';
+      // the green light is named on the server's clock: measure ours against it on coming in, and again at each start
+      if (!prev || (view.phase === 'loading' && prev.phase !== 'loading')) syncClock(socket);
+      if (!prev || prev.raceNo !== view.raceNo) dropRemotes(); // another race: the other racers' old poses mean nothing
+      useGameStore.setState({ race: view, raceCode: view.code, raceDenied: null, raceNote });
+      showRace(view.code);
+    },
+    race_denied(d: { why?: DenyWhy } | null | undefined): void {
+      const why: DenyWhy = d && typeof d.why === 'string' ? d.why : 'state';
+      if (why === 'gone' || why === 'full') forgetRace(); // there is no room to be in
+      useGameStore.setState({ raceDenied: why });
+    },
+    race_pose(msg: unknown): void { takePose(msg); },
+    onInit(): void {
+      const code = useGameStore.getState().raceCode;
+      useGameStore.setState({ race: null, raceNote: null });
+      dropRemotes();
+      if (code) socket.emit('race_join', { code });
+    },
+  };
+}
+
 /** How long a pending bay order waits for the server before the bay lets go of it. */
 export const ORDER_TIMEOUT_MS = 10_000;
 let orderTimer: ReturnType<typeof setTimeout> | null = null;
@@ -224,10 +294,8 @@ export const useGameStore = create<StoreState>((set, get) => ({
   holdCard: false,
   setHoldCard: (v) => set({ holdCard: v }),
   loadCaps: async () => {
-    const isDev = ['5173', '5174', '5175', '5176', '5177', '5178', '5179'].includes(window.location.port);
-    const base = isDev ? `http://${window.location.hostname}:3000` : '';
     try {
-      const r = await fetch(`${base}/api/caps`);
+      const r = await fetch(`${apiBase()}/api/caps`);
       if (r.ok) { const c = await r.json(); set({ caps: { google: !!c.google, googleClientId: typeof c.googleClientId === 'string' ? c.googleClientId : null, magic: !!c.magic } }); }
     } catch { /* offline or no endpoint: guest only */ }
   },
@@ -336,6 +404,16 @@ export const useGameStore = create<StoreState>((set, get) => ({
       const socket = get().socket;
       if (socket) socket.emit('cancel_insurance', { type });
   },
+  race: null,
+  raceCode: null,
+  raceDenied: null,
+  raceNote: null,
+  createRace: (eventId, car) => { set({ raceDenied: null }); get().socket?.emit('race_create', { eventId, car }); },
+  // before the player is in (a link just opened) this only remembers the room: the 'init' that follows joins it
+  joinRace: (code) => { set({ raceCode: code, raceDenied: null }); const s = get(); if (s.socket && s.playerId) s.socket.emit('race_join', { code }); },
+  setRace: (eventId, car) => { set({ raceDenied: null }); get().socket?.emit('race_set', { eventId, car }); },
+  startRace: () => { set({ raceDenied: null }); get().socket?.emit('race_start'); },
+  leaveRace: () => { get().socket?.emit('race_leave'); forgetRace(); },
   strip: null,
   octane: 0,
   setStrip: (rec) => set({ strip: rec }),
@@ -386,11 +464,13 @@ export const useGameStore = create<StoreState>((set, get) => ({
       myWorldPos: null, drivingFuel: null, drivingSpeed: 0, gatePrompt: false, activeInteraction: null, driveNotice: null,
       activeInspectionCarId: null, activeInspectionShopType: null, isBankModalOpen: false, isInsuranceModalOpen: false,
       strip: null, octane: 0, garageCarId: null, bayTab: 'custom', orderPending: false, lastOrder: null });
+    forgetRace();
   },
   connect: (opts) => {
     const isDev = ['5173', '5174', '5175', '5176', '5177', '5178', '5179'].includes(window.location.port);
     const socketUrl = isDev ? `http://${window.location.hostname}:3000` : window.location.origin;
     const socket = io(socketUrl);
+    const race = raceHandlers(socket);
     set({ joinRefused: null });
 
     // A linked player who reconnects rejoins on the saved session, not as the guest the socket first joined as.
@@ -426,7 +506,11 @@ export const useGameStore = create<StoreState>((set, get) => ({
         if (accountChanged(get().account, data.account)) set({ bayTab: 'custom', orderPending: false, lastOrder: null });
         set({ caps: data.caps ? { ...NO_CAPS, ...data.caps } : get().caps, account: data.account || null, linkPrompt: null, pendingLink: null });
         set({ gameState: data.state, playerId: data.id, timeOfDay: data.state.timeOfDay, chatMessages: data.state.chatLog || [], unreadChat: 0, ...mirrorStrip(data.state, data.id) });
+        race.onInit(); // the server made this socket's player anew: back into the challenge room this page was in, if any
     });
+    socket.on('race_room', race.race_room);
+    socket.on('race_denied', race.race_denied);
+    socket.on('race_pose', race.race_pose);
     // The server did not take the tester key, so it did not join us. A key it calls wrong is no longer worth keeping.
     // From the entry card: stop, and let the card say why (its button then joins as an ordinary guest). After a dropped
     // connection, with the world already up: carry on as an ordinary guest, and say why in the world.

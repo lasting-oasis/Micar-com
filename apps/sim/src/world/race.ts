@@ -3,15 +3,15 @@
    touches a socket, a player record or a car. server.ts does the wiring; the page reads a RoomView. */
 import { EVENTS, type EventDef } from './data';
 import { eventDistance, raceFloor } from './payout';
+import { makeCode } from './raceCode';
 import { RENTAL_FLEET, type RentalKey } from './rental';
 import { raceCapS } from './strip/events';
+
+export { CODE_ALPHABET, CODE_LEN, makeCode, normalizeCode } from './raceCode';
 
 /** A room holds at most this many people (the grid has four places), and a race needs at least two. */
 export const RACE_MAX = 4, RACE_MIN = 2;
 export const ROOMS_MAX = 100;
-export const CODE_LEN = 6;
-/** No I, L or O and no 0 or 1: a code read aloud, or typed from a screenshot, is not misread. */
-export const CODE_ALPHABET = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
 /** After Start a browser has this long to sit on the grid; the green light is named this far ahead; once the first car is
  *  home the rest have the window; an empty room keeps its link this long; a race closes this long after its event's cap. */
 export const LOAD_TIMEOUT_MS = 30_000, GO_LEAD_MS = 5_000, FINISH_WINDOW_MS = 60_000, EMPTY_TTL_MS = 120_000, CAP_SLACK_MS = 30_000;
@@ -58,22 +58,6 @@ const member = (who: { id: string; name: string }): Member => ({ id: who.id, nam
 const row = (m: Member): ResultRow => ({ id: m.id, name: m.name, pos: 0, time: m.time, score: m.score, why: m.why });
 const toWaiting = (m: Member): void => { m.state = 'waiting'; m.time = null; m.score = 0; m.why = null; };
 const count = (room: Room, state: MemberState): number => room.members.filter(m => m.state === state).length;
-
-export function makeCode(rand: () => number): string {
-  const n = CODE_ALPHABET.length;
-  let code = '';
-  for (let i = 0; i < CODE_LEN; i++) { const k = Math.floor(rand() * n); code += CODE_ALPHABET[k >= 0 && k < n ? k : n - 1]; }
-  return code;
-}
-
-/** A code as people type it (any case, spaces, a dash), or null when it could not be one. */
-export function normalizeCode(raw: unknown): string | null {
-  if (typeof raw !== 'string') return null;
-  const code = raw.replace(/[\s-]/g, '').toUpperCase();
-  if (code.length !== CODE_LEN) return null;
-  for (const ch of code) if (!CODE_ALPHABET.includes(ch)) return null;
-  return code;
-}
 
 /** A race the host's stage has opened, and a car of the fleet. */
 function checkChoice(pick: Choice, stage: number): { ok: true; eventId: string; car: RentalKey } | Denied {
