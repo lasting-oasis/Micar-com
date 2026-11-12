@@ -57,3 +57,16 @@ describe('a Garage card turned over', () => {
     expect(html).not.toContain('gar-back"');
   });
 });
+
+describe('the back face on an iPhone', () => {
+  it('does not wait to load its picture: it sits on a face turned away, where Safari never fetched a lazy one', () => {
+    expect(renderToStaticMarkup(<BackFace foil="gloss" />)).not.toContain('loading="lazy"');
+  });
+
+  it('sizes the picture with plain boxes, not container units', () => {
+    const css = readFileSync(fileURLToPath(new URL('../door.css', import.meta.url)), 'utf8');
+    const rules = css.split('\n').filter((line) => /^\.dp \.(art\.cb|cb-card)/.test(line)).join('\n');
+    expect(rules).not.toMatch(/cq[hw]|container-type|aspect-ratio/);
+    expect(rules).toContain('object-fit: contain');
+  });
+});

@@ -6,6 +6,8 @@ import { carPageUrl } from '../car/record';
 import { qrSvg } from '../car/qr';
 import { usd } from '../car/value';
 import { BackFace } from '../garage/BackFace';
+import { FlipCue, useFlip } from './flip';
+import type { Turn } from './flip';
 import { GRADE_CATEGORY_NAMES } from '../garage/CollectibleCard';
 import { t } from '../i18n';
 import { categoryOf, gradeFor, type Card, type Grade, type GradeInputs } from './card';
@@ -62,13 +64,15 @@ type Props = {
   g?: GradeInputs;
   flipped?: boolean;
   onFlip?: () => void;
+  /** How the card turns over (door/flip.tsx). A tap, unless the tap is already taken. */
+  turn?: Turn;
   live?: boolean;
   mini?: boolean;
   className?: string;
   serial?: string;
 };
 
-export function Slab({ card, g, flipped = false, onFlip, live = false, mini = false, className = '', serial }: Props) {
+export function Slab({ card, g, flipped = false, onFlip, turn = 'tap', live = false, mini = false, className = '', serial }: Props) {
   const grade = useMemo(() => gradeFor(card, g), [g, card]);
   const link = carPageUrl(card.code);
   const qr = useQr(link);
@@ -76,11 +80,11 @@ export function Slab({ card, g, flipped = false, onFlip, live = false, mini = fa
   const cat = categoryOf(card.r.body);
   // Foil follows a grade a card has earned in its case. A starting grade has none yet.
   const style = { '--foil': 0 } as CSSProperties;
-  const toggle = () => onFlip?.();
+  const { isFlipped, toggle, tap } = useFlip(flipped, onFlip, turn);
   return (
-    <div ref={ref} className={`slab raw ${flipped ? 'flipped' : ''} ${live ? 'live' : ''} ${mini ? 'mini' : ''} ${className}`} style={style}
-      role={onFlip ? 'button' : undefined} tabIndex={onFlip ? 0 : undefined} aria-label={onFlip ? t('The card. Press Enter to flip it.') : undefined}
-      onClick={onFlip ? toggle : undefined} onKeyDown={onFlip ? (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } } : undefined}>
+    <div ref={ref} className={`slab raw ${isFlipped ? 'flipped' : ''} ${live ? 'live' : ''} ${mini ? 'mini' : ''} ${className}`} style={style}
+      role={tap ? 'button' : undefined} tabIndex={tap ? 0 : undefined} aria-label={tap ? t('The card. Press Enter to flip it.') : undefined}
+      onClick={tap ? toggle : undefined} onKeyDown={tap ? (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } } : undefined}>
       <div className="slab-in">
         <div className="sl-face front"><div className="acrylic">
           <Label card={card} grade={grade} qr={qr} serial={serial} />
@@ -99,6 +103,7 @@ export function Slab({ card, g, flipped = false, onFlip, live = false, mini = fa
           <div className="uvmark">MiCar<br />{t('authentic')}<br />{serial ?? t('unminted')}</div>
         </div></div>
       </div>
+      {turn !== 'page' && <FlipCue flipped={isFlipped} onFlip={turn === 'corner' ? toggle : undefined} />}
     </div>
   );
 }

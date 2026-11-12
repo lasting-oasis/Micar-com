@@ -11,6 +11,7 @@ import { t, tx } from '../i18n';
 import '../door.css';
 import './garage.css';
 import './panels.css';
+import { FlipCue } from '../door/flip';
 import { CARD_BACKS } from './back';
 import { CardBack } from './CardBack';
 import CardBacks from './CardBacks';
@@ -58,9 +59,13 @@ function CarTile({ passport, g, today }: { passport: Passport; g: GarageHandle; 
   const assembly = useMemo(() => assembleCar(passport, today), [passport, today]);
   const photo = useFileUrl(g.files, assembly.card.photoAttachmentId);
   const holding = HOLDING_WORDS[holdingOf(g.state, passport)];
+  const [flipped, setFlipped] = useState(false);
   return (
     <div className="gar-cell">
-      <a href={garageUrl(passport.micarId)} aria-label={assembly.card.title}><CollectibleCard card={assembly.card} report={assembly.report} photoUrl={photo} /></a>
+      <div className="gar-turn">
+        <a href={garageUrl(passport.micarId)} aria-label={assembly.card.title}><CollectibleCard card={assembly.card} report={assembly.report} photoUrl={photo} turn="page" flipped={flipped} /></a>
+        <FlipCue flipped={flipped} onFlip={() => setFlipped((f) => !f)} />
+      </div>
       <p className="gar-cap">{assembly.card.title}<small>{assembly.card.subtitle || passport.micarId}{holding === '' ? '' : ` · ${t(holding)}`}</small></p>
     </div>
   );

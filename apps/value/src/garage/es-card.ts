@@ -82,4 +82,5 @@ export const ES_CARD: Record<string, string> = {
   'Tilt them in 3D': 'Inclínelos en 3D',
   'The back is earned too': 'El reverso también se gana',
   "Turn it over: every card carries the MiCar card back, under the foil its rarity earned. The four are just below.": 'Dele la vuelta: cada tarjeta lleva el reverso MiCar, bajo el foil que ganó su rareza. Los cuatro están justo debajo.',
+  'Turn the card over': 'Dar la vuelta a la tarjeta',
 };

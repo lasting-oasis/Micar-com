@@ -287,13 +287,24 @@
 .dp .mini .lab-g b { font-size: 22px; } .dp .mini .stats { font-size: 7px; } .dp .mini .stats b { font-size: 15px; } .dp .mini .lab-g small { font-size: 6px; } .dp .mini .lab-g em { font-size: 7px; }
 @media (hover: none) { .dp .live .foil { animation: sheen 6s ease-in-out infinite alternate; } }
 @keyframes sheen { from { background-position: 20% 30%; } to { background-position: 80% 70%; } }
+/* the mark on a card's corner that says it turns over; a button where the card's own tap is taken (door/flip.tsx) */
+.dp .flip-cue { position: absolute; right: -7px; top: -7px; z-index: 8; width: clamp(22px, 12%, 34px); aspect-ratio: 1; display: grid; place-items: center; padding: 0; border-radius: 50%; border: 1px solid rgba(255,255,255,.5); background: var(--paint); color: #0b0d12; box-shadow: 0 4px 12px rgba(0,0,0,.6); pointer-events: none; transition: transform .35s var(--ease-out); }
+.dp .flip-cue svg { width: 62%; height: 62%; }
+.dp button.flip-cue { pointer-events: auto; cursor: pointer; }
+.dp button.flip-cue::before { content: ""; position: absolute; inset: -9px; }
+.dp button.flip-cue:hover, .dp .slab[role=button]:hover > .flip-cue { transform: rotate(180deg); }
+.dp button.flip-cue:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.dp .slab[role=button] { cursor: pointer; }
+.dp .gar-turn { position: relative; }
+.dp .gar-turn > a { display: block; }
 /* the back of every card: the MiCar card back under its rarity's foil (garage/BackFace.tsx). The picture is never
    cropped: it sits whole inside the case, on a ground of its own edge colour. The foil layers are clipped to the
    picture and follow the pointer through --mx and --my, like the front's. */
-.dp .art.cb { display: grid; grid-template-rows: minmax(0, 1fr) auto; place-items: center; background: #0e0f12; container-type: size; }
-.dp .cb-card { position: relative; grid-row: 1; height: 100%; max-width: 100%; aspect-ratio: 531 / 741; border-radius: 4.5% / 3.2%; overflow: hidden; isolation: isolate; }
-@supports (height: 1cqh) { .dp .cb-card { height: auto; width: min(100cqw, calc(100cqh * 531 / 741)); } .dp .cb:has(.cb-rar) .cb-card { width: min(100cqw, calc((100cqh - 9cqw - 6px) * 531 / 741)); } }
-.dp .cb-card img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.dp .art.cb { display: flex; flex-direction: column; background: #0e0f12; }
+/* Plain boxes only: no container units and no aspect-ratio decide the picture's size, and it is never lazy-loaded.
+   iPhone Safari showed this face empty when they did. The picture fits itself whole inside the box. */
+.dp .cb-card { position: relative; flex: 1 1 0; min-height: 0; width: 100%; overflow: hidden; isolation: isolate; }
+.dp .cb-card img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; }
 .dp .cb-foil, .dp .cb-spark, .dp .cb-glare { position: absolute; inset: 0; pointer-events: none; }
 .dp .cb-foil { z-index: 2; mix-blend-mode: color-dodge; opacity: 0;
   background: repeating-linear-gradient(115deg, hsl(0 90% 60%) 0%, hsl(50 95% 60%) 4%, hsl(120 80% 55%) 8%, hsl(185 90% 58%) 12%, hsl(225 90% 64%) 16%, hsl(290 85% 64%) 20%, hsl(360 90% 60%) 24%) calc(var(--mx) * 1%) calc(var(--my) * 1%) / 400% 400%;
@@ -321,7 +332,7 @@
 .dp .cb-prismatic .cb-spark { opacity: 1; }
 @media (hover: none) { .dp .live .cb-holo .cb-foil, .dp .live .cb-rainbow .cb-foil { animation: sheen 6s ease-in-out infinite alternate; } }
 /* the rarity, named under the picture and never on it */
-.dp .cb-rar { grid-row: 2; justify-self: stretch; display: flex; align-items: baseline; justify-content: center; gap: 2.4cqw; padding: 2.4cqw 2cqw; margin-top: 6px; border-top: 2px solid var(--rar, var(--paint)); background: linear-gradient(180deg, color-mix(in srgb, var(--rar, #aeb6c2) 22%, transparent), transparent); white-space: nowrap; overflow: hidden; }
+.dp .cb-rar { flex: 0 0 auto; display: flex; align-items: baseline; justify-content: center; gap: 2.4cqw; padding: 2.4cqw 2cqw; margin-top: 6px; border-top: 2px solid var(--rar, var(--paint)); background: linear-gradient(180deg, color-mix(in srgb, var(--rar, #aeb6c2) 22%, transparent), transparent); white-space: nowrap; overflow: hidden; }
 .dp .cb-rar b { font: 800 clamp(8px, 4.6cqw, 17px)/1 var(--cond); letter-spacing: .18em; text-transform: uppercase; color: var(--rar, #eef2f8); text-shadow: 0 0 10px color-mix(in srgb, var(--rar, #fff) 55%, transparent); }
 .dp .cb-rar span { font: 700 clamp(6px, 2.8cqw, 11px)/1 var(--cond); letter-spacing: .12em; text-transform: uppercase; color: var(--haze); overflow: hidden; text-overflow: ellipsis; }
 /* the four backs on the home page (garage/FoilShelf.tsx) */
@@ -329,6 +340,7 @@
 .dp .foil-tile { --mx: 50; --my: 50; display: grid; gap: 8px; align-content: start; min-width: 0; cursor: default; }
 .dp .foil-card { position: relative; aspect-ratio: 531 / 741; margin-bottom: 8px; filter: drop-shadow(0 18px 26px rgba(0,0,0,.6)); }
 .dp .foil-card .art.cb { position: absolute; inset: 0; background: none; border-radius: 0; overflow: visible; }
+.dp .foil-card .cb-card { border-radius: 4.5% / 3.2%; }
 .dp .foil-tile small { font: 700 11px/1 var(--cond); letter-spacing: .18em; text-transform: uppercase; color: var(--haze); }
 .dp .foil-tile h3 { margin: 0; font: 800 clamp(17px, 1.7vw, 22px)/1.1 var(--cond); letter-spacing: .04em; text-transform: uppercase; }
 .dp .foil-tile p { margin: 0; color: #c3cad8; font-size: 15px; line-height: 1.45; }

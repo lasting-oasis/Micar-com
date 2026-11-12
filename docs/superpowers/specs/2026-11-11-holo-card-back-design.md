@@ -227,3 +227,11 @@ The owner asked for the new back on every card on the site, in place of the old 
   foils side by side, each with what it is made of and the rarities that earn it, and a link to
   `#/garage/card-backs`, where each can be tilted in 3D. That page is linked from here now. The card section's
   third point no longer says the back carries the grade's categories and the chart.
+- **Every card turns over, not only the big ones.** The owner's point: every slab on the site was showing a front,
+  so every one has a back. `door/flip.tsx` gives each card one of three ways to turn. A tap anywhere (the default;
+  a card nobody else turns keeps its own state): the small cards in the statement and the grade section, the big
+  card, the Garage's examples and a car's own card. A corner button where the tap is already taken: the bay's
+  showcase card, whose tap opens the inspect view. A button the page draws beside the card: a Garage tile, which is
+  a link to the car. Every card carries the same yellow turn mark on its corner.
+  `e2e/every-card.smoke.mjs` (`pnpm --filter @micar/value smoke:cards`) turns each of them at desktop and phone
+  width; like the other browser test it is run by hand, not in CI.

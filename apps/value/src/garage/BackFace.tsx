@@ -2,7 +2,8 @@
 // picture and a few CSS layers, so a page can hold dozens of them; the foil's bands, sparkle and glare follow the
 // pointer through the --mx and --my the card already keeps (door/Slab.tsx, useLive). The live 3D card, lit and
 // tilted for real, is the inspect view (CardBack.tsx). A card with no rarity yet (the home page's) gets no name
-// under the picture and wears the plain gloss back.
+// under the picture and wears the plain gloss back. The picture is not lazy-loaded: it sits on a face turned away
+// from the reader, and iPhone Safari never fetched it there.
 import { FOIL_LABELS } from '@micar/holo';
 import type { FoilId } from '@micar/holo';
 import { t } from '../i18n';
@@ -20,7 +21,7 @@ export function BackFace({ foil, rarity }: Props) {
       <div className="cb-card">
         <picture>
           <source srcSet={CARD_FACE_AVIF} type="image/avif" />
-          <img src={CARD_FACE} alt={t('The MiCar card back')} width={531} height={741} loading="lazy" draggable={false} />
+          <img src={CARD_FACE} alt={t('The MiCar card back')} width={531} height={741} decoding="async" draggable={false} />
         </picture>
         <div className="cb-foil" /><div className="cb-spark" /><div className="cb-glare" />
       </div>
