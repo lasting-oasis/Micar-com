@@ -235,3 +235,8 @@ The owner asked for the new back on every card on the site, in place of the old 
   a link to the car. Every card carries the same yellow turn mark on its corner.
   `e2e/every-card.smoke.mjs` (`pnpm --filter @micar/value smoke:cards`) turns each of them at desktop and phone
   width; like the other browser test it is run by hand, not in CI.
+- **Which face shows is said by `visibility`, not by `backface-visibility`.** On the owner's iPhone the turned card
+  showed its front in a mirror and no back. Safari was drawing the turning card flat, and a flat card culls the
+  wrong face. Reproduced in Chrome by forcing the card flat (`filter` on `.slab-in`); the flip now swaps the two
+  faces' visibility as the card passes edge-on, which is right whether or not the browser keeps the 3D.
+  `smoke:cards` has a third pass that turns every card drawn flat. Still not run on Safari itself.

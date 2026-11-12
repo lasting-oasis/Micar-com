@@ -241,8 +241,14 @@
 .dp .slab { --mx: 50; --my: 50; --rx: 0deg; --ry: 0deg; --turn: 0deg; --foil: .5; position: relative; aspect-ratio: 5 / 8; perspective: 1000px; max-width: 100%; }
 .dp .slab-in { position: relative; height: 100%; transform-style: preserve-3d; transform: rotateY(calc(var(--turn) + var(--ry))) rotateX(var(--rx)); transition: transform .8s var(--ease-out); }
 .dp .slab.flipped { --turn: 180deg; }
-.dp .sl-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
-.dp .sl-face.back { transform: rotateY(180deg); }
+/* Which face shows is said outright, by visibility, and never left to backface-visibility. iPhone Safari draws the
+   turning card flat (it will not keep a 3D card whose faces blend), and a flat card culls the wrong face: the turn
+   showed the front in a mirror and no back at all. Said outright, the right face shows in a browser that keeps the
+   3D and in one that does not. The faces swap as the card passes edge-on, a tenth of a second into the turn. */
+.dp .sl-face { position: absolute; inset: 0; transition: visibility 0s .1s; }
+.dp .sl-face.back { transform: rotateY(180deg); visibility: hidden; }
+.dp .slab.flipped .sl-face.back { visibility: visible; }
+.dp .slab.flipped .sl-face.front { visibility: hidden; }
 .dp .acrylic { position: absolute; inset: 0; border-radius: 12px; padding: 7px; display: grid; grid-template-rows: auto 1fr; gap: 6px;
   background: linear-gradient(135deg, rgba(255,255,255,.24), rgba(255,255,255,.06) 32%, rgba(255,255,255,.03) 64%, rgba(255,255,255,.18));
   border: 1px solid rgba(255,255,255,.5); box-shadow: inset 0 0 0 1px rgba(255,255,255,.14), inset 0 0 28px rgba(188,214,255,.14), 0 34px 60px rgba(0,0,0,.65), 0 0 30px rgba(61,123,255,.12); }
