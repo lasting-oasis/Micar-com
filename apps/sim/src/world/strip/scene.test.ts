@@ -20,7 +20,7 @@ vi.mock('../../scene/carModel', () => {
     attachCarShadows: (s: THREE.Object3D) => { shadow = s; }, carShadowScene: () => shadow,
   };
 });
-const { StripScene, STRIP_SPAWN } = await import('./scene');
+const { StripScene, STRIP_SPAWN, tagSize } = await import('./scene');
 const { EVENTS } = await import('../data');
 const { DRAG_LANES } = await import('./events');
 const { routePoint } = await import('./routes');
@@ -374,6 +374,38 @@ describe('a challenge in the scene: the other cars are people', () => {
     const at = [PV.x, PV.z, ana.x, ana.z];
     expect(S.collide(PV)).toBe(0);
     expect([PV.x, PV.z, ana.x, ana.z]).toEqual(at);
+    S.dispose();
+  });
+
+  it("a racer's name tag is small beside this driver and full size far off", () => {
+    expect(tagSize(4)).toEqual({ w: 1.5, h: 0.375, y: 2.0625 }); // alongside: a third of a car's length, just over the roof
+    expect(tagSize(13).w).toBeCloseTo(2.47, 2);                  // between, it grows with the distance: about one size on the screen
+    expect(tagSize(13).h).toBeCloseTo(2.47 / 4, 2);
+    expect(tagSize(40)).toEqual({ w: 5, h: 1.25, y: 2.5 });      // far off: as long as a car, so the name can still be read
+    expect(tagSize(4000).w).toBe(5);
+    expect(tagSize(0).w).toBe(1.5);
+  });
+  it('the tag is sized for the camera that draws it', async () => {
+    const { S, PV, car } = setup(); S.enter(PV, car);
+    // a minimal DOM for the tag's canvas (the suite has none): a 2D context that swallows every call
+    const ctx = new Proxy({}, { get: (_t, k) => k === 'measureText' ? (text: string) => ({ width: text.length * 34 }) : () => {}, set: () => true });
+    vi.stubGlobal('document', { createElement: () => ({ width: 0, height: 0, getContext: () => ctx }) });
+    try {
+      await S.startEvent(ev('royal_drag'), { net: field() });
+      const m = S.runner.active!.racers[0].m as THREE.Group, tag = m.userData.tag as THREE.Sprite;
+      expect(tag).toBeInstanceOf(THREE.Sprite);
+      m.position.set(100, 0, 200); m.updateMatrixWorld(true);
+      const cam = new THREE.PerspectiveCamera();
+      /** the tag's width, height and height over the road (metres) once drawn from `metres` away */
+      const seenFrom = (metres: number) => {
+        cam.position.set(100 + metres * WORLD_PER_M, 0, 200); cam.updateMatrixWorld(true);
+        tag.onBeforeRender(null as never, null as never, cam, null as never, null as never, null as never);
+        return [tag.scale.x, tag.scale.y, tag.position.y].map(v => v / WORLD_PER_M);
+      };
+      expect(seenFrom(4)).toEqual([1.5, 0.375, 2.0625]);
+      expect(seenFrom(100)).toEqual([5, 1.25, 2.5]);
+      expect(seenFrom(13)[0]).toBeCloseTo(2.47, 2);
+    } finally { vi.unstubAllGlobals(); }
     S.dispose();
   });
 

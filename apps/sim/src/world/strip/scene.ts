@@ -13,7 +13,7 @@ import { attachCarShadows, buildCarModel, carShadowScene, disposeCarModel, setCa
 import { getStyleGeometry } from '../../scene/car/carStyles';
 import { anchorsFor, attachParts, disposeParts, syncKitLod, type PartsKit } from '../parts';
 import { ARCHETYPES, EVENTS, EV_COL, EV_NAME, PALETTE, STOCK_CFG, STYLES, TUNE_DEF, type BodyStyle, type CarCfg, type EventDef, type VisualCfg } from '../data';
-import { carParams, makeVehicle, resetVehicle, type Vehicle } from '../physics';
+import { carParams, clamp, makeVehicle, resetVehicle, type Vehicle } from '../physics';
 import { WORLD_PER_M } from '../units';
 import { buildRentalLot } from '../../scene/world/rentalLot';
 import { RENTAL_BAY, RENTAL_CAM, RENTAL_KIOSK } from '../rental';
@@ -85,6 +85,14 @@ type CarRec = { style: BodyStyle; wheelR: number };
 const recOf = (g: THREE.Object3D) => g.userData.strip as CarRec;
 type ModelNodes = { pivots: THREE.Object3D[]; wheels: THREE.Object3D[] };
 
+
+/** How large a racer's name tag is drawn (metres) for how far its car is from the camera: a third of a car's length when
+ *  the car is alongside, then growing with the distance, so that it holds about one size on the screen, up to a car's
+ *  length (far off the name can still be read; close up it does not fill the view). `y` is how high its middle floats. */
+export function tagSize(dist: number): { w: number; h: number; y: number } {
+  const w = clamp(dist * .19, 1.5, 5), h = w / 4;
+  return { w, h, y: 1.875 + h / 2 };
+}
 export class StripScene {
   ready = false;
   scene: THREE.Scene = new THREE.Scene();
@@ -173,7 +181,12 @@ export class StripScene {
     g.userData.strip = { style, wheelR: anchorsFor(style).wheelR } satisfies CarRec;
     setCarLights(g, 'on');
     const tag = label ? nameSprite(label) : null; // null without a DOM (tests)
-    if (tag) { tag.scale.set(5 * W, 1.25 * W, 1); tag.position.set(0, 2.8 * W, 0); g.add(tag); g.userData.tag = tag; }
+    if (tag) {
+      // sized for the camera that draws it (the countdown's fly-over, the chase views), a frame behind
+      const fit = (dist: number) => { const sz = tagSize(dist); tag.scale.set(sz.w * W, sz.h * W, 1); tag.position.set(0, sz.y * W, 0); };
+      tag.onBeforeRender = (_r, _s, cam) => { const c = cam.matrixWorld.elements, at = g.matrixWorld.elements; fit(Math.hypot(c[12] - at[12], c[13] - at[13], c[14] - at[14]) / W); };
+      fit(Infinity); g.add(tag); g.userData.tag = tag;
+    }
     if (cfg) {
       const kit: PartsKit = attachParts(g, cfg, style, (cfg as Partial<CarCfg>).perf?.brakes ?? 0);
       if (kit.neonLight) { kit.neonLight.removeFromParent(); kit.neonLight.dispose(); kit.neonLight = null; }
