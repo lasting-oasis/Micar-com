@@ -14,6 +14,7 @@ import { TEST_CARS } from './tester';
 import { useLang, t } from '../i18n';
 import { TouchSticks } from './TouchSticks';
 import { getOptions } from './options';
+import { ChallengeButton, ChallengeSetup, StagingLine, WaitingRoom } from '../strip/Challenge';
 
 const tap = (t: DriveTap) => useDriveUi.setState({ tap: t });
 // App's phone layout (its isMobile): the D-pad drives (its ◀ ▶ taps change a drag's lane), these add
@@ -54,6 +55,7 @@ function Counter() {
           <div className="font-cond font-bold text-lg tabular-nums">{money(me.money)}</div>
         </div>
         <p className="font-sans text-[13px] text-white/80 mb-3">{t(lang, 'strip.testerLine')}</p>
+        <div className="flex flex-col gap-2 mb-3"><ChallengeButton /></div>
         {makes.map(make => (
           <div key={make || 'fleet'} className="mb-3">
             <div className="font-cond font-semibold uppercase tracking-[0.14em] text-xs text-haze mb-1.5">{make || t(lang, 'strip.fleet')}</div>
@@ -78,6 +80,7 @@ function Counter() {
         <div className="font-cond font-bold text-lg tabular-nums">{money(me.money)}</div>
       </div>
       <div className="flex flex-col gap-2">
+        <ChallengeButton />
         {RENTAL_FLEET.map(f => (
           <button key={f.key} type="button" disabled={!canRent(me, f.key).ok || pending} onClick={() => { setPending(true); useGameStore.getState().rentCar(f.key); }}
             className={`${rowBtn} flex items-center gap-3 border border-market/60 enabled:hover:bg-market enabled:hover:text-night disabled:opacity-45 disabled:cursor-not-allowed`}>
@@ -118,6 +121,11 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
   const lobby = useDriveUi(s => s.lobby);
   const counter = useDriveUi(s => s.counter);
   const returned = useDriveUi(s => s.returned);
+  // a challenge race: its card in the lobby (making a room, or the host changing the race), the room, no restart
+  const challenge = useDriveUi(s => s.challenge);
+  const netRace = useDriveUi(s => s.netRace);
+  const inRoom = useGameStore(s => !!s.race);
+  const lang = useLang();
   // a Strip visitor (a guest or an account holder) has no town to go back to; an account holder can sign out
   const visitor = useGameStore(s => isVisitor(s.playerId ? s.gameState?.players[s.playerId] : undefined));
   const signedIn = useGameStore(s => !!s.account);
@@ -158,6 +166,7 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
           <canvas ref={canvasRef} className="absolute left-0 right-0 bottom-0 top-16 w-full h-[calc(100%-4rem)]" />
           <div className="absolute inset-0 transition-opacity duration-300" style={{ opacity: nos ? .9 : 0, background: 'radial-gradient(ellipse at center, transparent 55%, rgba(121,166,255,.35) 100%)' }} />
           <div className="absolute left-1/2 top-[76px] -translate-x-1/2 max-w-[calc(100vw-32px)] truncate whitespace-nowrap px-4 py-2 bg-night/75 border border-market/30 font-sans font-semibold text-[13px] text-haze transition-opacity duration-700" style={{ opacity: helpOn && driving && !paused && !results ? 1 : 0 }}>{HELP[district]}</div>
+          <StagingLine />
           {shownBanner && shownBanner.txt && (
             <div className="absolute left-1/2 top-[28%] -translate-x-1/2 -translate-y-1/2 w-[min(92vw,720px)] text-center">
               <div className={`font-cond italic font-black uppercase tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,.8)] ${shownBanner.txt.length < 4 ? 'text-8xl' : shownBanner.txt.length > 22 ? 'text-2xl md:text-4xl' : 'text-4xl md:text-5xl'} ${shownBanner.bad ? 'text-[#ff5a6a]' : 'text-market'}`}>{shownBanner.txt}</div>
@@ -198,7 +207,9 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
                   </div>
                 )}
                 {returned !== null && <div className="font-cond text-lg mb-3 text-white/80">Rental returned — {money(returned)} on hand</div>}
-                <button onClick={() => tap('continue')} className="w-full min-h-[44px] rounded-lg bg-market py-2 font-cond font-extrabold uppercase italic text-night">Continue [Enter]</button>
+                {results.pending
+                  ? <div role="status" className="w-full min-h-[44px] rounded-lg border border-market/40 py-2 text-center font-cond font-extrabold uppercase italic text-market">{t(lang, 'strip.ch.waitOthers')}</div>
+                  : <button onClick={() => tap('continue')} className="w-full min-h-[44px] rounded-lg bg-market py-2 font-cond font-extrabold uppercase italic text-night">Continue [Enter]</button>}
               </div>
             </div>
           )}
@@ -208,7 +219,7 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
               <div className="w-[300px] max-w-[calc(100vw-32px)] rounded-xl border border-market/40 bg-night p-5 flex flex-col gap-2">
                 <div className="font-cond italic font-black uppercase text-3xl text-market mb-1">Paused</div>
                 <button onClick={() => tap('resume')} className="min-h-[44px] rounded-lg bg-market py-2 font-cond font-extrabold uppercase italic text-night">Resume</button>
-                {eventLive && <button onClick={() => tap('restart')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Restart event</button>}
+                {eventLive && !netRace && <button onClick={() => tap('restart')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Restart event</button>}
                 {eventLive && <button onClick={() => tap('quit')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Quit event</button>}
                 {tester && !lobby && !eventLive && <button onClick={() => tap('garage')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Garage</button>}
                 {tester && !lobby && !eventLive && <button onClick={() => tap('swapcar')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Swap car</button>}
@@ -220,7 +231,7 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
             </div>
           )}
 
-          {lobby && counter && !results && !paused && <Counter />}
+          {lobby && counter && !results && !paused && (challenge ? <ChallengeSetup /> : inRoom ? <WaitingRoom /> : <Counter />)}
           {/* the lobby's pause button (Esc on a keyboard) */}
           <div className="absolute right-3 top-[38%]" style={{ display: touch && lobby && !results && !paused ? undefined : 'none' }}>
             <TapBtn t="pause" label="II" aria="Pause" />

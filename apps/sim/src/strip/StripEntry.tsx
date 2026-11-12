@@ -1,14 +1,19 @@
 import { useEffect, useRef, useState } from 'react';
-import { useGameStore, loadSession, testerKeyFor, forgetTester } from '../store';
+import { useGameStore, loadSession, testerKeyFor, forgetTester, apiBase } from '../store';
 import { useLang, t } from '../i18n';
 import { useGoogleSignIn, useEmailLink } from './useSignIn';
 import { KEY_FIELD_MAX, NAME_MAX, clipTyped, splitTesterName } from '../world/tester';
+import { raceCode, withRace } from '../route';
+import { carLabel, raceLabel } from './challengeCopy';
 
 // The Strip's front door (/strip): join as a guest with the starting cash, or sign in. Reads the store only.
 // What it may offer (Google, email) comes from GET /api/caps, fetched on mount; init.caps arrives too late for a card that unmounts on join.
+// A challenge link (/strip?race=CODE) lands here too: the card says who is challenging, to what, and joining goes on into their room.
 const NAME_KEY = 'micar.name';
 const readName = () => { try { return localStorage.getItem(NAME_KEY) || ''; } catch { return ''; } };
 const writeName = (v: string) => { try { localStorage.setItem(NAME_KEY, v); } catch { /* storage blocked */ } };
+/** What a challenge link's room said of itself: still being asked, could not be asked, gone, or the invitation. */
+type Invite = null | 'asking' | 'unknown' | 'gone' | { host: string; eventId: string; car: string; full: boolean };
 const BTN = 'w-full min-h-[48px] px-4 rounded-lg font-cond font-black italic uppercase tracking-wider text-base transition-all focus:outline-none focus:ring-4 focus:ring-market/30 disabled:opacity-60';
 
 export function StripEntry() {
@@ -25,6 +30,9 @@ export function StripEntry() {
   const [note, setNote] = useState('');
   const [, refresh] = useState(0);
   const started = useRef(false);
+  // the room a challenge link names; the store joins it once the player is in the Strip (and again after a reconnect)
+  const code = useRef(raceCode(window.location.search)).current;
+  const [invite, setInvite] = useState<Invite>(code ? 'asking' : null);
   // Tester mode: the owner types the server's key after the name ("Name#key"). The key is sent beside the name, never
   // as part of it, and once the server has taken it this device remembers it for that name. A key the server does not
   // take refuses the join and says why; the next press then joins as an ordinary guest (the saved key is not sent again).
@@ -46,6 +54,22 @@ export function StripEntry() {
     if (started.current) return;
     started.current = true;
     loadCaps();
+    if (code) {
+      useGameStore.setState({ raceCode: code }); // before any join: the server's first answer is followed by the room
+      fetch(`${apiBase()}/api/race/${code}`).then(async (r) => {
+        if (r.status === 404) {
+          // the room emptied out, or the server restarted: an ordinary guest card, and the address forgets the room
+          setInvite('gone');
+          if (useGameStore.getState().raceCode === code) useGameStore.setState({ raceCode: null });
+          try { history.replaceState(null, '', withRace(window.location.href, null)); } catch { /* sandboxed */ }
+          return;
+        }
+        const j = r.ok ? await r.json() : null;
+        setInvite(j && j.ok === true && typeof j.eventId === 'string' && typeof j.car === 'string'
+          ? { host: typeof j.host === 'string' ? j.host : '', eventId: j.eventId, car: j.car, full: Number(j.count) >= Number(j.max) }
+          : 'unknown');
+      }).catch(() => setInvite('unknown')); // could not ask: joining will find out
+    }
     const m = /(?:^|[#&])link=([^&]+)/.exec(window.location.hash);
     if (m) {
       const token = decodeURIComponent(m[1]);
@@ -77,6 +101,7 @@ export function StripEntry() {
   const joinGuest = () => connect({ mode: 'guest', name: typed.name });
   const g = useGoogleSignIn(joinGuest);
   const mail = useEmailLink(joinGuest);
+  const challenged = invite !== null && invite !== 'asking' && invite !== 'gone';
 
   return (
     <div className="h-[100dvh] overflow-y-auto overscroll-contain bg-night text-ink font-sans grid place-items-center px-4 py-8"
@@ -86,6 +111,16 @@ export function StripEntry() {
         <h1 className="font-cond italic font-black uppercase leading-[0.9] tracking-tight text-5xl">
           <span className="text-market">{t(lang, 'strip.title')}</span>
         </h1>
+        {challenged && (
+          <div role="status" className="rounded-lg border border-market/40 bg-market/10 px-4 py-3">
+            <p className="font-cond italic font-black uppercase text-2xl leading-tight text-market break-words">
+              {invite !== 'unknown' && invite.host ? t(lang, 'strip.ch.invited').replace('{host}', () => invite.host) : t(lang, 'strip.ch.invitedPlain')}
+            </p>
+            {invite !== 'unknown' && <p className="font-cond text-lg text-ink">{[raceLabel(invite.eventId), carLabel(invite.car)].filter(Boolean).join(' · ')}</p>}
+            {invite !== 'unknown' && invite.full && <p className="mt-1 text-sm text-red-300">{t(lang, 'strip.ch.full')}</p>}
+          </div>
+        )}
+        {invite === 'gone' && <p role="status" className="font-cond text-lg text-red-300">{t(lang, 'strip.ch.gone')}</p>}
         {elsewhere && (
           <div className="flex flex-col gap-3" role="status">
             <p className="font-cond text-market text-xl leading-tight">{t(lang, 'strip.elsewhere')}</p>
@@ -118,7 +153,7 @@ export function StripEntry() {
           </p>
         )}
         <button type="submit" disabled={busy && !joined} className={`${BTN} bg-market text-[#0b0d12] hover:brightness-110`}>
-          {busy && !joined ? t(lang, 'strip.joining') : joined ? t(lang, 'strip.continue') : t(lang, 'strip.guest')}
+          {busy && !joined ? t(lang, 'strip.joining') : joined ? t(lang, 'strip.continue') : challenged ? t(lang, 'strip.ch.join') : t(lang, 'strip.guest')}
         </button>
         </form>
         {caps.google && (

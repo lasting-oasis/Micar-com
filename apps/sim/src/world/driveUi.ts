@@ -5,7 +5,8 @@ import { create } from 'zustand';
 
 export type District = 'town' | 'strip';
 export type ResultRow = { name: string; me: boolean; txt: string };
-export type ShownResults = { title: string; sub: string; pos: number; failed: string | null; rows: ResultRow[] };
+/** `pending`: a challenge race the others are still driving: the rows fill in, and Continue waits for the race to close */
+export type ShownResults = { title: string; sub: string; pos: number; failed: string | null; rows: ResultRow[]; pending?: boolean };
 export type EventReward = { cash: number; octane: number; rep: number; stamps: string[] };
 /** the Strip's stamps (payout.ts awards them), by name, for the results card */
 export const STAMP_NAME: Readonly<Record<string, string>> = { 'strip:first-win': 'First win', 'strip:drag': 'Drag winner', 'strip:drift': 'Drift winner', 'strip:outrun': 'Outrun' };
@@ -53,11 +54,17 @@ type DriveUi = {
   account: boolean;
   /** a rental went back: the money on hand after the payout, for the results card (null: none) */
   returned: number | null;
+  /** the challenge card is open in the lobby: making a room, or (in one) the host changing its race */
+  challenge: boolean;
+  /** the live event is a challenge race (the other cars are people): no restart */
+  netRace: boolean;
+  /** on the grid of a challenge, the count not begun: the others are still loading, or the green light is seconds off */
+  staging: boolean;
   set(p: Partial<Omit<DriveUi, 'set'>>): void;
 };
 
 export const useDriveUi = create<DriveUi>(set => ({
-  district: 'town', driving: false, prompt: '', banner: null, results: null, reward: null, paused: false, eventLive: false, gears: false, mapOpen: false, topInset: 0, help: 0, nos: false, tap: null, quick: null, driveCar: null, lobby: false, counter: false, account: false, returned: null,
+  district: 'town', driving: false, prompt: '', banner: null, results: null, reward: null, paused: false, eventLive: false, gears: false, mapOpen: false, topInset: 0, help: 0, nos: false, tap: null, quick: null, driveCar: null, lobby: false, counter: false, account: false, returned: null, challenge: false, netRace: false, staging: false,
   set: p => set(p),
 }));
 
