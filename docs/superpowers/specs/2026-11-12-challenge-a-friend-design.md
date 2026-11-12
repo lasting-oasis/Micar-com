@@ -1,6 +1,6 @@
 # Challenge a friend: a live race between people, started from a link — design
 
-Date: 2026-11-12. Status: the design was approved by the owner in conversation on 2026-11-12, with the push and the deploy.
+Date: 2026-11-12. Status: built. The design was approved by the owner in conversation on 2026-11-12, with the push and the deploy; where the build differs from what is written here, "As built" at the end says how.
 
 Every race in the Strip is one person against three computer-driven cars. Other people in the Strip are a name tag floating over the road; nobody races anybody. This work adds the race between people and the link that starts it: a visitor at the rental counter picks a race and a car, gets a link, and sends it. Whoever opens the link lands in the same waiting room. The host presses Start and up to four people race the same circuit at the same moment, in the same car, and see each other drive.
 
@@ -111,3 +111,19 @@ Prizes and stakes; bringing your own car; a link that carries a recorded result 
 - A modified browser can report a time up to half a second better than it drove. Nothing rides on a challenge, so the bound was chosen to forgive a slow phone connection rather than to stop a cheat.
 - `finish_outrun` still takes the browser's word that an outrun was won, as before. This work does not widen it: a lent car pays no outrun.
 - Whether an open game connection keeps the free Render plan awake was not checked: render.com could not be reached from the workspace this was built in.
+- In Chromium's software renderer (SwiftShader: what the headless smoke tests draw with, and what a browser falls back to when it has no graphics card) the Strip's ground is drawn over the road and the cars in the low chase view: everything below the horizon is the sky's colour. It happens in a plain one-player race too, on the code as it was before this work. The cause is the ground itself, one flat piece 60 km across (`park.ts`, from the daylight hub): hidden or made small, the picture is right, and Mesa's software renderer draws the same build correctly. It was left alone here. A ground that follows the camera at the size of the view's reach would not have the problem. How a real graphics card draws it could not be checked from the workspace this was built in.
+
+## As built
+
+Where the build differs from the design above.
+
+- **The drag's lanes.** A challenge fills the two middle lanes first (2 m either side of the line), so two people race side by side; a third and a fourth take the outside lanes. The design gave place *k* lane *k*, which put two people in the two left lanes, one of them on the tarmac's edge.
+- **The name tag.** Its size follows how far the car is from the camera: 1.5 m wide beside you, growing to 5 m wide from about 26 m away. At the design's fixed 5 m it filled a quarter of the screen whenever the other car was alongside.
+- **Leaving before the green light.** A racer who leaves while the cars are still loading is not on the result; only one who leaves after the green light is a DNF.
+- **A racer who is out.** Once a racer has quit or left, their car leaves the track and takes no later position; one who finished rolls on past the line.
+- **A refusal keeps the old room.** A create or a join that is refused leaves the player in the room they were in.
+- **The last one out sees the card.** A racer whose quitting closes the race gets the final results card; one who quits while others race on goes straight to the waiting room.
+- **The entry card and a full room.** Under the invitation it says the race is full, and still lets the reader in as a guest.
+- **The lobby.** With a room open, the host's "Change the race" shows the setup card over the waiting room.
+- **Two refusals in English only.** "Finish the challenge first." and "Leave the challenge first." come from the server like its other refusals; the screens never offer either action.
+- **Files.** The codes live in `src/world/raceCode.ts` (so that the page's entry does not load the race rules). The two-browser test is its own file, `e2e/challenge.smoke.mjs`, which CI runs after the Strip smoke; the Strip smoke's phone step now rents its car by name, because the counter's first button is "Challenge a friend".
