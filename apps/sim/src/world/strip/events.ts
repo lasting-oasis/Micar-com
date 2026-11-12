@@ -50,6 +50,8 @@ export type Outrun = { A: AI; t: number; gap: number; state: 'run' | 'done'; t2?
 export type EventResults = { pos: number; list: Standing[]; failed: string | null; type: EventType; ev: EventDef; time: number | null; score: number };
 
 export const DRAG_LANES = [-6, -2, 2, 6];
+/** The lane each place of a challenge takes: the middle two first, so two people race side by side and nobody starts on the tarmac's edge until a third comes. */
+const NET_LANES = [1, 2, 0, 3];
 /** A race (not a drift) auto-finishes after this many seconds: the larger of 600 s and 60 s plus 1 s per 8 m of the event (Ardennes GP, 13.9 km: about 30 min). */
 export function raceCapS(targetM: number): number { return Math.max(600, 60 + targetM / 8); }
 const AI_NAMES = ['Rico', 'Nadia', 'Vince', 'Tam', 'Lola', 'Jet', 'Suki', 'Bram'];
@@ -91,9 +93,9 @@ export class EventRunner {
     for (const A of this.ais) { if (A.kind === 'traffic' || A.kind === 'rival') { if (ev.noTraffic || ev.type === 'drag') parkAI(A); else A.hold = false; } }
     if (ev.type === 'drag') {
       a.drag.dir = dir; a.drag.fwd = fwd; a.drag.right = right; a.drag.p0 = p0;
-      const slots = [0, 1, 2, 3]; const my = net ? gridOf(net.slot) : Math.floor(Math.random() * 4); a.drag.lane = my;
+      const slots = [0, 1, 2, 3]; const my = net ? NET_LANES[gridOf(net.slot)] : Math.floor(Math.random() * 4); a.drag.lane = my;
       const pp = place(DRAG_LANES[my], 0); resetVehicle(PV, pp.x, pp.z, dir); PV.nos = PV.P.nos.cap;
-      if (net) for (const o of net.others) this.addPerson(a, o, place(DRAG_LANES[gridOf(o.slot)], 0), dir);
+      if (net) for (const o of net.others) this.addPerson(a, o, place(DRAG_LANES[NET_LANES[gridOf(o.slot)]], 0), dir);
       else for (const li of slots) {
         if (li === my) continue;
         const P = { ...this.playerParams() }; P.tqMul *= (.86 + .05 * st + Math.random() * .06); P.peakT *= P.tqMul; const AV = makeVehicle(P); const pp2 = place(DRAG_LANES[li], 0); resetVehicle(AV, pp2.x, pp2.z, dir);

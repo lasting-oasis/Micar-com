@@ -131,11 +131,20 @@ describe('a challenge: the other cars are people', () => {
     expect(ana.along).toBeCloseTo(0, 4); expect(ana.right).toBeCloseTo(-3, 4); // the first
     expect(bo.along).toBeCloseTo(0, 4); expect(bo.right).toBeCloseTo(3, 4);    // the second
     for (let i = 0; i < 20; i++) { const again = runner(circuit); again.start(circuit, { net: field({ slot: 2 }) }); expect(gridPlace(again, again.PV).along).toBeCloseTo(-8, 4); } // never a random place
-    const d = runner(drag); d.start(drag, { net: field({ slot: 3 }) });
-    const lane = (at: { x: number; z: number }) => { const g = d.active!.drag; return (at.x - g.p0!.x) * g.right[0] + (at.z - g.p0!.z) * g.right[1]; };
-    expect(lane(d.PV)).toBeCloseTo(DRAG_LANES[3], 4);
-    expect(people(d).map(p => lane(p))).toEqual([DRAG_LANES[0], DRAG_LANES[1]].map(v => expect.closeTo(v, 4)));
-    expect(d.active!.drag.lane).toBe(3);
+  });
+  it('a drag fills the middle lanes first, so two people race side by side on the tarmac', () => {
+    /** metres to the right of the drag line: this player, then the others; and the lane the drag holds this player in */
+    const lanes = (slot: number, others: number[]) => {
+      const d = runner(drag); d.start(drag, { net: field({ slot, others: others.map((sl, i) => ({ id: 'p' + i, name: 'N' + i, slot: sl, color: '#fff', style: 'coupe' as const })) }) });
+      const g = d.active!.drag, right = (at: { x: number; z: number }) => (at.x - g.p0!.x) * g.right[0] + (at.z - g.p0!.z) * g.right[1];
+      return { me: right(d.PV), others: people(d).map(right), lane: g.lane };
+    };
+    const near = (v: number) => expect.closeTo(v, 4);
+    expect(DRAG_LANES).toEqual([-6, -2, 2, 6]); // the outside two are on the edge of the tarmac
+    expect(lanes(0, [1])).toEqual({ me: near(-2), others: [near(2)], lane: 1 });
+    expect(lanes(1, [0])).toEqual({ me: near(2), others: [near(-2)], lane: 2 });
+    expect(lanes(2, [0, 1])).toEqual({ me: near(-6), others: [near(-2), near(2)], lane: 0 }); // a third takes an outside lane
+    expect(lanes(3, [0, 1, 2])).toEqual({ me: near(6), others: [near(-2), near(2), near(-6)], lane: 3 }); // and a fourth the other
   });
   it('it waits for the green light', () => {
     const r = runner(sprint), fx = r.fx as StubFx; r.start(sprint, { net: field() });
