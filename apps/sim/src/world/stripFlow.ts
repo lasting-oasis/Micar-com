@@ -47,7 +47,7 @@ export function guestPlayer(id: string, name: string, _now: number): Player {
 
 /** The only socket events a Strip visitor (a guest or a Strip account holder) may send; the server answers anything
  *  else with strip_denied. Joining, chat, the Strip's position, car, fuel and event sync, the parts bench, the rental
- *  counter, the account, and a tester's car (which its handlers give to a tester only). */
+ *  counter, the account, a tester's car (which its handlers give to a tester only), and a challenge race's room. */
 export const VISITOR_EVENTS: ReadonlySet<string> = new Set([
   'join', 'chat_message',
   'sync_player_pos', 'sync_car_pos', 'consume_fuel', 'refuel',
@@ -55,6 +55,7 @@ export const VISITOR_EVENTS: ReadonlySet<string> = new Set([
   'strip_buy_part', 'strip_equip', 'strip_tune', 'bay_order',
   'rent_car', 'request_link', 'link_account', 'claim_allowance', 'sign_out',
   'test_car', 'test_car_return',
+  'race_time', 'race_create', 'race_join', 'race_set', 'race_start', 'race_ready', 'race_pose', 'race_finish', 'race_quit', 'race_leave',
 ]);
 export const VISITOR_DENIED = 'Not available in the Strip';
 

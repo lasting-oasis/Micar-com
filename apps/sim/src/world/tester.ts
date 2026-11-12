@@ -68,7 +68,7 @@ export function makeTestCar(ownerId: string, def: TestCarDef, now: number): Car 
 }
 
 export function heldTestCar(player: Pick<Player, 'inventory'>): Car | undefined {
-  return player.inventory.find(c => c.testCar);
+  return player.inventory.find(c => !!c?.testCar); // a saved inventory can hold junk entries
 }
 
 /** One test car at a time: the new one replaces the old. Part records stay on file under each car's stable id. */

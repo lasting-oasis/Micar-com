@@ -20,7 +20,7 @@ vi.mock('../../scene/carModel', () => {
     attachCarShadows: (s: THREE.Object3D) => { shadow = s; }, carShadowScene: () => shadow,
   };
 });
-const { StripScene, STRIP_SPAWN } = await import('./scene');
+const { StripScene, STRIP_SPAWN, tagSize } = await import('./scene');
 const { EVENTS } = await import('../data');
 const { DRAG_LANES } = await import('./events');
 const { routePoint } = await import('./routes');
@@ -40,7 +40,7 @@ beforeAll(() => {
 const cars = (s: THREE.Scene) => s.children.filter(o => o.userData.strip);
 const lights = (s: THREE.Scene) => { let n = 0; s.traverse(o => { if ((o as THREE.Light).isLight) n++; }); return n; };
 const ev = (id: string) => EVENTS.find(e => e.id === id)!;
-function setup(extra: { onEventQuit?: () => void } = {}) {
+function setup(extra: object = {}) {
   const banners: string[] = [];
   const S = new StripScene({
     onBanner: t => { banners.push(t); }, onSfx: () => {}, loadModel: null, stage: () => 5, ...extra,
@@ -321,3 +321,107 @@ describe('StripScene', () => {
     });
   });
 });
+
+describe('a challenge in the scene: the other cars are people', () => {
+  type Pose = { t: number; x: number; z: number; h: number; v: number; s: number; sc: number };
+  const others = [{ id: 'p2', name: 'Ana', slot: 0, color: '#ffd23f', style: 'hatchback' }, { id: 'p3', name: 'Bo', slot: 1, color: '#2a9df4', style: 'hatchback' }];
+  const field = (over: object = {}) => ({ slot: 2, others, goAt: () => null as number | null, now: () => 0, ...over });
+
+  it('a challenge puts only the people on the grid, in the car the room lends', async () => {
+    const { S, PV, car } = setup(); S.enter(PV, car);
+    await S.startEvent(ev('royal_drag'), { net: field() });
+    expect(cars(S.scene).length).toBe(17 + 2); // no computer car beside them
+    const racers = S.runner.active!.racers;
+    expect(racers.map(r => r.name)).toEqual(['Ana', 'Bo']);
+    expect(racers.map(r => (r.m as THREE.Group).userData.strip.style)).toEqual(['hatchback', 'hatchback']); // the body asked for, not a racer's random one
+    S.exit();
+    expect(cars(S.scene).length).toBe(17);
+    S.dispose();
+  });
+
+  it('the other racers are drawn from their poses; one with no pose yet stays on its grid place', async () => {
+    const poses: Record<string, Pose | null> = { p2: null, p3: null };
+    const { S, PV, car } = setup({ remotePose: (pid: string) => poses[pid] ?? null }); S.enter(PV, car);
+    await S.startEvent(ev('harbour_gp'), { net: field() });
+    const [ana, bo] = S.runner.active!.racers, m = ana.m as THREE.Group, bm = bo.m as THREE.Group;
+    const boAt = [bo.x, bo.z];
+    poses.p2 = { t: 0, x: PV.x + 10, z: PV.z + 30, h: 1, v: 20, s: 77, sc: 5 };
+    S.update(1 / 60, true);
+    expect(m.position.x).toBeCloseTo((PV.x + 10) * 2, 6); expect(m.position.z).toBeCloseTo((PV.z + 30) * 2, 6);
+    expect(m.rotation.y).toBeCloseTo(1 + Math.PI, 6); expect(m.visible).toBe(true);
+    expect([ana.s, ana.score, ana.v]).toEqual([77, 5, 20]); // the standings and the minimap read these
+    expect([bo.x, bo.z]).toEqual(boAt);
+    expect(bm.position.x).toBeCloseTo(boAt[0] * 2, 6); expect(bm.position.z).toBeCloseTo(boAt[1] * 2, 6); expect(bm.visible).toBe(true);
+    // a racer who is home rolls on from its poses, but its distance and score are the ones it finished with
+    S.runner.remoteDone('p2', 31.2);
+    poses.p2 = { t: 0, x: PV.x + 12, z: PV.z + 40, h: 1, v: 10, s: 99, sc: 9 };
+    S.update(1 / 60, true);
+    expect(m.position.z).toBeCloseTo((PV.z + 40) * 2, 6);
+    expect([ana.s, ana.score]).toEqual([77, 5]);
+    // one who is out of the race leaves the track, whatever arrives late
+    S.runner.remoteDone('p3', null);
+    poses.p3 = { t: 0, x: PV.x, z: PV.z + 5, h: 0, v: 30, s: 50, sc: 0 };
+    S.update(1 / 60, true);
+    expect(bm.visible).toBe(false);
+    S.dispose();
+  });
+
+  it('people do not collide: a car on top of the player moves nobody', async () => {
+    const { S, PV, car } = setup(); S.enter(PV, car);
+    await S.startEvent(ev('harbour_gp'), { net: field() });
+    const ana = S.runner.active!.racers[0];
+    ana.x = PV.x; ana.z = PV.z + 1; ana.h = PV.h; // overlapping: against the computer this is a crash
+    const at = [PV.x, PV.z, ana.x, ana.z];
+    expect(S.collide(PV)).toBe(0);
+    expect([PV.x, PV.z, ana.x, ana.z]).toEqual(at);
+    S.dispose();
+  });
+
+  it("a racer's name tag is small beside this driver and full size far off", () => {
+    expect(tagSize(4)).toEqual({ w: 1.5, h: 0.375, y: 2.0625 }); // alongside: a third of a car's length, just over the roof
+    expect(tagSize(13).w).toBeCloseTo(2.47, 2);                  // between, it grows with the distance: about one size on the screen
+    expect(tagSize(13).h).toBeCloseTo(2.47 / 4, 2);
+    expect(tagSize(40)).toEqual({ w: 5, h: 1.25, y: 2.5 });      // far off: as long as a car, so the name can still be read
+    expect(tagSize(4000).w).toBe(5);
+    expect(tagSize(0).w).toBe(1.5);
+  });
+  it('the tag is sized for the camera that draws it', async () => {
+    const { S, PV, car } = setup(); S.enter(PV, car);
+    // a minimal DOM for the tag's canvas (the suite has none): a 2D context that swallows every call
+    const ctx = new Proxy({}, { get: (_t, k) => k === 'measureText' ? (text: string) => ({ width: text.length * 34 }) : () => {}, set: () => true });
+    vi.stubGlobal('document', { createElement: () => ({ width: 0, height: 0, getContext: () => ctx }) });
+    try {
+      await S.startEvent(ev('royal_drag'), { net: field() });
+      const m = S.runner.active!.racers[0].m as THREE.Group, tag = m.userData.tag as THREE.Sprite;
+      expect(tag).toBeInstanceOf(THREE.Sprite);
+      m.position.set(100, 0, 200); m.updateMatrixWorld(true);
+      const cam = new THREE.PerspectiveCamera();
+      /** the tag's width, height and height over the road (metres) once drawn from `metres` away */
+      const seenFrom = (metres: number) => {
+        cam.position.set(100 + metres * WORLD_PER_M, 0, 200); cam.updateMatrixWorld(true);
+        tag.onBeforeRender(null as never, null as never, cam, null as never, null as never, null as never);
+        return [tag.scale.x, tag.scale.y, tag.position.y].map(v => v / WORLD_PER_M);
+      };
+      expect(seenFrom(4)).toEqual([1.5, 0.375, 2.0625]);
+      expect(seenFrom(100)).toEqual([5, 1.25, 2.5]);
+      expect(seenFrom(13)[0]).toBeCloseTo(2.47, 2);
+    } finally { vi.unstubAllGlobals(); }
+    S.dispose();
+  });
+
+  it("the player's finish is passed on once, at the line", async () => {
+    let n = 0, clock = 0;
+    const { S, PV, car } = setup({ onPlayerFinish: () => { n++; } }); S.enter(PV, car);
+    await S.startEvent(ev('royal_drag'), { net: field({ goAt: () => 0, now: () => clock }) });
+    clock = 100; S.update(1 / 60, true); // the green light has passed: racing
+    const a = S.runner.active!, d = a.drag;
+    expect(a.state).toBe('race'); expect(n).toBe(0);
+    resetVehicle(PV, d.p0!.x + d.fwd[0] * (a.route.len + 1), d.p0!.z + d.fwd[1] * (a.route.len + 1), d.dir);
+    clock = 15_000; S.update(1 / 60, true);
+    expect(a.state).toBe('done'); expect(n).toBe(1);
+    for (let i = 0; i < 120; i++) S.update(1 / 60, true);
+    expect(n).toBe(1);
+    S.dispose();
+  });
+});
+

@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { FLEET_SPECS, FLEET_NAMES, specFor, specCacheSize } from './data';
-import { GUEST_STAKE, RENTAL_FLEET, priceOf, canRent, rent, returnRental, heldRental, isVisitor } from './rental';
+import { GUEST_STAKE, RENTAL_FLEET, priceOf, canRent, rent, returnRental, heldRental, isVisitor, lend, heldLoan, returnLoan } from './rental';
 const player = (money: number) => ({ id: 'p1', money, inventory: [] as any[], octane: 0, stamps: [] } as any);
 describe('rental', () => {
   it('is the artifact five cars, priced by the car', () => {
@@ -45,6 +45,30 @@ describe('rental', () => {
   it('FLEET_NAMES mirrors RENTAL_FLEET', () => {
     expect(RENTAL_FLEET.map(f => f.make + ' ' + f.model)).toEqual(Object.keys(FLEET_NAMES));
     expect(RENTAL_FLEET.map(f => f.key)).toEqual(Object.values(FLEET_NAMES));
+  });
+});
+
+describe('a lent car', () => {
+  it('costs nothing, is a rental, and carries the colour of its grid place and nothing that names its room', () => {
+    const p = player(0); const car = lend(p, 'ronin', '#e8463c', 1700000000000);
+    expect(p.money).toBe(0);
+    // every player's cars are sent to everyone connected, and a room's code is its key: the car says only that it is lent
+    expect(car).toMatchObject({ make: 'Ronin', model: 'GT', bodyStyle: 'coupe', rental: true, loan: true, color: '#e8463c', district: 'strip', fuel: 100, buyPrice: 0, ownerId: 'p1' });
+    expect(car.vin).toHaveLength(17);
+    expect(p.inventory).toEqual([car]);
+    expect(heldLoan(p)).toBe(car); expect(heldRental(p)).toBe(car);
+    // it blocks a second car at the counter, however much money there is
+    expect(canRent({ ...p, money: 5000 } as any)).toEqual({ ok: false, reason: 'You already have a rental' });
+    expect(specFor(car)).toEqual(FLEET_SPECS.ronin); // it drives as the fleet's car
+  });
+  it('goes back with its part record; a paid rental is not a loan', () => {
+    const p = player(500); const car = lend(p, 'civet', '#ffd23f', 5);
+    p.strip = { rep: 0, cars: { [car.id]: { cfg: {}, tune: {}, owned: [] } }, wins: {}, best: {} };
+    expect(returnLoan(p)).toBe(car); expect(p.inventory).toEqual([]); expect(p.strip.cars).toEqual({});
+    expect(p.money).toBe(500);
+    expect(returnLoan(p)).toBeUndefined();
+    const q = player(500); rent(q, 'civet', 6);
+    expect(heldLoan(q)).toBeUndefined(); expect(returnLoan(q)).toBeUndefined(); expect(q.inventory).toHaveLength(1);
   });
 });
 

@@ -21,7 +21,7 @@ import { NO_INPUT, type Input, type Tune, type VehicleSpec } from './world/physi
 import { anchorsFor, attachParts, disposeParts, syncKitLod, type PartsKit } from './world/parts';
 import { StripScene, STRIP_SPAWN } from './world/strip/scene';
 import { routePoint } from './world/strip/routes';
-import type { EventResults } from './world/strip/events';
+import type { ActiveEvent, EventResults, NetField } from './world/strip/events';
 import { Hud, fmtT, type HudState } from './world/hud';
 import { Audio as NtAudio, soundMode } from './world/audio';
 import { soundFactsFor } from './sound/carSound';
@@ -35,6 +35,10 @@ import { useDriveUi, type ShownResults } from './world/driveUi';
 import { DriveLayer } from './world/DriveLayer';
 import { RENTAL_BAY, RENTAL_FLEET, type RentalKey, canRent, heldRental, isVisitor } from './world/rental';
 import { heldTestCar, testCarDef } from './world/tester';
+import { SLOT_COLORS, type RoomView } from './world/race';
+import { remotes, serverNow } from './world/raceNet';
+import { cardOf, newsOf, raceLabel } from './strip/challengeCopy';
+import { getLang, t } from './i18n';
 
 export function VanillaThreeScene() {
     const mountRef = useRef<HTMLDivElement>(null);
@@ -623,6 +627,15 @@ export function VanillaThreeScene() {
         let lobby = false, lobbyChecked = false, restarting = false;
         let rentalId: string | null = null;  // the rental (or a tester's car) being driven
         let drivingTestCar = false;          // it is a tester's car: kept across events, given back only by a swap
+        let drivingLoan = false;             // it is lent by a challenge room: it goes back with no word about a rental
+        // The challenge race this view is driving (world/race.ts has the rules, the store has the room): its room and race
+        // number, the racers already reported home or out to the runner, and the room objects last read (the store makes a
+        // new one for every message from the server).
+        let challenge: { code: string; raceNo: number; told: Set<string> } | null = null;
+        let fieldRoom: RoomView | null = null, cardRoom: RoomView | null = null;
+        let poseAccum = 0;
+        /** a racer's pose goes to the room this often (seconds) */
+        const POSE_S = 0.066;
         // a Strip visitor: a guest or an account holder (no lot in the town)
         const visitor = (): boolean => isVisitor(stateRef.current.gameState?.players[stateRef.current.playerId || '']);
         let lastShift = 0, lastBov = false, lastNos = false;
@@ -648,7 +661,7 @@ export function VanillaThreeScene() {
         const isDrag = () => district === 'strip' && strip?.runner.active?.type === 'drag';
         const manualNow = () => getOptions().manual || isDrag();
         const im = new InputMap({ manual: manualNow, hydraulics: () => !!(localDrivingCarId && buildOf(localDrivingCarId).cfg.hydraulics) });
-        type InvCar = { id: string; make?: string; model: string; bodyStyle?: string; fuel?: number; rental?: boolean; testCar?: boolean };
+        type InvCar = { id: string; make?: string; model: string; bodyStyle?: string; fuel?: number; rental?: boolean; testCar?: boolean; loan?: boolean };
         const styleOf = (car: InvCar) => (car.bodyStyle || deriveStyle(car.model)) as BodyStyle;
         const meNow = () => { const st = stateRef.current; return st.gameState?.players[st.playerId || '']; };
         const drivenCar = (): InvCar | undefined => meNow()?.inventory.find(c => c.id === localDrivingCarId);
@@ -697,15 +710,20 @@ export function VanillaThreeScene() {
             stage: stripStage,
             styleRating: () => localDrivingCarId ? visualRating(buildOf(localDrivingCarId).cfg) : 0,
             renderer,
-            onEventStart: (ev, PV) => { chase.reset(PV); resultsShown = false; paused = false; socketEmit('enter_event', { eventId: ev.id }); },
+            // a challenge race is its room's (the race_* messages): it is never entered, finished or quit as a paid event
+            onEventStart: (ev, PV) => { chase.reset(PV); resultsShown = false; paused = false; if (challenge) raceEmit('race_ready'); else socketEmit('enter_event', { eventId: ev.id }); },
             onZone: (_z, PV) => chase.reset(PV),
+            // at the line: where the car is, then this driver's own time (the server decides whether it stands)
+            onPlayerFinish: a => { if (!challenge || !a.net) return; sendPose(a, false); raceEmit('race_finish', { time: a.pFt, score: Math.round(a.drift.score), failed: !!a.fail }); },
             onResults: r => {
                 resultsShown = true;
+                if (challenge) { showChallengeCard(); return; } // the card is the room's: it fills in as the others come home
                 socketEmit('finish_event', { eventId: r.ev.id, pos: r.pos, time: r.time, score: r.score, failed: !!r.failed });
                 useDriveUi.setState({ results: shownResults(r), reward: null });
             },
             // a restart keeps a rental for the entry that follows (the server returns it on a plain quit)
-            onEventQuit: ev => socketEmit('quit_event', restarting ? { eventId: ev.id, restart: true } : { eventId: ev.id }),
+            onEventQuit: ev => { if (challenge) raceEmit('race_quit'); else socketEmit('quit_event', restarting ? { eventId: ev.id, restart: true } : { eventId: ev.id }); },
+            remotePose: (pid, route) => remotes.get(pid)?.pose(serverNow(), route) ?? null,
             onOutrun: won => socketEmit('finish_outrun', { won }),
             // Night Tuner's near-miss cash is not ported (onNearMiss)
         });
@@ -716,6 +734,83 @@ export function VanillaThreeScene() {
             useDriveUi.setState({ results: null, returned: null });
             strip?.runner.cleanup();
             mendEngine();
+            if (challenge) endChallenge();
+        };
+
+        // ---- a challenge race: the other cars are people, and the race is its room's (world/race.ts)
+        const raceEmit = (ev: string, payload?: unknown) => { const sk = useGameStore.getState().socket; if (!sk) return; if (payload === undefined) sk.emit(ev); else sk.emit(ev, payload); };
+        /** Where this car is, for the others' screens: the shared clock, x, z, heading, speed, distance along the route, drift score. */
+        const sendPose = (a: ActiveEvent, lossy: boolean) => {
+            const sk = useGameStore.getState().socket, V = driver?.V;
+            if (!sk || !V) return;
+            const pose = [serverNow(), V.x, V.z, V.h, V.u, a.pS, Math.round(a.drift.score + a.drift.cur * a.drift.mult)];
+            if (lossy) sk.volatile.emit('race_pose', pose); else sk.emit('race_pose', pose); // a pose lost on the way is replaced by the next
+        };
+        const endChallenge = () => { challenge = null; fieldRoom = cardRoom = null; poseAccum = 0; };
+        /** The results card of the race this view drove, from the room (challengeCopy.cardOf): it fills in while the
+         *  others are still out, and is final once the room has closed the race. */
+        const challengeCard = (): ShownResults | null => {
+            const st = useGameStore.getState(), room = st.race, ch = challenge;
+            if (!room || !ch || room.code !== ch.code) return null;
+            const lang = getLang();
+            const card = cardOf(room, ch.raceNo, st.playerId ?? '', { dnf: t(lang, 'strip.ch.dnf'), racing: t(lang, 'strip.ch.racing') });
+            const title = card.title === 'out' ? t(lang, 'strip.ch.out') : card.title === 'won' ? t(lang, 'strip.ch.won')
+                : t(lang, 'strip.ch.place').replace('{n}', String(card.place)).replace('{of}', String(card.of));
+            return { title, sub: raceLabel(card.eventId), pos: card.place, failed: null, rows: card.rows, pending: card.pending };
+        };
+        const showChallengeCard = () => {
+            const card = challengeCard();
+            cardRoom = useGameStore.getState().race;
+            if (card) useDriveUi.setState({ results: card, reward: null });
+        };
+        /** The room's news for the runner (challengeCopy.newsOf): a racer who is home (with their time), or out of the
+         *  race (quit, left, left behind at the start). Each is told once. */
+        const tellRunner = (a: ActiveEvent, room: RoomView) => {
+            const ch = challenge;
+            if (!ch || !strip) return;
+            for (const R of a.racers) {
+                if (!R.remote || !R.pid || ch.told.has(R.pid)) continue;
+                const news = newsOf(room, ch.raceNo, R.pid);
+                if (news) { ch.told.add(R.pid); strip.runner.remoteDone(R.pid, news.time); }
+            }
+        };
+        /** In the lent car, the room racing (or about to): onto the grid of its race, with the others it lists. */
+        const beginChallenge = () => {
+            const st = useGameStore.getState(), room = st.race, meId = st.playerId;
+            const mine = room?.members.find(m => m.id === meId), ev = room ? EVENTS.find(e => e.id === room.eventId) : undefined;
+            if (!room || !mine || !ev || !strip || room.phase === 'open' || mine.state === 'waiting' || mine.state === 'finished' || mine.state === 'dnf') return;
+            const style = RENTAL_FLEET.find(f => f.key === room.car)?.bodyStyle ?? 'coupe';
+            const { code, raceNo } = room;
+            challenge = { code, raceNo, told: new Set() };
+            fieldRoom = cardRoom = null; poseAccum = 0;
+            const net: NetField = {
+                slot: mine.slot,
+                others: room.members.filter(m => m.id !== meId && (m.state === 'loading' || m.state === 'ready' || m.state === 'racing'))
+                    .map(m => ({ id: m.id, name: m.name, slot: m.slot, color: SLOT_COLORS[m.slot % SLOT_COLORS.length], style })),
+                // the one green light, on the server's clock; only this race's (the room may have moved on)
+                goAt: () => { const r = useGameStore.getState().race; return r && r.code === code && r.raceNo === raceNo ? r.goAt : null; },
+                now: serverNow,
+            };
+            void strip.startEvent(ev, { net }); // loads the circuit if need be; onEventStart then tells the room this car is on the grid
+        };
+        /** Once a frame, driving or back in the lobby: the room's news reaches the runner and the card, and this car's pose goes out. */
+        const challengeFrame = (delta: number) => {
+            if (!challenge) {
+                // a lent car in hand and no race begun (the car arrived before the room's news): begin as soon as the room says so
+                if (drivingLoan && driver && strip && !strip.runner.active && !resultsShown) beginChallenge();
+                return;
+            }
+            const room = useGameStore.getState().race;
+            if (!room || room.code !== challenge.code) { // out of the room (it is gone, or the connection was remade): nothing of its race stays
+                if (resultsShown) closeResults(); else endChallenge();
+                return;
+            }
+            const a = strip?.runner.active ?? null;
+            if (a?.net) {
+                if (room !== fieldRoom) { fieldRoom = room; tellRunner(a, room); }
+                if (a.state === 'race') { poseAccum += delta; if (poseAccum >= POSE_S) { poseAccum = 0; sendPose(a, true); } }
+            }
+            if (resultsShown && room !== cardRoom) showChallengeCard();
         };
         /** Into the Strip with the car being driven: the car group moves into the Strip's scene at its spawn. */
         const enterStrip = (): boolean => {
@@ -787,13 +882,16 @@ export function VanillaThreeScene() {
         const dropStripTag = (id: string) => { const t = stripTags[id]; if (!t) return; t.removeFromParent(); t.material.map?.dispose(); t.material.dispose(); delete stripTags[id]; };
         const syncStripTags = (S: StripScene | null, follow: number) => {
             const cur = stateRef.current, players = cur.gameState?.players ?? {}, live = useGameStore.getState().playerPositions;
+            // the racers of a challenge this view is in carry their own tag, on their car: no second one trailing behind it
+            const field = S?.runner.active?.net ? S.runner.active.racers : null;
+            const racing = (id: string) => !!field && field.some(R => R.pid === id && !R.parked);
             for (const id in stripTags) {
-                const sp = S && id !== cur.playerId && players[id] && live[id]?.district === 'strip' ? live[id].stripPosition : undefined;
+                const sp = S && id !== cur.playerId && players[id] && !racing(id) && live[id]?.district === 'strip' ? live[id].stripPosition : undefined;
                 if (!sp || stripTags[id].userData.name !== players[id].name) dropStripTag(id);
             }
             if (!S) return;
             for (const id in players) {
-                const sp = id !== cur.playerId && live[id]?.district === 'strip' ? live[id].stripPosition : undefined;
+                const sp = id !== cur.playerId && !racing(id) && live[id]?.district === 'strip' ? live[id].stripPosition : undefined;
                 if (!sp) continue;
                 let t = stripTags[id];
                 if (!t) {
@@ -848,7 +946,7 @@ export function VanillaThreeScene() {
             const st = useGameStore.getState();
             st.setDrivingCarId(null); st.setDrivingFuel(null);
             hud?.clear();
-            useDriveUi.setState({ driving: false, prompt: '', nos: false, paused: false, eventLive: false, gears: false, mapOpen: false }); promptShown = ''; nosShown = false;
+            useDriveUi.setState({ driving: false, prompt: '', nos: false, paused: false, eventLive: false, gears: false, mapOpen: false, netRace: false, staging: false }); promptShown = ''; nosShown = false;
         };
 
         // ---- the rental lobby: a Strip visitor's "on foot" (Strip loaded, the camera on the bay, the counter open)
@@ -882,7 +980,8 @@ export function VanillaThreeScene() {
             const S = strip, mesh = carMeshes[carId];
             if (!S || !mesh || driver || !beginDriving(carId)) return false;
             const D = driver as Driver | null; if (!D) return false;
-            lobby = false; S.leaveLobby(); rentalId = carId; drivingTestCar = !!meNow()?.inventory.find(c => c.id === carId)?.testCar;
+            const held = meNow()?.inventory.find(c => c.id === carId);
+            lobby = false; S.leaveLobby(); rentalId = carId; drivingTestCar = !!held?.testCar; drivingLoan = !!held?.loan;
             // the server's driven car: an event locks it, and closing the event hands it back
             socketEmit('sync_car_pos', { carId, district: 'strip' });
             D.place(RENTAL_BAY.x, RENTAL_BAY.z, RENTAL_BAY.h);
@@ -901,12 +1000,20 @@ export function VanillaThreeScene() {
             mendEngine();
             dropCar();
             // on the results card when one is up; else (an outrun, a quit, a card already closed) as a banner.
-            // A tester's car was swapped, not returned from a rental: nothing to say.
-            if (drivingTestCar) useDriveUi.setState({ returned: null });
+            // A tester's car was swapped, not returned from a rental, and a challenge's car was lent: nothing to say.
+            if (drivingTestCar || drivingLoan) useDriveUi.setState({ returned: null });
             else if (resultsShown) useDriveUi.setState({ returned: money });
             else { useDriveUi.setState({ returned: null }); say(`Rental returned — $${Math.round(money).toLocaleString('en-US')} on hand`); }
-            drivingTestCar = false;
+            drivingTestCar = false; drivingLoan = false;
             enterLobby();
+            // A challenge's car went back with no card up. The race closed while this driver was still out: the card, now.
+            // Or this driver quit, was left behind at the start, or the start was called off: the waiting room says which.
+            if (challenge && !resultsShown) {
+                const room = useGameStore.getState().race, me = stateRef.current.playerId;
+                const closed = room && room.code === challenge.code && room.last && room.last.raceNo === challenge.raceNo ? room.last : null;
+                if (closed && closed.rows.some(r => r.id === me)) { resultsShown = true; showChallengeCard(); useDriveUi.setState({ counter: false }); }
+                else endChallenge();
+            }
         };
         /** One lobby frame: Esc / II pauses (Sign out for account holders), Enter / Continue closes the results card;
          *  the Strip's traffic drives by behind the counter. No car, no walking, no sound. */
@@ -918,7 +1025,9 @@ export function VanillaThreeScene() {
             if (tapped) useDriveUi.setState({ tap: null });
             const pauseK = E.pause || tapped === 'pause', enter = E.enter || tapped === 'enter';
             im.clearEdges();
-            if (resultsShown) { if (enter || tapped === 'continue') closeResults(); }
+            challengeFrame(delta);
+            // a challenge's card waits for its race to close before Continue means anything
+            if (resultsShown) { if ((enter || tapped === 'continue') && !useDriveUi.getState().results?.pending) closeResults(); }
             else if (paused) {
                 if (pauseK || tapped === 'resume') paused = false;
                 else if (tapped === 'signout' && useGameStore.getState().account) { paused = false; useGameStore.getState().signOut(); } // a fresh guest init follows: still the lobby
@@ -995,11 +1104,11 @@ export function VanillaThreeScene() {
                     if (backK && !mapBack) S.mapMove(1);
                     if (enter) S.mapActivate(); else if (mapK || pauseK) S.toggleMap(false);
                 } else if (resultsShown) {
-                    if (enter || tapped === 'continue') closeResults();
+                    if ((enter || tapped === 'continue') && !useDriveUi.getState().results?.pending) closeResults();
                 } else if (paused) {
                     if (pauseK || tapped === 'resume') paused = false;
                     else if (tapped === 'town' && !visitor()) leave = true;
-                    else if (tapped === 'restart' && a && !a.results) { paused = false; restarting = true; try { startEventById(a.ev.id, a.quick); } finally { restarting = false; } } // cleanup (quit_event, restart: true), then enter_event
+                    else if (tapped === 'restart' && a && !a.results && !a.net) { paused = false; restarting = true; try { startEventById(a.ev.id, a.quick); } finally { restarting = false; } } // cleanup (quit_event, restart: true), then enter_event
                     else if (tapped === 'quit' && a && !a.results) { paused = false; S.runner.quit(); mendEngine(); chase.reset(V); } // quit_event
                     // tester mode, between events: the Garage on this car (stopped where it stands: the world runs on
                     // under the Garage), or back to the counter for another one
@@ -1051,7 +1160,7 @@ export function VanillaThreeScene() {
             if (pivots) for (const q of pivots) q.rotation.y = V.delta;
             syncCarWheels(mesh);
             setCarLights(mesh, !V.lights ? 'off' : V.gear === -1 && V.u < -0.5 ? 'reverse' : V.brk > 0 && V.u > 0.5 ? 'brake' : 'on');
-            if (inStrip) { strip!.update(simDt, !paused && !resultsShown && !strip!.mapOpen && !garageOpen); stripExit.pulse(performance.now()); }
+            if (inStrip) { strip!.update(simDt, !paused && !resultsShown && !strip!.mapOpen && !garageOpen); stripExit.pulse(performance.now()); challengeFrame(delta); }
             const cnt = inStrip ? strip!.runner.active : null;
             if (cnt && cnt.state === 'count') { countdownSeen = true; chase.preview(cnt.route, (3.6 - cnt.t) / 3, V); }
             else { if (countdownSeen) { countdownSeen = false; chase.reset(V); } chase.update(V, simDt, V.nosOn); }
@@ -1072,7 +1181,9 @@ export function VanillaThreeScene() {
             if (V.nosOn !== nosShown) { nosShown = V.nosOn; useDriveUi.setState({ nos: nosShown }); }
             const ui = useDriveUi.getState(), act = inStrip ? strip!.runner.active : null, live = !!act && !act.results;
             const gearsOn = manualNow(), mapOn = inStrip && strip!.mapOpen;
-            if (paused !== ui.paused || live !== ui.eventLive || gearsOn !== ui.gears || mapOn !== ui.mapOpen) useDriveUi.setState({ paused, eventLive: live, gears: gearsOn, mapOpen: mapOn });
+            // a challenge: no restart in the pause menu; and on its grid before the count, the layer says who is ready
+            const netRace = !!act?.net, staging = !!act?.net && act.state === 'count' && act.lastB === undefined;
+            if (paused !== ui.paused || live !== ui.eventLive || gearsOn !== ui.gears || mapOn !== ui.mapOpen || netRace !== ui.netRace || staging !== ui.staging) useDriveUi.setState({ paused, eventLive: live, gears: gearsOn, mapOpen: mapOn, netRace, staging });
 
             // ---- fuel gauge 5x/s, the tank and the car's spot to the server
             fuelUiAccum += delta; fuelNetAccum += delta; carSyncAccum += delta;
@@ -1121,6 +1232,8 @@ export function VanillaThreeScene() {
             event: () => { const a = district === 'strip' ? strip?.runner.active : null; return a ? { id: a.ev.id, state: a.state, results: !!a.results, pS: a.pS } : null; },
             /** the ids of the other players drawn in the Strip */
             stripPlayers: () => Object.keys(stripTags),
+            /** the challenge room this page is in: its code and phase, how many are in it, and this player's state there */
+            race: () => { const st = useGameStore.getState(), r = st.race; return r ? { code: r.code, phase: r.phase, members: r.members.length, me: r.members.find(m => m.id === st.playerId)?.state ?? null } : null; },
             /** sign in with a magic-link token, as the link's page does (the smoke) */
             linkMagic: (token: string) => { useGameStore.getState().linkAccount({ magic: token }); },
             /** open the Garage menu on `carId`, else your first car (the same call the lot's [Enter] GARAGE makes) */
@@ -1447,7 +1560,8 @@ export function VanillaThreeScene() {
                     delete aiDriveSequence[carId];
                 });
                 // in the lobby, a rental (just rented, or held from before) is driven at once
-                if (lobby && !driver) { const r = heldRental(me) ?? heldTestCar(me); if (r && carMeshes[r.id]) driveRental(r.id); } // a tester's car too
+                // (a tester's car too; a car lent by a challenge room goes straight onto the grid of its race)
+                if (lobby && !driver) { const r = heldRental(me) ?? heldTestCar(me); if (r && carMeshes[r.id] && driveRental(r.id) && r.loan) beginChallenge(); }
             }
 
             // Passive Automatic Car Wash
