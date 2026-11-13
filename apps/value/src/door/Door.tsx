@@ -26,7 +26,9 @@ export { WORLD_URL, SHOP_URL };
 const STATS = {
   models: stickers.length,
   trims: (stickers as { years: { trims: unknown[] }[] }[]).reduce((a, s) => a + s.years.reduce((b, y) => b + y.trims.length, 0), 0),
-  listings: (samples as { samples: { listings: unknown[] }[] }[]).reduce((a, s) => a + s.samples.reduce((b, p) => b + p.listings.length, 0), 0),
+  // the hand-read samples plus the dealer listings each calibrated model was fitted to (vehicle data by Searlo)
+  listings: (samples as { samples: { listings: unknown[] }[] }[]).reduce((a, s) => a + s.samples.reduce((b, p) => b + p.listings.length, 0), 0)
+    + (calibration as { models: { dealer?: number }[] }).models.reduce((a, c) => a + (c.dealer ?? 0), 0),
   calibrated: (calibration as { models: unknown[] }).models.length,
 };
 
