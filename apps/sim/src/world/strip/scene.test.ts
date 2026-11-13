@@ -212,6 +212,20 @@ describe('StripScene', () => {
     S.dispose();
   });
 
+  it('two starts while the circuit loads: only the last starts, nothing is abandoned (a guest keeps the rental), and the scene says it is starting', async () => {
+    let quits = 0; const banners: string[] = [];
+    const { S, PV, car } = setup({ onEventQuit: () => { quits++; }, onBanner: (t: string) => { banners.push(t); } }); S.enter(PV, car);
+    expect(S.starting).toBe(false);
+    const first = S.startEvent(ev('harbour_gp')), second = S.startEvent(ev('harbour_x'));   // both before Monaco is in
+    expect(S.starting).toBe(true);
+    await Promise.all([first, second]);
+    expect(S.runner.active?.ev.id).toBe('harbour_x');
+    expect(quits).toBe(0);
+    expect(S.starting).toBe(false);
+    expect(banners.some(t => /loading/i.test(t))).toBe(true);
+    S.dispose();
+  });
+
   it('drag and drift draw a route ribbon that cleanup removes; a lap race draws none (the circuit shows the way)', async () => {
     const { S, PV, car } = setup(); S.enter(PV, car);
     await S.startEvent(ev('harbour_gp'));

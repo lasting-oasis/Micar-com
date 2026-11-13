@@ -418,18 +418,27 @@ export class StripScene {
     this.lamps = key;
     setLamps(lib, on);
   }
-  /** Start an event, mounting its circuit first when the player is not on it. */
+  private startTicket = 0; private startsPending = 0;
+  /** an event's start is waiting for its circuit to load (the race menu stays shut meanwhile) */
+  get starting(): boolean { return this.startsPending > 0; }
+  /** Start an event, mounting its circuit first when the player is not on it ("Loading the circuit…" meanwhile).
+   *  A later start while one is still loading wins and the earlier one never starts: starting both would end the
+   *  first as abandoned, which tells the server to hand a guest's rental back. */
   async startEvent(ev: EventDef, o: { quick?: boolean; net?: NetField } = {}): Promise<void> {
     this.load();
-    const id = trackOfEvent(ev.id), gen = this.gen;
-    if (this.zone.kind !== 'track' || this.zone.track.id !== id) await this.enterTrack(id);
-    // the load failed, the player left meanwhile (exit, back to the paddock, dispose), or another circuit won
-    if (!this.ready || gen !== this.gen || !this.entered || this.zone.kind !== 'track' || this.zone.track.id !== id) return;
-    this.endOutrun();
-    this.reported = null;
-    this.runner.start(ev, o);
-    this.addRibbon();
-    this.opts.onEventStart?.(ev, this.PV);
+    const id = trackOfEvent(ev.id), gen = this.gen, ticket = ++this.startTicket;
+    this.startsPending++;
+    try {
+      if (this.zone.kind !== 'track' || this.zone.track.id !== id) { this.opts.onBanner('Loading the circuit…'); await this.enterTrack(id); }
+      // the load failed, the player left meanwhile (exit, back to the paddock, dispose), another circuit won, or a
+      // later start came in while this one loaded
+      if (ticket !== this.startTicket || !this.ready || gen !== this.gen || !this.entered || this.zone.kind !== 'track' || this.zone.track.id !== id) return;
+      this.endOutrun();
+      this.reported = null;
+      this.runner.start(ev, o);
+      this.addRibbon();
+      this.opts.onEventStart?.(ev, this.PV);
+    } finally { this.startsPending--; }
   }
   private endOutrun(): void {
     const o = this.outrun; if (!o) return;
