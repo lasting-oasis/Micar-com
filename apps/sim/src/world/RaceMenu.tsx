@@ -123,7 +123,7 @@ function Menu() {
         </header>
 
         <section className="flex-1 min-h-0 flex gap-4 md:gap-10 max-[560px]:flex-col">
-          <div className="w-[42%] max-[560px]:w-full min-w-0 flex flex-col justify-center">
+          <div className={`${short ? 'w-[48%]' : 'w-[42%]'} max-[560px]:w-full min-w-0 flex flex-col justify-center`}>
             <h2 data-races-name className={`font-cond italic font-black uppercase leading-[.88] tracking-tight break-words ${short ? 'line-clamp-1 text-[clamp(26px,4.4vw,40px)]' : 'line-clamp-2 text-[clamp(30px,6vw,92px)]'}`}>{v.name}</h2>
             <div className={`flex items-center gap-2 font-cond font-bold uppercase tracking-[.12em] whitespace-nowrap ${short ? 'mt-1 text-[11px]' : 'mt-1.5 md:mt-3 text-[11px] md:text-sm'}`}>
               <span className="px-1.5 py-px rounded-sm bg-ink text-night text-[10px] md:text-xs leading-tight">{v.cc}</span>
@@ -213,8 +213,8 @@ function StepTab({ on, onClick, children }: { on: boolean; onClick: () => void; 
 function Stat({ value, label, accent, short }: { value: string; label: string; accent?: boolean; short?: boolean }) {
   return (
     <div className="min-w-0 flex flex-col-reverse">
-      <dt className={`mt-1 font-cond font-bold uppercase tracking-[.14em] text-haze truncate ${short ? 'text-[9.5px]' : 'text-[9.5px] md:text-[11px]'}`}>{label}</dt>
-      <dd className={`font-cond italic font-black leading-none tabular-nums truncate ${short ? 'text-[22px]' : 'text-[clamp(18px,2.6vw,36px)]'} ${accent ? 'text-market' : ''}`}>{value}</dd>
+      <dt className={`mt-1 font-cond font-bold uppercase text-haze truncate ${short ? 'text-[9.5px] tracking-[.08em]' : 'text-[9.5px] md:text-[11px] tracking-[.14em]'}`}>{label}</dt>
+      <dd className={`font-cond italic font-black leading-none tabular-nums truncate ${short ? 'text-[19px]' : 'text-[clamp(18px,2.6vw,36px)]'} ${accent ? 'text-market' : ''}`}>{value}</dd>
     </div>
   );
 }
