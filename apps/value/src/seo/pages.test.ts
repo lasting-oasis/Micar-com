@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import stickers from '../data/stickers.json';
-import { bodyPhrase, buildModelPages, escapeHtml, indexPageHtml, jsonLd, llmsTxt, modelPageHtml, robotsTxt, sitemapXml, slugify, SITE_URL, valueLink, yearSpan, type Sticker } from './pages';
+import { bodyPhrase, buildModelPages, escapeHtml, indexPageHtml, jsonLd, llmsTxt, modelPageHtml, robotsTxt, sitemapXml, slugify, SITE_URL, valueLink, yearRuns, yearSpan, type Sticker } from './pages';
 
 const env = { css: ':root{}', footer: '<footer class="mc-foot"></footer>' };
 const t = (trim: string, msrp: number) => ({ trim, msrp });
@@ -86,6 +86,35 @@ describe('seo pages', () => {
       expect(html, p.slug).not.toMatch(/for \d{4} model years/);                 // one year is "the 2024 model year"
       expect(html).toContain(p.years.length === 1 ? `for the ${p.years[0].year} model year,` : `model years,`);
     }
+  });
+
+  it('names the years MiCar has as runs, so a gap is never hidden inside a span', () => {
+    expect(yearRuns([2024, 2012, 2011, 2010])).toBe('2010–2012, 2024');
+    expect(yearRuns([2026, 2025, 2024, 2023, 2022, 2020, 2019])).toBe('2019–2020, 2022–2026');
+    expect(yearRuns([2018])).toBe('2018');
+    expect(yearRuns([2020, 2016, 2015])).toBe('2015–2016, 2020');
+    const pages = buildModelPages(stickers as unknown as Sticker[]);
+    const index = indexPageHtml(pages, env);
+    for (const p of pages) {
+      const runs = yearRuns(p.years.map((y) => y.year));
+      const html = modelPageHtml(p, env);
+      expect(html, p.slug).toContain(`(${runs})`);                               // the title and the lead sentence
+      expect(html, p.slug).toContain(`for the ${runs} model year${p.years.length === 1 ? '' : 's'},`);
+      expect(index, p.slug).toContain(`<a href="${p.slug}/">${escapeHtml(p.model)}</a> <span class="muted">${runs}</span>`);
+      // every span written for this model covers only years MiCar has
+      const have = new Set(p.years.map((y) => y.year));
+      for (const m of html.matchAll(/\b(\d{4})–(\d{4})\b/g)) for (let y = +m[1]; y <= +m[2]; y++) expect(have.has(y), `${p.slug} ${m[0]}`).toBe(true);
+    }
+    const zdx = pages.find((p) => p.slug === 'acura-zdx');
+    if (zdx) expect(modelPageHtml(zdx, env)).toContain('(2010–2012, 2024)');
+  });
+
+  it('gives a single price once: "at $X", never "from $X to $X"', () => {
+    const one: Sticker[] = [{ make: 'Solo', model: 'One', body: 'Sedan', years: [{ year: 2020, trims: [t('Base', 35000)] }] }];
+    const html = modelPageHtml(buildModelPages(one)[0], env);
+    expect(html).toContain('at $35,000 before destination');
+    expect(html).not.toMatch(/from (\$[\d,]+) to \1\b/);
+    for (const p of buildModelPages(stickers as unknown as Sticker[])) expect(modelPageHtml(p, env), p.slug).not.toMatch(/from (\$[\d,]+) to \1\b/);
   });
 
   it('describes each model as a Car, never as an offer: MiCar sells no cars, and MSRPs are past sticker prices', () => {

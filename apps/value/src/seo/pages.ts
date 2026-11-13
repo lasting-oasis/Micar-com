@@ -4,7 +4,8 @@
 // plus sitemap.xml, robots.txt and llms.txt. Pure functions only, so the tests can check the output as text.
 // The site is a GitHub Pages project site, served under /Micar-com/. Crawlers read robots.txt only at a host's root
 // (lasting-oasis.github.io/robots.txt, which this repository does not publish), so the robots.txt written here takes
-// effect only if the site moves to a domain of its own; until then every page links the sitemap from its <head>.
+// effect only if the site moves to a domain of its own. Every page links the sitemap from its <head>, but that is a hint
+// major search engines do not read: until then the sitemap reaches them only by being submitted to them directly.
 
 export const SITE_URL = 'https://lasting-oasis.github.io/Micar-com/';
 
@@ -66,6 +67,19 @@ const range = (lo: number, hi: number) => (lo === hi ? usd(lo) : `${usd(lo)}–$
 /** A span of model years: one year once ("2024"), more as a range ("2010–2026"). */
 export function yearSpan(first: number, last: number): string {
   return first === last ? String(first) : `${first}–${last}`;
+}
+
+/** The model years MiCar has, as runs of consecutive years ("2010–2012, 2024"), so a span never claims a year it lacks. */
+export function yearRuns(years: number[]): string {
+  const ys = [...new Set(years)].sort((a, b) => a - b);
+  const runs: string[] = [];
+  for (let i = 0; i < ys.length; ) {
+    let j = i;
+    while (j + 1 < ys.length && ys[j + 1] === ys[j] + 1) j++;
+    runs.push(yearSpan(ys[i], ys[j]));
+    i = j + 1;
+  }
+  return runs.join(', ');
 }
 
 /** The data's body styles as words in a sentence, with their article ("an SUV or crossover"). */
@@ -147,19 +161,18 @@ export type PageEnv = { css: string; footer: string };
 export function modelPageHtml(p: ModelPage, env: PageEnv): string {
   const name = `${p.make} ${p.model}`;
   const newest = p.years[0];
-  const oldest = p.years[p.years.length - 1];
-  const span = yearSpan(oldest.year, newest.year);
+  const span = yearRuns(p.years.map((y) => y.year));
   const allLow = Math.min(...p.years.map((y) => y.low));
   const allHigh = Math.max(...p.years.map((y) => y.high));
   const canonical = `${SITE_URL}cars/${p.slug}/`;
   const app = '../../';
-  const description = `${name} (${p.body}) used values on MiCar: original sticker prices (MSRP) for the ${span} model year${newest.year === oldest.year ? '' : 's'}, ${range(allLow, allHigh)} new, and a free calculator for trade-in, private-party and dealer retail value.`;
+  const description = `${name} (${p.body}) used values on MiCar: original sticker prices (MSRP) for the ${span} model year${p.years.length === 1 ? '' : 's'}, ${range(allLow, allHigh)} new, and a free calculator for trade-in, private-party and dealer retail value.`;
   const rows = p.years
     .map((y) => `<tr><td>${y.year}</td><td>${y.trims}</td><td>${range(y.low, y.high)}</td><td><a href="${escapeHtml(valueLink(app, p, y))}">Value a ${y.year}</a></td></tr>`)
     .join('\n');
   const body = `<p class="crumbs"><a href="${app}">MiCar</a> › <a href="../">All cars</a> › ${escapeHtml(p.make)}</p>
 <h1>${escapeHtml(name)} values</h1>
-<p>The ${escapeHtml(name)} is ${escapeHtml(bodyPhrase(p.body))}. MiCar has original window-sticker prices for ${p.years.length} model year${p.years.length === 1 ? '' : 's'} (${span}), from ${usd(allLow)} to ${usd(allHigh)} before destination. Pick a year to see what one is worth today: trade-in, private-party and dealer retail, with a price range and a five-year forecast. Free, no account.</p>
+<p>The ${escapeHtml(name)} is ${escapeHtml(bodyPhrase(p.body))}. MiCar has original window-sticker prices for ${p.years.length} model year${p.years.length === 1 ? '' : 's'} (${span}), ${allLow === allHigh ? `at ${usd(allLow)}` : `from ${usd(allLow)} to ${usd(allHigh)}`} before destination. Pick a year to see what one is worth today: trade-in, private-party and dealer retail, with a price range and a five-year forecast. Free, no account.</p>
 <a class="cta" href="${escapeHtml(valueLink(app, p, newest))}">Value my ${escapeHtml(name)}</a>
 <h2>Original MSRP by model year</h2>
 <table>
@@ -198,7 +211,7 @@ export function indexPageHtml(pages: ModelPage[], env: PageEnv): string {
   const byMake = new Map<string, ModelPage[]>();
   for (const p of pages) byMake.set(p.make, [...(byMake.get(p.make) ?? []), p]);
   const sections = [...byMake]
-    .map(([make, ps]) => `<h2 id="${slugify(make)}">${escapeHtml(make)}</h2>\n<ul class="models">\n${ps.map((p) => `<li><a href="${p.slug}/">${escapeHtml(p.model)}</a> <span class="muted">${yearSpan(p.years[p.years.length - 1].year, p.years[0].year)}</span></li>`).join('\n')}\n</ul>`)
+    .map(([make, ps]) => `<h2 id="${slugify(make)}">${escapeHtml(make)}</h2>\n<ul class="models">\n${ps.map((p) => `<li><a href="${p.slug}/">${escapeHtml(p.model)}</a> <span class="muted">${yearRuns(p.years.map((y) => y.year))}</span></li>`).join('\n')}\n</ul>`)
     .join('\n');
   const body = `<p class="crumbs"><a href="../">MiCar</a> › All cars</p>
 <h1>Every car MiCar can value</h1>
