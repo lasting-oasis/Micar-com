@@ -9,11 +9,9 @@
   "200": 47
  },
  "vins_known": 47,
- "with_price_history": 0,
- "history_points_median": 0,
- "likely_sold_values": {
-  "None": 47
- },
+ "with_price_history": null,
+ "history_points_median": null,
+ "likely_sold_values": null,
  "first_seen_days_ago_median": null,
  "days_listed_median_at_search": 0,
  "credits_reported_per_vin": [
@@ -30,7 +28,7 @@
      "name": "<str len 11>",
      "phone": "<str len 12>",
      "website": "<str len 28>",
-     "host": "curryhondaga.com",
+     "host": "<str>",
      "address": {
       "street": "<str len 35>",
       "city": "...",
@@ -95,5 +93,6 @@
   "valid": "<bool>",
   "source": "NHTSA vPIC",
   "credits": 1
- }
+ },
+ "note": "Read from the response shape: each VIN has status 'active' and, per dealer listing, an 'observations' array (price and mileage at each sighting; 2 for the cars checked) with firstSeenAt 2026-11-12, the day Searlo started tracking them. The script looked for a 'history' and a 'likely_sold' key, which the response does not use, so those counts are null. Sold detection cannot be judged until cars have been tracked for a few weeks. VIN lookups reported 1 credit each; the balance did not move during them."
 }
