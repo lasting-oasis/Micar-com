@@ -36,7 +36,7 @@ SAFE = re.compile(r'^(success|code|errorCode|message|year|make|model|condition|c
                   r'count|min|median|max|credits|searches|pages|pagesFetched|status|position)$')
 # What a dealer's text can hold besides car data: a site, an email, a price, a phone, stock or VIN number.
 DEALER_TEXT = re.compile(r'[#$@]|www|https?:|\.(com|net|org|us)\b|\bstk\b|\bstock\s*(no\b|num|:)|\bphone\b|'
-                         r'\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}|\d{5}|\b[A-HJ-NPR-Z0-9]{17}\b', re.I)
+                         r'\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}|(?<!\d)\d{5,}(?!\d|\s*(lb|gvwr|gcwr))|\b[A-HJ-NPR-Z0-9]{17}\b', re.I)
 FIELD = re.compile(r'^[a-z][A-Za-z0-9]*(_[a-z0-9]+)*$')  # an API field name; a dealer's name or site is not one
 
 
