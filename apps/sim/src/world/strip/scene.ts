@@ -17,7 +17,9 @@ import { carParams, clamp, makeVehicle, resetVehicle, type Vehicle } from '../ph
 import { WORLD_PER_M } from '../units';
 import { buildRentalLot } from '../../scene/world/rentalLot';
 import { RENTAL_BAY, RENTAL_CAM, RENTAL_KIOSK } from '../rental';
-import { buildHub, mountTrack, nameSprite, radialTexture, routeRibbon, laneRibbon, gateMeshes, disposeGate, ACCENT, CHROME, GRASS, SKY, TUBE_BLUE, type Hub, type Loader, type Mounted, type ParkOpts, type SceneMarker } from './park';
+import { buildHub, mountTrack, sessionTrackLib, nameSprite, radialTexture, routeRibbon, laneRibbon, gateMeshes, disposeGate, ACCENT, CHROME, GRASS, OVERCAST, SKY, TUBE_BLUE, type Hub, type Loader, type Mounted, type ParkOpts, type SceneMarker, type Weather } from './park';
+import { gantryLamps, setLamps, type TrackLib } from './trackMaterials';
+import { usesLights } from './lights';
 import { HUB, SPAWN, loadTrack, routeFor, trackLoaded, trackOfEvent, type TrackData, type TrackId } from './district';
 import { zoneBounds, zoneRoads, zoneWalls, type Zone } from './zone';
 import { nearestRoadPoint, snapToRoad, type Pt, type RoadData, type Route } from './routes';
@@ -76,6 +78,8 @@ export type StripSceneOpts = {
   onZone?(zone: Zone, PV: Vehicle): void;
   /** the models' loader (null: ribbons only); the base URL of the strip/ assets is district's setAssetBase */
   loadModel?: Loader | null;
+  /** the circuits' materials (default: the session's, in a browser; null: the glb's flat colours) */
+  trackLib?: TrackLib | null;
   /** how a track file is fetched (tests); default fetch() */
   fetchTrack?: (url: string) => Promise<TrackData>;
   seed?: number;
@@ -116,7 +120,8 @@ export class StripScene {
   private readonly kitted = new Set<THREE.Group>();
   private tags: THREE.Sprite[] = [];
   private tagTex: THREE.Texture | null = null;
-  private envRT: THREE.WebGLRenderTarget | null = null;
+  /** reflections for each look: the hub's sunny day, the circuits' overcast one */
+  private env: Record<Weather, THREE.WebGLRenderTarget> | null = null;
   private gpsMesh: THREE.Mesh | null = null;
   private gpsMat: THREE.MeshBasicMaterial | null = null;
   private ribbon: THREE.Mesh | null = null;
@@ -154,7 +159,7 @@ export class StripScene {
   }
   private stage(): number { return this.fx.stage(); }
 
-  private get parkOpts(): ParkOpts { return { loadModel: this.opts.loadModel }; }
+  private get parkOpts(): ParkOpts { return { loadModel: this.opts.loadModel, trackLib: this.opts.trackLib }; }
 
   /** Build the hub and its cars (synchronous; idempotent). */
   load(): void {
@@ -164,7 +169,7 @@ export class StripScene {
     this.lot = buildRentalLot(); this.scene.add(this.lot.group);
     this.markers = hub.markers;
     setWallZone(zoneWalls(this.zone));
-    if (this.opts.renderer) { this.envRT = makeEnv(this.opts.renderer); this.scene.environment = this.envRT.texture; }
+    if (this.opts.renderer) { this.env = { hub: makeEnv(this.opts.renderer, 'hub'), circuit: makeEnv(this.opts.renderer, 'circuit') }; this.scene.environment = this.env.hub.texture; }
     for (const st of STYLES) getStyleGeometry(st); // every body style now, so a race start never builds one
     this.gpsMat = new THREE.MeshBasicMaterial({ color: ACCENT, transparent: true, opacity: .45, blending: THREE.AdditiveBlending, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 });
     this.tagTex = radialTexture();
@@ -241,7 +246,9 @@ export class StripScene {
   }
   private placeCp(p: { x: number; z: number } | null, t?: { tx: number; tz: number }): void {
     const cp = this.hub?.cpMark; if (!cp) return;
-    if (!p) { cp.visible = false; return; }
+    // a lap race needs no gate or beam: the circuit (barriers, kerbs) shows the way, and the HUD's arrow points to it
+    const a = this.runner.active;
+    if (!p || (a && usesLights(a.type))) { cp.visible = false; return; }
     cp.visible = true; cp.position.set(p.x * W, 0, p.z * W);
     if (t) cp.rotation.y = Math.atan2(t.tx, t.tz);
     const roads = zoneRoads(this.zone), w = roads.length ? nearestRoadPoint(p.x, p.z, roads).road.width : 12;
@@ -255,7 +262,7 @@ export class StripScene {
   }
   private addRibbon(): void {
     this.dropRibbon();
-    const a = this.runner.active; if (!a) return;
+    const a = this.runner.active; if (!a || usesLights(a.type)) return;   // a lap race: the circuit is the route
     const d = a.drag;
     const m = a.type === 'drag' && d.p0 ? laneRibbon(d.p0, d.fwd, d.right, a.route.len, DRAG_LANES) : routeRibbon(a.route, 2);
     this.ribbon = m; this.scene.add(m);
@@ -303,8 +310,26 @@ export class StripScene {
     this.markers = this.hub?.markers ?? [];
     setWallZone(zoneWalls(this.zone));
   }
-  /** The hub's scenery (model, ribbons, portals, rental lot) shows only while the hub is the zone. */
-  private showHub(v: boolean): void { this.hub?.setVisible(v); if (this.lot) this.lot.group.visible = v; }
+  /** The mounted circuit as drawn (the smoke checks it): its trk_* meshes and whether the asphalt has its picture;
+   *  null in the hub or before the model lands. */
+  circuitModel(): { id: string; meshes: number; asphaltMap: boolean } | null {
+    const m = this.zone.kind === 'track' ? this.mounted?.model() : null; if (!m || this.zone.kind !== 'track') return null;
+    let meshes = 0, asphaltMap = false;
+    m.traverse(o => {
+      const mat = (o as THREE.Mesh).isMesh ? (o as THREE.Mesh).material as THREE.MeshStandardMaterial : null;
+      if (mat?.name?.startsWith('trk_')) { meshes++; if (mat.name === 'trk_asphalt' && mat.map) asphaltMap = true; }
+    });
+    return { id: this.zone.track.id, meshes, asphaltMap };
+  }
+  /** How brightly the driven cars' lamps glow (0 to 1): a circuit is an overcast day, the hub keeps them lit. */
+  carLampGlow(): number { return this.zone.kind === 'track' ? 0 : 1; }
+  /** The hub's scenery (model, ribbons, portals, rental lot) shows only while the hub is the zone; its sunny look too
+   *  (a circuit has the overcast day: sky, fog, light, grass and reflections). */
+  private showHub(v: boolean): void {
+    this.hub?.setVisible(v); if (this.lot) this.lot.group.visible = v;
+    const w: Weather = v ? 'hub' : 'circuit';
+    this.hub?.setWeather(w); if (this.env) this.scene.environment = this.env[w].texture;
+  }
   /** Back to the hub: abandons a live event, unmounts the circuit, brings the traffic back; the car goes to the spawn when `place`. */
   returnToHub(place = true): void {
     this.gen++;
@@ -384,6 +409,15 @@ export class StripScene {
     if (this.zone.kind === 'hub') { const r = nearRival(this.PV, this.ais); if (r) { this.outrun = startOutrun(r, playerTopMs(this.PV.P), playerAccel(this.PV.P), this.stage(), this.fx); return true; } }
     return false;
   }
+  /** The gantry's five lamps follow the start lights (the circuits share the lamp materials, so this sets them all). */
+  private lamps = '';
+  private lightGantry(): void {
+    const lib = this.opts.trackLib === undefined ? sessionTrackLib() : this.opts.trackLib; if (!lib) return;
+    const a = this.runner.active, on = gantryLamps(a ? a.lit : null, !!a && a.state === 'count' && usesLights(a.type)), key = on.join();
+    if (key === this.lamps) return;
+    this.lamps = key;
+    setLamps(lib, on);
+  }
   /** Start an event, mounting its circuit first when the player is not on it. */
   async startEvent(ev: EventDef, o: { quick?: boolean; net?: NetField } = {}): Promise<void> {
     this.load();
@@ -432,6 +466,7 @@ export class StripScene {
       separateAIs(this.noRacers);
       this.placePeople(a);
       run.update(dt);
+      this.lightGantry();
       const b = run.active;
       if (b && b.results && this.reported !== b) { this.reported = b; const r = run.results(); if (r) this.opts.onResults?.(r); }
       if (this.outrun) {
@@ -542,7 +577,7 @@ export class StripScene {
     this.tagTex?.dispose(); this.tagTex = null;
     this.dropRibbon(); this.dropGate();
     this.setGps(null); this.gpsMat?.dispose(); this.gpsMat = null;
-    this.envRT?.dispose(); this.envRT = null;
+    if (this.env) { this.env.hub.dispose(); this.env.circuit.dispose(); this.env = null; }
     this.lot?.dispose(); this.lot = null; this.inLobby = false;
     if (this.mounted) { this.mounted.dispose(); this.mounted = null; }
     this.hub?.dispose(); this.hub = null;
@@ -569,13 +604,14 @@ export function ribbon(path: Pt[], width: number, y: number): THREE.BufferGeomet
   return g;
 }
 
-/** The reflection map in daylight: sky above, grass below, one bright sun box. */
-function makeEnv(renderer: THREE.WebGLRenderer): THREE.WebGLRenderTarget {
-  const s = new THREE.Scene(); s.background = new THREE.Color(SKY);
+/** A look's reflection map: sky above, grass below; the hub's one bright sun box, or the circuits' grey overcast with a
+ *  broad soft patch of brighter cloud. */
+function makeEnv(renderer: THREE.WebGLRenderer, w: Weather): THREE.WebGLRenderTarget {
+  const s = new THREE.Scene(); s.background = new THREE.Color(w === 'hub' ? SKY : OVERCAST);
   const g = new THREE.BoxGeometry(1, 1, 1); const ms: THREE.Material[] = [];
   const P = (c: THREE.ColorRepresentation, i: number, x: number, y: number, z: number, sx: number, sy: number, sz: number) => { const mat = new THREE.MeshBasicMaterial({ color: new THREE.Color(c).multiplyScalar(i) }); ms.push(mat); const m = new THREE.Mesh(g, mat); m.position.set(x, y, z); m.scale.set(sx, sy, sz); s.add(m); };
   P(GRASS, 1, 0, -4, 0, 60, .2, 60);
-  P(0xfff1dc, 6, 12, 14, 6, 6, .4, 6);
+  if (w === 'hub') P(0xfff1dc, 6, 12, 14, 6, 6, .4, 6); else P(0xf4efe6, 3, 12, 14, 6, 12, .4, 12);
   const pm = new THREE.PMREMGenerator(renderer); const t = pm.fromScene(s, .035); pm.dispose();
   g.dispose(); ms.forEach(m => m.dispose());
   return t;

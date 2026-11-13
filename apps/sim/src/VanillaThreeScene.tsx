@@ -18,7 +18,7 @@ import { createDealership, type DealershipGate } from './scene/world/dealership'
 import { Driver, STEP, townCollider, type DriveOpts } from './world/driver';
 import { EVENTS, STOCK_CFG, TUNE_DEF, specFor, stageOf, visualRating, type BodyStyle, type CarCfg, type StripRecord } from './world/data';
 import { NO_INPUT, type Input, type Tune, type VehicleSpec } from './world/physics';
-import { anchorsFor, attachParts, disposeParts, syncKitLod, type PartsKit } from './world/parts';
+import { anchorsFor, attachParts, disposeParts, setKitGlow, syncKitLod, type PartsKit } from './world/parts';
 import { StripScene, STRIP_SPAWN } from './world/strip/scene';
 import { routePoint } from './world/strip/routes';
 import { countBegun, countProgress, type ActiveEvent, type NetField } from './world/strip/events';
@@ -1234,6 +1234,10 @@ export function VanillaThreeScene() {
             event: () => { const a = district === 'strip' ? strip?.runner.active : null; return a ? { id: a.ev.id, state: a.state, results: !!a.results, pS: a.pS, lit: a.lit, timed: !!a.timing, laps: a.timing ? a.timing.laps('me') : 0 } : null; },
             /** the ids of the other players drawn in the Strip */
             stripPlayers: () => Object.keys(stripTags),
+            /** the mounted circuit as drawn (the smoke): its id, trk_* meshes and whether the asphalt has its picture */
+            circuit: () => (district === 'strip' ? strip?.circuitModel() ?? null : null),
+            /** what the last frame drew (the smoke's budget check): draw calls and triangles */
+            drawn: () => ({ calls: renderer.info.render.calls, triangles: renderer.info.render.triangles }),
             /** the challenge room this page is in: its code and phase, how many are in it, and this player's state there */
             race: () => { const st = useGameStore.getState(), r = st.race; return r ? { code: r.code, phase: r.phase, members: r.members.length, me: r.members.find(m => m.id === st.playerId)?.state ?? null } : null; },
             /** sign in with a magic-link token, as the link's page does (the smoke) */
@@ -1454,7 +1458,10 @@ export function VanillaThreeScene() {
 
             // Object Synchronization
             carFrameTick();
-            updateCarLights(district === 'strip' ? 1 : nightFactor); // lamps of driven cars glow brighter as night falls (always night in the Strip)
+            // lamps of driven cars glow brighter as night falls (the Strip's hub keeps them lit; its circuits are a day,
+            // so the Garage kits' lamp glows go out there too)
+            const stripLamps = district === 'strip' ? (strip?.carLampGlow() ?? 1) : 1;
+            updateCarLights(district === 'strip' ? stripLamps : nightFactor); setKitGlow(stripLamps);
             if (me) {
                 me.inventory.forEach((car) => {
                     if (!carMeshes[car.id]) {

@@ -9,10 +9,13 @@ import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js
 import { EVENTS, EV_COL, TRACK_NAMES } from '../data';
 import { WORLD_PER_M } from '../units';
 import { HUB, getAssetBase, type TrackData } from './district';
+import { applyTrackMaterials, makeTrackLib, type TexLoad, type TrackLib } from './trackMaterials';
 import type { RoadData, Route } from './routes';
 
 const W = WORLD_PER_M;
 export const SKY = 0x9fc5ee;
+/** the circuits' overcast sky before its panorama loads (and their reflections' sky) */
+export const OVERCAST = 0xaeb2b6;
 export const GRASS = 0x5e7a3a;
 export const ACCENT = '#ffd23f';
 export const TUBE_BLUE = '#79a6ff';
@@ -21,11 +24,14 @@ export const CHROME = '#f3f6fb';
 export type Loader = (url: string) => Promise<THREE.Object3D>;
 /** A marker: x, z in world metres; a portal carries its park's name (label) and, in a browser, a name sprite over the ring. */
 export type SceneMarker = { id: string; kind: 'event' | 'portal' | 'return'; x: number; z: number; ring: THREE.Mesh; beam: THREE.Mesh; label?: string; sign?: THREE.Sprite };
-/** setVisible hides or shows the hub's scenery (model, ribbons, portal markers) while a circuit is mounted; cpMark stays. */
-export type Hub = { scene: THREE.Scene; markers: SceneMarker[]; cpMark: THREE.Group; roads: THREE.Mesh; modelReady: Promise<void>; setVisible(v: boolean): void; dispose(): void };
-export type Mounted = { group: THREE.Group; markers: SceneMarker[]; roads: THREE.Mesh; modelReady: Promise<void>; dispose(): void };
+/** setVisible hides or shows the hub's scenery (model, ribbons, portal markers) while a circuit is mounted; cpMark stays.
+ *  setWeather: the hub's sunny flat look, or the circuits' overcast day (sky panorama, grey fog, soft light, grass). */
+export type Weather = 'hub' | 'circuit';
+export type Hub = { scene: THREE.Scene; markers: SceneMarker[]; cpMark: THREE.Group; roads: THREE.Mesh; modelReady: Promise<void>; setVisible(v: boolean): void; setWeather(w: Weather): void; dispose(): void };
+export type Mounted = { group: THREE.Group; markers: SceneMarker[]; roads: THREE.Mesh; modelReady: Promise<void>; model(): THREE.Object3D | null; dispose(): void };
 /** assetBase defaults to district's setAssetBase setting. */
-export type ParkOpts = { loadModel?: Loader | null; assetBase?: string };
+/** trackLib: the circuits' materials (default: the session's, in a browser; null keeps the glb's flat colours). */
+export type ParkOpts = { loadModel?: Loader | null; assetBase?: string; trackLib?: TrackLib | null };
 const baseOf = (opts: ParkOpts): string => opts.assetBase ?? getAssetBase();
 
 // ---------------------------------------------------------------------------------- textures (browser only)
@@ -155,10 +161,44 @@ export function markerMeshes(_kind: SceneMarker['kind'], color: THREE.ColorRepre
 }
 
 // ---------------------------------------------------------------------------------- model loading
-const defaultLoader: Loader = async url => {
-  const { GLTFLoader } = await import('three-stdlib');
-  return (await new GLTFLoader().loadAsync(url)).scene;
-};
+// circuit glb files are Draco-compressed (tools/blender/export_strip.py); the decoder ships in public/draco
+type Gltf = Pick<typeof import('three-stdlib'), 'GLTFLoader' | 'DRACOLoader'>;
+/** A glb loader sharing one Draco decoder (two workers) across loads; a failed load drops the decoder when no other
+ *  load uses it, so a later mount starts it afresh instead of meeting the same failure. */
+export function gltfLoader(mod: () => Promise<Gltf>, base: () => string): Loader {
+  let draco: InstanceType<Gltf['DRACOLoader']> | null = null, users = 0;
+  return async url => {
+    const { GLTFLoader, DRACOLoader } = await mod();
+    const gl = new GLTFLoader();
+    if (!draco) { const d = new DRACOLoader(); d.setDecoderPath(base() + 'draco/'); d.setDecoderConfig({ type: 'wasm' }); d.setWorkerLimit(2); draco = d; }
+    const d = draco; gl.setDRACOLoader(d); users++;
+    try { return (await gl.loadAsync(url)).scene; }
+    catch (err) { if (draco === d && users === 1) { d.dispose(); draco = null; } throw err; }
+    finally { users--; }
+  };
+}
+const defaultLoader: Loader = gltfLoader(() => import('three-stdlib'), getAssetBase);
+/** The session's circuit materials (textured from public/strip/tex), made on first use in a browser. */
+let trackLib: TrackLib | null = null;
+export function sessionTrackLib(): TrackLib | null {
+  if (!hasDom()) return null;
+  if (!trackLib) {
+    const tl = new THREE.TextureLoader();
+    trackLib = makeTrackLib((url, ok, fail) => {
+      try { tl.load(url, ok, undefined, () => { console.warn('strip texture', url); fail(); }); } catch { fail(); }
+    }, getAssetBase(), { aniso: 4 });
+  }
+  return trackLib;
+}
+/** A circuit loader that swaps the model's trk_* materials for the session's textured ones, once, before it is cached
+ *  (so every mount's clone shares them). Kept per loader so the model cache (keyed by loader) still hits. */
+const withMats = new WeakMap<Loader, Loader>();
+function trackMaterialLoader(loader: Loader, lib: TrackLib | null): Loader {
+  if (!lib) return loader;
+  let w = withMats.get(loader);
+  if (!w) { w = async url => { const root = await loader(url); applyTrackMaterials(root, lib); return root; }; withMats.set(loader, w); }
+  return w;
+}
 function loaderOf(opts: ParkOpts): Loader | null {
   if (opts.loadModel === null) return null;
   if (opts.loadModel) return opts.loadModel;
@@ -206,20 +246,66 @@ function attachModel(loader: Loader | null, url: string, parent: THREE.Object3D,
   return { ready, model: () => model };
 }
 
+/** The circuits' look: the CC0 overcast panorama (public/strip/tex/sky.jpg, Poly Haven overcast_soil_puresky) for
+ *  their sky, its horizon for their fog, and the grass texture tiled every 4 m over their ground (`size`: the ground's
+ *  side in world units). A failed load keeps the flat colours. */
+export const HORIZON = 0x72706c;
+export type CircuitLook = { sky: THREE.Texture | null; ground: THREE.MeshStandardMaterial; changed(): void };
+export function dressSky(look: CircuitLook, size: number, load: TexLoad, base: string, aniso = 1): void {
+  load(base + 'strip/tex/sky.jpg', t => {
+    t.mapping = THREE.EquirectangularReflectionMapping; t.colorSpace = THREE.SRGBColorSpace;
+    t.generateMipmaps = false; t.minFilter = THREE.LinearFilter;   // no mip line down the sky at the panorama's seam
+    t.needsUpdate = true; look.sky = t; look.changed();
+  }, () => {});
+  load(base + 'strip/tex/grass.jpg', t => {
+    const m = look.ground, r = size / W / 4;
+    t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(r, r); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = aniso; t.needsUpdate = true;
+    m.map = t; m.color.setHex(0xa79f86); m.needsUpdate = true;
+  }, () => {});
+}
+
 // ---------------------------------------------------------------------------------- the hub
 export function buildHub(opts: ParkOpts = {}): Hub {
   const scene = new THREE.Scene(); scene.name = 'strip';
-  scene.background = new THREE.Color(SKY);
-  scene.fog = new THREE.FogExp2(SKY, .0009 / W);
-  scene.add(new THREE.HemisphereLight(0xcfe3ff, 0x7a8a5a, .9 * Math.PI));
+  const sky = new THREE.Color(SKY), fog = new THREE.FogExp2(SKY, .0009 / W);
+  scene.background = sky; scene.fog = fog;
+  const hemi = new THREE.HemisphereLight(0xcfe3ff, 0x7a8a5a, .9 * Math.PI); scene.add(hemi);
   const sun = new THREE.DirectionalLight(0xfff1dc, 2.4); sun.position.set(200 * W, 300 * W, 100 * W); sun.castShadow = false; scene.add(sun);
 
-  const geos: THREE.BufferGeometry[] = [], mats: THREE.Material[] = [];
+  const geos: THREE.BufferGeometry[] = [], mats: THREE.Material[] = [], texs: THREE.Texture[] = [];
+  const hubDisposed = () => disposed;
   const keepG = <T extends THREE.BufferGeometry>(g: T): T => { geos.push(g); return g; };
   const keepM = <T extends THREE.Material>(m: T): T => { mats.push(m); return m; };
 
-  const ground = new THREE.Mesh(keepG(new THREE.PlaneGeometry(60000 * W, 60000 * W)), keepM(new THREE.MeshStandardMaterial({ color: GRASS, roughness: .95 })));
-  ground.rotation.x = -Math.PI / 2; ground.name = 'ground'; scene.add(ground);
+  // The ground: a square of 416-unit cells reaching past the far plane (6500) that follows the camera, snapped to whole
+  // 4 m grass tiles so the grass never slides. One plane 60 km across lost depth precision far from the origin and
+  // hid the circuits' asphalt and run-off (2 cm above it) from some cameras.
+  const GROUND = 32 * 416, TILE = 4 * W;
+  const flatGrass = keepM(new THREE.MeshStandardMaterial({ color: GRASS, roughness: .95 }));
+  const ground = new THREE.Mesh(keepG(new THREE.PlaneGeometry(GROUND, GROUND, 32, 32)), flatGrass);
+  ground.rotation.x = -Math.PI / 2; ground.name = 'ground'; ground.frustumCulled = false; scene.add(ground);
+  ground.onBeforeRender = (_r, _s, cam) => {
+    const x = Math.round(cam.matrixWorld.elements[12] / TILE) * TILE, z = Math.round(cam.matrixWorld.elements[14] / TILE) * TILE;
+    if (x !== ground.position.x || z !== ground.position.z) { ground.position.set(x, 0, z); ground.updateMatrixWorld(); }
+  };
+  // Two looks. The hub keeps its sunny flat colours. The circuits get an overcast day, as at the clone's: the sky
+  // panorama with the fog turned to its horizon, most of the light from the grey sky and a weak, soft sun, and grass.
+  let weather: Weather = 'hub';
+  const look: CircuitLook = { sky: null, ground: keepM(new THREE.MeshStandardMaterial({ color: GRASS, roughness: .95 })), changed: () => setWeather(weather) };
+  const setWeather = (w: Weather) => {
+    weather = w; const c = w === 'circuit';
+    scene.background = c ? (look.sky ?? sky.setHex(OVERCAST)) : sky.setHex(SKY);
+    fog.color.setHex(c ? (look.sky ? HORIZON : OVERCAST) : SKY);
+    hemi.color.setHex(c ? 0xe2e6ea : 0xcfe3ff); hemi.groundColor.setHex(c ? 0x5d5a4c : 0x7a8a5a); hemi.intensity = (c ? 1.15 : .9) * Math.PI;
+    sun.color.setHex(c ? 0xf4efe6 : 0xfff1dc); sun.intensity = c ? 1.1 : 2.4;
+    ground.material = c ? look.ground : flatGrass;
+  };
+  if (hasDom()) {
+    const tl = new THREE.TextureLoader();
+    dressSky(look, GROUND, (url, ok, fail) => {
+      try { tl.load(url, t => { if (hubDisposed()) { t.dispose(); return; } texs.push(t); ok(t); }, undefined, fail); } catch { fail(); }   // a page without images keeps the colours
+    }, baseOf(opts), 8);
+  }
   const roads = new THREE.Mesh(keepG(roadRibbons(HUB.roads)), keepM(new THREE.MeshStandardMaterial({ color: 0x2c2f35, roughness: .7 })));
   roads.name = 'roads'; scene.add(roads);
 
@@ -250,6 +336,7 @@ export function buildHub(opts: ParkOpts = {}): Hub {
       roads.visible = v && !m; // the model replaces the ribbons once it is in
       for (const mk of markers) { mk.ring.visible = mk.beam.visible = v; if (mk.sign) mk.sign.visible = v; }
     },
+    setWeather,
     dispose() {
       if (disposed) return; disposed = true;
       const m = att.model(); if (m) disposeObject(m);
@@ -257,6 +344,7 @@ export function buildHub(opts: ParkOpts = {}): Hub {
       sharedRing().dispose(); sharedBeam().dispose();
       for (const g of geos) g.dispose();
       for (const x of mats) x.dispose();
+      for (const t of texs) t.dispose();
       scene.clear();
     },
   };
@@ -285,9 +373,9 @@ export function mountTrack(scene: THREE.Scene, track: TrackData, opts: ParkOpts 
 
   let disposed = false;
   const loader = loaderOf(opts);
-  const att = attachModel(loader && cachedLoader(loader), baseOf(opts) + 'strip/tracks/' + track.id + '.glb', group, roads, 'strip track model ' + track.id, () => disposed, { shared: true });
+  const att = attachModel(loader && cachedLoader(trackMaterialLoader(loader, opts.trackLib === undefined ? sessionTrackLib() : opts.trackLib)), baseOf(opts) + 'strip/tracks/' + track.id + '.glb', group, roads, 'strip track model ' + track.id, () => disposed, { shared: true });
   return {
-    group, markers, roads, modelReady: att.ready,
+    group, markers, roads, modelReady: att.ready, model: att.model,
     dispose() {
       if (disposed) return; disposed = true;
       group.removeFromParent();

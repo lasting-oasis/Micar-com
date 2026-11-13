@@ -3,7 +3,8 @@ import path from 'node:path';
 import * as THREE from 'three';
 import { HUB, markerFor } from './district';
 import { readTrackSync, setTrackDir } from './districtNode';
-import { buildHub, mountTrack, nameSprite, roadRibbons, markerMeshes, routeRibbon, gateMeshes } from './park';
+import { buildHub, dressSky, gltfLoader, mountTrack, nameSprite, roadRibbons, markerMeshes, routeRibbon, gateMeshes, HORIZON, OVERCAST, SKY } from './park';
+import { makeTrackLib } from './trackMaterials';
 import { buildRoute } from './routes';
 import { WORLD_PER_M as W } from '../units';
 
@@ -241,3 +242,81 @@ describe('park', () => {
     } finally { vi.unstubAllGlobals(); }
   });
 });
+
+describe('the circuits\' look', () => {
+  it('a loaded circuit model gets the session\'s circuit materials, shared by every mount', async () => {
+    const lib = makeTrackLib((_u, ok) => ok(new THREE.Texture()), '/b/');
+    const model = new THREE.Group(); const mesh = new THREE.Mesh(new THREE.BufferGeometry(), new THREE.MeshStandardMaterial());
+    (mesh.material as THREE.Material).name = 'trk_asphalt'; model.add(mesh);
+    const loadModel = async () => model;
+    const a = mountTrack(new THREE.Scene(), monza(), { loadModel, trackLib: lib }); await a.modelReady;
+    const b = mountTrack(new THREE.Scene(), monza(), { loadModel, trackLib: lib }); await b.modelReady;
+    const mat = (g: THREE.Object3D) => { let f: THREE.Material | null = null; g.traverse(o => { const m = o as THREE.Mesh; if (m.isMesh && (m.material as THREE.Material).name === 'trk_asphalt') f = m.material as THREE.Material; }); return f; };
+    expect(mat(a.group)).toBe(lib.material('trk_asphalt'));
+    expect(mat(b.group)).toBe(lib.material('trk_asphalt'));
+  });
+
+  it('the ground follows the camera in whole grass tiles, in cells small enough that the circuits’ asphalt stays on top', () => {
+    // a ground of two 60 km triangles lost depth precision far from the origin and hid the asphalt from some cameras
+    const hub = buildHub({ loadModel: null });
+    const ground = hub.scene.getObjectByName('ground') as THREE.Mesh;
+    const p = (ground.geometry as THREE.PlaneGeometry).parameters;
+    expect(p.width / p.widthSegments).toBeLessThanOrEqual(512);
+    expect(p.height / p.heightSegments).toBeLessThanOrEqual(512);
+    expect(Math.min(p.width, p.height) / 2).toBeGreaterThanOrEqual(6500);      // to the far plane every way
+    expect(ground.frustumCulled).toBe(false);
+    const cam = new THREE.PerspectiveCamera(62, 1.6, 1, 6500); cam.position.set(32105.3, 35.6, 15946.3); cam.updateMatrixWorld();
+    ground.onBeforeRender({} as THREE.WebGLRenderer, hub.scene, cam, ground.geometry, ground.material as THREE.Material, null as unknown as THREE.Group);
+    const at = new THREE.Vector3().setFromMatrixPosition(ground.matrixWorld);
+    expect([at.x, at.y, at.z]).toEqual([32104, 0, 15944]);                 // snapped to 4 m (8 units): the grass never slides
+  });
+
+  it('the circuits’ sky is the CC0 panorama and their ground grass, tiled every 4 m; a failed load keeps the flat colours', () => {
+    const look = { sky: null as THREE.Texture | null, ground: new THREE.MeshStandardMaterial({ color: 0x5e7a3a }), changed: vi.fn() };
+    const urls: string[] = [];
+    dressSky(look, 100, (u, ok) => { urls.push(u); ok(new THREE.Texture()); }, '/b/');
+    expect(urls).toEqual(['/b/strip/tex/sky.jpg', '/b/strip/tex/grass.jpg']);
+    expect(look.sky!.mapping).toBe(THREE.EquirectangularReflectionMapping); expect(look.changed).toHaveBeenCalled();
+    // no mipmaps on the panorama: at its seam u jumps from 1 to 0, and a mipmapped sky would draw a line down the sky there
+    expect(look.sky!.generateMipmaps).toBe(false); expect(look.sky!.minFilter).toBe(THREE.LinearFilter);
+    expect(look.ground.map).toBeTruthy(); expect(look.ground.map!.repeat.x).toBeCloseTo(100 / W / 4);
+    const look2 = { sky: null as THREE.Texture | null, ground: new THREE.MeshStandardMaterial({ color: 0x5e7a3a }), changed: vi.fn() };
+    dressSky(look2, 100, (_u, _ok, fail) => fail(), '/b/');
+    expect(look2.sky).toBeNull(); expect(look2.ground.map).toBeNull(); expect(look2.changed).not.toHaveBeenCalled();
+  });
+
+  it('the hub keeps its sunny flat look; a circuit gets an overcast day: grey sky and fog, a weaker sun, more sky light', () => {
+    const hub = buildHub({ loadModel: null }), s = hub.scene, fog = s.fog as THREE.FogExp2;
+    const find = <T,>(test: (o: THREE.Object3D) => boolean) => { let f: T | null = null; s.traverse(o => { if (!f && test(o)) f = o as T; }); return f!; };
+    const hemi = find<THREE.HemisphereLight>(o => (o as THREE.HemisphereLight).isHemisphereLight);
+    const sun = find<THREE.DirectionalLight>(o => (o as THREE.DirectionalLight).isDirectionalLight);
+    const ground = s.getObjectByName('ground') as THREE.Mesh, flat = ground.material;
+    expect((s.background as THREE.Color).getHex()).toBe(SKY); expect(fog.color.getHex()).toBe(SKY);
+    const sunny = [sun.intensity, hemi.intensity];
+    hub.setWeather('circuit');
+    expect((s.background as THREE.Color).getHex()).toBe(OVERCAST); expect(fog.color.getHex()).toBe(OVERCAST);   // no panorama in a test
+    expect(sun.intensity).toBeLessThan(sunny[0]); expect(hemi.intensity).toBeGreaterThan(sunny[1]);
+    expect(ground.material).not.toBe(flat);                                   // the textured grass
+    hub.setWeather('hub');
+    expect((s.background as THREE.Color).getHex()).toBe(SKY); expect(fog.color.getHex()).toBe(SKY);
+    expect([sun.intensity, hemi.intensity]).toEqual(sunny); expect(ground.material).toBe(flat);
+    expect(HORIZON).not.toBe(SKY);
+  });
+});
+
+describe('the circuit model loader', () => {
+  it('decodes on at most two workers, and starts the decoder afresh after a failed load', async () => {
+    const made: { limit: number; disposed: boolean }[] = [];
+    class Draco { s = { limit: 0, disposed: false }; constructor() { made.push(this.s); } setDecoderPath() {} setDecoderConfig() {} setWorkerLimit(n: number) { this.s.limit = n; } dispose() { this.s.disposed = true; } }
+    let fail = true;
+    class Gltf { setDRACOLoader() {} async loadAsync() { if (fail) throw new Error('no decoder'); return { scene: new THREE.Group() }; } }
+    const load = gltfLoader(async () => ({ GLTFLoader: Gltf, DRACOLoader: Draco }) as never, () => '/b/');
+    await expect(load('/b/strip/tracks/spa.glb')).rejects.toThrow('no decoder');
+    expect(made).toEqual([{ limit: 2, disposed: true }]);
+    fail = false;
+    await expect(load('/b/strip/tracks/spa.glb')).resolves.toBeInstanceOf(THREE.Group);
+    await load('/b/strip/tracks/monza.glb');
+    expect(made).toEqual([{ limit: 2, disposed: true }, { limit: 2, disposed: false }]);   // one decoder, kept
+  });
+});
+

@@ -26,12 +26,15 @@ EVENTS = {  # id -> (track, type); mirrors apps/sim/src/world/data.ts
     'airfield_gp': ('silverstone', 'circuit'), 'mountain_drift': ('bathurst', 'drift'), 'ardennes_gp': ('spa', 'circuit'),
     'mountain_gp': ('bathurst', 'circuit'), 'ardennes_sprint': ('spa', 'sprint'),
 }
-BUDGET = {'hub_glb': 1_500_000, 'track_glb': 800_000, 'json': 200_000}
+BUDGET = {'hub_glb': 1_500_000, 'track_glb': 900_000, 'json': 200_000}
 STEP = 3.0
+# this script's folder (build_strip.py and trackside.py sit beside it); the repo's tools/blender when run from a text block
+HERE = os.path.dirname(os.path.abspath(globals()['__file__'])) if globals().get('__file__') else os.path.join(REPO, 'tools', 'blender')
 
 def _build_ns():
-    src = open(os.path.join(REPO, 'tools', 'blender', 'build_strip.py'), encoding='utf-8').read()
-    ns = {}; exec(compile(src, 'build_strip.py', 'exec'), ns); return ns
+    path = os.path.join(HERE, 'build_strip.py')
+    src = open(path, encoding='utf-8').read()
+    ns = {'__file__': path}; exec(compile(src, path, 'exec'), ns); return ns
 NS = _build_ns()
 sample_curve, cumulative, point_at = NS['sample_curve'], NS['cumulative'], NS['point_at']
 
@@ -104,14 +107,25 @@ def bounds_of(ptss):
     xs = [p[0] for pts in ptss for p in pts]; zs = [p[1] for pts in ptss for p in pts]
     return {'minX': round(min(xs), 1), 'minZ': round(min(zs), 1), 'maxX': round(max(xs), 1), 'maxZ': round(max(zs), 1)}
 
-def export_glb(coll, path, budget):
-    bpy.ops.object.select_all(action='DESELECT')
+def export_glb(coll, path, budget, scenery=False):
+    """scenery: a circuit's trk_* scenery, with UVs and Draco compression (the game swaps the materials by name, so
+    no images go in); otherwise flat colours as before (the hub)."""
+    # only this collection's meshes are selected, in every scene and view layer (the exporter may walk them all)
+    for sc in bpy.data.scenes:
+        for vl in sc.view_layers:
+            for ob in sc.objects:
+                try: ob.select_set(False, view_layer=vl)
+                except RuntimeError: pass
+    vl = bpy.context.view_layer
     for ob in coll.objects:
-        if ob.type == 'MESH': ob.select_set(True)
+        if ob.type == 'MESH': ob.select_set(True, view_layer=vl)
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    bpy.ops.export_scene.gltf(filepath=path, export_format='GLB', use_selection=True, export_apply=True, export_yup=True,
+    extra = dict(export_texcoords=True, export_image_format='NONE', export_draco_mesh_compression_enable=True,
+                 export_draco_mesh_compression_level=6, export_draco_position_quantization=NS['DRACO_POS_BITS'],
+                 export_draco_texcoord_quantization=NS['DRACO_UV_BITS']) if scenery else dict(export_texcoords=False)
+    bpy.ops.export_scene.gltf(filepath=path, export_format='GLB', use_selection=True, use_active_scene=True, export_apply=True, export_yup=True,
                               export_animations=False, export_cameras=False, export_lights=False, export_normals=False,
-                              export_materials='EXPORT', export_texcoords=False, export_extras=False)
+                              export_materials='EXPORT', export_extras=False, **extra)
     size = os.path.getsize(path)
     if size > budget: raise RuntimeError('%s is %d bytes, over the budget of %d' % (path, size, budget))
     return size
@@ -145,7 +159,8 @@ def export_hub():
     sizes = {'hub.glb': export_glb(hub, os.path.join(PUBLIC, 'hub.glb'), BUDGET['hub_glb']), 'hub.json': write_json(os.path.join(SRC, 'hub.json'), out)}
     return sizes
 
-def export_track(tid):
+def export_track(tid, out_dir=None):
+    """The circuit's json (routes, walls, markers) and scenery glb, into the repo (or out_dir)."""
     vis, data = bpy.data.collections['Track.' + tid], bpy.data.collections['Track.' + tid + '.Data']
     centre = data.objects[tid + '.centre']; cpts, _, clen = sample_curve(centre, STEP); width = float(centre['width'])
     routes = {}; lens = {}
@@ -180,9 +195,14 @@ def export_track(tid):
         'centre': {'pts': [g(p) for p in cpts], 'width': width, 'loop': True},
         'routes': routes, 'walls': walls_of(data, tid + '.wall.'), 'markers': markers,
     }
-    sizes = {tid + '.glb': export_glb(vis, os.path.join(PUBLIC, 'tracks', tid + '.glb'), BUDGET['track_glb']),
-             tid + '.json': write_json(os.path.join(PUBLIC, 'tracks', tid + '.json'), out)}
+    sizes = {tid + '.glb': export_track_glb(tid, out_dir),
+             tid + '.json': write_json(os.path.join(out_dir or os.path.join(PUBLIC, 'tracks'), tid + '.json'), out)}
     return sizes, clen, sorted(routes), lens
+
+def export_track_glb(tid, out_dir=None):
+    """Only the circuit's scenery glb (its json, the routes, walls and markers, is left as it is)."""
+    vis = bpy.data.collections['Track.' + tid]
+    return export_glb(vis, os.path.join(out_dir or os.path.join(PUBLIC, 'tracks'), tid + '.glb'), BUDGET['track_glb'], scenery=True)
 
 def export_all():
     sizes = export_hub(); index = []

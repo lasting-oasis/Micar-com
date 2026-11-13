@@ -56,6 +56,33 @@ MATS = {
     'gravel': (0.72, 0.62, 0.42), 'barrier': (0.70, 0.72, 0.74), 'concrete': (0.55, 0.56, 0.58), 'steel': (0.30, 0.32, 0.36),
     'foliage': (0.18, 0.40, 0.17), 'bark': (0.30, 0.22, 0.14), 'paint': (1.0, 0.82, 0.25), 'glass': (0.35, 0.50, 0.60),
 }
+# a circuit's scenery (trk_*): flat preview colours here; the game swaps each for its textured material by name
+# (apps/sim/src/world/strip/trackMaterials.ts). UVs are metres on ground, walls and fences, tiles on atlases.
+TRK = {   # the exported names (palette members and the two tree species are merged before export: see PALETTES)
+    'trk_asphalt': (0.05, 0.05, 0.055), 'trk_rubber': (0.02, 0.02, 0.02), 'trk_marks': (0.95, 0.95, 0.92),
+    'trk_grass': (0.13, 0.30, 0.08), 'trk_grass_mow': (0.17, 0.37, 0.10), 'trk_gravel': (0.55, 0.48, 0.36),
+    'trk_solid': (0.45, 0.47, 0.50), 'trk_wall': (0.62, 0.62, 0.60), 'trk_boards': (0.95, 0.80, 0.20), 'trk_tyres': (0.05, 0.05, 0.05),
+    'trk_fence': (0.42, 0.44, 0.46), 'trk_stand': (0.52, 0.52, 0.54), 'trk_crowd': (0.45, 0.32, 0.30), 'trk_pit': (0.86, 0.86, 0.88),
+    'trk_brake': (0.95, 0.95, 0.95), 'trk_trees': (0.14, 0.30, 0.10), 'trk_treeline': (0.10, 0.20, 0.08), 'trk_lamps': (0.25, 0.02, 0.02),
+}
+MATS.update(TRK)
+# Flat colours share a material: each member lands on its own cell of a small palette texture the game makes
+# (trackMaterials.ts PALETTES: the same names in the same order), so a circuit draws each group in one call.
+PALETTES = {
+    'trk_marks': ['trk_line', 'trk_paint', 'trk_kerb_red', 'trk_kerb_white'],              # on the ground, lifted
+    'trk_solid': ['trk_steel', 'trk_roof', 'trk_marshal', 'trk_orange', 'trk_canopy', 'trk_armco'],
+    # the game lights the five lamps one by one; their box shares the primitive, so compression keeps them apart
+    'trk_lamps': ['trk_lamp1', 'trk_lamp2', 'trk_lamp3', 'trk_lamp4', 'trk_lamp5', 'trk_lamp_box'],
+}
+# Draco quantization (export_strip.py): one range per attribute and primitive, its largest extent. 18 bits put a
+# circuit's positions on a 1-3 cm grid (thin posts, kerb sides and the lamps keep their shape) and 16 bits its UVs
+# on a grid of 1/65535 of their largest extent (metres along a 5 km rubber line: 8 cm).
+DRACO_POS_BITS = 18
+DRACO_UV_BITS = 16
+TREELINE_TILE = 104.0    # m along one tile of tex/treeline.webp (prep_textures.py), 26.5 m high
+BOARD_BACK = 0.7         # braking boards' centre behind the barrier line, m (their 1.1 m face stands clear of it)
+KERB_REACH = 0.3         # a kerb block or edge-line piece reaching further than this inside its own inner edge is left
+                         # out: the inside of a bend tighter than it is wide folds it across the road, a kink cuts a chord
 def material(name):
     mat = bpy.data.materials.get(name)
     if mat is None:
@@ -65,129 +92,116 @@ def material(name):
     bsdf.inputs['Roughness'].default_value = 0.9 if name in ('tarmac', 'gravel', 'concrete', 'foliage', 'bark') else 0.5
     if name == 'paint':
         bsdf.inputs['Emission Color'].default_value = (r, g, b, 1.0); bsdf.inputs['Emission Strength'].default_value = 0.3
-    if name == 'barrier':
+    if name == 'barrier' or name in TRK:
         mat.use_backface_culling = False
     return mat
 
 # ----------------------------------------------------------------------------------------- geometry
-def dist(a, b): return math.hypot(b[0] - a[0], b[1] - a[1])
-def lerp(a, b, t): return (a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t)
-
-def tangents(pts, closed):
-    n = len(pts); out = []
-    for i in range(n):
-        a = pts[(i - 1) % n] if closed or i > 0 else pts[i]
-        b = pts[(i + 1) % n] if closed or i < n - 1 else pts[i]
-        tx, ty = b[0] - a[0], b[1] - a[1]; L = math.hypot(tx, ty) or 1
-        out.append((tx / L, ty / L))
-    return out
-
-def offset_polyline(pts, d, closed=False):
-    """pts offset by d to the LEFT of travel in Blender x/y (so d < 0 is the right-hand side)."""
-    T = tangents(pts, closed)
-    return [(p[0] - t[1] * d, p[1] + t[0] * d) for p, t in zip(pts, T)]
-
-def cumulative(pts, closed):
-    cum = [0.0]
-    for i in range(1, len(pts)): cum.append(cum[-1] + dist(pts[i - 1], pts[i]))
-    total = cum[-1] + (dist(pts[-1], pts[0]) if closed else 0.0)
-    return cum, total
-
-def point_at(pts, cum, total, s, closed):
-    if closed: s = s % total
-    else: s = max(0.0, min(total, s))
-    n = len(pts)
-    lo, hi = 0, len(cum) - 1
-    while lo < hi - 1:
-        mid = (lo + hi) // 2
-        if cum[mid] <= s: lo = mid
-        else: hi = mid
-    a = pts[lo]; b = pts[(lo + 1) % n] if (lo + 1 < n or closed) else pts[lo]
-    segL = (cum[lo + 1] if lo + 1 < len(cum) else total) - cum[lo]
-    if closed and lo == n - 1: segL = total - cum[lo]
-    t = 0.0 if segL <= 1e-9 else (s - cum[lo]) / segL
-    p = lerp(a, b, t); tx, ty = b[0] - a[0], b[1] - a[1]; L = math.hypot(tx, ty) or 1
-    return p, (tx / L, ty / L)
-
-def resample(pts, step, closed):
-    """Points every `step` m along the polyline (the first point kept)."""
-    cum, total = cumulative(pts, closed)
-    n = int(total // step) if closed else int(math.floor(total / step))
-    out = [point_at(pts, cum, total, k * step, closed)[0] for k in range(n + (0 if closed else 1))]
-    if not closed and dist(out[-1], pts[-1]) > 0.05: out.append(pts[-1])   # the true end, unless the last step landed on it
-    return out
-
-def curvature(pts, i, closed, w=3):
-    """Signed curvature (1/m) at i from points w back and w ahead (smoothed over 6 w metres)."""
-    n = len(pts)
-    if not closed and (i - w < 0 or i + w >= n): return 0.0
-    a, b, c = pts[(i - w) % n], pts[i], pts[(i + w) % n]
-    ax, ay = b[0] - a[0], b[1] - a[1]; bx, by = c[0] - b[0], c[1] - b[1]
-    cross = ax * by - ay * bx; la, lb = math.hypot(ax, ay), math.hypot(bx, by)
-    return 0.0 if la * lb == 0 else 2 * cross / (la * lb * (la + lb))
-
-def signed_area(pts):
-    a = 0.0; n = len(pts)
-    for i in range(n):
-        p, q = pts[i], pts[(i + 1) % n]; a += p[0] * q[1] - q[0] * p[1]
-    return a / 2
+# The geometry helpers and the trackside plan live in trackside.py (no bpy, tested by test_trackside.py).
+import sys
+try:
+    import trackside
+except ImportError:                       # beside this script (exec'd with __file__ set), else the repo's tools/blender
+    sys.path.insert(0, os.path.dirname(os.path.abspath(globals()['__file__'])) if globals().get('__file__') else os.path.join(REPO, 'tools', 'blender'))
+    import trackside
+from trackside import (dist, lerp, tangents, offset_polyline, cumulative, point_at, resample, curvature, signed_area,  # noqa: F401
+                       wall_runs, longest_straight)
 
 # ----------------------------------------------------------------------------------------- mesh builder
 class Builder:
-    """Faces per material, with shared vertices for strips; one mesh object per material in emit()."""
+    """Faces per material, with a UV per vertex (shared vertices along strips; boxes get their own per face). One mesh
+    object per material in emit(); the meshes carry no normals (the game shades them flat)."""
     def __init__(self):
-        self.parts = {m: ([], []) for m in MATS}
-    def _add(self, m, verts):
-        v, _ = self.parts[m]; o = len(v); v.extend(verts); return o
-    def quad(self, m, a, b, c, d):
-        v, f = self.parts[m]; o = len(v); v += [a, b, c, d]; f.append((o, o + 1, o + 2, o + 3))
-    def tri(self, m, a, b, c):
-        v, f = self.parts[m]; o = len(v); v += [a, b, c]; f.append((o, o + 1, o + 2))
-    def box(self, m, cx, cy, z0, sx, sy, sz, ang=0.0):
+        self.parts = {}
+    def _p(self, m):
+        p = self.parts.get(m)
+        if p is None: p = self.parts[m] = ([], [], [])
+        return p
+    def quad(self, m, a, b, c, d, uv=((0, 0), (1, 0), (1, 1), (0, 1))):
+        v, f, t = self._p(m); o = len(v); v += [a, b, c, d]; t += [tuple(x) for x in uv]; f.append((o, o + 1, o + 2, o + 3))
+    def tri(self, m, a, b, c, uv=((0, 0), (1, 0), (0, 1))):
+        v, f, t = self._p(m); o = len(v); v += [a, b, c]; t += [tuple(x) for x in uv]; f.append((o, o + 1, o + 2))
+    def box(self, m, cx, cy, z0, sx, sy, sz, ang=0.0, top=True, bottom=True):
+        """A box (sx along ang, sy across, sz up); every face its own vertices, UVs in metres."""
         c, s = math.cos(ang), math.sin(ang)
         def P(x, y, z): return (cx + x * c - y * s, cy + x * s + y * c, z)
         hx, hy = sx / 2, sy / 2; z1 = z0 + sz
-        p = [P(-hx, -hy, z0), P(hx, -hy, z0), P(hx, hy, z0), P(-hx, hy, z0), P(-hx, -hy, z1), P(hx, -hy, z1), P(hx, hy, z1), P(-hx, hy, z1)]
-        v, f = self.parts[m]; o = len(v); v.extend(p)
-        for q in ((0, 3, 2, 1), (4, 5, 6, 7), (0, 1, 5, 4), (1, 2, 6, 5), (2, 3, 7, 6), (3, 0, 4, 7)): f.append(tuple(o + i for i in q))
-    def strip(self, m, left, right, z, closed=False):
-        """A flat strip between two polylines of equal length, vertices shared along the run."""
-        v, f = self.parts[m]; o = len(v); n = len(left)
-        for i in range(n): v.append((left[i][0], left[i][1], z)); v.append((right[i][0], right[i][1], z))
-        for i in range(n if closed else n - 1):
-            j = (i + 1) % n
-            f.append((o + 2 * i, o + 2 * i + 1, o + 2 * j + 1, o + 2 * j))
-    def ribbon(self, m, pts, width, z, closed=False):
-        self.strip(m, offset_polyline(pts, width / 2, closed), offset_polyline(pts, -width / 2, closed), z, closed)
-    def wall(self, m, pts, height, closed=False):
-        """A vertical single-sided strip (the material is double-sided)."""
-        v, f = self.parts[m]; o = len(v); n = len(pts)
-        for p in pts: v.append((p[0], p[1], 0.0)); v.append((p[0], p[1], height))
-        for i in range(n if closed else n - 1):
-            j = (i + 1) % n
-            f.append((o + 2 * i, o + 2 * j, o + 2 * j + 1, o + 2 * i + 1))
+        sides = [((-hx, -hy), (hx, -hy), sx), ((hx, -hy), (hx, hy), sy), ((hx, hy), (-hx, hy), sx), ((-hx, hy), (-hx, -hy), sy)]
+        for (ax, ay), (bx, by), L in sides:
+            self.quad(m, P(ax, ay, z0), P(bx, by, z0), P(bx, by, z1), P(ax, ay, z1), ((0, 0), (L, 0), (L, sz), (0, sz)))
+        if top: self.quad(m, P(-hx, -hy, z1), P(hx, -hy, z1), P(hx, hy, z1), P(-hx, hy, z1), ((0, 0), (sx, 0), (sx, sy), (0, sy)))
+        if bottom: self.quad(m, P(-hx, hy, z0), P(hx, hy, z0), P(hx, -hy, z0), P(-hx, -hy, z0), ((0, sy), (sx, sy), (sx, 0), (0, 0)))
+    def strip3(self, m, left, right, v, u=(0.0, 1.0)):
+        """A strip between two 3D polylines of equal length (left of travel first, so it faces up); v per row."""
+        verts, f, t = self._p(m); o = len(verts); n = len(left)
+        for i in range(n):
+            verts.append(tuple(left[i])); verts.append(tuple(right[i])); t.append((u[0], v[i])); t.append((u[1], v[i]))
+        for i in range(n - 1): f.append((o + 2 * i, o + 2 * i + 1, o + 2 * i + 3, o + 2 * i + 2))
+    def strip(self, m, left, right, z, closed=False, v=None, u=(0.0, 1.0), v_end=None):
+        """A flat strip between two polylines (left of travel first, so it faces up); v: the texture coordinate along
+        each row (default: metres along `left`). A closed strip repeats its first row at the end with v_end (default: the
+        closing length, or one more step of v), so the texture never wraps back."""
+        if v is None:
+            cum, total = cumulative(left, closed); v = cum
+            if v_end is None: v_end = total
+        L, R, V = list(left), list(right), list(v)
+        if closed:
+            if v_end is None: v_end = V[-1] + (V[-1] - V[-2] if len(V) > 1 else 1.0)
+            L.append(left[0]); R.append(right[0]); V.append(v_end)
+        self.strip3(m, [(p[0], p[1], z) for p in L], [(p[0], p[1], z) for p in R], V, u)
+    def ribbon(self, m, pts, width, z, closed=False, v=None, u=(0.0, 1.0), v_end=None):
+        self.strip(m, offset_polyline(pts, width / 2, closed), offset_polyline(pts, -width / 2, closed), z, closed, v, u, v_end)
+    def wall(self, m, pts, height, closed=False, z0=0.0, v=None, top=None):
+        """A vertical strip from z0 to z0 + height along pts; UVs: u metres along (or the given v per point), v metres
+        up (or 0 to `top`) (double-sided material)."""
+        P = list(pts)
+        if closed: P.append(pts[0])
+        if v is None: v = cumulative(P, False)[0]
+        verts, f, t = self._p(m); o = len(verts)
+        for p, s in zip(P, v):
+            verts.append((p[0], p[1], z0)); verts.append((p[0], p[1], z0 + height)); t.append((s, 0.0)); t.append((s, height if top is None else top))
+        for i in range(len(P) - 1): f.append((o + 2 * i, o + 2 * i + 2, o + 2 * i + 3, o + 2 * i + 1))
     def cone(self, m, cx, cy, z0, r, h, n=6):
-        v, f = self.parts[m]; o = len(v)
-        for k in range(n): v.append((cx + r * math.cos(2 * math.pi * k / n), cy + r * math.sin(2 * math.pi * k / n), z0))
-        v.append((cx, cy, z0 + h))
+        v, f, t = self._p(m); o = len(v)
+        for k in range(n): v.append((cx + r * math.cos(2 * math.pi * k / n), cy + r * math.sin(2 * math.pi * k / n), z0)); t.append((0, 0))
+        v.append((cx, cy, z0 + h)); t.append((0, 0))
         for k in range(n): f.append((o + k, o + (k + 1) % n, o + n))
     def cylinder(self, m, cx, cy, z0, r, h, n=6):
-        v, f = self.parts[m]; o = len(v)
+        v, f, t = self._p(m); o = len(v)
         for k in range(n):
-            a = 2 * math.pi * k / n; v.append((cx + r * math.cos(a), cy + r * math.sin(a), z0)); v.append((cx + r * math.cos(a), cy + r * math.sin(a), z0 + h))
+            a = 2 * math.pi * k / n; v.append((cx + r * math.cos(a), cy + r * math.sin(a), z0)); v.append((cx + r * math.cos(a), cy + r * math.sin(a), z0 + h)); t += [(0, 0), (0, 0)]
         for k in range(n):
             j = (k + 1) % n; f.append((o + 2 * k, o + 2 * j, o + 2 * j + 1, o + 2 * k + 1))
     def ring(self, m, cx, cy, r0, r1, z, n=40):
-        v, f = self.parts[m]; o = len(v)
+        v, f, t = self._p(m); o = len(v)
         for k in range(n):
-            a = 2 * math.pi * k / n; v.append((cx + r0 * math.cos(a), cy + r0 * math.sin(a), z)); v.append((cx + r1 * math.cos(a), cy + r1 * math.sin(a), z))
+            a = 2 * math.pi * k / n; v.append((cx + r0 * math.cos(a), cy + r0 * math.sin(a), z)); v.append((cx + r1 * math.cos(a), cy + r1 * math.sin(a), z)); t += [(0, 0), (0, 0)]
         for k in range(n):
             j = (k + 1) % n; f.append((o + 2 * k, o + 2 * k + 1, o + 2 * j + 1, o + 2 * j))
+    def merge(self, palettes):
+        """Move each palette member's faces into its group, every u on the member's cell centre (j + .5) / n. v is .5,
+        except that vertices sharing a position (a box's corners, the ends of blocks) each get their own v between .3
+        and .7 (the palette is one pixel tall), so an encoder that welds equal vertices (Draco's JavaScript encoder
+        does) cannot join a box's faces and shade it round; the rest stay alike and compress well."""
+        for g, members in palettes.items():
+            n = len(members)
+            for j, m in enumerate(members):
+                p = self.parts.pop(m, None)
+                if not p or not p[1]: continue
+                v, f, t = self._p(g); o = len(v)
+                at = {}
+                for q in p[0]: key = (round(q[0], 4), round(q[1], 4), round(q[2], 4)); at[key] = at.get(key, 0) + 1
+                shared = [at[(round(q[0], 4), round(q[1], 4), round(q[2], 4))] > 1 for q in p[0]]
+                v += p[0]; t += [((j + .5) / n, .3 + .4 * ((k * 0.6180339887498949) % 1.0) if sh else .5) for k, sh in enumerate(shared)]
+                f += [tuple(k + o for k in face) for face in p[1]]
     def emit(self, coll, prefix=''):
+        self.merge(PALETTES)
         made = []
-        for m, (v, f) in self.parts.items():
+        for m, (v, f, t) in self.parts.items():
             if not f: continue
             me = bpy.data.meshes.new(prefix + m); me.from_pydata(v, [], f); me.validate(); me.update()
+            uvl = me.uv_layers.new(name='UVMap')
+            for li, lp in enumerate(me.loops): uvl.data[li].uv = t[lp.vertex_index]
             me.materials.append(material(m))
             ob = bpy.data.objects.new(prefix + m, me); coll.objects.link(ob); made.append(ob)
         return made
@@ -323,48 +337,239 @@ def load_track(tid):
     pts = [(p[0], -p[1]) for p in d['pts']]            # game x/z -> Blender x/y
     return d, pts
 
-def wall_runs(pts, closed, d, width):
-    """Offset polyline split into runs, dropping points that would fall on another part of the track."""
-    off = offset_polyline(pts, d, closed); keep = []
-    n = len(pts)
-    for i in range(n):
-        ok = True
-        # the wall point against the centreline: near a non-adjacent part -> gap
-        p = off[i]
-        for j in range(n):
-            dj = abs(j - i); dj = min(dj, n - dj) if closed else dj
-            if dj <= 15: continue
-            q = pts[j]
-            if abs(q[0] - p[0]) < width / 2 + 2 and abs(q[1] - p[1]) < width / 2 + 2 and dist(p, q) < width / 2 + 2: ok = False; break
-        keep.append(ok)
-    runs = []; cur = []
-    order = list(range(n))
-    if closed:
-        # start a run boundary at a dropped point so a closed wall without gaps stays one closed run
-        if all(keep): return [(off, True)]
-        start = keep.index(False); order = [(start + k) % n for k in range(n)]
-    for i in order:
-        if keep[i]: cur.append(off[i])
-        elif cur: runs.append((cur, False)); cur = []
-    if cur: runs.append((cur, False))
-    return [(r, c) for r, c in runs if len(r) >= 3]
+def scenery(tid, pts, width, seed=11):
+    """A circuit's scenery as a Builder (no bpy: test_build_scenery.py runs it without Blender), from the trackside
+    plan. Everything stands on or beside the centreline; barriers on the physics wall line."""
+    ts = trackside; closed = True; n = len(pts)
+    cum, total = cumulative(pts, closed); k = ts._an(pts, closed)['k']      # bends from the averaged curvature
+    e = width / 2 + ts.WALL_GAP; B = Builder()
+    def frame(s, d):
+        """The point at arc length s, offset d (left +), and the tangent there."""
+        p, t = point_at(pts, cum, total, s, closed); return (p[0] - t[1] * d, p[1] + t[0] * d), t
+    def off_at(i, d):
+        t = T[i % n]; p = pts[i % n]; return (p[0] - t[1] * d, p[1] + t[0] * d)
+    T = tangents(pts, closed)
+    def band(m, idx, da, db, z, u=None, v=None):
+        """A flat strip over point indices idx between offsets da and db (whichever is more to the left goes first)."""
+        dl, dr = (da, db) if da > db else (db, da)
+        L = [off_at(i, dl) for i in idx]; R = [off_at(i, dr) for i in idx]
+        if v is None: v = [cum[i % n] if (j == 0 or cum[i % n] >= cum[idx[0] % n]) else cum[i % n] + total for j, i in enumerate(idx)]
+        if v and any(b < a for a, b in zip(v, v[1:])):           # a run that wraps past the line
+            base = v[0]; v = [x if x >= base else x + total for x in v]
+        B.strip(m, L, R, z, False, v, u if u is not None else (0.0, abs(dl - dr)))
+    def runs(flags):
+        """Maximal runs of consecutive point indices (cyclic) whose flag is the same, as (flag, [i0 .. i1]) where each
+        run includes the next run's first point (so strips meet)."""
+        if all(f == flags[0] for f in flags): return [(flags[0], list(range(n)) + [n])]
+        start = next(i for i in range(n) if flags[i] != flags[i - 1]); out = []; cur = [start]
+        for q in range(1, n + 1):
+            i = start + q
+            if q < n and flags[i % n] == flags[cur[0] % n]: cur.append(i)
+            else: cur.append(i); out.append((flags[cur[0] % n], cur)); cur = [i]
+        return out
 
-def longest_straight(pts, cum, total, need):
-    """(s0, s1) of the window of length `need` whose points deviate least from its chord."""
-    n = len(pts); best = (1e9, 0.0)
-    step = 3
-    for i in range(0, n, 2):
-        s0 = cum[i]; s1 = s0 + need
-        a, _ = point_at(pts, cum, total, s0, True); b, _ = point_at(pts, cum, total, s1, True)
-        L = dist(a, b)
-        if L < need * 0.9: continue
-        dev = 0.0; s = s0
-        while s < s1:
-            p, _ = point_at(pts, cum, total, s, True)
-            dev = max(dev, abs((b[0] - a[0]) * (a[1] - p[1]) - (a[0] - p[0]) * (b[1] - a[1])) / L); s += step
-            if dev > best[0]: break
-        if dev < best[0]: best = (dev, s0)
-    return best[1], best[1] + need
+    # 1. asphalt (metres), the rubbered racing line, edge lines, the start line and grid boxes
+    B.strip('trk_asphalt', offset_polyline(pts, width / 2, closed), offset_polyline(pts, -width / 2, closed), 0.01, closed, cum, (0.0, width), total)
+    line = ts.racing_line(pts, width, closed, margin=2.1)
+    B.strip('trk_rubber', offset_polyline(line, 2.0, closed), offset_polyline(line, -2.0, closed), 0.013, closed, cum, (0.0, 1.0), total)
+    Gc = ts._an(pts, closed)['grid']
+    for side in (1, -1):                                         # edge lines, but not where they fold or cut a corner
+        P = offset_polyline(pts, side * (width / 2 - 0.3), closed)
+        for idx, loop in ts.clear_runs(P, closed, Gc, width / 2 - 0.3 - KERB_REACH):
+            if loop: B.ribbon('trk_line', P, 0.2, 0.016, closed, cum, (0.0, 1.0), total)
+            else: B.ribbon('trk_line', [P[i % n] for i in idx], 0.2, 0.016, False, [cum[i % n] + total * (i // n) for i in idx], (0.0, 1.0))
+    def paint(s0, s1, d0, d1):
+        a, _ = frame(s0, d0); b, _ = frame(s0, d1); c, _ = frame(s1, d1); d, _ = frame(s1, d0)
+        B.quad('trk_line', (a[0], a[1], 0.018), (b[0], b[1], 0.018), (c[0], c[1], 0.018), (d[0], d[1], 0.018))
+    paint(-0.3, 0.3, width / 2 - 0.1, -width / 2 + 0.1)
+    for lane in (-3.0, 3.0):
+        for back in (-2.0, -10.0):
+            paint(back - 0.15, back, lane + 1.3, lane - 1.3)
+            paint(back - 1.4, back, lane + 1.3, lane + 1.15); paint(back - 1.4, back, lane - 1.15, lane - 1.3)
+
+    # 2. kerbs on bends: the inside of every bend, the outside of tighter ones; red and white blocks 1.5 m long
+    for i0, i1, sign in ts.bend_spans(pts, closed, ts.KERB_K):
+        peak = max(abs(k[q % n]) for q in range(i0, i1))
+        s0 = cum[i0 % n]; L = (cum[i1 % n] if i1 % n > i0 % n else cum[i1 % n] + total) - s0
+        if i1 - i0 >= n: L = total
+        for side in (1, -1):
+            if side != sign and peak <= 1 / 100: continue
+            q = 0; s = s0
+            while s < s0 + L - 0.2:
+                s1 = min(s + 1.5, s0 + L)
+                a, _ = frame(s, side * (width / 2 - 0.05)); b, _ = frame(s, side * (width / 2 + 0.9))
+                c, _ = frame(s1, side * (width / 2 + 0.9)); d, _ = frame(s1, side * (width / 2 - 0.05))
+                pa, pb, pc, pd = (a[0], a[1], 0.02), (b[0], b[1], 0.055), (c[0], c[1], 0.055), (d[0], d[1], 0.02)
+                m = 'trk_kerb_red' if q % 2 == 0 else 'trk_kerb_white'
+                mid = ((a[0] + b[0] + c[0] + d[0]) / 4, (a[1] + b[1] + c[1] + d[1]) / 4)
+                if not any(Gc.near(p, width / 2 - 0.05 - KERB_REACH) for p in (a, b, c, d, mid)):   # no fold, no chord
+                    if side > 0: B.quad(m, pb, pa, pd, pc)  # left of travel first: faces up
+                    else: B.quad(m, pa, pb, pc, pd)
+                q += 1; s = s1
+
+    # 3. run-off from the edge to the barrier line: gravel outside tight bends, mown grass (10 m stripes) elsewhere
+    for side in (1, -1):
+        kinds = []
+        for i in range(n):
+            if ts.runoff_kind(pts, closed, i, side) == 'gravel': kinds.append('trk_gravel')
+            else: kinds.append('trk_grass' if int(cum[i] // 10) % 2 == 0 else 'trk_grass_mow')
+        for m, idx in runs(kinds):
+            band(m, idx, side * (width / 2 + 0.05), side * e, 0.006)
+
+    # 4. barriers on the physics wall line: concrete with boards on the start straight, tyres outside tight bends, armco
+    board = [0]
+    def boards(P, side):
+        cumP, totP = cumulative(P, False); s = 0.0
+        while s + 6.0 <= totP + 1e-6:
+            a, ta = point_at(P, cumP, totP, s, False); b, tb = point_at(P, cumP, totP, s + 6.0, False)
+            sh = -side * 0.06                                     # 6 cm towards the track
+            a = (a[0] - ta[1] * sh, a[1] + ta[0] * sh); b = (b[0] - tb[1] * sh, b[1] + tb[0] * sh)
+            j = board[0] % 8; board[0] += 1
+            v0, v1 = 1 - (j + 1) / 8, 1 - j / 8                   # board j: the atlas's row j from the top
+            u0, u1 = (0.0, 1.0) if side > 0 else (1.0, 0.0)          # read left to right from the track on either side
+            B.quad('trk_boards', (a[0], a[1], 0.12), (b[0], b[1], 0.12), (b[0], b[1], 0.92), (a[0], a[1], 0.92), ((u0, v0), (u1, v0), (u1, v1), (u0, v1)))
+            s += 6.0
+    def posts(P, every, h, side, back, m='trk_steel', w=0.12, z0=0.0):
+        cumP, totP = cumulative(P, False); s = 0.0
+        while s <= totP + 1e-6:
+            p, t = point_at(P, cumP, totP, s, False)
+            sh = side * back; c = (p[0] - t[1] * sh, p[1] + t[0] * sh)
+            a = (c[0] - t[0] * w / 2, c[1] - t[1] * w / 2); b = (c[0] + t[0] * w / 2, c[1] + t[1] * w / 2)
+            B.quad(m, (a[0], a[1], z0), (b[0], b[1], z0), (b[0], b[1], z0 + h), (a[0], a[1], z0 + h), ((0, 0), (w, 0), (w, h), (0, h)))
+            s += every
+    for side in (1, -1):
+        for ix, run_closed in ts.wall_run_idx(pts, closed, side * e, width):
+            idx = ix + [ix[0]] if run_closed else ix
+            kinds = [ts.barrier_kind(pts, width, closed, i % n, side) for i in idx]
+            groups = []
+            for i, kind in zip(idx, kinds):
+                if groups and groups[-1][0] == kind: groups[-1][1].append(i)
+                else:
+                    if groups: groups[-1][1].append(i)
+                    groups.append((kind, [i]))
+            for kind, gi in groups:
+                if len(gi) < 2: continue
+                P = [off_at(i, side * e) for i in gi]
+                if kind == 'armco':
+                    B.wall('trk_armco', P, 0.34, False, 0.42); posts(P, 5.0, 0.74, side, 0.14)
+                elif kind == 'wall':
+                    B.wall('trk_wall', P, 1.05); boards(P, side)
+                else:
+                    B.wall('trk_tyres', P, 1.0)
+
+    # 5. catch fences: on top of the start straight's walls, 1.5 m behind the barrier outside fast bends
+    a_total = total
+    for ix, side in ts.fence_runs(pts, width, closed):
+        inwin = [cum[i % n] <= ts.START_AHEAD or cum[i % n] >= a_total - ts.START_BEHIND for i in ix]
+        cur = [ix[0]]
+        def flush(group, win):
+            if len(group) < 3: return
+            back = 0.1 if win else 1.5; z0 = 1.05 if win else 0.6
+            P = [off_at(i, side * (e + back)) for i in group]
+            B.wall('trk_fence', P, 4.0 - z0, False, z0); posts(P, 6.0, 4.0, side, 0.0, w=0.1)
+        for a_, b_ in zip(range(len(ix) - 1), range(1, len(ix))):
+            if inwin[b_] == inwin[a_]: cur.append(ix[b_])
+            else: cur.append(ix[b_]); flush(cur, inwin[a_]); cur = [ix[b_]]
+        flush(cur, inwin[-1])
+    # the cell's fence (the physics fence) as a chain-link fence
+    xs = [p[0] for p in pts]; ys = [p[1] for p in pts]
+    rect = [(min(xs) - 150, min(ys) - 150), (max(xs) + 150, min(ys) - 150), (max(xs) + 150, max(ys) + 150), (min(xs) - 150, max(ys) + 150)]
+    B.wall('trk_fence', rect, 2.6, True, 0.1); posts(rect + [rect[0]], 10.0, 2.7, 1, 0.0, w=0.1)
+
+    # 6. the start: gantry and lamps, grandstand, pit lane and pit building
+    area = ts.start_area(pts, width, closed)
+    # the gantry in one frame at the line (its tangent): legs behind the barrier lines, the beam across, the lamp box
+    # under it and the five lamps 4 cm proud of the box's face towards the grid (behind the line)
+    (gx, gy), gt = frame(0.0, 0.0); ang = math.atan2(gt[1], gt[0])
+    def G(al, ac): return (gx + gt[0] * al - gt[1] * ac, gy + gt[1] * al + gt[0] * ac)
+    leg = e + 0.5
+    for side in (1, -1):
+        px, py = G(0.0, side * leg); B.box('trk_steel', px, py, 0.0, 0.45, 0.45, 7.6, ang, True, False)
+    B.box('trk_steel', gx, gy, 6.9, 0.6, 2 * leg + 0.45, 0.6, ang, True, True)
+    bx, by = G(-0.25, 0.0); B.box('trk_lamp_box', bx, by, 5.7, 0.36, 3.6, 1.05, ang, True, True)
+    for j in range(5):
+        d = (2 - j) * 0.66; a = G(-0.47, d - 0.22); b = G(-0.47, d + 0.22)
+        B.quad('trk_lamp%d' % (j + 1), (a[0], a[1], 6.0), (b[0], b[1], 6.0), (b[0], b[1], 6.44), (a[0], a[1], 6.44))
+    def bandframe(s0, s1, d, step=5.0):
+        out = []; s = s0
+        while s < s1 + 1e-6: out.append(frame(s, d)[0]); s += step
+        if out and abs((s - step) - s1) > 1e-6: out.append(frame(s1, d)[0])
+        return out
+    def ups(P, z): return [(p[0], p[1], z) for p in P]
+    def along(P): return cumulative(P, False)[0]
+    if area['stand']:
+        s0, s1, d0, d1 = area['stand']                          # left of the straight, d0 the front
+        F, Bk = bandframe(s0, s1, d0), bandframe(s0, s1, d1)
+        F1, B1 = bandframe(s0, s1, d0 + 1.0), bandframe(s0, s1, d1 - 1.0)
+        B.wall('trk_stand', F, 1.2); B.wall('trk_stand', Bk, 12.0)
+        B.strip3('trk_crowd', ups(B1, 9.0), ups(F1, 1.2), along(F1), (8.6 / 3.0, 0.0))
+        B.strip3('trk_canopy', ups(bandframe(s0, s1, d1), 12.6), ups(bandframe(s0, s1, d0 + 1.5), 11.2), along(F1), (0.0, 1.0))
+        out = 1.0 if d1 > d0 else -1.0; db = d1 - 0.6 * out                # the canopy's posts behind the back row
+        zr = 12.6 - 1.4 * abs(d1 - db) / abs(d1 - (d0 + 1.5 * out))       # the canopy's height above them
+        for p in bandframe(s0, s1, db, 15.0): B.box('trk_steel', p[0], p[1], 0.0, 0.25, 0.25, zr, ang, False, False)
+        for s in (s0, s1):
+            a, _ = frame(s, d0); b, _ = frame(s, d1)
+            B.quad('trk_stand', (a[0], a[1], 0), (b[0], b[1], 0), (b[0], b[1], 12.6), (a[0], a[1], 1.2))
+    if area['pitlane']:
+        s0, s1, d0, d1 = area['pitlane']
+        P0, P1 = bandframe(s0, s1, d0, 3.0), bandframe(s0, s1, d1, 3.0)
+        L, R = (P0, P1) if d0 > d1 else (P1, P0)
+        B.strip('trk_asphalt', L, R, 0.01, False, along(L), (0.0, abs(d1 - d0)))
+        B.ribbon('trk_line', bandframe(s0, s1, d1 + (0.4 if d1 < d0 else -0.4), 3.0), 0.2, 0.016)
+    if area['pits']:
+        s0, s1, d0, d1 = area['pits']                           # right of the straight, d0 the front (facing the track)
+        F, Bk = bandframe(s0, s1, d0), bandframe(s0, s1, d1)
+        vF = [x / 8.0 for x in along(F)]
+        verts_f = list(zip(F, vF))
+        for (a, ua), (b, ub) in zip(verts_f, verts_f[1:]):
+            B.quad('trk_pit', (a[0], a[1], 0), (b[0], b[1], 0), (b[0], b[1], 9.0), (a[0], a[1], 9.0), ((ua, 0), (ub, 0), (ub, 1), (ua, 1)))
+        B.wall('trk_stand', Bk, 9.0)
+        L, R = (F, Bk) if d0 > d1 else (Bk, F)
+        B.strip('trk_roof', L, R, 9.0, False, along(L), (0.0, abs(d1 - d0)))
+        for s in (s0, s1):
+            a, _ = frame(s, d0); b, _ = frame(s, d1)
+            B.quad('trk_stand', (a[0], a[1], 0), (b[0], b[1], 0), (b[0], b[1], 9.0), (a[0], a[1], 9.0))
+
+    # 7. marshal posts, braking boards
+    for s, side in ts.marshal_posts(pts, width, closed):
+        (mx, my), mt = frame(s, side * (e + ts.MARSHAL_BACK)); a = math.atan2(mt[1], mt[0])
+        B.box('trk_marshal', mx, my, 0.0, 2.0, 2.0, 2.2, a, False, False); B.box('trk_orange', mx, my, 2.2, 2.4, 2.4, 0.25, a, True, True)
+    for s, side, label in ts.braking_boards(pts, width, closed):
+        (cx, cy), t = frame(s, side * (e + BOARD_BACK)); nx, ny = -t[1], t[0]
+        j = ('150', '100', '50').index(label)
+        a = (cx + nx * 0.55, cy + ny * 0.55); b = (cx - nx * 0.55, cy - ny * 0.55)   # left to right as the approaching driver sees it
+        B.quad('trk_brake', (a[0], a[1], 0.6), (b[0], b[1], 0.6), (b[0], b[1], 2.1), (a[0], a[1], 2.1), ((j / 3, 0), ((j + 1) / 3, 0), ((j + 1) / 3, 1), (j / 3, 1)))
+        B.quad('trk_steel', (cx - nx * 0.05, cy - ny * 0.05, 0), (cx + nx * 0.05, cy + ny * 0.05, 0), (cx + nx * 0.05, cy + ny * 0.05, 0.6), (cx - nx * 0.05, cy - ny * 0.05, 0.6))
+
+    # 8. trees: two crossed quads each, turned by their position, on the atlas (species a in its left half, b its right)
+    for x, y, sp, h in ts.trees(pts, width, closed, seed):
+        asp = ts.TREE_ASPECT[sp]; w = h * asp
+        cu = 0.25 if sp == 'a' else 0.75; u0, u1 = cu - asp / 4, cu + asp / 4
+        r = (x * 12.9898 + y * 78.233) % (math.pi / 2)
+        for q in (0.0, math.pi / 2):
+            c, s_ = math.cos(r + q) * w / 2, math.sin(r + q) * w / 2
+            B.quad('trk_trees', (x - c, y - s_, 0.0), (x + c, y + s_, 0.0), (x + c, y + s_, h), (x - c, y - s_, h), ((u0, 0), (u1, 0), (u1, 1), (u0, 1)))
+
+    # 9. a wood's edge all round: the tree-line strip 170 m outside the centreline's bounds (20 m past the fence), in
+    # whole tiles of its texture (u one per tile, so the loop closes on a tile's edge; v 0 to 26 / 26.5)
+    ring = outset_rect(min(xs), min(ys), max(xs), max(ys), 170.0)
+    cum = cumulative(ring + [ring[0]], False)[0]; tile = cum[-1] / max(1, round(cum[-1] / TREELINE_TILE))
+    B.wall('trk_treeline', ring, 26.0, True, 0.0, [c / tile for c in cum], 26.0 / 26.5)
+    return B
+
+def outset_rect(x0, y0, x1, y1, d, step=20.0):
+    """The points d outside the rectangle (x0, y0)-(x1, y1), counter-clockwise: its sides moved out and quarter circles
+    of radius d round its corners, about `step` m apart."""
+    out = []
+    corners = [((x1, y0), -math.pi / 2), ((x1, y1), 0.0), ((x0, y1), math.pi / 2), ((x0, y0), math.pi)]
+    for k, ((cx, cy), a0) in enumerate(corners):
+        m = max(2, int(math.ceil(d * math.pi / 2 / step)))
+        out += [(cx + d * math.cos(a0 + math.pi / 2 * q / m), cy + d * math.sin(a0 + math.pi / 2 * q / m)) for q in range(m + 1)]
+        (nx, ny), _ = corners[(k + 1) % 4]; (ax, ay) = out[-1]
+        bx, by = nx + d * math.cos(a0 + math.pi / 2), ny + d * math.sin(a0 + math.pi / 2)
+        L = math.hypot(bx - ax, by - ay); m2 = int(L // step)
+        out += [(ax + (bx - ax) * q / (m2 + 1), ay + (by - ay) * q / (m2 + 1)) for q in range(1, m2 + 1)]
+    return out
 
 def build_track(tid, seed=11):
     d, pts = load_track(tid)
@@ -373,62 +578,23 @@ def build_track(tid, seed=11):
     vis, data = collection('Track.' + tid), collection('Track.' + tid + '.Data')
     clear(vis); clear(data)
     make_poly(tid + '.centre', pts, True, data, {'width': width, 'name': TRACK_NAMES[tid]})
-    T = tangents(pts, closed); n = len(pts)
-    B = Builder()
-    # tarmac, edge lines, kerbs and gravel on bends
-    B.ribbon('tarmac', pts, width, 0.01, closed)
-    for side in (1, -1):
-        B.ribbon('line', offset_polyline(pts, side * (width / 2 - 0.3), closed), 0.2, 0.02, closed)
-    bend = [abs(curvature(pts, i, closed)) > 1 / 150 for i in range(n)]
-    i = 0
-    while i < n:
-        if not bend[i]: i += 1; continue
-        j = i
-        while j < n and bend[j]: j += 1
-        seg = [pts[k % n] for k in range(i - 1, j + 1)]
-        for side in (1, -1):
-            kerb = offset_polyline(seg, side * (width / 2 + 0.3))
-            for k in range(len(kerb) - 1):
-                B.strip('kerb_red' if k % 2 == 0 else 'kerb_white', offset_polyline([kerb[k], kerb[k + 1]], side * 0.6), [kerb[k], kerb[k + 1]], 0.02)
-            B.ribbon('gravel', offset_polyline(seg, side * (width / 2 + 2.8)), 4.0, 0.004)
-        i = j
+    B = scenery(tid, pts, width, seed)
     # walls both sides, with gaps where the track folds back or crosses itself
     for side, name in ((1, 'left'), (-1, 'right')):
         for k, (run, c) in enumerate(wall_runs(pts, closed, side * (width / 2 + 4.0), width)):
-            wall_object('%s.wall.%s.%d' % (tid, name, k), run, c, data); B.wall('barrier', run, 1.0, c)
+            wall_object('%s.wall.%s.%d' % (tid, name, k), run, c, data)       # the physics walls (scenery() draws the barriers)
     # the cell's fence
     xs = [p[0] for p in pts]; ys = [p[1] for p in pts]
     fence = [(min(xs) - 150, min(ys) - 150), (max(xs) + 150, min(ys) - 150), (max(xs) + 150, max(ys) + 150), (min(xs) - 150, max(ys) + 150)]
-    wall_object(tid + '.wall.fence', fence, True, data); B.wall('barrier', fence, 1.2, True)
+    wall_object(tid + '.wall.fence', fence, True, data)
     # the start: lobby, return portal, markers, gantry, grandstand, pit building (right-hand side = -left)
     def at(s, right=0.0):
         p, t = point_at(pts, cum, total, s, closed); return (p[0] + t[1] * right, p[1] - t[0] * right), t
     (lx, ly), lt = at(total - 60); empty(tid + '.lobby', lx, ly, 0, heading_of(lt), None, data)
-    (rx, ry), _ = at(total - 100, width / 2 + 2); empty(tid + '.return', rx, ry, 0, None, None, data); B.ring('paint', rx, ry, 5.5, 6.5, 0.02)
+    (rx, ry), _ = at(total - 100, width / 2 + 2); empty(tid + '.return', rx, ry, 0, None, None, data); B.ring('trk_paint', rx, ry, 5.5, 6.5, 0.02)
     evs = [e for e, (ty, tr, kind, arg) in EVENTS.items() if tr == tid]
     for k, e in enumerate(evs):
         (mx, my), _ = at(30 * (k + 1), width / 2 + 2); empty('marker.' + e, mx, my, 0, None, None, data)
-    (gx, gy), gt = at(0.0)
-    for side in (1, -1):
-        px, py = gx - gt[1] * side * (width / 2 + 1.5), gy + gt[0] * side * (width / 2 + 1.5); B.box('steel', px, py, 0, 0.5, 0.5, 8)
-    B.box('steel', gx, gy, 7.5, 0.5, width + 3.5, 0.6, math.atan2(gt[1], gt[0]) + math.pi / 2)
-    # grandstand on the left, pit building on the right, along the straight before the line
-    for k in range(5):
-        (sx, sy), st = at(total - 40, (width / 2 + 10 + k * 2.4) * -1)
-        B.box('concrete', sx, sy, 0, 60, 2.4, 0.9 + k * 0.9, math.atan2(st[1], st[0]))
-    (bx, by), bt = at(total - 100, width / 2 + 14); B.box('concrete', bx, by, 0, 50, 12, 6, math.atan2(bt[1], bt[0]))
-    B.box('glass', bx, by, 1.0, 50.2, 12.2, 2.5, math.atan2(bt[1], bt[0]))
-    # light poles every ~len/30 on the left, trees around
-    for k in range(30):
-        (qx, qy), _ = at(total * k / 30, -(width / 2 + 7)); B.cylinder('steel', qx, qy, 0, 0.18, 10)
-    rnd = random.Random(seed); coarse = pts[::5]; placed = 0; tries = 0
-    while placed < 120 and tries < 6000:
-        tries += 1
-        x, y = rnd.uniform(min(xs) - 120, max(xs) + 120), rnd.uniform(min(ys) - 120, max(ys) + 120)
-        dmin = min(dist((x, y), q) for q in coarse)
-        if dmin < 30 or dmin > 200: continue
-        B.cylinder('bark', x, y, 0, 0.3, 1.8); B.cone('foliage', x, y, 1.5, rnd.uniform(2.2, 3.4), rnd.uniform(6, 11)); placed += 1
-    B.emit(vis, tid + '.')
     # routes
     for e, (ty, tr, kind, arg) in EVENTS.items():
         if tr != tid: continue
@@ -450,7 +616,8 @@ def build_track(tid, seed=11):
             # the drag marker sits at its start line, off the racing line
             (mx, my), _ = at(s0 - 20, width / 2 + 2); ob = bpy.data.objects.get('marker.' + e)
             if ob: ob.location = (mx, my, 0)
-            B2 = Builder(); B2.ribbon('line', [a, b], 0.3, 0.02); B2.emit(vis, tid + '.drag.')
+            B.ribbon('trk_line', [a, b], 0.3, 0.02)
+    B.emit(vis, tid + '.')
     return {'len': round(total, 1), 'area_sign': 1 if signed_area(pts) > 0 else -1}
 
 def frange(a, b, step):
