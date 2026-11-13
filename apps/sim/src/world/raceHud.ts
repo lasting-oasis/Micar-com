@@ -252,10 +252,10 @@ const MAP_EDGE = 'rgba(5,7,10,.85)', MAP_LINE = '#f3f6fb', MAP_DOT = '#c9d1db';
 /**
  * The lap-race map (circuit, sprint, street X) in the radar's place: the event's whole route, north up, fitted to the
  * square around the radar's circle; a white line on a dark edge, the start line across it (and a ring at a sprint's
- * finish), each racer a dot in its colour (a parked one not at all) and the player in yellow on top. A car off the
- * route stays on the map, at its edge.
+ * finish), each racer a dot in its colour (a parked one not at all) and the player as a yellow arrow on top, pointing
+ * the way the car faces. A car off the route stays on the map, at its edge.
  */
-export function drawRouteMap(hx: CanvasRenderingContext2D, a: ActiveEvent, PV: { x: number; z: number }, m: { cx: number; cy: number; r: number }, small: boolean): void {
+export function drawRouteMap(hx: CanvasRenderingContext2D, a: ActiveEvent, PV: { x: number; z: number; h: number }, m: { cx: number; cy: number; r: number }, small: boolean): void {
   const pts = a.route.pts, n = pts.length, loop = a.route.loop; if (n < 2) return;
   const f = fitRoute(pts, 0, 0, 2 * m.r, 2 * m.r, small ? 6 : 8), X = (x: number) => f.ox + f.s * x, Y = (z: number) => f.oz + f.s * z, lim = m.r - 2;
   hx.save(); hx.translate(m.cx, m.cy); hx.lineJoin = 'round'; hx.lineCap = 'round';
@@ -275,6 +275,12 @@ export function drawRouteMap(hx: CanvasRenderingContext2D, a: ActiveEvent, PV: {
     hx.strokeStyle = MAP_EDGE; hx.lineWidth = 1.5; hx.stroke();
   };
   for (const R of a.racers) if (!R.parked) dot(R.x, R.z, small ? 3 : 3.5, R.color ?? MAP_DOT);
-  dot(PV.x, PV.z, small ? 4 : 4.5, ACCENT);
+  // the player: the radar's yellow arrow, pointing the way the car faces (a dot could be a rival in the same
+  // yellow: a challenge's first slot races in it), kept wholly inside the box
+  const k = small ? .8 : 1, edge = m.r - 10 * k, px = clamp(X(PV.x), -edge, edge), py = clamp(Y(PV.z), -edge, edge);
+  const c = Math.cos(Math.PI - PV.h) * k, sn = Math.sin(Math.PI - PV.h) * k, at = (lx: number, ly: number) => [px + lx * c - ly * sn, py + lx * sn + ly * c] as const;
+  hx.beginPath();
+  for (const [i, [lx, ly]] of ([[0, -9], [6, 7], [0, 3], [-6, 7]] as const).entries()) { const [x, y] = at(lx, ly); if (i) hx.lineTo(x, y); else hx.moveTo(x, y); }
+  hx.closePath(); hx.fillStyle = ACCENT; hx.fill(); hx.strokeStyle = MAP_EDGE; hx.lineWidth = 1.5; hx.stroke();
   hx.restore();
 }

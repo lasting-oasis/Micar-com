@@ -21,6 +21,23 @@ const state = (o: Partial<HudState> = {}): HudState => {
   return { PV, event: null, standings: [], outrun: null, gps: null, roads: [], markers: [], ais: [], money: 12345, units: 'kmh', manual: true, small: false, touch: false, district: 'strip', ...o };
 };
 
+/** The race map's marks from a canvas log: the dots (arcs, in their fill) and the player's marker, the filled
+ *  yellow polygon (its points, centre and tip, and whether it is the last thing filled). */
+function marks(map: unknown[][]) {
+  const dots: { x: number; y: number; fill: unknown }[] = []; let fill: unknown = '', path: [number, number][] = [], me: { pts: [number, number][]; cx: number; cy: number; tip: [number, number]; last: boolean } | null = null;
+  for (const c of map) {
+    if (c[0] === 'set:fillStyle') fill = c[1];
+    else if (c[0] === 'beginPath') path = [];
+    else if (c[0] === 'moveTo' || c[0] === 'lineTo') path.push([c[1] as number, c[2] as number]);
+    else if (c[0] === 'arc') dots.push({ x: c[1] as number, y: c[2] as number, fill });
+    else if (c[0] === 'fill') {
+      if (me) me.last = false;
+      if (fill === '#ffd23f' && path.length >= 3) me = { pts: path, cx: path.reduce((a, p) => a + p[0], 0) / path.length, cy: path.reduce((a, p) => a + p[1], 0) / path.length, tip: path[0], last: true };
+    }
+  }
+  return { dots, me };
+}
+
 describe('Hud', () => {
   it('draws the speed, unit and gear, plus cash and the GPS label in the Strip', () => {
     const { canvas, texts } = stubCanvas(), hud = new Hud(canvas);
@@ -60,8 +77,10 @@ describe('Hud', () => {
     const { canvas } = stubCanvas(1280, 720, 0, log), hud = new Hud(canvas);
     const r = buildRoute([[0, 0], [0, 400], [300, 400], [300, 0]], true);
     const rico = Object.assign(makeAI({ kind: 'racer', x: 0, z: 200 }), { color: '#ff0000' }), gone = Object.assign(makeAI({ kind: 'racer', parked: true, x: -1e4, z: -1e4 }), { color: '#00ff00' });
-    const a = { type: 'circuit', state: 'race', route: r, racers: [rico, gone], laps: 3, pLap: 1, pCp: 1, time: 50, pS: 600, pFt: null, lit: 0, timing: new RaceTiming(r.len, true) } as unknown as ActiveEvent;
-    hud.draw(state({ event: a, ais: [rico, gone], standings: [{ name: 'Rico', key: 'r0', color: '#ff0000', s: 700 }, { name: 'You', me: true, key: 'me', s: 600, gap: 1.8 }] }));   // the player at (100, 100)
+    // a challenge's first slot races in the player's own yellow: the player's marker must not be a dot like it
+    const slot0 = Object.assign(makeAI({ kind: 'racer', x: 300, z: 300 }), { color: '#ffd23f', remote: true });
+    const a = { type: 'circuit', state: 'race', route: r, racers: [rico, gone, slot0], laps: 3, pLap: 1, pCp: 1, time: 50, pS: 600, pFt: null, lit: 0, timing: new RaceTiming(r.len, true) } as unknown as ActiveEvent;
+    hud.draw(state({ event: a, ais: [rico, gone, slot0], standings: [{ name: 'Rico', key: 'r0', color: '#ff0000', s: 700 }, { name: 'You', me: true, key: 'me', s: 600, gap: 1.8 }] }));   // the player at (100, 100), heading 0 (+z)
     const at = log.findIndex(c => c[0] === 'translate' && c[1] === 118 && c[2] === 602);   // the desktop map's place (raceLayout)
     expect(at).toBeGreaterThan(-1);
     const map = log.slice(at);
@@ -70,12 +89,14 @@ describe('Hud', () => {
     expect(pts.length).toBeGreaterThanOrEqual(5);
     for (const [x, y] of pts) { expect(Math.abs(x)).toBeLessThanOrEqual(84); expect(Math.abs(y)).toBeLessThanOrEqual(84); }
     expect(map.filter(c => c[0] === 'stroke').length).toBeGreaterThanOrEqual(3);          // the dark edge, the white line, the start line
-    const dots: { x: number; y: number; fill: unknown }[] = []; let fill: unknown = '';
-    for (const c of map) { if (c[0] === 'set:fillStyle') fill = c[1]; if (c[0] === 'arc') dots.push({ x: c[1] as number, y: c[2] as number, fill }); }
+    const { dots, me } = marks(map);
     expect(dots.map(d => d.fill)).not.toContain('#00ff00');                                // a parked racer is not drawn
-    const me = dots[dots.length - 1], ri = dots.find(d => d.fill === '#ff0000')!;
-    expect(me.fill).toBe('#ffd23f'); expect(ri).toBeDefined();
-    expect(me.x).toBeGreaterThan(ri.x); expect(me.y).toBeLessThan(ri.y);                 // (100, 100) is east of and north of (0, 200)
+    expect(dots.map(d => d.fill)).toContain('#ffd23f');                                    // the yellow rival is a dot
+    const ri = dots.find(d => d.fill === '#ff0000')!;
+    expect(ri).toBeDefined(); expect(me).not.toBeNull();
+    expect(me!.last).toBe(true);                                                           // the player's arrow is drawn on top
+    expect(me!.cx).toBeGreaterThan(ri.x); expect(me!.cy).toBeLessThan(ri.y);              // (100, 100) is east of and north of (0, 200)
+    expect(me!.tip[1]).toBeGreaterThan(me!.cy);                                            // heading 0 faces +z: down the map
   });
 
   it('keeps a car off the route on the map, at its edge', () => {
@@ -86,11 +107,10 @@ describe('Hud', () => {
     const s = state({ event: a, standings: [{ name: 'You', me: true, key: 'me', s: 50 }] }); s.PV.x = 5000; s.PV.z = -3000;
     hud.draw(s);
     const map = log.slice(log.findIndex(c => c[0] === 'translate' && c[1] === 118 && c[2] === 602));
-    let fill: unknown = '', me: number[] | null = null;
-    for (const c of map) { if (c[0] === 'set:fillStyle') fill = c[1]; if (c[0] === 'arc' && fill === '#ffd23f') me = [c[1] as number, c[2] as number]; }
-    expect(me).not.toBeNull();                                                             // the player's yellow dot
-    expect(Math.abs(me![0])).toBeLessThanOrEqual(84); expect(Math.abs(me![1])).toBeLessThanOrEqual(84);
-    expect(me![0]).toBeGreaterThan(60); expect(me![1]).toBeLessThan(-60);                 // far east and north: the top right edge
+    const { me } = marks(map);
+    expect(me).not.toBeNull();                                                             // the player's yellow arrow
+    for (const [x, y] of me!.pts) { expect(Math.abs(x)).toBeLessThanOrEqual(84); expect(Math.abs(y)).toBeLessThanOrEqual(84); }
+    expect(me!.cx).toBeGreaterThan(60); expect(me!.cy).toBeLessThan(-60);                 // far east and north: the top right edge
   });
 
   it('drag, drift and free roam keep the radar, which turns with the car', () => {
