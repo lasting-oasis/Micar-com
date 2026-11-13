@@ -102,6 +102,30 @@ describe('strip events', () => {
     for (let s = 0; s <= route.len * 2 + 20; s += 20) { const p = routePoint(route, s); resetVehicle(r.PV, p.x, p.z, Math.atan2(p.tx, p.tz)); r.update(1 / 60); if (r.active!.state !== 'race') break; }
     expect(r.active!.state).toBe('done'); tick(r, 1.5); expect(r.results()!.pos).toBeGreaterThanOrEqual(1);
   });
+  it('the flag times the last lap: the player and the computer cars finish with every lap counted', () => {
+    // a car finishes 1 m short of the target; its last lap must still be timed
+    const r = runner(circuit); r.start(circuit); tick(r, PAST_COUNT);
+    const a = r.active!, route = a.route;
+    for (let s = 0; s <= route.len * a.laps + 20; s += 20) { const p = routePoint(route, s); resetVehicle(r.PV, p.x, p.z, Math.atan2(p.tx, p.tz)); r.update(1 / 60); if (a.state !== 'race') break; }
+    expect(a.state).toBe('done');
+    expect(a.timing!.laps('me')).toBe(a.laps);
+    const r2 = runner(circuit); r2.start(circuit); tick(r2, PAST_COUNT);
+    const b = r2.active!;
+    for (let i = 0; i < 400 * 60 && !b.racers.some(R => R.done); i++) r2.update(1 / 60);      // the player idles; the others race
+    const done = b.racers.filter(R => R.done && R.key);
+    expect(done.length).toBeGreaterThan(0);
+    for (const R of done) expect(b.timing!.laps(R.key!)).toBe(b.laps);
+  });
+
+  it('a sprint times its final sector at the flag', () => {
+    const r = runner(sprint); r.start(sprint); tick(r, PAST_COUNT);
+    const a = r.active!, route = a.route;
+    for (let s = 0; s <= route.len - .6; s += 20) { const p = routePoint(route, Math.min(s, route.len - .6)); resetVehicle(r.PV, p.x, p.z, Math.atan2(p.tx, p.tz)); r.update(1 / 60); }
+    const p = routePoint(route, route.len - .6); resetVehicle(r.PV, p.x, p.z, Math.atan2(p.tx, p.tz)); r.update(1 / 60);
+    expect(a.state).toBe('done');                                        // home 0.6 m short of the end
+    expect(r.active!.timing!.sectors('me').map(x => x.time != null)).toEqual([true, true, true]);
+  });
+
   it('a drag finishes at its length', () => {
     const r = runner(drag); r.start(drag); tick(r, 4); const a = r.active!, route = routeFor(drag.id);
     const p0 = a.drag.p0!; resetVehicle(r.PV, p0.x + a.drag.fwd[0] * route.len, p0.z + a.drag.fwd[1] * route.len, a.drag.dir); r.update(1 / 60);
@@ -161,6 +185,13 @@ describe('a challenge: the other cars are people', () => {
     expect(d.active!.drag.ai).toEqual([]);
     expect(dfx.spawned).toHaveLength(2);
   });
+  it('a person who finishes has their last lap timed', () => {
+    const r = racing(circuit), a = r.active!, P = people(r).find(R => R.remote)!;
+    P.s = a.target - 1; a.timing!.step(P.key!, P.s, a.time);
+    r.remoteDone(P.pid!, a.time + .2);
+    expect(a.timing!.laps(P.key!)).toBe(a.laps);
+  });
+
   it('everyone stands on the place the room gave', () => {
     const r = runner(circuit); r.start(circuit, { net: field({ slot: 2 }) });
     const me = gridPlace(r, r.PV), [ana, bo] = people(r).map(p => gridPlace(r, p));

@@ -143,8 +143,9 @@ export class EventRunner {
   }
   /** A person in the challenge is home in `ft` seconds; or (null) is out of the race, and their car leaves the track. */
   remoteDone(pid: string, ft: number | null): void {
-    const R = this.active?.racers.find(r => r.remote && r.pid === pid); if (!R) return;
+    const a = this.active, R = a?.racers.find(r => r.remote && r.pid === pid); if (!a || !R) return;
     R.done = true; R.ft = ft; if (ft == null) parkAI(R);
+    else if (R.key) a.timing?.step(R.key, Math.max(R.s, a.target), ft);   // home: their last lap ends on the line at ft
   }
 
   private placeCpMark(): void {
@@ -218,8 +219,8 @@ export class EventRunner {
     // checkpoints / laps
     const nCp = r.cps.length; const cpS = a.pCp < nCp ? a.pLap * r.len + r.cps[a.pCp] : (a.pLap + 1) * r.len;
     if (a.pS >= cpS - 1) {
-      if (!r.loop) { if (a.pCp >= nCp - 1) return this.playerFinish(); a.pCp++; fx.sfx('cp'); }
-      else if (a.pCp >= nCp) { a.pLap++; a.pCp = 1; if (a.pLap >= a.laps) return this.playerFinish(); fx.banner('Lap ' + (a.pLap + 1) + '/' + a.laps); fx.sfx('cp'); }
+      if (!r.loop) { if (a.pCp >= nCp - 1) return this.crossLine(); a.pCp++; fx.sfx('cp'); }
+      else if (a.pCp >= nCp) { a.pLap++; a.pCp = 1; if (a.pLap >= a.laps) return this.crossLine(); fx.banner('Lap ' + (a.pLap + 1) + '/' + a.laps); fx.sfx('cp'); }
       else { a.pCp++; fx.sfx('cp'); }
       this.placeCpMark();
     }
@@ -227,12 +228,17 @@ export class EventRunner {
     for (const R of a.racers) {
       if (R.done) continue;
       if (R.remote) { if (R.key) a.timing?.step(R.key, R.s, a.time); continue; } // a person: placed from the network by the scene
-      stepAI(R, dt, a.pS, fx.stage()); const tot = R.s; if (R.key) a.timing?.step(R.key, tot, a.time); if (tot >= a.target - 1) { R.done = true; R.ft = a.time; R.v *= .5; }
+      stepAI(R, dt, a.pS, fx.stage()); const tot = R.s; if (R.key) a.timing?.step(R.key, tot, a.time);
+      if (tot >= a.target - 1) { R.done = true; R.ft = a.time; R.v *= .5; if (R.key) a.timing?.step(R.key, Math.max(tot, a.target), a.time); } // home: its last lap ends on the line
       if (drift) { R.score += dt * (90 + 55 * fx.stage()) * (.6 + .8 * Math.random()) * (R.v > 8 ? 1 : 0); }
     }
     if (!a.net) separateAIs(a.racers);
     if (drift) this.updateDrift(dt);
     if (!a.net && a.type !== 'drift' && a.time > raceCapS(a.target)) this.playerFinish(); // a challenge is closed by its room, not by a cap here
+  }
+  /** The player is home (a metre short counts): the last lap and the final sector end on the line. */
+  private crossLine(): void {
+    const a = this.active!; a.timing?.step('me', Math.max(a.pS, a.target), a.time); this.playerFinish();
   }
   private playerFinish(): void {
     const a = this.active!; a.pFt = a.time; a.state = 'done'; a.retT = 0; this.fx.placeCp(null); this.fx.banner('Finish'); this.fx.sfx('finish');
