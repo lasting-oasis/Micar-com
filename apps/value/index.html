@@ -23,9 +23,12 @@
   <body>
     <div id="root"></div>
     <noscript>
-      <h1>MiCar: what's your car worth?</h1>
-      <p>MiCar is a free used-car value calculator: type a car and see its trade-in, private-party and dealer retail value, with a price range and a five-year forecast, worked out from the original sticker price, age, mileage, condition and region. No account needed. The calculator needs JavaScript; the car pages below are plain HTML.</p>
-      <p><a href="https://lasting-oasis.github.io/Micar-com/cars/">Browse every car MiCar can value, with original MSRP by model year</a> · <a href="https://lasting-oasis.github.io/Micar-com/llms.txt">About MiCar (llms.txt)</a></p>
+      <!-- the app's stylesheet still loads without JavaScript (dark text on a dark page), so the summary sets its own colours -->
+      <div style="color: #e7eaee; background-color: #0e1217; max-width: 760px; margin: 0 auto; padding: 32px 16px; font: 17px/1.55 Barlow, system-ui, sans-serif">
+        <h1 style="font-size: 2rem; line-height: 1.15; margin: 0 0 .5em">MiCar: what's your car worth?</h1>
+        <p>MiCar is a free used-car value calculator: type a car and see its trade-in, private-party and dealer retail value, with a price range and a five-year forecast, worked out from the original sticker price, age, mileage, condition and region. No account needed. The calculator needs JavaScript; the car pages below are plain HTML.</p>
+        <p><a style="color: #ffd23f" href="https://lasting-oasis.github.io/Micar-com/cars/">Browse every car MiCar can value, with original MSRP by model year</a> · <a style="color: #ffd23f" href="https://lasting-oasis.github.io/Micar-com/llms.txt">About MiCar (llms.txt)</a></p>
+      </div>
     </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
