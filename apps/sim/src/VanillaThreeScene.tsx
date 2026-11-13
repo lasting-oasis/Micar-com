@@ -33,6 +33,7 @@ import { ChaseCamera } from './world/cameras';
 import { WORLD_PER_M } from './world/units';
 import { CarFeelAdapter } from './scene/carFeelAdapter';
 import { useDriveUi, type ShownResults } from './world/driveUi';
+import { racesAllowed } from './world/raceMenu';
 import { DriveLayer } from './world/DriveLayer';
 import { RENTAL_BAY, RENTAL_FLEET, type RentalKey, canRent, heldRental, isVisitor } from './world/rental';
 import { heldTestCar, testCarDef } from './world/tester';
@@ -944,7 +945,7 @@ export function VanillaThreeScene() {
             const st = useGameStore.getState();
             st.setDrivingCarId(null); st.setDrivingFuel(null);
             hud?.clear();
-            useDriveUi.setState({ driving: false, prompt: '', nos: false, paused: false, eventLive: false, gears: false, mapOpen: false, netRace: false, staging: false }); promptShown = ''; nosShown = false;
+            useDriveUi.setState({ driving: false, prompt: '', nos: false, paused: false, eventLive: false, gears: false, mapOpen: false, netRace: false, staging: false, racesOpen: false, racesBlocked: false }); promptShown = ''; nosShown = false;
         };
 
         // ---- the rental lobby: a Strip visitor's "on foot" (Strip loaded, the camera on the bay, the counter open)
@@ -1082,13 +1083,15 @@ export function VanillaThreeScene() {
             im.poll();
             const E = im.edge, tapped = useDriveUi.getState().tap;
             if (tapped) useDriveUi.setState({ tap: null });
-            // the race menu (T, or its tap button): opens where a race could start, holds the car while it is open
-            const racesK = E.races || tapped === 'races';
-            if (racesK) {
-                const u = useDriveUi.getState();
-                if (u.racesOpen) useDriveUi.setState({ racesOpen: false });
-                else if (!garageOpen && !paused && !resultsShown && !S?.mapOpen && !S?.runner.active && !S?.outrun && !u.netRace && !u.counter && !u.challenge
-                    && !useGameStore.getState().race && (district === 'strip' || !!driver)) useDriveUi.setState({ racesOpen: true });
+            // the race menu (T, or its tap button): opens where a race could start (racesAllowed; the button hides by the
+            // same test), holds the car while it is open
+            const u0 = useDriveUi.getState();
+            const canRace = racesAllowed({ garage: garageOpen, paused, results: resultsShown, map: !!S?.mapOpen, event: !!S?.runner.active, starting: !!S?.starting, outrun: !!S?.outrun,
+                netRace: u0.netRace, counter: u0.counter, challenge: u0.challenge, room: !!useGameStore.getState().race });
+            if (u0.racesBlocked === canRace) useDriveUi.setState({ racesBlocked: !canRace });
+            if (E.races || tapped === 'races') {
+                if (u0.racesOpen) useDriveUi.setState({ racesOpen: false });
+                else if (canRace) useDriveUi.setState({ racesOpen: true });
             }
             const racesOpen = useDriveUi.getState().racesOpen;
             const frozen = garageOpen || paused || resultsShown || !!S?.mapOpen || racesOpen;
@@ -1144,7 +1147,7 @@ export function VanillaThreeScene() {
             backspaceTap = false;
 
             // ---- physics
-            const inStrip = district === 'strip' && !!strip, halt = paused || (inStrip && strip!.mapOpen) || useDriveUi.getState().racesOpen;
+            const inStrip = district === 'strip' && !!strip, halt = paused || (inStrip && strip!.mapOpen) || racesOpen;
             // simDt: the time the physics actually ran this frame (≤ 0.05 s, 0 when halted); the Strip's AI and
             // events, the wheels and the camera run on it, so nothing outpaces the player on a slow frame
             let impact = 0, simDt = 0;
@@ -2007,7 +2010,7 @@ export function VanillaThreeScene() {
             im.detach();
             audio.dispose();
             hud?.clear();
-            useDriveUi.setState({ driving: false, district: 'town', prompt: '', results: null, paused: false, eventLive: false, gears: false, mapOpen: false, nos: false, lobby: false, counter: false, account: false, returned: null });
+            useDriveUi.setState({ driving: false, district: 'town', prompt: '', results: null, paused: false, eventLive: false, gears: false, mapOpen: false, nos: false, lobby: false, counter: false, account: false, returned: null, racesOpen: false, racesBlocked: false });
             lightPool.dispose();
             uiTex.dispose();
             gate.dispose();

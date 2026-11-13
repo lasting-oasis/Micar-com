@@ -74,7 +74,7 @@ async function race(eid, tid) {
   await settle(1500); await shot(`track-${eid}-grid-${VIEW}`);
   await g.waitForFunction(() => window.__micar.event()?.state === 'race', null, { timeout: 120000, polling: 100 });
   // the menu never opens during a live race (T on a desktop; on a phone its button is hidden)
-  if (VIEW === 'phone') ok(!(await g.locator('[aria-label="Races"]').isVisible()), 'no Race button during a race');
+  if (VIEW === 'phone') ok(!(await g.locator('button[aria-label="Races"]').isVisible()), 'no Race button during a race');
   else { await g.keyboard.press('t'); await settle(600); ok(!(await g.locator('[data-races]').count()), 'T does not open the menu during a race'); }
   for (const f of [0.3, 0.65]) {
     const p = at(LAP * f);
@@ -103,7 +103,7 @@ async function race(eid, tid) {
 async function viaMenu(g, eid, tid, shots, { G, shot, settle }) {
   const phone = VIEW === 'phone', pressed = (k, id) => g.locator(`[data-${k}="${id}"][aria-pressed="true"]`).count();
   const open = async () => {
-    if (phone) await g.locator('[aria-label="Races"]').tap(); else await g.keyboard.press('t');
+    if (phone) await g.locator('button[aria-label="Races"]').tap(); else await g.keyboard.press('t');
     await g.waitForSelector('[data-races="circuit"]', { timeout: 15000 });
     await g.waitForSelector('[data-races] [data-track-map]', { timeout: 30000 });       // the maps came in
   };
@@ -129,6 +129,7 @@ async function viaMenu(g, eid, tid, shots, { G, shot, settle }) {
     if (phone) {
       const vp = g.viewportSize();
       await g.setViewportSize({ width: 390, height: 844 }); await settle(900); await shot('races-circuit-portrait');
+      await g.setViewportSize({ width: 667, height: 375 }); await settle(900); await shot('races-circuit-667');
       await g.setViewportSize(vp); await settle(900);
     }
   }

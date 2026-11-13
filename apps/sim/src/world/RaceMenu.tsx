@@ -49,7 +49,7 @@ function Menu() {
   // a short screen (a phone on its side) packs the layout tighter; a touch screen shows taps, not keys
   const short = useMedia('(max-height: 480px)'), coarse = useMedia('(pointer: coarse)');
   const [maps, setMaps] = useState<CircuitMaps | null>(mapsCache);
-  useEffect(() => { let live = true; if (!maps) loadMaps().then(m => { if (live) setMaps(m); }); return () => { live = false; }; }, [maps]);
+  useEffect(() => { let live = true; if (!maps) loadMaps().then(m => { if (live) setMaps(m); }, () => { /* the chunk failed to load: no maps this time, the next open tries again */ }); return () => { live = false; }; }, [maps]);
   const [st, setSt] = useState<MenuState>(() => ({ step: 'circuit', circuit: Math.max(0, CIRCUITS.findIndex(c => c.id === firstCircuit(rec, last))), event: 0 }));
   const [note, setNote] = useState<Note>(null);
   const close = () => useDriveUi.setState({ racesOpen: false });
@@ -95,9 +95,16 @@ function Menu() {
   // and that tap's click would otherwise land on whatever is there now (the close button, in the same corner).
   // Keyboard clicks (detail 0) always count.
   const pressedHere = useRef(false);
+  // focus moves into the dialog while it is open (so nothing behind it is focused) and back where it was after
+  const root = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const before = document.activeElement as HTMLElement | null;
+    root.current?.focus({ preventScroll: true });
+    return () => { if (before && before !== document.body && before.isConnected) before.focus?.({ preventScroll: true }); };
+  }, []);
 
   return (
-    <div className="fixed inset-0 z-[10000] text-ink font-sans select-none" role="dialog" aria-modal="true" aria-label={t(lang, 'races.title')} data-races={st.step}
+    <div ref={root} tabIndex={-1} className="fixed inset-0 z-[10000] text-ink font-sans select-none outline-none" role="dialog" aria-modal="true" aria-label={t(lang, 'races.title')} data-races={st.step}
       onPointerDownCapture={() => { pressedHere.current = true; }}
       onClickCapture={e => { if (!pressedHere.current && e.detail > 0) { e.stopPropagation(); e.preventDefault(); } }}>
       {/* no backdrop blur: over the live 3D view it costs every frame on a phone */}
@@ -112,7 +119,7 @@ function Menu() {
             <span className="text-haze px-0.5" aria-hidden>›</span>
             <StepTab on={st.step === 'event'} onClick={() => go({ ...st, step: 'event' })}>{t(lang, 'races.event')}</StepTab>
           </nav>
-          <button type="button" aria-label={t(lang, 'races.close')} onClick={close} className="w-10 h-10 shrink-0 rounded-lg border border-line bg-night/70 text-ink/80 text-lg hover:text-market hover:border-market/60">✕</button>
+          <button type="button" aria-label={t(lang, 'races.close')} onClick={close} className="w-11 h-11 shrink-0 rounded-lg border border-line bg-night/70 text-ink/80 text-lg hover:text-market hover:border-market/60">✕</button>
         </header>
 
         <section className="flex-1 min-h-0 flex gap-4 md:gap-10 max-[560px]:flex-col">
@@ -133,25 +140,25 @@ function Menu() {
           </div>
           <div className="flex-1 min-w-0 min-h-0 flex flex-col">
             <div className="relative flex-1 min-h-[110px] rounded-xl border border-line bg-night-2/70 overflow-hidden">
-              {map && <TrackMap c={map} route={ev && maps ? maps.events[ev.id] : undefined} routeCol={ev?.col} labels />}
+              {map && <TrackMap c={map} route={ev && maps ? maps.events[ev.id] : undefined} routeCol={ev?.col} labels label={t(lang, 'races.mapOf').replace('{name}', v.name)} />}
             </div>
             {!short && <Legend lang={lang} />}
           </div>
         </section>
 
-        <section className="shrink-0 overflow-x-auto overscroll-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" data-races-cards>
+        <section className={`shrink-0 overflow-x-auto overscroll-contain ${coarse ? '[scrollbar-width:none] [&::-webkit-scrollbar]:hidden' : '[scrollbar-width:thin]'}`} data-races-cards>
           <div ref={row} className="flex gap-2 pb-1">   {/* ten 110 px cards fit from 1280 px wide; narrower screens scroll */}
             {st.step === 'circuit'
               ? CIRCUITS.map((ci, i) => {
                 const cv = circuitView(ci.id, lang, rec, units, maps ?? EMPTY), on = i === st.circuit;
                 return (
-                  <button key={ci.id} type="button" onClick={() => pickCircuit(i)} aria-pressed={on} data-circuit={ci.id} aria-label={`${cv.name}, ${cv.country}`}
+                  <button key={ci.id} type="button" onClick={() => pickCircuit(i)} aria-pressed={on} data-circuit={ci.id} aria-label={`${cv.name}, ${cv.country}${cv.locked ? ', ' + t(lang, 'races.locked') : ''}`}
                     className={`relative flex-1 min-w-[110px] max-w-[210px] ${short ? 'h-[74px]' : 'h-[92px] md:h-[118px]'} rounded-lg border text-left px-2.5 py-2 flex flex-col overflow-hidden ${on ? 'bg-ink text-night border-ink' : 'bg-night/80 border-line hover:border-haze/60'}`}>
                     {on && <span className="absolute left-0 top-0 right-0 h-[5px] bg-market" />}
                     <div className="shrink-0 flex items-center justify-between font-cond font-bold text-[10px] md:text-[11px] tracking-[.14em] uppercase opacity-80">
                       <span>{String(i + 1).padStart(2, '0')} · {ci.cc}</span>{cv.locked && <Lock />}
                     </div>
-                    <div className="flex-1 min-h-0 my-1">{maps && <TrackMap c={maps.circuits[ci.id]} thumb dark={on} />}</div>
+                    <div className="flex-1 min-h-0 my-1">{maps?.circuits[ci.id] && <TrackMap c={maps.circuits[ci.id]} thumb dark={on} />}</div>
                     <div className="shrink-0 font-cond italic font-black uppercase text-[13px] md:text-[15px] leading-none truncate">{cv.name}</div>
                     {!short && <div className={`shrink-0 text-[10px] md:text-[11px] truncate ${on ? 'text-night/60' : 'text-haze'}`}>{cv.country}</div>}
                   </button>
@@ -189,8 +196,8 @@ function Menu() {
           <button type="button" onClick={() => act('enter')} data-races-go
             className={`min-h-[44px] px-5 rounded-lg flex items-center gap-1.5 font-cond italic font-black uppercase text-base tracking-wide ${blocked ? 'bg-night border border-line text-haze' : 'bg-market text-night'}`}>
             {st.step === 'circuit' ? t(lang, 'races.continue')
-              : !driving ? t(lang, 'races.needCar')
               : ev?.locked ? <><Lock />{t(lang, 'races.stage').replace('{n}', String(ev.stage))}</>
+              : !driving ? t(lang, 'races.needCar')
               : t(lang, 'races.start')}
           </button>
           </div>
@@ -201,7 +208,7 @@ function Menu() {
 }
 
 function StepTab({ on, onClick, children }: { on: boolean; onClick: () => void; children: ReactNode }) {
-  return <button type="button" onClick={onClick} className={`px-2.5 md:px-3.5 py-1.5 rounded-md ${on ? 'bg-ink text-night' : 'text-haze hover:text-ink'}`} aria-current={on ? 'step' : undefined}>{children}</button>;
+  return <button type="button" onClick={onClick} className={`min-h-[36px] px-2.5 md:px-3.5 rounded-md ${on ? 'bg-ink text-night' : 'text-haze hover:text-ink'}`} aria-current={on ? 'step' : undefined}>{children}</button>;
 }
 function Stat({ value, label, accent, short }: { value: string; label: string; accent?: boolean; short?: boolean }) {
   return (
@@ -232,8 +239,8 @@ const join = (P: Pts) => P.map(p => p[0] + ',' + p[1]).join(' ');
 /** A circuit from circuitMaps.json as an SVG, north up: sectors, start line and corner numbers (labels), or a plain
  *  outline (thumb). An event's route can lie over it in its colour, the circuit dimmed under it. Lines and labels
  *  keep their size in screen pixels whatever the map's size. */
-export function TrackMap({ c, route, routeCol, labels, thumb, dark }: {
-  c: CircuitMaps['circuits'][string]; route?: CircuitMaps['events'][string]; routeCol?: string; labels?: boolean; thumb?: boolean; dark?: boolean;
+export function TrackMap({ c, route, routeCol, labels, thumb, dark, label }: {
+  c: CircuitMaps['circuits'][string]; route?: CircuitMaps['events'][string]; routeCol?: string; labels?: boolean; thumb?: boolean; dark?: boolean; label?: string;
 }) {
   const box = useRef<SVGSVGElement>(null);
   const [size, setSize] = useState<[number, number]>([0, 0]);  // the map's box on screen
@@ -264,7 +271,7 @@ export function TrackMap({ c, route, routeCol, labels, thumb, dark }: {
   const [s2, s3] = c.sectors, sect = [P.slice(0, s2 + 1), P.slice(s2, s3 + 1), [...P.slice(s3), P[0]] as Pts];
   const bar = startBar(route ? route.pts as Pts : P, route ? route.loop : true, 9 * u), end = route && !route.loop ? route.pts[route.pts.length - 1] : null;
   return (
-    <svg ref={box} viewBox={view} preserveAspectRatio="xMidYMid meet" className="absolute inset-0 w-full h-full" role="img" aria-label="" data-track-map>
+    <svg ref={box} viewBox={view} preserveAspectRatio="xMidYMid meet" className="absolute inset-0 w-full h-full" role="img" aria-label={label ?? ''} data-track-map>
       <polyline points={loopPts} stroke="#05070a" strokeWidth={10} {...NS} />
       {sect.map((pts, i) => <polyline key={i} points={join(pts)} stroke={SECTOR_COL[i]} strokeWidth={4} opacity={route ? 0.25 : 1} {...NS} />)}
       {route && <polyline points={join(route.pts as Pts) + (route.loop ? ' ' + route.pts[0][0] + ',' + route.pts[0][1] : '')} stroke="#05070a" strokeWidth={9} {...NS} />}

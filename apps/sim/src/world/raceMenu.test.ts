@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import tracksJson from './strip/tracks.json';
 import maps from './strip/circuitMaps.json';
 import { EVENTS, freshStrip, STAGE_REP, type StripRecord } from './data';
-import { CIRCUITS, circuitView, eventViews, firstCircuit, fmtTime, labelRadiusPx, menuKey, menuKeydown, startAction, startBar, unitsPerPx, type CircuitMaps, type MenuState } from './raceMenu';
+import { CIRCUITS, circuitView, eventViews, firstCircuit, fmtTime, labelRadiusPx, menuKey, menuKeydown, racesAllowed, startAction, startBar, unitsPerPx, type CircuitMaps, type MenuState, type RacesGate } from './raceMenu';
 
 const M = maps as unknown as CircuitMaps;
 const rec = (o: Partial<StripRecord> = {}): StripRecord => ({ ...freshStrip(), ...o });
@@ -20,7 +20,7 @@ describe('the race menu: circuits', () => {
   it('shows a circuit with its MiCar name, place in the list, length in the player units, corners, events and best', () => {
     const r = rec({ rep: 1e9, best: { ardennes_gp: 161.3 } });          // every stage open
     const v = circuitView('spa', 'en', r, 'kmh', M);
-    expect(v).toMatchObject({ id: 'spa', n: 1, of: 10, name: 'Ardennes', country: 'Belgium', cc: 'BE', length: '7.0 km', events: 2, best: '2:41.3', locked: false });
+    expect(v).toMatchObject({ id: 'spa', n: 1, of: 10, name: 'Ardennes', country: 'Belgium', cc: 'BE', length: '7.0 km', events: 2, best: '2:41.30', locked: false });
     expect(v.corners).toBe(M.circuits.spa.corners.length);
     expect(circuitView('spa', 'es', r, 'mph', M)).toMatchObject({ name: 'Ardenas', country: 'Bélgica', length: '4.3 mi' });
     expect(circuitView('monza', 'en', rec(), 'kmh', M).best).toBeNull();
@@ -48,7 +48,7 @@ describe('the race menu: events', () => {
     const evs = eventViews('monaco', 'en', rec({ best: { harbour_gp: 95.42 } }), 'kmh');
     expect(evs.map(e => e.id).sort()).toEqual(['harbour_drift', 'harbour_gp', 'harbour_x']);
     const gp = evs.find(e => e.id === 'harbour_gp')!;
-    expect(gp).toMatchObject({ name: 'Harbour GP', type: 'circuit', prize: '$1,500', best: '1:35.4', locked: false });
+    expect(gp).toMatchObject({ name: 'Harbour GP', type: 'circuit', prize: '$1,500', best: '1:35.42', locked: false });
     expect(gp.detail).toMatch(/^2 laps · 3\.\d km$/);
     expect(eventViews('monaco', 'es', rec(), 'kmh').find(e => e.id === 'harbour_gp')!.detail).toMatch(/^2 vueltas · 3\.\d km$/);
     const drag = eventViews('monza', 'en', rec(), 'mph').find(e => e.type === 'drag')!;
@@ -66,10 +66,12 @@ describe('the race menu: events', () => {
     expect(startAction(closed, rec({ rep: STAGE_REP[closed.stage - 1] }), true)).toBe('start');
   });
 
-  it('times read m:ss.s, and seconds alone under a minute', () => {
-    expect(fmtTime(161.34)).toBe('2:41.3');
+  it('times read m:ss.hh as on the race HUD and the results card, seconds alone under a minute, rounded once (never 1:60)', () => {
+    expect(fmtTime(161.34)).toBe('2:41.34');
     expect(fmtTime(59.94)).toBe('59.94');
     expect(fmtTime(12.8)).toBe('12.80');
+    expect(fmtTime(119.997)).toBe('2:00.00');
+    expect(fmtTime(59.996)).toBe('1:00.00');
   });
 });
 
@@ -98,9 +100,14 @@ describe('the race menu: the keyboard while it is open', () => {
   it('lets T through to the game (it closes the menu) and keeps every other key from the game', () => {
     const down = new Set<string>();
     expect(menuKeydown(kd('t', 'KeyT'), down)).toEqual({ stop: false, prevent: false });
-    expect(menuKeydown(kd('e', 'KeyE'), down)).toEqual({ stop: true, prevent: false });      // E would leave the car
-    expect(menuKeydown(kd('m', 'KeyM'), down)).toEqual({ stop: true, prevent: false });
-    expect(menuKeydown(kd('Shift', 'ShiftLeft'), down)).toEqual({ stop: true, prevent: false });
+    expect(menuKeydown(kd('e', 'KeyE'), down).stop).toBe(true);                            // E would leave the car
+    expect(menuKeydown(kd('m', 'KeyM'), down).stop).toBe(true);
+    expect(menuKeydown(kd('Shift', 'ShiftLeft'), down).stop).toBe(true);
+  });
+  it('takes the browser defaults the game would have taken (Space, Tab, Alt, letters), but not its shortcuts or F-keys', () => {
+    const p = (key: string, code: string, o: object = {}) => menuKeydown({ ...kd(key, code), ...o }, new Set()).prevent;
+    expect([p(' ', 'Space'), p('Tab', 'Tab'), p('Alt', 'AltLeft'), p('e', 'KeyE'), p('/', 'Slash')]).toEqual([true, true, true, true, true]);
+    expect([p('F5', 'F5'), p('r', 'KeyR', { ctrlKey: true }), p('l', 'KeyL', { metaKey: true }), p('Shift', 'ShiftLeft')]).toEqual([false, false, false, false]);
   });
   it('reads the arrows, WASD, Enter, Esc and Backspace as the menu keys', () => {
     const k = (key: string, code: string) => menuKeydown(kd(key, code), new Set()).key;
@@ -117,6 +124,14 @@ describe('the race menu: the keyboard while it is open', () => {
     expect(menuKeydown(kd('Enter', 'Enter'), down).key).toBe('enter');
     expect(menuKeydown(kd('Enter', 'Enter', true), down)).toEqual({ stop: true, prevent: true });  // a held Enter starts nothing
     expect(menuKeydown(kd('Escape', 'Escape', true), down).key).toBeUndefined();
+  });
+});
+
+describe('the race menu: when it may open', () => {
+  const none: RacesGate = { garage: false, paused: false, results: false, map: false, event: false, starting: false, outrun: false, netRace: false, counter: false, challenge: false, room: false };
+  it('opens while driving free, and not over the Garage, pause, results or the map, during an event or its loading, an outrun, a challenge or in a room', () => {
+    expect(racesAllowed(none)).toBe(true);
+    for (const k of Object.keys(none) as (keyof RacesGate)[]) expect(racesAllowed({ ...none, [k]: true }), k).toBe(false);
   });
 });
 

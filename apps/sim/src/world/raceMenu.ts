@@ -43,8 +43,12 @@ const INDEX = tracksJson.tracks as unknown as { id: string; lenM: number; events
 export const eventsOf = (id: TrackId): EventDef[] => EVENTS.filter(e => e.track === id);
 const locked = (ev: EventDef, rec: StripRecord) => ev.stage > stageOf(rec.rep);
 
-/** a time in seconds: m:ss.s from a minute, else seconds to the hundredth */
-export const fmtTime = (s: number): string => s >= 60 ? `${Math.floor(s / 60)}:${(s % 60).toFixed(1).padStart(4, '0')}` : s.toFixed(2);
+/** a time in seconds as the race HUD and the results card show it: m:ss.hh from a minute, else seconds to the
+ *  hundredth; rounded once to the hundredth, so 119.997 reads 2:00.00 (never 1:60.00) */
+export const fmtTime = (s: number): string => {
+  const c = Math.round(s * 100), m = Math.floor(c / 6000), r = (c - m * 6000) / 100;
+  return m ? `${m}:${r.toFixed(2).padStart(5, '0')}` : r.toFixed(2);
+};
 const dist = (m: number, units: Units): string => units === 'mph' ? (m / 1609.344).toFixed(1) + ' mi' : (m / 1000).toFixed(1) + ' km';
 const money = (n: number) => '$' + Math.round(n).toLocaleString('en-US');
 
@@ -108,13 +112,16 @@ export function startAction(ev: EventDef, rec: StripRecord, canDrive: boolean): 
 const BY_KEY: Record<string, MenuKey> = { ArrowLeft: 'left', ArrowRight: 'right', ArrowUp: 'up', ArrowDown: 'down', Enter: 'enter', Escape: 'back', Backspace: 'back' };
 const BY_CODE: Record<string, MenuKey> = { KeyA: 'left', KeyD: 'right', KeyW: 'up', KeyS: 'down' };
 /** A keydown while the menu is open. The menu is modal: no keydown but T (the game's key, which closes it) reaches
- *  the game (`stop`); its own keys skip the browser's default too (`prevent`). `down` holds the keys pressed since
- *  it opened: a repeat counts only for one of them (a steering key held while opening must not spin the cards), and
- *  Enter and Esc never repeat. Keyups are not the menu's: they reach the game, so a key held when it opened is let go. */
-export function menuKeydown(e: { key: string; code: string; repeat: boolean }, down: Set<string>): { stop: boolean; prevent: boolean; key?: MenuKey } {
+ *  the game (`stop`). The browser's default is taken (`prevent`) for the menu's own keys and for those the game would
+ *  have taken itself (Space would click a button behind the menu, Tab would move behind it, Alt would open the
+ *  browser's menu bar on Windows, a letter could start Find); not for the browser's shortcuts or F-keys. `down`
+ *  holds the keys pressed since it opened: a repeat counts only for one of them (a steering key held while opening
+ *  must not spin the cards), and Enter and Esc never repeat. Keyups are not the menu's: they reach the game, so a key
+ *  held when it opened is let go. */
+export function menuKeydown(e: { key: string; code: string; repeat: boolean; ctrlKey?: boolean; metaKey?: boolean }, down: Set<string>): { stop: boolean; prevent: boolean; key?: MenuKey } {
   if (e.code === 'KeyT') return { stop: false, prevent: false };
   const k = BY_KEY[e.key] ?? BY_CODE[e.code];
-  if (!k) return { stop: true, prevent: false };
+  if (!k) return { stop: true, prevent: !e.ctrlKey && !e.metaKey && (e.key.length === 1 || e.key === 'Tab' || e.key === 'Alt') };
   if (e.repeat) { if (k === 'enter' || k === 'back' || !down.has(e.code)) return { stop: true, prevent: true }; }
   else down.add(e.code);
   return { stop: true, prevent: true, key: k };
@@ -134,3 +141,8 @@ export const unitsPerPx = (vw: number, vh: number, bw: number, bh: number): numb
  *  of it, as circuit_maps.py keeps labels 3% of the diagonal apart, so two never overlap; at most 10 px; 0 (not
  *  drawn) below 5.5 px, too small to read. */
 export const labelRadiusPx = (diagPx: number): number => { const r = Math.min(10, 0.015 * diagPx); return r < 5.5 ? 0 : r; };
+
+/** What keeps the race menu shut (T does nothing, the Race button hides): the Garage, the pause menu, a results card,
+ *  the full map, a live event or one still loading its circuit, an outrun, a challenge (its race, its card, its room). */
+export type RacesGate = { garage: boolean; paused: boolean; results: boolean; map: boolean; event: boolean; starting: boolean; outrun: boolean; netRace: boolean; counter: boolean; challenge: boolean; room: boolean };
+export const racesAllowed = (g: RacesGate): boolean => !(g.garage || g.paused || g.results || g.map || g.event || g.starting || g.outrun || g.netRace || g.counter || g.challenge || g.room);

@@ -25,9 +25,18 @@ const phoneLayout = () => typeof window !== 'undefined' && (window.innerWidth <=
 const Btn = ({ k, label, hidden }: { k: string; label: string; hidden?: boolean }) => (
   <button data-k={k} aria-label={label} className="w-[68px] h-[68px] rounded-full border-2 border-market/60 bg-night/70 text-market font-cond font-extrabold italic text-xs uppercase select-none touch-none [&.on]:bg-market [&.on]:text-night pointer-events-auto" style={{ display: hidden ? 'none' : undefined }}>{label}</button>
 );
-/** a small square tap button (48 px): pause, reset, map, set GPS */
-const TapBtn = ({ t, label, aria, hidden }: { t: DriveTap; label: string; aria: string; hidden?: boolean }) => (
+/** a small square tap button (48 px): pause, reset, map, races, set GPS */
+const TapBtn = ({ t, label, aria, hidden }: { t: DriveTap; label: React.ReactNode; aria: string; hidden?: boolean }) => (
   <button type="button" aria-label={aria} onPointerDown={e => { e.preventDefault(); tap(t); }} className="w-12 h-12 rounded-lg border-2 border-market/60 bg-night/70 text-market font-cond font-extrabold italic text-sm uppercase select-none touch-none active:bg-market active:text-night pointer-events-auto" style={{ display: hidden ? 'none' : undefined }}>{label}</button>
+);
+
+/** the race menu's button: a chequered flag (no word to translate on a 48 px button) */
+const Flag = () => (
+  <svg viewBox="0 0 20 20" className="w-6 h-6 mx-auto" aria-hidden>
+    <path d="M4 2.5v15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <path d="M5 3.5h12v8H5z" fill="currentColor" opacity=".3" />
+    <path d="M5 3.5h3v2.67H5zM11 3.5h3v2.67h-3zM8 6.17h3v2.66H8zM14 6.17h3v2.66h-3zM5 8.83h3v2.67H5zM11 8.83h3v2.67h-3z" fill="currentColor" />
+  </svg>
 );
 
 const money = (n: number) => '$' + Math.round(n).toLocaleString('en-US');
@@ -115,6 +124,7 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
   const eventLive = useDriveUi(s => s.eventLive);
   const help = useDriveUi(s => s.help);
   const racesOpen = useDriveUi(s => s.racesOpen);
+  const racesBlocked = useDriveUi(s => s.racesBlocked);
   // Night Tuner's #help: the controls line for 8 s on getting in (and in the pause menu)
   const [helpOn, setHelpOn] = useState(false);
   useEffect(() => { if (!help) return; setHelpOn(true); const t = setTimeout(() => setHelpOn(false), 8000); return () => clearTimeout(t); }, [help]);
@@ -296,7 +306,7 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
             <TapBtn t="pause" label="II" aria="Pause" hidden={district !== 'strip' || mapOpen} />
             <TapBtn t="reset" label="R" aria="Reset the car" hidden={mapOpen} />
             <TapBtn t="map" label="Map" aria="Map" hidden={district !== 'strip' || (eventLive && !mapOpen)} />
-            <TapBtn t="races" label="Race" aria="Races" hidden={district !== 'strip' || eventLive || mapOpen} />
+            <TapBtn t="races" label={<Flag />} aria={t(lang, 'races.title')} hidden={racesBlocked || mapOpen} />
             <TapBtn t="enter" label="GPS" aria="Set GPS" hidden={!mapOpen} />
           </div>
         </div>, document.body)}

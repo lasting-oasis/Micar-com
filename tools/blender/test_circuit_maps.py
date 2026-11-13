@@ -78,5 +78,6 @@ def test_corner_labels_keep_apart(tid):
     xs = [p[0] for p in cl]; zs = [p[1] for p in cl]; diag = math.hypot(max(xs) - min(xs), max(zs) - min(zs))
     L = [(q[2], q[3]) for q in c['corners']]
     for i in range(len(L)):
-        for j in range(i + 1, len(L)): assert math.dist(L[i], L[j]) > 0.025 * diag, (i + 1, j + 1)
+        # LABEL_APART (3% of the diagonal), less the rounding to 0.1 m: the menu sizes its corner numbers on it (labelRadiusPx)
+        for j in range(i + 1, len(L)): assert math.dist(L[i], L[j]) >= 0.03 * diag - 0.15, (i + 1, j + 1)
 
