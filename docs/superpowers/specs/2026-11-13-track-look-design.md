@@ -115,6 +115,12 @@ what changed:
   had none there. Only those two glb files were re-exported (Blender 5.3 on the PC, through its Draco bridge): their
   `trk_marks` lost the kerb blocks and nothing else changed. A fresh export of Monaco matched the committed file mesh
   for mesh.
+  - Decoded and compared triangle by triangle, the other 17 meshes of each file match within 0.1 mm. `trk_marks` lost
+    80 blocks at COTA and 66 at Nürburgring.
+  - Blender's own Draco encoder writes files about 11% bigger than glTF Transform did, at the same settings. The
+    unchanged Monaco grew the same way, 151 to 169 KB.
+  - So `cota.glb` is now 195 KB and `nurburgring.glb` 189 KB. The other eight keep the 141–187 KB of section 5b, and
+    the budget stays at 900 KB.
 - **Colours.** Asphalt darker (tint `0xa4a4a4`, from `0xd6d6d6`), towards the clone's; gravel grey stone, not beige
   sand; the kerbs' red a shade deeper.
 
