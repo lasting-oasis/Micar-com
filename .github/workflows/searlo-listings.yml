@@ -29,7 +29,7 @@ jobs:
       - run: python3 -u scripts/searlo_listings.py
         env:
           SEARCH_API_KEY: ${{ secrets.SEARCH_API_KEY }}
-          MODE: probe
+          MODE: fill
           BUDGET: '6000'
           MAX_MINUTES: '300'
       - name: Commit

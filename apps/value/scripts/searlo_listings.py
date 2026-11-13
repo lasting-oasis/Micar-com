@@ -125,6 +125,24 @@ def city_of(l):
     return ''
 
 
+def norm(x):
+    return re.sub(r'[^a-z0-9]+', '', str(x or '').lower())
+
+
+def belongs(l, m, siblings):
+    """The listing is this model, not a sibling the search also matched (a Civic Type R in a Civic search):
+    of this make's models, the one with the longest name the listing's model and trim start with must be this one."""
+    if norm(l.get('make')) and norm(l.get('make')) != norm(m['make']):
+        return False
+    text = norm(l.get('model')) + norm(l.get('trim'))
+    names = [n for n in siblings if text.startswith(norm(n))]
+    if not names:
+        # a shorter dealer name for the same car ("Dakota" for our "Dakota Pickup") counts; nothing else does
+        lm = norm(l.get('model'))
+        return text.startswith(norm(m['query'])) or (len(lm) >= 3 and norm(m['query']).startswith(lm)) or not lm
+    return max(names, key=lambda n: len(norm(n))) == m['query']
+
+
 def clean(l, years):
     """One listing reduced to what the calibration needs, or None when it is not a usable asking price."""
     if not isinstance(l, dict):
@@ -145,6 +163,7 @@ def clean(l, years):
         'miles': int(round(miles)) if miles is not None else None,
         'condition': 'new' if cond.startswith('new') else 'certified' if 'cert' in cond or 'cpo' in cond else 'used' if cond else '',
         'location': city_of(l),
+        'days': l.get('daysListed') if isinstance(l.get('daysListed'), int) else None,
     }
 
 
@@ -179,6 +198,9 @@ def probe():
 
 def fill():
     models = json.load(open('data/searlo/models.json'))
+    siblings = {}
+    for m in models:
+        siblings.setdefault(m['make'], []).append(m['query'])
     done = set()
     if os.path.exists(OUT):
         for line in open(OUT):
@@ -192,7 +214,7 @@ def fill():
     def search(m, city):
         s, b, secs = get('/vehicles/listings', {'make': m['make'], 'model': m['query'], 'location': city})
         cars = find_listings(b) if s == 200 else []
-        kept = [c for c in (clean(x, set(m['years'])) for x in cars) if c]
+        kept = [c for c in (clean(x, set(m['years'])) for x in cars if belongs(x, m, siblings[m['make']])) if c]
         row = {'make': m['make'], 'model': m['model'], 'query': m['query'], 'city': city, 'fetched': datetime.date.today().isoformat(),
                'status': s, 'found': len(cars), 'summary': summary_of(b) if s == 200 and isinstance(b, dict) else None, 'listings': kept}
         if s != 200:
