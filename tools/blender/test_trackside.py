@@ -74,17 +74,42 @@ def s_of(pts):
 
 @pytest.mark.parametrize('tid', IDS)
 def test_wall_runs_keep_off_the_road(tid):
-    """No barrier (and so no physics wall) on the road or its verge: every point of every run, and the middle of each
-    of its segments, at least width/2 + 2 m from the whole centreline. (On the inside of a bend tighter than the
-    barrier line the offset line folds back over the road.)"""
+    """No barrier (and so no physics wall) on the road: every point of every run at least width/2 + 2 m from the
+    whole centreline, and every metre of its segments (a bridge over a fold included) at least width/2 + 1 m. (On the
+    inside of a bend tighter than the barrier line the offset line folds back over the road.)"""
     pts, w = TRACKS[tid]; lim = w / 2 + 2
     for side in (1, -1):
         for run, c in ts.wall_runs(pts, True, side * (w / 2 + ts.WALL_GAP), w):
+            for q in run: assert min_dist(q, pts) >= lim - 1e-6, (side, q, min_dist(q, pts))
             P = run + [run[0]] if c else run
             for a, b in zip(P, P[1:]):
-                for t in (0.0, 0.5):
-                    q = (a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t)
-                    assert min_dist(q, pts) >= lim - 1e-6, (side, q, min_dist(q, pts))
+                k = max(1, int(math.dist(a, b)))
+                for t in range(1, k):
+                    q = (a[0] + (b[0] - a[0]) * t / k, a[1] + (b[1] - a[1]) * t / k)
+                    assert min_dist(q, pts) >= w / 2 + 1 - 1e-6, (side, q, min_dist(q, pts))
+
+
+def _far_near(q, i, pts, r):
+    """Whether q is within r of a centreline point more than 15 points from i (another part of the track)."""
+    n = len(pts)
+    return any(min(abs(j - i), n - abs(j - i)) > 15 and math.hypot(p[0] - q[0], p[1] - q[1]) < r for j, p in enumerate(pts))
+
+
+@pytest.mark.parametrize('tid', IDS)
+def test_wall_runs_leave_no_hole_a_car_fits_through(tid):
+    """Between one barrier run and the next on a side the gap is under 1.9 m (a car's two 0.98 m collision circles
+    cannot pass), unless another part of the road runs through the hole (a crossing or a close approach)."""
+    pts, w = TRACKS[tid]; n = len(pts)
+    for side in (1, -1):
+        d = side * (w / 2 + ts.WALL_GAP); off = ts.offset_polyline(pts, d, True)
+        runs = ts.wall_run_idx(pts, True, d, w)
+        if len(runs) == 1 and runs[0][1]: continue
+        for k, (r, _c) in enumerate(runs):
+            a = r[-1] % n; b = runs[(k + 1) % len(runs)][0][0] % n
+            gap = math.dist(off[a], off[b])
+            if gap < 1.9: continue
+            hole = [(a + 1 + m) % n for m in range((b - a - 1) % n)]
+            assert any(_far_near(off[i], i, pts, w / 2 + 2) for i in hole), (side, a, b, round(gap, 2))
 
 
 @pytest.mark.parametrize('tid', IDS)

@@ -127,17 +127,25 @@ class Grid:
 
 
 def wall_run_idx(pts, closed, d, width):
-    """The barrier runs at offset d as point indices. Offset points that would fall on the road or its verge (within
-    width/2 + 2 of any centreline point: another part of the track, or this one where the inside of a bend tighter
-    than |d| folds the offset line back over the road) are dropped, splitting the runs; so are both ends of a
-    segment whose middle would."""
-    off = offset_polyline(pts, d, closed); n = len(pts); lim = width / 2 + 2
-    G = Grid(pts, cell=max(8.0, lim))
-    keep = [not G.near(p, lim) for p in off]
-    mid_bad = [keep[i] and keep[(i + 1) % n] and G.near(((off[i][0] + off[(i + 1) % n][0]) / 2, (off[i][1] + off[(i + 1) % n][1]) / 2), lim)
-               for i in range(n if closed else n - 1)]
-    for i, bad in enumerate(mid_bad):
-        if bad: keep[i] = keep[(i + 1) % n] = False
+    """The barrier runs at offset d as point indices. An offset point within width/2 + 2 of a centreline point is
+    dropped. Near another part of the track (more than 15 points away: a crossing or a close approach) that opens the
+    barrier, as it always has. Where only its own stretch of road is that near (the inside of a bend tighter than |d|
+    folds the offset line back over the road) the run bridges the fold instead, straight from the last point before
+    it to the first after it, when that chord keeps width/2 + 1 off every part of the centreline. So no barrier stands
+    on the road, and a fold leaves no hole a car fits through."""
+    off = offset_polyline(pts, d, closed); n = len(pts); lim = width / 2 + 2; road = width / 2 + 1
+    G = Grid([(p[0], p[1], j) for j, p in enumerate(pts)], cell=max(8.0, lim))
+    far = [False] * n; own = [False] * n
+    for i, p in enumerate(off):
+        c = G.cell; cx, cy = int(math.floor(p[0] / c)), int(math.floor(p[1] / c))
+        for gx in (cx - 1, cx, cx + 1):
+            for gy in (cy - 1, cy, cy + 1):
+                for q in G.b.get((gx, gy), ()):
+                    if math.hypot(q[0] - p[0], q[1] - p[1]) >= lim: continue
+                    dj = abs(q[2] - i); dj = min(dj, n - dj) if closed else dj
+                    if dj > 15: far[i] = True
+                    else: own[i] = True
+    keep = [not (far[i] or own[i]) for i in range(n)]
     order = list(range(n))
     if closed:
         if all(keep): return [(list(range(n)), True)]
@@ -145,9 +153,25 @@ def wall_run_idx(pts, closed, d, width):
     runs = []; cur = []
     for i in order:
         if keep[i]: cur.append(i)
-        elif cur: runs.append((cur, False)); cur = []
-    if cur: runs.append((cur, False))
-    return [(r, c) for r, c in runs if len(r) >= 3]
+        elif cur: runs.append(cur); cur = []
+    if cur: runs.append(cur)
+    if not runs: return []
+    G1 = Grid(pts)
+    def bridge(a, b):
+        """Whether the hole from point a to point b is only a fold of this stretch and the chord over it clears the road."""
+        hole = [(a + 1 + m) % n for m in range((b - a - 1) % n)]
+        if not hole or any(far[i] for i in hole): return False
+        A, B = off[a], off[b]; k = max(1, int(math.ceil(math.hypot(B[0] - A[0], B[1] - A[1]))))
+        return not any(G1.near((A[0] + (B[0] - A[0]) * t / k, A[1] + (B[1] - A[1]) * t / k), road) for t in range(k + 1))
+    groups = [runs[0]]
+    for r in runs[1:]:
+        if bridge(groups[-1][-1], r[0]): groups[-1] = groups[-1] + r
+        else: groups.append(r)
+    loop = False
+    if closed and bridge(groups[-1][-1], groups[0][0]):        # the hole that holds the first dropped point
+        if len(groups) == 1: loop = True
+        else: groups[0] = groups.pop() + groups[0]
+    return [(g, loop) for g in groups if len(g) >= 3]
 
 def wall_runs(pts, closed, d, width):
     """Offset polyline split into runs, dropping points that would fall on another part of the track."""

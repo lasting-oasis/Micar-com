@@ -114,7 +114,9 @@ export function makeTrackLib(load: TexLoad, base: string, o: { aniso?: number } 
       m.map = t; m.color.setHex(s.tint ?? 0xffffff); if (s.overlay || s.veil) m.opacity = 1; m.visible = true; m.needsUpdate = true;
     });
     if (s.normal && m instanceof THREE.MeshStandardMaterial) tex(s.normal, s.repeat ?? [1, 1], false, t => {
-      m.normalMap = t; m.normalScale.set(.8, .8); m.needsUpdate = true;
+      // no tangents, so three derives them from the UVs; with glTF's v (down the picture) an OpenGL normal map's green
+      // reads upside down unless turned, as three's GLTFLoader does for its own maps
+      m.normalMap = t; m.normalScale.set(.8, -.8); m.needsUpdate = true;
     });
     return m;
   };

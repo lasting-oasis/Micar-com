@@ -18,7 +18,7 @@ import { createDealership, type DealershipGate } from './scene/world/dealership'
 import { Driver, STEP, townCollider, type DriveOpts } from './world/driver';
 import { EVENTS, STOCK_CFG, TUNE_DEF, specFor, stageOf, visualRating, type BodyStyle, type CarCfg, type StripRecord } from './world/data';
 import { NO_INPUT, type Input, type Tune, type VehicleSpec } from './world/physics';
-import { anchorsFor, attachParts, disposeParts, syncKitLod, type PartsKit } from './world/parts';
+import { anchorsFor, attachParts, disposeParts, setKitGlow, syncKitLod, type PartsKit } from './world/parts';
 import { StripScene, STRIP_SPAWN } from './world/strip/scene';
 import { routePoint } from './world/strip/routes';
 import { countBegun, countProgress, type ActiveEvent, type NetField } from './world/strip/events';
@@ -1458,8 +1458,10 @@ export function VanillaThreeScene() {
 
             // Object Synchronization
             carFrameTick();
-            // lamps of driven cars glow brighter as night falls (the Strip's hub keeps them lit; its circuits are a day)
-            updateCarLights(district === 'strip' ? (strip?.carLampGlow() ?? 1) : nightFactor);
+            // lamps of driven cars glow brighter as night falls (the Strip's hub keeps them lit; its circuits are a day,
+            // so the Garage kits' lamp glows go out there too)
+            const stripLamps = district === 'strip' ? (strip?.carLampGlow() ?? 1) : 1;
+            updateCarLights(district === 'strip' ? stripLamps : nightFactor); setKitGlow(stripLamps);
             if (me) {
                 me.inventory.forEach((car) => {
                     if (!carMeshes[car.id]) {

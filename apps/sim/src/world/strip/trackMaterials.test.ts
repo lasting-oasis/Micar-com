@@ -91,6 +91,15 @@ describe('circuit materials', () => {
     expect(TRACK_TEX.trk_treeline.repeat).toEqual([1, 1]);
   });
 
+  it("the relief follows the glTF UVs too: no tangents, so the normal maps' green is turned (as three's GLTFLoader does)", () => {
+    const { load } = stubLoad(), lib = makeTrackLib(load, '/s/');
+    for (const [name, s] of Object.entries(TRACK_TEX)) {
+      if (!s.normal) continue;
+      const m = lib.material(name) as THREE.MeshStandardMaterial;
+      expect([m.normalScale.x, m.normalScale.y], name).toEqual([.8, -.8]);
+    }
+  });
+
   it("the lamp box shares the lamps' palette and stays black when they light", () => {
     const { load } = stubLoad(), lib = makeTrackLib(load, '/s/');
     const t = mapOf(lib.material('trk_lamps'));

@@ -97,11 +97,22 @@ const SHARED_MAPS = () => [radialTex, carbonTex, ...numberTexs.values()];
 // ---------------------------------------------------------------------------------- materials
 type Mats = { paint: THREE.Material; carbon: THREE.Material; chrome: THREE.Material; dark: THREE.Material; head: THREE.SpriteMaterial; tail: THREE.SpriteMaterial };
 const POLY = { polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 };
+/** The lamp glows of every live kit, and how strongly they glow (1; 0 by day on the Strip's circuits, with the cars'
+ *  lamps: carModel.updateCarLights). */
+const glowMats = new Set<THREE.SpriteMaterial>();
+let glowK = 1;
+export function setKitGlow(k: number): void {
+  if (k === glowK) return;
+  glowK = k; for (const m of glowMats) m.opacity = k;
+}
 /** The kit's materials; everything it creates goes into `own` (to dispose). Body-colour parts share the lofted body's paint when there is one. */
 function mats(cfg: VisualCfg, own: THREE.Material[], bodyPaint: THREE.Material | null): Mats {
   const M = <T extends THREE.Material>(m: T) => { own.push(m); return m; };
   const cmap = carbon();
-  const glow = (c: THREE.Color) => M(new THREE.SpriteMaterial({ map: radial(), color: c, blending: THREE.AdditiveBlending, depthWrite: false, transparent: true }));
+  const glow = (c: THREE.Color) => {
+    const g = M(new THREE.SpriteMaterial({ map: radial(), color: c, blending: THREE.AdditiveBlending, depthWrite: false, transparent: true, opacity: glowK }));
+    glowMats.add(g); return g;
+  };
   return {
     paint: bodyPaint ?? M(new THREE.MeshPhysicalMaterial({ color: cfg.color, envMapIntensity: 1, ...(FIN[cfg.finish] ?? FIN.gloss) })),
     carbon: M(new THREE.MeshStandardMaterial({ color: cmap ? 0xffffff : 0x22252b, map: cmap, roughness: .35, metalness: .5, envMapIntensity: 1.2, ...POLY })),
@@ -472,7 +483,7 @@ export function syncKitLod(car: THREE.Object3D): void {
 export function disposeParts(r: ReturnType<typeof attachParts>): void {
   r.root.removeFromParent();
   for (const f of r.undo.splice(0)) f();
-  for (const m of r.mats) disposeMat(m);
+  for (const m of r.mats) { glowMats.delete(m as THREE.SpriteMaterial); disposeMat(m); }
   r.mats.length = 0;
   removeWheels(r.car);
   if (r.car.userData.ntParts === r) delete r.car.userData.ntParts;

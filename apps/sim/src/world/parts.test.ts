@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import * as THREE from 'three';
 import { STOCK_CFG, STYLES } from './data';
-import { anchorsFor, attachParts, disposeParts, replaceWheels, syncKitLod, TINT } from './parts';
+import { anchorsFor, attachParts, disposeParts, replaceWheels, syncKitLod, TINT, setKitGlow } from './parts';
 
 describe('parts on the lofted bodies', () => {
   it('every body style has anchors inside its body', () => { for (const s of STYLES) { const a = anchorsFor(s); expect(a.noseZ).toBeLessThan(0); expect(a.tailZ).toBeGreaterThan(0); expect(a.roofY).toBeGreaterThan(a.hoodY); expect(a.hoodY).toBeGreaterThan(a.sillY); expect(a.scale).toBeGreaterThan(1.5); } });
@@ -39,3 +39,18 @@ describe('parts on the lofted bodies', () => {
     expect(r.root.parent).toBe(tilt);
   });
 });
+
+describe('the kit lamp glows', () => {
+  it('follow the lamps: off by day on a circuit, back at full when the lamps come back, for kits made before and after', () => {
+    const glowOf = (r: ReturnType<typeof attachParts>) => r.glows.map(g => (g.material as THREE.SpriteMaterial).opacity);
+    const before = attachParts(new THREE.Group(), STOCK_CFG, 'sedan', 0);
+    expect(before.glows.length).toBeGreaterThan(0);
+    setKitGlow(0);
+    const after = attachParts(new THREE.Group(), STOCK_CFG, 'sedan', 0);
+    expect([...glowOf(before), ...glowOf(after)].every(o => o === 0)).toBe(true);
+    setKitGlow(1);
+    expect([...glowOf(before), ...glowOf(after)].every(o => o === 1)).toBe(true);
+    disposeParts(before); disposeParts(after);
+  });
+});
+
