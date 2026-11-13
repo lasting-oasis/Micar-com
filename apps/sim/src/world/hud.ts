@@ -9,7 +9,7 @@ import { EV_COL, type EventDef } from './data';
 import { cpPoint, type Pt } from './strip/routes';
 import type { AI } from './strip/ai';
 import type { ActiveEvent, Outrun, Standing } from './strip/events';
-import { LINE, PANEL, drawRaceHud, panel, raceLayout, raceView } from './raceHud';
+import { LINE, PANEL, drawRaceHud, drawRouteMap, panel, raceLayout, raceView } from './raceHud';
 
 export type HudMarker = { ev: EventDef; x: number; z: number };
 export type HudGps = { label: string; target: Pt; path: Pt[] };
@@ -213,9 +213,11 @@ export class Hud {
     }
     /* minimap */
     // in the stick layout on a wide (landscape) phone the corner is above the steering stick: the map moves just right of it
-    // a lap race places the map with the rest of its HUD (smaller where it has to be, the same ground in view), or leaves it
-    // out: the map is the last thing drawn, so leaving it out ends the frame
+    // a lap race places the map with the rest of its HUD (smaller where it has to be), or leaves it out: the map is the
+    // last thing drawn, so leaving it out ends the frame. A lap race's map is its whole route, north up (drawRouteMap);
+    // drag, drift and free roam keep the radar, which turns with the car
     if (lay && !lay.map) return;
+    if (rv && lay?.map && a) { drawRouteMap(hx, a, PV, lay.map, small); return; }
     const mr0 = small ? 56 : 84, mr = lay?.map ? lay.map.r : mr0;
     const mx = lay?.map ? lay.map.cx : (between ? 176 : 0) + mr + (small ? 16 : 34), my = lay?.map ? lay.map.cy : small ? mr + 16 + insT + (a || outrun ? 74 : 50) : HH - mr - 34 - insB;
     hx.save(); hx.translate(mx, my); hx.beginPath(); hx.arc(0, 0, mr, 0, 7); hx.fillStyle = PANEL; hx.fill(); hx.clip();

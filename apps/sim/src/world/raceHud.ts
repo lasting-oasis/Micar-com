@@ -11,6 +11,7 @@ import { clamp } from './physics';
 import { fmtT, kmhOf, spdNum, spdUnit, type HudState } from './hud';
 import { usesLights } from './strip/lights';
 import { SECTORS, type SectorMark } from './strip/timing';
+import type { ActiveEvent } from './strip/events';
 
 export type HudTxt = { lap: string; leader: string; last: string; best: string; sprint: string; nitrous: string; boost: string; you: string; lapDown: string; lapsDown: string };
 export const HUD_TXT: Record<'en' | 'es', HudTxt> = {
@@ -233,5 +234,47 @@ export function drawRaceHud(hx: CanvasRenderingContext2D, v: RaceView, s: HudSta
     hx.textAlign = 'left'; hx.font = `italic 800 18px ${DF}`; hx.fillStyle = INK; hx.fillText((s.carName ?? '').toUpperCase().slice(0, 22), cx0 + 12, cy0 + 24);
     bars(cx0 + 12, cy0 + 42, cw - 24, 22);
   }
+  hx.restore();
+}
+
+/** The scale and offset that fit a route into a w x h box centred on (cx, cy), less `pad` each side, north up (the
+ *  full map's way round): screen x = ox + s * x, screen y = oz + s * z. One scale for both axes, the route centred,
+ *  every point inside; a route less than a metre across on an axis counts as a metre. */
+export function fitRoute(pts: readonly (readonly [number, number])[], cx: number, cy: number, w: number, h: number, pad: number): { s: number; ox: number; oz: number } {
+  let x0 = Infinity, x1 = -Infinity, z0 = Infinity, z1 = -Infinity;
+  for (const [x, z] of pts) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (z < z0) z0 = z; if (z > z1) z1 = z; }
+  if (!(x1 >= x0)) x0 = x1 = z0 = z1 = 0;
+  const s = Math.min(Math.max(1, w - 2 * pad) / Math.max(1, x1 - x0), Math.max(1, h - 2 * pad) / Math.max(1, z1 - z0));
+  return { s, ox: cx - s * (x0 + x1) / 2, oz: cy - s * (z0 + z1) / 2 };
+}
+
+const MAP_EDGE = 'rgba(5,7,10,.85)', MAP_LINE = '#f3f6fb', MAP_DOT = '#c9d1db';
+/**
+ * The lap-race map (circuit, sprint, street X) in the radar's place: the event's whole route, north up, fitted to the
+ * square around the radar's circle; a white line on a dark edge, the start line across it (and a ring at a sprint's
+ * finish), each racer a dot in its colour (a parked one not at all) and the player in yellow on top. A car off the
+ * route stays on the map, at its edge.
+ */
+export function drawRouteMap(hx: CanvasRenderingContext2D, a: ActiveEvent, PV: { x: number; z: number }, m: { cx: number; cy: number; r: number }, small: boolean): void {
+  const pts = a.route.pts, n = pts.length, loop = a.route.loop; if (n < 2) return;
+  const f = fitRoute(pts, 0, 0, 2 * m.r, 2 * m.r, small ? 6 : 8), X = (x: number) => f.ox + f.s * x, Y = (z: number) => f.oz + f.s * z, lim = m.r - 2;
+  hx.save(); hx.translate(m.cx, m.cy); hx.lineJoin = 'round'; hx.lineCap = 'round';
+  hx.beginPath();
+  for (let i = 0; i < n; i++) { const x = X(pts[i][0]), y = Y(pts[i][1]); if (i) hx.lineTo(x, y); else hx.moveTo(x, y); }
+  if (loop) hx.closePath();
+  hx.strokeStyle = MAP_EDGE; hx.lineWidth = small ? 5 : 6.5; hx.stroke();
+  hx.strokeStyle = MAP_LINE; hx.lineWidth = small ? 2.2 : 2.8; hx.stroke();
+  // the start line: across the route at its first point (a loop runs in from its last point)
+  const from = loop ? pts[n - 1] : pts[0], tx = X(pts[1][0]) - X(from[0]), ty = Y(pts[1][1]) - Y(from[1]), tl = Math.hypot(tx, ty) || 1, half = small ? 5 : 6.5;
+  const sx = X(pts[0][0]), sy = Y(pts[0][1]), nx = -ty / tl * half, ny = tx / tl * half;
+  hx.beginPath(); hx.moveTo(sx - nx, sy - ny); hx.lineTo(sx + nx, sy + ny);
+  hx.strokeStyle = MAP_EDGE; hx.lineWidth = small ? 4.5 : 5.5; hx.stroke(); hx.strokeStyle = '#ffffff'; hx.lineWidth = small ? 2 : 2.5; hx.stroke();
+  if (!loop) { hx.beginPath(); hx.arc(X(pts[n - 1][0]), Y(pts[n - 1][1]), small ? 3 : 3.5, 0, 7); hx.strokeStyle = MAP_EDGE; hx.lineWidth = 4; hx.stroke(); hx.strokeStyle = '#ffffff'; hx.lineWidth = 1.5; hx.stroke(); }
+  const dot = (x: number, z: number, r: number, c: string) => {
+    hx.fillStyle = c; hx.beginPath(); hx.arc(clamp(X(x), -lim, lim), clamp(Y(z), -lim, lim), r, 0, 7); hx.fill();
+    hx.strokeStyle = MAP_EDGE; hx.lineWidth = 1.5; hx.stroke();
+  };
+  for (const R of a.racers) if (!R.parked) dot(R.x, R.z, small ? 3 : 3.5, R.color ?? MAP_DOT);
+  dot(PV.x, PV.z, small ? 4 : 4.5, ACCENT);
   hx.restore();
 }
