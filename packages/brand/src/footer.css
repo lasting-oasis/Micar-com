@@ -9,6 +9,8 @@
 .mc-foot .mc-foot-links a:hover { color: var(--mc-paint, #ffd23f); }
 .mc-foot .mc-foot-links em { font: 700 9px/1 var(--mc-cond, 'Barlow Condensed', sans-serif); letter-spacing: .14em; color: var(--mc-paint, #ffd23f); margin-left: 5px; vertical-align: 3px; font-style: normal; }
 .mc-foot .mc-foot-legal { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 36px; font: 600 12px/1 var(--mc-cond, 'Barlow Condensed', sans-serif); letter-spacing: .1em; text-transform: uppercase; color: var(--mc-haze, #9aa3ad); }
+.mc-foot .mc-foot-legal .mc-foot-credit { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.mc-foot .mc-foot-legal .mc-foot-credit:hover, .mc-foot .mc-foot-legal .mc-foot-credit:focus-visible { color: var(--mc-ink, #e7eaee); }
 @media (max-width: 1000px) {
   .mc-foot .mc-foot-cols { grid-template-columns: 1fr 1fr; }
   .mc-foot .mc-foot-cols > .mc-foot-col:first-child { grid-column: 1 / -1; }

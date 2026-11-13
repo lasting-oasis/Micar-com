@@ -43,6 +43,10 @@ Challenge a friend: at the Strip's rental counter, **Challenge a friend** picks 
 
 Tester mode, the owner's way to try any car without earning it first: set one more Render env var, `TESTER_KEY` (8 to 128 characters, set in the dashboard, never committed), then type `Name#key` on the `/strip` card. That guest gets every car on the list, $1,000,000 that refills, every stage and part, and **Garage** and **Swap car** in the pause menu. The key is sent beside the name, never shown as part of it, and the device remembers it for that name ("Forget it" on the card drops it). A tester's cars and builds last until the page is closed or reloaded, and a tester cannot be linked to an account. Without the variable tester mode is off.
 
+## Data
+
+[Vehicle data by Searlo](https://searlo.tech/): real dealer asking prices that calibrate each model's value curve, fetched by a GitHub Action (`.github/workflows/searlo-listings.yml`) with the key in the repo's secrets, never in the site. Only price, mileage, year, trim and city are kept: no VINs, dealer names or addresses. Also used: the U.S. Bureau of Labor Statistics' used-car price index (weekly), EPA's model lineups and published sticker prices.
+
 ## Run it
 
 ```

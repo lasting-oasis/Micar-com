@@ -1,0 +1,42 @@
+name: Searlo dealer listings
+
+# Real dealer asking prices for every model on the value page (scripts/searlo_listings.py), which calibrate each
+# model's value curve. Vehicle data by Searlo: https://searlo.tech/
+# Runs when the job or its model list changes on the searlo-listings branch, or by hand. Resumable: each run skips
+# the searches already in data/searlo/listings.jsonl and commits what it found, even when it stops early.
+on:
+  push:
+    branches: [searlo-listings]
+    paths: [.github/workflows/searlo-listings.yml, apps/value/scripts/searlo_listings.py, apps/value/data/searlo/models.json]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: searlo-listings
+  cancel-in-progress: false
+
+jobs:
+  listings:
+    defaults:
+      run:
+        working-directory: apps/value
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 -u scripts/searlo_listings.py
+        env:
+          SEARCH_API_KEY: ${{ secrets.SEARCH_API_KEY }}
+          MODE: probe
+          BUDGET: '6000'
+          MAX_MINUTES: '300'
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add -A data/searlo
+          git commit -m "Searlo dealer listings $(date -u +%F)" || exit 0
+          for i in 1 2 3; do git pull --rebase -X theirs -q && git push && break; git rebase --abort 2>/dev/null; sleep 5; done
