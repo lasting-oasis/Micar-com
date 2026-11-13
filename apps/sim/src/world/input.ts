@@ -173,7 +173,8 @@ export class InputMap {
     this.touch[k] = on;
   }
 
-  clearEdges(): void { const e = this.edge; e.shiftUp = e.shiftDn = e.hop = e.reset = e.enter = e.map = e.camera = e.lookBack = e.lights = e.horn = e.drift = e.pause = e.laneL = e.laneR = false; }
+  /** every edge, whatever edges there are (one left out would fire on every frame after its key) */
+  clearEdges(): void { const e = this.edge as unknown as Record<string, boolean>; for (const k in e) e[k] = false; }
 
   /** Release every held key and button (blur, pause). */
   readonly releaseAll = (): void => { for (const k in this.keys) this.keys[k] = false; for (const k in this.touch) this.touch[k] = false; this.fingers.clear(); this.paint(); releaseSticks(); this.driftWas = false; this.kick = 0; };
