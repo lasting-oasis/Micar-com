@@ -60,7 +60,8 @@ describe('json api', () => {
     expect(index.sources.specs?.asOf).toBe(epa.asOf);
     const spec = openApiJson();
     expect(spec.openapi).toBe('3.1.0');
-    expect(Object.keys(spec.paths)).toEqual(['/index.json', '/cars.json', '/cars/{id}.json']);
+    expect(Object.keys(spec.paths)).toEqual(['/index.json', '/cars.json', '/value', '/cars/{id}.json']);
+    expect(spec.paths['/value'].servers[0].url).toBe('https://micar-sim.onrender.com/api/v1');
     for (const c of cars) expect(spec.components.schemas.Body.enum).toContain(c.body);
   });
 });

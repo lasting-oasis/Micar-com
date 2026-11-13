@@ -271,12 +271,16 @@ The app at ${SITE_URL} runs in the browser (JavaScript, hash routes). For plain-
 
 ## Data API (JSON)
 
-Free, read-only, no key. Static files rebuilt with every deploy; the format is in the OpenAPI file.
+Free, read-only, no key. Static files rebuilt with every deploy, plus one live valuation endpoint; the format is in the OpenAPI file.
 
 - [API index](${SITE_URL}api/v1/index.json): counts, sources and links
 - [All models](${SITE_URL}api/v1/cars.json): id, make, model, body, years covered and MSRP range for each
 - One model: ${SITE_URL}api/v1/cars/{id}.json, e.g. ${SITE_URL}api/v1/cars/honda-civic.json: every model year, every trim with its MSRP, destination charge, the EPA's engine, transmission, drive and fuel configurations, the price source, and a calculator link per year
 - [OpenAPI 3.1 description](${SITE_URL}api/v1/openapi.json)
+
+## Valuation API (live)
+
+- GET https://micar-sim.onrender.com/api/v1/value?id=honda-civic&year=2019&mileage=60000 returns today's trade-in, private-party and dealer retail value, a range, confidence, the line-by-line build-up and a five-year forecast. Same engine and parameters as the calculator; make and model work in place of id. MSRP and mileage are filled in when left out and listed under "assumed". Free hosting: the first call after a quiet spell can take up to a minute.
 
 ## Makes covered
 

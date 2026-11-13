@@ -9,6 +9,8 @@ import { SITE_URL, slugify, valueLink, type ModelPage, type YearRow } from './pa
 
 export const API_VERSION = 'v1';
 export const API_URL = `${SITE_URL}api/${API_VERSION}/`;
+/** The one live endpoint, on the sim server (GitHub Pages can't run code). Free Render hosting: the first call after a quiet spell can take up to a minute. */
+export const VALUE_API_URL = 'https://micar-sim.onrender.com/api/v1/value';
 
 export type ApiStickerTrim = { trim: string; msrp: number; config?: string };
 export type ApiStickerYear = { year: number; destination?: number | null; trims: ApiStickerTrim[]; source?: string; sourceType?: string };
@@ -134,9 +136,9 @@ export function apiIndexJson(cars: CarRecord[], epa: EpaFile | null, generatedAt
     version: API_VERSION,
     generatedAt,
     description:
-      'Free, read-only, static JSON. Original window-sticker prices (MSRP, US dollars, excluding destination) for every trim of every model year MiCar covers, with the EPA configurations for each year. No key, no rate limit beyond the host. Values (trade-in, private-party, retail) are computed in the app, not served here; each year links to the calculator prefilled.',
+      'Free, read-only, static JSON. Original window-sticker prices (MSRP, US dollars, excluding destination) for every trim of every model year MiCar covers, with the EPA configurations for each year. No key, no rate limit beyond the host. Values (trade-in, private-party, dealer retail, range, five-year forecast) come from the live valuation endpoint (links.value), the same engine as the calculator.',
     counts: { models: cars.length, modelYears: cars.reduce((n, c) => n + c.years.length, 0), trims: cars.reduce((n, c) => n + c.years.reduce((m, y) => m + y.trims.length, 0), 0) },
-    links: { cars: `${API_URL}cars.json`, car: `${API_URL}cars/{id}.json`, openapi: `${API_URL}openapi.json`, html: `${SITE_URL}cars/`, llms: `${SITE_URL}llms.txt` },
+    links: { value: `${VALUE_API_URL}?id={id}&year={year}&mileage={miles}`, cars: `${API_URL}cars.json`, car: `${API_URL}cars/{id}.json`, openapi: `${API_URL}openapi.json`, html: `${SITE_URL}cars/`, llms: `${SITE_URL}llms.txt` },
     sources: {
       msrp: 'Manufacturer pricing where available, otherwise secondary pricing sites; each model year names its own source.',
       specs: epa ? { name: epa.source, url: epa.url, asOf: epa.asOf } : null,
@@ -153,7 +155,7 @@ export function openApiJson() {
     info: {
       title: 'MiCar data API',
       version: '1.0.0',
-      description: 'Static, read-only JSON files: original MSRP by trim and model year, and EPA configurations, for every model MiCar values. Ids match the HTML pages at /cars/{id}/.',
+      description: 'Static, read-only JSON files: original MSRP by trim and model year, and EPA configurations, for every model MiCar values; plus one live endpoint, /value, that runs the calculator. Ids match the HTML pages at /cars/{id}/. No key.',
     },
     servers: [{ url: API_URL.replace(/\/$/, '') }],
     paths: {
@@ -163,6 +165,33 @@ export function openApiJson() {
           operationId: 'listCars',
           summary: 'Every model, one summary each, sorted by make then model',
           responses: { '200': { description: 'All models', content: { 'application/json': { schema: { $ref: '#/components/schemas/CarList' } } } } },
+        },
+      },
+      '/value': {
+        servers: [{ url: VALUE_API_URL.replace(/\/value$/, ''), description: 'Live endpoint on the MiCar World server. Free hosting: the first call after a quiet spell can take up to a minute.' }],
+        get: {
+          operationId: 'getValue',
+          summary: "Today's value for one car: trade-in, private-party and dealer retail, range, confidence, the line-by-line build-up and a five-year forecast",
+          description: 'Same engine and parameters as the calculator links. Give id, or make and model; and year. MSRP and mileage are filled in when left out and listed in "assumed". Errors are 400 with a message per field.',
+          parameters: [
+            { name: 'id', in: 'query', description: 'Model id from /cars.json, e.g. honda-civic. Or give make and model.', schema: { type: 'string' } },
+            { name: 'make', in: 'query', schema: { type: 'string' } },
+            { name: 'model', in: 'query', schema: { type: 'string' } },
+            { name: 'year', in: 'query', required: true, schema: { type: 'integer' } },
+            { name: 'trim', in: 'query', schema: { type: 'string' } },
+            { name: 'msrp', in: 'query', description: 'Original MSRP in dollars, excluding destination. Required for a car not in the data.', schema: { type: 'integer' } },
+            { name: 'mileage', in: 'query', schema: { type: 'integer' } },
+            { name: 'body', in: 'query', schema: { $ref: '#/components/schemas/Body' } },
+            { name: 'condition', in: 'query', schema: { enum: ['Excellent', 'Good', 'Fair', 'Poor'] } },
+            { name: 'title', in: 'query', schema: { enum: ['Clean', 'Rebuilt', 'Salvage'] } },
+            { name: 'accident', in: 'query', schema: { enum: ['None', 'Minor', 'Major'] } },
+            { name: 'region', in: 'query', schema: { enum: ['Northeast', 'Southeast', 'Midwest', 'Southwest', 'West'] } },
+          ],
+          responses: {
+            '200': { description: 'The valuation', content: { 'application/json': { schema: { $ref: '#/components/schemas/Value' } } } },
+            '400': { description: 'Missing or invalid parameters; errors has one message per field', content: { 'application/json': { schema: { $ref: '#/components/schemas/Error' } } } },
+            '404': { description: 'Unknown id', content: { 'application/json': { schema: { $ref: '#/components/schemas/Error' } } } },
+          },
         },
       },
       '/cars/{id}.json': {
@@ -234,6 +263,26 @@ export function openApiJson() {
             type: { type: 'string', description: "'' for conventional, or Hybrid, EV, Plug-in Hybrid, Diesel, FFV, ..." },
           },
         },
+        Value: {
+          type: 'object',
+          required: ['ok', 'asOf', 'car', 'inputs', 'assumed', 'valueUsd', 'confidence', 'steps', 'forecastUsd', 'links'],
+          properties: {
+            ok: { const: true },
+            asOf: { type: 'string', format: 'date' },
+            car: { type: 'object', properties: { make: { type: 'string' }, model: { type: 'string' }, trim: { type: ['string', 'null'] }, body: { type: 'string' }, year: { type: 'integer' } } },
+            inputs: { type: 'object', description: 'Every input the engine used' },
+            assumed: { type: 'array', items: { type: 'string' }, description: 'What was filled in because the query left it out' },
+            valueUsd: { type: 'object', properties: { tradeIn: { type: 'integer' }, privateParty: { type: 'integer' }, dealerRetail: { type: 'integer' }, range: usdRange } },
+            confidence: { type: 'object', properties: { level: { enum: ['High', 'Medium', 'Low'] }, reasons: { type: 'array', items: { type: 'string' } } } },
+            drivers: { type: 'array', items: { type: 'string' } },
+            steps: { type: 'array', description: 'The line-by-line build-up shown in the app', items: { type: 'object', properties: { label: { type: 'string' }, detail: { type: 'string' }, valueUsd: { type: 'integer' }, deltaUsd: { type: 'integer' } } } },
+            forecastUsd: { type: 'array', items: { type: 'object', properties: { year: { type: 'integer' }, privateParty: { type: 'integer' }, low: { type: 'integer' }, high: { type: 'integer' }, mileage: { type: 'integer' } } } },
+            modelKnown: { type: 'boolean' },
+            links: { type: 'object', properties: { app: { type: 'string', format: 'uri' } } },
+            note: { type: 'string' },
+          },
+        },
+        Error: { type: 'object', required: ['ok', 'errors'], properties: { ok: { const: false }, errors: { type: 'object', additionalProperties: { type: 'string' } } } },
         Body: { enum: ['Sedan', 'SUV / Crossover', 'Pickup Truck', 'Coupe / Sports', 'Hatchback / Wagon', 'Minivan'] },
       },
     },

@@ -11,6 +11,7 @@ services:
     buildFilter:
       paths:
         - apps/sim/**
+        - apps/value/src/**   # the valuation API (/api/v1/value) runs the value app's engine
         - packages/**
         - pnpm-lock.yaml
         - render.yaml
