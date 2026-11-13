@@ -3,14 +3,17 @@ import { Hud, gpsReached, fmtT, nearPolyline, type HudState } from './hud';
 import { carParams, makeVehicle, resetVehicle } from './physics';
 import { ARCHETYPES, EVENTS, STOCK_CFG, TUNE_DEF } from './data';
 import { makeAI } from './strip/ai';
+import { buildRoute } from './strip/routes';
+import { RaceTiming } from './strip/timing';
+import type { ActiveEvent } from './strip/events';
 
-function stubCanvas() {
-  const texts: string[] = [], ys: number[] = [];
-  const ctx = new Proxy({ fillText: (t: string, _x?: number, y?: number) => { texts.push(t); ys.push(y ?? 0); }, createLinearGradient: () => ({ addColorStop() {} }) } as Record<string, unknown>, {
+function stubCanvas(w = 1280, h = 720, top = 0) {
+  const texts: string[] = [], ys: number[] = [], moves: [number, number][] = [];
+  const ctx = new Proxy({ fillText: (t: string, _x?: number, y?: number) => { texts.push(t); ys.push(y ?? 0); }, translate: (x: number, y: number) => { moves.push([x, y]); }, createLinearGradient: () => ({ addColorStop() {} }) } as Record<string, unknown>, {
     get: (o, k: string) => k in o ? o[k] : () => {}, set: (o, k: string, v) => { o[k] = v; return true; },
   });
-  const canvas = { clientWidth: 1280, clientHeight: 720, width: 0, height: 0, getContext: () => ctx } as unknown as HTMLCanvasElement;
-  return { canvas, texts, ys };
+  const canvas = { clientWidth: w, clientHeight: h, width: 0, height: 0, getContext: () => ctx, getBoundingClientRect: () => ({ top }) } as unknown as HTMLCanvasElement;
+  return { canvas, texts, ys, moves };
 }
 const state = (o: Partial<HudState> = {}): HudState => {
   const PV = makeVehicle(carParams(ARCHETYPES.sports, STOCK_CFG.perf, TUNE_DEF)); resetVehicle(PV, 100, 100, 0); PV.u = 100 / 3.6;
@@ -25,6 +28,30 @@ describe('Hud', () => {
     expect(texts).toContain('100'); expect(texts).toContain('KM/H'); expect(texts).toContain('1'); expect(texts).toContain('$12,345');
     expect(texts.some(t => t.startsWith('SPRINT: TEST · '))).toBe(true);
     expect(canvas.width).toBeGreaterThan(0);
+  });
+
+  it('a lap race draws the tower and timer, not the cash', () => {
+    const { canvas, texts } = stubCanvas(), hud = new Hud(canvas);
+    const r = buildRoute([[0, 0], [0, 400], [300, 400], [300, 0]], true);
+    const a = { type: 'circuit', state: 'race', route: r, laps: 3, pLap: 1, pCp: 1, time: 50, pS: r.len * 1.5, pFt: null, lit: 0, timing: new RaceTiming(r.len, true) } as unknown as ActiveEvent;
+    hud.draw(state({ event: a, standings: [{ name: 'Rico', key: 'r0', color: '#f00', s: 2000 }, { name: 'You', me: true, key: 'me', s: 1900, gap: 1.8 }] }));
+    expect(texts).toContain('LEADER');
+    expect(texts).toContain('LAP 2/3');
+    expect(texts).not.toContain('$12,345');
+  });
+
+  it('on a landscape phone a lap race keeps the timer and the checkpoint label above the car and the dash, and the map above the NOS button', () => {
+    // 844x390: the HUD canvas starts 64 px down the page; the car panel ends 100 px down the page (topInset 92)
+    const { canvas, texts, ys, moves } = stubCanvas(844, 326, 64), hud = new Hud(canvas);
+    const r = buildRoute([[0, 0], [0, 400], [300, 400], [300, 0]], true);
+    const a = { type: 'circuit', state: 'race', route: r, laps: 3, pLap: 1, pCp: 1, time: 50, pS: r.len * 1.5, pFt: null, lit: 0, timing: new RaceTiming(r.len, true) } as unknown as ActiveEvent;
+    hud.draw(state({ small: true, touch: true, sticks: true, topInset: 92, event: a, standings: [{ name: 'Rico', key: 'r0', color: '#f00', s: 2000 }, { name: 'You', me: true, key: 'me', s: 1900, gap: 1.8 }] }));
+    const y = (re: RegExp) => ys[texts.findIndex(t => re.test(t))], cue = /^(CHECKPOINT|FINISH LINE) · /;
+    expect(y(/^LAST$/)).toBeLessThan(326 * .4); // the chase camera puts the car's roof about 38% down the canvas
+    // the arrow's distance rides in the timer's first row (no CHECKPOINT label over the car)
+    expect(y(/^\d[\d,.]* (ft|mi|m|km)$/)).toBeLessThan(326 * .3);
+    expect(texts.some(t => cue.test(t))).toBe(false);
+    expect(moves.some(([x, my]) => x > 844 - 100 && my < 60)).toBe(true); // the map, clear of NOS / DRIFT (94 px down)
   });
 
   it('drops the GPS arrow label by topInset to clear the car panel', () => {

@@ -1,10 +1,12 @@
+import type { PauseCard } from './results';
 // The driving HUD's DOM state (banners, the Enter prompt, results, the Strip's pause menu, the
 // nitrous vignette), kept apart from the game store: the 3D view writes it only when something
 // changes, and the React layer (DriveLayer.tsx) reads it. No three.js here, so App can import it.
 import { create } from 'zustand';
 
 export type District = 'town' | 'strip';
-export type ResultRow = { name: string; me: boolean; txt: string };
+/** lap races add `gap` (to the winner), `best` (lap), `fastest` (the race's fastest lap) and the car's paint `color` */
+export type ResultRow = { name: string; me: boolean; txt: string; gap?: string; best?: string; fastest?: boolean; color?: string };
 /** `pending`: a challenge race the others are still driving: the rows fill in, and Continue waits for the race to close */
 export type ShownResults = { title: string; sub: string; pos: number; failed: string | null; rows: ResultRow[]; pending?: boolean };
 export type EventReward = { cash: number; octane: number; rep: number; stamps: string[] };
@@ -12,7 +14,7 @@ export type EventReward = { cash: number; octane: number; rep: number; stamps: s
 export const STAMP_NAME: Readonly<Record<string, string>> = { 'strip:first-win': 'First win', 'strip:drag': 'Drag winner', 'strip:drift': 'Drift winner', 'strip:outrun': 'Outrun' };
 export const stampName = (id: string): string => STAMP_NAME[id] ?? id.replace(/^strip:/, '').replace(/-/g, ' ');
 /** what a tap on the layer asks the 3D view to do */
-export type DriveTap = 'enter' | 'continue' | 'resume' | 'town' | 'restart' | 'quit' | 'pause' | 'reset' | 'map' | 'signout' | 'garage' | 'swapcar';
+export type DriveTap = 'enter' | 'continue' | 'again' | 'resume' | 'town' | 'restart' | 'quit' | 'pause' | 'reset' | 'map' | 'signout' | 'garage' | 'swapcar';
 
 /** Night Tuner's controls help line (#help), for the HUD on getting in and the pause menu */
 export const HELP: Record<District, string> = {
@@ -27,6 +29,8 @@ type DriveUi = {
   prompt: string;
   banner: { txt: string; bad: boolean; hold: boolean; id: number } | null;
   results: ShownResults | null;
+  /** the pause screen's session card during a lap race (set when the race pauses) */
+  session: PauseCard | null;
   reward: EventReward | null;
   paused: boolean;
   /** an event is live (not finished): the pause menu offers Restart and Quit */
@@ -64,7 +68,7 @@ type DriveUi = {
 };
 
 export const useDriveUi = create<DriveUi>(set => ({
-  district: 'town', driving: false, prompt: '', banner: null, results: null, reward: null, paused: false, eventLive: false, gears: false, mapOpen: false, topInset: 0, help: 0, nos: false, tap: null, quick: null, driveCar: null, lobby: false, counter: false, account: false, returned: null, challenge: false, netRace: false, staging: false,
+  district: 'town', driving: false, session: null, prompt: '', banner: null, results: null, reward: null, paused: false, eventLive: false, gears: false, mapOpen: false, topInset: 0, help: 0, nos: false, tap: null, quick: null, driveCar: null, lobby: false, counter: false, account: false, returned: null, challenge: false, netRace: false, staging: false,
   set: p => set(p),
 }));
 
