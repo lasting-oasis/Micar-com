@@ -14,6 +14,8 @@ export type TexSpec = {
   /** the colour the map is multiplied by once it loads (default white) */
   tint?: number;
   rough?: number; metal?: number;
+  /** how much of the sky's reflection it takes (default 1) */
+  env?: number;
   /** cut-out alpha (trees) */
   alphaTest?: number;
   /** a see-through veil, blended (the chain-link: it fades with distance instead of vanishing and leaving its posts) */
@@ -47,7 +49,9 @@ export const TRACK_TEX: Record<string, TexSpec> = {
   trk_grass: { color: 0x4c6b2e, map: 'grass.jpg', normal: 'grass_n.jpg', repeat: [1 / 4, 1 / 4], tint: 0xb0a78c, rough: .95 },
   trk_grass_mow: { color: 0x5a7d36, map: 'grass.jpg', normal: 'grass_n.jpg', repeat: [1 / 4, 1 / 4], tint: 0xc3bb9f, rough: .95 },
   trk_gravel: { color: 0xa89a7a, map: 'gravel.jpg', normal: 'gravel_n.jpg', repeat: THREE_M, tint: 0xf0e6d2, rough: .95 },
-  trk_solid: { color: 0xffffff, palette: true, metal: .2, rough: .5, double: true },
+  // painted and steel parts take less sky: at a low camera's grazing angle the overcast sky's reflection washed the red
+  // canopy pink and the roofs white
+  trk_solid: { color: 0xffffff, palette: true, metal: .1, rough: .7, env: .45, double: true },
   trk_wall: { color: 0x9a9a96, map: 'concrete.jpg', normal: 'concrete_n.jpg', repeat: THREE_M, rough: .9, double: true },
   trk_boards: { color: 0xffd23f, map: 'boards.png', repeat: [1, 1], rough: .6, double: true, lift: true },
   trk_tyres: { color: 0x151517, map: 'tyres.jpg', repeat: [1 / 2, 1], rough: .8, double: true },
@@ -96,7 +100,7 @@ export function makeTrackLib(load: TexLoad, base: string, o: { aniso?: number } 
       const t = paletteTexture(PALETTES[name]); owned.push(t);
       const side = s.double ? THREE.DoubleSide : THREE.FrontSide;
       const p = s.basic ? new THREE.MeshBasicMaterial({ color: 0xffffff, map: t, side })
-        : new THREE.MeshStandardMaterial({ color: 0xffffff, map: t, side, roughness: s.rough ?? .8, metalness: s.metal ?? 0 });
+        : new THREE.MeshStandardMaterial({ color: 0xffffff, map: t, side, roughness: s.rough ?? .8, metalness: s.metal ?? 0, envMapIntensity: s.env ?? 1 });
       p.name = name;
       if (s.lift) { p.polygonOffset = true; p.polygonOffsetFactor = -1; p.polygonOffsetUnits = -1; }
       return p;

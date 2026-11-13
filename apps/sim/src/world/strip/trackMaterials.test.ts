@@ -100,6 +100,13 @@ describe('circuit materials', () => {
     }
   });
 
+  it('painted and steel parts take a dimmer sky reflection, so a red canopy reads red, not pink, under the overcast sky', () => {
+    const { load } = stubLoad(), lib = makeTrackLib(load, '/s/');
+    const solid = lib.material('trk_solid') as THREE.MeshStandardMaterial;
+    expect(solid.envMapIntensity).toBeLessThanOrEqual(.5); expect(solid.roughness).toBeGreaterThanOrEqual(.7); expect(solid.metalness).toBeLessThanOrEqual(.1);
+    expect((lib.material('trk_asphalt') as THREE.MeshStandardMaterial).envMapIntensity).toBe(1);   // the rest as before
+  });
+
   it("the lamp box shares the lamps' palette and stays black when they light", () => {
     const { load } = stubLoad(), lib = makeTrackLib(load, '/s/');
     const t = mapOf(lib.material('trk_lamps'));
