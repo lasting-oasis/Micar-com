@@ -90,7 +90,7 @@ const DICT: Record<string, Entry> = {
   'races.circuit': { en: 'Circuit', es: 'Circuito' },
   'races.event': { en: 'Event', es: 'Evento' },
   'races.of': { en: 'Circuit {n} of {m}', es: 'Circuito {n} de {m}' },
-  'races.length': { en: 'Circuit length', es: 'Longitud' },
+  'races.length': { en: 'Length', es: 'Longitud' },
   'races.corners': { en: 'Corners', es: 'Curvas' },
   'races.events': { en: 'Events', es: 'Eventos' },
   'races.best': { en: 'Your best', es: 'Tu mejor' },

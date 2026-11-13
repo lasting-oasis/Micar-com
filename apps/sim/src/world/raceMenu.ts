@@ -129,3 +129,8 @@ export function startBar(P: [number, number][], loop: boolean, half: number): { 
 /** Map units per screen pixel for a vw x vh view fitted ("meet") into a bw x bh box: the tighter side decides.
  *  Before the box is measured, a 600 px map is assumed. */
 export const unitsPerPx = (vw: number, vh: number, bw: number, bh: number): number => bw > 0 && bh > 0 ? Math.max(vw / bw, vh / bh) : Math.max(vw, vh) / 600;
+
+/** A corner number's radius in screen pixels for a circuit drawn `diagPx` across (its points' diagonal): at most 1.5%
+ *  of it, as circuit_maps.py keeps labels 3% of the diagonal apart, so two never overlap; at most 10 px; 0 (not
+ *  drawn) below 5.5 px, too small to read. */
+export const labelRadiusPx = (diagPx: number): number => { const r = Math.min(10, 0.015 * diagPx); return r < 5.5 ? 0 : r; };

@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import tracksJson from './strip/tracks.json';
 import maps from './strip/circuitMaps.json';
 import { EVENTS, freshStrip, STAGE_REP, type StripRecord } from './data';
-import { CIRCUITS, circuitView, eventViews, firstCircuit, fmtTime, menuKey, menuKeydown, startAction, startBar, unitsPerPx, type CircuitMaps, type MenuState } from './raceMenu';
+import { CIRCUITS, circuitView, eventViews, firstCircuit, fmtTime, labelRadiusPx, menuKey, menuKeydown, startAction, startBar, unitsPerPx, type CircuitMaps, type MenuState } from './raceMenu';
 
 const M = maps as unknown as CircuitMaps;
 const rec = (o: Partial<StripRecord> = {}): StripRecord => ({ ...freshStrip(), ...o });
@@ -127,6 +127,12 @@ describe('the race menu: drawing the map', () => {
     expect((b.x1 + b.x2) / 2).toBeCloseTo(0); expect((b.y1 + b.y2) / 2).toBeCloseTo(0);
     const open = startBar([[0, 0], [0, 10], [0, 20]], false, 3);                    // a sprint going north: the bar runs east-west
     expect(open.y1).toBeCloseTo(0); expect(open.y2).toBeCloseTo(0); expect(Math.abs(open.x2 - open.x1)).toBeCloseTo(6);
+  });
+  it('sizes the corner numbers so neighbours never overlap (the data keeps them 3% of the diagonal apart), hiding them when too small to read', () => {
+    expect(labelRadiusPx(1200)).toBe(10);                                            // capped
+    expect(labelRadiusPx(500)).toBeCloseTo(7.5);                                     // 15 px across = 3% of 500 px
+    expect(2 * labelRadiusPx(560)).toBeLessThanOrEqual(0.03 * 560 + 1e-9);
+    expect(labelRadiusPx(300)).toBe(0);                                              // 4.5 px: not drawn
   });
   it('sizes labels in screen pixels by the box side that fits the map (a wide short box is limited by its height)', () => {
     expect(unitsPerPx(1000, 500, 500, 250)).toBeCloseTo(2);

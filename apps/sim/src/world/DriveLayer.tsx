@@ -114,6 +114,7 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
   const session = useDriveUi(s => s.session);
   const eventLive = useDriveUi(s => s.eventLive);
   const help = useDriveUi(s => s.help);
+  const racesOpen = useDriveUi(s => s.racesOpen);
   // Night Tuner's #help: the controls line for 8 s on getting in (and in the pause menu)
   const [helpOn, setHelpOn] = useState(false);
   useEffect(() => { if (!help) return; setHelpOn(true); const t = setTimeout(() => setHelpOn(false), 8000); return () => clearTimeout(t); }, [help]);
@@ -290,8 +291,8 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
             <Btn k="brk" label="Brake" />
             <Btn k="thr" label="Gas" />
           </div>
-          {/* pause, reset and map in a row across the top right, clear of the thumbs */}
-          <div className="fixed flex flex-row gap-3" style={{ top: 'calc(16px + env(safe-area-inset-top, 0px))', right: 'max(16px, calc(env(safe-area-inset-right, 0px) + 8px))', display: touch && driving && !results && !paused ? undefined : 'none' }}>
+          {/* pause, reset, map and races in a row across the top right, clear of the thumbs (hidden under the race menu) */}
+          <div className="fixed flex flex-row gap-3" style={{ top: 'calc(16px + env(safe-area-inset-top, 0px))', right: 'max(16px, calc(env(safe-area-inset-right, 0px) + 8px))', display: touch && driving && !results && !paused && !racesOpen ? undefined : 'none' }}>
             <TapBtn t="pause" label="II" aria="Pause" hidden={district !== 'strip' || mapOpen} />
             <TapBtn t="reset" label="R" aria="Reset the car" hidden={mapOpen} />
             <TapBtn t="map" label="Map" aria="Map" hidden={district !== 'strip' || (eventLive && !mapOpen)} />
