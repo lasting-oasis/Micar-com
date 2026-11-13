@@ -155,6 +155,14 @@ def summary_of(body):
     return {k: v for k, v in s.items() if isinstance(v, (int, float, str, dict)) and not SECRET.search(k)}
 
 
+def check_key():
+    """Stop at once, loudly, when Searlo refuses the key: nothing else can work and the run should show as failed."""
+    s, b, _ = get('/credit/balance')
+    if s in (401, 403):
+        sys.exit(f'Searlo refused the key (HTTP {s}: {b.get("code") if isinstance(b, dict) else b}). Put the current key from the '
+                 'Searlo dashboard in the repo secret SEARCH_API_KEY (Settings > Secrets and variables > Actions), then run again.')
+
+
 def probe():
     print('balance before:', balance())
     for params in ({'make': 'Honda', 'model': 'Civic', 'location': 'Atlanta, GA'}, {'make': 'Toyota', 'model': 'Camry'}):
@@ -229,4 +237,5 @@ def fill():
     print(f'done: {state["searches"]} searches, balance {b} (spent {None if b is None or b0 is None else b0 - b}). {state["stop"]}')
 
 
+check_key()
 probe() if MODE == 'probe' else fill()
