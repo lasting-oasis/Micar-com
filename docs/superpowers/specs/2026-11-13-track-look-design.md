@@ -99,6 +99,34 @@ Three independent reviews on the most capable model led to these changes:
 - **Export without the PC.** On 2026-11-13 the PC was offline. The circuits were exported by Blender 5.3.0 run as a Python module, which carries no Draco bridge. glTF Transform with Google's draco3d 1.5.7 (Blender 5.3's Draco) then compressed them at the same settings, without welding. Against the PC's own export of the previous revision, the json files were byte-identical and the triangles identical. A PC re-export remains the reference.
 - **Sizes and costs.** glb files are 141–187 KB each. A frame draws 78–91 calls and 41k–67k triangles.
 
+## 5c. Polish, after a look at all ten circuits beside the clone's (2026-11-13, branch tracks-polish)
+
+All 33 screenshots of main (fc0d66b) were read beside Slipstream's. What still looked out of place, worst first, and
+what changed:
+
+- **The rubbered line read as burnout marks.** Two black streaks (up to 45% dark) ran down every lap shot. It is now a
+  faint, soft band where the wheels run, at most 20% dark, with no hard line (`draw_textures.rubber`).
+- **The red canopy dominated every start.** It is steel grey (`0x4f545b`), as stand roofs are.
+- **The crowd was coloured sweets.** Spectators are muted shoulders and heads on dark seats, ten to a 4 m row, so the
+  stand reads as a crowd's speckle (`draw_textures.crowd`).
+- **Tyre walls were red and white blocks.** The belt covers the middle third of three stacked tyres; the rest is tyres.
+- **Kerbs beside the grid.** COTA's and Nürburgring's grids sit on 56–75 m bends, so kerbs ran past the grid boxes. No
+  kerb is laid from 60 m behind the line to 20 m past it (`trackside.GRID_CLEAR`, `on_grid`); the other eight circuits
+  had none there. Only those two glb files were re-exported (Blender 5.3 on the PC, through its Draco bridge): their
+  `trk_marks` lost the kerb blocks and nothing else changed. A fresh export of Monaco matched the committed file mesh
+  for mesh.
+  - Decoded and compared triangle by triangle, the other 17 meshes of each file match within 0.1 mm. `trk_marks` lost
+    80 blocks at COTA and 66 at Nürburgring.
+  - Blender's own Draco encoder writes files about 11% bigger than glTF Transform did, at the same settings. The
+    unchanged Monaco grew the same way, 151 to 169 KB.
+  - So `cota.glb` is now 195 KB and `nurburgring.glb` 189 KB. The other eight keep the 141–187 KB of section 5b, and
+    the budget stays at 900 KB.
+- **Colours.** Asphalt darker (tint `0xa4a4a4`, from `0xd6d6d6`), towards the clone's; gravel grey stone, not beige
+  sand; the kerbs' red a shade deeper.
+
+No material was added, so the draw calls are as before. Left as they were: the 4 m run-off and barrier line (the
+physics walls, section 4), the pit building and the flat ground (section 6).
+
 ## 6. Out of scope
 
 Elevation and terrain, city blocks for street circuits, night lighting, a grass shader, real-time shadows, KTX2 texture compression, and the hub's look.

@@ -378,3 +378,13 @@ def test_fences_keep_off_the_road(tid):
             d = side * (e + (0.1 if win else 1.5)); p, t = pts[i % n], T[i % n]
             q = (p[0] - t[1] * d, p[1] + t[0] * d)
             assert min_dist(q, pts) >= lim - 1e-6, (side, i, q)
+
+
+def test_on_grid_window_wraps_the_line():
+    behind, ahead = ts.GRID_CLEAR
+    total = 5000.0
+    assert ts.on_grid(0.0, 1.5, total)
+    assert ts.on_grid(total - 10.0, total - 8.5, total)
+    assert ts.on_grid(total - 1.0, total + 0.5, total)
+    assert not ts.on_grid(ahead + 1.0, ahead + 2.5, total)
+    assert not ts.on_grid(total - behind - 3.0, total - behind - 1.5, total)

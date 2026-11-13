@@ -402,7 +402,8 @@ def scenery(tid, pts, width, seed=11):
                 pa, pb, pc, pd = (a[0], a[1], 0.02), (b[0], b[1], 0.055), (c[0], c[1], 0.055), (d[0], d[1], 0.02)
                 m = 'trk_kerb_red' if q % 2 == 0 else 'trk_kerb_white'
                 mid = ((a[0] + b[0] + c[0] + d[0]) / 4, (a[1] + b[1] + c[1] + d[1]) / 4)
-                if not any(Gc.near(p, width / 2 - 0.05 - KERB_REACH) for p in (a, b, c, d, mid)):   # no fold, no chord
+                if ts.on_grid(s, s1, total): pass                  # the grid has walls either side, not kerbs
+                elif not any(Gc.near(p, width / 2 - 0.05 - KERB_REACH) for p in (a, b, c, d, mid)):   # no fold, no chord
                     if side > 0: B.quad(m, pb, pa, pd, pc)  # left of travel first: faces up
                     else: B.quad(m, pa, pb, pc, pd)
                 q += 1; s = s1

@@ -24,7 +24,10 @@ const views = {
   desktop: { viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 },
   phone: { viewport: { width: 844, height: 390 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true },
 };
-const RACES = [['harbour_gp', 'monaco'], ['figure8_gp', 'suzuka'], ['ardennes_gp', 'spa'], ['royal_gp', 'monza'], ['lagoons_sprint', 'interlagos'], ['drylagoon_x', 'laguna']].filter(([e]) => !ONLY || ONLY.includes(e));
+// every circuit, one lap race each, and Interlagos's sprint through the menu too (ONLY=harbour_gp,... picks some)
+const RACES = [['harbour_gp', 'monaco'], ['figure8_gp', 'suzuka'], ['ardennes_gp', 'spa'], ['royal_gp', 'monza'],
+  ['mountain_gp', 'bathurst'], ['lonestar_gp', 'cota'], ['lagoons_gp', 'interlagos'], ['lagoons_sprint', 'interlagos'],
+  ['drylagoon_x', 'laguna'], ['eifel_gp', 'nurburgring'], ['airfield_gp', 'silverstone']].filter(([e]) => !ONLY || ONLY.includes(e));
 
 async function routeOf(tid, eid) {
   const track = await (await fetch(BASE + 'strip/tracks/' + tid + '.json')).json();

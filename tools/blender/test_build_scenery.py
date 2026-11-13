@@ -227,7 +227,7 @@ def test_no_face_collapses_after_compression(tid):
         assert not bad, (m, len(bad))
 
 
-def test_the_stand_roof_is_a_red_canopy_held_from_the_back():
+def test_the_stand_roof_is_a_canopy_held_from_the_back():
     B = bs.scenery('monza', *load('monza'))
     assert B.parts['trk_canopy'][1] and 'trk_canopy' in bs.PALETTES['trk_solid']
 
@@ -264,3 +264,20 @@ def test_box_faces_keep_their_own_vertices_through_any_encoder(tid):
             key = (round(p[0], 3), round(p[1], 3), round(p[2], 3), round(t[0], 5), round(t[1], 5))
             assert key not in seen, (g, key)
             seen.add(key)
+
+
+@pytest.mark.parametrize('tid', IDS)
+def test_no_kerbs_beside_the_grid(tid):
+    """No kerb runs beside the grid and the start line (COTA's grid sits on a gentle bend): a kerb block's centre is
+    never within width/2 + 2 m of a centreline point from GRID_CLEAR[0] m behind the line to GRID_CLEAR[1] m past it,
+    less the 1.5 m of one block at each end."""
+    pts, w = load(tid); n = len(pts)
+    cum, total = bs.cumulative(pts, True)
+    behind, ahead = bs.trackside.GRID_CLEAR
+    near = [pts[i] for i in range(n) if cum[i] <= ahead - 1.5 or cum[i] >= total - behind + 1.5]
+    B = bs.scenery(tid, pts, w)
+    for m in ('trk_kerb_red', 'trk_kerb_white'):
+        v, f, uv = B.parts.get(m, ([], [], []))
+        for face in f:
+            cx = sum(v[k][0] for k in face) / len(face); cy = sum(v[k][1] for k in face) / len(face)
+            assert all(math.hypot(cx - x, cy - y) > w / 2 + 2.0 for x, y in near), (tid, m, round(cx, 1), round(cy, 1))
