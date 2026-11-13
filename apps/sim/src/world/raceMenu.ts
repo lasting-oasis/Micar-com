@@ -104,3 +104,28 @@ export function startAction(ev: EventDef, rec: StripRecord, canDrive: boolean): 
   if (locked(ev, rec)) return 'locked';
   return canDrive ? 'start' : 'needCar';
 }
+
+const BY_KEY: Record<string, MenuKey> = { ArrowLeft: 'left', ArrowRight: 'right', ArrowUp: 'up', ArrowDown: 'down', Enter: 'enter', Escape: 'back', Backspace: 'back' };
+const BY_CODE: Record<string, MenuKey> = { KeyA: 'left', KeyD: 'right', KeyW: 'up', KeyS: 'down' };
+/** A keydown while the menu is open. The menu is modal: no keydown but T (the game's key, which closes it) reaches
+ *  the game (`stop`); its own keys skip the browser's default too (`prevent`). `down` holds the keys pressed since
+ *  it opened: a repeat counts only for one of them (a steering key held while opening must not spin the cards), and
+ *  Enter and Esc never repeat. Keyups are not the menu's: they reach the game, so a key held when it opened is let go. */
+export function menuKeydown(e: { key: string; code: string; repeat: boolean }, down: Set<string>): { stop: boolean; prevent: boolean; key?: MenuKey } {
+  if (e.code === 'KeyT') return { stop: false, prevent: false };
+  const k = BY_KEY[e.key] ?? BY_CODE[e.code];
+  if (!k) return { stop: true, prevent: false };
+  if (e.repeat) { if (k === 'enter' || k === 'back' || !down.has(e.code)) return { stop: true, prevent: true }; }
+  else down.add(e.code);
+  return { stop: true, prevent: true, key: k };
+}
+
+/** A bar across a line at its first point (the start line), `half` long each side; a loop's line runs in from its last point. */
+export function startBar(P: [number, number][], loop: boolean, half: number): { x1: number; y1: number; x2: number; y2: number } {
+  const a = loop ? P[P.length - 1] : P[0], b = P[1], tx = b[0] - a[0], tz = b[1] - a[1], l = Math.hypot(tx, tz) || 1;
+  return { x1: P[0][0] - (tz / l) * half, y1: P[0][1] + (tx / l) * half, x2: P[0][0] + (tz / l) * half, y2: P[0][1] - (tx / l) * half };
+}
+
+/** Map units per screen pixel for a vw x vh view fitted ("meet") into a bw x bh box: the tighter side decides.
+ *  Before the box is measured, a 600 px map is assumed. */
+export const unitsPerPx = (vw: number, vh: number, bw: number, bh: number): number => bw > 0 && bh > 0 ? Math.max(vw / bw, vh / bh) : Math.max(vw, vh) / 600;

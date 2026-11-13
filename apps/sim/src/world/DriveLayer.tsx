@@ -15,6 +15,7 @@ import { useLang, t } from '../i18n';
 import { TouchSticks } from './TouchSticks';
 import { getOptions } from './options';
 import { ChallengeButton, ChallengeSetup, StagingLine, WaitingRoom } from '../strip/Challenge';
+import { RaceMenu } from './RaceMenu';
 
 const tap = (t: DriveTap) => useDriveUi.setState({ tap: t });
 // App's phone layout (its isMobile): the D-pad drives (its ◀ ▶ taps change a drag's lane), these add
@@ -294,11 +295,13 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
             <TapBtn t="pause" label="II" aria="Pause" hidden={district !== 'strip' || mapOpen} />
             <TapBtn t="reset" label="R" aria="Reset the car" hidden={mapOpen} />
             <TapBtn t="map" label="Map" aria="Map" hidden={district !== 'strip' || (eventLive && !mapOpen)} />
+            <TapBtn t="races" label="Race" aria="Races" hidden={district !== 'strip' || eventLive || mapOpen} />
             <TapBtn t="enter" label="GPS" aria="Set GPS" hidden={!mapOpen} />
           </div>
         </div>, document.body)}
       <AccountPanel />
       <ReplacePrompt />
+      <RaceMenu />
     </>
   );
 });

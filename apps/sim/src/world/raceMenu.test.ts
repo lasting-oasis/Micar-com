@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import tracksJson from './strip/tracks.json';
 import maps from './strip/circuitMaps.json';
 import { EVENTS, freshStrip, STAGE_REP, type StripRecord } from './data';
-import { CIRCUITS, circuitView, eventViews, firstCircuit, fmtTime, menuKey, startAction, type CircuitMaps, type MenuState } from './raceMenu';
+import { CIRCUITS, circuitView, eventViews, firstCircuit, fmtTime, menuKey, menuKeydown, startAction, startBar, unitsPerPx, type CircuitMaps, type MenuState } from './raceMenu';
 
 const M = maps as unknown as CircuitMaps;
 const rec = (o: Partial<StripRecord> = {}): StripRecord => ({ ...freshStrip(), ...o });
@@ -90,5 +90,48 @@ describe('the race menu: keys', () => {
     expect(at(s0, 'enter', 'right', 'enter')).toBe('start:' + evs[(ev.event + 1) % evs.length].id);
     expect(at(s0, 'enter', 'back')).toEqual({ step: 'circuit', circuit: 0, event: 0 });
     expect(at(s0, 'back')).toBe('close');
+  });
+});
+
+describe('the race menu: the keyboard while it is open', () => {
+  const kd = (key: string, code: string, repeat = false) => ({ key, code, repeat });
+  it('lets T through to the game (it closes the menu) and keeps every other key from the game', () => {
+    const down = new Set<string>();
+    expect(menuKeydown(kd('t', 'KeyT'), down)).toEqual({ stop: false, prevent: false });
+    expect(menuKeydown(kd('e', 'KeyE'), down)).toEqual({ stop: true, prevent: false });      // E would leave the car
+    expect(menuKeydown(kd('m', 'KeyM'), down)).toEqual({ stop: true, prevent: false });
+    expect(menuKeydown(kd('Shift', 'ShiftLeft'), down)).toEqual({ stop: true, prevent: false });
+  });
+  it('reads the arrows, WASD, Enter, Esc and Backspace as the menu keys', () => {
+    const k = (key: string, code: string) => menuKeydown(kd(key, code), new Set()).key;
+    expect([k('ArrowLeft', 'ArrowLeft'), k('ArrowRight', 'ArrowRight'), k('ArrowUp', 'ArrowUp'), k('ArrowDown', 'ArrowDown')]).toEqual(['left', 'right', 'up', 'down']);
+    expect([k('a', 'KeyA'), k('d', 'KeyD'), k('w', 'KeyW'), k('s', 'KeyS')]).toEqual(['left', 'right', 'up', 'down']);
+    expect([k('Enter', 'Enter'), k('Enter', 'NumpadEnter'), k('Escape', 'Escape'), k('Backspace', 'Backspace')]).toEqual(['enter', 'enter', 'back', 'back']);
+    expect(menuKeydown(kd('ArrowLeft', 'ArrowLeft'), new Set())).toMatchObject({ stop: true, prevent: true });
+  });
+  it('ignores the repeats of a key held down before it opened, and never repeats Enter or Esc', () => {
+    const down = new Set<string>();
+    expect(menuKeydown(kd('ArrowLeft', 'ArrowLeft', true), down).key).toBeUndefined();   // steering held while opening
+    expect(menuKeydown(kd('ArrowRight', 'ArrowRight'), down).key).toBe('right');
+    expect(menuKeydown(kd('ArrowRight', 'ArrowRight', true), down).key).toBe('right');   // held here: it scrolls
+    expect(menuKeydown(kd('Enter', 'Enter'), down).key).toBe('enter');
+    expect(menuKeydown(kd('Enter', 'Enter', true), down)).toEqual({ stop: true, prevent: true });  // a held Enter starts nothing
+    expect(menuKeydown(kd('Escape', 'Escape', true), down).key).toBeUndefined();
+  });
+});
+
+describe('the race menu: drawing the map', () => {
+  it('puts the start bar across the line at its first point, half its length each side', () => {
+    const b = startBar([[0, 0], [10, 0], [10, 10], [0, 10]], true, 5);           // a loop: the line runs along x at its start
+    expect(Math.hypot(b.x2 - b.x1, b.y2 - b.y1)).toBeCloseTo(10);
+    expect((b.x1 + b.x2) / 2).toBeCloseTo(0); expect((b.y1 + b.y2) / 2).toBeCloseTo(0);
+    const open = startBar([[0, 0], [0, 10], [0, 20]], false, 3);                    // a sprint going north: the bar runs east-west
+    expect(open.y1).toBeCloseTo(0); expect(open.y2).toBeCloseTo(0); expect(Math.abs(open.x2 - open.x1)).toBeCloseTo(6);
+  });
+  it('sizes labels in screen pixels by the box side that fits the map (a wide short box is limited by its height)', () => {
+    expect(unitsPerPx(1000, 500, 500, 250)).toBeCloseTo(2);
+    expect(unitsPerPx(1000, 500, 2000, 250)).toBeCloseTo(2);                         // height-bound: 500 units over 250 px
+    expect(unitsPerPx(1000, 500, 250, 1000)).toBeCloseTo(4);                         // width-bound
+    expect(unitsPerPx(1000, 500, 0, 0)).toBeGreaterThan(0);                          // not measured yet
   });
 });

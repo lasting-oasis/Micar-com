@@ -716,7 +716,7 @@ export function VanillaThreeScene() {
                 resultsShown = true;
                 if (challenge) { showChallengeCard(); return; } // the card is the room's: it fills in as the others come home
                 socketEmit('finish_event', { eventId: r.ev.id, pos: r.pos, time: r.time, score: r.score, failed: !!r.failed });
-                lastRun = { id: r.ev.id, quick: !!strip?.runner.active?.quick };
+                lastRun = { id: r.ev.id, quick: !!strip?.runner.active?.quick }; useDriveUi.setState({ lastEvent: r.ev.id });
                 useDriveUi.setState({ results: shownResults(r, getLang()), reward: null });
             },
             // a restart keeps a rental for the entry that follows (the server returns it on a plain quit)
@@ -1082,7 +1082,16 @@ export function VanillaThreeScene() {
             im.poll();
             const E = im.edge, tapped = useDriveUi.getState().tap;
             if (tapped) useDriveUi.setState({ tap: null });
-            const frozen = garageOpen || paused || resultsShown || !!S?.mapOpen;
+            // the race menu (T, or its tap button): opens where a race could start, holds the car while it is open
+            const racesK = E.races || tapped === 'races';
+            if (racesK) {
+                const u = useDriveUi.getState();
+                if (u.racesOpen) useDriveUi.setState({ racesOpen: false });
+                else if (!garageOpen && !paused && !resultsShown && !S?.mapOpen && !S?.runner.active && !S?.outrun && !u.netRace && !u.counter && !u.challenge
+                    && !useGameStore.getState().race && (district === 'strip' || !!driver)) useDriveUi.setState({ racesOpen: true });
+            }
+            const racesOpen = useDriveUi.getState().racesOpen;
+            const frozen = garageOpen || paused || resultsShown || !!S?.mapOpen || racesOpen;
             let I: Input = NO_INPUT;
             if (!frozen) { I = im.build(); legacyInput(I); }
             if (E.camera) chase.cycle();
@@ -1090,9 +1099,9 @@ export function VanillaThreeScene() {
             if (E.lights) V.lights = !V.lights;
             if (E.drift && !frozen) { driftMode = !driftMode; say(driftMode ? 'Drift mode' : 'Grip mode'); }
             chase.lookBack = !!im.keys.look && !frozen;
-            const enter = E.enter || tapped === 'enter';
+            const enter = (E.enter || tapped === 'enter') && !racesOpen;
             // the phone's buttons (DriveLayer): the same as Esc, M and R
-            const pauseK = E.pause || tapped === 'pause', mapK = E.map || tapped === 'map', resetK = E.reset || tapped === 'reset';
+            const pauseK = (E.pause || tapped === 'pause') && !racesOpen, mapK = (E.map || tapped === 'map') && !racesOpen, resetK = (E.reset || tapped === 'reset') && !racesOpen;
             let prompt = '', leave = false;
             if (S) {
                 const a = S.runner.active, free = !a && !S.outrun;
@@ -1135,7 +1144,7 @@ export function VanillaThreeScene() {
             backspaceTap = false;
 
             // ---- physics
-            const inStrip = district === 'strip' && !!strip, halt = paused || (inStrip && strip!.mapOpen);
+            const inStrip = district === 'strip' && !!strip, halt = paused || (inStrip && strip!.mapOpen) || useDriveUi.getState().racesOpen;
             // simDt: the time the physics actually ran this frame (≤ 0.05 s, 0 when halted); the Strip's AI and
             // events, the wheels and the camera run on it, so nothing outpaces the player on a slow frame
             let impact = 0, simDt = 0;
