@@ -138,8 +138,9 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
     const measure = () => {
       const e = document.querySelector('[data-car-panel]');
       if (e !== el) { ro?.disconnect(); el = e; if (e && typeof ResizeObserver !== 'undefined') { ro = new ResizeObserver(measure); ro.observe(e); } }
-      const v = e ? Math.max(0, Math.round(e.getBoundingClientRect().bottom - 8)) : 0;
-      if (v !== useDriveUi.getState().topInset) useDriveUi.setState({ topInset: v });
+      const b = e?.getBoundingClientRect(), v = b ? Math.max(0, Math.round(b.bottom - 8)) : 0, l = b ? Math.round(b.left) : 0, r = b ? Math.round(b.right) : 0;
+      const u = useDriveUi.getState();
+      if (v !== u.topInset || l !== u.topPanelL || r !== u.topPanelR) useDriveUi.setState({ topInset: v, topPanelL: l, topPanelR: r });
     };
     measure();
     const iv = setInterval(measure, 500);

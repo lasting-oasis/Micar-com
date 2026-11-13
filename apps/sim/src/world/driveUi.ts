@@ -41,6 +41,9 @@ type DriveUi = {
   mapOpen: boolean;
   /** px from the top the HUD's arrow clears: the bottom of App's car panel (DriveLayer measures it) */
   topInset: number;
+  /** the car panel's left and right edges (page px), 0 when not measured */
+  topPanelL: number;
+  topPanelR: number;
   /** bumped on getting into a car: the help line shows for a few seconds */
   help: number;
   nos: boolean;
@@ -68,7 +71,7 @@ type DriveUi = {
 };
 
 export const useDriveUi = create<DriveUi>(set => ({
-  district: 'town', driving: false, session: null, prompt: '', banner: null, results: null, reward: null, paused: false, eventLive: false, gears: false, mapOpen: false, topInset: 0, help: 0, nos: false, tap: null, quick: null, driveCar: null, lobby: false, counter: false, account: false, returned: null, challenge: false, netRace: false, staging: false,
+  district: 'town', driving: false, session: null, prompt: '', banner: null, results: null, reward: null, paused: false, eventLive: false, gears: false, mapOpen: false, topInset: 0, topPanelL: 0, topPanelR: 0, help: 0, nos: false, tap: null, quick: null, driveCar: null, lobby: false, counter: false, account: false, returned: null, challenge: false, netRace: false, staging: false,
   set: p => set(p),
 }));
 

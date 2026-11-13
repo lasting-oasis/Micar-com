@@ -12,10 +12,10 @@ import { fmtT, kmhOf, spdNum, spdUnit, type HudState } from './hud';
 import { usesLights } from './strip/lights';
 import { SECTORS, type SectorMark } from './strip/timing';
 
-export type HudTxt = { lap: string; leader: string; last: string; best: string; sprint: string; nitrous: string; boost: string; you: string; lapDown: string };
+export type HudTxt = { lap: string; leader: string; last: string; best: string; sprint: string; nitrous: string; boost: string; you: string; lapDown: string; lapsDown: string };
 export const HUD_TXT: Record<'en' | 'es', HudTxt> = {
-  en: { lap: 'LAP', leader: 'LEADER', last: 'LAST', best: 'BEST', sprint: 'SPRINT', nitrous: 'NITROUS', boost: 'BOOST', you: 'YOU', lapDown: 'LAP' },
-  es: { lap: 'VUELTA', leader: 'LÍDER', last: 'ÚLTIMA', best: 'MEJOR', sprint: 'SPRINT', nitrous: 'NITRO', boost: 'TURBO', you: 'TÚ', lapDown: 'VUELTA' },
+  en: { lap: 'LAP', leader: 'LEADER', last: 'LAST', best: 'BEST', sprint: 'SPRINT', nitrous: 'NITROUS', boost: 'BOOST', you: 'YOU', lapDown: 'LAP', lapsDown: 'LAPS' },
+  es: { lap: 'VUELTA', leader: 'LÍDER', last: 'ÚLTIMA', best: 'MEJOR', sprint: 'SPRINT', nitrous: 'NITRO', boost: 'TURBO', you: 'TÚ', lapDown: 'VUELTA', lapsDown: 'VUELTAS' },
 };
 export type TowerRow = { pos: number; name: string; color: string; me: boolean; gap: string };
 export type RaceView = {
@@ -28,9 +28,9 @@ const INK = '#e7eaee', HAZE = '#9aa3ad', ACCENT = '#ffd23f', ACCENT_HI = '#fff1b
 const DF = "'Barlow Condensed','Arial Narrow',sans-serif", UF = "'Barlow',sans-serif";
 const DONE_COL: Record<SectorMark, string> = { open: ACCENT, plain: ACCENT, pb: GREEN, best: PURPLE };
 
-/** '+1.2' seconds, '+1 LAP' a lap or more down, '' when not known (or not behind). */
+/** '+1.2' seconds, '+1 LAP' / '+2 LAPS' a lap or more down, '' when not known (or not behind). */
 export function gapText(g: number | null | undefined, lapsDown: number, t: HudTxt): string {
-  if (lapsDown >= 1) return '+' + lapsDown + ' ' + t.lapDown;
+  if (lapsDown >= 1) return '+' + lapsDown + ' ' + (lapsDown >= 2 ? t.lapsDown : t.lapDown);
   if (g == null || !Number.isFinite(g) || g <= 0) return '';
   return '+' + g.toFixed(1);
 }
@@ -68,10 +68,23 @@ export type Box = { x: number; y: number; w: number; h: number };
 /** What the race HUD has to fit around, in HUD-canvas pixels: inset is the car panel's bottom edge (0 when it is not
  *  showing); (cx, cy) is where the dash centres (the gauge cluster's place); leftTop / rightTop are where the touch
  *  controls begin at each bottom corner (H when there are none). */
-export type RaceLayoutIn = { W: number; H: number; insT: number; insB: number; inset: number; small: boolean; rows: number; laps: boolean; cx: number; cy: number; leftTop: number; rightTop: number };
-/** Where each part goes. arrow is the checkpoint arrow's centre, ly its label's baseline; cueIn: the arrow rides in the
- *  timer's first row with just the distance (a phone); map is null when it has no room. */
-export type RaceLayout = { tower: Box; rowH: number; nameCh: number; timer: Box; lights: Box; dash: Box; card: Box | null; arrow: { x: number; y: number; ly: number }; cueIn: boolean; map: { cx: number; cy: number; r: number } | null };
+/** colL / colR: the touch controls' column widths (0 without them); panelL / panelR: the car panel's left and right
+ *  edges (it sits at the top centre, down to `inset`). */
+export type RaceLayoutIn = { W: number; H: number; insT: number; insB: number; inset: number; small: boolean; rows: number; laps: boolean; cx: number; cy: number; leftTop: number; rightTop: number; colL?: number; colR?: number; panelL?: number; panelR?: number };
+/** Where each part goes. tower is null when not even one row fits; rowsShown: how many of its rows (the top ones and
+ *  the player: towerRows); compact: the timer without its LAST / BEST rows. arrow is the checkpoint arrow's centre, ly
+ *  its label's baseline; cueIn: the arrow rides in the timer's first row with just the distance (a phone); map is null
+ *  when it has no room. */
+export type RaceLayout = { tower: Box | null; rowH: number; rowsShown: number; nameCh: number; timer: Box; compact: boolean; lights: Box; dash: Box; card: Box | null; arrow: { x: number; y: number; ly: number }; cueIn: boolean; map: { cx: number; cy: number; r: number } | null };
+
+const hitBox = (a: Box, b: Box) => a.x < b.x + b.w && b.x < a.x + a.w && a.y < b.y + b.h && b.y < a.y + a.h;
+const grow = (b: Box, d: number): Box => ({ x: b.x - d, y: b.y - d, w: b.w + 2 * d, h: b.h + 2 * d });
+/** The tower's rows when only n fit: the top ones, the last of them given up to the player if the player is further back. */
+export function towerRows<T extends { me?: boolean }>(rows: T[], n: number): T[] {
+  if (rows.length <= n) return rows;
+  const top = rows.slice(0, n), me = rows.findIndex(r => r.me);
+  return me < n || me < 0 ? top : [...rows.slice(0, n - 1), rows[me]];
+}
 
 /**
  * Lay the race HUD out. A desktop keeps the corners (tower top left, timer top right, map bottom left, car card bottom
@@ -90,26 +103,61 @@ export function raceLayout(o: RaceLayoutIn): RaceLayout {
   if (!small) {
     const ay = below + 22;
     return {
-      tower: { x: pad, y: top, w: 270, h: hh + 26 * rows + 4 }, rowH: 26, nameCh: 14,
-      timer: { x: W - pad - lw, y: top, w: lw, h: lh }, lights: { x: W / 2 - gw / 2, y: below, w: gw, h: gh }, dash,
+      tower: { x: pad, y: top, w: 270, h: hh + 26 * rows + 4 }, rowH: 26, rowsShown: rows, nameCh: 14,
+      timer: { x: W - pad - lw, y: top, w: lw, h: lh }, compact: false, lights: { x: W / 2 - gw / 2, y: below, w: gw, h: gh }, dash,
       card: { x: W - pad - 220, y: H - 34 - o.insB - 80, w: 220, h: 80 },
       arrow: { x: W / 2, y: ay, ly: ay + 24 }, cueIn: false, map: { cx: 84 + pad, cy: H - 84 - pad - o.insB, r: 84 },
     };
   }
-  const wide = W >= 560, tw = wide ? 196 : clamp(W - 2 * pad - lw - 8, 150, 196), ty = wide ? top : below;
-  let floor = o.leftTop; // the left controls are always under the tower; so is the dash when it shares its columns
-  if (dash.x < pad + tw && dash.y > ty) floor = Math.min(floor, dash.y);
-  const rowH = clamp(Math.floor((floor - gap - ty - hh - 4) / rows), 14, 20);
-  const tower = { x: pad, y: ty, w: tw, h: hh + rowH * rows + 4 }, nameCh = clamp(Math.floor((tw - 92) / 6.5), 6, 14);
-  const timer = wide ? { x: W / 2 - lw / 2, y: below, w: lw, h: lh } : { x: W - pad - lw, y: below, w: lw, h: lh };
+  const wide = W >= 560, colL = o.colL ?? 168, colR = o.colR ?? 168, panelL = o.panelL ?? W / 2 - 80, panelR = o.panelR ?? W / 2 + 80;
+  // the dash keeps clear of the right controls: narrower if it can stay 170 px wide, else lifted above them
+  const rightCol: Box = { x: W - colR, y: o.rightTop, w: colR, h: H - o.rightTop };
+  let d: Box = dash;
+  if (colR > 0 && hitBox(d, grow(rightCol, gap))) {
+    const w2 = W - colR - gap - d.x;
+    d = w2 >= 170 ? { ...d, w: Math.min(dw, w2) } : { ...d, y: Math.max(8, o.rightTop - gap - dh) };
+  }
+  // the tower: the top left corner in landscape (narrowed, else moved under the car panel, when the panel reaches it);
+  // in portrait it shares the row under the panel with the timer, or stacks over it when the two cannot share a row
+  let tw = wide ? 196 : clamp(W - 2 * pad - lw - 8, 150, 196), ty = wide ? top : below;
+  const tl = wide ? lw : clamp(W - 2 * pad - tw - 8, 150, lw), stack = !wide && W - 2 * pad - 8 < 300;
+  if (stack) tw = Math.min(196, W - 2 * pad);
+  if (wide && panelL < pad + tw + gap) { if (panelL - gap - pad >= 150) tw = panelL - gap - pad; else ty = below; }
+  // rows that fit over the left controls (and over the dash when it shares the tower's columns), 14 to 20 px each
+  const fit = (tx: number, ty: number, under: number) => {
+    let floor = under;
+    if (d.x < tx + tw && d.x + d.w > tx && d.y > ty) floor = Math.min(floor, d.y);
+    const room = floor - gap - ty - hh - 4, n = clamp(Math.floor(room / 14), 0, rows);
+    return { tx, ty, n, rowH: n ? clamp(Math.floor(room / n), 14, 20) : 14 };
+  };
+  let f = fit(pad, ty, o.leftTop);
+  // a short landscape screen whose left controls reach the top: the tower stands right of them instead
+  if (wide && f.n < 2 && colL > 0) {
+    const tx = colL + gap, t2 = panelL < tx + tw + gap && panelR > tx ? below : top, g = fit(tx, t2, H - 8 - o.insB);
+    if (g.n > f.n) f = g;
+  }
+  const { rowH } = f, rowsShown = f.n;
+  const tower = rowsShown ? { x: f.tx, y: f.ty, w: tw, h: hh + rowH * rowsShown + 4 } : null, nameCh = clamp(Math.floor((tw - 92) / 6.5), 6, 14);
+  // beside the tower (pushed right of it when they would meet), dropping its LAST / BEST rows before it meets the dash
+  const beside = (y: number, w: number, h: number): Box => {
+    let x = wide ? W / 2 - w / 2 : W - pad - w;
+    if (tower && wide && y < tower.y + tower.h + gap && x < tower.x + tower.w + gap) x = tower.x + tower.w + gap;
+    return { x, y, w, h };
+  };
+  const ty2 = stack && tower ? tower.y + tower.h + gap : below;
+  let timer = beside(ty2, tl, lh), compact = false;
+  if (o.laps && hitBox(timer, grow(d, gap))) { timer = beside(ty2, tl, small ? 50 : 66); compact = true; }
+  const lights = beside(ty2, Math.max(gw, 0), gh);
   const arrow = { x: timer.x + 22, y: timer.y + 18, ly: timer.y + 21 };
   if (wide) {
-    const r = Math.min(56, Math.floor((o.rightTop - top - gap) / 2));
-    return { tower, rowH, nameCh, timer, lights: { x: W / 2 - gw / 2, y: below, w: gw, h: gh }, dash, card: null, arrow, cueIn: true, map: r >= 28 ? { cx: W - pad - r, cy: top + r, r } : null };
+    let r = Math.min(56, Math.floor((o.rightTop - top - gap) / 2));
+    const mapBox = (r: number): Box => ({ x: W - pad - 2 * r, y: top, w: 2 * r, h: 2 * r });
+    while (r >= 28 && [timer, lights, { x: panelL, y: 0, w: panelR - panelL, h: o.inset }].some(b => hitBox(mapBox(r), grow(b, gap / 2)))) r -= 4;
+    return { tower, rowH, rowsShown, nameCh, timer, compact, lights, dash: d, card: null, arrow, cueIn: true, map: r >= 28 ? { cx: W - pad - r, cy: top + r, r } : null };
   }
-  const r = 56, my = timer.y + lh + gap + 2 + r;
+  const r = 56, my = timer.y + timer.h + gap + 2 + r;
   return {
-    tower, rowH, nameCh, timer, lights: { x: timer.x + (lw - gw) / 2, y: below, w: gw, h: gh }, dash, card: null,
+    tower, rowH, rowsShown, nameCh, timer, compact, lights: { x: timer.x + (tl - gw) / 2, y: timer.y, w: gw, h: gh }, dash: d, card: null,
     arrow, cueIn: true, map: my + r <= o.rightTop - gap ? { cx: W - pad - r, cy: my, r } : null,
   };
 }
@@ -118,11 +166,12 @@ export function drawRaceHud(hx: CanvasRenderingContext2D, v: RaceView, s: HudSta
   const small = s.small, t = HUD_TXT[s.lang ?? 'en'];
   hx.save(); hx.textBaseline = 'middle';
 
-  /* the timing tower */
+  /* the timing tower: the rows that fit (the top ones and the player) */
+  if (L.tower) {
   const { x: px, y: top, w: tw } = L.tower, rh = L.rowH, hh = small ? 24 : 32, inner = rh - (rh < 18 ? 4 : 8);
   panel(hx, px, top, tw, L.tower.h);
   hx.fillStyle = INK; hx.font = `italic 900 ${small ? 16 : 22}px ${DF}`; hx.textAlign = 'left'; hx.fillText(v.title, px + 10, top + hh / 2 + 1);
-  v.rows.forEach((r, i) => {
+  towerRows(v.rows, L.rowsShown).forEach((r, i) => {
     const y = top + hh + i * rh, mid = y + rh / 2;
     if (r.me) { hx.fillStyle = ACCENT; hx.fillRect(px + 1, y, tw - 2, rh); }
     hx.fillStyle = r.me ? NIGHT : INK; hx.font = `italic 800 ${small ? 13 : 16}px ${DF}`; hx.textAlign = 'right'; hx.fillText(String(r.pos), px + (small ? 22 : 28), mid);
@@ -130,6 +179,7 @@ export function drawRaceHud(hx: CanvasRenderingContext2D, v: RaceView, s: HudSta
     hx.fillStyle = r.me ? NIGHT : INK; hx.font = `700 ${small ? 11 : 14}px ${UF}`; hx.textAlign = 'left'; hx.fillText(r.name.toUpperCase().slice(0, L.nameCh), px + (small ? 38 : 48), mid);
     hx.fillStyle = r.me ? NIGHT : HAZE; hx.font = `italic 700 ${small ? 12 : 15}px ${DF}`; hx.textAlign = 'right'; hx.fillText(r.gap, px + tw - 10, mid);
   });
+  }
 
   /* the five start lights */
   if (v.counting) {
@@ -148,7 +198,7 @@ export function drawRaceHud(hx: CanvasRenderingContext2D, v: RaceView, s: HudSta
     hx.fillStyle = INK; hx.textAlign = 'right'; hx.font = `italic 900 ${small ? 24 : 34}px ${DF}`; hx.fillText(v.lapTime, x0 + lw - 10, y0 + (small ? 16 : 22));
     const bw = (lw - 28) / 3, by = y0 + (small ? 32 : 44);
     v.sectors.forEach((sec, i) => bar(hx, x0 + 10 + i * (bw + 4), by, bw, 5, sec.fill, sec.fill >= 1 ? DONE_COL[sec.mark] : ACCENT));
-    if (v.laps) {
+    if (v.laps && !L.compact) {
       const r1 = by + (small ? 17 : 23), r2 = r1 + (small ? 16 : 20);
       hx.font = `700 ${small ? 10 : 11}px ${UF}`; hx.fillStyle = HAZE; hx.textAlign = 'left'; hx.fillText(t.last, x0 + 10, r1); hx.fillText(t.best, x0 + 10, r2);
       hx.font = `italic 800 ${small ? 13 : 16}px ${DF}`; hx.textAlign = 'right'; hx.fillStyle = INK; hx.fillText(v.last, x0 + lw - 10, r1); hx.fillStyle = BLUE; hx.fillText(v.best, x0 + lw - 10, r2);

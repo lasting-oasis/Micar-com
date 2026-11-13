@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { HUD_TXT, gapText, raceLayout, raceView, type Box } from './raceHud';
+import { HUD_TXT, gapText, raceLayout, raceView, towerRows, type Box } from './raceHud';
 import type { HudState } from './hud';
 import { carParams, makeVehicle } from './physics';
 import { ARCHETYPES, STOCK_CFG, TUNE_DEF } from './data';
@@ -38,6 +38,8 @@ describe('race HUD view', () => {
     expect(gapText(NaN, 0, en)).toBe('');
     expect(gapText(Infinity, 0, en)).toBe('');
     expect(gapText(5, 1, en)).toBe('+1 LAP');
+    expect(gapText(5, 2, en)).toBe('+2 LAPS');
+    expect(gapText(5, 2, HUD_TXT.es)).toBe('+2 VUELTAS');
   });
 
   it('the leader reads LEADER, in Spanish LÍDER', () => {
@@ -74,7 +76,8 @@ describe('race HUD layout on a phone', () => {
   // (each a 168 px column at a bottom corner, starting at leftTop / rightTop)
   const clashes = (l: L, W: number, H: number, panelB: number, leftTop: number, rightTop: number, counting = false) => {
     const cue: Box = { x: l.arrow.x - 72, y: l.arrow.y - 16, w: 144, h: l.arrow.ly + 4 - (l.arrow.y - 16) };
-    const parts: [string, Box][] = [['tower', l.tower], [counting ? 'lights' : 'timer', counting ? l.lights : l.timer], ['dash', l.dash]];
+    const parts: [string, Box][] = [[counting ? 'lights' : 'timer', counting ? l.lights : l.timer], ['dash', l.dash]];
+    if (l.tower) parts.unshift(['tower', l.tower]);
     if (!counting && !l.cueIn) parts.push(['arrow', cue]); // on a phone the arrow rides in the timer's first row
     if (l.map) parts.push(['map', { x: l.map.cx - l.map.r, y: l.map.cy - l.map.r, w: l.map.r * 2, h: l.map.r * 2 }]);
     const fixed: [string, Box][] = [['car panel', { x: W / 2 - 80, y: 0, w: 160, h: panelB }],
@@ -124,7 +127,7 @@ describe('race HUD layout on a phone', () => {
     const l = raceLayout(port);
     expect(clashes(l, 390, 780, 36, 616, 548)).toEqual([]);
     expect(clashes(l, 390, 780, 36, 616, 548, true)).toEqual([]);
-    expect(l.tower.y).toBeGreaterThanOrEqual(36);
+    expect(l.tower!.y).toBeGreaterThanOrEqual(36);
     expect(l.map).not.toBeNull();
     expect(l.map!.cy - l.map!.r).toBeGreaterThanOrEqual(l.timer.y + l.timer.h);
   });
@@ -139,3 +142,53 @@ describe('race HUD layout on a phone', () => {
   });
 });
 
+describe('race HUD layout across real phones', () => {
+  // What hud.ts gives raceLayout on a phone, from the page size: the HUD canvas starts 64 px down the page; the car
+  // panel is at the top centre (a 120 px fuel pill whose bottom is 36 px down the canvas, or the open 256 px card, 80);
+  // the touch controls are 168 px columns at the bottom corners (sticks 140 px with NOS / DRIFT or the gear taps above
+  // them, or the old buttons); the dash sits where hud.ts puts the dial.
+  const hit = (a: Box, b: Box) => a.x < b.x + b.w && b.x < a.x + a.w && a.y < b.y + b.h && b.y < a.y + a.h;
+  const setup = (pageW: number, pageH: number, sticks: boolean, gears: boolean, open: boolean) => {
+    const W = pageW, H = pageH - 64, ctlL = sticks ? 164 + (gears ? 60 : 0) : 92, ctlR = sticks ? 232 : gears ? 248 : 170;
+    const between = sticks && W >= 560, R = 56;
+    const cx = between ? W / 2 : R + 16, cy = H - R - (between ? 22 : sticks ? (gears ? 248 : 184) : 108);
+    const pw = open ? 256 : 120, inset = open ? 80 : 36;
+    const input = { W, H, insT: 0, insB: 0, inset, small: true, rows: 4, laps: true, cx, cy, leftTop: H - ctlL, rightTop: H - ctlR,
+      colL: 168, colR: 168, panelL: W / 2 - pw / 2, panelR: W / 2 + pw / 2 };
+    const fixed: [string, Box][] = [['car panel', { x: W / 2 - pw / 2, y: 0, w: pw, h: inset }],
+      ['left controls', { x: 0, y: H - ctlL, w: 168, h: ctlL }], ['right controls', { x: W - 168, y: H - ctlR, w: 168, h: ctlR }]];
+    return { W, H, input, fixed };
+  };
+  const clashes = (W: number, H: number, l: ReturnType<typeof raceLayout>, fixed: [string, Box][], counting: boolean) => {
+    const parts: [string, Box][] = [['dash', l.dash], [counting ? 'lights' : 'timer', counting ? l.lights : l.timer]];
+    if (l.tower) parts.push(['tower', l.tower]);
+    if (l.map) parts.push(['map', { x: l.map.cx - l.map.r, y: l.map.cy - l.map.r, w: l.map.r * 2, h: l.map.r * 2 }]);
+    const out: string[] = [];
+    parts.forEach(([n, b], i) => {
+      parts.slice(i + 1).forEach(([m, c]) => { if (hit(b, c)) out.push(n + ' / ' + m); });
+      fixed.forEach(([m, c]) => { if (hit(b, c)) out.push(n + ' / ' + m); });
+      if (b.x < 0 || b.y < 0 || b.x + b.w > W || b.y + b.h > H) out.push(n + ' off screen');
+    });
+    return out;
+  };
+  const LAND: [number, number][] = [[667, 375], [720, 360], [740, 360], [812, 375], [844, 340], [844, 390], [896, 414], [932, 430]];
+  const PORT: [number, number][] = [[340, 700], [360, 740], [375, 667], [390, 844], [412, 915], [430, 932]];
+  for (const [w, h] of [...LAND, ...PORT]) for (const sticks of [true, false]) for (const gears of [false, true]) for (const open of [false, true]) {
+    it(`${w}x${h} ${sticks ? 'sticks' : 'buttons'}${gears ? ' + gears' : ''}${open ? ', open car card' : ''}: nothing overlaps, the tower keeps the leader and the player`, () => {
+      const { W, H, input, fixed } = setup(w, h, sticks, gears, open);
+      const l = raceLayout(input);
+      expect(clashes(W, H, l, fixed, false)).toEqual([]);
+      expect(clashes(W, H, l, fixed, true)).toEqual([]);
+      expect(l.tower).not.toBeNull();
+      expect(l.rowsShown).toBeGreaterThanOrEqual(2);
+      expect(l.rowH).toBeGreaterThanOrEqual(14);
+      expect(l.dash.w).toBeGreaterThanOrEqual(170);
+    });
+  }
+  it('rows that do not fit leave the top ones and the player', () => {
+    const rows = [1, 2, 3, 4, 5, 6].map(pos => ({ pos, me: pos === 6 }));
+    expect(towerRows(rows, 3).map(r => r.pos)).toEqual([1, 2, 6]);
+    expect(towerRows(rows.map(r => ({ ...r, me: r.pos === 2 })), 3).map(r => r.pos)).toEqual([1, 2, 3]);
+    expect(towerRows(rows, 9).length).toBe(6);
+  });
+});
