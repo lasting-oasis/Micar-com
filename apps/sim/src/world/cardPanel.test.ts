@@ -1,7 +1,7 @@
 import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
-import { CardStats } from './CardStats';
+import { CardStats } from './CardStatsPanel';
 
 // The suite takes .test.ts files only, so the panel is rendered without JSX.
 const html = (car: { year?: number; make?: string; model?: string; bodyStyle?: string }) => renderToStaticMarkup(createElement(CardStats, { car }));

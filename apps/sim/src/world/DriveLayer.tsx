@@ -15,7 +15,7 @@ import { useLang, t } from '../i18n';
 import { TouchSticks } from './TouchSticks';
 import { getOptions } from './options';
 import { ChallengeButton, ChallengeSetup, StagingLine, WaitingRoom } from '../strip/Challenge';
-import { RaceMenu } from './RaceMenu';
+import { RaceMenu } from './RaceMenuScreen';
 
 const tap = (t: DriveTap) => useDriveUi.setState({ tap: t });
 // App's phone layout (its isMobile): the D-pad drives (its ◀ ▶ taps change a drag's lane), these add

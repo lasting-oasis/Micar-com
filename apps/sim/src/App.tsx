@@ -27,7 +27,7 @@ const TabLoading = () => (
 );
 import { LIBRARY_BOOKS } from './libraryData';
 import { getCarSpec, specLine } from './carSpecs';
-import { CardStats } from './world/CardStats';
+import { CardStats } from './world/CardStatsPanel';
 
 
 // Fixed points of interest in the world (x, z world coords) shown on the map.
