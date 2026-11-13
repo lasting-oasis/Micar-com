@@ -38,6 +38,9 @@ export type HudState = {
   gears?: boolean;
   /** px the checkpoint / GPS arrow drops to clear App's car panel (DriveLayer measures it; default 0) */
   topInset?: number;
+  /** the car panel's left and right edges (page px; the canvas spans the page's width) */
+  topPanelL?: number;
+  topPanelR?: number;
   /** the minimap, GPS arrow, cash and event readouts draw only in the Strip */
   district: 'town' | 'strip';
   /** career stage: markers above it are hidden on the minimap (default: all shown) */
@@ -153,7 +156,7 @@ export class Hud {
     // a lap race lays its HUD out around the car panel (measured in page pixels, so less the canvas's own offset) and the
     // touch controls: the sticks are 140 px with NOS / DRIFT (56) or the gear taps (48) above them; the old buttons are 68 px
     const ctlL = !s.touch ? 0 : s.sticks ? 164 + (s.gears ? 60 : 0) : 92, ctlR = !s.touch ? 0 : s.sticks ? 232 : s.gears ? 248 : 170;
-    const lay = rv ? raceLayout({ W: HW, H: HH, insT, insB, inset: Math.max(0, (s.topInset ?? 0) + 8 - this.offT), small, rows: rv.rows.length, laps: !!rv.laps, cx: s.touch ? cx : HW / 2, cy: s.touch ? cy : HH - (small ? 60 : 80) - insB, leftTop: HH - insB - ctlL, rightTop: HH - insB - ctlR }) : null;
+    const lay = rv ? raceLayout({ W: HW, H: HH, insT, insB, inset: Math.max(0, (s.topInset ?? 0) + 8 - this.offT), small, rows: rv.rows.length, laps: !!rv.laps, cx: s.touch ? cx : HW / 2, cy: s.touch ? cy : HH - (small ? 60 : 80) - insB, leftTop: HH - insB - ctlL, rightTop: HH - insB - ctlR, colL: s.touch ? 168 : 0, colR: s.touch ? 168 : 0, panelL: s.topPanelR ? s.topPanelL : undefined, panelR: s.topPanelR || undefined }) : null;
     if (rv && lay) drawRaceHud(hx, rv, s, lay);
     else { hx.textAlign = 'left'; hx.textBaseline = 'top'; hx.font = Fo.cash; hx.fillStyle = GOLD; hx.fillText(moneyStr(s.money), lx, ty); }
     if (!rv && a && (a.state === 'race' || a.state === 'done')) {

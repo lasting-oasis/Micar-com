@@ -1173,7 +1173,7 @@ export function VanillaThreeScene() {
                     const h = hudState, T = inStrip ? strip! : null, a = T ? T.runner.active : null;
                     h.PV = V; h.district = district; h.event = a; h.standings = a ? T!.runner.standings() : NONE;
                     h.outrun = T ? T.outrun : null; h.gps = T ? T.gpsTarget : null; h.markers = T ? T.hudMarkers() : NONE; h.roads = T ? T.hudRoads() : NONE; h.ais = T ? T.ais : NONE;
-                    h.money = me.money; h.units = opt.units; h.manual = manualNow(); h.touch = touchUi || window.innerWidth <= 1024; h.small = window.innerWidth < 700 || h.touch; h.sticks = h.touch && opt.controls === 'sticks'; h.gears = useDriveUi.getState().gears; h.stage = stripStage(); h.topInset = useDriveUi.getState().topInset;
+                    h.money = me.money; h.units = opt.units; h.manual = manualNow(); h.touch = touchUi || window.innerWidth <= 1024; h.small = window.innerWidth < 700 || h.touch; h.sticks = h.touch && opt.controls === 'sticks'; h.gears = useDriveUi.getState().gears; h.stage = stripStage(); { const u = useDriveUi.getState(); h.topInset = u.topInset; h.topPanelL = u.topPanelL; h.topPanelR = u.topPanelR; }
                     h.lang = getLang(); const dcar = drivenCar(); h.carName = dcar ? dcar.make + ' ' + dcar.model : undefined; // the lap-race HUD's labels and car card
                     hud.draw(h);
                 }
