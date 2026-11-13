@@ -67,7 +67,7 @@ type DriveUi = {
   netRace: boolean;
   /** on the grid of a challenge, the count not begun: the others are still loading, or the green light is seconds off */
   staging: boolean;
-  /** the race menu is open (RaceMenu.tsx): the car holds still and the game's keys wait */
+  /** the race menu is open (RaceMenuScreen.tsx): the car holds still and the game's keys wait */
   racesOpen: boolean;
   /** the race menu cannot open now (racesAllowed, kept by the frame loop): its tap button hides */
   racesBlocked: boolean;

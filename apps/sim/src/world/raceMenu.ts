@@ -1,4 +1,4 @@
-/* The race menu's model (RaceMenu.tsx draws it): the circuits in tracks.json order with their country and a line
+/* The race menu's model (RaceMenuScreen.tsx draws it): the circuits in tracks.json order with their country and a line
    about each, what the circuit and event cards show (in the player's language and units), the first circuit to
    show, the keys, and whether an event can start. Pure: the screen and tests share it. */
 import tracksJson from './strip/tracks.json';

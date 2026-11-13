@@ -55,7 +55,8 @@ describe('the corner button on its own', () => {
 
 describe('which face shows', () => {
   const css = readFileSync(fileURLToPath(new URL('../door.css', import.meta.url)), 'utf8');
-  const rules = css.split('\n').filter((line) => line.includes('.sl-face'));
+  // \r?\n: Git for Windows checks the stylesheet out with CRLF line ends (core.autocrlf)
+  const rules = css.split(/\r?\n/).filter((line) => line.includes('.sl-face'));
 
   it('is said by visibility: the back hidden until the card is turned, the front hidden once it is', () => {
     expect(rules).toContain('.dp .sl-face.back { transform: rotateY(180deg); visibility: hidden; }');

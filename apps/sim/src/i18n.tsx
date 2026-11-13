@@ -85,7 +85,7 @@ const DICT: Record<string, Entry> = {
   'strip.signHere': { en: 'Sign in here', es: 'Iniciar sesión aquí' },
   'strip.continueHere': { en: 'Continue here', es: 'Continuar aquí' },
   'strip.counter': { en: 'Rental counter', es: 'Mostrador de alquiler' },
-  // the race menu (RaceMenu.tsx, raceMenu.ts)
+  // the race menu (RaceMenuScreen.tsx, raceMenu.ts)
   'races.title': { en: 'Races', es: 'Carreras' },
   'races.circuit': { en: 'Circuit', es: 'Circuito' },
   'races.event': { en: 'Event', es: 'Evento' },
@@ -242,7 +242,7 @@ const DICT: Record<string, Entry> = {
   'error.screen': { en: "Couldn't load this screen.", es: 'No se pudo cargar esta pantalla.' },
   'error.reload': { en: 'Reload', es: 'Recargar' },
 
-  // ---- The MiCar card's attributes on an owned car (world/CardStats.tsx) ----
+  // ---- The MiCar card's attributes on an owned car (world/CardStatsPanel.tsx) ----
   'card.title': { en: 'MiCar card · factory stats', es: 'Tarjeta MiCar · datos de fábrica' },
   'card.titleStandIn': { en: 'MiCar card · body-style stand-in', es: 'Tarjeta MiCar · referencia por carrocería' },
   'card.rating': { en: 'Power rating', es: 'Índice de poder' },

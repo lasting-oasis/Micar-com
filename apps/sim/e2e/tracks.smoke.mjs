@@ -10,11 +10,12 @@
 // Exits 1 on any failed assertion or page error.
 import { chromium } from 'playwright';
 import { mkdirSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 
 const BASE = (process.env.BASE || 'http://localhost:3123/').replace(/\/?$/, '/');
 const VIEW = process.env.VIEW || 'desktop';
 const ONLY = process.env.ONLY ? process.env.ONLY.split(',') : null;
-const OUT = new URL('./out/', import.meta.url).pathname; mkdirSync(OUT, { recursive: true });
+const OUT = fileURLToPath(new URL('./out/', import.meta.url)); mkdirSync(OUT, { recursive: true });
 const W = 2; // render units per metre (world/units.ts WORLD_PER_M)
 const errs = [];
 const fail = (m) => { throw new Error(m); };
