@@ -1,7 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { valuate } from '../engine/valuation';
-import { parse, defaults } from '../urlState';
+import { forecast, valuate } from '../engine/valuation';
+import { parse, defaults, URL_KEYS } from '../urlState';
 import { resolveCar, valueQuery } from './valueApi';
+import stickers from '../data/stickers.json';
+import epaFile from '../data/epa-configs.json';
+import { buildCarRecords, openApiJson, type ApiSticker, type EpaFile } from '../seo/api';
 
 const now = new Date('2026-11-13T12:00:00Z');
 const call = (q: string) => valueQuery(new URLSearchParams(q), now);
@@ -20,6 +23,66 @@ describe('value api', () => {
     expect(b.assumed).toEqual([]);
     expect(b.forecastUsd).toHaveLength(6);
     expect(new URL(b.links.app).hash).toBe('#/value');
+  });
+
+  it('its calculator link carries every input it used, so the link opens on the same numbers', () => {
+    // read the link exactly as the calculator does (readUrl: defaults, then every URL key it knows, cut to 120 chars)
+    const fromLink = (link: string) => {
+      const q = new URL(link).searchParams; const f = defaults(now);
+      for (const k of URL_KEYS) { const v = q.get(k); if (v !== null) f[k] = v.slice(0, 120); }
+      return valuate(parse(f, now).inputs!, now);
+    };
+    const r0 = Math.round;
+    for (const q of ['id=honda-civic&year=2019&mileage=60000', 'make=toyota&model=camry&year=2021',
+      'id=honda-civic&year=2019&mileage=60000&market=Tight', 'id=honda-civic&year=2019&mileage=60000&listings=3',
+      'id=honda-civic&year=2019&mileage=60000&urgency=This week', 'id=honda-civic&year=2019&mileage=60000&comps=15000, 17500',
+      'id=honda-civic&year=2019&mileage=60000&zip=28202&market=Soft&listings=12&urgency=Within a month&comps=$15k 16900',
+      'make=Zork&model=Blaster&year=2019&msrp=30000&mileage=50000&body=Sedan&condition=Fair&region=West']) {
+      const b = call(q).body as Body;
+      expect(b.ok, q).toBe(true);
+      const v = fromLink(b.links.app);
+      expect({ q, ...b.valueUsd }).toEqual({ q, tradeIn: r0(v.tradeIn), privateParty: r0(v.privateParty), dealerRetail: r0(v.dealerRetail), range: { low: r0(v.range.low), high: r0(v.range.high) } });
+    }
+  });
+
+  it('forecasts at the miles a year the caller gives, as the calculator does, and its link carries them', () => {
+    const b = call('id=honda-civic&year=2019&mileage=60000&annual=25000').body as Body;
+    expect(b.ok).toBe(true);
+    const f = defaults(now);
+    for (const [k, v] of new URL(b.links.app).searchParams) if ((URL_KEYS as string[]).includes(k)) (f as Record<string, string>)[k] = v;
+    expect(f.annual).toBe('25000');
+    const annual = Math.min(30000, Math.max(3000, Number(f.annual) || 12000));     // App.tsx: the calculator's clamp
+    const want = forecast(parse(f, now).inputs!, 5, annual, now);
+    expect(b.forecastUsd).toEqual(want.map((x) => ({ year: Number(x.year), privateParty: x.value, low: x.low, high: x.high, mileage: x.mileage })));
+    expect(b.forecastUsd[5].mileage).toBe(60000 + 5 * 25000);
+    // the calculator clamps: 99,000 a year forecasts at 30,000, and a missing or bad figure at 12,000
+    expect((call('id=honda-civic&year=2019&mileage=60000&annual=99000').body as Body).forecastUsd[5].mileage).toBe(60000 + 5 * 30000);
+    expect((call('id=honda-civic&year=2019&mileage=60000&annual=lots').body as Body).forecastUsd[5].mileage).toBe(60000 + 5 * 12000);
+    expect((call('id=honda-civic&year=2019&mileage=60000').body as Body).forecastUsd[5].mileage).toBe(60000 + 5 * 12000);
+  });
+
+  it('fills the same MSRP as the data API for every model year it lists (case-only duplicate spellings included)', () => {
+    const records = buildCarRecords(stickers as unknown as ApiSticker[], epaFile as unknown as EpaFile);
+    const misses: string[] = [];
+    for (const r of records) for (const y of r.years) {
+      const b = call(`id=${r.id}&year=${y.year}&mileage=50000`).body as Body;
+      if (!b.ok || b.inputs.msrpUsd !== y.msrpUsd.low) misses.push(`${r.id} ${y.year}: data ${y.msrpUsd.low}, value ${b.ok ? b.inputs.msrpUsd : JSON.stringify(b.errors)}`);
+    }
+    expect(misses).toEqual([]);
+    const gt = call('id=maserati-granturismo&year=2026&mileage=5000').body as Body;
+    expect(gt.inputs.msrpUsd).toBe(160545);
+    expect(gt.assumed[0]).toMatch(/^MSRP \$160,545: Sticker/);
+  }, 120_000);
+
+  it('documents msrp and mileage as numbers, since a decimal is accepted (and echoed) like the calculator accepts it', () => {
+    const b = call('id=tesla-model-3&year=2020&mileage=40000.7').body as Body;
+    expect(b.ok).toBe(true);
+    const value = openApiJson().paths['/value'].get;
+    const params = Object.fromEntries(value.parameters.map((p: Body) => [p.name, p.schema.type]));
+    expect(params).toMatchObject({ msrp: 'number', mileage: 'number', annual: 'number' });
+    const schema = openApiJson().components.schemas.Value.properties;
+    expect(schema.forecastUsd.items.properties.mileage.type).toBe('number');
+    expect(b.forecastUsd[0].mileage).toBe(40000.7);
   });
 
   it('accepts loose spelling or a data-API id, and fills MSRP and mileage it can, saying so', () => {

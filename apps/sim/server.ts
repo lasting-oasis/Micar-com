@@ -2528,7 +2528,8 @@ async function startServer() {
     app.get('/api/v1/value', (req, res) => {
         res.set('Access-Control-Allow-Origin', '*');
         res.set('Cache-Control', 'public, max-age=3600');
-        const q = new URLSearchParams(req.url.split('?')[1] ?? '');
+        // the whole query, a literal '?' inside a value included (splitting on the first '?' dropped everything after it)
+        const q = new URL(req.originalUrl, 'http://micar.local').searchParams;
         try {
             const out = valueQuery(q);
             res.status(out.status).json(out.body);

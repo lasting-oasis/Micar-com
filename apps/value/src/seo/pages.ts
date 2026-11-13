@@ -181,7 +181,7 @@ export function modelPageHtml(p: ModelPage, env: PageEnv): string {
 ${rows}
 </tbody>
 </table>
-<p class="muted">Every trim and its MSRP, with the EPA's engine and drivetrain configurations, is also available as <a href="${SITE_URL}api/v1/cars/${p.slug}.json">JSON</a>. Sticker prices come from manufacturer and pricing sources gathered for MiCar; today's values are estimates computed in the app from the sticker price, age, mileage, condition and region.</p>`;
+<p class="muted">Every trim and its MSRP, with the EPA's engine and drivetrain configurations where the EPA lists them, is also available as <a href="${SITE_URL}api/v1/cars/${p.slug}.json">JSON</a>. Sticker prices come from manufacturer and pricing sources gathered for MiCar; today's values are estimates computed in the app from the sticker price, age, mileage, condition and region.</p>`;
   // A Car, not a Product with offers: MiCar sells no cars, and the MSRPs are past sticker prices across many model
   // years, not prices anyone is asking. They stay in the page's table, where they read as what they are.
   const jsonld = [
@@ -275,7 +275,7 @@ Free, read-only, no key. Static files rebuilt with every deploy, plus one live v
 
 - [API index](${SITE_URL}api/v1/index.json): counts, sources and links
 - [All models](${SITE_URL}api/v1/cars.json): id, make, model, body, years covered and MSRP range for each
-- One model: ${SITE_URL}api/v1/cars/{id}.json, e.g. ${SITE_URL}api/v1/cars/honda-civic.json: every model year, every trim with its MSRP, destination charge, the EPA's engine, transmission, drive and fuel configurations, the price source, and a calculator link per year
+- One model: ${SITE_URL}api/v1/cars/{id}.json, e.g. ${SITE_URL}api/v1/cars/honda-civic.json: every model year, every trim with its MSRP, destination charge, the EPA's engine, transmission, drive and fuel configurations where the EPA lists them, the price source, and a calculator link per year
 - [OpenAPI 3.1 description](${SITE_URL}api/v1/openapi.json)
 
 ## Valuation API (live)

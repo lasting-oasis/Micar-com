@@ -7,7 +7,7 @@ import { MODELS } from '../engine/models';
 import { prefillMsrp } from '../engine/prefill';
 import { STICKERS, stickerFor, stickerTrim } from '../engine/stickers';
 import { expectedMilesFor, forecast, valuate } from '../engine/valuation';
-import { defaults, parse, type FormState } from '../urlState';
+import { URL_KEYS, defaults, parse, type FormState } from '../urlState';
 
 export const APP_URL = 'https://lasting-oasis.github.io/Micar-com/';
 
@@ -79,6 +79,13 @@ export function valueQuery(params: URLSearchParams, now: Date = new Date()): Api
   const yr = Number(form.year);
   if (get('msrp')) form.msrp = get('msrp')!;
   else if (Number.isInteger(yr)) {
+    // A few cars are in the sticker data under two case-only spellings (370Z / 370z, GranTurismo / Granturismo), which
+    // the data API merges under one id; use the spelling that has this year's sticker, as the data API does.
+    if (car) {
+      const sameId = knownCars().filter((c) => slug(`${c.make} ${c.model}`) === slug(`${car.make} ${car.model}`));
+      const withSticker = sameId.find((c) => stickerFor(c.make, c.model, yr));
+      if (withSticker && !stickerFor(form.make, form.model, yr)) { form.make = withSticker.make; form.model = withSticker.model; }
+    }
     const pre = prefillMsrp(form.make, form.model, yr, form.trim);
     if (pre) {
       form.msrp = String(pre.msrp);
@@ -98,10 +105,12 @@ export function valueQuery(params: URLSearchParams, now: Date = new Date()): Api
   form.title = pick(get('title'), TITLES.map((o) => o.name), 'title', errors) ?? form.title;
   form.accident = pick(get('accident'), ACCIDENTS.map((o) => o.name), 'accident', errors) ?? form.accident;
   form.region = pick(get('region'), REGIONS, 'region', errors) ?? form.region;
-  for (const k of ['listings', 'comps', 'zip', 'urgency', 'market'] as const) {
+  for (const k of ['listings', 'comps', 'zip', 'urgency', 'market', 'annual'] as const) {
     const v = get(k);
     if (v !== null) form[k] = v;
   }
+  // miles a year for the forecast, clamped as the calculator clamps it (App.tsx)
+  const annual = Math.min(30000, Math.max(3000, Number(form.annual) || 12000));
   const defaulted = (['condition', 'title', 'accident', 'region'] as const).filter((k) => !get(k)).map((k) => `${k} ${form[k]}`);
   if (defaulted.length) assumed.push(`Defaults used where not given: ${defaulted.join(', ')}.`);
 
@@ -111,8 +120,15 @@ export function valueQuery(params: URLSearchParams, now: Date = new Date()): Api
 
   const inputs = parsed.inputs;
   const v = valuate(inputs, now);
+  // the calculator link carries every input this valuation used (market, listings, urgency and comps move the numbers
+  // too, annual the forecast), in the calculator's own key order, so opening it shows the same figures; radius only
+  // widens the calculator's own listings search and is not read here
   const q = new URLSearchParams();
-  for (const k of ['make', 'model', 'trim', 'body', 'msrp', 'year', 'mileage', 'condition', 'title', 'accident', 'region'] as const) if (form[k]) q.set(k, form[k]);
+  const extra = new Set<string>(['listings', 'comps', 'zip', 'urgency', 'market', 'annual'].filter((k) => get(k) !== null));
+  for (const k of URL_KEYS) {
+    const core = ['make', 'model', 'trim', 'body', 'msrp', 'year', 'mileage', 'condition', 'title', 'accident', 'region'].includes(k);
+    if ((core || extra.has(k)) && form[k]) q.set(k, form[k]);
+  }
   return {
     status: 200,
     body: {
@@ -125,7 +141,7 @@ export function valueQuery(params: URLSearchParams, now: Date = new Date()): Api
       confidence: { level: v.confidence, reasons: v.confidenceReasons },
       drivers: v.drivers,
       steps: v.steps.map((s) => ({ label: s.label, detail: s.detail, valueUsd: Math.round(s.value), deltaUsd: Math.round(s.delta) })),
-      forecastUsd: forecast(inputs, 5, 12_000, now).map((f) => ({ year: Number(f.year), privateParty: f.value, low: f.low, high: f.high, mileage: f.mileage })),
+      forecastUsd: forecast(inputs, 5, annual, now).map((f) => ({ year: Number(f.year), privateParty: f.value, low: f.low, high: f.high, mileage: f.mileage })),
       modelKnown: v.modelKnown,
       links: { app: `${APP_URL}?${q.toString()}#/value` },
       note: 'An estimate from public pricing data, not an offer or an appraisal. Same engine and inputs as the MiCar calculator.',

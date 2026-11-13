@@ -39,10 +39,12 @@ export function defaults(now = new Date()): FormState {
   };
 }
 
-const KEYS: (keyof FormState)[] = [
+/** Every form field a link can carry, in the order shareUrl writes them (the valuation API builds its links from it). */
+export const URL_KEYS: (keyof FormState)[] = [
   'make', 'model', 'trim', 'body', 'msrp', 'year', 'mileage', 'condition', 'title', 'accident', 'region',
   'market', 'listings', 'urgency', 'comps', 'annual', 'zip', 'radius',
 ];
+const KEYS = URL_KEYS;
 
 export function readUrl(): FormState {
   const state = defaults();
