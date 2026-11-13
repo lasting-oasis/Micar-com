@@ -71,6 +71,34 @@ The first screenshots beside the clone's led to these changes (plan Task 7):
 - **The start buildings run on past the line**, as at the clone's start, so the grid sees the grandstand on its left and the pits on its right: grandstand from 120 m before the line to 50 m after, pit lane −200 to +60 m, pits −150 to +40 m. A band never sits on the inside of a bend tighter than its depth allows (its far edge within 0.6 of the radius), and trees keep 9 m clear of it. Nürburgring's start is a 37 m bend, so its pits are 60 m long.
 - **Draw calls.** The new scenery had 30 materials (the old 12), and Monaco drew 108 calls at 0.65 of the lap (the old scenery 90). Flat colours now share three palette textures made in code (marks, solid parts, lamps), and the two tree species one atlas. Each circuit has 17 or 18 materials, and the chain-link veil is drawn in one pass. The four smoke circuits draw 80–81 calls at 0.3 of the lap and 95–96 at 0.65, with 39k–65k triangles. The budget is 100 calls and 500k triangles.
 
+## 5b. As built, after three reviews
+
+Three independent reviews on the most capable model led to these changes:
+
+- **Textures stand the right way up.** The glb's UVs are glTF's (v runs down the picture), so the game no longer flips the maps. The normal maps' green is turned to match, as three's GLTFLoader does when there are no tangents. The tree line's UVs count whole tiles.
+- **Compression.** 18-bit positions and 16-bit UVs. At 14/12 bits, thin posts and kerb sides collapsed and the start lamps sank into their box. The lamps and their box now share one primitive.
+- **Nothing low inside the barrier line.**
+  - The start gantry is one frame at the line, with its legs behind the barriers.
+  - Braking boards stand 0.7 m behind the barrier line.
+  - The grandstand has a red canopy, held by posts behind the back row.
+  - Painted and steel parts take less sky reflection, so the canopy reads red, not pink.
+- **Kerbs, tyre walls and gravel come in runs** on real bends, using smoothed curvature, so there are no stubs.
+  - At the tightest corners, a kerb block or edge-line piece that would reach more than 0.3 m inside its own edge is left out. Otherwise it would fold across the road or cut a chord across the asphalt.
+  - Palette vertices that share a position keep their own UVs, so no encoder can weld a box's faces and shade it round.
+- **The physics walls changed on five circuits.** This departs from section 4, and was done on purpose. On the inside of bends tighter than the barrier line, the old walls folded back over the road: Silverstone's GP route crossed a wall four times, and Monaco's wall came 3.4 m from its centreline. Those points are dropped, and each fold is bridged by a straight wall that stays more than 1 m off the road.
+  - Points near another part of the track still open the barrier, as before.
+  - Only `walls` changed in the json, on Silverstone, Suzuka, Nürburgring, Monaco and COTA, by 2–16 points each.
+  - No route crosses a wall. A flood fill of the space a car can occupy reaches nothing beyond the barrier line on any circuit.
+- **Trees and tree line.** A denser tree belt, about 950 trees in clusters of 8–16, 30–150 m out. The tree line moved 170 m out, 20 m past the perimeter fence.
+- **The cars' lamps are off on circuits**, the Garage kits' lamp glows included. The hub keeps them lit.
+- **Loading.**
+  - Cut-out trees stay hidden until their picture lands.
+  - The sky has no mipmaps, so there is no seam line.
+  - The Draco decoder runs on two workers and starts afresh after a failed load.
+  - The tracks smoke checks that each circuit's model is drawn with its textures.
+- **Export without the PC.** On 2026-11-13 the PC was offline. The circuits were exported by Blender 5.3.0 run as a Python module, which carries no Draco bridge. glTF Transform with Google's draco3d 1.5.7 (Blender 5.3's Draco) then compressed them at the same settings, without welding. Against the PC's own export of the previous revision, the json files were byte-identical and the triangles identical. A PC re-export remains the reference.
+- **Sizes and costs.** glb files are 141–187 KB each. A frame draws 79–91 calls and 41k–67k triangles.
+
 ## 6. Out of scope
 
 Elevation and terrain, city blocks for street circuits, night lighting, a grass shader, real-time shadows, KTX2 texture compression, and the hub's look.
