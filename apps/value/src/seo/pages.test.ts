@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import stickers from '../data/stickers.json';
-import { buildModelPages, escapeHtml, indexPageHtml, jsonLd, llmsTxt, modelPageHtml, robotsTxt, sitemapXml, slugify, SITE_URL, valueLink, type Sticker } from './pages';
+import { bodyPhrase, buildModelPages, escapeHtml, indexPageHtml, jsonLd, llmsTxt, modelPageHtml, robotsTxt, sitemapXml, slugify, SITE_URL, valueLink, yearSpan, type Sticker } from './pages';
 
 const env = { css: ':root{}', footer: '<footer class="mc-foot"></footer>' };
 const t = (trim: string, msrp: number) => ({ trim, msrp });
@@ -46,6 +46,45 @@ describe('seo pages', () => {
       expect(html.match(/<meta name="description"/g)).toHaveLength(1);
       for (const m of html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/g)) expect(() => JSON.parse(m[1])).not.toThrow();
       expect(html).not.toMatch(/NaN|undefined|Infinity/);
+    }
+  });
+
+  it('names every body style in the data as words, with the right article', () => {
+    expect(bodyPhrase('Sedan')).toBe('a sedan');
+    expect(bodyPhrase('SUV / Crossover')).toBe('an SUV or crossover');
+    expect(bodyPhrase('Coupe / Sports')).toBe('a coupe or sports car');
+    expect(bodyPhrase('Hatchback / Wagon')).toBe('a hatchback or wagon');
+    expect(bodyPhrase('Pickup Truck')).toBe('a pickup truck');
+    expect(bodyPhrase('Minivan')).toBe('a minivan');
+    expect(bodyPhrase('Electric Utility')).toBe('an electric utility');           // a body the table does not know yet
+    const bodies = new Set((stickers as unknown as Sticker[]).map((s) => s.body));
+    for (const p of buildModelPages(stickers as unknown as Sticker[])) {
+      const lead = modelPageHtml(p, env).match(/<p>The .*? is (an? [^.]+)\. MiCar/)?.[1];
+      expect(lead, p.slug).toBe(bodyPhrase(p.body));
+      expect(lead).not.toContain('/');                                         // the articles are pinned above
+      expect(Object.values({ s: 'a sedan', u: 'an SUV or crossover', c: 'a coupe or sports car', h: 'a hatchback or wagon', p: 'a pickup truck', m: 'a minivan' })).toContain(lead);
+    }
+    expect(bodies.size).toBeGreaterThan(3);
+  });
+
+  it('links the sitemap from every page, since robots.txt under /Micar-com/ is not where crawlers look', () => {
+    const pages = buildModelPages(stickers as unknown as Sticker[]);
+    const tag = `<link rel="sitemap" type="application/xml" href="${SITE_URL}sitemap.xml" />`;
+    expect(indexPageHtml(pages, env)).toContain(tag);
+    for (const p of pages) expect(modelPageHtml(p, env)).toContain(tag);
+  });
+
+  it('writes a single model year once, never as a range of one', () => {
+    expect(yearSpan(2024, 2024)).toBe('2024');
+    expect(yearSpan(2010, 2026)).toBe('2010–2026');
+    const pages = buildModelPages(stickers as unknown as Sticker[]);
+    const index = indexPageHtml(pages, env);
+    expect(index).not.toMatch(/(\d{4})–\1\b/);
+    for (const p of pages) {
+      const html = modelPageHtml(p, env);
+      expect(html).not.toMatch(/(\d{4})–\1\b/);
+      expect(html, p.slug).not.toMatch(/for \d{4} model years/);                 // one year is "the 2024 model year"
+      expect(html).toContain(p.years.length === 1 ? `for the ${p.years[0].year} model year,` : `model years,`);
     }
   });
 
