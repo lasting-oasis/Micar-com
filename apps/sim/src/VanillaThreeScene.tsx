@@ -1234,6 +1234,8 @@ export function VanillaThreeScene() {
             event: () => { const a = district === 'strip' ? strip?.runner.active : null; return a ? { id: a.ev.id, state: a.state, results: !!a.results, pS: a.pS, lit: a.lit, timed: !!a.timing, laps: a.timing ? a.timing.laps('me') : 0 } : null; },
             /** the ids of the other players drawn in the Strip */
             stripPlayers: () => Object.keys(stripTags),
+            /** what the last frame drew (the smoke's budget check): draw calls and triangles */
+            drawn: () => ({ calls: renderer.info.render.calls, triangles: renderer.info.render.triangles }),
             /** the challenge room this page is in: its code and phase, how many are in it, and this player's state there */
             race: () => { const st = useGameStore.getState(), r = st.race; return r ? { code: r.code, phase: r.phase, members: r.members.length, me: r.members.find(m => m.id === st.playerId)?.state ?? null } : null; },
             /** sign in with a magic-link token, as the link's page does (the smoke) */

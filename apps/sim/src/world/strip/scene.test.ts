@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeAll } from 'vitest';
 import * as THREE from 'three';
+import { LAMP_OFF, LAMP_ON, makeTrackLib } from './trackMaterials';
 
 // the lofted bodies need a browser (canvas atlas): stand in a bare group with the model's wheel nodes
 vi.mock('../../scene/carModel', () => {
@@ -125,6 +126,19 @@ describe('StripScene', () => {
     S.dispose();
   });
 
+  it('a circuit has the overcast day and the hub its sunny look, reflections included', async () => {
+    const { OVERCAST, SKY } = await import('./park');
+    const { S, PV, car } = setup(); S.enter(PV, car);
+    const fog = () => (S.scene.fog as THREE.FogExp2).color.getHex(), env0 = S.scene.environment;
+    expect(fog()).toBe(SKY);
+    await S.enterTrack('monza');
+    expect(fog()).toBe(OVERCAST);
+    expect(S.scene.environment === env0).toBe(env0 === null);   // a renderer gives each look its own reflections
+    S.returnToHub();
+    expect(fog()).toBe(SKY); expect(S.scene.environment).toBe(env0);
+    S.dispose();
+  });
+
   it('entering a track mounts it, parks the hub traffic and places the car at the lobby', async () => {
     const { S, PV, car } = setup(); S.enter(PV, car);
     await S.enterTrack('monza');
@@ -171,10 +185,13 @@ describe('StripScene', () => {
     S.dispose();
   });
 
-  it('a live event draws a route ribbon that cleanup removes', async () => {
+  it('drag and drift draw a route ribbon that cleanup removes; a lap race draws none (the circuit shows the way)', async () => {
     const { S, PV, car } = setup(); S.enter(PV, car);
     await S.startEvent(ev('harbour_gp'));
     const count = () => { let n = 0; S.scene.traverse(o => { if (o.name === 'routeRibbon') n++; }); return n; };
+    expect(count()).toBe(0);
+    S.runner.cleanup();
+    await S.startEvent(ev('harbour_drift'));
     expect(count()).toBe(1);
     S.runner.cleanup();
     expect(count()).toBe(0);
@@ -185,9 +202,33 @@ describe('StripScene', () => {
     S.dispose();
   });
 
-  it('the checkpoint gate faces along the route at the next checkpoint', async () => {
+  it('a lap race shows no checkpoint gate or beam', async () => {
     const { S, PV, car } = setup(); S.enter(PV, car);
     await S.startEvent(ev('harbour_gp'));
+    for (let i = 0; i < 600 && S.runner.active!.state !== 'race'; i++) S.update(1 / 60, true);
+    expect(S.runner.active!.state).toBe('race');
+    expect(S.scene.getObjectByName('cpMark')!.visible).toBe(false);
+    S.dispose();
+  });
+
+  it('the gantry lamps light with the start lights and go out at the green', async () => {
+    const lib = makeTrackLib((_u, ok) => ok(new THREE.Texture()), '/b/');
+    const { S, PV, car } = setup({ trackLib: lib }); S.enter(PV, car);
+    await S.startEvent(ev('harbour_gp'));
+    const lamps = (lib.material('trk_lamps') as THREE.MeshBasicMaterial).map as THREE.DataTexture;
+    const lamp = (i: number) => { const d = lamps.image.data, j = 4 * (i - 1); return (d[j] << 16) | (d[j + 1] << 8) | d[j + 2]; };
+    for (let i = 0; i < 600 && (S.runner.active!.lit ?? 0) < 3; i++) S.update(1 / 60, true);
+    expect(S.runner.active!.lit).toBe(3);
+    expect([1, 2, 3, 4, 5].map(lamp)).toEqual([LAMP_ON, LAMP_ON, LAMP_ON, LAMP_OFF, LAMP_OFF]);
+    for (let i = 0; i < 600 && S.runner.active!.state !== 'race'; i++) S.update(1 / 60, true);
+    S.update(1 / 60, true);
+    expect([1, 2, 3, 4, 5].map(lamp)).toEqual([LAMP_OFF, LAMP_OFF, LAMP_OFF, LAMP_OFF, LAMP_OFF]);
+    S.dispose();
+  });
+
+  it('the checkpoint gate faces along the route at the next checkpoint', async () => {
+    const { S, PV, car } = setup(); S.enter(PV, car);
+    await S.startEvent(ev('harbour_drift'));
     for (let i = 0; i < 400 && S.runner.active!.state !== 'race'; i++) S.update(1 / 60, true);
     const a = S.runner.active!; expect(a.state).toBe('race');
     const t = routePoint(a.route, a.route.cps[a.pCp % a.route.cps.length]);
