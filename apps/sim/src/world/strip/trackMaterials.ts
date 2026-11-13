@@ -36,8 +36,9 @@ export const LAMP_ON = 0xff2a2a;
  *  ((j + .5) / n, .5), in this order (tools/blender/test_build_scenery.py checks the names and the order). */
 export const PALETTES: Record<string, Record<string, number>> = {
   trk_marks: { trk_line: 0xf2f2ee, trk_paint: 0xffd23f, trk_kerb_red: 0xc8191e, trk_kerb_white: 0xf0f0ec },
-  trk_solid: { trk_steel: 0x55595f, trk_roof: 0xd8dadf, trk_marshal: 0xf4f4f4, trk_orange: 0xff7a1a, trk_lamp_box: 0x0b0c0e, trk_armco: 0xb4bac2 },
-  trk_lamps: { trk_lamp1: LAMP_OFF, trk_lamp2: LAMP_OFF, trk_lamp3: LAMP_OFF, trk_lamp4: LAMP_OFF, trk_lamp5: LAMP_OFF },
+  trk_solid: { trk_steel: 0x55595f, trk_roof: 0x8d9196, trk_marshal: 0xf4f4f4, trk_orange: 0xff7a1a, trk_canopy: 0x8c1d22, trk_armco: 0xb4bac2 },
+  // the lamps' box shares their primitive (the glb compresses each primitive on its own grid, so they stay apart)
+  trk_lamps: { trk_lamp1: LAMP_OFF, trk_lamp2: LAMP_OFF, trk_lamp3: LAMP_OFF, trk_lamp4: LAMP_OFF, trk_lamp5: LAMP_OFF, trk_lamp_box: 0x0b0c0e },
 };
 export const TRACK_TEX: Record<string, TexSpec> = {
   trk_asphalt: { color: 0x2b2d31, map: 'asphalt.jpg', normal: 'asphalt_n.jpg', repeat: FIVE, tint: 0xd6d6d6, rough: .92 },
@@ -50,15 +51,15 @@ export const TRACK_TEX: Record<string, TexSpec> = {
   trk_wall: { color: 0x9a9a96, map: 'concrete.jpg', normal: 'concrete_n.jpg', repeat: THREE_M, rough: .9, double: true },
   trk_boards: { color: 0xffd23f, map: 'boards.png', repeat: [1, 1], rough: .6, double: true, lift: true },
   trk_tyres: { color: 0x151517, map: 'tyres.jpg', repeat: [1 / 2, 1], rough: .8, double: true },
-  trk_fence: { color: 0x7a7e84, map: 'fence.webp', repeat: [1 / 1.5, 1 / 1.5], veil: true, double: true, metal: .4, rough: .5 },
+  trk_fence: { color: 0x5d6168, map: 'fence.webp', repeat: [1 / 1.5, 1 / 1.5], tint: 0x8a8f96, veil: true, double: true, metal: .4, rough: .5 },
   trk_stand: { color: 0x8e8e90, map: 'concrete.jpg', normal: 'concrete_n.jpg', repeat: THREE_M, rough: .9, double: true },
   trk_crowd: { color: 0x6b5550, map: 'crowd.jpg', repeat: [1, 1 / 4], rough: .9, double: true },
   trk_pit: { color: 0xe2e4e8, map: 'pit.jpg', repeat: [1, 1], rough: .7, double: true },
   trk_brake: { color: 0xf5f6f7, map: 'brake.png', repeat: [1, 1], rough: .6, double: true },
-  // the two tree species on one atlas (a left, b right); the tree line: a 104 m strip of two rows of trees, 26 m tall
-  // (v reaches 26 of 26.5 m so the strip's clear top rows keep the opaque bottom row from bleeding in)
+  // the two tree species on one atlas (a left, b right); the tree line: two rows of trees, u one per 104 m tile and
+  // v 0 to 26 / 26.5 (the strip's clear top rows keep the opaque bottom row from bleeding in)
   trk_trees: { color: 0x2a4420, map: 'trees.webp', repeat: [1, 1], alphaTest: .5, double: true, basic: true, tint: 0xdae2d3 },
-  trk_treeline: { color: 0x26391f, map: 'treeline.webp', repeat: [1 / 104, 1 / 26.5], alphaTest: .5, double: true, basic: true, tint: 0xd0d8c8 },
+  trk_treeline: { color: 0x26391f, map: 'treeline.webp', repeat: [1, 1], alphaTest: .5, double: true, basic: true, tint: 0xd0d8c8 },
   trk_lamps: { color: 0xffffff, palette: true, basic: true, double: true },
 };
 
@@ -85,6 +86,7 @@ export function makeTrackLib(load: TexLoad, base: string, o: { aniso?: number } 
     const same = t.userData.repeatSet === undefined || (t.repeat.x === repeat[0] && t.repeat.y === repeat[1]);
     const u = same ? t : t.clone(); if (u !== t) owned.push(u);
     u.wrapS = u.wrapT = THREE.RepeatWrapping; u.repeat.set(repeat[0], repeat[1]); u.userData.repeatSet = true;
+    u.flipY = false;                                   // glTF UVs: v runs down from the picture's top
     u.colorSpace = color ? THREE.SRGBColorSpace : THREE.NoColorSpace;
     if (o.aniso) u.anisotropy = o.aniso;
     u.needsUpdate = true; cb(u);
@@ -104,12 +106,12 @@ export function makeTrackLib(load: TexLoad, base: string, o: { aniso?: number } 
       ? new THREE.MeshBasicMaterial({ color: s.color, side })
       : new THREE.MeshStandardMaterial({ color: s.color, side, roughness: s.rough ?? .8, metalness: s.metal ?? 0 });
     m.name = name;
-    if (s.alphaTest) { m.alphaTest = s.alphaTest; }
+    if (s.alphaTest) { m.alphaTest = s.alphaTest; m.visible = false; }   // a cut-out without its picture is a flat board
     if (s.veil) { m.transparent = true; m.opacity = .3; m.depthWrite = false; m.forceSinglePass = true; }
     if (s.overlay) { m.transparent = true; m.opacity = .3; m.depthWrite = false; m.polygonOffset = true; m.polygonOffsetFactor = -2; m.polygonOffsetUnits = -2; }
     if (s.lift) { m.polygonOffset = true; m.polygonOffsetFactor = -1; m.polygonOffsetUnits = -1; }
     if (s.map) tex(s.map, s.repeat ?? [1, 1], true, t => {
-      m.map = t; m.color.setHex(s.tint ?? 0xffffff); if (s.overlay || s.veil) m.opacity = 1; m.needsUpdate = true;
+      m.map = t; m.color.setHex(s.tint ?? 0xffffff); if (s.overlay || s.veil) m.opacity = 1; m.visible = true; m.needsUpdate = true;
     });
     if (s.normal && m instanceof THREE.MeshStandardMaterial) tex(s.normal, s.repeat ?? [1, 1], false, t => {
       m.normalMap = t; m.normalScale.set(.8, .8); m.needsUpdate = true;

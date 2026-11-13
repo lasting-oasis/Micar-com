@@ -70,9 +70,17 @@ MATS.update(TRK)
 # (trackMaterials.ts PALETTES: the same names in the same order), so a circuit draws each group in one call.
 PALETTES = {
     'trk_marks': ['trk_line', 'trk_paint', 'trk_kerb_red', 'trk_kerb_white'],              # on the ground, lifted
-    'trk_solid': ['trk_steel', 'trk_roof', 'trk_marshal', 'trk_orange', 'trk_lamp_box', 'trk_armco'],
-    'trk_lamps': ['trk_lamp1', 'trk_lamp2', 'trk_lamp3', 'trk_lamp4', 'trk_lamp5'],         # the game lights them one by one
+    'trk_solid': ['trk_steel', 'trk_roof', 'trk_marshal', 'trk_orange', 'trk_canopy', 'trk_armco'],
+    # the game lights the five lamps one by one; their box shares the primitive, so compression keeps them apart
+    'trk_lamps': ['trk_lamp1', 'trk_lamp2', 'trk_lamp3', 'trk_lamp4', 'trk_lamp5', 'trk_lamp_box'],
 }
+# Draco quantization (export_strip.py): one range per attribute and primitive, its largest extent. 18 bits put a
+# circuit's positions on a 1-3 cm grid (thin posts, kerb sides and the lamps keep their shape) and 16 bits its UVs
+# on a grid of 1/65535 of their largest extent (metres along a 5 km rubber line: 8 cm).
+DRACO_POS_BITS = 18
+DRACO_UV_BITS = 16
+TREELINE_TILE = 104.0    # m along one tile of tex/treeline.webp (prep_textures.py), 26.5 m high
+BOARD_BACK = 0.7         # braking boards' centre behind the barrier line, m (their 1.1 m face stands clear of it)
 def material(name):
     mat = bpy.data.materials.get(name)
     if mat is None:
@@ -141,14 +149,15 @@ class Builder:
         self.strip3(m, [(p[0], p[1], z) for p in L], [(p[0], p[1], z) for p in R], V, u)
     def ribbon(self, m, pts, width, z, closed=False, v=None, u=(0.0, 1.0), v_end=None):
         self.strip(m, offset_polyline(pts, width / 2, closed), offset_polyline(pts, -width / 2, closed), z, closed, v, u, v_end)
-    def wall(self, m, pts, height, closed=False, z0=0.0, v=None):
-        """A vertical strip from z0 to z0 + height along pts; UVs: u metres along, v metres up (double-sided material)."""
+    def wall(self, m, pts, height, closed=False, z0=0.0, v=None, top=None):
+        """A vertical strip from z0 to z0 + height along pts; UVs: u metres along (or the given v per point), v metres
+        up (or 0 to `top`) (double-sided material)."""
         P = list(pts)
         if closed: P.append(pts[0])
         if v is None: v = cumulative(P, False)[0]
         verts, f, t = self._p(m); o = len(verts)
         for p, s in zip(P, v):
-            verts.append((p[0], p[1], z0)); verts.append((p[0], p[1], z0 + height)); t.append((s, 0.0)); t.append((s, height))
+            verts.append((p[0], p[1], z0)); verts.append((p[0], p[1], z0 + height)); t.append((s, 0.0)); t.append((s, height if top is None else top))
         for i in range(len(P) - 1): f.append((o + 2 * i, o + 2 * i + 2, o + 2 * i + 3, o + 2 * i + 1))
     def cone(self, m, cx, cy, z0, r, h, n=6):
         v, f, t = self._p(m); o = len(v)
@@ -323,7 +332,7 @@ def scenery(tid, pts, width, seed=11):
     """A circuit's scenery as a Builder (no bpy: test_build_scenery.py runs it without Blender), from the trackside
     plan. Everything stands on or beside the centreline; barriers on the physics wall line."""
     ts = trackside; closed = True; n = len(pts)
-    cum, total = cumulative(pts, closed); k = [curvature(pts, i, closed) for i in range(n)]
+    cum, total = cumulative(pts, closed); k = ts._an(pts, closed)['k']      # bends from the averaged curvature
     e = width / 2 + ts.WALL_GAP; B = Builder()
     def frame(s, d):
         """The point at arc length s, offset d (left +), and the tangent there."""
@@ -454,15 +463,17 @@ def scenery(tid, pts, width, seed=11):
 
     # 6. the start: gantry and lamps, grandstand, pit lane and pit building
     area = ts.start_area(pts, width, closed)
+    # the gantry in one frame at the line (its tangent): legs behind the barrier lines, the beam across, the lamp box
+    # under it and the five lamps 4 cm proud of the box's face towards the grid (behind the line)
     (gx, gy), gt = frame(0.0, 0.0); ang = math.atan2(gt[1], gt[0])
+    def G(al, ac): return (gx + gt[0] * al - gt[1] * ac, gy + gt[1] * al + gt[0] * ac)
+    leg = e + 0.5
     for side in (1, -1):
-        (px, py), _ = frame(0.0, side * (width / 2 + 1.6)); B.box('trk_steel', px, py, 0.0, 0.45, 0.45, 7.6, ang, True, False)
-    B.box('trk_steel', gx, gy, 6.9, 0.6, width + 3.7, 0.6, ang, True, True)
-    (bx, by), _ = frame(-0.25, 0.0); B.box('trk_lamp_box', bx, by, 5.7, 0.36, 3.6, 1.05, ang, True, True)
+        px, py = G(0.0, side * leg); B.box('trk_steel', px, py, 0.0, 0.45, 0.45, 7.6, ang, True, False)
+    B.box('trk_steel', gx, gy, 6.9, 0.6, 2 * leg + 0.45, 0.6, ang, True, True)
+    bx, by = G(-0.25, 0.0); B.box('trk_lamp_box', bx, by, 5.7, 0.36, 3.6, 1.05, ang, True, True)
     for j in range(5):
-        d = (2 - j) * 0.66; (cx, cy), _ = frame(-0.45, d)
-        nx, ny = -gt[1], gt[0]                                   # left normal
-        a = (cx - nx * 0.22, cy - ny * 0.22); b = (cx + nx * 0.22, cy + ny * 0.22)
+        d = (2 - j) * 0.66; a = G(-0.47, d - 0.22); b = G(-0.47, d + 0.22)
         B.quad('trk_lamp%d' % (j + 1), (a[0], a[1], 6.0), (b[0], b[1], 6.0), (b[0], b[1], 6.44), (a[0], a[1], 6.44))
     def bandframe(s0, s1, d, step=5.0):
         out = []; s = s0
@@ -477,9 +488,10 @@ def scenery(tid, pts, width, seed=11):
         F1, B1 = bandframe(s0, s1, d0 + 1.0), bandframe(s0, s1, d1 - 1.0)
         B.wall('trk_stand', F, 1.2); B.wall('trk_stand', Bk, 12.0)
         B.strip3('trk_crowd', ups(B1, 9.0), ups(F1, 1.2), along(F1), (8.6 / 3.0, 0.0))
-        B.strip3('trk_roof', ups(bandframe(s0, s1, d1), 12.6), ups(bandframe(s0, s1, d0 + 1.5), 11.2), along(F1), (0.0, 1.0))
-        for P in (bandframe(s0, s1, d0 + 1.6, 15.0),):
-            for p in P: B.box('trk_steel', p[0], p[1], 0.0, 0.25, 0.25, 11.3, ang, False, False)
+        B.strip3('trk_canopy', ups(bandframe(s0, s1, d1), 12.6), ups(bandframe(s0, s1, d0 + 1.5), 11.2), along(F1), (0.0, 1.0))
+        out = 1.0 if d1 > d0 else -1.0; db = d1 - 0.6 * out                # the canopy's posts behind the back row
+        zr = 12.6 - 1.4 * abs(d1 - db) / abs(d1 - (d0 + 1.5 * out))       # the canopy's height above them
+        for p in bandframe(s0, s1, db, 15.0): B.box('trk_steel', p[0], p[1], 0.0, 0.25, 0.25, zr, ang, False, False)
         for s in (s0, s1):
             a, _ = frame(s, d0); b, _ = frame(s, d1)
             B.quad('trk_stand', (a[0], a[1], 0), (b[0], b[1], 0), (b[0], b[1], 12.6), (a[0], a[1], 1.2))
@@ -508,7 +520,7 @@ def scenery(tid, pts, width, seed=11):
         (mx, my), mt = frame(s, side * (e + ts.MARSHAL_BACK)); a = math.atan2(mt[1], mt[0])
         B.box('trk_marshal', mx, my, 0.0, 2.0, 2.0, 2.2, a, False, False); B.box('trk_orange', mx, my, 2.2, 2.4, 2.4, 0.25, a, True, True)
     for s, side, label in ts.braking_boards(pts, width, closed):
-        (cx, cy), t = frame(s, side * (width / 2 + 2.6)); nx, ny = -t[1], t[0]
+        (cx, cy), t = frame(s, side * (e + BOARD_BACK)); nx, ny = -t[1], t[0]
         j = ('150', '100', '50').index(label)
         a = (cx + nx * 0.55, cy + ny * 0.55); b = (cx - nx * 0.55, cy - ny * 0.55)   # left to right as the approaching driver sees it
         B.quad('trk_brake', (a[0], a[1], 0.6), (b[0], b[1], 0.6), (b[0], b[1], 2.1), (a[0], a[1], 2.1), ((j / 3, 0), ((j + 1) / 3, 0), ((j + 1) / 3, 1), (j / 3, 1)))
@@ -523,11 +535,14 @@ def scenery(tid, pts, width, seed=11):
             c, s_ = math.cos(r + q) * w / 2, math.sin(r + q) * w / 2
             B.quad('trk_trees', (x - c, y - s_, 0.0), (x + c, y + s_, 0.0), (x + c, y + s_, h), (x - c, y - s_, h), ((u0, 0), (u1, 0), (u1, 1), (u0, 1)))
 
-    # 9. a wood's edge all round: the tree-line strip 260 m outside the centreline's bounds (110 m past the fence)
-    B.wall('trk_treeline', rounded_rect(min(xs), min(ys), max(xs), max(ys), 260.0), 26.0, True, 0.0)
+    # 9. a wood's edge all round: the tree-line strip 170 m outside the centreline's bounds (20 m past the fence), in
+    # whole tiles of its texture (u one per tile, so the loop closes on a tile's edge; v 0 to 26 / 26.5)
+    ring = outset_rect(min(xs), min(ys), max(xs), max(ys), 170.0)
+    cum = cumulative(ring + [ring[0]], False)[0]; tile = cum[-1] / max(1, round(cum[-1] / TREELINE_TILE))
+    B.wall('trk_treeline', ring, 26.0, True, 0.0, [c / tile for c in cum], 26.0 / 26.5)
     return B
 
-def rounded_rect(x0, y0, x1, y1, d, step=20.0):
+def outset_rect(x0, y0, x1, y1, d, step=20.0):
     """The points d outside the rectangle (x0, y0)-(x1, y1), counter-clockwise: its sides moved out and quarter circles
     of radius d round its corners, about `step` m apart."""
     out = []

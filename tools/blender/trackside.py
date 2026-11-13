@@ -18,6 +18,10 @@ START_AHEAD = 150.0     # concrete walls from the line this far ahead...
 START_BEHIND = 250.0    # ...and this far behind it (the start straight)
 MARSHAL_BACK = 3.0      # marshal posts stand this far behind the barrier
 TREE_CLEAR = 25.0       # no tree nearer the centreline than this
+K_SMOOTH = 6            # curvature averaged over 2 * 6 + 1 points (about 40 m)
+MIN_BEND_PTS = 4        # a bend (kerbs) is at least 4 points (12 m); same-sign bends closer than GAP_PTS merge
+MIN_RUN_PTS = 7         # tyre walls, gravel beds and bend fences run at least 7 points (21 m)
+GAP_PTS = 5             # gaps under 5 points (15 m) between two such runs are filled
 TREE_ASPECT = {'a': 0.946, 'b': 0.363}   # the tree sprites' width / height (tex/trees.webp, made by prep_textures.py)
 
 
@@ -123,23 +127,17 @@ class Grid:
 
 
 def wall_run_idx(pts, closed, d, width):
-    """The barrier runs at offset d as point indices: offset points that would fall on another part of the track
-    (within width/2 + 2 of a centreline point more than 15 points away) are dropped, splitting the runs."""
+    """The barrier runs at offset d as point indices. Offset points that would fall on the road or its verge (within
+    width/2 + 2 of any centreline point: another part of the track, or this one where the inside of a bend tighter
+    than |d| folds the offset line back over the road) are dropped, splitting the runs; so are both ends of a
+    segment whose middle would."""
     off = offset_polyline(pts, d, closed); n = len(pts); lim = width / 2 + 2
-    G = Grid([(p[0], p[1], j) for j, p in enumerate(pts)], cell=max(8.0, lim))
-    keep = []
-    for i in range(n):
-        p = off[i]; ok = True
-        c = G.cell; cx, cy = int(math.floor(p[0] / c)), int(math.floor(p[1] / c))
-        for gx in (cx - 1, cx, cx + 1):
-            for gy in (cy - 1, cy, cy + 1):
-                for q in G.b.get((gx, gy), ()):
-                    j = q[2]; dj = abs(j - i); dj = min(dj, n - dj) if closed else dj
-                    if dj <= 15: continue
-                    if abs(q[0] - p[0]) < lim and abs(q[1] - p[1]) < lim and math.hypot(q[0] - p[0], q[1] - p[1]) < lim: ok = False; break
-                if not ok: break
-            if not ok: break
-        keep.append(ok)
+    G = Grid(pts, cell=max(8.0, lim))
+    keep = [not G.near(p, lim) for p in off]
+    mid_bad = [keep[i] and keep[(i + 1) % n] and G.near(((off[i][0] + off[(i + 1) % n][0]) / 2, (off[i][1] + off[(i + 1) % n][1]) / 2), lim)
+               for i in range(n if closed else n - 1)]
+    for i, bad in enumerate(mid_bad):
+        if bad: keep[i] = keep[(i + 1) % n] = False
     order = list(range(n))
     if closed:
         if all(keep): return [(list(range(n)), True)]
@@ -181,7 +179,10 @@ def _an(pts, closed):
     if a is None or a['pts'] is not pts:
         if len(_CACHE) > 32: _CACHE.clear()
         cum, total = cumulative(pts, closed)
-        a = {'pts': pts, 'k': [curvature(pts, i, closed) for i in range(len(pts))], 'cum': cum, 'total': total,
+        raw = [curvature(pts, i, closed) for i in range(len(pts))]
+        # the scenery reads bends from curvature averaged over about 40 m: the centreline (every 3 m) wobbles, and the
+        # raw curvature put kerb, tyre and gravel stubs on straights
+        a = {'pts': pts, 'k_raw': raw, 'k': _smooth(raw, K_SMOOTH) if closed else raw, 'cum': cum, 'total': total,
              'T': tangents(pts, closed), 'grid': Grid(pts)}
         _CACHE[key] = a
     return a
@@ -223,11 +224,49 @@ def racing_line(pts, width, closed=True, margin=1.2):
     T = a['T']
     return [(p[0] - t[1] * o, p[1] + t[0] * o) for p, t, o in zip(pts, T, off)]
 
+def _clean_runs(flags, min_pts, gap_pts, closed):
+    """flags with False gaps shorter than gap_pts between True runs filled, then True runs shorter than min_pts
+    dropped; cyclic when closed."""
+    n = len(flags); f = list(flags)
+    if all(f) or not any(f): return f
+    def runs(val):
+        start = f.index(not val) if closed else 0; out = []; q = 0
+        while q < n:
+            i = (start + q) % n if closed else q
+            if f[i] != val: q += 1; continue
+            j = q
+            while j < n and f[((start + j) % n) if closed else j] == val: j += 1
+            out.append([((start + t) % n) if closed else t for t in range(q, j)]); q = j
+        return out
+    for g in runs(False):
+        inner = (closed or (g[0] > 0 and g[-1] < n - 1))
+        if inner and len(g) < gap_pts:
+            for i in g: f[i] = True
+    if all(f): return f
+    for r in runs(True):
+        if len(r) < min_pts:
+            for i in r: f[i] = False
+    return f
+
+def _bend_flags(pts, closed, side, kmin):
+    """Points where side (+1 left, -1 right) is the outside of a bend sharper than kmin, outside the start window, in
+    runs of at least MIN_RUN_PTS (cached)."""
+    a = _an(pts, closed); key = ('bend', side, kmin)
+    if key not in a:
+        cum, total = a['cum'], a['total']
+        f = [abs(x) > kmin and side == _outside(x) and not (cum[i] <= START_AHEAD or cum[i] >= total - START_BEHIND) for i, x in enumerate(a['k'])]
+        a[key] = _clean_runs(f, MIN_RUN_PTS, GAP_PTS, closed)
+    return a[key]
+
 def bend_spans(pts, closed, kmin):
-    """Runs of points with |curvature| > kmin: (i0, i1 exclusive, sign of the peak). On a closed line a run may wrap:
-    i1 can pass len(pts) (index modulo n)."""
+    """Runs of points with |curvature| > kmin: (i0, i1 exclusive, sign of the peak), at least MIN_BEND_PTS long, the
+    same-sign ones less than GAP_PTS apart merged. On a closed line a run may wrap: i1 can pass len(pts) (index
+    modulo n)."""
     a = _an(pts, closed); n = len(pts); k = a['k']
     flag = [abs(x) > kmin for x in k]
+    pos = _clean_runs([f and x > 0 for f, x in zip(flag, k)], MIN_BEND_PTS, GAP_PTS, closed)
+    neg = _clean_runs([f and x < 0 for f, x in zip(flag, k)], MIN_BEND_PTS, GAP_PTS, closed)
+    flag = [p or q for p, q in zip(pos, neg)]
     if all(flag):
         peak = max(range(n), key=lambda i: abs(k[i])); return [(0, n, 1 if k[peak] > 0 else -1)]
     if not any(flag): return []
@@ -246,31 +285,39 @@ def bend_spans(pts, closed, kmin):
 def barrier_kind(pts, width, closed, i, side):
     """What stands on the barrier line at point i, side +1 (left) or -1 (right): concrete walls with boards on the
     start straight, tyre walls on the outside of tight bends, armco elsewhere."""
-    a = _an(pts, closed); s = a['cum'][i]; k = a['k'][i]
+    a = _an(pts, closed); s = a['cum'][i]
     if s <= START_AHEAD or s >= a['total'] - START_BEHIND: return 'wall'
-    if abs(k) > TYRES_K and side == _outside(k): return 'tyres'
+    if _bend_flags(pts, closed, side, TYRES_K)[i]: return 'tyres'
     return 'armco'
 
 def runoff_kind(pts, closed, i, side):
     """Gravel on the outside of tight bends, grass elsewhere."""
-    k = _an(pts, closed)['k'][i]
-    return 'gravel' if abs(k) > GRAVEL_K and side == _outside(k) else 'grass'
+    return 'gravel' if _bend_flags(pts, closed, side, GRAVEL_K)[i] else 'grass'
 
 def fence_runs(pts, width, closed=True):
-    """Catch fences, 1.5 m behind the barrier: (point indices, side) along the start straight and outside fast bends,
-    only where the barrier itself runs."""
-    a = _an(pts, closed); out = []
+    """Catch fences, 1.5 m behind the barrier (0.1 m along the start straight, on its wall): (point indices, side)
+    along the start straight and outside fast bends, only where the barrier itself runs and the fence keeps off the
+    road (width/2 + 2 m from every part of the centreline, like the barriers)."""
+    a = _an(pts, closed); out = []; n = len(pts); G = a['grid']; T = a['T']; lim = width / 2 + 2
     for side in (1, -1):
+        bend = _bend_flags(pts, closed, side, FENCE_K); mine = []
         for ix, _c in wall_run_idx(pts, closed, side * (width / 2 + WALL_GAP), width):
             cur = []
             for i in ix:
-                s = a['cum'][i]; k = a['k'][i]
-                want = s <= START_AHEAD or s >= a['total'] - START_BEHIND or (abs(k) > FENCE_K and side == _outside(k))
+                s = a['cum'][i % n]; win = s <= START_AHEAD or s >= a['total'] - START_BEHIND
+                d = side * (width / 2 + WALL_GAP + (0.1 if win else 1.5)); p, t = pts[i % n], T[i % n]
+                want = (win or bend[i % n]) and not G.near((p[0] - t[1] * d, p[1] + t[0] * d), lim)
                 if want: cur.append(i)
                 else:
-                    if len(cur) >= 5: out.append((cur, side))
+                    if len(cur) >= 5: mine.append(cur)
                     cur = []
-            if len(cur) >= 5: out.append((cur, side))
+            if len(cur) >= 5: mine.append(cur)
+        # on a loop, a run that ends on the last point and one that starts on the first are one fence through the line
+        if closed:
+            last = next((r for r in mine if r[-1] % n == n - 1), None); first = next((r for r in mine if r[0] % n == 0), None)
+            if last is not None and first is not None and last is not first:
+                mine.remove(first); last.extend(n + (i % n) for i in first)
+        out += [(r, side) for r in mine]
     return out
 
 def _band_clear(pts, closed, width, s0, s1, d0, d1):
@@ -364,8 +411,8 @@ def braking_boards(pts, width, closed=True, corners=4):
         for lab in ('150', '100', '50'): out.append((round((sb - int(lab)) % total, 3), -sign, lab))
     return out
 
-def trees(pts, width, closed=True, seed=11, target=400):
-    """(x, y, species, height): clusters of trees 25-150 m out, inside the cell's fence (the track's box + 150 m).
+def trees(pts, width, closed=True, seed=11, target=950):
+    """(x, y, species, height): clusters of 8-16 trees, 30-150 m out, inside the cell's fence (the track's box + 150 m).
     Species 'a' is a broadleaf, 'b' a conifer."""
     a = _an(pts, closed); G = a['grid']; rnd = random.Random(seed)
     xs = [p[0] for p in pts]; ys = [p[1] for p in pts]
@@ -373,19 +420,19 @@ def trees(pts, width, closed=True, seed=11, target=400):
     area = start_area(pts, width, closed)                 # no tree through the grandstand, pit lane or pits
     keep_out = [_band_poly(pts, closed, area[k], 9.0) for k in ('stand', 'pitlane', 'pits') if area[k]]
     out = []; tries = 0
-    while len(out) < target and tries < 4000:
+    while len(out) < target and tries < 12000:
         tries += 1
         cx, cy = rnd.uniform(x0, x1), rnd.uniform(y0, y1)
         dm = G.min_dist((cx, cy), 160.0)
-        if dm < 35.0 or dm >= 150.0: continue
-        for _ in range(rnd.randint(6, 13)):
-            r = 14.0 * math.sqrt(rnd.random()); th = rnd.uniform(0, 2 * math.pi)
+        if dm < 30.0 or dm >= 150.0: continue
+        for _ in range(rnd.randint(8, 16)):
+            r = 22.0 * math.sqrt(rnd.random()); th = rnd.uniform(0, 2 * math.pi)
             x, y = cx + r * math.cos(th), cy + r * math.sin(th)
             if not (x0 < x < x1 and y0 < y < y1): continue
             if G.near((x, y), TREE_CLEAR) or any(_in_poly((x, y), P) for P in keep_out): continue
             if any((x - q[0]) ** 2 + (y - q[1]) ** 2 < 16.0 for q in out[-14:]): continue
             sp = 'a' if rnd.random() < 0.7 else 'b'
-            h = rnd.uniform(8.0, 16.0) if sp == 'a' else rnd.uniform(10.0, 17.0)
+            h = rnd.uniform(9.0, 18.0) if sp == 'a' else rnd.uniform(11.0, 19.0)
             out.append((round(x, 2), round(y, 2), sp, round(h, 2)))
             if len(out) >= target: break
     return out

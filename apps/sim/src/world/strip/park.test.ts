@@ -3,7 +3,7 @@ import path from 'node:path';
 import * as THREE from 'three';
 import { HUB, markerFor } from './district';
 import { readTrackSync, setTrackDir } from './districtNode';
-import { buildHub, dressSky, mountTrack, nameSprite, roadRibbons, markerMeshes, routeRibbon, gateMeshes, HORIZON, OVERCAST, SKY } from './park';
+import { buildHub, dressSky, gltfLoader, mountTrack, nameSprite, roadRibbons, markerMeshes, routeRibbon, gateMeshes, HORIZON, OVERCAST, SKY } from './park';
 import { makeTrackLib } from './trackMaterials';
 import { buildRoute } from './routes';
 import { WORLD_PER_M as W } from '../units';
@@ -277,6 +277,8 @@ describe('the circuits\' look', () => {
     dressSky(look, 100, (u, ok) => { urls.push(u); ok(new THREE.Texture()); }, '/b/');
     expect(urls).toEqual(['/b/strip/tex/sky.jpg', '/b/strip/tex/grass.jpg']);
     expect(look.sky!.mapping).toBe(THREE.EquirectangularReflectionMapping); expect(look.changed).toHaveBeenCalled();
+    // no mipmaps on the panorama: at its seam u jumps from 1 to 0, and a mipmapped sky would draw a line down the sky there
+    expect(look.sky!.generateMipmaps).toBe(false); expect(look.sky!.minFilter).toBe(THREE.LinearFilter);
     expect(look.ground.map).toBeTruthy(); expect(look.ground.map!.repeat.x).toBeCloseTo(100 / W / 4);
     const look2 = { sky: null as THREE.Texture | null, ground: new THREE.MeshStandardMaterial({ color: 0x5e7a3a }), changed: vi.fn() };
     dressSky(look2, 100, (_u, _ok, fail) => fail(), '/b/');
@@ -299,6 +301,22 @@ describe('the circuits\' look', () => {
     expect((s.background as THREE.Color).getHex()).toBe(SKY); expect(fog.color.getHex()).toBe(SKY);
     expect([sun.intensity, hemi.intensity]).toEqual(sunny); expect(ground.material).toBe(flat);
     expect(HORIZON).not.toBe(SKY);
+  });
+});
+
+describe('the circuit model loader', () => {
+  it('decodes on at most two workers, and starts the decoder afresh after a failed load', async () => {
+    const made: { limit: number; disposed: boolean }[] = [];
+    class Draco { s = { limit: 0, disposed: false }; constructor() { made.push(this.s); } setDecoderPath() {} setDecoderConfig() {} setWorkerLimit(n: number) { this.s.limit = n; } dispose() { this.s.disposed = true; } }
+    let fail = true;
+    class Gltf { setDRACOLoader() {} async loadAsync() { if (fail) throw new Error('no decoder'); return { scene: new THREE.Group() }; } }
+    const load = gltfLoader(async () => ({ GLTFLoader: Gltf, DRACOLoader: Draco }) as never, () => '/b/');
+    await expect(load('/b/strip/tracks/spa.glb')).rejects.toThrow('no decoder');
+    expect(made).toEqual([{ limit: 2, disposed: true }]);
+    fail = false;
+    await expect(load('/b/strip/tracks/spa.glb')).resolves.toBeInstanceOf(THREE.Group);
+    await load('/b/strip/tracks/monza.glb');
+    expect(made).toEqual([{ limit: 2, disposed: true }, { limit: 2, disposed: false }]);   // one decoder, kept
   });
 });
 

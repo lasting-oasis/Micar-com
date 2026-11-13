@@ -28,7 +28,7 @@ export type SceneMarker = { id: string; kind: 'event' | 'portal' | 'return'; x: 
  *  setWeather: the hub's sunny flat look, or the circuits' overcast day (sky panorama, grey fog, soft light, grass). */
 export type Weather = 'hub' | 'circuit';
 export type Hub = { scene: THREE.Scene; markers: SceneMarker[]; cpMark: THREE.Group; roads: THREE.Mesh; modelReady: Promise<void>; setVisible(v: boolean): void; setWeather(w: Weather): void; dispose(): void };
-export type Mounted = { group: THREE.Group; markers: SceneMarker[]; roads: THREE.Mesh; modelReady: Promise<void>; dispose(): void };
+export type Mounted = { group: THREE.Group; markers: SceneMarker[]; roads: THREE.Mesh; modelReady: Promise<void>; model(): THREE.Object3D | null; dispose(): void };
 /** assetBase defaults to district's setAssetBase setting. */
 /** trackLib: the circuits' materials (default: the session's, in a browser; null keeps the glb's flat colours). */
 export type ParkOpts = { loadModel?: Loader | null; assetBase?: string; trackLib?: TrackLib | null };
@@ -162,14 +162,22 @@ export function markerMeshes(_kind: SceneMarker['kind'], color: THREE.ColorRepre
 
 // ---------------------------------------------------------------------------------- model loading
 // circuit glb files are Draco-compressed (tools/blender/export_strip.py); the decoder ships in public/draco
-let draco: unknown = null;
-const defaultLoader: Loader = async url => {
-  const { GLTFLoader, DRACOLoader } = await import('three-stdlib');
-  const gl = new GLTFLoader();
-  if (!draco) { const d = new DRACOLoader(); d.setDecoderPath(getAssetBase() + 'draco/'); d.setDecoderConfig({ type: 'wasm' }); draco = d; }
-  gl.setDRACOLoader(draco as InstanceType<typeof DRACOLoader>);
-  return (await gl.loadAsync(url)).scene;
-};
+type Gltf = Pick<typeof import('three-stdlib'), 'GLTFLoader' | 'DRACOLoader'>;
+/** A glb loader sharing one Draco decoder (two workers) across loads; a failed load drops the decoder when no other
+ *  load uses it, so a later mount starts it afresh instead of meeting the same failure. */
+export function gltfLoader(mod: () => Promise<Gltf>, base: () => string): Loader {
+  let draco: InstanceType<Gltf['DRACOLoader']> | null = null, users = 0;
+  return async url => {
+    const { GLTFLoader, DRACOLoader } = await mod();
+    const gl = new GLTFLoader();
+    if (!draco) { const d = new DRACOLoader(); d.setDecoderPath(base() + 'draco/'); d.setDecoderConfig({ type: 'wasm' }); d.setWorkerLimit(2); draco = d; }
+    const d = draco; gl.setDRACOLoader(d); users++;
+    try { return (await gl.loadAsync(url)).scene; }
+    catch (err) { if (draco === d && users === 1) { d.dispose(); draco = null; } throw err; }
+    finally { users--; }
+  };
+}
+const defaultLoader: Loader = gltfLoader(() => import('three-stdlib'), getAssetBase);
 /** The session's circuit materials (textured from public/strip/tex), made on first use in a browser. */
 let trackLib: TrackLib | null = null;
 export function sessionTrackLib(): TrackLib | null {
@@ -245,8 +253,9 @@ export const HORIZON = 0x72706c;
 export type CircuitLook = { sky: THREE.Texture | null; ground: THREE.MeshStandardMaterial; changed(): void };
 export function dressSky(look: CircuitLook, size: number, load: TexLoad, base: string, aniso = 1): void {
   load(base + 'strip/tex/sky.jpg', t => {
-    t.mapping = THREE.EquirectangularReflectionMapping; t.colorSpace = THREE.SRGBColorSpace; t.needsUpdate = true;
-    look.sky = t; look.changed();
+    t.mapping = THREE.EquirectangularReflectionMapping; t.colorSpace = THREE.SRGBColorSpace;
+    t.generateMipmaps = false; t.minFilter = THREE.LinearFilter;   // no mip line down the sky at the panorama's seam
+    t.needsUpdate = true; look.sky = t; look.changed();
   }, () => {});
   load(base + 'strip/tex/grass.jpg', t => {
     const m = look.ground, r = size / W / 4;
@@ -366,7 +375,7 @@ export function mountTrack(scene: THREE.Scene, track: TrackData, opts: ParkOpts 
   const loader = loaderOf(opts);
   const att = attachModel(loader && cachedLoader(trackMaterialLoader(loader, opts.trackLib === undefined ? sessionTrackLib() : opts.trackLib)), baseOf(opts) + 'strip/tracks/' + track.id + '.glb', group, roads, 'strip track model ' + track.id, () => disposed, { shared: true });
   return {
-    group, markers, roads, modelReady: att.ready,
+    group, markers, roads, modelReady: att.ready, model: att.model,
     dispose() {
       if (disposed) return; disposed = true;
       group.removeFromParent();

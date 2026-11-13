@@ -127,7 +127,7 @@ def rubber(out, rnd):
             for c, w, s, k, ph in streaks:
                 d = abs(u - c) / w
                 if d < 3: a += s * math.exp(-d * d) * (0.7 + 0.3 * math.sin(2 * math.pi * k * y / H + ph))
-            px[x, y] = (8, 8, 9, int(255 * min(0.8, a)))
+            px[x, y] = (8, 8, 9, int(255 * min(0.45, a)))          # rubber darkens the asphalt, never blacks it out
     im.save(os.path.join(out, 'rubber.png'), optimize=True)
 
 

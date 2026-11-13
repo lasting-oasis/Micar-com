@@ -139,6 +139,33 @@ describe('StripScene', () => {
     S.dispose();
   });
 
+  it('reports the mounted circuit as drawn (the smoke checks it): its trk meshes and whether the asphalt has its picture', async () => {
+    const { makeTrackLib } = await import('./trackMaterials');
+    const lib = makeTrackLib((_u, ok) => ok(new THREE.Texture()), '/s/');
+    const loadModel = async (url: string) => {
+      const g = new THREE.Group();
+      if (url.includes('tracks/')) for (const n of ['trk_asphalt', 'trk_grass']) { const m = new THREE.Mesh(new THREE.BufferGeometry(), new THREE.MeshStandardMaterial()); (m.material as THREE.Material).name = n; g.add(m); }
+      return g;
+    };
+    const { S, PV, car } = setup({ loadModel, trackLib: lib }); S.enter(PV, car);
+    expect(S.circuitModel()).toBeNull();
+    await S.enterTrack('monza');
+    await vi.waitFor(() => expect(S.circuitModel()).toEqual({ id: 'monza', meshes: 2, asphaltMap: true }));
+    S.returnToHub();
+    expect(S.circuitModel()).toBeNull();
+    S.dispose(); lib.dispose();
+  });
+
+  it('the cars drive with their lamps off on a circuit (a day) and glowing in the hub', async () => {
+    const { S, PV, car } = setup(); S.enter(PV, car);
+    expect(S.carLampGlow()).toBe(1);
+    await S.enterTrack('monza');
+    expect(S.carLampGlow()).toBe(0);
+    S.returnToHub();
+    expect(S.carLampGlow()).toBe(1);
+    S.dispose();
+  });
+
   it('entering a track mounts it, parks the hub traffic and places the car at the lobby', async () => {
     const { S, PV, car } = setup(); S.enter(PV, car);
     await S.enterTrack('monza');

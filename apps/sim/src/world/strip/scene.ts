@@ -310,6 +310,19 @@ export class StripScene {
     this.markers = this.hub?.markers ?? [];
     setWallZone(zoneWalls(this.zone));
   }
+  /** The mounted circuit as drawn (the smoke checks it): its trk_* meshes and whether the asphalt has its picture;
+   *  null in the hub or before the model lands. */
+  circuitModel(): { id: string; meshes: number; asphaltMap: boolean } | null {
+    const m = this.zone.kind === 'track' ? this.mounted?.model() : null; if (!m || this.zone.kind !== 'track') return null;
+    let meshes = 0, asphaltMap = false;
+    m.traverse(o => {
+      const mat = (o as THREE.Mesh).isMesh ? (o as THREE.Mesh).material as THREE.MeshStandardMaterial : null;
+      if (mat?.name?.startsWith('trk_')) { meshes++; if (mat.name === 'trk_asphalt' && mat.map) asphaltMap = true; }
+    });
+    return { id: this.zone.track.id, meshes, asphaltMap };
+  }
+  /** How brightly the driven cars' lamps glow (0 to 1): a circuit is an overcast day, the hub keeps them lit. */
+  carLampGlow(): number { return this.zone.kind === 'track' ? 0 : 1; }
   /** The hub's scenery (model, ribbons, portals, rental lot) shows only while the hub is the zone; its sunny look too
    *  (a circuit has the overcast day: sky, fog, light, grass and reflections). */
   private showHub(v: boolean): void {

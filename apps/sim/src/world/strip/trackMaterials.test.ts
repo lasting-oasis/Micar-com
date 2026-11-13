@@ -79,6 +79,36 @@ describe('circuit materials', () => {
     expect([0, 1, 2, 3, 4].map(j => cell(t, j))).toEqual([LAMP_OFF, LAMP_OFF, LAMP_OFF, LAMP_OFF, LAMP_OFF]);
   });
 
+  it("the pictures stand the right way up: the glb's UVs are glTF's (v from the top), so no map is flipped", () => {
+    const { load } = stubLoad(), lib = makeTrackLib(load, '/s/');
+    for (const [name, s] of Object.entries(TRACK_TEX)) {
+      if (!s.map) continue;
+      const m = lib.material(name) as THREE.MeshStandardMaterial;
+      expect(m.map!.flipY, name).toBe(false);
+      if (m.normalMap) expect(m.normalMap.flipY, name).toBe(false);
+    }
+    // the atlases are in tiles: the tree line's u counts its 104 m tiles and v climbs one 26.5 m tile
+    expect(TRACK_TEX.trk_treeline.repeat).toEqual([1, 1]);
+  });
+
+  it("the lamp box shares the lamps' palette and stays black when they light", () => {
+    const { load } = stubLoad(), lib = makeTrackLib(load, '/s/');
+    const t = mapOf(lib.material('trk_lamps'));
+    expect(Object.keys(PALETTES.trk_lamps)).toEqual(['trk_lamp1', 'trk_lamp2', 'trk_lamp3', 'trk_lamp4', 'trk_lamp5', 'trk_lamp_box']);
+    setLamps(lib, [true, true, true, true, true]);
+    expect(cell(t, 5)).toBe(PALETTES.trk_lamps.trk_lamp_box);
+    expect(PALETTES.trk_lamps.trk_lamp_box).toBeLessThan(0x202020);
+  });
+
+  it('cut-out trees stay hidden until their picture lands (no green boards), and for good if it never does', () => {
+    const later: (() => void)[] = [];
+    const lib = makeTrackLib((url, ok, fail) => later.push(() => url.endsWith('treeline.webp') ? fail() : ok(new THREE.Texture())), '/s/');
+    const trees = lib.material('trk_trees')!, line = lib.material('trk_treeline')!, asphalt = lib.material('trk_asphalt')!;
+    expect([trees.visible, line.visible, asphalt.visible]).toEqual([false, false, true]);
+    for (const f of later) f();
+    expect([trees.visible, line.visible]).toEqual([true, false]);
+  });
+
   it('a texture that fails to load leaves the material its colour', () => {
     const { load } = stubLoad(['asphalt.jpg']), lib = makeTrackLib(load, '/s/');
     const m = lib.material('trk_asphalt') as THREE.MeshStandardMaterial;

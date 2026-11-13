@@ -64,6 +64,11 @@ async function race(eid, tid) {
   ok(await G(e => window.__micar.startEvent(e), eid), 'started ' + eid);
   ok(await g.waitForFunction(() => !!window.__micar.event(), null, { timeout: 120000, polling: 100 }).then(() => true, () => false), eid + ' loaded and on the grid');
   await g.waitForFunction(() => (window.__micar.event()?.lit ?? 0) >= 3 || window.__micar.event()?.state === 'race', null, { timeout: 60000, polling: 100 });
+  // the circuit's model is drawn, textured: its scenery meshes are in and the asphalt has its picture
+  const model = await g.waitForFunction(() => { const c = window.__micar.circuit(); return c && c.asphaltMap ? c : null; }, null, { timeout: 60000, polling: 250 })
+    .then(h => h.jsonValue(), () => null);
+  console.log(`model ${eid}: ${JSON.stringify(model)}`);
+  ok(!!model && model.id === tid && model.meshes >= 12 && model.asphaltMap, `${tid} model drawn with its textures`);
   await settle(1500); await shot(`track-${eid}-grid-${VIEW}`);
   await g.waitForFunction(() => window.__micar.event()?.state === 'race', null, { timeout: 120000, polling: 100 });
   for (const f of [0.3, 0.65]) {

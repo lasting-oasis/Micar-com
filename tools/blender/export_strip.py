@@ -121,8 +121,8 @@ def export_glb(coll, path, budget, scenery=False):
         if ob.type == 'MESH': ob.select_set(True, view_layer=vl)
     os.makedirs(os.path.dirname(path), exist_ok=True)
     extra = dict(export_texcoords=True, export_image_format='NONE', export_draco_mesh_compression_enable=True,
-                 export_draco_mesh_compression_level=6, export_draco_position_quantization=14,
-                 export_draco_texcoord_quantization=12) if scenery else dict(export_texcoords=False)
+                 export_draco_mesh_compression_level=6, export_draco_position_quantization=NS['DRACO_POS_BITS'],
+                 export_draco_texcoord_quantization=NS['DRACO_UV_BITS']) if scenery else dict(export_texcoords=False)
     bpy.ops.export_scene.gltf(filepath=path, export_format='GLB', use_selection=True, use_active_scene=True, export_apply=True, export_yup=True,
                               export_animations=False, export_cameras=False, export_lights=False, export_normals=False,
                               export_materials='EXPORT', export_extras=False, **extra)
@@ -159,7 +159,8 @@ def export_hub():
     sizes = {'hub.glb': export_glb(hub, os.path.join(PUBLIC, 'hub.glb'), BUDGET['hub_glb']), 'hub.json': write_json(os.path.join(SRC, 'hub.json'), out)}
     return sizes
 
-def export_track(tid):
+def export_track(tid, out_dir=None):
+    """The circuit's json (routes, walls, markers) and scenery glb, into the repo (or out_dir)."""
     vis, data = bpy.data.collections['Track.' + tid], bpy.data.collections['Track.' + tid + '.Data']
     centre = data.objects[tid + '.centre']; cpts, _, clen = sample_curve(centre, STEP); width = float(centre['width'])
     routes = {}; lens = {}
@@ -194,8 +195,8 @@ def export_track(tid):
         'centre': {'pts': [g(p) for p in cpts], 'width': width, 'loop': True},
         'routes': routes, 'walls': walls_of(data, tid + '.wall.'), 'markers': markers,
     }
-    sizes = {tid + '.glb': export_track_glb(tid),
-             tid + '.json': write_json(os.path.join(PUBLIC, 'tracks', tid + '.json'), out)}
+    sizes = {tid + '.glb': export_track_glb(tid, out_dir),
+             tid + '.json': write_json(os.path.join(out_dir or os.path.join(PUBLIC, 'tracks'), tid + '.json'), out)}
     return sizes, clen, sorted(routes), lens
 
 def export_track_glb(tid, out_dir=None):

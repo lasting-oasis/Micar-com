@@ -107,10 +107,10 @@ def main():
     for name, s, size, q in JOBS:
         im = Image.open(os.path.join(src, s)).convert('RGB').resize(size, Image.LANCZOS)
         im.save(os.path.join(out, name), quality=q, optimize=True, progressive=True)
-    # the chain-link fence: colour with the opacity map as alpha, never below 14% (the game blends it: a faint veil
-    # between the wires that stays when the wires are too fine to see)
+    # the chain-link fence: colour with the opacity map as alpha, never below 31% (the game blends it: a veil between
+    # the wires that keeps the fence visible when the wires are too fine to see)
     c = Image.open(os.path.join(src, 'Fence003_1K-PNG_Color.png')).convert('RGB').resize((512, 512), Image.LANCZOS)
-    a = Image.open(os.path.join(src, 'Fence003_1K-PNG_Opacity.png')).convert('L').resize((512, 512), Image.LANCZOS).point(lambda v: max(v, 36))
+    a = Image.open(os.path.join(src, 'Fence003_1K-PNG_Opacity.png')).convert('L').resize((512, 512), Image.LANCZOS).point(lambda v: max(v, 80))
     c.putalpha(a); c.save(os.path.join(out, 'fence.webp'), quality=82, method=6)
     for sp in 'ab':
         im = sprite(src, sp); print('tree', sp, 'aspect', round(im.width / im.height, 3), 'used', TREE_ASPECT[sp])
