@@ -81,6 +81,8 @@ DRACO_POS_BITS = 18
 DRACO_UV_BITS = 16
 TREELINE_TILE = 104.0    # m along one tile of tex/treeline.webp (prep_textures.py), 26.5 m high
 BOARD_BACK = 0.7         # braking boards' centre behind the barrier line, m (their 1.1 m face stands clear of it)
+KERB_REACH = 0.3         # a kerb block or edge-line piece reaching further than this inside its own inner edge is left
+                         # out: the inside of a bend tighter than it is wide folds it across the road, a kink cuts a chord
 def material(name):
     mat = bpy.data.materials.get(name)
     if mat is None:
@@ -177,14 +179,21 @@ class Builder:
         for k in range(n):
             j = (k + 1) % n; f.append((o + 2 * k, o + 2 * k + 1, o + 2 * j + 1, o + 2 * j))
     def merge(self, palettes):
-        """Move each palette member's faces into its group, every UV on the member's cell centre ((j + .5) / n, .5)."""
+        """Move each palette member's faces into its group, every u on the member's cell centre (j + .5) / n. v is .5,
+        except that vertices sharing a position (a box's corners, the ends of blocks) each get their own v between .3
+        and .7 (the palette is one pixel tall), so an encoder that welds equal vertices (Draco's JavaScript encoder
+        does) cannot join a box's faces and shade it round; the rest stay alike and compress well."""
         for g, members in palettes.items():
             n = len(members)
             for j, m in enumerate(members):
                 p = self.parts.pop(m, None)
                 if not p or not p[1]: continue
                 v, f, t = self._p(g); o = len(v)
-                v += p[0]; t += [((j + .5) / n, .5)] * len(p[0]); f += [tuple(k + o for k in face) for face in p[1]]
+                at = {}
+                for q in p[0]: key = (round(q[0], 4), round(q[1], 4), round(q[2], 4)); at[key] = at.get(key, 0) + 1
+                shared = [at[(round(q[0], 4), round(q[1], 4), round(q[2], 4))] > 1 for q in p[0]]
+                v += p[0]; t += [((j + .5) / n, .3 + .4 * ((k * 0.6180339887498949) % 1.0) if sh else .5) for k, sh in enumerate(shared)]
+                f += [tuple(k + o for k in face) for face in p[1]]
     def emit(self, coll, prefix=''):
         self.merge(PALETTES)
         made = []
@@ -363,8 +372,12 @@ def scenery(tid, pts, width, seed=11):
     B.strip('trk_asphalt', offset_polyline(pts, width / 2, closed), offset_polyline(pts, -width / 2, closed), 0.01, closed, cum, (0.0, width), total)
     line = ts.racing_line(pts, width, closed, margin=2.1)
     B.strip('trk_rubber', offset_polyline(line, 2.0, closed), offset_polyline(line, -2.0, closed), 0.013, closed, cum, (0.0, 1.0), total)
-    for side in (1, -1):
-        B.ribbon('trk_line', offset_polyline(pts, side * (width / 2 - 0.3), closed), 0.2, 0.016, closed, cum, (0.0, 1.0), total)
+    Gc = ts._an(pts, closed)['grid']
+    for side in (1, -1):                                         # edge lines, but not where they fold or cut a corner
+        P = offset_polyline(pts, side * (width / 2 - 0.3), closed)
+        for idx, loop in ts.clear_runs(P, closed, Gc, width / 2 - 0.3 - KERB_REACH):
+            if loop: B.ribbon('trk_line', P, 0.2, 0.016, closed, cum, (0.0, 1.0), total)
+            else: B.ribbon('trk_line', [P[i % n] for i in idx], 0.2, 0.016, False, [cum[i % n] + total * (i // n) for i in idx], (0.0, 1.0))
     def paint(s0, s1, d0, d1):
         a, _ = frame(s0, d0); b, _ = frame(s0, d1); c, _ = frame(s1, d1); d, _ = frame(s1, d0)
         B.quad('trk_line', (a[0], a[1], 0.018), (b[0], b[1], 0.018), (c[0], c[1], 0.018), (d[0], d[1], 0.018))
@@ -388,8 +401,10 @@ def scenery(tid, pts, width, seed=11):
                 c, _ = frame(s1, side * (width / 2 + 0.9)); d, _ = frame(s1, side * (width / 2 - 0.05))
                 pa, pb, pc, pd = (a[0], a[1], 0.02), (b[0], b[1], 0.055), (c[0], c[1], 0.055), (d[0], d[1], 0.02)
                 m = 'trk_kerb_red' if q % 2 == 0 else 'trk_kerb_white'
-                if side > 0: B.quad(m, pb, pa, pd, pc)      # left of travel first: faces up
-                else: B.quad(m, pa, pb, pc, pd)
+                mid = ((a[0] + b[0] + c[0] + d[0]) / 4, (a[1] + b[1] + c[1] + d[1]) / 4)
+                if not any(Gc.near(p, width / 2 - 0.05 - KERB_REACH) for p in (a, b, c, d, mid)):   # no fold, no chord
+                    if side > 0: B.quad(m, pb, pa, pd, pc)  # left of travel first: faces up
+                    else: B.quad(m, pa, pb, pc, pd)
                 q += 1; s = s1
 
     # 3. run-off from the edge to the barrier line: gravel outside tight bends, mown grass (10 m stripes) elsewhere

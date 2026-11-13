@@ -61,9 +61,10 @@ def test_materials(tid):
 def test_palette_parts_sit_on_their_cells(tid):
     B = built(tid)
     for g, members in bs.PALETTES.items():
-        n = len(members); cells = {((j + .5) / n, .5) for j in range(n)}
+        n = len(members); cells = {round((j + .5) / n, 9) for j in range(n)}
         v, f, uv = B.parts[g]
-        assert f and all((round(u, 9), round(t, 9)) in {(round(a, 9), round(b, 9)) for a, b in cells} for u, t in uv), g
+        # u on a cell's centre; v anywhere between .25 and .75 (the palette is one pixel tall)
+        assert f and all(round(u, 9) in cells and .25 <= t <= .75 for u, t in uv), g
     used = {round(u * len(bs.PALETTES['trk_marks']) - .5) for u, t in B.parts['trk_marks'][2]}
     want = [bs.PALETTES['trk_marks'].index(m) for m in ('trk_line', 'trk_kerb_red', 'trk_kerb_white')]
     assert set(want) <= used
@@ -230,3 +231,36 @@ def test_the_stand_roof_is_a_red_canopy_held_from_the_back():
     B = bs.scenery('monza', *load('monza'))
     assert B.parts['trk_canopy'][1] and 'trk_canopy' in bs.PALETTES['trk_solid']
 
+
+
+@pytest.mark.parametrize('tid', IDS)
+def test_kerbs_and_edge_lines_stay_at_the_edge(tid):
+    """Kerbs (from half the width - 0.05 m outwards) and the edge lines (0.2 m wide, 0.3 m inside the edge) reach no more
+    than KERB_REACH inside their own inner edge, at every vertex and every face's centre: on the inside of a bend tighter
+    than they are wide they would fold across the road, and at a sharp kink cut a chord across its corner."""
+    pts, w = load(tid); half = w / 2
+    B = bs.scenery(tid, pts, w); G = bs.trackside.Grid(pts)
+    (px, py), _t, _w = gantry_frame(tid)
+    reach = bs.KERB_REACH + 0.02                                        # how far a piece may reach inside its inner edge
+    for m, need in (('trk_kerb_red', half - 0.05 - reach), ('trk_kerb_white', half - 0.05 - reach), ('trk_line', half - 0.4 - reach)):
+        v, f, uv = B.parts.get(m, ([], [], []))
+        for face in f:
+            P = [v[k] for k in face]
+            if m == 'trk_line' and any(math.hypot(x - px, y - py) < 20.0 for x, y, z in P): continue   # start line, grid boxes
+            cx = sum(p[0] for p in P) / len(P); cy = sum(p[1] for p in P) / len(P)
+            for x, y in [(p[0], p[1]) for p in P] + [(cx, cy)]:
+                assert not G.near((x, y), need), (m, round(x, 2), round(y, 2), round(G.min_dist((x, y), 20.0), 2))
+
+
+@pytest.mark.parametrize('tid', IDS)
+def test_box_faces_keep_their_own_vertices_through_any_encoder(tid):
+    """No two vertices of a palette group share both position and UV: an encoder that welds equal vertices (Draco's
+    JavaScript encoder does) cannot join a box's faces, which would shade it round (the game computes the normals)."""
+    B = built(tid)
+    for g in bs.PALETTES:
+        v, f, uv = B.parts.get(g, ([], [], []))
+        seen = set()
+        for p, t in zip(v, uv):
+            key = (round(p[0], 3), round(p[1], 3), round(p[2], 3), round(t[0], 5), round(t[1], 5))
+            assert key not in seen, (g, key)
+            seen.add(key)

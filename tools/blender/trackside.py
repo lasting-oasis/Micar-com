@@ -173,6 +173,26 @@ def wall_run_idx(pts, closed, d, width):
         else: groups[0] = groups.pop() + groups[0]
     return [(g, loop) for g in groups if len(g) >= 3]
 
+def clear_runs(P, closed, G, need):
+    """The runs of polyline P whose points and segment middles all keep `need` off every point in G: [(indices, True)]
+    when a closed P loses nothing, else open runs (on a loop an index may pass len(P), so a run's v can keep counting)."""
+    n = len(P)
+    ok = [not G.near(p, need) for p in P]
+    def seg(i):
+        a, b = P[i % n], P[(i + 1) % n]
+        return ok[i % n] and ok[(i + 1) % n] and not G.near(((a[0] + b[0]) / 2, (a[1] + b[1]) / 2), need)
+    segs = list(range(n if closed else n - 1)); good = [seg(i) for i in segs]
+    if closed and all(good): return [(list(range(n)), True)]
+    start = (good.index(False) + 1) if closed else 0
+    runs = []; cur = []
+    for j in range(start, start + len(segs)):
+        if good[j % len(segs)]:
+            if not cur: cur = [j]
+            cur.append(j + 1)
+        elif cur: runs.append((cur, False)); cur = []
+    if cur: runs.append((cur, False))
+    return runs
+
 def wall_runs(pts, closed, d, width):
     """Offset polyline split into runs, dropping points that would fall on another part of the track."""
     off = offset_polyline(pts, d, closed)
