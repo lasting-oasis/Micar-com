@@ -55,6 +55,10 @@ export const FOOTER_ESTIMATES: FooterText = {
   es: 'Los valores son estimaciones, no avalúos ni ofertas de compra.',
 };
 
+/** The credit Searlo's open-source plan asks for, wherever its dealer-listing data is used: the same words in both
+ *  languages, since it is the name of their credit line. */
+export const DATA_CREDIT = { label: 'Vehicle data by Searlo', href: 'https://searlo.tech/' } as const;
+
 export function footerCopyright(year: number): string {
   return `© ${year} MiCar`;
 }
@@ -74,7 +78,8 @@ export function footerHtml(lang: FooterLang, year: number): string {
     const blurb = col.blurb ? `<p class="mc-foot-blurb">${esc(col.blurb[lang])}</p>` : '';
     return `<div class="mc-foot-col"><p class="mc-foot-h">${esc(col.title[lang])}</p>${blurb}<div class="mc-foot-links">${links}</div></div>`;
   }).join('');
-  const legal = `<div class="mc-foot-legal"><span>${esc(footerCopyright(year))}</span><span>${esc(FOOTER_ESTIMATES[lang])}</span></div>`;
+  const credit = `<a class="mc-foot-credit" href="${esc(DATA_CREDIT.href)}" target="_blank" rel="noreferrer" lang="en">${esc(DATA_CREDIT.label)}</a>`;
+  const legal = `<div class="mc-foot-legal"><span>${esc(footerCopyright(year))}</span><span>${esc(FOOTER_ESTIMATES[lang])}</span>${credit}</div>`;
   return `<footer class="mc-foot"><div class="mc-foot-in"><div class="mc-foot-cols">${cols}</div>${legal}</div></footer>`;
 }
 

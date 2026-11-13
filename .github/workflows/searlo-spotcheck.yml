@@ -1,14 +1,18 @@
 name: Searlo spot-check of iSeeCars prices
 
 # One-off: 100 searches (1 Searlo credit each) comparing iSeeCars prices with Google results.
+# Run by hand only (Actions > Searlo spot-check of iSeeCars prices > Run workflow): no push or merge ever spends credits.
 on:
-  push:
-    branches: [main]
-    paths: [.github/workflows/searlo-spotcheck.yml, apps/value/scripts/searlo_spotcheck.py]
   workflow_dispatch:
 
 permissions:
   contents: write
+
+# one Searlo job at a time (they share the key and its credits): a run started while another is going waits for it
+# (GitHub keeps one waiting run per group; a newer one takes its place)
+concurrency:
+  group: searlo
+  cancel-in-progress: false
 
 jobs:
   check:

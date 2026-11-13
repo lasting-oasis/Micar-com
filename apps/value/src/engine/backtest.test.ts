@@ -52,3 +52,15 @@ describe('engine vs real listings', () => {
     });
   }
 });
+
+describe('calibration', () => {
+  // Fits from dealer listings alone (calibrate.ts --dealer) are opt-in: in review they did not hold up on listings
+  // they were not fitted to. Shipping one should be a decision, made here, not a side effect of a refit.
+  it('ships only models fitted on the hand-read samples', () => {
+    const curated = new Set(samples.map((s) => `${s.make} ${s.model}`));
+    for (const c of calibration.models) {
+      expect(curated.has(`${c.make} ${c.model}`), `${c.make} ${c.model}`).toBe(true);
+      expect((c as { dealer?: number }).dealer, `${c.make} ${c.model} dealer listings`).toBeUndefined();
+    }
+  });
+});

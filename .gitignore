@@ -8,3 +8,4 @@ packages/*/dist-demo/
 # Blender backups
 *.blend1
 *.blend2
+__pycache__/

@@ -1995,6 +1995,9 @@ function App() {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Tab') {
+        // Before the player is in (the front door, the Strip's entry card) Tab moves focus as usual
+        const s = useGameStore.getState();
+        if (!s.playerId || !s.gameState || (routeFromLocation(window.location).view === 'strip' && s.holdCard)) return;
         // Let Tab move between fields while typing (chat, gate code, offers)
         const el = document.activeElement as HTMLElement | null;
         const tag = (el?.tagName || '').toLowerCase();

@@ -1,4 +1,4 @@
-import { FOOTER_COLUMNS, FOOTER_ESTIMATES, FOOTER_SOON, footerCopyright } from '@micar/brand/footer';
+import { DATA_CREDIT, FOOTER_COLUMNS, FOOTER_ESTIMATES, FOOTER_SOON, footerCopyright } from '@micar/brand/footer';
 import { useLang } from './i18n';
 
 export function Footer() {
@@ -26,6 +26,7 @@ export function Footer() {
         <div className="mc-foot-legal">
           <span>{footerCopyright(year)}</span>
           <span>{FOOTER_ESTIMATES[lang]}</span>
+          <a className="mc-foot-credit" href={DATA_CREDIT.href} target="_blank" rel="noreferrer" lang="en">{DATA_CREDIT.label}</a>
         </div>
       </div>
     </footer>

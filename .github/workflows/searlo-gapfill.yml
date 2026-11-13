@@ -2,14 +2,18 @@ name: Searlo gap-fill
 
 # Searches starting MSRPs for model-years iSeeCars doesn't have (data/search/gaps.json),
 # plus 40 known controls to measure accuracy. 1 Searlo credit per search. Resumable.
+# Run by hand only (Actions > Searlo gap-fill > Run workflow): no push or merge ever spends credits.
 on:
-  push:
-    branches: [main]
-    paths: [.github/workflows/searlo-gapfill.yml, apps/value/scripts/searlo_gapfill.py, apps/value/data/search/gaps.json]
   workflow_dispatch:
 
 permissions:
   contents: write
+
+# one Searlo job at a time (they share the key and its credits): a run started while another is going waits for it
+# (GitHub keeps one waiting run per group; a newer one takes its place)
+concurrency:
+  group: searlo
+  cancel-in-progress: false
 
 jobs:
   fill:

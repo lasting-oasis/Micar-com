@@ -43,6 +43,12 @@ Challenge a friend: at the Strip's rental counter, **Challenge a friend** picks 
 
 Tester mode, the owner's way to try any car without earning it first: set one more Render env var, `TESTER_KEY` (8 to 128 characters, set in the dashboard, never committed), then type `Name#key` on the `/strip` card. That guest gets every car on the list, $1,000,000 that refills, every stage and part, and **Garage** and **Swap car** in the pause menu. The key is sent beside the name, never shown as part of it, and the device remembers it for that name ("Forget it" on the card drops it). A tester's cars and builds last until the page is closed or reloaded, and a tester cannot be linked to an account. Without the variable tester mode is off.
 
+## Data
+
+[Vehicle data by Searlo](https://searlo.tech/): real dealer asking prices for the models on the value page, fetched by a GitHub Action run by hand (`.github/workflows/searlo-listings.yml`), with the key in the repo's secrets, never in the site. Kept per listing: year, trim, price, mileage, condition (new, used or certified), the dealer's city and state, and days listed; per search: Searlo's price and mileage summary. No VINs, dealer names, websites, addresses, phone numbers or links are kept or printed. For now they are a check on the engine (`apps/value/scripts/dealer-check.ts`), not part of its values: fits made from them did not hold up on listings they were not fitted to (no better in other cities or on the hand-read samples, worse on older model years). `calibrate.ts --dealer` keeps the option, with the limits that review found it needs. Searlo also filled missing starting prices (`searlo-gapfill.yml`).
+
+Also used: the U.S. Bureau of Labor Statistics' used-car price index (monthly; the site's copy is refreshed weekly), EPA's model lineups, and published sticker prices (including iSeeCars).
+
 ## Run it
 
 ```

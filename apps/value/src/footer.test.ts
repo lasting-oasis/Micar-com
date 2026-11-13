@@ -3,6 +3,7 @@
 import { describe, expect, it } from 'vitest';
 import { SITE_URL } from '@micar/brand';
 import {
+  DATA_CREDIT,
   FOOTER_COLUMNS,
   FOOTER_ESTIMATES,
   FOOTER_SOON,
@@ -21,6 +22,15 @@ import { routeFromHash } from './route';
 
 const links = FOOTER_COLUMNS.flatMap((c) => c.links.map((l) => ({ col: c.id, ...l })));
 const find = (id: string) => links.find((l) => l.id === id)!;
+
+describe('the data credit', () => {
+  it("carries Searlo's open-source credit, word for word, in both languages and on the static footer", () => {
+    expect(DATA_CREDIT).toEqual({ label: 'Vehicle data by Searlo', href: 'https://searlo.tech/' });
+    for (const lang of ['en', 'es'] as FooterLang[]) {
+      expect(footerHtml(lang, 2026)).toContain('<a class="mc-foot-credit" href="https://searlo.tech/" target="_blank" rel="noreferrer" lang="en">Vehicle data by Searlo</a>');
+    }
+  });
+});
 
 describe('footer data', () => {
   it("footer links match the spec's table", () => {
