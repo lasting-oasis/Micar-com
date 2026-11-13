@@ -16,6 +16,7 @@ BOARD_K = 1 / 60        # braking boards before bends tighter than this...
 STRAIGHT_K = 1 / 250    # ...that end a straight (|curvature| below this for 160 m)
 START_AHEAD = 150.0     # concrete walls from the line this far ahead...
 START_BEHIND = 250.0    # ...and this far behind it (the start straight)
+GRID_CLEAR = (60.0, 20.0)   # no kerbs from this far behind the line to this far past it: the grid has walls, not kerbs
 MARSHAL_BACK = 3.0      # marshal posts stand this far behind the barrier
 TREE_CLEAR = 25.0       # no tree nearer the centreline than this
 K_SMOOTH = 6            # curvature averaged over 2 * 6 + 1 points (about 40 m)
@@ -480,3 +481,11 @@ def trees(pts, width, closed=True, seed=11, target=950):
             out.append((round(x, 2), round(y, 2), sp, round(h, 2)))
             if len(out) >= target: break
     return out
+
+
+def on_grid(s0, s1, total):
+    """Whether arc lengths s0..s1 (s1 may run past total) touch the grid's kerb-free window around the line."""
+    behind, ahead = GRID_CLEAR
+    for a, b in ((s0, s1), (s0 - total, s1 - total), (s0 + total, s1 + total)):
+        if b > -behind and a < ahead: return True
+    return False

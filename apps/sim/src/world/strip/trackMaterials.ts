@@ -37,19 +37,19 @@ export const LAMP_ON = 0xff2a2a;
 /** Flat colours share a material per group: build_strip.py puts each member's faces on cell j of its group, UV
  *  ((j + .5) / n, .5), in this order (tools/blender/test_build_scenery.py checks the names and the order). */
 export const PALETTES: Record<string, Record<string, number>> = {
-  trk_marks: { trk_line: 0xf2f2ee, trk_paint: 0xffd23f, trk_kerb_red: 0xc8191e, trk_kerb_white: 0xf0f0ec },
-  trk_solid: { trk_steel: 0x55595f, trk_roof: 0x8d9196, trk_marshal: 0xf4f4f4, trk_orange: 0xff7a1a, trk_canopy: 0x8c1d22, trk_armco: 0xb4bac2 },
+  trk_marks: { trk_line: 0xf2f2ee, trk_paint: 0xffd23f, trk_kerb_red: 0xb81c22, trk_kerb_white: 0xf0f0ec },
+  trk_solid: { trk_steel: 0x55595f, trk_roof: 0x8d9196, trk_marshal: 0xf4f4f4, trk_orange: 0xff7a1a, trk_canopy: 0x4f545b, trk_armco: 0xb4bac2 },
   // the lamps' box shares their primitive (the glb compresses each primitive on its own grid, so they stay apart)
   trk_lamps: { trk_lamp1: LAMP_OFF, trk_lamp2: LAMP_OFF, trk_lamp3: LAMP_OFF, trk_lamp4: LAMP_OFF, trk_lamp5: LAMP_OFF, trk_lamp_box: 0x0b0c0e },
 };
 export const TRACK_TEX: Record<string, TexSpec> = {
-  trk_asphalt: { color: 0x2b2d31, map: 'asphalt.jpg', normal: 'asphalt_n.jpg', repeat: FIVE, tint: 0xd6d6d6, rough: .92 },
+  trk_asphalt: { color: 0x2b2d31, map: 'asphalt.jpg', normal: 'asphalt_n.jpg', repeat: FIVE, tint: 0xa4a4a4, rough: .92 },
   trk_rubber: { color: 0x0a0a0b, map: 'rubber.png', repeat: [1, 1 / 8], overlay: true, basic: true },
   trk_marks: { color: 0xffffff, palette: true, rough: .6, lift: true },
   trk_grass: { color: 0x4c6b2e, map: 'grass.jpg', normal: 'grass_n.jpg', repeat: [1 / 4, 1 / 4], tint: 0xb0a78c, rough: .95 },
   trk_grass_mow: { color: 0x5a7d36, map: 'grass.jpg', normal: 'grass_n.jpg', repeat: [1 / 4, 1 / 4], tint: 0xc3bb9f, rough: .95 },
-  trk_gravel: { color: 0xa89a7a, map: 'gravel.jpg', normal: 'gravel_n.jpg', repeat: THREE_M, tint: 0xf0e6d2, rough: .95 },
-  // painted and steel parts take less sky: at a low camera's grazing angle the overcast sky's reflection washed the red
+  trk_gravel: { color: 0x8e8a82, map: 'gravel.jpg', normal: 'gravel_n.jpg', repeat: THREE_M, tint: 0xc9c6c0, rough: .95 },
+  // painted and steel parts take less sky: at a low camera's grazing angle the overcast sky's reflection washed the (then red)
   // canopy pink and the roofs white
   trk_solid: { color: 0xffffff, palette: true, metal: .1, rough: .7, env: .45, double: true },
   trk_wall: { color: 0x9a9a96, map: 'concrete.jpg', normal: 'concrete_n.jpg', repeat: THREE_M, rough: .9, double: true },

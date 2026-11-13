@@ -1,5 +1,5 @@
 // Smoke test for the circuits' look (race UI stage 2), against a running server started as for strip.smoke.mjs.
-// For each of four lap races, a new guest rents a car and starts it (leaving a race hands the rental back, so one
+// For each lap race (one per circuit), a new guest rents a car and starts it (leaving a race hands the rental back, so one
 // guest cannot simply start the next): on the grid while the lights come on (the gantry, grandstand and pits), then
 // teleported to two places on the lap. It screenshots each, logs what the frame drew, and leaves the race from the
 // pause menu. Budgets: 100 draw calls and 500k triangles a frame on a circuit (the old Monaco scenery
@@ -8,11 +8,12 @@
 // Exits 1 on any failed assertion or page error.
 import { chromium } from 'playwright';
 import { mkdirSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 
 const BASE = (process.env.BASE || 'http://localhost:3123/').replace(/\/?$/, '/');
 const VIEW = process.env.VIEW || 'desktop';
 const ONLY = process.env.ONLY ? process.env.ONLY.split(',') : null;
-const OUT = new URL('./out/', import.meta.url).pathname; mkdirSync(OUT, { recursive: true });
+const OUT = fileURLToPath(new URL('./out/', import.meta.url)); mkdirSync(OUT, { recursive: true });
 const W = 2; // render units per metre (world/units.ts WORLD_PER_M)
 const errs = [];
 const fail = (m) => { throw new Error(m); };
@@ -21,7 +22,10 @@ const views = {
   desktop: { viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 },
   phone: { viewport: { width: 844, height: 390 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true },
 };
-const RACES = [['harbour_gp', 'monaco'], ['figure8_gp', 'suzuka'], ['ardennes_gp', 'spa'], ['royal_gp', 'monza']].filter(([e]) => !ONLY || ONLY.includes(e));
+// all ten circuits, one lap race each (ONLY=harbour_gp,... picks some)
+const RACES = [['harbour_gp', 'monaco'], ['figure8_gp', 'suzuka'], ['ardennes_gp', 'spa'], ['royal_gp', 'monza'],
+  ['mountain_gp', 'bathurst'], ['lonestar_gp', 'cota'], ['lagoons_gp', 'interlagos'], ['drylagoon_x', 'laguna'],
+  ['eifel_gp', 'nurburgring'], ['airfield_gp', 'silverstone']].filter(([e]) => !ONLY || ONLY.includes(e));
 
 async function routeOf(tid, eid) {
   const track = await (await fetch(BASE + 'strip/tracks/' + tid + '.json')).json();

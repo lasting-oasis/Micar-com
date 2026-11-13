@@ -100,7 +100,19 @@ describe('circuit materials', () => {
     }
   });
 
-  it('painted and steel parts take a dimmer sky reflection, so a red canopy reads red, not pink, under the overcast sky', () => {
+  it('the circuit reads in real circuit colours: a steel-grey stand roof, asphalt darker than mid-grey, grey gravel', () => {
+    const sat = (hex: number) => { const c = new THREE.Color(hex), hsl = { h: 0, s: 0, l: 0 }; c.getHSL(hsl); return hsl; };
+    // the red canopy was the biggest thing in every start shot; a stand roof is steel
+    expect(sat(PALETTES.trk_solid.trk_canopy).s).toBeLessThan(.15);
+    expect(sat(PALETTES.trk_solid.trk_canopy).l).toBeLessThan(.4);
+    // Slipstream's tarmac is about 100/255 on screen; ours, at a 0xd6 tint, about 160
+    expect(TRACK_TEX.trk_asphalt.tint!).toBeLessThanOrEqual(0xa8a8a8);
+    // gravel traps are grey stone, not beige sand
+    expect(sat(TRACK_TEX.trk_gravel.tint!).s).toBeLessThan(.12);
+    expect(sat(TRACK_TEX.trk_gravel.color).s).toBeLessThan(.15);
+  });
+
+  it('painted and steel parts take a dimmer sky reflection, so painted colours read true under the overcast sky', () => {
     const { load } = stubLoad(), lib = makeTrackLib(load, '/s/');
     const solid = lib.material('trk_solid') as THREE.MeshStandardMaterial;
     expect(solid.envMapIntensity).toBeLessThanOrEqual(.5); expect(solid.roughness).toBeGreaterThanOrEqual(.7); expect(solid.metalness).toBeLessThanOrEqual(.1);
