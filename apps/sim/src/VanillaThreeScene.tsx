@@ -16,13 +16,14 @@ import { buildCity } from './scene/world/city';
 import { buildGate, buildStripExit, GATE_RETURN } from './scene/world/gate';
 import { createDealership, type DealershipGate } from './scene/world/dealership';
 import { Driver, STEP, townCollider, type DriveOpts } from './world/driver';
-import { EVENTS, EV_NAME, STOCK_CFG, TUNE_DEF, specFor, stageOf, visualRating, type BodyStyle, type CarCfg, type StripRecord } from './world/data';
+import { EVENTS, STOCK_CFG, TUNE_DEF, specFor, stageOf, visualRating, type BodyStyle, type CarCfg, type StripRecord } from './world/data';
 import { NO_INPUT, type Input, type Tune, type VehicleSpec } from './world/physics';
 import { anchorsFor, attachParts, disposeParts, syncKitLod, type PartsKit } from './world/parts';
 import { StripScene, STRIP_SPAWN } from './world/strip/scene';
 import { routePoint } from './world/strip/routes';
-import type { ActiveEvent, EventResults, NetField } from './world/strip/events';
-import { Hud, fmtT, type HudState } from './world/hud';
+import { countBegun, countProgress, type ActiveEvent, type NetField } from './world/strip/events';
+import { pauseCard, shownResults } from './world/results';
+import { Hud, type HudState } from './world/hud';
 import { Audio as NtAudio, soundMode } from './world/audio';
 import { soundFactsFor } from './sound/carSound';
 import { getCarSpec } from './carSpecs';
@@ -624,6 +625,8 @@ export function VanillaThreeScene() {
         let wheelR = 1;                       // the driven body's wheel radius (world units), for the roll
         let lastStripRec: StripRecord | null | undefined;
         let driftMode = false, paused = false, resultsShown = false, countdownSeen = false;
+        /** the event whose results are showing, for Race again */
+        let lastRun: { id: string; quick: boolean } | null = null;
         let lobby = false, lobbyChecked = false, restarting = false;
         let rentalId: string | null = null;  // the rental (or a tester's car) being driven
         let drivingTestCar = false;          // it is a tester's car: kept across events, given back only by a swap
@@ -697,12 +700,6 @@ export function VanillaThreeScene() {
         // ---- the Strip
         const stripExit = buildStripExit();
         const stripStage = () => stageOf(useGameStore.getState().strip?.rep ?? 0);
-        const ordinal = (n: number) => n + (n % 10 === 1 && n % 100 !== 11 ? 'st' : n % 10 === 2 && n % 100 !== 12 ? 'nd' : n % 10 === 3 && n % 100 !== 13 ? 'rd' : 'th');
-        const shownResults = (r: EventResults): ShownResults => ({
-            title: r.failed ? r.failed : r.pos === 1 ? 'You won' : `${ordinal(r.pos)} place`,
-            sub: `${EV_NAME[r.type]} · ${r.ev.name}`, pos: r.pos, failed: r.failed,
-            rows: r.list.map(p => ({ name: p.name, me: !!p.me, txt: r.type === 'drift' ? (p.score ?? 0).toLocaleString('en-US') : p.ft != null ? fmtT(p.ft) + (p.estimated ? '*' : '') : 'DNF' })),
-        });
         let strip: StripScene | null = null;
         const getStrip = () => strip ??= new StripScene({
             onBanner: (txt, bad, hold) => say(txt, !!bad, !!hold),
@@ -719,7 +716,8 @@ export function VanillaThreeScene() {
                 resultsShown = true;
                 if (challenge) { showChallengeCard(); return; } // the card is the room's: it fills in as the others come home
                 socketEmit('finish_event', { eventId: r.ev.id, pos: r.pos, time: r.time, score: r.score, failed: !!r.failed });
-                useDriveUi.setState({ results: shownResults(r), reward: null });
+                lastRun = { id: r.ev.id, quick: !!strip?.runner.active?.quick };
+                useDriveUi.setState({ results: shownResults(r, getLang()), reward: null });
             },
             // a restart keeps a rental for the entry that follows (the server returns it on a plain quit)
             onEventQuit: ev => { if (challenge) raceEmit('race_quit'); else socketEmit('quit_event', restarting ? { eventId: ev.id, restart: true } : { eventId: ev.id }); },
@@ -1104,7 +1102,9 @@ export function VanillaThreeScene() {
                     if (backK && !mapBack) S.mapMove(1);
                     if (enter) S.mapActivate(); else if (mapK || pauseK) S.toggleMap(false);
                 } else if (resultsShown) {
-                    if ((enter || tapped === 'continue') && !useDriveUi.getState().results?.pending) closeResults();
+                    const ui2 = useDriveUi.getState();
+                    if (tapped === 'again' && lastRun && !challenge && !ui2.results?.pending && ui2.returned == null) { const run = lastRun; closeResults(); startEventById(run.id, run.quick); }
+                    else if ((enter || tapped === 'continue') && !ui2.results?.pending) closeResults();
                 } else if (paused) {
                     if (pauseK || tapped === 'resume') paused = false;
                     else if (tapped === 'town' && !visitor()) leave = true;
@@ -1162,7 +1162,7 @@ export function VanillaThreeScene() {
             setCarLights(mesh, !V.lights ? 'off' : V.gear === -1 && V.u < -0.5 ? 'reverse' : V.brk > 0 && V.u > 0.5 ? 'brake' : 'on');
             if (inStrip) { strip!.update(simDt, !paused && !resultsShown && !strip!.mapOpen && !garageOpen); stripExit.pulse(performance.now()); challengeFrame(delta); }
             const cnt = inStrip ? strip!.runner.active : null;
-            if (cnt && cnt.state === 'count') { countdownSeen = true; chase.preview(cnt.route, (3.6 - cnt.t) / 3, V); }
+            if (cnt && cnt.state === 'count') { countdownSeen = true; chase.preview(cnt.route, countProgress(cnt), V); }
             else { if (countdownSeen) { countdownSeen = false; chase.reset(V); } chase.update(V, simDt, V.nosOn); }
 
             // ---- HUD
@@ -1173,7 +1173,8 @@ export function VanillaThreeScene() {
                     const h = hudState, T = inStrip ? strip! : null, a = T ? T.runner.active : null;
                     h.PV = V; h.district = district; h.event = a; h.standings = a ? T!.runner.standings() : NONE;
                     h.outrun = T ? T.outrun : null; h.gps = T ? T.gpsTarget : null; h.markers = T ? T.hudMarkers() : NONE; h.roads = T ? T.hudRoads() : NONE; h.ais = T ? T.ais : NONE;
-                    h.money = me.money; h.units = opt.units; h.manual = manualNow(); h.touch = touchUi || window.innerWidth <= 1024; h.small = window.innerWidth < 700 || h.touch; h.sticks = h.touch && opt.controls === 'sticks'; h.gears = useDriveUi.getState().gears; h.stage = stripStage(); h.topInset = useDriveUi.getState().topInset;
+                    h.money = me.money; h.units = opt.units; h.manual = manualNow(); h.touch = touchUi || window.innerWidth <= 1024; h.small = window.innerWidth < 700 || h.touch; h.sticks = h.touch && opt.controls === 'sticks'; h.gears = useDriveUi.getState().gears; h.stage = stripStage(); { const u = useDriveUi.getState(); h.topInset = u.topInset; h.topPanelL = u.topPanelL; h.topPanelR = u.topPanelR; }
+                    h.lang = getLang(); const dcar = drivenCar(); h.carName = dcar ? dcar.make + ' ' + dcar.model : undefined; // the lap-race HUD's labels and car card
                     hud.draw(h);
                 }
             }
@@ -1182,8 +1183,9 @@ export function VanillaThreeScene() {
             const ui = useDriveUi.getState(), act = inStrip ? strip!.runner.active : null, live = !!act && !act.results;
             const gearsOn = manualNow(), mapOn = inStrip && strip!.mapOpen;
             // a challenge: no restart in the pause menu; and on its grid before the count, the layer says who is ready
-            const netRace = !!act?.net, staging = !!act?.net && act.state === 'count' && act.lastB === undefined;
-            if (paused !== ui.paused || live !== ui.eventLive || gearsOn !== ui.gears || mapOn !== ui.mapOpen || netRace !== ui.netRace || staging !== ui.staging) useDriveUi.setState({ paused, eventLive: live, gears: gearsOn, mapOpen: mapOn, netRace, staging });
+            const netRace = !!act?.net, staging = !!act?.net && act.state === 'count' && !countBegun(act);
+            const pausing = paused !== ui.paused, dcar = pausing && paused && act ? drivenCar() : undefined; // the session card is taken as the race pauses
+            if (pausing || live !== ui.eventLive || gearsOn !== ui.gears || mapOn !== ui.mapOpen || netRace !== ui.netRace || staging !== ui.staging) useDriveUi.setState({ paused, eventLive: live, gears: gearsOn, mapOpen: mapOn, netRace, staging, ...(pausing ? { session: paused && act ? pauseCard(act, strip!.runner.standings(), dcar ? dcar.make + ' ' + dcar.model : '') : null } : {}) });
 
             // ---- fuel gauge 5x/s, the tank and the car's spot to the server
             fuelUiAccum += delta; fuelNetAccum += delta; carSyncAccum += delta;
@@ -1229,7 +1231,7 @@ export function VanillaThreeScene() {
             /** the ids of the cars you hold (the smoke checks a returned rental is gone) */
             cars: (): string[] => (meNow()?.inventory ?? []).map(c => c.id),
             /** the live event, if any: its id, state ('count' | 'race' | 'done') and whether results are in */
-            event: () => { const a = district === 'strip' ? strip?.runner.active : null; return a ? { id: a.ev.id, state: a.state, results: !!a.results, pS: a.pS } : null; },
+            event: () => { const a = district === 'strip' ? strip?.runner.active : null; return a ? { id: a.ev.id, state: a.state, results: !!a.results, pS: a.pS, lit: a.lit, timed: !!a.timing, laps: a.timing ? a.timing.laps('me') : 0 } : null; },
             /** the ids of the other players drawn in the Strip */
             stripPlayers: () => Object.keys(stripTags),
             /** the challenge room this page is in: its code and phase, how many are in it, and this player's state there */

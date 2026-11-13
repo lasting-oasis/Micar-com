@@ -9,6 +9,7 @@ import { EV_COL, type EventDef } from './data';
 import { cpPoint, type Pt } from './strip/routes';
 import type { AI } from './strip/ai';
 import type { ActiveEvent, Outrun, Standing } from './strip/events';
+import { LINE, PANEL, drawRaceHud, panel, raceLayout, raceView } from './raceHud';
 
 export type HudMarker = { ev: EventDef; x: number; z: number };
 export type HudGps = { label: string; target: Pt; path: Pt[] };
@@ -37,12 +38,19 @@ export type HudState = {
   gears?: boolean;
   /** px the checkpoint / GPS arrow drops to clear App's car panel (DriveLayer measures it; default 0) */
   topInset?: number;
+  /** the car panel's left and right edges (page px; the canvas spans the page's width) */
+  topPanelL?: number;
+  topPanelR?: number;
   /** the minimap, GPS arrow, cash and event readouts draw only in the Strip */
   district: 'town' | 'strip';
   /** career stage: markers above it are hidden on the minimap (default: all shown) */
   stage?: number;
   /** ms clock for the SHIFT flash (default performance.now()) */
   now?: number;
+  /** the player's language for the lap-race HUD's labels (default English) */
+  lang?: 'en' | 'es';
+  /** the driven car's model, for the lap-race HUD's car card */
+  carName?: string;
 };
 
 const ACCENT = '#ffd23f', ACCENT_HI = '#fff1b0', BLUE = '#79a6ff', CHROME = '#f3f6fb', GOLD = '#ffd23f', DIM = '#8e9bb0', INK = '#dfe7f2', RED = '#ff5a6a';
@@ -89,7 +97,7 @@ export function nearPolyline(g: CanvasRenderingContext2D, pts: readonly (readonl
 export class Hud {
   private readonly hx: CanvasRenderingContext2D | null;
   private HW = 0; private HH = 0; private HD = 1;
-  private insB = 0; private insT = 0;
+  private insB = 0; private insT = 0; private offT = 0; // offT: how far down the page the canvas starts
 
   constructor(private readonly canvas: HTMLCanvasElement) {
     this.hx = canvas.getContext('2d');
@@ -105,6 +113,7 @@ export class Hud {
     try {
       if (g.getComputedStyle && g.document) { const cs = g.getComputedStyle(g.document.documentElement); this.insB = parseFloat(cs.paddingBottom) || 0; this.insT = parseFloat(cs.paddingTop) || 0; }
     } catch { this.insB = this.insT = 0; }
+    try { this.offT = this.canvas.getBoundingClientRect?.().top || 0; } catch { this.offT = 0; }
   }
 
   clear(): void { const hx = this.hx; if (!hx) return; hx.setTransform(this.HD, 0, 0, this.HD, 0, 0); hx.clearRect(0, 0, this.HW, this.HH); }
@@ -114,13 +123,13 @@ export class Hud {
     const { HW, HH } = this; hx.setTransform(this.HD, 0, 0, this.HD, 0, 0); hx.clearRect(0, 0, HW, HH);
     const PV = s.PV, small = s.small, strip = s.district === 'strip', a = strip ? s.event : null, outrun = strip ? s.outrun : null, units = s.units;
     const insB = this.insB, insT = this.insT, Fo = FONTS[small ? 's' : 'l'];
-    const kmh = kmhOf(PV);
-    /* gauge cluster */
+    const kmh = kmhOf(PV), rv = raceView(s);
+    /* gauge cluster (a lap race draws its own dash) */
     const between = !!s.sticks && HW >= 560;
     const R = small ? 56 : 100, cx = between ? HW / 2 : small && s.touch ? R + 16 : HW - R - (small ? 20 : 40), cy = HH - R - (between ? 22 : small ? (s.sticks ? (s.gears ? 248 : 184) : s.touch ? 108 : 22) : 34) - insB, P = PV.P, red = P.redline, maxR = Math.ceil((red + 800) / 1000) * 1000;
-    if (!(a && a.type === 'drag')) {
+    if (!(a && a.type === 'drag') && !rv) {
       hx.save(); hx.translate(cx, cy);
-      hx.fillStyle = 'rgba(14,18,23,.62)'; hx.beginPath(); hx.arc(0, 0, R + 14, 0, Math.PI * 2); hx.fill();
+      hx.fillStyle = PANEL; hx.beginPath(); hx.arc(0, 0, R + 14, 0, Math.PI * 2); hx.fill(); hx.strokeStyle = LINE; hx.lineWidth = 1; hx.stroke(); // the panels' look
       const a0 = Math.PI * .75, a1 = Math.PI * 2.25, ang = (v: number) => a0 + (a1 - a0) * v / maxR;
       hx.lineWidth = R * .07; hx.strokeStyle = 'rgba(255,210,63,.15)'; hx.beginPath(); hx.arc(0, 0, R + 6, a0, a1); hx.stroke();
       if (P.nos.cap > 0) { hx.strokeStyle = ACCENT; hx.shadowColor = ACCENT; hx.shadowBlur = PV.nosOn ? 16 : 6; hx.beginPath(); hx.arc(0, 0, R + 6, a0, a0 + (a1 - a0) * (PV.nos / P.nos.cap)); hx.stroke(); hx.shadowBlur = 0; }
@@ -142,10 +151,15 @@ export class Hud {
       if (s.manual && PV.rpm > red * .9 && PV.gear < P.gears.length) { const now = s.now ?? (typeof performance !== 'undefined' ? performance.now() : 0); hx.font = Fo.shift; hx.fillStyle = Math.sin(now / 60) > 0 ? RED : '#fff'; hx.textAlign = 'center'; hx.fillText('SHIFT', cx, cy - R - (small ? 44 : 50)); }
     }
     if (!strip) return;
-    /* top-left: cash / event info */
+    /* a lap race: the tower, the lap timer, the lights, the dash and the car card; otherwise top-left cash / event info */
     const lx = small ? 16 : 34, ty = (small ? 14 : 24) + insT;
-    hx.textAlign = 'left'; hx.textBaseline = 'top'; hx.font = Fo.cash; hx.fillStyle = GOLD; hx.fillText(moneyStr(s.money), lx, ty);
-    if (a && (a.state === 'race' || a.state === 'done')) {
+    // a lap race lays its HUD out around the car panel (measured in page pixels, so less the canvas's own offset) and the
+    // touch controls: the sticks are 140 px with NOS / DRIFT (56) or the gear taps (48) above them; the old buttons are 68 px
+    const ctlL = !s.touch ? 0 : s.sticks ? 164 + (s.gears ? 60 : 0) : 92, ctlR = !s.touch ? 0 : s.sticks ? 232 : s.gears ? 248 : 170;
+    const lay = rv ? raceLayout({ W: HW, H: HH, insT, insB, inset: Math.max(0, (s.topInset ?? 0) + 8 - this.offT), small, rows: rv.rows.length, laps: !!rv.laps, cx: s.touch ? cx : HW / 2, cy: s.touch ? cy : HH - (small ? 60 : 80) - insB, leftTop: HH - insB - ctlL, rightTop: HH - insB - ctlR, colL: s.touch ? 168 : 0, colR: s.touch ? 168 : 0, panelL: s.topPanelR ? s.topPanelL : undefined, panelR: s.topPanelR || undefined }) : null;
+    if (rv && lay) drawRaceHud(hx, rv, s, lay);
+    else { hx.textAlign = 'left'; hx.textBaseline = 'top'; hx.font = Fo.cash; hx.fillStyle = GOLD; hx.fillText(moneyStr(s.money), lx, ty); }
+    if (!rv && a && (a.state === 'race' || a.state === 'done')) {
       const st = s.standings; let me = -1; for (let i = 0; i < st.length; i++) if (st[i].me) { me = i; break; }
       const pos = me + 1, y = ty + (small ? 30 : 38), n = Math.max(1, st.length);
       hx.font = Fo.big; hx.fillStyle = '#fff';
@@ -162,7 +176,7 @@ export class Hud {
     }
     if (outrun) {
       const g = clamp(outrun.gap / 300, -1, 1); const w = small ? 200 : 300, x = HW / 2 - w / 2, y = ty + (small ? 4 : 10);
-      hx.fillStyle = 'rgba(14,18,23,.6)'; hx.fillRect(x - 8, y - 6, w + 16, 34); hx.fillStyle = 'rgba(255,255,255,.12)'; hx.fillRect(x, y + 10, w, 8);
+      panel(hx, x - 8, y - 6, w + 16, 34); hx.fillStyle = 'rgba(255,255,255,.12)'; hx.fillRect(x, y + 10, w, 8);
       hx.fillStyle = g >= 0 ? '#8cff5a' : '#ff4d5e'; hx.fillRect(x + w / 2, y + 10, g * w / 2, 8);
       hx.fillStyle = '#fff'; hx.font = F_OUT; hx.textAlign = 'center'; hx.fillText('OUTRUN ' + outrun.A.name.toUpperCase() + '  ' + (outrun.gap >= 0 ? '+' : '') + distStr(outrun.gap, units), HW / 2, y - 4); hx.textAlign = 'left';
     }
@@ -171,15 +185,19 @@ export class Hud {
     if (a && a.state === 'race' && a.type !== 'drag') { const k = a.pCp % a.route.cps.length; const p = cpPoint(a.route, k); tx = p.x; tz = p.z; label = k === 0 ? 'FINISH LINE' : 'CHECKPOINT'; has = true; }
     else if (!a && s.gps) { tx = s.gps.target[0]; tz = s.gps.target[1]; label = s.gps.label; has = true; }
     if (has) {
-      const inset = s.topInset ?? 0;
-      const dx = tx - PV.x, dz = tz - PV.z, dist = Math.hypot(dx, dz); const an = Math.atan2(dx, dz) - PV.h;
-      hx.save(); hx.translate(HW / 2, ty + (small ? 14 : 22) + inset); hx.rotate(-an); hx.fillStyle = ACCENT; hx.beginPath(); hx.moveTo(0, -16); hx.lineTo(11, 10); hx.lineTo(0, 4); hx.lineTo(-11, 10); hx.closePath(); hx.fill(); hx.restore();
-      hx.font = Fo.sub; hx.fillStyle = INK; hx.textAlign = 'center'; hx.fillText(label + ' · ' + distStr(dist, units), HW / 2, ty + (small ? 34 : 46) + inset); hx.textAlign = 'left';
+      const inset = s.topInset ?? 0, ax = lay ? lay.arrow.x : HW / 2, ay = lay ? lay.arrow.y : ty + (small ? 14 : 22) + inset, ly = lay ? lay.arrow.ly : ty + (small ? 34 : 46) + inset;
+      const dx = tx - PV.x, dz = tz - PV.z, dist = Math.hypot(dx, dz); const an = Math.atan2(dx, dz) - PV.h, k = lay?.cueIn ? .8 : 1;
+      hx.save(); hx.translate(ax, ay); hx.rotate(-an); hx.scale(k, k); hx.fillStyle = ACCENT; hx.beginPath(); hx.moveTo(0, -16); hx.lineTo(11, 10); hx.lineTo(0, 4); hx.lineTo(-11, 10); hx.closePath(); hx.fill(); hx.restore();
+      hx.font = Fo.sub; hx.fillStyle = INK;
+      // on a phone the arrow rides in the race timer's first row, with just the distance beside it
+      if (lay?.cueIn) { hx.textAlign = 'left'; hx.fillText(distStr(dist, units), ax + 16, ly); }
+      else { hx.textAlign = 'center'; hx.fillText(label + ' · ' + distStr(dist, units), ax, ly); }
+      hx.textAlign = 'left';
     }
     /* drag tach */
     if (a && a.type === 'drag') {
       const narrow = small && s.touch, w = narrow ? Math.min(HW - 40, 270, HW - 100) : Math.min(HW - 40, 560), x = narrow ? 20 : HW / 2 - w / 2, y = HH - (small ? (s.touch ? 300 : 70) : 90) - insB;
-      hx.fillStyle = 'rgba(14,18,23,.7)'; hx.fillRect(x - 14, y - 54, w + 28, 96);
+      panel(hx, x - 14, y - 54, w + 28, 96);
       const X = (r: number) => x + clamp(r / maxR, 0, 1) * w;
       hx.fillStyle = 'rgba(255,255,255,.1)'; hx.fillRect(x, y, w, 22);
       hx.fillStyle = 'rgba(140,255,90,.35)'; hx.fillRect(X(red * .9), y, X(red + 150) - X(red * .9), 22);
@@ -195,9 +213,13 @@ export class Hud {
     }
     /* minimap */
     // in the stick layout on a wide (landscape) phone the corner is above the steering stick: the map moves just right of it
-    const mr = small ? 56 : 84, mx = (between ? 176 : 0) + mr + (small ? 16 : 34), my = small ? mr + 16 + insT + (a || outrun ? 74 : 50) : HH - mr - 34 - insB;
-    hx.save(); hx.translate(mx, my); hx.beginPath(); hx.arc(0, 0, mr, 0, 7); hx.fillStyle = 'rgba(14,18,23,.7)'; hx.fill(); hx.clip();
-    const sc = small ? .3 : .4; hx.rotate(Math.PI + PV.h); hx.scale(sc, sc); hx.translate(-PV.x, -PV.z);
+    // a lap race places the map with the rest of its HUD (smaller where it has to be, the same ground in view), or leaves it
+    // out: the map is the last thing drawn, so leaving it out ends the frame
+    if (lay && !lay.map) return;
+    const mr0 = small ? 56 : 84, mr = lay?.map ? lay.map.r : mr0;
+    const mx = lay?.map ? lay.map.cx : (between ? 176 : 0) + mr + (small ? 16 : 34), my = lay?.map ? lay.map.cy : small ? mr + 16 + insT + (a || outrun ? 74 : 50) : HH - mr - 34 - insB;
+    hx.save(); hx.translate(mx, my); hx.beginPath(); hx.arc(0, 0, mr, 0, 7); hx.fillStyle = PANEL; hx.fill(); hx.clip();
+    const sc = (small ? .3 : .4) * mr / mr0; hx.rotate(Math.PI + PV.h); hx.scale(sc, sc); hx.translate(-PV.x, -PV.z);
     hx.strokeStyle = 'rgba(150,170,200,.45)'; for (const rd of s.roads) { hx.lineWidth = rd.width * .8; hx.beginPath(); nearPolyline(hx, rd.pts, !!rd.loop, PV.x, PV.z, MINIMAP_ROAD_M); hx.stroke(); }
     if (a && a.type !== 'drag') { hx.strokeStyle = EV_COL[a.type]; hx.lineWidth = 6; hx.beginPath(); const pts = a.route.pts; for (let i = 0; i < pts.length; i++) i ? hx.lineTo(pts[i][0], pts[i][1]) : hx.moveTo(pts[i][0], pts[i][1]); if (a.route.loop) hx.closePath(); hx.stroke(); }
     else if (!a && s.gps && s.gps.path.length) { hx.strokeStyle = ACCENT; hx.lineWidth = 7; hx.beginPath(); const p = s.gps.path; for (let i = 0; i < p.length; i++) i ? hx.lineTo(p[i][0], p[i][1]) : hx.moveTo(p[i][0], p[i][1]); hx.stroke(); }

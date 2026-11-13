@@ -30,7 +30,7 @@ async function driver(who) {
 const text = (d) => d.p.evaluate(() => document.body.textContent);
 const state = (d) => d.p.evaluate(() => ({ pose: window.__micar.pose(), event: window.__micar.event(), race: window.__micar.race(), money: window.__micar.money(), cars: window.__micar.cars().length }));
 /** Out of the race by the pause menu. */
-const quit = async (d) => { await d.p.keyboard.press('Escape'); await d.p.getByRole('button', { name: /Quit event/i }).click(); };
+const quit = async (d) => { await d.p.keyboard.press('Escape'); await d.p.getByRole('button', { name: /Leave race/i }).click(); };
 
 /** Hold the throttle and shift at the redline (a drag is always manual) until the results card is up. */
 async function driveTheQuarter(d) {

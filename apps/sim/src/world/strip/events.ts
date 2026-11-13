@@ -8,6 +8,8 @@ import { cpPoint, routePoint, routeProgress, snapToRoad, type RoadData, type Rou
 import { HUB, routeFor } from './district';
 import { hubPoint } from './roadGraph';
 import { makeAI, parkAI, separateAIs, setWander, stepAI, type AI } from './ai';
+import { LIGHTS, NET_HOLD_S, lightsLit, soloCountLen, soloHold, usesLights } from './lights';
+import { RaceTiming, withTiming } from './timing';
 
 export type { EventType };
 
@@ -22,9 +24,10 @@ export type EventFx = {
   styleRating(): number;
 };
 
-export type Standing = { name: string; me?: boolean; ft?: number | null; s?: number; score?: number; estimated?: boolean };
+/** `key`: the car in the race's timing ('me', 'r0'.., 'p:<pid>'); `best`: its best lap (s); `gap`: seconds to the leader (null: the leader, or not known) */
+export type Standing = { name: string; me?: boolean; ft?: number | null; s?: number; score?: number; estimated?: boolean; key?: string; color?: string; best?: number | null; gap?: number | null };
 /** `remote`: a person in a challenge (`pid`), whose state comes from the network: never stepped, never estimated. */
-export type Racer = AI & { estimated?: boolean; remote?: boolean; pid?: string };
+export type Racer = AI & { estimated?: boolean; remote?: boolean; pid?: string; key?: string; color?: string };
 /** A challenge race: the field the room made, and the clock its racers share. */
 export type NetField = {
   /** my place on the grid, 0..3 (a drag: my lane) */
@@ -45,6 +48,11 @@ export type ActiveEvent = {
   startX?: number; startZ?: number; lastB?: string; wrongShown?: boolean;
   /** a challenge (the other cars are people), and its green light once the count has begun */
   net: NetField | null; go: number | null;
+  /** a lap race's start lights: how many are on (null: a challenge still waiting for its green), seconds to the
+   *  green, the hold after the fifth, and the count's whole length (for the camera's sweep). Unused by drag and drift. */
+  lit: number | null; goIn: number; hold: number; countLen: number;
+  /** lap, sector and gap timing for a lap race (null for drag and drift) */
+  timing: RaceTiming | null;
 };
 export type Outrun = { A: AI; t: number; gap: number; state: 'run' | 'done'; t2?: number };
 export type EventResults = { pos: number; list: Standing[]; failed: string | null; type: EventType; ev: EventDef; time: number | null; score: number };
@@ -83,9 +91,10 @@ export class EventRunner {
     if (this.active) this.cleanup();
     const route = routeFor(ev.id);
     const a: ActiveEvent = this.active = { ev, route, laps: ev.laps || 1, type: ev.type, state: 'count', t: 3.6, time: 0, racers: [], pS: 0, pMax: 0, pLap: 0, pCp: 1, wrong: 0, pFt: null, results: null, quick: !!opts.quick, retT: 0, fail: null, target: 0,
-      drift: { cur: 0, score: 0, mult: 1, dT: 0, idle: 0, lastBank: 0 }, drag: { lane: 1, trafficA: [], ai: [], dir: 0, fwd: [0, 1], right: [1, 0], p0: null }, net: opts.net ?? null, go: null };
+      drift: { cur: 0, score: 0, mult: 1, dT: 0, idle: 0, lastBank: 0 }, drag: { lane: 1, trafficA: [], ai: [], dir: 0, fwd: [0, 1], right: [1, 0], p0: null }, net: opts.net ?? null, go: null, lit: null, goIn: 0, hold: 0, countLen: 0, timing: null };
     const net = a.net, gridOf = (slot: number) => clamp(Math.floor(slot) || 0, 0, 3);
     a.target = route.loop ? route.len * a.laps : route.len;
+    a.timing = usesLights(ev.type) ? new RaceTiming(route.len, route.loop) : null;
     const p0 = routePoint(route, 0), fwd: [number, number] = [p0.tx, p0.tz], right: [number, number] = [-p0.tz, p0.tx]; const dir = Math.atan2(fwd[0], fwd[1]);
     const place = (lane: number, back: number) => ({ x: p0.x + right[0] * lane + fwd[0] * back, z: p0.z + right[1] * lane + fwd[1] * back });
     const st = fx.stage();
@@ -111,27 +120,32 @@ export class EventRunner {
       const top = playerTopMs(PV.P), acc = playerAccel(PV.P);
       if (net) for (const o of net.others) { const sl = slots[gridOf(o.slot)]; this.addPerson(a, o, place(sl[0], sl[1]), dir); }
       else slots.forEach((sl, i) => {
-        if (i === my) return; const m = fx.spawnRacerMesh(randomCfg());
+        if (i === my) return; const cfg = randomCfg(), m = fx.spawnRacerMesh(cfg);
         const A: Racer = makeAI({ m, kind: 'racer', route, lane: sl[0] * .9, vmax: top * (.74 + .06 * st) * (.96 + Math.random() * .08), acc: acc * 1.1, brk: 10, name: AI_NAMES[(i * 2 + Math.random() * 2) | 0], hold: true });
+        A.key = 'r' + i; A.color = cfg.color;
         const q = place(sl[0], sl[1]); A.x = q.x; A.z = q.z; A.h = dir; A.s = routeProgress(route, A.x, A.z, 0, 30).s; A.ft = null; A.laps = 0; A.done = false; a.racers.push(A); this.ais.push(A);
       });
     }
     a.pS = routeProgress(route, PV.x, PV.z, 0, 30).s; a.pMax = a.pS;
     this.placeCpMark();
-    if (!net) { fx.banner('3'); fx.sfx('beep'); } // a challenge counts only once the server has named the green light
+    if (usesLights(ev.type)) {
+      if (net) { a.hold = NET_HOLD_S; a.countLen = LIGHTS; } // lit stays null until the server has named the green
+      else { a.hold = soloHold(Math.random); a.countLen = soloCountLen(a.hold); a.goIn = a.countLen; a.lit = 0; }
+    } else if (!net) { fx.banner('3'); fx.sfx('beep'); } // a challenge counts only once the server has named the green light
   }
   /** A person in a challenge, on their grid place: a racer this browser never drives (the scene places it from the network). */
   private addPerson(a: ActiveEvent, o: NetField['others'][number], at: { x: number; z: number }, dir: number): void {
     const m = this.fx.spawnRacerMesh({ ...STOCK_CFG, color: o.color }, { style: o.style, name: o.name });
     const A: Racer = makeAI({ m, kind: 'racer', route: a.route, lane: 0, name: o.name, hold: true });
-    A.remote = true; A.pid = o.id; A.x = at.x; A.z = at.z; A.h = dir;
+    A.remote = true; A.pid = o.id; A.key = 'p:' + o.id; A.color = o.color; A.x = at.x; A.z = at.z; A.h = dir;
     A.s = a.type === 'drag' ? 0 : routeProgress(a.route, A.x, A.z, 0, 30).s; A.ft = null; A.laps = 0; A.done = false;
     a.racers.push(A); this.ais.push(A);
   }
   /** A person in the challenge is home in `ft` seconds; or (null) is out of the race, and their car leaves the track. */
   remoteDone(pid: string, ft: number | null): void {
-    const R = this.active?.racers.find(r => r.remote && r.pid === pid); if (!R) return;
+    const a = this.active, R = a?.racers.find(r => r.remote && r.pid === pid); if (!a || !R) return;
     R.done = true; R.ft = ft; if (ft == null) parkAI(R);
+    else if (R.key) a.timing?.step(R.key, Math.max(R.s, a.target), ft);   // home: their last lap ends on the line at ft
   }
 
   private placeCpMark(): void {
@@ -163,6 +177,7 @@ export class EventRunner {
   update(dt: number): void {
     const a = this.active, fx = this.fx; if (!a) return;
     if (a.state === 'count') {
+      if (usesLights(a.type)) { this.countLights(dt); return; }
       let n: number, off: boolean;
       if (a.net) {
         // a challenge: everyone's count ends at the one instant the server named, whatever this browser's frame rate
@@ -181,28 +196,49 @@ export class EventRunner {
     }
     if (a.state === 'done') { a.retT += dt; if (a.retT > 1.4 && !a.results) this.results(); }
   }
+  /** A lap race's count: the lights come on one a second and never go back; all out is the green. */
+  private countLights(dt: number): void {
+    const a = this.active!, fx = this.fx;
+    if (a.net) {
+      const g = a.net.goAt(); if (g == null) return;      // on the grid, the others still loading
+      const ms = g - a.net.now(); if (ms > LIGHTS * 1000) return; // named, but the lights take five seconds
+      a.go = g; a.goIn = ms / 1000;
+    } else a.goIn -= dt;
+    const was = a.lit ?? 0, lit = Math.max(was, lightsLit(a.goIn, a.hold));
+    if (lit > was) fx.sfx('beep');
+    a.lit = lit;
+    if (a.goIn <= 0) { a.state = 'race'; a.time = 0; a.lit = 0; for (const r of a.racers) r.hold = false; this.placeCpMark(); fx.sfx('go'); }
+  }
   private updateRace(dt: number): void {
     const a = this.active!, r = a.route, drift = a.type === 'drift', PV = this.PV, fx = this.fx;
     const pr = routeProgress(r, PV.x, PV.z, a.pS + PV.u * dt, 45); a.pS = pr.s;
     if (a.pS > a.pMax) a.pMax = a.pS;
+    a.timing?.step('me', a.pS, a.time);
     a.wrong = (a.pMax - a.pS > 14) ? a.wrong + dt : 0;
     if (a.wrong > .6 && !a.wrongShown) { a.wrongShown = true; fx.banner('Wrong way', true, true); } else if (a.wrong <= 0 && a.wrongShown) { a.wrongShown = false; fx.banner(''); }
     // checkpoints / laps
     const nCp = r.cps.length; const cpS = a.pCp < nCp ? a.pLap * r.len + r.cps[a.pCp] : (a.pLap + 1) * r.len;
     if (a.pS >= cpS - 1) {
-      if (!r.loop) { if (a.pCp >= nCp - 1) return this.playerFinish(); a.pCp++; fx.sfx('cp'); }
-      else if (a.pCp >= nCp) { a.pLap++; a.pCp = 1; if (a.pLap >= a.laps) return this.playerFinish(); fx.banner('Lap ' + (a.pLap + 1) + '/' + a.laps); fx.sfx('cp'); }
+      if (!r.loop) { if (a.pCp >= nCp - 1) return this.crossLine(); a.pCp++; fx.sfx('cp'); }
+      else if (a.pCp >= nCp) { a.pLap++; a.pCp = 1; if (a.pLap >= a.laps) return this.crossLine(); fx.banner('Lap ' + (a.pLap + 1) + '/' + a.laps); fx.sfx('cp'); }
       else { a.pCp++; fx.sfx('cp'); }
       this.placeCpMark();
     }
     // racers
     for (const R of a.racers) {
-      if (R.done || R.remote) continue; stepAI(R, dt, a.pS, fx.stage()); const tot = R.s; if (tot >= a.target - 1) { R.done = true; R.ft = a.time; R.v *= .5; }
+      if (R.done) continue;
+      if (R.remote) { if (R.key) a.timing?.step(R.key, R.s, a.time); continue; } // a person: placed from the network by the scene
+      stepAI(R, dt, a.pS, fx.stage()); const tot = R.s; if (R.key) a.timing?.step(R.key, tot, a.time);
+      if (tot >= a.target - 1) { R.done = true; R.ft = a.time; R.v *= .5; if (R.key) a.timing?.step(R.key, Math.max(tot, a.target), a.time); } // home: its last lap ends on the line
       if (drift) { R.score += dt * (90 + 55 * fx.stage()) * (.6 + .8 * Math.random()) * (R.v > 8 ? 1 : 0); }
     }
     if (!a.net) separateAIs(a.racers);
     if (drift) this.updateDrift(dt);
     if (!a.net && a.type !== 'drift' && a.time > raceCapS(a.target)) this.playerFinish(); // a challenge is closed by its room, not by a cap here
+  }
+  /** The player is home (a metre short counts): the last lap and the final sector end on the line. */
+  private crossLine(): void {
+    const a = this.active!; a.timing?.step('me', Math.max(a.pS, a.target), a.time); this.playerFinish();
   }
   private playerFinish(): void {
     const a = this.active!; a.pFt = a.time; a.state = 'done'; a.retT = 0; this.fx.placeCp(null); this.fx.banner('Finish'); this.fx.sfx('finish');
@@ -250,8 +286,9 @@ export class EventRunner {
     const a = this.active; if (!a) return []; let list: Standing[];
     if (a.type === 'drag') list = [{ name: 'You', me: true, ft: a.pFt, s: a.pS }, ...a.drag.ai.map(o => ({ name: o.name, ft: o.ft, s: o.s, estimated: o.estimated })), ...a.racers.map(r => ({ name: r.name, ft: r.ft, s: r.s }))];
     else if (a.type === 'drift') list = [{ name: 'You', me: true, score: Math.round(a.drift.score + a.drift.cur * a.drift.mult) }, ...a.racers.map(r => ({ name: r.name, score: Math.round(r.score) }))];
-    else list = [{ name: 'You', me: true, ft: a.pFt, s: a.pS }, ...a.racers.map(r => ({ name: r.name, ft: r.ft, s: r.s, estimated: r.estimated }))];
-    return sortStandings(list, a.type);
+    else list = [{ name: 'You', me: true, ft: a.pFt, s: a.pS, key: 'me' }, ...a.racers.map(r => ({ name: r.name, ft: r.ft, s: r.s, estimated: r.estimated, key: r.key, color: r.color }))];
+    const sorted = sortStandings(list, a.type);
+    return a.timing ? withTiming(sorted, a.timing, a.time) : sorted;
   }
   /* showResults without the DOM and the payout: freezes the standings once and reports them */
   results(): EventResults | null {
@@ -278,6 +315,15 @@ export class EventRunner {
   }
   quit(): void { this.cleanup(); snapToRoad(this.PV, this.roads()); }
 }
+
+/** How far the count has run, 0..1, for the camera's sweep along the route before the start. */
+export function countProgress(a: ActiveEvent): number {
+  if (!usesLights(a.type)) return (3.6 - a.t) / 3;
+  if (a.lit == null || a.countLen <= 0) return 0;
+  return clamp(1 - a.goIn / a.countLen, 0, 1);
+}
+/** Whether the count has begun (a challenge waits for the server's green before it does). */
+export function countBegun(a: ActiveEvent): boolean { return usesLights(a.type) ? a.lit !== null : a.lastB !== undefined; }
 
 /* ---- free roam: markers, outrun. The caller skips these while an event or an outrun is running. ---- */
 export function nearEvent(PV: Vehicle, markers: { ev: EventDef; x: number; z: number }[], stage: number): EventDef | null {

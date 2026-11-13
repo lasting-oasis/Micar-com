@@ -1,6 +1,7 @@
 import path from 'node:path';
-import { beforeAll, beforeEach, describe, it, expect } from 'vitest';
-import { DRAG_LANES, EventRunner, sortStandings, type EventFx, type NetField, type Racer } from './events';
+import { beforeAll, beforeEach, describe, it, expect, vi } from 'vitest';
+import { DRAG_LANES, EventRunner, countBegun, countProgress, sortStandings, type EventFx, type NetField, type Racer } from './events';
+import { HOLD_MAX_S, soloCountLen } from './lights';
 import { makeAI, setWander, type AI } from './ai';
 import { cpPoint, routePoint } from './routes';
 import { routeFor, TRACKS } from './district';
@@ -14,6 +15,8 @@ beforeAll(() => { setTrackDir(path.resolve(process.cwd(), 'public/strip/tracks')
 const ev = (id: string): EventDef => EVENTS.find(e => e.id === id)!;
 const sprint = ev('lagoons_sprint'), drag = ev('royal_drag'), circuit = ev('harbour_gp'), streetx = ev('drylagoon_x');
 const sedan = () => carParams(ARCHETYPES.sedan, STOCK_CFG.perf, TUNE_DEF);
+/** past the longest solo start-light count (the lights and the longest hold) */
+const PAST_COUNT = soloCountLen(HOLD_MAX_S) + .1;
 
 type StubFx = EventFx & { cps: ({ tx: number; tz: number } | undefined)[]; banners: string[]; sounds: string[]; spawned: unknown[]; disposed: unknown[] };
 function stubFx(): StubFx {
@@ -44,15 +47,49 @@ describe('strip events', () => {
     const r = runner(sprint), quit: string[] = []; r.onAbandon = e => quit.push(e.id);
     r.start(sprint); tick(r, 1); r.quit(); r.cleanup(); expect(quit).toEqual(['lagoons_sprint']);
     r.start(drag); r.start(sprint); expect(quit).toEqual(['lagoons_sprint', 'royal_drag']); // a new start abandons the old one
-    tick(r, 4); teleportToEnd(r); tick(r, 0.5); r.results(); r.cleanup(); expect(quit).toEqual(['lagoons_sprint', 'royal_drag']);
+    tick(r, PAST_COUNT); teleportToEnd(r); tick(r, 0.5); r.results(); r.cleanup(); expect(quit).toEqual(['lagoons_sprint', 'royal_drag']);
   });
-  it('a sprint counts down, then races, then finishes when the player passes the last node', () => { const r = runner(sprint); r.start(sprint); expect(r.active!.state).toBe('count'); tick(r, 4); expect(r.active!.state).toBe('race'); teleportToEnd(r); tick(r, 0.5); expect(r.active!.state).toBe('done'); const res = r.results()!; expect(res.pos).toBeGreaterThanOrEqual(1); expect(res.failed).toBeNull(); });
+  it('a sprint counts down, then races, then finishes when the player passes the last node', () => { const r = runner(sprint); r.start(sprint); expect(r.active!.state).toBe('count'); tick(r, PAST_COUNT); expect(r.active!.state).toBe('race'); teleportToEnd(r); tick(r, 0.5); expect(r.active!.state).toBe('done'); const res = r.results()!; expect(res.pos).toBeGreaterThanOrEqual(1); expect(res.failed).toBeNull(); });
+  it('a lap race lights five lights a second apart, then goes after the hold', () => {
+    const rnd = vi.spyOn(Math, 'random').mockReturnValue(0); // the shortest hold: 0.5 s
+    try {
+      const r = runner(sprint), fx = r.fx as StubFx; r.start(sprint);
+      for (let i = 1; i <= 52; i++) { r.input(NO_INPUT, .1); r.postStep(.1); r.update(.1); if (i === 48) expect(r.active!.state).toBe('count'); }
+      expect(r.active!.state).toBe('race');
+      expect(fx.sounds).toEqual(['beep', 'beep', 'beep', 'beep', 'beep', 'go']);
+      expect(fx.banners.filter(b => ['3', '2', '1', 'GO'].includes(b))).toEqual([]);
+    } finally { rnd.mockRestore(); }
+  });
+  it('the camera sweep follows the lights', () => {
+    const rnd = vi.spyOn(Math, 'random').mockReturnValue(0);
+    try {
+      const r = runner(circuit); r.start(circuit);
+      expect(countProgress(r.active!)).toBe(0);
+      tick(r, 2.45); expect(countProgress(r.active!)).toBeCloseTo(.5, 1);
+    } finally { rnd.mockRestore(); }
+  });
+  it("a circuit's standings carry keys, colours and gaps once racing", () => {
+    const rnd = vi.spyOn(Math, 'random').mockReturnValue(0);
+    try {
+      const r = runner(circuit); r.start(circuit); tick(r, PAST_COUNT + 6);
+      const st = r.standings();
+      expect(st.every(p => typeof p.key === 'string')).toBe(true);
+      expect(st.find(p => p.me)!.key).toBe('me');
+      expect(st.filter(p => !p.me).every(p => typeof p.color === 'string')).toBe(true);
+      expect(st[0].gap ?? null).toBeNull();
+      for (const p of st.slice(1)) expect(p.gap == null || (Number.isFinite(p.gap) && p.gap >= 0)).toBe(true);
+    } finally { rnd.mockRestore(); }
+  });
+  it('drag and drift have no timing', () => {
+    const r = runner(drag); r.start(drag); expect(r.active!.timing).toBeNull();
+    const d = ev('harbour_drift'); r.start(d); expect(r.active!.timing).toBeNull();
+  });
   it('standings put a DNF last and sort finishers by time', () => { const list = [{ name: 'a', ft: 30 }, { name: 'You', me: true, ft: 25 }, { name: 'b', ft: null, s: 100 }]; expect(sortStandings(list, 'sprint').map(p => p.name)).toEqual(['You', 'a', 'b']); });
   it('drift sorts by score', () => { expect(sortStandings([{ name: 'a', score: 10 }, { name: 'You', me: true, score: 40 }], 'drift')[0].name).toBe('You'); });
   it('a blown engine fails a drag race', () => { const r = runner(drag); r.start(drag); tick(r, 4); r.PV.overRev = 2; r.update(1/60); expect(r.active!.fail).toBe('Engine blown'); expect(r.results()!.failed).toBe('Engine blown'); });
   it('cleanup removes racers from the AI list and restores traffic', () => { const r = runner(circuit); r.start(circuit); const n = r.ais.length; r.cleanup(); expect(r.active).toBeNull(); expect(r.ais.length).toBeLessThan(n); expect(r.ais.every(a => !a.parked)).toBe(true); });
   it('placeCp gets the route tangent as a unit vector', () => {
-    const r = runner(circuit); const fx = r.fx as StubFx; r.start(circuit); tick(r, 4);
+    const r = runner(circuit); const fx = r.fx as StubFx; r.start(circuit); tick(r, PAST_COUNT);
     expect(fx.cps.length).toBeGreaterThan(0);
     for (const t of fx.cps) { expect(t).toBeDefined(); expect(Math.hypot(t!.tx, t!.tz)).toBeCloseTo(1, 3); }
   });
@@ -60,11 +97,35 @@ describe('strip events', () => {
   it('cleanup un-parks the traffic a no-traffic event parked and disposes every racer mesh', () => { const r = runner(streetx); const fx = r.fx as StubFx; r.start(streetx); expect(r.ais.some(a => a.parked)).toBe(true); expect(fx.spawned.length).toBe(3); r.cleanup(); expect(r.active).toBeNull(); expect(r.ais.every(a => !a.parked)).toBe(true); expect(fx.disposed.length).toBe(fx.spawned.length); expect(new Set(fx.disposed)).toEqual(new Set(fx.spawned)); });
   it('cleanup after a drag race restores parked traffic and disposes every drag car', () => { const r = runner(drag); const fx = r.fx as StubFx; r.start(drag); expect(r.ais.some(a => a.parked)).toBe(true); expect(fx.spawned.length).toBe(3); r.cleanup(); expect(r.active).toBeNull(); expect(r.ais.every(a => !a.parked)).toBe(true); expect(fx.disposed.length).toBe(fx.spawned.length); expect(new Set(fx.disposed)).toEqual(new Set(fx.spawned)); });
   it('a circuit counts its laps through the checkpoints', () => {
-    const r = runner(circuit); r.start(circuit); tick(r, 4); expect(r.active!.state).toBe('race');
+    const r = runner(circuit); r.start(circuit); tick(r, PAST_COUNT); expect(r.active!.state).toBe('race');
     const route = r.active!.route;
     for (let s = 0; s <= route.len * 2 + 20; s += 20) { const p = routePoint(route, s); resetVehicle(r.PV, p.x, p.z, Math.atan2(p.tx, p.tz)); r.update(1 / 60); if (r.active!.state !== 'race') break; }
     expect(r.active!.state).toBe('done'); tick(r, 1.5); expect(r.results()!.pos).toBeGreaterThanOrEqual(1);
   });
+  it('the flag times the last lap: the player and the computer cars finish with every lap counted', () => {
+    // a car finishes 1 m short of the target; its last lap must still be timed
+    const r = runner(circuit); r.start(circuit); tick(r, PAST_COUNT);
+    const a = r.active!, route = a.route;
+    for (let s = 0; s <= route.len * a.laps + 20; s += 20) { const p = routePoint(route, s); resetVehicle(r.PV, p.x, p.z, Math.atan2(p.tx, p.tz)); r.update(1 / 60); if (a.state !== 'race') break; }
+    expect(a.state).toBe('done');
+    expect(a.timing!.laps('me')).toBe(a.laps);
+    const r2 = runner(circuit); r2.start(circuit); tick(r2, PAST_COUNT);
+    const b = r2.active!;
+    for (let i = 0; i < 400 * 60 && !b.racers.some(R => R.done); i++) r2.update(1 / 60);      // the player idles; the others race
+    const done = b.racers.filter(R => R.done && R.key);
+    expect(done.length).toBeGreaterThan(0);
+    for (const R of done) expect(b.timing!.laps(R.key!)).toBe(b.laps);
+  });
+
+  it('a sprint times its final sector at the flag', () => {
+    const r = runner(sprint); r.start(sprint); tick(r, PAST_COUNT);
+    const a = r.active!, route = a.route;
+    for (let s = 0; s <= route.len - .6; s += 20) { const p = routePoint(route, Math.min(s, route.len - .6)); resetVehicle(r.PV, p.x, p.z, Math.atan2(p.tx, p.tz)); r.update(1 / 60); }
+    const p = routePoint(route, route.len - .6); resetVehicle(r.PV, p.x, p.z, Math.atan2(p.tx, p.tz)); r.update(1 / 60);
+    expect(a.state).toBe('done');                                        // home 0.6 m short of the end
+    expect(r.active!.timing!.sectors('me').map(x => x.time != null)).toEqual([true, true, true]);
+  });
+
   it('a drag finishes at its length', () => {
     const r = runner(drag); r.start(drag); tick(r, 4); const a = r.active!, route = routeFor(drag.id);
     const p0 = a.drag.p0!; resetVehicle(r.PV, p0.x + a.drag.fwd[0] * route.len, p0.z + a.drag.fwd[1] * route.len, a.drag.dir); r.update(1 / 60);
@@ -124,6 +185,13 @@ describe('a challenge: the other cars are people', () => {
     expect(d.active!.drag.ai).toEqual([]);
     expect(dfx.spawned).toHaveLength(2);
   });
+  it('a person who finishes has their last lap timed', () => {
+    const r = racing(circuit), a = r.active!, P = people(r).find(R => R.remote)!;
+    P.s = a.target - 1; a.timing!.step(P.key!, P.s, a.time);
+    r.remoteDone(P.pid!, a.time + .2);
+    expect(a.timing!.laps(P.key!)).toBe(a.laps);
+  });
+
   it('everyone stands on the place the room gave', () => {
     const r = runner(circuit); r.start(circuit, { net: field({ slot: 2 }) });
     const me = gridPlace(r, r.PV), [ana, bo] = people(r).map(p => gridPlace(r, p));
@@ -152,6 +220,7 @@ describe('a challenge: the other cars are people', () => {
     tickClock(r, 10);
     expect(r.active!.state).toBe('count');
     expect(fx.banners).toEqual([]); expect(fx.sounds).toEqual([]); // no count, no beep, until there is an instant to count to
+    expect(r.active!.lit).toBeNull(); expect(countBegun(r.active!)).toBe(false);
     expect(r.PV.x).toBe(x); expect(r.PV.z).toBe(z);
   });
   it('goes at the named instant whatever the frame rate', () => {
@@ -162,8 +231,8 @@ describe('a challenge: the other cars are people', () => {
       for (let i = 0; i < 8 * hz && wentAt < 0; i++) { tickClock(r, 1 / hz, hz); if (r.active!.state === 'race') wentAt = clock; }
       expect(wentAt).toBeGreaterThanOrEqual(5000);
       expect(wentAt - 1000 / hz).toBeLessThan(5000); // the first update at or after the instant, not one later
-      expect(fx.banners).toEqual(['3', '2', '1', 'GO']);
-      expect(fx.sounds).toEqual(['beep', 'beep', 'beep', 'go']);
+      expect(fx.banners).toEqual([]); // the five lights are the count: no 3-2-1 banners
+      expect(fx.sounds).toEqual(['beep', 'beep', 'beep', 'beep', 'beep', 'go']);
     }
   });
   it('a green light named late still goes at its instant', () => {
@@ -171,7 +240,15 @@ describe('a challenge: the other cars are people', () => {
     tickClock(r, 2); go = 2500; // named with half a second to go: the count joins at 1
     tickClock(r, 1);
     expect(r.active!.state).toBe('race');
-    expect(fx.banners).toEqual(['1', 'GO']);
+    expect(fx.banners).toEqual([]);
+    expect(fx.sounds).toEqual(['beep', 'go']); // all five lights at once, then out at the instant
+  });
+  it('the lit count never goes down when the green is named again later', () => {
+    const r = runner(sprint); go = 5000; r.start(sprint, { net: field() });
+    tickClock(r, 2.5); const lit = r.active!.lit!;
+    expect(lit).toBe(3);
+    go = 6000; tickClock(r, .1);
+    expect(r.active!.lit).toBeGreaterThanOrEqual(lit);
   });
   it('the race clock is the wall clock', () => {
     const r = racing(sprint);
@@ -229,7 +306,7 @@ describe('a challenge: the other cars are people', () => {
   });
   it('without a challenge onFinish still fires once, and the computer still races', () => {
     const r = runner(sprint), fx = r.fx as StubFx; let n = 0; r.onFinish = () => { n++; };
-    r.start(sprint); tick(r, 4); teleportToEnd(r); tick(r, 0.5);
+    r.start(sprint); tick(r, PAST_COUNT); teleportToEnd(r); tick(r, 0.5);
     expect(n).toBe(1);
     expect(fx.spawned).toHaveLength(3);
     expect(r.active!.racers.every(p => p.ft !== null)).toBe(true); // the computer's unfinished cars get an estimated time, as before

@@ -110,6 +110,7 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
   const results = useDriveUi(s => s.results);
   const reward = useDriveUi(s => s.reward);
   const paused = useDriveUi(s => s.paused);
+  const session = useDriveUi(s => s.session);
   const eventLive = useDriveUi(s => s.eventLive);
   const help = useDriveUi(s => s.help);
   // Night Tuner's #help: the controls line for 8 s on getting in (and in the pause menu)
@@ -137,8 +138,9 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
     const measure = () => {
       const e = document.querySelector('[data-car-panel]');
       if (e !== el) { ro?.disconnect(); el = e; if (e && typeof ResizeObserver !== 'undefined') { ro = new ResizeObserver(measure); ro.observe(e); } }
-      const v = e ? Math.max(0, Math.round(e.getBoundingClientRect().bottom - 8)) : 0;
-      if (v !== useDriveUi.getState().topInset) useDriveUi.setState({ topInset: v });
+      const b = e?.getBoundingClientRect(), v = b ? Math.max(0, Math.round(b.bottom - 8)) : 0, l = b ? Math.round(b.left) : 0, r = b ? Math.round(b.right) : 0;
+      const u = useDriveUi.getState();
+      if (v !== u.topInset || l !== u.topPanelL || r !== u.topPanelR) useDriveUi.setState({ topInset: v, topPanelL: l, topPanelR: r });
     };
     measure();
     const iv = setInterval(measure, 500);
@@ -169,7 +171,7 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
           <StagingLine />
           {shownBanner && shownBanner.txt && (
             <div className="absolute left-1/2 top-[28%] -translate-x-1/2 -translate-y-1/2 w-[min(92vw,720px)] text-center">
-              <div className={`font-cond italic font-black uppercase tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,.8)] ${shownBanner.txt.length < 4 ? 'text-8xl' : shownBanner.txt.length > 22 ? 'text-2xl md:text-4xl' : 'text-4xl md:text-5xl'} ${shownBanner.bad ? 'text-[#ff5a6a]' : 'text-market'}`}>{shownBanner.txt}</div>
+              <div className={`inline-block max-w-full px-6 py-1.5 rounded-lg bg-night/80 border border-line border-l-4 ${shownBanner.bad ? 'border-l-[#ff5a6a]' : 'border-l-market'} font-cond italic font-black uppercase tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,.8)] ${shownBanner.txt.length < 4 ? 'text-8xl' : shownBanner.txt.length > 22 ? 'text-2xl md:text-4xl' : 'text-4xl md:text-5xl'} ${shownBanner.bad ? 'text-[#ff5a6a]' : 'text-market'}`}>{shownBanner.txt}</div>
             </div>
           )}
         </div>, document.body)}
@@ -182,7 +184,7 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
           )}
 
           {reward && !results && (
-            <div className="absolute left-1/2 -translate-x-1/2 top-24 px-5 py-2 rounded-lg bg-night/90 border border-market/50 text-white font-cond font-bold text-lg">
+            <div className="absolute left-1/2 -translate-x-1/2 top-24 px-5 py-2 rounded-lg bg-night/90 border border-line border-l-4 border-l-market text-white font-cond font-bold text-lg">
               {reward.cash > 0 ? <span className="text-market">+${reward.cash.toLocaleString('en-US')}</span> : 'No prize'}
               {reward.octane > 0 && <span className="ml-3 text-[#79a6ff]">+{reward.octane} Octane</span>}
               {reward.rep > 0 && <span className="ml-3 text-white/70">+{reward.rep} REP</span>}
@@ -191,17 +193,35 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
 
           {results && (
             <div className="pointer-events-auto absolute inset-0 grid place-items-center bg-night/60 p-4">
-              <div className="w-[320px] max-w-full rounded-xl border border-market/40 bg-night p-5 text-white shadow-2xl">
+              <div className={`${results.rows.some(r => r.best !== undefined) ? 'w-[min(520px,100%)]' : 'w-[320px] max-w-full'} max-h-[calc(100vh-32px)] overflow-y-auto rounded-xl border border-line bg-night/95 p-5 text-white shadow-2xl`}>
+                <div className="h-1 w-14 bg-market mb-3" />
                 <div className="font-cond italic font-black uppercase text-3xl text-market">{results.title}</div>
-                <div className="text-xs text-white/50 mb-3 uppercase tracking-widest">{results.sub}</div>
-                <ol className="space-y-1 mb-3">
-                  {results.rows.map((r, i) => (
-                    <li key={i} className={`flex justify-between font-cond text-lg ${r.me ? 'text-market font-extrabold' : 'text-white/80'}`}><span>{i + 1}. {r.name}</span><span className="tabular-nums">{r.txt}</span></li>
-                  ))}
-                </ol>
+                <div className="text-xs text-haze mb-3 uppercase tracking-widest">{results.sub}</div>
+                {results.rows.some(r => r.best !== undefined) ? (
+                  /* a lap race: the classification, gaps to the winner, best laps (the race's fastest in purple) */
+                  <table className="w-full mb-3 font-cond text-base tabular-nums border-collapse">
+                    <thead><tr className="font-sans text-[11px] uppercase tracking-widest text-haze"><th className="text-left font-semibold w-7 pb-1">#</th><th className="text-left font-semibold pb-1">{t(lang, 'res.driver')}</th><th className="text-right font-semibold pb-1">{t(lang, 'res.time')}</th><th className="text-right font-semibold pb-1">{t(lang, 'res.best')}</th></tr></thead>
+                    <tbody>
+                      {results.rows.map((r, i) => (
+                        <tr key={i} className={r.me ? 'bg-market text-night font-extrabold' : 'text-white/85 border-t border-line'}>
+                          <td className="pl-1 py-1">{i + 1}</td>
+                          <td className="py-1"><span className="inline-block w-1 h-4 mr-2 align-[-2px]" style={{ background: r.me ? '#0e1217' : r.color ?? '#9aa3ad' }} />{r.name}</td>
+                          <td className="text-right py-1">{i === 0 || !r.gap ? r.txt : r.gap + (r.txt.endsWith('*') ? '*' : '')}</td>
+                          <td className={`text-right pr-1 py-1 ${r.fastest && !r.me ? 'text-[#b25cff]' : ''}`}>{r.best}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                ) : (
+                  <ol className="space-y-1 mb-3">
+                    {results.rows.map((r, i) => (
+                      <li key={i} className={`flex justify-between font-cond text-lg ${r.me ? 'text-market font-extrabold' : 'text-white/80'}`}><span>{i + 1}. {r.name}</span><span className="tabular-nums">{r.txt}</span></li>
+                    ))}
+                  </ol>
+                )}
                 {reward && (
                   <div className="font-cond text-lg mb-3">
-                    {reward.cash > 0 ? <span className="text-market font-extrabold">+${reward.cash.toLocaleString('en-US')}</span> : <span className="text-white/50">No prize</span>}
+                    {reward.cash > 0 ? <span className="text-market font-extrabold">+${reward.cash.toLocaleString('en-US')}</span> : <span className="text-white/50">{t(lang, 'res.noPrize')}</span>}
                     {reward.octane > 0 && <span className="ml-3 text-[#79a6ff]">+{reward.octane} Octane</span>}
                     {reward.stamps.length > 0 && <span className="ml-3 text-white/70">Stamp{reward.stamps.length > 1 ? 's' : ''}: {reward.stamps.map(stampName).join(', ')}</span>}
                   </div>
@@ -209,24 +229,41 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
                 {returned !== null && <div className="font-cond text-lg mb-3 text-white/80">Rental returned — {money(returned)} on hand</div>}
                 {results.pending
                   ? <div role="status" className="w-full min-h-[44px] rounded-lg border border-market/40 py-2 text-center font-cond font-extrabold uppercase italic text-market">{t(lang, 'strip.ch.waitOthers')}</div>
-                  : <button onClick={() => tap('continue')} className="w-full min-h-[44px] rounded-lg bg-market py-2 font-cond font-extrabold uppercase italic text-night">Continue [Enter]</button>}
+                  : <div className="flex gap-2">
+                      {district === 'strip' && !netRace && returned === null && <button onClick={() => tap('again')} className="flex-1 min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">{t(lang, 'res.again')}</button>}
+                      <button onClick={() => tap('continue')} className="flex-1 min-h-[44px] rounded-lg bg-market py-2 font-cond font-extrabold uppercase italic text-night">{t(lang, 'res.continue')} [Enter]</button>
+                    </div>}
               </div>
             </div>
           )}
 
           {paused && district === 'strip' && !results && (
-            <div className="pointer-events-auto absolute inset-0 grid place-items-center bg-night/60">
-              <div className="w-[300px] max-w-[calc(100vw-32px)] rounded-xl border border-market/40 bg-night p-5 flex flex-col gap-2">
-                <div className="font-cond italic font-black uppercase text-3xl text-market mb-1">Paused</div>
-                <button onClick={() => tap('resume')} className="min-h-[44px] rounded-lg bg-market py-2 font-cond font-extrabold uppercase italic text-night">Resume</button>
-                {eventLive && !netRace && <button onClick={() => tap('restart')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Restart event</button>}
-                {eventLive && <button onClick={() => tap('quit')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Quit event</button>}
+            <div className="pointer-events-auto absolute inset-0 grid place-items-center overflow-y-auto bg-night/60 p-4 backdrop-blur-[3px]">
+              <div className="flex flex-col sm:flex-row items-stretch gap-3 max-w-[calc(100vw-32px)]">
+              <div className="w-[300px] max-w-full rounded-xl border border-line bg-night/95 p-5 flex flex-col gap-2">
+                <div className="h-1 w-14 bg-market" />
+                <div className="font-cond italic font-black uppercase text-3xl text-market mb-1">{t(lang, 'pause.title')}</div>
+                <button onClick={() => tap('resume')} className="min-h-[44px] rounded-lg bg-market py-2 font-cond font-extrabold uppercase italic text-night">{t(lang, 'pause.resume')}</button>
+                {eventLive && !netRace && <button onClick={() => tap('restart')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">{t(lang, 'pause.restart')}</button>}
+                {eventLive && <button onClick={() => tap('quit')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">{t(lang, 'pause.quit')}</button>}
                 {tester && !lobby && !eventLive && <button onClick={() => tap('garage')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Garage</button>}
                 {tester && !lobby && !eventLive && <button onClick={() => tap('swapcar')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Swap car</button>}
                 {!visitor && <button onClick={() => tap('town')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Back to town</button>}
                 {visitor && <button onClick={() => useDriveUi.setState({ account: true })} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Account</button>}
                 {visitor && lobby && signedIn && <button onClick={() => tap('signout')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Sign out</button>}
                 {!lobby && <p className="mt-2 text-[12px] leading-snug text-haze">{HELP.strip}</p>}
+              </div>
+              {session && eventLive && (
+                /* the race so far: lap, position, last and best laps, the car */
+                <div className="w-[300px] sm:w-[240px] max-w-full rounded-xl border border-line bg-night/95 p-5">
+                  <div className="text-[11px] uppercase tracking-widest text-haze mb-3">{session.event}</div>
+                  <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 font-cond text-lg tabular-nums">
+                    {([['pause.lap', session.lap], ['pause.pos', session.pos], ['pause.last', session.last], ['pause.best', session.best], ['pause.car', session.car]] as const).map(([k, v]) => (
+                      <div key={k} className="contents"><dt className="font-sans text-[11px] uppercase tracking-widest text-haze self-center">{t(lang, k)}</dt><dd className={`text-right font-extrabold italic ${k === 'pause.best' ? 'text-[#79a6ff]' : 'text-white'} truncate`}>{v}</dd></div>
+                    ))}
+                  </dl>
+                </div>
+              )}
               </div>
             </div>
           )}
