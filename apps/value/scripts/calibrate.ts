@@ -118,6 +118,8 @@ function fitModel(make: string, model: string, trimRetention: number, step = 0.0
   const errs = errors(make, model, info.body, obs);
   const keep = obs.filter((_, i) => Math.abs(errs[i]) <= 0.35);
   const dropped = obs.length - keep.length;
+  // too few left once the outliers are out (an exotic whose listings are all special editions): no fit
+  if (keep.length < 8) return null;
   obs = keep;
   if (dropped) best = search();
   // Shrink toward the prior guess in proportion to sample size, so a model with
@@ -134,11 +136,23 @@ function fitModel(make: string, model: string, trimRetention: number, step = 0.0
   return { make, model, n: obs.length, dropped, residual5: best.r5, guess, mae: Math.round(mae(finalErrs) * 1000) / 1000, medianBias: Math.round(median(finalErrs) * 1000) / 1000, byYear, stickers: obs.filter((o) => o.stickerKnown).length, ...(dealer ? { dealer } : {}) };
 }
 
-// The curve is fitted on the hand-read samples only (as before the dealer listings); every model with real prices,
-// hand-read or dealer-listed, then gets its own residual.
+// The hand-read samples stay the authority: the curve and every model that has them are fitted on them alone, as
+// before. Searlo's dealer listings then calibrate the models nobody has read samples for, and only when the fit is
+// trustworthy: at most 15% mean error, and no further than 0.10 from the model's prior residual. A wider miss is
+// usually a trim mix the sticker cannot see (a 911 search full of Turbos and GT3s priced against a base sticker).
 const curated = samples.map((s) => ({ make: s.make, model: s.model }));
-const targets = [...curated, ...[...dealerByModel.keys()].map((k) => { const [make, model] = k.split('|'); return { make, model }; })]
-  .filter((t, i, all) => all.findIndex((u) => u.make === t.make && u.model === t.model) === i);
+const isCurated = (make: string, model: string) => curated.some((c) => c.make === make && c.model === model);
+const dealerOnly = [...dealerByModel.keys()].map((k) => { const [make, model] = k.split('|'); return { make, model }; }).filter((t) => !isCurated(t.make, t.model));
+const DEALER_MAX_MAE = 0.15, DEALER_MAX_SHIFT = 0.10;
+const rejected: string[] = [];
+const trusted = (f: Fit | null): f is Fit => {
+  if (!f) return false;
+  if (f.mae > DEALER_MAX_MAE || Math.abs(f.residual5 - f.guess) > DEALER_MAX_SHIFT) {
+    rejected.push(`${f.make} ${f.model} (${f.n} listings, MAE ${(f.mae * 100).toFixed(0)}%, residual ${f.guess} -> ${f.residual5})`);
+    return false;
+  }
+  return true;
+};
 const weighted = (fits: Fit[]) => fits.reduce((a, f) => a + f.mae * f.n, 0) / fits.reduce((a, f) => a + f.n, 0);
 
 // Global curve shape and trim retention: coarse search over all models at once,
@@ -159,7 +173,10 @@ for (const driveOff of grid.driveOff) for (const decay of grid.decay) for (const
 }
 // Fine residual fit at the chosen curve.
 Object.assign(CURVE, { driveOff: best.driveOff, decay: best.decay });
-const fits = targets.map((t) => fitModel(t.make, t.model, best.tr)).filter((f): f is Fit => !!f);
+const fits = [
+  ...curated.map((t) => fitModel(t.make, t.model, best.tr, 0.005, true)).filter((f): f is Fit => !!f),
+  ...dealerOnly.map((t) => fitModel(t.make, t.model, best.tr)).filter(trusted),
+];
 const bestTr = { tr: best.tr, total: weighted(fits), fits };
 
 const out = {
@@ -172,6 +189,7 @@ const out = {
 writeFileSync(new URL('../src/data/calibration.json', import.meta.url), JSON.stringify(out, null, 1) + '\n');
 
 console.log(`curve: driveOff ${best.driveOff}, decay ${best.decay}, trimRetention ${bestTr.tr} · weighted MAE ${(bestTr.total * 100).toFixed(1)}% over ${fits.reduce((a, f) => a + f.n, 0)} listings\n`);
+if (rejected.length) console.log(`dealer-only fits left out (${rejected.length}): ${rejected.join('; ')}\n`);
 console.log('model'.padEnd(28), 'n'.padStart(3), 'drop', 'guess', ' fit ', '  MAE', ' bias', ' by year');
 for (const f of bestTr.fits) {
   console.log(`${f.make} ${f.model}`.padEnd(28), String(f.n).padStart(3), String(f.dropped).padStart(4), f.guess.toFixed(2).padStart(5), f.residual5.toFixed(3).padStart(5), `${(f.mae * 100).toFixed(1)}%`.padStart(6), `${f.medianBias >= 0 ? '+' : ''}${(f.medianBias * 100).toFixed(1)}%`.padStart(6), ' ', Object.entries(f.byYear).map(([y, v]) => `${y}:${v.median >= 0 ? '+' : ''}${(v.median * 100).toFixed(0)}%`).join(' '));
