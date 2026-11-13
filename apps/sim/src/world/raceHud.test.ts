@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { HUD_TXT, gapText, raceLayout, raceView, towerRows, type Box } from './raceHud';
+import { HUD_TXT, fitRoute, gapText, raceLayout, raceView, towerRows, type Box } from './raceHud';
 import type { HudState } from './hud';
 import { carParams, makeVehicle } from './physics';
 import { ARCHETYPES, STOCK_CFG, TUNE_DEF } from './data';
@@ -190,5 +190,30 @@ describe('race HUD layout across real phones', () => {
     expect(towerRows(rows, 3).map(r => r.pos)).toEqual([1, 2, 6]);
     expect(towerRows(rows.map(r => ({ ...r, me: r.pos === 2 })), 3).map(r => r.pos)).toEqual([1, 2, 3]);
     expect(towerRows(rows, 9).length).toBe(6);
+  });
+});
+
+describe('the race map: the route fitted to its box', () => {
+  const X = (f: { s: number; ox: number }, x: number) => f.ox + f.s * x, Y = (f: { s: number; oz: number }, z: number) => f.oz + f.s * z;
+  it('keeps the shape of the route, centres it, and keeps every point inside the box less its padding', () => {
+    const pts: [number, number][] = [[100, 50], [300, 50], [300, 150], [100, 150], [180, 90]];
+    const f = fitRoute(pts, 500, 400, 168, 168, 8);
+    expect(f.s).toBeCloseTo(152 / 200);                                                    // bound by its width
+    expect((X(f, 100) + X(f, 300)) / 2).toBeCloseTo(500); expect((Y(f, 50) + Y(f, 150)) / 2).toBeCloseTo(400);
+    expect((X(f, 300) - X(f, 100)) / (Y(f, 150) - Y(f, 50))).toBeCloseTo(2);               // the aspect kept
+    for (const [x, z] of pts) {
+      expect(Math.abs(X(f, x) - 500)).toBeLessThanOrEqual(76 + 1e-9); expect(Math.abs(Y(f, z) - 400)).toBeLessThanOrEqual(76 + 1e-9);
+    }
+  });
+  it('fits a tall route by its height, north up: x across the screen, z down it', () => {
+    const f = fitRoute([[0, 0], [10, 0], [10, 400], [0, 400]], 0, 0, 200, 100, 0);
+    expect(f.s).toBeCloseTo(100 / 400);
+    expect(Y(f, 400)).toBeGreaterThan(Y(f, 0)); expect(X(f, 10)).toBeGreaterThan(X(f, 0));
+  });
+  it('gives a point or a straight line a finite scale, in the middle of the box', () => {
+    const one = fitRoute([[5, 5]], 50, 60, 100, 100, 4);
+    expect(Number.isFinite(one.s)).toBe(true); expect(X(one, 5)).toBeCloseTo(50); expect(Y(one, 5)).toBeCloseTo(60);
+    const line = fitRoute([[0, 0], [0, 300]], 0, 0, 100, 100, 0);
+    expect(line.s).toBeCloseTo(100 / 300); expect(X(line, 0)).toBeCloseTo(0); expect(Y(line, 150)).toBeCloseTo(0);
   });
 });

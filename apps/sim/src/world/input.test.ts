@@ -4,6 +4,16 @@ import { DRIFT_KICK_STEPS, releaseSticks, setSteerStick, touchSticks } from './s
 import { afterEach } from 'vitest';
 
 describe('InputMap', () => {
+  it('T is the race menu edge, and clearEdges clears every edge there is (a stuck edge would fire every frame)', () => {
+    const im = new InputMap({ manual: () => true, hydraulics: () => false });
+    im.onKeyDown({ code: 'KeyT', repeat: false, preventDefault() {} } as unknown as KeyboardEvent);
+    expect(im.edge.races).toBe(true);
+    const e = im.edge as unknown as Record<string, boolean>;
+    for (const k of Object.keys(e)) e[k] = true;
+    im.clearEdges();
+    expect(Object.entries(e).filter(([, v]) => v).map(([k]) => k)).toEqual([]);
+  });
+
   it('builds an input from held keys and edges', () => {
     const im = new InputMap({ manual: () => true, hydraulics: () => false });
     im.keys.fwd = true; im.keys.left = true; im.edge.shiftUp = true;

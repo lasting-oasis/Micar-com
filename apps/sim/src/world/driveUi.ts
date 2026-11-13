@@ -14,12 +14,12 @@ export type EventReward = { cash: number; octane: number; rep: number; stamps: s
 export const STAMP_NAME: Readonly<Record<string, string>> = { 'strip:first-win': 'First win', 'strip:drag': 'Drag winner', 'strip:drift': 'Drift winner', 'strip:outrun': 'Outrun' };
 export const stampName = (id: string): string => STAMP_NAME[id] ?? id.replace(/^strip:/, '').replace(/-/g, ' ');
 /** what a tap on the layer asks the 3D view to do */
-export type DriveTap = 'enter' | 'continue' | 'again' | 'resume' | 'town' | 'restart' | 'quit' | 'pause' | 'reset' | 'map' | 'signout' | 'garage' | 'swapcar';
+export type DriveTap = 'enter' | 'continue' | 'again' | 'resume' | 'town' | 'restart' | 'quit' | 'pause' | 'reset' | 'map' | 'signout' | 'garage' | 'swapcar' | 'races';
 
 /** Night Tuner's controls help line (#help), for the HUD on getting in and the pause menu */
 export const HELP: Record<District, string> = {
-  strip: '↑↓ drive · ←→ steer · Alt nitrous · Space handbrake · Shift/Ctrl gears · C camera · B look back · G lights · N horn · X drift mode · M map · Enter start event · R reset · Esc menu',
-  town: '↑↓ drive · ←→ steer · Alt nitrous · Space handbrake · Shift/Ctrl gears · C camera · B look back · G lights · N horn · Backspace reset · Enter on the gate ring: the Strip',
+  strip: '↑↓ drive · ←→ steer · Alt nitrous · Space handbrake · Shift/Ctrl gears · C camera · B look back · G lights · N horn · X drift mode · M map · T races · Enter start event · R reset · Esc menu',
+  town: '↑↓ drive · ←→ steer · Alt nitrous · Space handbrake · Shift/Ctrl gears · C camera · B look back · G lights · N horn · T races · Backspace reset · Enter on the gate ring: the Strip',
 };
 
 type DriveUi = {
@@ -67,11 +67,17 @@ type DriveUi = {
   netRace: boolean;
   /** on the grid of a challenge, the count not begun: the others are still loading, or the green light is seconds off */
   staging: boolean;
+  /** the race menu is open (RaceMenu.tsx): the car holds still and the game's keys wait */
+  racesOpen: boolean;
+  /** the race menu cannot open now (racesAllowed, kept by the frame loop): its tap button hides */
+  racesBlocked: boolean;
+  /** the event last raced (the race menu opens on its circuit) */
+  lastEvent: string | null;
   set(p: Partial<Omit<DriveUi, 'set'>>): void;
 };
 
 export const useDriveUi = create<DriveUi>(set => ({
-  district: 'town', driving: false, session: null, prompt: '', banner: null, results: null, reward: null, paused: false, eventLive: false, gears: false, mapOpen: false, topInset: 0, topPanelL: 0, topPanelR: 0, help: 0, nos: false, tap: null, quick: null, driveCar: null, lobby: false, counter: false, account: false, returned: null, challenge: false, netRace: false, staging: false,
+  district: 'town', driving: false, session: null, prompt: '', banner: null, results: null, reward: null, paused: false, eventLive: false, gears: false, mapOpen: false, topInset: 0, topPanelL: 0, topPanelR: 0, help: 0, nos: false, tap: null, quick: null, driveCar: null, lobby: false, counter: false, account: false, returned: null, challenge: false, netRace: false, staging: false, racesOpen: false, racesBlocked: false, lastEvent: null,
   set: p => set(p),
 }));
 

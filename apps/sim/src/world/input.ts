@@ -16,7 +16,7 @@ export const KM: Readonly<Record<string, string>> = {
 
 /** one-shot keys (not held): code -> edge */
 const EDGE_KEYS: Readonly<Record<string, keyof Edges>> = {
-  KeyC: 'camera', KeyR: 'reset', KeyJ: 'hop', KeyN: 'horn', KeyX: 'drift', Enter: 'enter', KeyM: 'map', Escape: 'pause', KeyP: 'pause',
+  KeyC: 'camera', KeyR: 'reset', KeyJ: 'hop', KeyN: 'horn', KeyX: 'drift', Enter: 'enter', KeyM: 'map', Escape: 'pause', KeyP: 'pause', KeyT: 'races',
 };
 
 export type Edges = {
@@ -42,11 +42,13 @@ export type Edges = {
   drift: boolean;
   /** Escape / P / pad Start */
   pause: boolean;
+  /** T: open or close the race menu */
+  races: boolean;
   /** a fresh left / right press (keys, touch or pad d-pad): drag lane change */
   laneL: boolean; laneR: boolean;
 };
 
-const freshEdges = (): Edges => ({ shiftUp: false, shiftDn: false, hop: false, reset: false, enter: false, map: false, camera: false, lookBack: false, lights: false, horn: false, drift: false, pause: false, laneL: false, laneR: false });
+const freshEdges = (): Edges => ({ shiftUp: false, shiftDn: false, hop: false, reset: false, enter: false, map: false, camera: false, lookBack: false, lights: false, horn: false, drift: false, pause: false, races: false, laneL: false, laneR: false });
 
 type Pad = { connected: boolean; axes: readonly number[]; buttons: readonly { pressed: boolean; value: number }[] };
 function pad(): Pad | null {
@@ -171,7 +173,8 @@ export class InputMap {
     this.touch[k] = on;
   }
 
-  clearEdges(): void { const e = this.edge; e.shiftUp = e.shiftDn = e.hop = e.reset = e.enter = e.map = e.camera = e.lookBack = e.lights = e.horn = e.drift = e.pause = e.laneL = e.laneR = false; }
+  /** every edge, whatever edges there are (one left out would fire on every frame after its key) */
+  clearEdges(): void { const e = this.edge as unknown as Record<string, boolean>; for (const k in e) e[k] = false; }
 
   /** Release every held key and button (blur, pause). */
   readonly releaseAll = (): void => { for (const k in this.keys) this.keys[k] = false; for (const k in this.touch) this.touch[k] = false; this.fingers.clear(); this.paint(); releaseSticks(); this.driftWas = false; this.kick = 0; };
