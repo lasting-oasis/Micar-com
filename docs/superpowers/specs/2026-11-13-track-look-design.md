@@ -97,7 +97,7 @@ Three independent reviews on the most capable model led to these changes:
   - The Draco decoder runs on two workers and starts afresh after a failed load.
   - The tracks smoke checks that each circuit's model is drawn with its textures.
 - **Export without the PC.** On 2026-11-13 the PC was offline. The circuits were exported by Blender 5.3.0 run as a Python module, which carries no Draco bridge. glTF Transform with Google's draco3d 1.5.7 (Blender 5.3's Draco) then compressed them at the same settings, without welding. Against the PC's own export of the previous revision, the json files were byte-identical and the triangles identical. A PC re-export remains the reference.
-- **Sizes and costs.** glb files are 141–187 KB each. A frame draws 79–91 calls and 41k–67k triangles.
+- **Sizes and costs.** glb files are 141–187 KB each. A frame draws 78–91 calls and 41k–67k triangles.
 
 ## 6. Out of scope
 
