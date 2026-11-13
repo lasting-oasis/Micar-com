@@ -4,6 +4,609 @@ import type { CatalogueEntry } from '../types';
 
 export const CATALOGUE_DATA: readonly CatalogueEntry[] = [
   {
+    "id": "2024-chevrolet-corvette-stingray-z51",
+    "spec": {
+      "identity": {
+        "year": 2024,
+        "make": "Chevrolet",
+        "model": "Corvette",
+        "trim": "Stingray Coupe Z51",
+        "bodyClass": "sports"
+      },
+      "engine": {
+        "value": "6.2-liter LT2 pushrod V8 with direct fuel injection",
+        "source": {
+          "kind": "reference",
+          "name": "CarWhere",
+          "url": "https://www.carwhere.com/chevrolet/engines/lt2",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Search summary described the LT2 in the 2024 Stingray as a 6.2-liter pushrod V8; a second result said it uses direct fuel injection. Wording is the reference site's, not the maker's; no maker page was surfaced. Applies to all Stingray trims including Z51. Read from se…"
+        }
+      },
+      "powertrain": {
+        "value": "gasoline",
+        "source": {
+          "kind": "reference",
+          "name": "GM Outlet Parts",
+          "url": "https://www.gmoutletparts.com/v-2024-chevrolet-corvette--stingray--6-2l-v8-gas/brakes--front-brakes",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. The parts-catalogue result identifies the vehicle as 2024 Chevrolet Corvette Stingray 6.2L V8 gas; EPA mpg ratings (not MPGe) reported elsewhere are consistent. Applies to all Stingray trims. Read from search-result summary; page not opened."
+        }
+      },
+      "induction": {
+        "value": "natural",
+        "source": {
+          "kind": "reference",
+          "name": "SlashGear (attribution uncertain, see note)",
+          "url": "https://www.slashgear.com/1666975/2024-chevrolet-corvette-stingray-review-price-specs-performance",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. A search for 2024 Corvette Stingray reviews returned a summary stating that one review describes the engine as \"a naturally aspirated 6.2-liter V8 mounted midship rated at 495 and 470 with the optional Performance Exhaust\", and that another says it \"delivers 495 horse…"
+        }
+      },
+      "displacementL": {
+        "value": 6.2,
+        "source": {
+          "kind": "reference",
+          "name": "TrueCar",
+          "url": "https://www.truecar.com/overview/chevrolet/corvette/2024/",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Search summary said the 2024 Stingray uses a 6.2-liter V8; the same engine is used with the Z51 package (Z51 output differs through the performance exhaust). Read from search-result summary; page not opened."
+        }
+      },
+      "cylinders": {
+        "value": 8,
+        "source": {
+          "kind": "reference",
+          "name": "TrueCar",
+          "url": "https://www.truecar.com/overview/chevrolet/corvette/2024/",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Search summary said the 2024 Stingray uses a 6.2-liter V8, shared by the Z51-equipped car. Read from search-result summary; page not opened."
+        }
+      },
+      "horsepower": {
+        "value": 495,
+        "source": {
+          "kind": "reference",
+          "name": "DePaula Chevrolet (dealer)",
+          "url": "https://www.depaulachevrolet.com/wmp/new/2024-chevy-corvette-stingray/",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Search summary said the Z51 package raises the 2024 Stingray's engine to 495 hp (base car 490 hp), mainly through its performance exhaust. Dealer page repeating the maker's rating; no maker page surfaced. Read from search-result summary; page not opened."
+        }
+      },
+      "torqueLbFt": {
+        "value": 470,
+        "source": {
+          "kind": "reference",
+          "name": "DePaula Chevrolet (dealer)",
+          "url": "https://www.depaulachevrolet.com/wmp/new/2024-chevy-corvette-stingray/",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Search summary said the Z51 package raises the 2024 Stingray's engine to 470 lb-ft (base car 465 lb-ft) through the performance exhaust. Dealer page repeating the maker's rating. Read from search-result summary; page not opened."
+        }
+      },
+      "transmission": {
+        "value": "8-speed dual-clutch automatic (Tremec)",
+        "source": {
+          "kind": "reference",
+          "name": "CorvSport",
+          "url": "https://www.corvsport.com/corvette-of-the-day-2024-chevrolet-corvette-stingray-coupe/",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Search summary said a Tremec 8-speed dual-clutch automatic is the transmission listed for the 2024 Stingray coupe; it is the only transmission offered, Z51 included. The summary attributed this to corvsport.com without saying which of its two returned pages. Read from…"
+        }
+      },
+      "transmissionType": {
+        "value": "dual-clutch",
+        "source": {
+          "kind": "reference",
+          "name": "CorvSport",
+          "url": "https://www.corvsport.com/corvette-of-the-day-2024-chevrolet-corvette-stingray-coupe/",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Search summary described the 2024 Stingray's transmission as a Tremec 8-speed dual-clutch automatic. Read from search-result summary; page not opened."
+        }
+      },
+      "drivetrain": {
+        "value": "RWD",
+        "source": {
+          "kind": "reference",
+          "name": "LapMeta (vehicle database)",
+          "url": "https://direct.lapmeta.com/it/model/13/chevrolet-corvette-c8-stingray-z51",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Search summary says a database entry for the Chevrolet Corvette C8 Stingray Z51 describes it as a two-door mid-engine rear-wheel-drive layout. The entry is for the C8 Stingray Z51 generally, model year not stated; no maker or EPA statement surfaced in the results. Rea…"
+        }
+      },
+      "curbWeightLb": null,
+      "zeroToSixtySec": {
+        "value": 2.9,
+        "source": {
+          "kind": "reference",
+          "name": "CarWhere (repeating GM's claim)",
+          "url": "https://www.carwhere.com/corvette/c8",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Search summary said GM lists 3.0 seconds for the base Stingray and 2.9 seconds with the Z51 package. This is the maker's claim as repeated by reference sites, not an instrumented test; the summary did not make clear exactly which returned page carried the GM attribution, and no…"
+        }
+      },
+      "topSpeedMph": null,
+      "topSpeedGoverned": null,
+      "combinedMpg": {
+        "value": 19,
+        "source": {
+          "kind": "reference",
+          "name": "GM Authority (reporting EPA ratings)",
+          "url": "https://gmauthority.com/blog/2023/10/2024-corvette-stingray-gets-revised-fuel-economy-ratings/amp",
+          "asOf": "2026-11-11",
+          "note": "A government rating. Search summary said the 2024 Stingray is EPA-rated 19 mpg combined, with the ratings calculated with the Z51 package equipped. Edmunds lists the same combined figure. Read from search-result summary; page not opened."
+        }
+      },
+      "cityMpg": {
+        "value": 16,
+        "source": {
+          "kind": "reference",
+          "name": "GM Authority (reporting EPA ratings)",
+          "url": "https://gmauthority.com/blog/2023/10/2024-corvette-stingray-gets-revised-fuel-economy-ratings/amp",
+          "asOf": "2026-11-11",
+          "note": "A government rating. Search summary said the 2024 Corvette Stingray is EPA-rated 16 mpg city / 25 highway / 19 combined, and that the 2024 Stingray ratings are calculated with the Z51 package equipped. The fueleconomy.gov page for 2024 was not itself surfaced. Read from search-result summary; page…"
+        }
+      },
+      "highwayMpg": {
+        "value": 25,
+        "source": {
+          "kind": "reference",
+          "name": "GM Authority (reporting EPA ratings)",
+          "url": "https://gmauthority.com/blog/2023/10/2024-corvette-stingray-gets-revised-fuel-economy-ratings/amp",
+          "asOf": "2026-11-11",
+          "note": "A government rating. Search summary said the 2024 Stingray is EPA-rated 25 mpg highway (up from 24 for 2023), with the ratings calculated with the Z51 package equipped. Corvette Blogger, citing FuelEconomy.gov, gave the same. Read from search-result summary; page not opened."
+        }
+      },
+      "evRangeMiles": null,
+      "lateralGripG": null,
+      "braking60to0Ft": null,
+      "braking70to0Ft": null,
+      "groundClearanceIn": null,
+      "construction": null,
+      "suspension": {
+        "value": "Front: Short/long arm (SLA) double wishbone; forged aluminum upper and cast aluminum L-shape lower control arms. Rear:…",
+        "source": {
+          "kind": "reference",
+          "name": "Corvette Story",
+          "url": "https://mobile.corvettestory.com/specs/2024-Corvette-specs-options.php",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Search summary of the 2024 Corvette spec page: SLA double wishbone at both ends, with forged aluminum upper and cast aluminum L-shape lower control arms at the front; Magnetic Selective Ride Control 4.0 available on Z51. Layout is for the 2024 Stingray generally; Z51-…"
+        }
+      },
+      "suspensionGrade": null,
+      "brakes": null,
+      "brakeGrade": null,
+      "warrantyPowertrainMiles": {
+        "value": 60000,
+        "source": {
+          "kind": "reference",
+          "name": "Chevrolet 2024 Corvette Customer Acknowledgment Form (revised April 2024), copy…",
+          "url": "https://corvetteforum.com/forums/attachments/c8-z06-zr1-zora-discussion/48388621d1718656493-picked-up-my-new-z06-this-weekend-and-gm-no-longer-offers-dct-filter-in-free-service-2024-chevy-corvette-customer-acknowledgment-form-revised-april-2024.pdf",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Search summary says a 2024 Chevy Corvette customer acknowledgment/delivery form lists a '5 years/60,000-mile Powertrain Limited Warranty'. Document covers the 2024 Corvette line, not Stingray-Z51-specific; forum-hosted copy, so marked reference. GM's gmenvolve.com war…"
+        }
+      },
+      "warrantyPowertrainYears": {
+        "value": 5,
+        "source": {
+          "kind": "reference",
+          "name": "Chevrolet 2024 Corvette Customer Acknowledgment Form (revised April 2024), copy…",
+          "url": "https://corvetteforum.com/forums/attachments/c8-z06-zr1-zora-discussion/48388621d1718656493-picked-up-my-new-z06-this-weekend-and-gm-no-longer-offers-dct-filter-in-free-service-2024-chevy-corvette-customer-acknowledgment-form-revised-april-2024.pdf",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Search summary says a 2024 Chevy Corvette customer acknowledgment/delivery form lists a '5 years/60,000-mile Powertrain Limited Warranty' (and 3 years/36,000 miles bumper-to-bumper) as a Chevrolet Complete Care benefit. The form is a Chevrolet document for the 2024 Co…"
+        }
+      },
+      "productionUnits": null
+    },
+    "status": "reference",
+    "asOf": "2026-11-11",
+    "note": "Gathered from public sources through web search. No figure was checked against a primary document."
+  },
+  {
+    "id": "2024-ford-f-150-raptor",
+    "spec": {
+      "identity": {
+        "year": 2024,
+        "make": "Ford",
+        "model": "F-150",
+        "trim": "Raptor SuperCrew",
+        "bodyClass": "pickup"
+      },
+      "engine": {
+        "value": "3.5L EcoBoost High Output V6",
+        "source": {
+          "kind": "reference",
+          "name": "Ford Motor Company (2024 Ford Raptor and Raptor R Tech Specs)",
+          "url": "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2024/specs/2024-Ford-Raptor-and-Raptor-R-Tech-Specs.pdf",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Search summary of Ford's 2024 Raptor tech sheet and Ford's own performance page describe the Raptor engine as the high-output 3.5L EcoBoost V6, available only on Raptor; auto123 lists '3.5L V6 EcoBoost High Output' for the 2024 Raptor 4WD SuperCrew 5.5' box. Wording assembled fr…"
+        }
+      },
+      "powertrain": {
+        "value": "gasoline",
+        "source": {
+          "kind": "reference",
+          "name": "mpgbuddy.com (republishing EPA fuel economy data)",
+          "url": "https://mpgbuddy.com/cars/ford/f150-raptor-4wd/2024",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. The search summary says mpgbuddy's EPA-based page for the 2024 Ford F150 RAPTOR 4WD (3.5L, 6 cyl, Automatic S10; 14/18/16 mpg, matching the catalogue) lists the fuel type as regular (gasoline). California's DriveClean (state agency) listing for the same 2024 F150 Rapt…"
+        }
+      },
+      "induction": {
+        "value": "twin-turbo",
+        "source": {
+          "kind": "reference",
+          "name": "Ford Motor Company (2024 Ford Raptor and Raptor R Tech Specs PDF, Ford media si…",
+          "url": "https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2024/f150/2024%20Ford%20Raptor%20and%20Raptor%20R%20Tech%20Specs.pdf",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. The search summary of Ford's 2024 F-150 Raptor / Raptor R tech specs sheet says it lists the \"High-Output 3.5-liter twin-turbocharged V6\" for the Raptor, alongside the 5.2-liter supercharged V8 of the Raptor R. Wording is as relayed by the search summary, not a verified verbatim…"
+        }
+      },
+      "displacementL": {
+        "value": 3.5,
+        "source": {
+          "kind": "reference",
+          "name": "Ford Motor Company (2024 Ford Raptor and Raptor R Tech Specs)",
+          "url": "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2024/specs/2024-Ford-Raptor-and-Raptor-R-Tech-Specs.pdf",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. 3.5L for the standard (non-R) 2024 Raptor; the California DriveClean listing for the 2024 F150 Raptor 4WD also shows 3.5L. Read from search-result summary; page not opened."
+        }
+      },
+      "cylinders": {
+        "value": 6,
+        "source": {
+          "kind": "reference",
+          "name": "California Air Resources Board (DriveClean)",
+          "url": "https://driveclean.ca.gov/taxonomy/term/36292",
+          "asOf": "2026-11-11",
+          "note": "A government rating. Listing for the 2024 F150 Raptor 4WD shows 3.5L, 6-cylinder, automatic, part-time 4WD; Edmunds lists a 3.5-liter V6 turbo for the 2024 Raptor. Read from search-result summary; page not opened."
+        }
+      },
+      "horsepower": {
+        "value": 450,
+        "source": {
+          "kind": "reference",
+          "name": "Ford Motor Company (2024 Ford Raptor and Raptor R Tech Specs)",
+          "url": "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2024/specs/2024-Ford-Raptor-and-Raptor-R-Tech-Specs.pdf",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Summary says Ford's tech sheet lists 450 hp at 5,850 rpm for the 3.5L EcoBoost High Output in the standard 2024 Raptor (the Raptor R's 720 hp is a different engine). One summary described the sheet as labelled preliminary. auto123 also lists 450 hp for this trim. Read from searc…"
+        }
+      },
+      "torqueLbFt": {
+        "value": 510,
+        "source": {
+          "kind": "reference",
+          "name": "Ford Motor Company (2024 Ford Raptor and Raptor R Tech Specs)",
+          "url": "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2024/specs/2024-Ford-Raptor-and-Raptor-R-Tech-Specs.pdf",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Summary says Ford's tech sheet lists 510 lb-ft at 3,000 rpm for the standard 2024 Raptor's 3.5L EcoBoost High Output; Ford's own (Canadian-site) performance page states the same 450 hp / 510 lb-ft for the Raptor-only engine. One summary described the sheet as labelled preliminar…"
+        }
+      },
+      "transmission": null,
+      "transmissionType": {
+        "value": "automatic",
+        "source": {
+          "kind": "reference",
+          "name": "Edmunds",
+          "url": "https://www.edmunds.com/ford/f-150/2024/raptor/features-specs",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. 10-speed automatic per Edmunds for the 2024 Raptor; DriveClean listing for the 2024 F150 Raptor 4WD also says automatic. Read from search-result summary; page not opened."
+        }
+      },
+      "drivetrain": {
+        "value": "4WD",
+        "source": {
+          "kind": "reference",
+          "name": "California Air Resources Board (DriveClean)",
+          "url": "https://driveclean.ca.gov/taxonomy/term/36292",
+          "asOf": "2026-11-11",
+          "note": "A government rating. Listing titled 2024 Ford F150 RAPTOR 4WD, described as part-time 4WD; auto123 lists the trim as Raptor 4WD SuperCrew 5.5' box. Read from search-result summary; page not opened."
+        }
+      },
+      "curbWeightLb": null,
+      "zeroToSixtySec": null,
+      "topSpeedMph": null,
+      "topSpeedGoverned": null,
+      "combinedMpg": {
+        "value": 16,
+        "source": {
+          "kind": "reference",
+          "name": "California Air Resources Board (DriveClean), EPA-derived figures",
+          "url": "https://driveclean.ca.gov/taxonomy/term/36292",
+          "asOf": "2026-11-11",
+          "note": "A government rating. 2024 F150 Raptor 4WD shown at 16 combined; mpgbuddy states the EPA rates the 2024 F150 Raptor 4WD at 16 combined. This is the standard-tire Raptor listing, not the separate 'Raptor 37' listing. fueleconomy.gov's own page did not appear in results. Read from search-result summar…"
+        }
+      },
+      "cityMpg": {
+        "value": 14,
+        "source": {
+          "kind": "reference",
+          "name": "California Air Resources Board (DriveClean), EPA-derived figures",
+          "url": "https://driveclean.ca.gov/taxonomy/term/36292",
+          "asOf": "2026-11-11",
+          "note": "A government rating. 2024 F150 Raptor 4WD (3.5L, 6-cyl, automatic) shown at 14 city; mpgbuddy and velocityjournal also give 14 city as the EPA rating. Some non-government sites say 15 city (see conflicts). fueleconomy.gov's own page did not appear in results. Read from search-result summary; page n…"
+        }
+      },
+      "highwayMpg": {
+        "value": 18,
+        "source": {
+          "kind": "reference",
+          "name": "California Air Resources Board (DriveClean), EPA-derived figures",
+          "url": "https://driveclean.ca.gov/taxonomy/term/36292",
+          "asOf": "2026-11-11",
+          "note": "A government rating. 2024 F150 Raptor 4WD shown at 18 highway; all Raptor-specific sources agree on 18 highway. fueleconomy.gov's own page did not appear in results. Read from search-result summary; page not opened."
+        }
+      },
+      "evRangeMiles": null,
+      "lateralGripG": null,
+      "braking60to0Ft": null,
+      "braking70to0Ft": null,
+      "groundClearanceIn": {
+        "value": 12,
+        "source": {
+          "kind": "reference",
+          "name": "Ford Motor Company (2024 Ford Raptor and Raptor R Tech Specs)",
+          "url": "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2024/specs/2024-Ford-Raptor-and-Raptor-R-Tech-Specs.pdf",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Summary says Ford's tech sheet gives 12.0 in for the standard Raptor and 13.1 in for the Raptor R; the sheet was described as preliminary, and the summary did not say which tire size the 12.0 applies to. auto123 lists 12 in front and rear for the 2024 Raptor. Read from search-re…"
+        }
+      },
+      "construction": {
+        "value": "body-on-frame",
+        "source": {
+          "kind": "reference",
+          "name": "Ford Motor Company (2024 Ford Raptor and Raptor R Tech Specs PDF)",
+          "url": "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2024/specs/2024-Ford-Raptor-and-Raptor-R-Tech-Specs.pdf",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. The search summary says Ford's 2024 Raptor tech spec sheet, under \"BODY Construction/materials\", describes \"high-strength steel frame, aluminum cabin and bed\" - i.e. a separate steel frame carrying an aluminum cab and bed. The sheet does not use the words \"body-on-frame\" in the…"
+        }
+      },
+      "suspension": null,
+      "suspensionGrade": null,
+      "brakes": {
+        "value": "Front: Power anti-lock vented disc with electronically controlled brake boost",
+        "source": {
+          "kind": "reference",
+          "name": "Ford Motor Company (2024 Ford Raptor and Raptor R Tech Specs)",
+          "url": "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2024/specs/2024-Ford-Raptor-and-Raptor-R-Tech-Specs.pdf",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Summary says Ford's tech sheet (covering Raptor and Raptor R) lists the front brake type as power anti-lock vented disc with electronically controlled brake boost; no rotor size was in the summary. Read from search-result summary; page not opened."
+        }
+      },
+      "brakeGrade": null,
+      "warrantyPowertrainMiles": {
+        "value": 60000,
+        "source": {
+          "kind": "reference",
+          "name": "Ford Motor Company",
+          "url": "https://www.ford.com/support/how-tos/search/What is my Powertrain warranty",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Ford's warranty pages give powertrain coverage of 5 years or 60,000 miles, whichever comes first, for Ford vehicles generally (not Raptor-specific; the 100,000-mile term applies only to diesel engines). Read from search-result summary; page not opened."
+        }
+      },
+      "warrantyPowertrainYears": {
+        "value": 5,
+        "source": {
+          "kind": "reference",
+          "name": "Ford Motor Company",
+          "url": "https://www.ford.com/support/how-tos/search/What is my Powertrain warranty",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Ford's warranty pages give powertrain coverage of 5 years or 60,000 miles, whichever comes first, for Ford vehicles generally (not Raptor-specific); NHTSA filings for 2024 Ford vehicles were said to confirm it. Read from search-result summary; page not opened."
+        }
+      },
+      "productionUnits": null
+    },
+    "status": "reference",
+    "asOf": "2026-11-11",
+    "note": "Gathered from public sources through web search. No figure was checked against a primary document."
+  },
+  {
+    "id": "2024-ford-mustang-gt",
+    "spec": {
+      "identity": {
+        "year": 2024,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "GT Fastback",
+        "bodyClass": "coupe"
+      },
+      "engine": {
+        "value": "Fourth-generation 5.0-liter Coyote V8, naturally aspirated, with dual intake and dual throttle body induction",
+        "source": {
+          "kind": "reference",
+          "name": "Ford Motor Company (From the Road newsroom)",
+          "url": "https://www.fromtheroad.ford.com/us/en/articles/2023/all-new-2024-ford-mustang-gt-ready-to-hit-the-track-as-pace-car",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Ford's 2024 Mustang GT pace-car release is summarised as describing the 'Mustang GT 5.0-liter V8', a naturally aspirated V8 with a 'segment-first, dual intake and dual throttle body induction system'; Jalopnik's summary calls it the fourth-generation 5.0-liter Coyote. Wording as…"
+        }
+      },
+      "powertrain": {
+        "value": "gasoline",
+        "source": {
+          "kind": "reference",
+          "name": "U.S. EPA / DOE (fueleconomy.gov)",
+          "url": "https://fueleconomy.gov/feg/noframes/47558.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. The fueleconomy.gov record for the 2024 Mustang 5.0L 8-cylinder manual is rated in MPG as a conventional engine; the summary did not print the word 'gasoline', so this is the weakest-sourced field in the record and should be checked against the page. Read from search-result sum…"
+        }
+      },
+      "induction": {
+        "value": "natural",
+        "source": {
+          "kind": "reference",
+          "name": "Ford Motor Company (From the Road newsroom)",
+          "url": "https://www.fromtheroad.ford.com/us/en/articles/2023/all-new-2024-ford-mustang-gt-ready-to-hit-the-track-as-pace-car",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Ford's release is summarised as calling the standard 480 hp GT 'the most standard power in a naturally aspirated V8-powered Mustang ever'. Applies to the 2024 Mustang GT. Read from search-result summary; page not opened."
+        }
+      },
+      "displacementL": {
+        "value": 5,
+        "source": {
+          "kind": "reference",
+          "name": "U.S. EPA / DOE (fueleconomy.gov)",
+          "url": "https://fueleconomy.gov/feg/noframes/47558.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. fueleconomy.gov record 47558 for the 2024 Mustang is summarised as 8 cylinders, 5.0 liters, manual 6-speed. Read from search-result summary; page not opened."
+        }
+      },
+      "cylinders": {
+        "value": 8,
+        "source": {
+          "kind": "reference",
+          "name": "U.S. EPA / DOE (fueleconomy.gov)",
+          "url": "https://fueleconomy.gov/feg/noframes/47558.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. fueleconomy.gov record 47558 for the 2024 Mustang is summarised as 8 cylinders, 5.0 liters, manual 6-speed. Read from search-result summary; page not opened."
+        }
+      },
+      "horsepower": {
+        "value": 480,
+        "source": {
+          "kind": "reference",
+          "name": "Ford Motor Company (From the Road newsroom)",
+          "url": "https://www.fromtheroad.ford.com/us/en/articles/2023/all-new-2024-ford-mustang-gt-ready-to-hit-the-track-as-pace-car",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Ford's release is summarised as stating the standard Mustang GT is rated at 480 horsepower, and that 486 hp is achieved only on GT models equipped with the optional active-valve performance exhaust. 480 hp used because the catalogued configuration names no exhaust option. Jalopn…"
+        }
+      },
+      "torqueLbFt": {
+        "value": 415,
+        "source": {
+          "kind": "reference",
+          "name": "Jalopnik (reporting Ford's SAE figures)",
+          "url": "https://jalopnik.com/2024-ford-mustang-this-is-it-1849534613",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Jalopnik is summarised as reporting Ford's official figures: 480 hp and 415 lb-ft for the GT without the active exhaust, 486 hp and 418 lb-ft with it. Ford Performance's parts page lists 480 hp / 415 lb-ft for the crate version of the same Gen 4 5.0L engine, and a car…"
+        }
+      },
+      "transmission": {
+        "value": "6-speed manual",
+        "source": {
+          "kind": "reference",
+          "name": "U.S. EPA / DOE (fueleconomy.gov)",
+          "url": "https://fueleconomy.gov/feg/noframes/47558.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. fueleconomy.gov record 47558 is summarised as 2024 Mustang, 8 cylinders, 5.0 liters, manual 6-speed. Read from search-result summary; page not opened."
+        }
+      },
+      "transmissionType": {
+        "value": "manual",
+        "source": {
+          "kind": "reference",
+          "name": "U.S. EPA / DOE (fueleconomy.gov)",
+          "url": "https://fueleconomy.gov/feg/noframes/47558.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. fueleconomy.gov record 47558 is summarised as manual 6-speed for the 2024 Mustang 5.0L. Read from search-result summary; page not opened."
+        }
+      },
+      "drivetrain": {
+        "value": "RWD",
+        "source": {
+          "kind": "reference",
+          "name": "California Air Resources Board (DriveClean)",
+          "url": "https://driveclean.ca.gov/taxonomy/term/36136",
+          "asOf": "2026-11-11",
+          "note": "A government rating. A California DriveClean listing for the 2024 Ford Mustang is summarised as 'Manual 6-spd, 5.0L, Rear-Wheel Drive'. Two DriveClean URLs appeared in the results and the summary did not say which carried the line; this is the first of them. Read from search-result summary; page no…"
+        }
+      },
+      "curbWeightLb": null,
+      "zeroToSixtySec": null,
+      "topSpeedMph": null,
+      "topSpeedGoverned": null,
+      "combinedMpg": {
+        "value": 18,
+        "source": {
+          "kind": "reference",
+          "name": "U.S. EPA / DOE (fueleconomy.gov)",
+          "url": "https://fueleconomy.gov/feg/noframes/47558.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. fueleconomy.gov record 47558 (2024 Mustang, 5.0L V8, 6-speed manual) is summarised as 18 combined MPG; the California DriveClean listing shows the same. AutoPadre lists 19 combined; see conflicts. Read from search-result summary; page not opened."
+        }
+      },
+      "cityMpg": {
+        "value": 15,
+        "source": {
+          "kind": "reference",
+          "name": "U.S. EPA / DOE (fueleconomy.gov)",
+          "url": "https://fueleconomy.gov/feg/noframes/47558.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. fueleconomy.gov record 47558 (2024 Mustang, 5.0L V8, 6-speed manual) is summarised as 15 city / 23 highway / 18 combined MPG; the California DriveClean listing shows the same. Read from search-result summary; page not opened."
+        }
+      },
+      "highwayMpg": {
+        "value": 23,
+        "source": {
+          "kind": "reference",
+          "name": "U.S. EPA / DOE (fueleconomy.gov)",
+          "url": "https://fueleconomy.gov/feg/noframes/47558.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. fueleconomy.gov record 47558 (2024 Mustang, 5.0L V8, 6-speed manual) is summarised as 15 city / 23 highway / 18 combined MPG; the California DriveClean listing shows the same. Read from search-result summary; page not opened."
+        }
+      },
+      "evRangeMiles": null,
+      "lateralGripG": null,
+      "braking60to0Ft": null,
+      "braking70to0Ft": null,
+      "groundClearanceIn": null,
+      "construction": {
+        "value": "unibody",
+        "source": {
+          "kind": "reference",
+          "name": "Ford Motor Company (2024 Mustang Technical Specifications, preliminary, dated S…",
+          "url": "https://ffperformance.co/wp-content/uploads/2023/04/2024-mustang-technical-specifications.pdf",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. The search summary says Ford's 2024 Mustang preliminary specification sheet describes a 'fully unitized steel chassis with fully independent front/rear suspension and perimeter subframe'. This applies to the 2024 Mustang line as a whole, not only the GT. The document is Ford's,…"
+        }
+      },
+      "suspension": {
+        "value": "Front: Independent MacPherson strut with coil springs and anti-roll bar. Rear: Independent multilink with stabilizer bar",
+        "source": {
+          "kind": "reference",
+          "name": "Auto123",
+          "url": "https://www.auto123.com/en/specs/ford/mustang/ford-mustang-2024-gt-fastback-439083/",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Third-party spec listings for the 2024 Mustang GT are summarised as a MacPherson-strut front suspension (one as 'Independent, type McPherson with coil spring and anti-roll bar'). The summaries did not say which listing carried which wording; Auto123's GT Fastback page…"
+        }
+      },
+      "suspensionGrade": null,
+      "brakes": {
+        "value": "Front: Ventilated disc",
+        "source": {
+          "kind": "reference",
+          "name": "Auto123",
+          "url": "https://www.auto123.com/en/specs/ford/mustang/ford-mustang-2024-gt-fastback-439083/",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Third-party spec listings for the 2024 Mustang GT are summarised as ventilated discs front and rear (4-wheel disc); no rotor sizes were given and the summary did not name which listing said it. Not from a Ford document. Read from search-result summary; page not opened."
+        }
+      },
+      "brakeGrade": null,
+      "warrantyPowertrainMiles": {
+        "value": 60000,
+        "source": {
+          "kind": "reference",
+          "name": "Ford Motor Company (ford.com support)",
+          "url": "https://www.ford.com/support/how-tos/warranty/warranties-and-coverage/what-parts-are-covered-by-the-powertrain-warranty/",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Ford's support pages are summarised as giving the Powertrain Warranty as 5 years or 60,000 miles, whichever comes first (general Ford coverage, not Mustang-specific). Autoblog's 2024 Mustang GT 2dr Fastback equipment page lists powertrain warranty 60 months / 60,000 miles. Read…"
+        }
+      },
+      "warrantyPowertrainYears": {
+        "value": 5,
+        "source": {
+          "kind": "reference",
+          "name": "Ford Motor Company (ford.com support)",
+          "url": "https://www.ford.com/support/how-tos/warranty/warranties-and-coverage/what-parts-are-covered-by-the-powertrain-warranty/",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Ford's support pages are summarised as giving the Powertrain Warranty as 5 years or 60,000 miles, whichever comes first (general Ford coverage, not Mustang-specific). Autoblog's 2024 Mustang GT 2dr Fastback equipment page lists powertrain warranty 60 months / 60,000 miles. Read…"
+        }
+      },
+      "productionUnits": null
+    },
+    "status": "reference",
+    "asOf": "2026-11-11",
+    "note": "Gathered from public sources through web search. No figure was checked against a primary document."
+  },
+  {
     "id": "2024-honda-civic-sedan-lx",
     "spec": {
       "identity": {
@@ -253,6 +856,582 @@ export const CATALOGUE_DATA: readonly CatalogueEntry[] = [
     },
     "status": "reference",
     "asOf": "2026-11-10",
+    "note": "Gathered from public sources through web search. No figure was checked against a primary document."
+  },
+  {
+    "id": "2024-honda-odyssey-ex-l",
+    "spec": {
+      "identity": {
+        "year": 2024,
+        "make": "Honda",
+        "model": "Odyssey",
+        "trim": "EX-L",
+        "bodyClass": "van"
+      },
+      "engine": {
+        "value": "3.5-liter, 24-valve SOHC i-VTEC V-6 with direct injection",
+        "source": {
+          "kind": "reference",
+          "name": "Honda Information Center (American Honda)",
+          "url": "https://www.hondainfocenter.com/-/media/Honda-Sales-Tool-Media-Folder/Images/2024-Odyssey/PDFs/2024-Odyssey-Features-by-Trim.ashx",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Honda's 2024 Odyssey features-by-trim document is titled with '3.5-liter, 24-valve SOHC i-VTEC V-6 engine'; Cars.com's 2024 EX-L page words it '3.5L 24-valve direct-injection SOHC i-VTEC V6'. One engine across all 2024 trims. Read from search-result summary; page not opened."
+        }
+      },
+      "powertrain": {
+        "value": "gasoline",
+        "source": {
+          "kind": "reference",
+          "name": "US EPA / fueleconomy.gov",
+          "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Honda_Odyssey.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. fueleconomy.gov lists the 2024 Odyssey on regular gasoline; Edmunds lists regular unleaded. Read from search-result summary; page not opened."
+        }
+      },
+      "induction": {
+        "value": "natural",
+        "source": {
+          "kind": "reference",
+          "name": "CarBuzz",
+          "url": "https://carbuzz.com/cars/honda/odyssey-generations",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. The search summary said CarBuzz's 2024 Honda Odyssey review describes the engine as a traditional naturally aspirated six-cylinder, in contrast with turbocharged rivals; DoubleClutch.ca was summarised as calling it a normally aspirated engine. All 2024 Odyssey trims s…"
+        }
+      },
+      "displacementL": {
+        "value": 3.5,
+        "source": {
+          "kind": "reference",
+          "name": "Honda Information Center (American Honda)",
+          "url": "https://www.hondainfocenter.com/-/media/Honda-Sales-Tool-Media-Folder/Images/2024-Odyssey/PDFs/2024-Odyssey-Features-by-Trim.ashx",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Honda describes the 2024 Odyssey engine as 3.5-liter; fueleconomy.gov lists the 2024 Odyssey as 3.5 L. Applies to all trims including EX-L. Read from search-result summary; page not opened."
+        }
+      },
+      "cylinders": {
+        "value": 6,
+        "source": {
+          "kind": "reference",
+          "name": "US EPA / fueleconomy.gov",
+          "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Honda_Odyssey.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. fueleconomy.gov lists the 2024 Odyssey as 3.5 L, 6 cyl; Honda calls it a V-6. Single powertrain for the model year. Read from search-result summary; page not opened."
+        }
+      },
+      "horsepower": {
+        "value": 280,
+        "source": {
+          "kind": "reference",
+          "name": "Honda Information Center (American Honda)",
+          "url": "https://www.hondainfocenter.com/2024/Odyssey/Feature-Guide/Specifications/",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Honda's 2024 Odyssey specifications list 280 hp @ 6000 rpm (SAE net), stated for the EX-L and shared across trims. Read from search-result summary; page not opened."
+        }
+      },
+      "torqueLbFt": {
+        "value": 262,
+        "source": {
+          "kind": "reference",
+          "name": "Honda Newsroom (hondanews.com)",
+          "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f00fe4b-2024-honda-odyssey-specs",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Honda's 2024 Odyssey specifications give 262 lb-ft @ 4700 rpm (SAE net) for the 3.5-liter V6 used in every trim; a reference listing for the EX-L repeats it. Read from search-result summary; page not opened."
+        }
+      },
+      "transmission": {
+        "value": "10-speed automatic",
+        "source": {
+          "kind": "reference",
+          "name": "Cars.com",
+          "url": "https://www.cars.com/research/honda-odyssey-2024/specs/445569/",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Cars.com's 2024 Odyssey EX-L page lists a 10-speed automatic; fueleconomy.gov lists the 2024 Odyssey as Automatic (S10). Read from search-result summary; page not opened."
+        }
+      },
+      "transmissionType": {
+        "value": "automatic",
+        "source": {
+          "kind": "reference",
+          "name": "Cars.com",
+          "url": "https://www.cars.com/research/honda-odyssey-2024/specs/445569/",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Listed as a 10-speed automatic for the 2024 EX-L; EPA codes it Automatic (S10). Read from search-result summary; page not opened."
+        }
+      },
+      "drivetrain": {
+        "value": "FWD",
+        "source": {
+          "kind": "reference",
+          "name": "U.S. EPA / DOE (fueleconomy.gov)",
+          "url": "https://www.fueleconomy.gov/feg/Find.do?action=sbs&id=46860",
+          "asOf": "2026-11-11",
+          "note": "A government rating. The search summary of the fueleconomy.gov page for the 2024 Honda Odyssey gave Drive: Front-Wheel Drive, with a 10-speed automatic and 19/28/22 mpg, matching the catalogue. The Edmunds 2024 Odyssey specification table also lists front-wheel drive with the 3.5L V6 and 10-speed a…"
+        }
+      },
+      "curbWeightLb": {
+        "value": 4526,
+        "source": {
+          "kind": "reference",
+          "name": "Honda Newsroom (hondanews.com)",
+          "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f00fe4b-2024-honda-odyssey-specs",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Honda's 2024 Odyssey spec table lists curb weight 4482 lbs for EX and 4526 lbs for EX-L; Edmunds repeats 4,526 lbs for the EX-L. Other reference sites differ (see conflicts). Read from search-result summary; page not opened."
+        }
+      },
+      "zeroToSixtySec": null,
+      "topSpeedMph": null,
+      "topSpeedGoverned": null,
+      "combinedMpg": {
+        "value": 22,
+        "source": {
+          "kind": "reference",
+          "name": "US EPA / fueleconomy.gov",
+          "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Honda_Odyssey.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. fueleconomy.gov's 2024 Honda Odyssey model listing shows 22 combined; Edmunds lists the EX-L at 22 combined. A make-level fueleconomy.gov page was summarized with 21 combined (see conflicts). Read from search-result summary; page not opened."
+        }
+      },
+      "cityMpg": {
+        "value": 19,
+        "source": {
+          "kind": "reference",
+          "name": "US EPA / fueleconomy.gov",
+          "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Honda_Odyssey.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. fueleconomy.gov's 2024 Honda Odyssey listing (3.5 L, 6 cyl, Automatic S10) shows 19 city; one rating covers all trims, and Edmunds lists the EX-L at 19 city. Read from search-result summary; page not opened."
+        }
+      },
+      "highwayMpg": {
+        "value": 28,
+        "source": {
+          "kind": "reference",
+          "name": "US EPA / fueleconomy.gov",
+          "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Honda_Odyssey.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. fueleconomy.gov's 2024 Honda Odyssey model listing shows 28 highway; Edmunds lists the EX-L at 28 highway. A make-level fueleconomy.gov page was summarized with 25 highway (see conflicts). Read from search-result summary; page not opened."
+        }
+      },
+      "evRangeMiles": null,
+      "lateralGripG": null,
+      "braking60to0Ft": null,
+      "braking70to0Ft": null,
+      "groundClearanceIn": null,
+      "construction": null,
+      "suspension": {
+        "value": "Front: MacPherson strut. Rear: Compact multi-link",
+        "source": {
+          "kind": "reference",
+          "name": "Honda Newsroom (hondanews.com)",
+          "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f00fe4b-2024-honda-odyssey-specs",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Honda's 2024 Odyssey specifications list a MacPherson strut front suspension for the EX-L (all trims); Auto123's EX-L listing says strut front. Read from search-result summary; page not opened."
+        }
+      },
+      "suspensionGrade": null,
+      "brakes": {
+        "value": "Front: Power-assisted ventilated disc, 12.6 in. Rear: Power-assisted solid disc, 13.0 in",
+        "source": {
+          "kind": "reference",
+          "name": "Honda Newsroom (hondanews.com)",
+          "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f00fe4b-2024-honda-odyssey-specs",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Honda lists 'Power-Assisted Ventilated Front Disc/Solid Rear Disc Brakes' at 12.6 in / 13.0 in for the 2024 Odyssey; CarGurus repeats ventilated front disc, 12.6 in. Stated for the model line, not broken out by trim. Read from search-result summary; page not opened."
+        }
+      },
+      "brakeGrade": null,
+      "warrantyPowertrainMiles": {
+        "value": 60000,
+        "source": {
+          "kind": "reference",
+          "name": "American Honda (automobiles.honda.com)",
+          "url": "https://automobiles.honda.com/civic-sedan/warranty",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Honda's warranty page states the powertrain in a new Honda is covered for 5 years or 60,000 miles, whichever comes first. This is Honda's brand-wide new-vehicle powertrain warranty read from a Civic page, not an Odyssey EX-L or 2024-specific document; no 2024-specific warranty b…"
+        }
+      },
+      "warrantyPowertrainYears": {
+        "value": 5,
+        "source": {
+          "kind": "reference",
+          "name": "American Honda (automobiles.honda.com)",
+          "url": "https://automobiles.honda.com/civic-sedan/warranty",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Honda's warranty page states the powertrain in a new Honda is covered for 5 years or 60,000 miles, whichever comes first. This is Honda's brand-wide new-vehicle powertrain warranty read from a Civic page, not an Odyssey EX-L or 2024-specific document; no 2024-specific warranty b…"
+        }
+      },
+      "productionUnits": null
+    },
+    "status": "reference",
+    "asOf": "2026-11-11",
+    "note": "Gathered from public sources through web search. No figure was checked against a primary document."
+  },
+  {
+    "id": "2024-jeep-wrangler-rubicon",
+    "spec": {
+      "identity": {
+        "year": 2024,
+        "make": "Jeep",
+        "model": "Wrangler",
+        "trim": "Rubicon 4-Door",
+        "bodyClass": "offroad"
+      },
+      "engine": {
+        "value": "3.6-liter Pentastar V6",
+        "source": {
+          "kind": "reference",
+          "name": "The Drive",
+          "url": "https://www.thedrive.com/car-reviews/2024-jeep-wrangler-first-drive-review-specs-price-options-impressions",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. First-drive review of the 2024 Wrangler describes its four-door Rubicon tester's engine as the 3.6-liter Pentastar V6 with the eight-speed automatic. Not the maker's own page; wording as given in the search summary. Read from search-result summary; page not opened."
+        }
+      },
+      "powertrain": {
+        "value": "gasoline",
+        "source": {
+          "kind": "reference",
+          "name": "U.S. EPA / DOE (fueleconomy.gov)",
+          "url": "https://www.fueleconomy.gov/feg/bymake/Jeep2024.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. Search summary of the fueleconomy.gov listing for the 2024 Jeep Wrangler Rubicon 4dr 4WD, 3.6L 6-cyl, 8-speed automatic said it is rated 16 city / 19 highway / 17 combined MPG on regular gasoline, matching the catalogue's existing EPA figures for this configuration. The result…"
+        }
+      },
+      "induction": {
+        "value": "natural",
+        "source": {
+          "kind": "reference",
+          "name": "CarExpert",
+          "url": "https://www.carexpert.com.au/car-news/2024-jeep-wrangler-says-goodbye-to-the-petrol-v6",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Search summary quoted the article describing 'the venerable 3.6-litre Pentastar naturally aspirated V6 petrol engine' in the context of the 2024 Wrangler. The article is Australian-market news (about that market dropping the V6); it is used only for its description of…"
+        }
+      },
+      "displacementL": {
+        "value": 3.6,
+        "source": {
+          "kind": "reference",
+          "name": "The Drive",
+          "url": "https://www.thedrive.com/car-reviews/2024-jeep-wrangler-first-drive-review-specs-price-options-impressions",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. 3.6-liter Pentastar V6 in the 2024 four-door Rubicon tester; a 2024 Rubicon listing also gives 3.6 l (3604 cc). Read from search-result summary; page not opened."
+        }
+      },
+      "cylinders": {
+        "value": 6,
+        "source": {
+          "kind": "reference",
+          "name": "The Drive",
+          "url": "https://www.thedrive.com/car-reviews/2024-jeep-wrangler-first-drive-review-specs-price-options-impressions",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Engine described as the 3.6-liter Pentastar V6 (six cylinders) in the 2024 four-door Rubicon tester. Read from search-result summary; page not opened."
+        }
+      },
+      "horsepower": {
+        "value": 285,
+        "source": {
+          "kind": "reference",
+          "name": "The Drive",
+          "url": "https://www.thedrive.com/car-reviews/2024-jeep-wrangler-first-drive-review-specs-price-options-impressions",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. 285 hp for the 3.6-liter Pentastar V6 in the 2024 four-door Rubicon tester with eight-speed automatic; a 2024 Rubicon listing gives 285 bhp at 6400 rpm. Maker's own spec sheet was not surfaced by search. Read from search-result summary; page not opened."
+        }
+      },
+      "torqueLbFt": {
+        "value": 260,
+        "source": {
+          "kind": "reference",
+          "name": "The Drive",
+          "url": "https://www.thedrive.com/car-reviews/2024-jeep-wrangler-first-drive-review-specs-price-options-impressions",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. 260 lb-ft for the 3.6-liter Pentastar V6 in the 2024 four-door Rubicon tester; a 2024 Rubicon listing gives 260 lb-ft at 4800 rpm. Maker's own spec sheet was not surfaced by search. Read from search-result summary; page not opened."
+        }
+      },
+      "transmission": {
+        "value": "8-speed automatic",
+        "source": {
+          "kind": "reference",
+          "name": "U.S. EPA / DOE (fueleconomy.gov)",
+          "url": "https://www.fueleconomy.gov/feg/bymake/Jeep2024.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. EPA listing for the 2024 Wrangler Rubicon 4-door 3.6L V6 is with the 8-speed automatic; The Drive's four-door Rubicon tester also had the eight-speed automatic. Read from search-result summary; page not opened."
+        }
+      },
+      "transmissionType": {
+        "value": "automatic",
+        "source": {
+          "kind": "reference",
+          "name": "U.S. EPA / DOE (fueleconomy.gov)",
+          "url": "https://www.fueleconomy.gov/feg/bymake/Jeep2024.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. EPA listing for the 2024 Wrangler Rubicon 4-door 3.6L V6 with 8-speed automatic. Read from search-result summary; page not opened."
+        }
+      },
+      "drivetrain": {
+        "value": "4WD",
+        "source": {
+          "kind": "reference",
+          "name": "mpgbuddy (repeating EPA data)",
+          "url": "https://mpgbuddy.com/cars/jeep/wrangler-rubicon-4dr-4wd/2024",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Listing titled 2024 Jeep Wrangler Rubicon 4dr 4WD, matching the EPA model designation. Read from search-result summary; page not opened."
+        }
+      },
+      "curbWeightLb": null,
+      "zeroToSixtySec": null,
+      "topSpeedMph": null,
+      "topSpeedGoverned": null,
+      "combinedMpg": {
+        "value": 17,
+        "source": {
+          "kind": "reference",
+          "name": "U.S. EPA / DOE (fueleconomy.gov)",
+          "url": "https://www.fueleconomy.gov/feg/bymake/Jeep2024.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. 17 mpg combined for the 2024 Wrangler Rubicon 4-door 4WD, 3.6L V6, 8-speed automatic. Read from search-result summary; page not opened."
+        }
+      },
+      "cityMpg": {
+        "value": 16,
+        "source": {
+          "kind": "reference",
+          "name": "U.S. EPA / DOE (fueleconomy.gov)",
+          "url": "https://www.fueleconomy.gov/feg/bymake/Jeep2024.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. 16 mpg city for the 2024 Wrangler Rubicon 4-door 4WD, 3.6L V6, 8-speed automatic. Read from search-result summary; page not opened."
+        }
+      },
+      "highwayMpg": {
+        "value": 19,
+        "source": {
+          "kind": "reference",
+          "name": "U.S. EPA / DOE (fueleconomy.gov)",
+          "url": "https://www.fueleconomy.gov/feg/bymake/Jeep2024.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. 19 mpg highway for the 2024 Wrangler Rubicon 4-door 4WD, 3.6L V6, 8-speed automatic. Read from search-result summary; page not opened."
+        }
+      },
+      "evRangeMiles": null,
+      "lateralGripG": null,
+      "braking60to0Ft": null,
+      "braking70to0Ft": null,
+      "groundClearanceIn": null,
+      "construction": null,
+      "suspension": null,
+      "suspensionGrade": null,
+      "brakes": null,
+      "brakeGrade": null,
+      "warrantyPowertrainMiles": {
+        "value": 60000,
+        "source": {
+          "kind": "reference",
+          "name": "Mopar / Stellantis (2024 Jeep warranty guide)",
+          "url": "https://vehicleinfo.mopar.com/assets/publications/en-us/Jeep/2024/103489_24_J_GW_EN_US_DIGITAL_E3_V2.pdf",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. 2024 Jeep warranty guide lists Powertrain Limited Warranty 5 years/60,000 miles for gas and PHEV vehicles (brand-wide, not trim-specific). Read from search-result summary; page not opened."
+        }
+      },
+      "warrantyPowertrainYears": {
+        "value": 5,
+        "source": {
+          "kind": "reference",
+          "name": "Mopar / Stellantis (2024 Jeep warranty guide)",
+          "url": "https://vehicleinfo.mopar.com/assets/publications/en-us/Jeep/2024/103489_24_J_GW_EN_US_DIGITAL_E3_V2.pdf",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. 2024 Jeep warranty guide lists Powertrain Limited Warranty 5 years/60,000 miles for gas and PHEV vehicles (brand-wide, not trim-specific). Read from search-result summary; page not opened."
+        }
+      },
+      "productionUnits": null
+    },
+    "status": "reference",
+    "asOf": "2026-11-11",
+    "note": "Gathered from public sources through web search. No figure was checked against a primary document."
+  },
+  {
+    "id": "2024-mazda-mx-5-miata-club",
+    "spec": {
+      "identity": {
+        "year": 2024,
+        "make": "Mazda",
+        "model": "MX-5 Miata",
+        "trim": "Club",
+        "bodyClass": "sports"
+      },
+      "engine": {
+        "value": "2.0-liter naturally aspirated four-cylinder",
+        "source": {
+          "kind": "reference",
+          "name": "Kelley Blue Book",
+          "url": "https://www.kbb.com/mazda/mx-5-miata/2024/club",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Search summary said all 2024 MX-5 models use a naturally aspirated 2.0-liter four-cylinder and that the Club has the same engine as the other trims. The summary did not say which listed result carried the wording, so the attribution to this page is not certain; the ma…"
+        }
+      },
+      "powertrain": {
+        "value": "gasoline",
+        "source": {
+          "kind": "reference",
+          "name": "Edmunds",
+          "url": "https://www.edmunds.com/mazda/mx-5-miata/2024/st-401986487/features-specs",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. No result stated the fuel in words; the car is listed with EPA MPG ratings (26/34 city/highway) and a conventional 2.0-liter four-cylinder with no hybrid or electric system mentioned, for the Sport trim with the same powertrain. Read from search-result summary; page n…"
+        }
+      },
+      "induction": null,
+      "displacementL": {
+        "value": 2,
+        "source": {
+          "kind": "reference",
+          "name": "Kelley Blue Book",
+          "url": "https://www.kbb.com/mazda/mx-5-miata/2024/club",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Search summary: 2.0-liter four-cylinder, shared by all 2024 MX-5 trims including the Club. Exact page behind the wording not identified by the summary. Read from search-result summary; page not opened."
+        }
+      },
+      "cylinders": {
+        "value": 4,
+        "source": {
+          "kind": "reference",
+          "name": "Kelley Blue Book",
+          "url": "https://www.kbb.com/mazda/mx-5-miata/2024/club",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Search summary: 2.0-liter four-cylinder, shared by all 2024 MX-5 trims including the Club. Exact page behind the wording not identified by the summary. Read from search-result summary; page not opened."
+        }
+      },
+      "horsepower": {
+        "value": 181,
+        "source": {
+          "kind": "reference",
+          "name": "Kelley Blue Book",
+          "url": "https://www.kbb.com/mazda/mx-5-miata/2024/club",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Search summary: the 2024 Club has the same engine as the other trims, rated at 181 hp (at 7,000 rpm). Exact page behind the wording not identified by the summary. Mazda Canada's sheet for the 2024 MX-5 lists the same 181 hp (Canadian market, corroboration only). Read…"
+        }
+      },
+      "torqueLbFt": {
+        "value": 151,
+        "source": {
+          "kind": "reference",
+          "name": "Kelley Blue Book",
+          "url": "https://www.kbb.com/mazda/mx-5-miata/2024/club",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Search summary: the 2024 Club has the same engine as the other trims, rated at 151 lb-ft (at 4,000 rpm). Exact page behind the wording not identified by the summary. Mazda Canada's sheet lists the same 151 lb-ft (Canadian market, corroboration only). Read from search-…"
+        }
+      },
+      "transmission": {
+        "value": "6-speed manual",
+        "source": {
+          "kind": "reference",
+          "name": "MPG Buddy",
+          "url": "https://mpgbuddy.com/cars/mazda/mx-5/2024",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Search summary: the 2024 MX-5 pairs the 2-liter 4-cylinder with a 'manual 6-spd'; The Auto Channel reviewed a 2024 MX-5 Club 6MT. Read from search-result summary; page not opened."
+        }
+      },
+      "transmissionType": {
+        "value": "manual",
+        "source": {
+          "kind": "reference",
+          "name": "MPG Buddy",
+          "url": "https://mpgbuddy.com/cars/mazda/mx-5/2024",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Search summary: 2024 MX-5 with 'manual 6-spd'. Read from search-result summary; page not opened."
+        }
+      },
+      "drivetrain": {
+        "value": "RWD",
+        "source": {
+          "kind": "reference",
+          "name": "Mazda North American Operations (Mazda USA Newsroom)",
+          "url": "https://news.mazdausa.com/2024-01-25-24MY-2024-Mazda-MX-5-Miata-Pricing-and-Packaging",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Mazda's 2024 MX-5 Miata Pricing and Packaging release was summarized as stating: 'All MX-5 Miata models have a front engine, rear-wheel drive layout, with a Skyactiv-G 2.0-liter four-cylinder engine delivering 181 horsepower at 7,000 rpm and 151 lb-ft of torque at 4,000 rpm rout…"
+        }
+      },
+      "curbWeightLb": null,
+      "zeroToSixtySec": null,
+      "topSpeedMph": null,
+      "topSpeedGoverned": null,
+      "combinedMpg": {
+        "value": 29,
+        "source": {
+          "kind": "reference",
+          "name": "Edmunds",
+          "url": "https://www.edmunds.com/mazda/mx-5-miata/2024/st-401986487/features-specs",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Search summary: Edmunds lists combined 29 MPG for the 2024 Sport (same manual powertrain); MPG Buddy gives 29; a California Drive Clean listing for the 2024 MX-5 shows comb08 29. AutoPadre alone lists 30 combined for the manual trims (see conflicts). The fueleconomy.g…"
+        }
+      },
+      "cityMpg": {
+        "value": 26,
+        "source": {
+          "kind": "reference",
+          "name": "Edmunds",
+          "url": "https://www.edmunds.com/mazda/mx-5-miata/2024/st-401986487/features-specs",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Search summary: Edmunds lists EPA city/highway 26/34 for the 2024 Sport (manual-only soft top, same powertrain); AutoPadre lists the manual Club at 26 city; MPG Buddy lists the 2024 manual at 26 city. The fueleconomy.gov page itself did not appear in results. Read fro…"
+        }
+      },
+      "highwayMpg": {
+        "value": 34,
+        "source": {
+          "kind": "reference",
+          "name": "Edmunds",
+          "url": "https://www.edmunds.com/mazda/mx-5-miata/2024/st-401986487/features-specs",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Search summary: Edmunds lists EPA city/highway 26/34 for the 2024 Sport (same manual powertrain); AutoPadre lists the manual Club at 34 highway; a California Drive Clean listing for the 2024 MX-5 shows highway08 34. The fueleconomy.gov page itself did not appear in re…"
+        }
+      },
+      "evRangeMiles": null,
+      "lateralGripG": null,
+      "braking60to0Ft": null,
+      "braking70to0Ft": null,
+      "groundClearanceIn": null,
+      "construction": null,
+      "suspension": {
+        "value": "Front: Double wishbone with aluminum arms and monotube dampers",
+        "source": {
+          "kind": "reference",
+          "name": "Mazda North American Operations (2024 MX-5 Spec Deck)",
+          "url": "https://news.mazdausa.com/download/2024+MX-5+Spec+Deck.pdf",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Search summary: Mazda's US 2024 MX-5 spec sheet lists a front double wishbone suspension with aluminum arms and monotube dampers; the summary did not say whether the row is trim-specific, and Club-specific damper branding was not confirmed. Read from search-result summary; page…"
+        }
+      },
+      "suspensionGrade": null,
+      "brakes": {
+        "value": "Front: Ventilated disc",
+        "source": {
+          "kind": "reference",
+          "name": "Mazda North American Operations (2024 MX-5 Spec Deck)",
+          "url": "https://news.mazdausa.com/download/2024+MX-5+Spec+Deck.pdf",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Search summary: Mazda's US 2024 MX-5 spec sheet lists front ventilated disc brakes; rotor size not given. Brembo front brakes are part of an optional Club package (Brembo/BBS/Recaro), not recorded here as standard. Read from search-result summary; page not opened."
+        }
+      },
+      "brakeGrade": null,
+      "warrantyPowertrainMiles": {
+        "value": 60000,
+        "source": {
+          "kind": "reference",
+          "name": "The Drive",
+          "url": "https://www.thedrive.com/car-warranty/29547/mazda-warranty",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Search summary: Mazda's standard US powertrain coverage is 5 years/60,000 miles; brand-wide, not trim-specific. (Mazda Canada's 5 years/100,000 km is a different market and was not used.) Read from search-result summary; page not opened."
+        }
+      },
+      "warrantyPowertrainYears": {
+        "value": 5,
+        "source": {
+          "kind": "reference",
+          "name": "The Drive",
+          "url": "https://www.thedrive.com/car-warranty/29547/mazda-warranty",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Search summary: Mazda's standard US factory coverage is 3 years/36,000 miles bumper-to-bumper and 5 years/60,000 miles powertrain; brand-wide, not trim-specific, and some of the articles are older. Mazda's own US warranty page did not appear. Read from search-result s…"
+        }
+      },
+      "productionUnits": null
+    },
+    "status": "reference",
+    "asOf": "2026-11-11",
     "note": "Gathered from public sources through web search. No figure was checked against a primary document."
   },
   {
@@ -526,6 +1705,789 @@ export const CATALOGUE_DATA: readonly CatalogueEntry[] = [
     "note": "Gathered from public sources through web search. No figure was checked against a primary document."
   },
   {
+    "id": "2024-porsche-911-carrera",
+    "spec": {
+      "identity": {
+        "year": 2024,
+        "make": "Porsche",
+        "model": "911",
+        "trim": "Carrera Coupe",
+        "bodyClass": "sports"
+      },
+      "engine": {
+        "value": "3.0-liter twin-turbo flat-six (listed as \"Twin Turbo Premium Unleaded H-6\")",
+        "source": {
+          "kind": "reference",
+          "name": "Cars.com",
+          "url": "https://www.cars.com/research/porsche-911-2024/specs/444371/",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Cars.com lists the 2024 911 Carrera coupe with a \"Twin Turbo Premium Unleaded H-6\" engine; fueleconomy.gov lists the 2024 911 Carrera as 3.0L six-cylinder. Wording is a listing's, not a quotation from Porsche. Read from search-result summary; page not opened."
+        }
+      },
+      "powertrain": {
+        "value": "gasoline",
+        "source": {
+          "kind": "reference",
+          "name": "US EPA / fueleconomy.gov",
+          "url": "https://fueleconomy.gov/feg/noframes/47290.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. fueleconomy.gov lists the 2024 911 Carrera (3.0L, AM-S8) as running on premium gasoline. Read from search-result summary; page not opened."
+        }
+      },
+      "induction": {
+        "value": "twin-turbo",
+        "source": {
+          "kind": "reference",
+          "name": "Cars.com",
+          "url": "https://www.cars.com/research/porsche-911-2024/specs/444371/",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Cars.com lists the 2024 911 Carrera coupe engine as \"Twin Turbo Premium Unleaded H-6\". Read from search-result summary; page not opened."
+        }
+      },
+      "displacementL": {
+        "value": 3,
+        "source": {
+          "kind": "reference",
+          "name": "US EPA / fueleconomy.gov",
+          "url": "https://fueleconomy.gov/feg/noframes/47290.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. fueleconomy.gov listing for the 2024 Porsche 911 Carrera shows 3.0L, six-cylinder, automatic AM-S8, premium gasoline. Read from search-result summary; page not opened."
+        }
+      },
+      "cylinders": {
+        "value": 6,
+        "source": {
+          "kind": "reference",
+          "name": "US EPA / fueleconomy.gov",
+          "url": "https://fueleconomy.gov/feg/noframes/47290.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. fueleconomy.gov listing for the 2024 Porsche 911 Carrera shows a 3.0L six-cylinder engine. Read from search-result summary; page not opened."
+        }
+      },
+      "horsepower": {
+        "value": 379,
+        "source": {
+          "kind": "reference",
+          "name": "Cars.com",
+          "url": "https://www.cars.com/research/porsche-911-2024/specs",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Cars.com lists the 2024 911 Carrera at 379 hp; Stuttcars' 992.1 Carrera Coupe (2020-2024) page gives 379 hp at 6,500 rpm. No Porsche-published 2024 sheet appeared in results. Read from search-result summary; page not opened."
+        }
+      },
+      "torqueLbFt": {
+        "value": 331,
+        "source": {
+          "kind": "reference",
+          "name": "Cars.com",
+          "url": "https://www.cars.com/research/porsche-911-2024/specs",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Cars.com lists the 2024 911 Carrera at 331 lb-ft; Stuttcars' 992.1 Carrera Coupe (2020-2024) page gives 331 lb-ft. Read from search-result summary; page not opened."
+        }
+      },
+      "transmission": {
+        "value": "8-speed PDK (EPA: automatic AM-S8)",
+        "source": {
+          "kind": "reference",
+          "name": "US EPA / fueleconomy.gov",
+          "url": "https://fueleconomy.gov/feg/noframes/47290.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. fueleconomy.gov lists the 2024 911 Carrera with an \"AM-S8\" 8-speed automated transmission; Stuttcars' 992.1 Carrera page says the 8-speed PDK is standard. Read from search-result summary; page not opened."
+        }
+      },
+      "transmissionType": {
+        "value": "dual-clutch",
+        "source": {
+          "kind": "reference",
+          "name": "US EPA / fueleconomy.gov",
+          "url": "https://fueleconomy.gov/feg/noframes/47290.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. EPA code AM-S8 denotes an automated-manual 8-speed; Stuttcars names it the 8-speed PDK (Porsche's dual-clutch gearbox) as standard on the 992.1 Carrera. The words \"dual-clutch\" did not appear verbatim in the summaries. Read from search-result summary; page not opened."
+        }
+      },
+      "drivetrain": {
+        "value": "RWD",
+        "source": {
+          "kind": "reference",
+          "name": "Cars.com",
+          "url": "https://www.cars.com/research/porsche-911-2024/specs/444371/",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Cars.com lists the 2024 911 Carrera coupe as rear-wheel drive; TrueCar says 2024 Carrera models are rear-wheel drive. Read from search-result summary; page not opened."
+        }
+      },
+      "curbWeightLb": {
+        "value": 3354,
+        "source": {
+          "kind": "reference",
+          "name": "Cars.com",
+          "url": "https://www.cars.com/research/porsche-911-2024/specs",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Cars.com lists a base curb weight of 3,354 lb for the 2024 911 Carrera Coupe. Other listings differ (see conflicts). Read from search-result summary; page not opened."
+        }
+      },
+      "zeroToSixtySec": {
+        "value": 4,
+        "source": {
+          "kind": "reference",
+          "name": "Porsche dealer research page (porsche.dealerleads.com)",
+          "url": "https://porsche.dealerleads.com/research/2024-Porsche-911-Carrera/Riverside-CA",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. NOT settled by a primary source. The summary of this dealer-hosted page listed '0 - 60 mph | 4.0 s' (3.8 s with Sport Chrono) alongside 'Max. power | 379 hp', which matches the 992.1 Carrera coupe with PDK; however the page is titled '2026 911 Carrera' while its URL s…"
+        }
+      },
+      "topSpeedMph": {
+        "value": 182,
+        "source": {
+          "kind": "reference",
+          "name": "Porsche dealer research page (porsche.dealerleads.com)",
+          "url": "https://porsche.dealerleads.com/research/2024-Porsche-911-Carrera/Riverside-CA",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. NOT settled by a primary source. The summary of this dealer-hosted page listed 'Top track speed (with summer tires) | 182 mph' alongside 379 hp, matching the 992.1 Carrera coupe; the page is titled '2026 911 Carrera' while its URL says 2024. A Wikipedia mirror's 992 t…"
+        }
+      },
+      "topSpeedGoverned": null,
+      "combinedMpg": {
+        "value": 20,
+        "source": {
+          "kind": "reference",
+          "name": "US EPA / fueleconomy.gov",
+          "url": "https://fueleconomy.gov/feg/noframes/47290.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. fueleconomy.gov listing for the 2024 911 Carrera (3.0L six-cylinder, AM-S8, premium) shows 20 mpg combined; Carfactsheet repeats 20/18/24 for the Carrera Coupe AT. Read from search-result summary; page not opened."
+        }
+      },
+      "cityMpg": {
+        "value": 18,
+        "source": {
+          "kind": "reference",
+          "name": "US EPA / fueleconomy.gov",
+          "url": "https://fueleconomy.gov/feg/noframes/47290.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. fueleconomy.gov listing for the 2024 911 Carrera (3.0L six-cylinder, AM-S8, premium) shows 18 mpg city. Read from search-result summary; page not opened."
+        }
+      },
+      "highwayMpg": {
+        "value": 24,
+        "source": {
+          "kind": "reference",
+          "name": "US EPA / fueleconomy.gov",
+          "url": "https://fueleconomy.gov/feg/noframes/47290.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. fueleconomy.gov listing for the 2024 911 Carrera (3.0L six-cylinder, AM-S8, premium) shows 24 mpg highway. Read from search-result summary; page not opened."
+        }
+      },
+      "evRangeMiles": null,
+      "lateralGripG": null,
+      "braking60to0Ft": null,
+      "braking70to0Ft": null,
+      "groundClearanceIn": null,
+      "construction": null,
+      "suspension": null,
+      "suspensionGrade": null,
+      "brakes": null,
+      "brakeGrade": null,
+      "warrantyPowertrainMiles": {
+        "value": 50000,
+        "source": {
+          "kind": "reference",
+          "name": "Automoblog",
+          "url": "https://www.automoblog.com/reviews/auto-warranty/porsche-warranty-review/",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Consumer warranty reviews in the results describe Porsche powertrain coverage as 4 years/50,000 miles, whichever comes first. General Porsche terms, not stated specifically for model year 2024; the summary did not tie the sentence to one single result page. Read from…"
+        }
+      },
+      "warrantyPowertrainYears": {
+        "value": 4,
+        "source": {
+          "kind": "reference",
+          "name": "Automoblog",
+          "url": "https://www.automoblog.com/reviews/auto-warranty/porsche-warranty-review/",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Consumer warranty reviews in the results describe Porsche's new-vehicle warranty as 4 years/50,000 miles limited coverage and 4 years/50,000 miles powertrain coverage. General Porsche terms, not stated specifically for model year 2024; the summary did not tie the sent…"
+        }
+      },
+      "productionUnits": null
+    },
+    "status": "reference",
+    "asOf": "2026-11-11",
+    "note": "Gathered from public sources through web search. No figure was checked against a primary document."
+  },
+  {
+    "id": "2024-subaru-outback-premium",
+    "spec": {
+      "identity": {
+        "year": 2024,
+        "make": "Subaru",
+        "model": "Outback",
+        "trim": "Premium",
+        "bodyClass": "wagon"
+      },
+      "engine": {
+        "value": "2.5-liter naturally aspirated BOXER (horizontally opposed) 4-cylinder",
+        "source": {
+          "kind": "reference",
+          "name": "Subaru of America (media.subaru.com)",
+          "url": "https://media.subaru.com/pressrelease/2020/1/subaru-announces-pricing-2024-outback-legacy-models",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Search summary of Subaru's 2024 Outback pricing release and press kit: the 2.5-liter BOXER engine, described as naturally aspirated, powers the non-XT trims; a separate result states the Premium uses the 2.5-liter naturally aspirated flat-four. The '4-cylinder' wording comes fro…"
+        }
+      },
+      "powertrain": {
+        "value": "gasoline",
+        "source": {
+          "kind": "reference",
+          "name": "U.S. EPA / DOE (fueleconomy.gov)",
+          "url": "https://www.fueleconomy.gov/feg/noframes/46541.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. The fueleconomy.gov result for the 2024 Subaru Outback AWD, 2.5 L, 4 cyl, Automatic (AV-S8) was summarised as running on Regular Gasoline, 26 city / 32 highway / 28 combined mpg, 18.5-gallon tank, all-wheel drive, no turbocharger; these match the catalogue's figures for this co…"
+        }
+      },
+      "induction": {
+        "value": "natural",
+        "source": {
+          "kind": "reference",
+          "name": "Subaru of America (media.subaru.com)",
+          "url": "https://media.subaru.com/pressrelease/2020/1/subaru-announces-pricing-2024-outback-legacy-models",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Summary of Subaru's 2024 Outback pricing release refers to the 2.5-liter as 'the naturally aspirated engine'. Read from search-result summary; page not opened."
+        }
+      },
+      "displacementL": {
+        "value": 2.5,
+        "source": {
+          "kind": "reference",
+          "name": "Subaru of America (media.subaru.com)",
+          "url": "https://media.subaru.com/pressrelease/2020/1/subaru-announces-pricing-2024-outback-legacy-models",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Summary of Subaru's 2024 Outback pricing release: '2.5-liter BOXER engine' for the non-turbo trims, which include Premium. Read from search-result summary; page not opened."
+        }
+      },
+      "cylinders": {
+        "value": 4,
+        "source": {
+          "kind": "reference",
+          "name": "MPGBuddy",
+          "url": "https://mpgbuddy.com/cars/subaru/outback-awd/2024",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Summary says the 2024 Subaru Outback AWD has a 2.5-liter 4-cylinder engine (the non-turbo model line, not trim-specific). Read from search-result summary; page not opened."
+        }
+      },
+      "horsepower": {
+        "value": 182,
+        "source": {
+          "kind": "reference",
+          "name": "Subaru of America (media.subaru.com)",
+          "url": "https://media.subaru.com/pressrelease/2020/1/subaru-announces-pricing-2024-outback-legacy-models",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Summary of Subaru's 2024 Outback releases: the 2.5-liter BOXER engine produces 182 hp and 176 lb-ft; third-party listings give 182 hp @ 5,800 rpm for the Premium. Read from search-result summary; page not opened."
+        }
+      },
+      "torqueLbFt": {
+        "value": 176,
+        "source": {
+          "kind": "reference",
+          "name": "Subaru of America (media.subaru.com)",
+          "url": "https://media.subaru.com/pressrelease/2020/1/subaru-announces-pricing-2024-outback-legacy-models",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Summary of Subaru's 2024 Outback releases: 176 lb-ft for the 2.5-liter BOXER; third-party listings give 176 lb-ft @ 4,400 rpm. One dealer-run page listed 178 lb-ft (see conflicts). Read from search-result summary; page not opened."
+        }
+      },
+      "transmission": {
+        "value": "Lineartronic CVT (continuously variable transmission) with 8-speed manual shift mode",
+        "source": {
+          "kind": "reference",
+          "name": "Subaru of America (media.subaru.com)",
+          "url": "https://media.subaru.com/pressrelease/2020/1/subaru-announces-pricing-2024-outback-legacy-models",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Summary of Subaru's 2024 Outback pricing release: the naturally aspirated engine is paired with a standard Lineartronic CVT that includes an 8-speed manual shift mode. Read from search-result summary; page not opened."
+        }
+      },
+      "transmissionType": {
+        "value": "cvt",
+        "source": {
+          "kind": "reference",
+          "name": "Subaru of America (media.subaru.com)",
+          "url": "https://media.subaru.com/pressrelease/2020/1/subaru-announces-pricing-2024-outback-legacy-models",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Summary of Subaru's 2024 Outback pricing release: standard Lineartronic CVT with the naturally aspirated 2.5-liter engine. Read from search-result summary; page not opened."
+        }
+      },
+      "drivetrain": {
+        "value": "AWD",
+        "source": {
+          "kind": "reference",
+          "name": "Edmunds",
+          "url": "https://edmunds.com/subaru/outback/2024/st-401982692/features-specs",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Summary: Edmunds lists drive type all-wheel drive for the 2024 Outback; another result says all engines pair with a CVT driving all four wheels through Subaru Symmetrical all-wheel drive. Read from search-result summary; page not opened."
+        }
+      },
+      "curbWeightLb": {
+        "value": 3661,
+        "source": {
+          "kind": "reference",
+          "name": "Edmunds",
+          "url": "https://edmunds.com/subaru/outback/2024/st-401982692/features-specs",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Summary: Edmunds gives curb weight 3,661 lbs for the 2024 Premium; one search summary also attributed 3,661 lbs (Premium base curb weight) to Subaru's own 2024 trim comparison, though another summary said that document's values were not visible. A 3,641 lb figure seen…"
+        }
+      },
+      "zeroToSixtySec": null,
+      "topSpeedMph": null,
+      "topSpeedGoverned": null,
+      "combinedMpg": {
+        "value": 28,
+        "source": {
+          "kind": "reference",
+          "name": "Edmunds (repeating EPA rating)",
+          "url": "https://edmunds.com/subaru/outback/2024/st-401982692/features-specs",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Summary: combined 28 mpg for the 2024 Outback AWD 2.5-liter per Edmunds and MPGBuddy (citing EPA). Not read from fueleconomy.gov directly. Autopadre listed 27 (see conflicts). Read from search-result summary; page not opened."
+        }
+      },
+      "cityMpg": {
+        "value": 26,
+        "source": {
+          "kind": "reference",
+          "name": "Edmunds (repeating EPA rating)",
+          "url": "https://edmunds.com/subaru/outback/2024/st-401982692/features-specs",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Summary: EPA city/highway 26/32 mpg for the 2024 Outback AWD 2.5-liter; MPGBuddy says the EPA rates it 26 city. Not read from fueleconomy.gov directly. Autopadre listed 25 (see conflicts). Read from search-result summary; page not opened."
+        }
+      },
+      "highwayMpg": {
+        "value": 32,
+        "source": {
+          "kind": "reference",
+          "name": "Edmunds (repeating EPA rating)",
+          "url": "https://edmunds.com/subaru/outback/2024/st-401982692/features-specs",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Summary: EPA city/highway 26/32 mpg for the 2024 Outback AWD 2.5-liter; MPGBuddy agrees at 32 highway. Not read from fueleconomy.gov directly. Autopadre listed 31 (see conflicts). Read from search-result summary; page not opened."
+        }
+      },
+      "evRangeMiles": null,
+      "lateralGripG": null,
+      "braking60to0Ft": null,
+      "braking70to0Ft": null,
+      "groundClearanceIn": {
+        "value": 8.7,
+        "source": {
+          "kind": "reference",
+          "name": "Sierra Subaru (dealer page reproducing Subaru launch material)",
+          "url": "https://www.sierrasubaru.com/2024-subaru-outback-launch",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Summary says Subaru's US launch material cites 8.7 inches of ground clearance as standard for the 2024 Outback Premium; the exact page among the dealer launch pages was not identified by the summary, and the Subaru press-kit summary did not show the figure. Wilderness…"
+        }
+      },
+      "construction": null,
+      "suspension": null,
+      "suspensionGrade": null,
+      "brakes": null,
+      "brakeGrade": null,
+      "warrantyPowertrainMiles": {
+        "value": 60000,
+        "source": {
+          "kind": "reference",
+          "name": "Subaru of America",
+          "url": "https://www.subaru.com/owners/vehicle-resources/warranties-2024.html",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Summary of Subaru's 2024 warranties page: powertrain coverage for all 2024 models is 5 years or 60,000 miles, whichever comes first. Read from search-result summary; page not opened."
+        }
+      },
+      "warrantyPowertrainYears": {
+        "value": 5,
+        "source": {
+          "kind": "reference",
+          "name": "Subaru of America",
+          "url": "https://www.subaru.com/owners/vehicle-resources/warranties-2024.html",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Summary of Subaru's 2024 warranties page: powertrain coverage for all 2024 models is 5 years or 60,000 miles, whichever comes first. Read from search-result summary; page not opened."
+        }
+      },
+      "productionUnits": null
+    },
+    "status": "reference",
+    "asOf": "2026-11-11",
+    "note": "Gathered from public sources through web search. No figure was checked against a primary document."
+  },
+  {
+    "id": "2024-tesla-model-3-long-range-awd",
+    "spec": {
+      "identity": {
+        "year": 2024,
+        "make": "Tesla",
+        "model": "Model 3",
+        "trim": "Long Range AWD",
+        "bodyClass": "sedan"
+      },
+      "engine": null,
+      "powertrain": {
+        "value": "electric",
+        "source": {
+          "kind": "reference",
+          "name": "EVSpecifications",
+          "url": "https://www.evspecifications.com/en/model/98db3d2",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. The 2024 Model 3 Long Range AWD is listed as a battery-electric car with two electric motors; EPA figures for it are given in MPGe. Read from search-result summary; page not opened."
+        }
+      },
+      "induction": null,
+      "displacementL": null,
+      "cylinders": null,
+      "horsepower": null,
+      "torqueLbFt": null,
+      "transmission": null,
+      "transmissionType": {
+        "value": "single-speed",
+        "source": {
+          "kind": "reference",
+          "name": "Tesla (Model 3 Owner's Manual, Subsystems section)",
+          "url": "https://www.tesla.cn/ownersmanual/model3/en_ca/GUID-E414862C-CFA1-4A0B-9548-BE21C32CAA58.html",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Search summary of Tesla's Model 3 owner's manual Subsystems pages (2024+ 'model3' manual, Canada-English edition among the results, plus other regional editions) says the transmission is a single-speed fixed-gear design with a gearbox ratio of about 9:1 (9.03:1 in some regions);…"
+        }
+      },
+      "drivetrain": {
+        "value": "AWD",
+        "source": {
+          "kind": "reference",
+          "name": "EVSpecifications",
+          "url": "https://www.evspecifications.com/en/model/98db3d2",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Listing titled 2024 Tesla Model 3 Long Range AWD with a front and a rear motor. Read from search-result summary; page not opened."
+        }
+      },
+      "curbWeightLb": {
+        "value": 4030,
+        "source": {
+          "kind": "reference",
+          "name": "Motor Matchup",
+          "url": "https://www.motormatchup.com/catalog/Tesla/Model-3/2024/Long-Range-AWD",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. LAST-RESORT listing-site figure, not a maker document and not a measured test. The search summary said Motor Matchup's catalogue page for the 2024 Tesla Model 3 Long Range AWD lists a curb weight of 4,030 lb. The summary also said an ArenaEV review of the 2024 Model 3…"
+        }
+      },
+      "zeroToSixtySec": {
+        "value": 4.2,
+        "source": {
+          "kind": "reference",
+          "name": "EVSpecifications",
+          "url": "https://www.evspecifications.com/en/model/98db3d2",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. The 2024 Model 3 Long Range AWD listing shows 'Acceleration 0-60 mph: 4.20 s', described in the result as a manufacturer-style figure, not a test result. Tesla's own page stating it was not found. A listing attributing 4.00 s to Car and Driver could not be tied to the…"
+        }
+      },
+      "topSpeedMph": {
+        "value": 125,
+        "source": {
+          "kind": "reference",
+          "name": "InsideEVs",
+          "url": "https://insideevs.com/news/704076/2024-tesla-model3-highland-range-specs-pricing/",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. InsideEVs' 2024 Model 3 (Highland) specs overview is summarized as giving a top speed of 125 mph for the new Model 3, including the 2024 Long Range AWD on 19-inch wheels, down from 140-145 mph previously, with 0-60 mph of 4.2 s for the AWD. It repeats Tesla's launch f…"
+        }
+      },
+      "topSpeedGoverned": null,
+      "combinedMpg": {
+        "value": 130,
+        "source": {
+          "kind": "reference",
+          "name": "ENERGY STAR (US EPA)",
+          "url": "https://www.energystar.gov/productfinder/product/electric-vehicles-and-hybrids/details/47908",
+          "asOf": "2026-11-11",
+          "note": "MPGe. A government rating. The ENERGY STAR listing was summarised as showing 130 MPGe combined for the 2024 Model 3 Long Range AWD; InsideEVs reports the same and says it applies to the 18-inch wheel version. fueleconomy.gov itself did not appear in results. Read from search-result summary; page no…"
+        }
+      },
+      "cityMpg": null,
+      "highwayMpg": null,
+      "evRangeMiles": {
+        "value": 342,
+        "source": {
+          "kind": "reference",
+          "name": "ENERGY STAR (US EPA)",
+          "url": "https://www.energystar.gov/productfinder/product/electric-vehicles-and-hybrids/details/47908",
+          "asOf": "2026-11-11",
+          "note": "A government rating. The ENERGY STAR listing was summarised as showing 342 miles of electric range; InsideEVs gives 342 miles for the 2024 Long Range AWD on 18-inch wheels. One article cites 341 miles; see conflicts. Read from search-result summary; page not opened."
+        }
+      },
+      "lateralGripG": {
+        "value": 0.92,
+        "source": {
+          "kind": "reference",
+          "name": "Edmunds",
+          "url": "https://www.edmunds.com/car-news/2024-tesla-model-3-performance-full-rating.html",
+          "asOf": "2026-11-11",
+          "note": "A measured test. Edmunds was summarised as reporting that its Model 3 Long Range AWD 'pulled 0.92 g on the skidpad on all-season tires'. The statement surfaced in Edmunds' 2024 Model 3 Performance coverage; the summary did not state the model year of the tested Long Range AWD explicitly, and which…"
+        }
+      },
+      "braking60to0Ft": null,
+      "braking70to0Ft": null,
+      "groundClearanceIn": {
+        "value": 5.4,
+        "source": {
+          "kind": "reference",
+          "name": "Tesla (Model 3 Owner's Manual)",
+          "url": "https://www.tesla.com/ownersmanual/model3/en_eu/GUID-56562137-FC31-4110-A13C-9A9FC6657BF0.html",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. The owner's manual dimension table was summarised as 'Ground Clearance 5.4 in / 138 mm' for the Rear-Wheel Drive / Long Range configuration (Performance 5.0 in). The manual page is the EU-English edition of the current manual and is not dated to model year 2024 in the summary; t…"
+        }
+      },
+      "construction": null,
+      "suspension": null,
+      "suspensionGrade": null,
+      "brakes": null,
+      "brakeGrade": null,
+      "warrantyPowertrainMiles": {
+        "value": 120000,
+        "source": {
+          "kind": "reference",
+          "name": "Tesla",
+          "url": "https://www.tesla.com/en_PR/model3",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Tesla's Model 3 spec page lists Long Range Battery and Drive Unit coverage as 8 years or 120,000 mi, whichever comes first. The page is Tesla's current one, not a 2024-dated document; third-party warranty guides give the same term for Long Range Model 3s. Read from search-result…"
+        }
+      },
+      "warrantyPowertrainYears": {
+        "value": 8,
+        "source": {
+          "kind": "reference",
+          "name": "Tesla",
+          "url": "https://www.tesla.com/en_PR/model3",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Tesla's Model 3 spec page lists Long Range Battery and Drive Unit coverage as 8 years or 120,000 mi, whichever comes first. The page is Tesla's current one, not a 2024-dated document; third-party warranty guides give the same term for Long Range Model 3s. Read from search-result…"
+        }
+      },
+      "productionUnits": null
+    },
+    "status": "reference",
+    "asOf": "2026-11-11",
+    "note": "Gathered from public sources through web search. No figure was checked against a primary document."
+  },
+  {
+    "id": "2024-toyota-camry-le",
+    "spec": {
+      "identity": {
+        "year": 2024,
+        "make": "Toyota",
+        "model": "Camry",
+        "trim": "LE",
+        "bodyClass": "sedan"
+      },
+      "engine": {
+        "value": "2.5-liter Dynamic Force four-cylinder",
+        "source": {
+          "kind": "reference",
+          "name": "Toyota USA Newsroom",
+          "url": "https://pressroom.toyota.com/?p=85561",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Toyota's 2024 Camry release says the car offered a 2.5-liter Dynamic Force four-cylinder, a 3.5-liter V6 or the hybrid system; the four-cylinder is the LE's engine. Valve-train wording was not in the summary. Read from search-result summary; page not opened."
+        }
+      },
+      "powertrain": {
+        "value": "gasoline",
+        "source": {
+          "kind": "reference",
+          "name": "Toyota USA Newsroom",
+          "url": "https://pressroom.toyota.com/2024-toyota-camry-style-and-performance-in-americas-best-selling-midsize-sedan/",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Toyota's release refers to the 2.5-liter and V6 cars as the gas grades, separate from the hybrid; the EPA lists the LE/SE 2.5L separately from the hybrid. Read from search-result summary; page not opened."
+        }
+      },
+      "induction": {
+        "value": "natural",
+        "source": {
+          "kind": "reference",
+          "name": "CarBuzz",
+          "url": "https://www.carbuzz.com/cars/toyota/camry",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. CarBuzz's 2024 Toyota Camry review describes the base engine as a dual-injected naturally aspirated 2.5-liter inline four-cylinder making 203 hp and 184 lb-ft in the LE and SE with front-wheel drive, which matches this configuration. KBB's 2024 Camry page agrees in su…"
+        }
+      },
+      "displacementL": {
+        "value": 2.5,
+        "source": {
+          "kind": "reference",
+          "name": "Toyota USA Newsroom",
+          "url": "https://pressroom.toyota.com/2024-toyota-camry-style-and-performance-in-americas-best-selling-midsize-sedan/",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Toyota's 2024 Camry press material describes the 2.5-liter four-cylinder; Edmunds lists a 2.5L four-cylinder as standard on the LE. Read from search-result summary; page not opened."
+        }
+      },
+      "cylinders": {
+        "value": 4,
+        "source": {
+          "kind": "reference",
+          "name": "Toyota USA Newsroom",
+          "url": "https://pressroom.toyota.com/2024-toyota-camry-style-and-performance-in-americas-best-selling-midsize-sedan/",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Toyota's 2024 Camry press material calls the 2.5-liter engine a four-cylinder; Edmunds lists it as standard on the LE. Read from search-result summary; page not opened."
+        }
+      },
+      "horsepower": {
+        "value": 203,
+        "source": {
+          "kind": "reference",
+          "name": "Toyota USA Newsroom",
+          "url": "https://pressroom.toyota.com/2024-toyota-camry-style-and-performance-in-americas-best-selling-midsize-sedan/",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Toyota's 2024 Camry press material says the 2.5-liter four-cylinder makes 203 hp at 6,600 rpm (XSE is 206 hp). Cars.com lists 203 hp at 6600 rpm for the LE. The 202 hp figure seen elsewhere is for the LE AWD. Read from search-result summary; page not opened."
+        }
+      },
+      "torqueLbFt": {
+        "value": 184,
+        "source": {
+          "kind": "reference",
+          "name": "Toyota USA Newsroom",
+          "url": "https://pressroom.toyota.com/2024-toyota-camry-style-and-performance-in-americas-best-selling-midsize-sedan/",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Toyota's 2024 Camry press material says the 2.5-liter four-cylinder makes 184 lb-ft at 5,000 rpm (XSE is 186). Cars.com shows 184 at 5000 for the front-drive LE. The 182 lb-ft figure seen elsewhere is for the LE AWD. Read from search-result summary; page not opened."
+        }
+      },
+      "transmission": {
+        "value": "Direct Shift 8-speed automatic",
+        "source": {
+          "kind": "reference",
+          "name": "Toyota USA Newsroom",
+          "url": "https://pressroom.toyota.com/2024-toyota-camry-style-and-performance-in-americas-best-selling-midsize-sedan/",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Toyota's release says both the 2.5-liter engine and the 3.5-liter V6 are teamed with the Direct Shift eight-speed automatic in the gas grades, so the figure is stated as shared across gas trims including the LE. Read from search-result summary; page not opened."
+        }
+      },
+      "transmissionType": {
+        "value": "automatic",
+        "source": {
+          "kind": "reference",
+          "name": "Toyota USA Newsroom",
+          "url": "https://pressroom.toyota.com/2024-toyota-camry-style-and-performance-in-americas-best-selling-midsize-sedan/",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Toyota's release describes the gas grades' gearbox as the Direct Shift eight-speed automatic transmission. Read from search-result summary; page not opened."
+        }
+      },
+      "drivetrain": {
+        "value": "FWD",
+        "source": {
+          "kind": "reference",
+          "name": "Autoblog",
+          "url": "https://www.autoblog.com/es-us/buy/2024-Toyota-Camry-LE__4dr_Front_Wheel_Drive_Sedan/specs/",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Autoblog has a separate listing for the 2024 Camry LE 4dr Front Wheel Drive Sedan (and another for the LE AWD); the EPA lists the LE/SE 2.5L separately from the AWD versions. This record is the front-drive LE. Read from search-result summary; page not opened."
+        }
+      },
+      "curbWeightLb": {
+        "value": 3310,
+        "source": {
+          "kind": "reference",
+          "name": "Edmunds",
+          "url": "https://www.edmunds.com/toyota/camry/2024/st-401999971/features-specs",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Edmunds and Autoblog give 3,310 lb for the front-wheel-drive 2024 Camry LE; Cars.com and Kelley Blue Book show the same for the LE. The LE AWD is listed at 3,475 lb. No Toyota-published spec sheet appeared in results. Read from search-result summary; page not opened."
+        }
+      },
+      "zeroToSixtySec": null,
+      "topSpeedMph": null,
+      "topSpeedGoverned": null,
+      "combinedMpg": {
+        "value": 32,
+        "source": {
+          "kind": "reference",
+          "name": "U.S. EPA / fueleconomy.gov",
+          "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_Camry.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. fueleconomy.gov LE/SE 2.5L automatic listing shows Combined MPG 32; the AWD LE/SE is listed separately at 29 and XLE/XSE FWD at 31. Read from search-result summary; page not opened."
+        }
+      },
+      "cityMpg": {
+        "value": 28,
+        "source": {
+          "kind": "reference",
+          "name": "U.S. EPA / fueleconomy.gov",
+          "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_Camry.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. fueleconomy.gov LE/SE 2.5L automatic listing shows City MPG 28; the AWD LE/SE is listed separately at 25. Capital One repeats 28/39/32 for front-drive four-cylinder models. Read from search-result summary; page not opened."
+        }
+      },
+      "highwayMpg": {
+        "value": 39,
+        "source": {
+          "kind": "reference",
+          "name": "U.S. EPA / fueleconomy.gov",
+          "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_Camry.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. fueleconomy.gov LE/SE 2.5L automatic listing shows Highway MPG 39; the AWD LE/SE is listed separately at 34. Read from search-result summary; page not opened."
+        }
+      },
+      "evRangeMiles": null,
+      "lateralGripG": null,
+      "braking60to0Ft": null,
+      "braking70to0Ft": null,
+      "groundClearanceIn": {
+        "value": 5.7,
+        "source": {
+          "kind": "reference",
+          "name": "Edmunds",
+          "url": "https://www.edmunds.com/toyota/camry/2024/trims",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Edmunds lists the 2024 Camry LE's ground clearance as 5.7 in. Cars.com's gas LE page shows 6 in, apparently rounded. Read from search-result summary; page not opened."
+        }
+      },
+      "construction": {
+        "value": "unibody",
+        "source": {
+          "kind": "reference",
+          "name": "Yahoo Autos (syndicated article 'The 2025 Toyota Camry Takes a Big Leap')",
+          "url": "https://autos.yahoo.com/2025-toyota-camry-takes-big-210500856.html",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Weak, indirect sourcing; keep only if the catalogue accepts it. The article summary said the TNGA-K component set underpins most of Toyota's transverse-engine, unibody products, and that the 2025 Camry rides on the same TNGA-K platform that was underneath the eighth-g…"
+        }
+      },
+      "suspension": {
+        "value": "Front: Strut. Rear: Multi-link",
+        "source": {
+          "kind": "reference",
+          "name": "Cars.com",
+          "url": "https://www.cars.com/research/toyota-camry-2024/specs/440174/",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Cars.com's 2024 Camry LE listings report a strut front suspension; no further detail given. Which of the LE listing pages carried it was not distinguished in the summary. Read from search-result summary; page not opened."
+        }
+      },
+      "suspensionGrade": null,
+      "brakes": {
+        "value": "Front: Disc (four-wheel disc brakes with ABS). Rear: Disc (four-wheel disc brakes with ABS)",
+        "source": {
+          "kind": "reference",
+          "name": "Cars.com",
+          "url": "https://www.cars.com/research/toyota-camry-2024/specs/440174/",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Cars.com lists the 2024 Camry LE with four-wheel disc brakes and four-wheel ABS. A Velocity Journal page says vented front discs but its trim was not identified, so that detail is left out. No rotor sizes found. Read from search-result summary; page not opened."
+        }
+      },
+      "brakeGrade": null,
+      "warrantyPowertrainMiles": {
+        "value": 60000,
+        "source": {
+          "kind": "reference",
+          "name": "Toyota",
+          "url": "https://www.toyota.com/owners/warranty-owners-manuals/",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Toyota's US warranty page lists powertrain coverage at 60 months / 60,000 miles; a third-party guide states the same for the 2024 Camry. Applies to all US Toyota models, not trim-specific. Read from search-result summary; page not opened."
+        }
+      },
+      "warrantyPowertrainYears": {
+        "value": 5,
+        "source": {
+          "kind": "reference",
+          "name": "Toyota",
+          "url": "https://www.toyota.com/owners/warranty-owners-manuals/",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Toyota's US warranty page lists powertrain coverage at 60 months / 60,000 miles (60 months is five years); a third-party guide states 5 years / 60,000 miles for the 2024 Camry. Applies to all US Toyota models, not trim-specific. Read from search-result summary; page not opened."
+        }
+      },
+      "productionUnits": null
+    },
+    "status": "reference",
+    "asOf": "2026-11-11",
+    "note": "Gathered from public sources through web search. No figure was checked against a primary document."
+  },
+  {
     "id": "2024-toyota-prius-le-fwd",
     "spec": {
       "identity": {
@@ -683,7 +2645,16 @@ export const CATALOGUE_DATA: readonly CatalogueEntry[] = [
           "note": "Republished by a listing site. KBB and Edmunds both list 5.6 in. for the 2024 LE (KBB's 2023 table shows 5.6 in. for the LE and 6.0 in. for XLE and Limited). No Toyota document carrying this figure was surfaced."
         }
       },
-      "construction": null,
+      "construction": {
+        "value": "unibody",
+        "source": {
+          "kind": "reference",
+          "name": "Wikipedia (Toyota New Global Architecture article)",
+          "url": "https://www.Wikipedia.org/wiki/TNGA",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. The search summary of the Wikipedia TNGA article says the TNGA-C platform underpins unibody vehicles in the compact segment and that its vehicle list includes the Prius (XW60), the generation sold as the 2024 Prius. This is a platform-level statement, not specific to…"
+        }
+      },
       "suspension": null,
       "suspensionGrade": null,
       "brakes": {
@@ -721,6 +2692,627 @@ export const CATALOGUE_DATA: readonly CatalogueEntry[] = [
     },
     "status": "reference",
     "asOf": "2026-11-10",
+    "note": "Gathered from public sources through web search. No figure was checked against a primary document."
+  },
+  {
+    "id": "2024-toyota-rav4-xle-awd",
+    "spec": {
+      "identity": {
+        "year": 2024,
+        "make": "Toyota",
+        "model": "RAV4",
+        "trim": "XLE AWD",
+        "bodyClass": "suv"
+      },
+      "engine": {
+        "value": "2.5-liter Dynamic Force 4-cylinder",
+        "source": {
+          "kind": "reference",
+          "name": "Kelley Blue Book",
+          "url": "https://www.kbb.com/toyota/rav4/2024/xle",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. KBB's 2024 RAV4 XLE page lists the engine as '4-Cyl, Dynamic-Force, 2.5 Liter'. The page is for the XLE trim without stating drivetrain; Edmunds says the 2.5L applies across the gas trims. Auto123 (a Canadian listing) words it '2.5L 4-Cylinder DOHC Dual VVT-i'. Read f…"
+        }
+      },
+      "powertrain": {
+        "value": "gasoline",
+        "source": {
+          "kind": "reference",
+          "name": "Toyota USA Newsroom",
+          "url": "https://pressroom.toyota.com/2024-toyota-rav4-go-wild-in-style/",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Toyota's 2024 RAV4 release refers to the 2.5L engine on 'all gas grades', of which XLE is one; the hybrid is a separate model line. Read from search-result summary; page not opened."
+        }
+      },
+      "induction": {
+        "value": "natural",
+        "source": {
+          "kind": "reference",
+          "name": "Kelley Blue Book",
+          "url": "https://www.kbb.com/toyota/rav4/2024/expert-review/",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. KBB's 2024 Toyota RAV4 expert review was quoted in the search summary as: \"Its naturally aspirated (non-turbo) 2.5-liter 4-cylinder engine won't light streets on fire with 203 horsepower\". This is the only gasoline engine of the 2024 RAV4 (203 hp, 2.5L), which is the…"
+        }
+      },
+      "displacementL": {
+        "value": 2.5,
+        "source": {
+          "kind": "reference",
+          "name": "Kelley Blue Book",
+          "url": "https://www.kbb.com/toyota/rav4/2024/xle",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. KBB lists the 2024 RAV4 XLE engine as 2.5 Liter; Edmunds describes a 2.5-liter four-cylinder for all gas trims. Read from search-result summary; page not opened."
+        }
+      },
+      "cylinders": {
+        "value": 4,
+        "source": {
+          "kind": "reference",
+          "name": "Kelley Blue Book",
+          "url": "https://www.kbb.com/toyota/rav4/2024/xle",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. KBB lists '4-Cyl' for the 2024 RAV4 XLE; Edmunds says 2.5-liter four-cylinder across the gas trims. Read from search-result summary; page not opened."
+        }
+      },
+      "horsepower": {
+        "value": 203,
+        "source": {
+          "kind": "reference",
+          "name": "Edmunds",
+          "url": "https://www.edmunds.com/toyota/rav4/2024/st-401994384/features-specs",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Edmunds lists the 2024 RAV4 2.5-liter four-cylinder at 203 horsepower and says this applies across the gas trims; cars.com XLE pages list the same 203 hp. No Toyota-published page confirming it appeared in the results. Read from search-result summary; page not opened."
+        }
+      },
+      "torqueLbFt": {
+        "value": 184,
+        "source": {
+          "kind": "reference",
+          "name": "Edmunds",
+          "url": "https://www.edmunds.com/toyota/rav4/2024/st-401994384/features-specs",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Edmunds lists 184 lb-ft for the 2024 RAV4 2.5-liter across the gas trims; cars.com XLE pages list the same. Read from search-result summary; page not opened."
+        }
+      },
+      "transmission": {
+        "value": "Direct Shift 8-speed automatic",
+        "source": {
+          "kind": "reference",
+          "name": "Toyota USA Newsroom",
+          "url": "https://pressroom.toyota.com/2024-toyota-rav4-go-wild-in-style/",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Toyota's 2024 RAV4 release says a Direct Shift 8-speed automatic is paired with the 2.5L engine on all gas grades (shared across gas trims, so it covers XLE AWD). Read from search-result summary; page not opened."
+        }
+      },
+      "transmissionType": {
+        "value": "automatic",
+        "source": {
+          "kind": "reference",
+          "name": "Toyota USA Newsroom",
+          "url": "https://pressroom.toyota.com/2024-toyota-rav4-go-wild-in-style/",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Toyota describes the gas-grade transmission as a Direct Shift 8-speed automatic that locks up in gears two through eight, i.e. a conventional torque-converter automatic; stated for all gas grades. Read from search-result summary; page not opened."
+        }
+      },
+      "drivetrain": {
+        "value": "AWD",
+        "source": {
+          "kind": "reference",
+          "name": "Toyota USA Newsroom",
+          "url": "https://pressroom.toyota.com/?generate_pdf=87387",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Toyota's 2024 RAV4 release says the standard gas-engine AWD uses Dynamic Torque Control, varying front-to-rear power from 100:0 to 50:50; the 2024 brochure names an 'XLE AWD' configuration. AWD is optional on XLE (FWD is standard). Read from search-result summary; page not opene…"
+        }
+      },
+      "curbWeightLb": {
+        "value": 3515,
+        "source": {
+          "kind": "reference",
+          "name": "iSeeCars",
+          "url": "https://www.iseecars.com/car/2024-toyota-rav4-specs",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. iSeeCars lists the 2024 RAV4 AWD XLE at 3,515 lb curb weight; a cars.com XLE page shows a base curb weight of 3,515 lb though its drivetrain label was ambiguous in the summary. Toyota's brochure has a curb weight table but the search extract was scrambled and could no…"
+        }
+      },
+      "zeroToSixtySec": null,
+      "topSpeedMph": null,
+      "topSpeedGoverned": null,
+      "combinedMpg": {
+        "value": 29,
+        "source": {
+          "kind": "reference",
+          "name": "Toyota (2024 RAV4 brochure, EPA-estimated figures)",
+          "url": "https://www.toyota.com/content/dam/toyota/brochures/pdf/2024/rav4_ebrochure.pdf",
+          "asOf": "2026-11-11",
+          "note": "A government rating. The 2024 RAV4 brochure footnote gives EPA-estimated 29 combined mpg for the 2024 XLE AWD and XLE Premium AWD; fueleconomy.gov's AWD 2.5L entry shows 'Combined MPG: 29'. Read from search-result summary; page not opened."
+        }
+      },
+      "cityMpg": {
+        "value": 27,
+        "source": {
+          "kind": "reference",
+          "name": "Toyota (2024 RAV4 brochure, EPA-estimated figures)",
+          "url": "https://www.toyota.com/content/dam/toyota/brochures/pdf/2024/rav4_ebrochure.pdf",
+          "asOf": "2026-11-11",
+          "note": "A government rating. The 2024 RAV4 brochure footnote gives EPA-estimated 27 city / 33 highway / 29 combined mpg for the 2024 XLE AWD and XLE Premium AWD. fueleconomy.gov's 2024 RAV4 page lists an AWD 2.5L automatic entry at 27/33/29, though the summary could not tie that line to a trim. Read from s…"
+        }
+      },
+      "highwayMpg": {
+        "value": 33,
+        "source": {
+          "kind": "reference",
+          "name": "Toyota (2024 RAV4 brochure, EPA-estimated figures)",
+          "url": "https://www.toyota.com/content/dam/toyota/brochures/pdf/2024/rav4_ebrochure.pdf",
+          "asOf": "2026-11-11",
+          "note": "A government rating. The 2024 RAV4 brochure footnote gives EPA-estimated 27 city / 33 highway / 29 combined mpg for the 2024 XLE AWD and XLE Premium AWD; fueleconomy.gov lists an AWD 2.5L entry at 33 highway. A dealer page's 35 highway figure appears to be the FWD rating (see conflicts). Read from…"
+        }
+      },
+      "evRangeMiles": null,
+      "lateralGripG": null,
+      "braking60to0Ft": null,
+      "braking70to0Ft": null,
+      "groundClearanceIn": {
+        "value": 8.4,
+        "source": {
+          "kind": "reference",
+          "name": "Edmunds",
+          "url": "https://www.edmunds.com/toyota/rav4/2024/trims",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Edmunds' 2024 RAV4 trim comparison gives 8.4 in for LE and XLE and 8.6 in for the other trims; KBB's XLE page also gives 8.4 in. Neither summary states the figure is specific to the AWD version of the XLE, and no Toyota-published figure was found; other listings give…"
+        }
+      },
+      "construction": null,
+      "suspension": null,
+      "suspensionGrade": null,
+      "brakes": null,
+      "brakeGrade": null,
+      "warrantyPowertrainMiles": {
+        "value": 60000,
+        "source": {
+          "kind": "reference",
+          "name": "Toyota",
+          "url": "https://www.toyota.com/owners/warranty-owners-manuals/",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Toyota's warranty page lists powertrain coverage of 60 months/60,000 miles, whichever comes first; brand-wide new-vehicle coverage, not trim-specific. The 7-year/100,000-mile figure seen on dealer pages is the certified-used warranty and does not apply. Read from search-result s…"
+        }
+      },
+      "warrantyPowertrainYears": {
+        "value": 5,
+        "source": {
+          "kind": "reference",
+          "name": "Toyota",
+          "url": "https://www.toyota.com/owners/warranty-owners-manuals/",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Toyota's warranty page lists powertrain coverage of 60 months/60,000 miles (engine, transmission/transaxle, drive systems), i.e. 5 years; this is Toyota's brand-wide new-vehicle coverage, not trim-specific. Read from search-result summary; page not opened."
+        }
+      },
+      "productionUnits": null
+    },
+    "status": "reference",
+    "asOf": "2026-11-11",
+    "note": "Gathered from public sources through web search. No figure was checked against a primary document."
+  },
+  {
+    "id": "2024-toyota-tacoma-trd-off-road",
+    "spec": {
+      "identity": {
+        "year": 2024,
+        "make": "Toyota",
+        "model": "Tacoma",
+        "trim": "TRD Off-Road Double Cab 4x4",
+        "bodyClass": "pickup"
+      },
+      "engine": {
+        "value": "i-FORCE 2.4L Turbo L4 (turbocharged i-FORCE 2.4-liter four-cylinder)",
+        "source": {
+          "kind": "reference",
+          "name": "Toyota (MY24 Tacoma Overview)",
+          "url": "https://engage.toyota.com/static/articles/3_11_2024_2024_toyota_tacoma_overview_pdf/2024_Toyota_Tacoma_Overview.pdf",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Toyota's MY24 overview lists 'TRD Off-Road i-FORCE 2.4L Turbo L4 Standard'; the pressroom release calls it the 'turbocharged i-FORCE 2.4-liter engine'. Read from search-result summary; page not opened."
+        }
+      },
+      "powertrain": {
+        "value": "gasoline",
+        "source": {
+          "kind": "reference",
+          "name": "Toyota (MY24 Tacoma Overview)",
+          "url": "https://engage.toyota.com/static/articles/3_11_2024_2024_toyota_tacoma_overview_pdf/2024_Toyota_Tacoma_Overview.pdf",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. The i-FORCE 2.4L Turbo is listed as the non-hybrid engine, distinct from the i-FORCE MAX hybrid option; no result stated the word 'gasoline' explicitly, it follows from the non-hybrid turbo engine with an EPA mpg rating. Read from search-result summary; page not opened."
+        }
+      },
+      "induction": {
+        "value": "turbo",
+        "source": {
+          "kind": "reference",
+          "name": "Toyota Pressroom",
+          "url": "https://pressroom.toyota.com/all-new-2024-toyota-tacoma-is-adventure-ready-out-of-the-box/",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Release describes 'the turbocharged i-FORCE 2.4-liter engine'; the overview lists it as standard on TRD Off-Road. Read from search-result summary; page not opened."
+        }
+      },
+      "displacementL": {
+        "value": 2.4,
+        "source": {
+          "kind": "reference",
+          "name": "Toyota (MY24 Tacoma Overview)",
+          "url": "https://engage.toyota.com/static/articles/3_11_2024_2024_toyota_tacoma_overview_pdf/2024_Toyota_Tacoma_Overview.pdf",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Overview lists the TRD Off-Road's standard engine as 'i-FORCE 2.4L Turbo L4'. Read from search-result summary; page not opened."
+        }
+      },
+      "cylinders": {
+        "value": 4,
+        "source": {
+          "kind": "reference",
+          "name": "Toyota (MY24 Tacoma Overview)",
+          "url": "https://engage.toyota.com/static/articles/3_11_2024_2024_toyota_tacoma_overview_pdf/2024_Toyota_Tacoma_Overview.pdf",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Overview lists the TRD Off-Road's standard engine as 'i-FORCE 2.4L Turbo L4' (inline four). Read from search-result summary; page not opened."
+        }
+      },
+      "horsepower": {
+        "value": 278,
+        "source": {
+          "kind": "reference",
+          "name": "Toyota Pressroom",
+          "url": "https://pressroom.toyota.com/all-new-2024-toyota-tacoma-is-adventure-ready-out-of-the-box/",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. 'The turbocharged i-FORCE 2.4-liter engine produces up to 278 horsepower and 317 lb.-ft. of torque'; the summary says the 8-speed automatic is the transmission on those grades and the overview lists this engine as standard on TRD Off-Road. Stated as 'up to', not broken out per t…"
+        }
+      },
+      "torqueLbFt": {
+        "value": 317,
+        "source": {
+          "kind": "reference",
+          "name": "Toyota Pressroom",
+          "url": "https://pressroom.toyota.com/all-new-2024-toyota-tacoma-is-adventure-ready-out-of-the-box/",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. 'The turbocharged i-FORCE 2.4-liter engine produces up to 278 horsepower and 317 lb.-ft. of torque'; overview lists this engine as standard on TRD Off-Road. Read from search-result summary; page not opened."
+        }
+      },
+      "transmission": {
+        "value": "8-speed automatic",
+        "source": {
+          "kind": "reference",
+          "name": "Toyota Pressroom",
+          "url": "https://pressroom.toyota.com/all-new-2024-toyota-tacoma-is-adventure-ready-out-of-the-box/",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Summary of Toyota materials lists the 8-speed automatic for the 278-hp i-FORCE grades including the TRD Off-Road (a 6-speed manual is a separate option). Read from search-result summary; page not opened."
+        }
+      },
+      "transmissionType": {
+        "value": "automatic",
+        "source": {
+          "kind": "reference",
+          "name": "Toyota Pressroom",
+          "url": "https://pressroom.toyota.com/all-new-2024-toyota-tacoma-is-adventure-ready-out-of-the-box/",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. 8-speed automatic per the summary of Toyota materials for the TRD Off-Road i-FORCE. Read from search-result summary; page not opened."
+        }
+      },
+      "drivetrain": {
+        "value": "4WD",
+        "source": {
+          "kind": "reference",
+          "name": "U.S. EPA / DOE (fueleconomy.gov)",
+          "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_Tacoma.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. EPA lists the model group as '2024 Toyota Tacoma SR5/Sport/Off-Road/Limited 4WD'; this record is the 4x4 configuration. Read from search-result summary; page not opened."
+        }
+      },
+      "curbWeightLb": null,
+      "zeroToSixtySec": null,
+      "topSpeedMph": null,
+      "topSpeedGoverned": null,
+      "combinedMpg": null,
+      "cityMpg": {
+        "value": 19,
+        "source": {
+          "kind": "reference",
+          "name": "U.S. EPA / DOE (fueleconomy.gov)",
+          "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_Tacoma.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. fueleconomy.gov groups SR5/Sport/Off-Road/Limited 4WD and shows several rows (19/23, 20/23, 19/24 city/highway); the row matching the TRD Off-Road automatic is 19 city, as Edmunds and CarMax state for the TRD Off-Road trim. Read from search-result summary; page not opened."
+        }
+      },
+      "highwayMpg": {
+        "value": 23,
+        "source": {
+          "kind": "reference",
+          "name": "U.S. EPA / DOE (fueleconomy.gov)",
+          "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_Tacoma.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. A 19 city / 23 highway row appears for the SR5/Sport/Off-Road/Limited 4WD group; Edmunds, CarMax and a Toyota product-information sheet all give 23 highway for the TRD Off-Road 4x4 automatic. Another row in the same EPA group shows 24 highway (see conflicts). Read from search-r…"
+        }
+      },
+      "evRangeMiles": null,
+      "lateralGripG": null,
+      "braking60to0Ft": null,
+      "braking70to0Ft": null,
+      "groundClearanceIn": {
+        "value": 11,
+        "source": {
+          "kind": "reference",
+          "name": "Toyota product information sheet (copy hosted on Tacoma4G forum)",
+          "url": "https://www.tacoma4g.com/forum/attachments/2024_toyota_tacoma_product_information-pdf.7063",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. The product-information sheet, a Toyota document re-hosted on a forum, lists 11.0 in. for the TRD Off-Road; cab and powertrain for that line not stated in the summary. Toyota's overview says 'max running ground clearance up to 10.9 in.' for the range (see conflicts).…"
+        }
+      },
+      "construction": {
+        "value": "body-on-frame",
+        "source": {
+          "kind": "reference",
+          "name": "Toyota USA Newsroom",
+          "url": "https://pressroom.toyota.com/all-new-2024-toyota-tacoma-is-adventure-ready-out-of-the-box/",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Toyota's 2024 Tacoma release describes the truck as built on the TNGA-F truck platform and 'constructed from a high-strength boxed, steel-ladder frame', and places it in the 'mid-size, body-on-frame pickup segment'. This applies to the whole 2024 Tacoma line, not a single trim.…"
+        }
+      },
+      "suspension": {
+        "value": "Rear: Multi-link with coil springs; monotube Bilstein remote-reservoir shocks on TRD Off-Road",
+        "source": {
+          "kind": "reference",
+          "name": "Work Truck Online",
+          "url": "https://www.worktruckonline.com/news/more-safety-functionality-with-toyota-2024-tacoma",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Article describes a new multi-link rear suspension with coil springs and says the TRD Off-Road is equipped with monotube Bilstein remote reservoir shocks. The forum-hosted product sheet summary also mentions a leaf-spring rear, which applies to some other configuratio…"
+        }
+      },
+      "suspensionGrade": null,
+      "brakes": null,
+      "brakeGrade": null,
+      "warrantyPowertrainMiles": {
+        "value": 60000,
+        "source": {
+          "kind": "reference",
+          "name": "Toyota",
+          "url": "https://www.toyota.com/owners/warranty-owners-manuals/",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Toyota's warranty page: 'Powertrain Coverage 60 months/60,000 miles' (brand-wide); a 2024 Tacoma Limited listing shows Powertrain 60/60,000. Read from search-result summary; page not opened."
+        }
+      },
+      "warrantyPowertrainYears": {
+        "value": 5,
+        "source": {
+          "kind": "reference",
+          "name": "Toyota",
+          "url": "https://www.toyota.com/owners/warranty-owners-manuals/",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Toyota's warranty page: 'Powertrain Coverage 60 months/60,000 miles' (brand-wide); a 2024 Tacoma Limited listing shows Powertrain 60/60,000. Read from search-result summary; page not opened."
+        }
+      },
+      "productionUnits": null
+    },
+    "status": "reference",
+    "asOf": "2026-11-11",
+    "note": "Gathered from public sources through web search. No figure was checked against a primary document."
+  },
+  {
+    "id": "2024-volkswagen-golf-gti-s",
+    "spec": {
+      "identity": {
+        "year": 2024,
+        "make": "Volkswagen",
+        "model": "Golf GTI",
+        "trim": "S",
+        "bodyClass": "hatchback"
+      },
+      "engine": {
+        "value": "EA888 2.0-liter (1984 cc) inline four-cylinder TSI",
+        "source": {
+          "kind": "reference",
+          "name": "Volkswagen of America (media.vw.com)",
+          "url": "https://media.vw.com/press-kits/2024-golf-gti-press-kit",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. The 2024 Golf GTI press kit summary says the GTI is powered by the EA888 2.0-liter engine, 1984cc, for all 2024 GTI trims; Cars.com describes the S engine as '2.0 TSI 241 HP 4-Cylinder'. The wording is assembled from those two summaries, not a single verbatim maker sentence. Rea…"
+        }
+      },
+      "powertrain": {
+        "value": "gasoline",
+        "source": {
+          "kind": "reference",
+          "name": "U.S. EPA / DOE (fueleconomy.gov)",
+          "url": "https://www.fueleconomy.gov/feg/Find.do?action=sbs&id=46781",
+          "asOf": "2026-11-11",
+          "note": "A government rating. fueleconomy.gov results for the 2024 Volkswagen GTI, 2.0 L 4-cylinder, 6-speed manual, list it as Regular Gasoline, front-wheel drive, turbo, 27 combined / 23 city / 34 highway mpg, which matches the catalogue's EPA figures for this configuration. The summary did not tie the ve…"
+        }
+      },
+      "induction": {
+        "value": "turbo",
+        "source": {
+          "kind": "reference",
+          "name": "Volkswagen of America (media.vw.com, 2024 Golf GTI Press Kit)",
+          "url": "https://media.vw.com/press-kits/2024-golf-gti-press-kit",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. VW's 2024 Golf GTI press kit describes the car as using a turbocharged 2.0-liter EA888 evo4 engine producing 241 hp and 273 lb-ft, paired with either a 6-speed manual or 7-speed DSG; one engine across all trims, so it applies to the manual S. The EPA listing for the 2024 GTI man…"
+        }
+      },
+      "displacementL": {
+        "value": 2,
+        "source": {
+          "kind": "reference",
+          "name": "Volkswagen of America (media.vw.com)",
+          "url": "https://media.vw.com/press-kits/2024-golf-gti-press-kit",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Press kit summary: 'EA888 2.0-liter engine', 1984cc, applying to all 2024 Golf GTI trims. Read from search-result summary; page not opened."
+        }
+      },
+      "cylinders": {
+        "value": 4,
+        "source": {
+          "kind": "reference",
+          "name": "Cars.com",
+          "url": "https://www.cars.com/research/volkswagen-golf_gti-2024/specs",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Cars.com 2024 Golf GTI S specs summary: '2.0 TSI 241 HP 4-Cylinder engine'. Read from search-result summary; page not opened."
+        }
+      },
+      "horsepower": {
+        "value": 241,
+        "source": {
+          "kind": "reference",
+          "name": "Volkswagen of America (media.vw.com)",
+          "url": "https://media.vw.com/assets/documents/original/17302-2024GolfGTITechnicalSpecsFINAL.pdf",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. VW 2024 Golf GTI Technical Specifications: 241 hp @ 5000 rpm, one engine for all 2024 GTI trims; press kit agrees. KBB summary says all 2024 GTI trims have 241 hp. Read from search-result summary; page not opened."
+        }
+      },
+      "torqueLbFt": {
+        "value": 273,
+        "source": {
+          "kind": "reference",
+          "name": "Volkswagen of America (media.vw.com)",
+          "url": "https://media.vw.com/assets/documents/original/17302-2024GolfGTITechnicalSpecsFINAL.pdf",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. VW 2024 Golf GTI Technical Specifications: 273 lb-ft @ 1750 rpm, one engine for all 2024 GTI trims; press kit agrees. Read from search-result summary; page not opened."
+        }
+      },
+      "transmission": {
+        "value": "6-speed manual",
+        "source": {
+          "kind": "reference",
+          "name": "Volkswagen of America (media.vw.com)",
+          "url": "https://media.vw.com/press-kits/2024-golf-gti-press-kit",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Press kit summary: engine 'paired with either a 6-speed manual or 7-speed DSG transmission'; this record is the manual. Read from search-result summary; page not opened."
+        }
+      },
+      "transmissionType": {
+        "value": "manual",
+        "source": {
+          "kind": "reference",
+          "name": "Volkswagen of America (media.vw.com)",
+          "url": "https://media.vw.com/press-kits/2024-golf-gti-press-kit",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. Press kit summary lists a 6-speed manual for the 2024 Golf GTI; this record is the manual configuration. Read from search-result summary; page not opened."
+        }
+      },
+      "drivetrain": {
+        "value": "FWD",
+        "source": {
+          "kind": "reference",
+          "name": "Cars.com",
+          "url": "https://www.cars.com/research/volkswagen-golf_gti-2024/specs",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Cars.com 2024 Golf GTI S specs summary: 2.0 TSI 4-cylinder engine 'with front-wheel drive'. Read from search-result summary; page not opened."
+        }
+      },
+      "curbWeightLb": {
+        "value": 3137,
+        "source": {
+          "kind": "reference",
+          "name": "Volkswagen of America (media.vw.com)",
+          "url": "https://media.vw.com/assets/documents/original/17302-2024GolfGTITechnicalSpecsFINAL.pdf",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. VW 2024 Golf GTI Technical Specifications: 'Curb Weight NHTSA (lb/kg) 3137/1423' for the manual, 3188/1446 for the automatic. The sheet splits by transmission, not by trim grade, so 3137 is the manual figure and is not stated as S-specific. Listing sites show 3,188 lb for the S…"
+        }
+      },
+      "zeroToSixtySec": null,
+      "topSpeedMph": null,
+      "topSpeedGoverned": null,
+      "combinedMpg": {
+        "value": 27,
+        "source": {
+          "kind": "reference",
+          "name": "US EPA / DOE (fueleconomy.gov)",
+          "url": "https://fueleconomy.gov/feg/bymodel/2024_Volkswagen_Golf_GTI.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. fueleconomy.gov 2024 Volkswagen GTI, 2.0 L 4-cyl, 6-speed manual: 27 combined; every source found agrees on 27 combined. Rating is per transmission, not per trim. Read from search-result summary; page not opened."
+        }
+      },
+      "cityMpg": {
+        "value": 23,
+        "source": {
+          "kind": "reference",
+          "name": "US EPA / DOE (fueleconomy.gov)",
+          "url": "https://fueleconomy.gov/feg/bymodel/2024_Volkswagen_Golf_GTI.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. fueleconomy.gov 2024 Volkswagen GTI, 2.0 L 4-cyl, 6-speed manual: 23 city. Cars.com gives the manual 23/34/27. Rating is per transmission, not per trim. Read from search-result summary; page not opened."
+        }
+      },
+      "highwayMpg": {
+        "value": 34,
+        "source": {
+          "kind": "reference",
+          "name": "US EPA / DOE (fueleconomy.gov)",
+          "url": "https://fueleconomy.gov/feg/bymodel/2024_Volkswagen_Golf_GTI.shtml",
+          "asOf": "2026-11-11",
+          "note": "A government rating. fueleconomy.gov 2024 Volkswagen GTI, 2.0 L 4-cyl, 6-speed manual: 34 highway. Cars.com gives the manual 23/34/27. Rating is per transmission, not per trim. Read from search-result summary; page not opened."
+        }
+      },
+      "evRangeMiles": null,
+      "lateralGripG": null,
+      "braking60to0Ft": {
+        "value": 108,
+        "source": {
+          "kind": "reference",
+          "name": "Edmunds",
+          "url": "https://www.edmunds.com/car-news/2024-vw-golf-gti-380-track-tested.html",
+          "asOf": "2026-11-11",
+          "note": "A measured test. Edmunds track test of a 2024 Golf GTI 380 with the 6-speed manual stopped from 60 mph in 108 feet. The tested car was the 380 special edition (grade not stated in the summary), NOT the base S: same powertrain, but the 380 has different wheels/tires and adaptive dampers, so this may…"
+        }
+      },
+      "braking70to0Ft": null,
+      "groundClearanceIn": {
+        "value": 4.9,
+        "source": {
+          "kind": "reference",
+          "name": "Volkswagen of America (media.vw.com)",
+          "url": "https://media.vw.com/assets/documents/original/17302-2024GolfGTITechnicalSpecsFINAL.pdf",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. VW 2024 Golf GTI Technical Specifications: 'Ground Clearance (in/mm) 4.9/125' for the manual, 4.7/119 for the automatic. Split by transmission, not trim grade. Edmunds/KBB list 4.7 in for the S (see conflicts). Read from search-result summary; page not opened."
+        }
+      },
+      "construction": null,
+      "suspension": {
+        "value": "Front: Strut-type with lower control arms, coil springs, telescopic dampers, anti-roll bar. Rear: Multilink with coil s…",
+        "source": {
+          "kind": "reference",
+          "name": "Volkswagen of America (media.vw.com)",
+          "url": "https://media.vw.com/assets/documents/original/17302-2024GolfGTITechnicalSpecsFINAL.pdf",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. VW 2024 Golf GTI Technical Specifications, front suspension line, model-wide (not trim-specific). Read from search-result summary; page not opened."
+        }
+      },
+      "suspensionGrade": null,
+      "brakes": {
+        "value": "Front: 13.4 x 1.2-in vented discs, power assisted, dual circuit. Rear: 12.2 x 0.9-in vented discs, power assisted, dual…",
+        "source": {
+          "kind": "reference",
+          "name": "Volkswagen of America (media.vw.com)",
+          "url": "https://media.vw.com/assets/documents/original/17302-2024GolfGTITechnicalSpecsFINAL.pdf",
+          "asOf": "2026-11-11",
+          "note": "The maker’s figure. VW 2024 Golf GTI Technical Specifications; press material says 2024 Golf GTI models come with 13.4-inch front vented discs. Model-wide. Read from search-result summary; page not opened."
+        }
+      },
+      "brakeGrade": null,
+      "warrantyPowertrainMiles": {
+        "value": 50000,
+        "source": {
+          "kind": "reference",
+          "name": "Edmunds",
+          "url": "https://edmunds.com/volkswagen/golf-gti/2024/st-402010168/features-specs",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Edmunds 2024 Golf GTI S specs: drivetrain warranty 4 yr / 50,000 mi; Cars.com lists 2024 GTI powertrain 4 years / 50,000 miles. Read from search-result summary; page not opened."
+        }
+      },
+      "warrantyPowertrainYears": {
+        "value": 4,
+        "source": {
+          "kind": "reference",
+          "name": "Edmunds",
+          "url": "https://edmunds.com/volkswagen/golf-gti/2024/st-402010168/features-specs",
+          "asOf": "2026-11-11",
+          "note": "Republished by a listing site. Edmunds 2024 Golf GTI S specs: drivetrain warranty 4 yr / 50,000 mi; Cars.com lists 2024 GTI powertrain 4 years / 50,000 miles. VW's own site lists a 4-year/50,000-mile New Vehicle Limited Warranty but the summary did not tie it to model year 2024 or name powertrain s…"
+        }
+      },
+      "productionUnits": null
+    },
+    "status": "reference",
+    "asOf": "2026-11-11",
     "note": "Gathered from public sources through web search. No figure was checked against a primary document."
   }
 ];

@@ -1,0 +1,1169 @@
+{
+ "gathered": "2026-11-11",
+ "supplement": true,
+ "method": "A second, narrower search for the figures the first could not source, vehicle by vehicle: one researcher (at most 8 searches) looked only for what each card lacked, then a second reader (at most 4 searches) tried to refute each figure. Web search results and their summaries; pages could not be opened, so no figure here was checked against a primary document.",
+ "status": "A supplement: scripts/build-catalogue.ts reads it after the other files and uses it only to fill a blank, under the same review rule. A figure already in the catalogue is never replaced by it.",
+ "records": [
+  {
+   "id": "2024-chevrolet-corvette-stingray-z51",
+   "fields": [
+    {
+     "key": "powertrainWarrantyYears",
+     "number": 5,
+     "publisher": "Chevrolet 2024 Corvette Customer Acknowledgment Form (revised April 2024), copy hosted on CorvetteForum",
+     "url": "https://corvetteforum.com/forums/attachments/c8-z06-zr1-zora-discussion/48388621d1718656493-picked-up-my-new-z06-this-weekend-and-gm-no-longer-offers-dct-filter-in-free-service-2024-chevy-corvette-customer-acknowledgment-form-revised-april-2024.pdf",
+     "sourceKind": "reference",
+     "basis": "republished",
+     "corroboratingUrl": "https://www.gmenvolve.com/resources/warranty",
+     "note": "Search summary says a 2024 Chevy Corvette customer acknowledgment/delivery form lists a '5 years/60,000-mile Powertrain Limited Warranty' (and 3 years/36,000 miles bumper-to-bumper) as a Chevrolet Complete Care benefit. The form is a Chevrolet document for the 2024 Corvette line, not Stingray-Z51-specific, and the copy is hosted on a forum, so marked reference. GM's own gmenvolve.com warranty page lists the retail Chevrolet Transferable Powertrain Limited Warranty as 5 Years/60,000 miles (not model-year specific). The chevrolet.com warranty pages in the results did not show the term. Read from search-result summary; page not opened."
+    },
+    {
+     "key": "powertrainWarrantyMiles",
+     "number": 60000,
+     "publisher": "Chevrolet 2024 Corvette Customer Acknowledgment Form (revised April 2024), copy hosted on CorvetteForum",
+     "url": "https://corvetteforum.com/forums/attachments/c8-z06-zr1-zora-discussion/48388621d1718656493-picked-up-my-new-z06-this-weekend-and-gm-no-longer-offers-dct-filter-in-free-service-2024-chevy-corvette-customer-acknowledgment-form-revised-april-2024.pdf",
+     "sourceKind": "reference",
+     "basis": "republished",
+     "corroboratingUrl": "https://www.gmenvolve.com/resources/warranty",
+     "note": "Search summary says a 2024 Chevy Corvette customer acknowledgment/delivery form lists a '5 years/60,000-mile Powertrain Limited Warranty'. Document covers the 2024 Corvette line, not Stingray-Z51-specific; forum-hosted copy, so marked reference. GM's gmenvolve.com warranty page lists the Chevrolet Transferable Powertrain Limited Warranty as 5 Years/60,000 miles (not model-year specific). Read from search-result summary; page not opened."
+    },
+    {
+     "key": "groundClearanceIn",
+     "number": 5.3,
+     "publisher": "Autoblog (specification listing)",
+     "url": "https://autoblog.com/buy/2024-Chevrolet-Corvette-Stingray_w_3LT__2dr_Coupe/specs/",
+     "sourceKind": "reference",
+     "basis": "republished",
+     "corroboratingUrl": "https://www.autopadre.com/tire-and-wheel-sizes/chevrolet-corvette/2024-stingray-w-2lt-65550",
+     "note": "Search summary says Autoblog lists 5.3 in ground clearance for the 2024 Stingray w/3LT coupe and Autopadre gives a minimum of 5.3 in for 2024 Stingray listings. CAUTION: these listings are for the 2024 Stingray coupe by trim level and do not state whether the figure applies with the Z51 Performance Package (which has its own suspension tuning); no maker source was found. Treat as unconfirmed for the Z51 configuration. Read from search-result summary; page not opened."
+    },
+    {
+     "key": "drivetrain",
+     "text": "RWD",
+     "publisher": "LapMeta (vehicle database)",
+     "url": "https://direct.lapmeta.com/it/model/13/chevrolet-corvette-c8-stingray-z51",
+     "sourceKind": "reference",
+     "basis": "republished",
+     "note": "Search summary says a database entry for the Chevrolet Corvette C8 Stingray Z51 describes it as a two-door mid-engine rear-wheel-drive layout. The entry is for the C8 Stingray Z51 generally, model year not stated; no maker or EPA statement surfaced in the results. Read from search-result summary; page not opened."
+    }
+   ],
+   "notFound": [
+    "topSpeedMph",
+    "curbWeightLb",
+    "lateralGripG",
+    "construction",
+    "aspiration"
+   ],
+   "conflicts": [
+    {
+     "key": "curbWeightLb",
+     "values": "3,535 lb (Edmunds 2024 Stingray coupe features-specs, trim not clearly tied; iSeeCars also shows 3,535 and 3,769 across 2024 trims) vs 3,467 lb 'Base Curb Weight' (cars.com 2024 Corvette listing; Autopadre shows 3,467 for a convertible 2LT)",
+     "resolution": "Left out. Listing sites disagree, none ties a figure to the Z51 package, and no maker specification sheet surfaced."
+    },
+    {
+     "key": "topSpeedMph",
+     "values": "184 mph with Z51 / 194 mph without (CorvetteForum post and LapMeta database, model year not stated); 189 mph / 304 km/h (Carscoops, model and configuration not stated); 194 mph (Encycarpedia, 2020 model)",
+     "resolution": "Left out. Only forum and database sources give 184 mph and none is the maker's 2024 statement or a named instrumented test."
+    },
+    {
+     "key": "lateralGripG",
+     "values": "1.03 g and 149 ft 70-0 from a Car and Driver test of a 2023 Z51 coupe as retold by MotorBiscuit; a blog repost attributes 1.03 g to a 2024 Stingray without a verifiable test",
+     "resolution": "Left out. The only traceable test is of a 2023 model-year car, reported secondhand; no 2024 instrumented test surfaced."
+    },
+    {
+     "key": "aspiration",
+     "values": "carsales.com.au lists induction as 'Aspirated' for the 2024 Stingray (Australian-market listing); no US maker, EPA or named-publication statement surfaced",
+     "resolution": "Left out. The only source is another market's listing and does not use an explicit maker description."
+    }
+   ],
+   "searchesUsed": 8
+  },
+  {
+   "id": "2024-ford-f-150-raptor",
+   "fields": [
+    {
+     "key": "aspiration",
+     "text": "twin-turbocharged",
+     "publisher": "Ford Motor Company (2024 Ford Raptor and Raptor R Tech Specs PDF, Ford media site)",
+     "url": "https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2024/f150/2024%20Ford%20Raptor%20and%20Raptor%20R%20Tech%20Specs.pdf",
+     "corroboratingUrl": "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2024/specs/2024-Ford-Raptor-and-Raptor-R-Tech-Specs.pdf",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "The search summary of Ford's 2024 F-150 Raptor / Raptor R tech specs sheet says it lists the \"High-Output 3.5-liter twin-turbocharged V6\" for the Raptor, alongside the 5.2-liter supercharged V8 of the Raptor R. Wording is as relayed by the search summary, not a verified verbatim quote. Read from search-result summary; page not opened."
+    },
+    {
+     "key": "construction",
+     "text": "body-on-frame",
+     "publisher": "Ford Motor Company (2024 Ford Raptor and Raptor R Tech Specs PDF)",
+     "url": "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2024/specs/2024-Ford-Raptor-and-Raptor-R-Tech-Specs.pdf",
+     "corroboratingUrl": "https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2024/f150/2024%20Ford%20Raptor%20and%20Raptor%20R%20Tech%20Specs.pdf",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "The search summary says Ford's 2024 Raptor tech spec sheet, under \"BODY Construction/materials\", describes \"high-strength steel frame, aluminum cabin and bed\" - i.e. a separate steel frame carrying an aluminum cab and bed. The sheet does not use the words \"body-on-frame\" in the summary; the value rests on the maker describing a separate frame. No result confirmed \"fully boxed\". Read from search-result summary; page not opened."
+    },
+    {
+     "key": "fuelType",
+     "text": "gasoline",
+     "publisher": "mpgbuddy.com (republishing EPA fuel economy data)",
+     "url": "https://mpgbuddy.com/cars/ford/f150-raptor-4wd/2024",
+     "corroboratingUrl": "https://driveclean.ca.gov/taxonomy/term/36292",
+     "sourceKind": "reference",
+     "basis": "republished",
+     "note": "The search summary says mpgbuddy's EPA-based page for the 2024 Ford F150 RAPTOR 4WD (3.5L, 6 cyl, Automatic S10; 14/18/16 mpg, matching the catalogue) lists the fuel type as regular (gasoline). California's DriveClean (state agency) listing for the same 2024 F150 Raptor 4WD configuration was returned with the same 14/18/16 rating, but the summary did not quote its fuel field. The fueleconomy.gov page itself did not appear in results. Read from search-result summary; page not opened."
+    }
+   ],
+   "notFound": [
+    "topSpeedMph: no source in the results gave a top speed (governed or tested) for the 2024 3.5L Raptor; the only limited-speed figure seen (114 mph, electronically limited) was for the V8 Raptor R, and a German test's 172 km/h is for an unspecified Raptor/market",
+    "curbWeightLb: Ford's 2024 Raptor tech spec PDF appeared in results but its curb weight was not in any summary; listing sites disagree for 2024 (5,710 / 5,757 / 5,863 lb) - see conflicts; Ford's current (2026 model year) page lists 5,710 lb base and 5,867 lb with Raptor 37 Performance Package, which is a different model year and was not carried over",
+    "zeroToSixtySec: the only 2024 V6 Raptor instrumented figure found was Edmunds' 5.8 s, but the summary says the test truck had the optional 37-inch tire package, so it is not the base configuration; Car and Driver 5.2 s and MotorTrend 5.6 s figures are for 2021-2023 trucks; no Ford claim found",
+    "lateralGripG: no named instrumented skidpad figure for a 2024 3.5L Raptor in any result",
+    "transmission (gear count, earlier-pass item, not on the required list): not settled; DriveClean lists Automatic (S10) per the search summary but no maker statement of 10-speed was surfaced",
+    "brakesRear (earlier-pass item, not on the required list): not researched further, no new source"
+   ],
+   "conflicts": [
+    {
+     "key": "curbWeightLb",
+     "values": "5,710 lb (Edmunds 2024 Raptor features-specs, https://www.edmunds.com/ford/f-150/2024/raptor/features-specs); 5,757 lb (KBB and carspecs.us, 2024); 5,863 lb (autopadre 2024 Raptor SuperCrew 5.5' box; auto123 2024 axle weights 3,330 + 2,533 lb as listed by the site); Ford's own 2026-model-year page: 5,710 lb base / 5,867 lb with Raptor 37 Performance Package",
+     "resolution": "Field left out. No maker figure for model year 2024 was visible in any search summary, the listing sites disagree with each other, and the only maker figures seen are for a later model year. Edmunds' 5,710 lb matches Ford's later-year base figure, which suggests it is the base truck, but that is an inference and was not used."
+    },
+    {
+     "key": "zeroToSixtySec",
+     "values": "5.8 s (Edmunds test of a 2024 Raptor with the optional 37-inch tire package, https://www.edmunds.com/ford/f-150/2024/raptor/); 5.2 s (Car and Driver, cited by KSL for 2021-2023 Raptor); 5.6 s (MotorTrend 2021 Raptor); 5.40 s average of 4 runs for '2024 Ford F-150' with no trim stated (0-60specs.com)",
+     "resolution": "Field left out. The one 2024 instrumented figure is for a truck with an option package that changes the tires (Edmunds itself says the 37-inch package hindered straight-line performance); the others are earlier model years or unspecified trims."
+    },
+    {
+     "key": "fuelType",
+     "values": "Search summaries of EPA-based listings say regular gasoline; the search query assumed premium. A retailer blog also cited 15/18/17 mpg versus the EPA-based 14/18/16.",
+     "resolution": "fuelType = gasoline is unaffected by the grade question (regular vs premium), so it was reported. Grade is not a catalogue key and was not reported."
+    }
+   ],
+   "searchesUsed": 8
+  },
+  {
+   "id": "2024-ford-mustang-gt",
+   "fields": [
+    {
+     "key": "construction",
+     "text": "unibody",
+     "publisher": "Ford Motor Company (2024 Mustang Technical Specifications, preliminary, dated Sept. 14, 2022; copy hosted on a third-party site)",
+     "url": "https://ffperformance.co/wp-content/uploads/2023/04/2024-mustang-technical-specifications.pdf",
+     "corroboratingUrl": "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2026/specs/2026_Mustang_Technical_Specs.pdf",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "The search summary says Ford's 2024 Mustang preliminary specification sheet describes a 'fully unitized steel chassis with fully independent front/rear suspension and perimeter subframe'. This applies to the 2024 Mustang line as a whole, not only the GT. The document is Ford's, but the copy that appeared in results is a mirror on a non-Ford site (the same PDF is also attached on mustang7g.com). The corroborating URL is Ford's own media-site sheet for the 2026 Mustang (same generation, different model year), which the summary says lists a 'unitized welded steel body'; it is offered only as support, not as the 2024 source. Read from search-result summary; page not opened."
+    },
+    {
+     "key": "curbWeightLb",
+     "number": 3741,
+     "publisher": "CarBuzz (specification listing)",
+     "url": "https://carbuzz.com/cars/ford/mustang-gt/specs-and-trims",
+     "corroboratingUrl": "https://www.iseecars.com/car/2024-ford-mustang-specs",
+     "sourceKind": "reference",
+     "basis": "republished",
+     "note": "The search summary says the CarBuzz and iSeeCars listings both show a curb weight of about 3,741 lb for the 2024 GT 2dr Fastback, and Motor Matchup lists the same figure for the GT Fastback. The summaries do not state whether the listing figure is for the manual or the automatic, so the transmission match is NOT confirmed. No final Ford figure was found. Ford's own preliminary sheet (Sept. 2022, pre-production, 'subject to change') gave an estimated 3,730 lb for the GT fastback manual, which differs; see conflicts. Treat as a last-resort listing figure. Read from search-result summary; page not opened."
+    }
+   ],
+   "notFound": [
+    "topSpeedMph",
+    "topSpeedGoverned",
+    "zeroToSixtySec",
+    "lateralGripG",
+    "groundClearanceIn"
+   ],
+   "conflicts": [
+    {
+     "key": "curbWeightLb",
+     "values": "3,730 lb (Ford preliminary 2024 Mustang spec sheet dated Sept. 14, 2022, estimated, GT fastback manual; mirrored at ffperformance.co and mustang7g.com) | 3,741 lb (CarBuzz, iSeeCars, Motor Matchup listings, GT Fastback, transmission not stated in summaries) | 3,827 lb (Motor1 review, GT Premium; also a Velocity Journal listing of an unidentified version) | 3,947 lb (Road Blazing review, GT Premium, described as manual)",
+     "resolution": "Reported 3,741 lb as a listing-site (reference) figure because three listings agree for the GT Fastback and it is the only non-preliminary value tied to this trim. Ford's 3,730 lb is the only maker figure explicitly for the fastback manual GT, but it is a pre-production estimate marked subject to change, so it was not used as the final figure. The 3,827 and 3,947 lb values are for the GT Premium trim and were rejected. If the catalogue requires a maker source, leave curb weight out."
+    },
+    {
+     "key": "topSpeedMph",
+     "values": "155 mph electronically limited (an unidentified review; Road Blazing's spec box for a GT Premium; a mustang7g forum post saying the governor is 155 on the GT and 168 on the Dark Horse) | 'will top 150 mph' (The Auto Channel review of a manual GT coupe) | 175 mph (Motor Matchup, a simulation) | 145 mph limited / 186 mph (forum post) | 168 mph in one unlabeled KBB column (appears to be the Dark Horse)",
+     "resolution": "Left out. No Ford document, agency or named instrumented test gave a top speed for the GT Fastback manual. The 155 mph figure is repeated by review sites and forums only, the one attributable spec box is for a different trim (GT Premium), and forum posts contradict each other. topSpeedGoverned left out for the same reason."
+    },
+    {
+     "key": "zeroToSixtySec",
+     "values": "4.2 s (JD Power page attributing it to Car and Driver for 'the GT 6-speed'; secondhand) | 4.3 s (MotorTrend, manual GT WITH Performance Package and active exhaust, quoted on a forum) | 5.6 s (Edmunds, manual fastback WITH Performance Package) | about 4.0 s (The Auto Channel review of a manual GT coupe; not clear it was instrumented)",
+     "resolution": "Left out. Every named instrumented test found was of a car with the optional GT Performance Package (different tires, brakes and 3.73 axle), which is not this configuration; the Car and Driver car is also stated to have had the package. The 4.2 s attribution is secondhand and does not state the option content. No Ford 0-60 claim was found."
+    },
+    {
+     "key": "lateralGripG",
+     "values": "0.97 g (Edmunds, GT fastback 6-speed manual WITH GT Performance Package)",
+     "resolution": "Left out. The only skidpad figure found is for a Performance Package car, whose summer tires change grip. No test of a GT without the package was found."
+    },
+    {
+     "key": "groundClearanceIn",
+     "values": "143 mm / about 5.6 in listed as '6 in' (CarsGuide, Australian-market GT 10-speed automatic, unladen) | 5.2 to 5.7 in (Autopadre range that mixes in Mach-E entries) | 130 mm and 137 mm (EpicVIN, no model year)",
+     "resolution": "Left out. No US-market figure for the 2024 GT Fastback manual was found; the only specific figure is for another market and transmission, and the others are unattributed or mixed with other models. Ford's spec sheet summaries did not show a ground clearance."
+    }
+   ],
+   "searchesUsed": 8
+  },
+  {
+   "id": "2024-honda-odyssey-ex-l",
+   "fields": [
+    {
+     "key": "drivetrain",
+     "text": "FWD",
+     "publisher": "U.S. EPA / DOE (fueleconomy.gov)",
+     "url": "https://www.fueleconomy.gov/feg/Find.do?action=sbs&id=46860",
+     "sourceKind": "agency",
+     "basis": "government-rating",
+     "corroboratingUrl": "https://www.edmunds.com/honda/odyssey/2024/features-specs",
+     "note": "The search summary of the fueleconomy.gov page for the 2024 Honda Odyssey gave Drive: Front-Wheel Drive, with a 10-speed automatic and 19/28/22 mpg, matching the catalogue. The Edmunds 2024 Odyssey specification table also lists front-wheel drive with the 3.5L V6 and 10-speed automatic, and a review summary said every trim has front-wheel drive and that no AWD is offered. One dealer page (teamhonda.com) mentioned an i-VTM4 AWD system; see conflicts. Read from search-result summary; page not opened."
+    },
+    {
+     "key": "aspiration",
+     "text": "naturally-aspirated",
+     "publisher": "CarBuzz",
+     "url": "https://carbuzz.com/cars/honda/odyssey-generations",
+     "sourceKind": "reference",
+     "basis": "republished",
+     "corroboratingUrl": "https://doubleclutch.ca/?p=159800",
+     "note": "The search summary said CarBuzz's 2024 Honda Odyssey review describes the engine as a traditional naturally aspirated six-cylinder, in contrast with turbocharged rivals; DoubleClutch.ca was summarised as calling it a normally aspirated engine. All 2024 Odyssey trims share the single 3.5L V6 (280 hp), so this applies to the EX-L. No Honda or EPA statement of aspiration appeared in the results; Honda's own sheet summary only said 3.5-liter 24-valve SOHC i-VTEC V-6. The exact wording was not seen first-hand, and the DoubleClutch page's model year was not shown. Read from search-result summary; page not opened."
+    }
+   ],
+   "notFound": [
+    "topSpeedMph",
+    "zeroToSixtySec",
+    "lateralGripG",
+    "construction",
+    "groundClearanceIn"
+   ],
+   "conflicts": [
+    {
+     "key": "drivetrain",
+     "values": "FWD (fueleconomy.gov 2024 Odyssey page; Edmunds specification table; review summaries saying every trim is front-wheel drive and no AWD is offered) vs a mention of a '2nd-Gen i-VTM4 AWD System' among available features on a dealer page (teamhonda.com/2024-honda-odyssey.html)",
+     "resolution": "Used FWD: the EPA listing is the agency source and shows front-wheel drive, and the other sources agree. The dealer page's AWD mention is contradicted by all of them and looks like text from another Honda model."
+    },
+    {
+     "key": "groundClearanceIn",
+     "values": "About 4.5 in (carspecs.us, autoweb.com) vs 5 in (cars.com, for several trims including EX and Elite)",
+     "resolution": "Left out. Only listing sites gave a figure, they disagree, and the summaries of Honda's own specification pages (hondanews.com, hondainfocenter.com) did not show a ground clearance figure."
+    },
+    {
+     "key": "zeroToSixtySec",
+     "values": "6.80 s (0-60specs.com aggregator, attributed to a Car and Driver run of a 2024 Odyssey Elite) vs 6.4 s (attributed to Car and Driver for a 2025 Odyssey Elite)",
+     "resolution": "Left out. Both figures are for the Elite trim, not the EX-L, one is for a different model year, they came through an aggregator and not the test itself, and the summaries disagreed about which model year each run belongs to."
+    },
+    {
+     "key": "construction",
+     "values": "'unit-body' on a ConceptCarz page for the 2025 Odyssey; nothing for 2024",
+     "resolution": "Left out. The only statement found was for a different model year on a listing site, and no Honda or named-publication statement for the 2024 model appeared."
+    }
+   ],
+   "searchesUsed": 8
+  },
+  {
+   "id": "2024-jeep-wrangler-rubicon",
+   "fields": [
+    {
+     "key": "fuelType",
+     "text": "gasoline",
+     "publisher": "U.S. EPA / DOE (fueleconomy.gov)",
+     "url": "https://www.fueleconomy.gov/feg/bymake/Jeep2024.shtml",
+     "sourceKind": "agency",
+     "basis": "government-rating",
+     "corroboratingUrl": "https://mpgbuddy.com/cars/jeep/wrangler-rubicon-4dr-4wd/2024",
+     "note": "Search summary of the fueleconomy.gov listing for the 2024 Jeep Wrangler Rubicon 4dr 4WD, 3.6L 6-cyl, 8-speed automatic said it is rated 16 city / 19 highway / 17 combined MPG on regular gasoline, matching the catalogue's existing EPA figures for this configuration. The result URL is the EPA's 2024 Jeep index page, not the individual vehicle page. Read from search-result summary; page not opened."
+    },
+    {
+     "key": "aspiration",
+     "text": "naturally-aspirated",
+     "publisher": "CarExpert",
+     "url": "https://www.carexpert.com.au/car-news/2024-jeep-wrangler-says-goodbye-to-the-petrol-v6",
+     "sourceKind": "reference",
+     "basis": "republished",
+     "note": "Search summary quoted the article describing 'the venerable 3.6-litre Pentastar naturally aspirated V6 petrol engine' in the context of the 2024 Wrangler. The article is Australian-market news (about that market dropping the V6); it is used only for its description of the engine itself, which is the same 3.6L Pentastar V6. The search summary also said a US-market source lists 'the naturally aspirated 3.6-liter V6' among the four 2024 Wrangler engine choices, but did not attribute it to a specific URL. No maker or EPA statement on aspiration was found. Read from search-result summary; page not opened."
+    }
+   ],
+   "notFound": [
+    "topSpeedMph",
+    "curbWeightLb",
+    "zeroToSixtySec",
+    "lateralGripG",
+    "construction",
+    "groundClearanceIn"
+   ],
+   "conflicts": [
+    {
+     "key": "curbWeightLb",
+     "values": "4575 lb (J.D. Power https://www.jdpower.com/cars/2024/jeep/wrangler/rubicon-4-door-4x4/specs and Auto123 https://www.auto123.com/en/specs/jeep/wrangler/jeep-wrangler-2024-rubicon-4-door-4x4-436268/ - the search summary said both list this for the Rubicon 4-door with the 3.6L V6 and 6-SPEED MANUAL; cars.com also shows 4575 as 'base curb weight' for a 2024 Rubicon, body style not stated). 4604 lb (The Drive first-drive review https://www.thedrive.com/car-reviews/2024-jeep-wrangler-first-drive-review-specs-price-options-impressions - a four-door with the 3.6L V6 and 8-speed automatic; trim of the test car not stated in the summary). A JL Wrangler Forums post (https://www.jlwranglerforums.com/official-2024-wrangler-curb-weights-by-doors-motor-transmission/) says the V6 manual is 29 lb lighter than the V6 automatic.",
+     "resolution": "Left out. The two figures are probably not a real contradiction: 4575 appears to be the manual-transmission figure and 4604 the automatic one (the forum's stated 29 lb gap is consistent with that), which would make 4604 the figure for this record. But no result confirmed 4604 for the Rubicon trim specifically, the maker's own curb-weight table was not seen, and I did not derive it by adding 29 to 4575. A reader who can open the maker's 2024 Wrangler specification sheet or The Drive's review should be able to settle it quickly."
+    },
+    {
+     "key": "groundClearanceIn",
+     "values": "10.8 in (Stellantis press material per search summary, but stated for the Sport S; also Autoblog for the 4xe Rubicon 4-door). 12.9 in (Stellantis press material, with 35-inch tires: Rubicon X / Willys with the Xtreme 35 package). 11.6 in (Rubicon 392 Final Edition). 11.1 in (autopadre, Rubicon 392). 11 in (cars.com V6 Wrangler, from earlier pass).",
+     "resolution": "Left out. None of the values found in this pass was stated for the V6 Rubicon 4-door on its standard 33-inch tires; every one belongs to another trim, powertrain or tire package."
+    },
+    {
+     "key": "zeroToSixtySec",
+     "values": "7.2 s (automobile-catalog.com, explicitly a calculated estimate for the 2024 4-Door Rubicon 3.6 V6 automatic); 6.9 s and 127 mph top speed (motormatchup.com, simulation); 'reportedly mid-seven-second' (The Drive, not timed by them).",
+     "resolution": "Left out, along with topSpeedMph. All are simulations, estimates or hearsay, not a named instrumented test or a maker's claim. The only measured Wrangler figures that surfaced were for the Rubicon 392 (Car and Driver, 4.0 s) and the 4xe (MotorWeek, 6.7 s), which are different powertrains."
+    }
+   ],
+   "searchesUsed": 8
+  },
+  {
+   "id": "2024-mazda-mx-5-miata-club",
+   "fields": [
+    {
+     "key": "drivetrain",
+     "text": "RWD",
+     "publisher": "Mazda North American Operations (Mazda USA Newsroom)",
+     "url": "https://news.mazdausa.com/2024-01-25-24MY-2024-Mazda-MX-5-Miata-Pricing-and-Packaging",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "Mazda's 2024 MX-5 Miata Pricing and Packaging release was summarized as stating: 'All MX-5 Miata models have a front engine, rear-wheel drive layout, with a Skyactiv-G 2.0-liter four-cylinder engine delivering 181 horsepower at 7,000 rpm and 151 lb-ft of torque at 4,000 rpm routed through a six-speed transmission', and that Sport and Club are exclusively paired with a six-speed manual. Applies to all 2024 models including Club 6MT soft top. Read from search-result summary; page not opened."
+    }
+   ],
+   "notFound": [
+    "topSpeedMph",
+    "curbWeightLb",
+    "zeroToSixtySec",
+    "lateralGripG",
+    "construction",
+    "groundClearanceIn",
+    "aspiration"
+   ],
+   "conflicts": [
+    {
+     "key": "curbWeightLb",
+     "values": "2,341 lb (cars.com Club page, TheCarConnection, CarBuzz; also Mazda's 2020 spec sheet for MT, and AutoPadre for 2024 Sport manual); 2,368 lb (KBB, iSeeCars, Edmunds Club); 2,403 lb (TrueDelta; matches Mazda's 2020 AT figure); 2,452 lb (U.S. News Club Manual); 2,366 lb (mazdausa.com current page, a 2026 figure for MT models); 2,454 lb (Road & Track/Car and Driver for a 2025 Club)",
+     "resolution": "Left out. No Mazda figure for the 2024 model year surfaced in search summaries (the 2024 MX-5 Spec Deck PDF at news.mazdausa.com/download/2024+MX-5+Spec+Deck.pdf appeared in results but its contents were not summarized), and listing sites disagree with one another for the Club."
+    },
+    {
+     "key": "groundClearanceIn",
+     "values": "5.3 in (KBB, 2023 Club listing; Mazda 2020 spec sheet says 5.32 in minimum laden); 4.9 in (CarBuzz 2024; Mazda 2019 press kit says 4.92 in minimum laden, trim unclear)",
+     "resolution": "Left out. Neither value was sourced to Mazda for the 2024 Club soft top; the two candidate values come from other model years or listing sites and disagree."
+    },
+    {
+     "key": "zeroToSixtySec",
+     "values": "5.5 s (Car and Driver, 2024 RF Club manual, as repeated by a dealer page; also cited for a 2025 Club soft top); 5.7 s (MotorTrend, 2024 Club RF, as repeated by a third-party database); 5.4 s (Car and Driver, 2022 Club, via third-party database)",
+     "resolution": "Left out. Every figure found is for the RF hardtop body or for another model year, not the 2024 Club soft top, and none was read from the testing publication itself."
+    },
+    {
+     "key": "lateralGripG",
+     "values": "0.90 g (Car and Driver comparison test, 2024 Miata RF Club vs Subaru BRZ tS, via Yahoo Autos syndication; SlashGear repeats 0.90 g without naming the trim)",
+     "resolution": "Left out. The tested car was the RF (retractable hardtop) body, not the soft top, and the summary does not say whether it carried the Brembo/BBS/Recaro package."
+    },
+    {
+     "key": "construction",
+     "values": "'Monocoque unibody with backbone frame construction' (Mazda 2016 and 2017 MX-5 press kits)",
+     "resolution": "Left out. The maker's statement found is for model years 2016/2017 of the same ND generation, not 2024, and no source stated it carries over to 2024."
+    }
+   ],
+   "searchesUsed": 8
+  },
+  {
+   "id": "2024-porsche-911-carrera",
+   "fields": [
+    {
+     "key": "zeroToSixtySec",
+     "number": 4,
+     "publisher": "Porsche dealer research page (porsche.dealerleads.com)",
+     "url": "https://porsche.dealerleads.com/research/2024-Porsche-911-Carrera/Riverside-CA",
+     "sourceKind": "reference",
+     "basis": "republished",
+     "note": "NOT settled by a primary source. The summary of this dealer-hosted page listed '0 - 60 mph | 4.0 s' (3.8 s with Sport Chrono) alongside 'Max. power | 379 hp', which matches the 992.1 Carrera coupe with PDK; however the page is titled '2026 911 Carrera' while its URL says 2024, so the model year is not cleanly stated. This repeats Porsche's claim; it is not an instrumented test and no Porsche newsroom or press-kit page with this figure for model year 2024 appeared in the results. Without Sport Chrono (launch control) the figure is 4.0 s. Read from search-result summary; page not opened."
+    },
+    {
+     "key": "topSpeedMph",
+     "number": 182,
+     "publisher": "Porsche dealer research page (porsche.dealerleads.com)",
+     "url": "https://porsche.dealerleads.com/research/2024-Porsche-911-Carrera/Riverside-CA",
+     "sourceKind": "reference",
+     "basis": "republished",
+     "corroboratingUrl": "https://ipfs.ssi.eecc.de/ipns/en.wikipedia-on-ipfs.org/wiki/Porsche_992",
+     "note": "NOT settled by a primary source. The summary of this dealer-hosted page listed 'Top track speed (with summer tires) | 182 mph' alongside 379 hp, matching the 992.1 Carrera coupe; the page is titled '2026 911 Carrera' while its URL says 2024. A Wikipedia mirror's 992 table also lists the base Carrera (2019-, 8-speed PDK) at 293 km/h (182 mph), for the generation rather than model year 2024 specifically. No Porsche newsroom or press-kit page with this figure for model year 2024 appeared in the results, and no source said whether the speed is electronically limited. Read from search-result summary; page not opened."
+    }
+   ],
+   "notFound": [
+    "lateralGripG",
+    "construction",
+    "groundClearanceIn",
+    "topSpeedGoverned"
+   ],
+   "conflicts": [
+    {
+     "key": "topSpeedMph",
+     "values": "182 mph (dealer-hosted Porsche research page listing 379 hp; Wikipedia mirror 992 table, 293 km/h) vs 183 mph (encycarpedia '2024 911 Carrera' page, which also listed 389 hp; cars-data.com page labelled 2024 coupe 992.2, 294 km/h; Porsche newsroom and configurator for the 2025 992.2 Carrera, 388 hp)",
+     "resolution": "Used 182 mph. Every 183 mph result is tied to the facelifted 992.2 car (388/389 hp, 294 km/h), which is model year 2025 in the US; the 182 mph results carry the 379 hp rating that matches this record. Still only reference-grade: no maker page for model year 2024 was found."
+    },
+    {
+     "key": "zeroToSixtySec",
+     "values": "4.0 s, 3.8 s with Sport Chrono (dealer-hosted Porsche research page, 379 hp; encycarpedia 2024 page also 4.0 s) vs 3.9 s, 3.7 s with Sport Chrono (Porsche configurator and newsroom for the 2025 992.2 Carrera) vs 3.2 s (stuttcars.com attributing it to a Car and Driver test of a base rear-drive 379 hp Carrera, model year 2020, options not stated)",
+     "resolution": "Used 4.0 s as the maker's claim for the 379 hp car without Sport Chrono, reference-grade only. The 3.9/3.7 s figures belong to the 2025 992.2. The 3.2 s Car and Driver figure was not used: it is a second-hand quote, for a 2020 car, with the test car's options (Sport Chrono launch control very likely) not stated."
+    },
+    {
+     "key": "lateralGripG",
+     "values": "1.08 g and 70-0 braking of 139 ft (Rennlist forum post quoting a Car and Driver base Carrera test dated 12/1/2020) vs 1.07 g and 60-0 braking of 102 ft (Edmunds track test of the 2025 base Carrera)",
+     "resolution": "Left out. The Car and Driver numbers are a forum repost for a model year 2020 car with unknown tire and brake options; the Edmunds numbers are for the 2025 992.2 car. Neither is a named test of the 2024 configuration read from the publisher."
+    }
+   ],
+   "searchesUsed": 8
+  },
+  {
+   "id": "2024-subaru-outback-premium",
+   "fields": [
+    {
+     "key": "fuelType",
+     "text": "gasoline",
+     "publisher": "U.S. EPA / DOE (fueleconomy.gov)",
+     "url": "https://www.fueleconomy.gov/feg/noframes/46541.shtml",
+     "corroboratingUrl": "https://www.subaru.com/services/vehicles/pdf/trimComparison/2024/OBK",
+     "sourceKind": "agency",
+     "basis": "government-rating",
+     "note": "The fueleconomy.gov result for the 2024 Subaru Outback AWD, 2.5 L, 4 cyl, Automatic (AV-S8) was summarised as running on Regular Gasoline, 26 city / 32 highway / 28 combined mpg, 18.5-gallon tank, all-wheel drive, no turbocharger; these match the catalogue's figures for this configuration. The EPA listing is by engine and drive, not by trim; the Premium uses this 2.5 L powertrain. Corroborated by Subaru's own 2024 Outback trim comparison sheet (which covers the Premium), summarised as 'Fuel requirement: Unleaded gasoline (87 octane)' for the 2.5-liter. Read from search-result summary; page not opened."
+    }
+   ],
+   "notFound": [
+    "topSpeedMph",
+    "zeroToSixtySec",
+    "lateralGripG",
+    "construction"
+   ],
+   "conflicts": [
+    {
+     "key": "zeroToSixtySec",
+     "values": "7.1 s (dealer-hosted Consumer Reports sheet for the 2024 Outback, trim and engine not stated in the summary, text layout jumbled; milwaukeesubarucity.com / sierrasubaru.com PDFs); 8.1 s (motormatchup.com listing for the 2024 Premium AWD, no test source named); about 9.0 s (drivechicago.com 2024 Outback review, an approximate figure, not shown to be an instrumented test); 8.8 s Car and Driver estimate and 9.1 s Consumer Reports, both for the 2026 model year",
+     "resolution": "Left out. None of the results is a named instrumented test confirmed to be of the 2024 Outback with the 2.5L engine: the 7.1 s figure has no stated trim or engine (and may be the turbo), the 8.1 s figure has no named source, the 9.0 s figure is approximate, and the others are a different model year."
+    },
+    {
+     "key": "construction",
+     "values": "Subaru press material (media.subaru.com, 2023 Outback debut release and 2024 Outback press kit) describes the Subaru Global Platform and its rigidity but the summaries did not contain the words unibody or unitized body",
+     "resolution": "Left out. A platform name is not a statement of body construction, and no result said unibody or body-on-frame for this vehicle."
+    }
+   ],
+   "searchesUsed": 8
+  },
+  {
+   "id": "2024-tesla-model-3-long-range-awd",
+   "fields": [
+    {
+     "key": "transmissionType",
+     "text": "single-speed",
+     "publisher": "Tesla (Model 3 Owner's Manual, Subsystems section)",
+     "url": "https://www.tesla.cn/ownersmanual/model3/en_ca/GUID-E414862C-CFA1-4A0B-9548-BE21C32CAA58.html",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://www.tesla.com/ownersmanual/model3/en_ie/GUID-E414862C-CFA1-4A0B-9548-BE21C32CAA58.html",
+     "note": "Search summary of Tesla's Model 3 owner's manual Subsystems pages (2024+ 'model3' manual, Canada-English edition among the results, plus other regional editions) says the transmission is a single-speed fixed-gear design with a gearbox ratio of about 9:1 (9.03:1 in some regions); the same section describes the rear motor as AC permanent magnet synchronous and the front motor (AWD vehicles) as AC induction. The manual section covers all Model 3 variants, not only Long Range AWD; the US-English page itself did not appear in the results. Read from search-result summary; page not opened."
+    },
+    {
+     "key": "topSpeedMph",
+     "number": 125,
+     "publisher": "InsideEVs",
+     "url": "https://insideevs.com/news/704076/2024-tesla-model3-highland-range-specs-pricing/",
+     "sourceKind": "reference",
+     "basis": "republished",
+     "corroboratingUrl": "https://www.evspecifications.com/en/model-speed/98db3d2",
+     "note": "InsideEVs' 2024 Model 3 (Highland) specs overview is summarized as giving a top speed of 125 mph for the new Model 3, including the 2024 Long Range AWD on 19-inch wheels, down from 140-145 mph previously, with 0-60 mph of 4.2 s for the AWD. It repeats Tesla's launch figures; no Tesla page stating a Long Range AWD top speed appeared (Tesla's US page shows only the Performance figure, 163 mph). EVSpecifications' EU-market listings show 124.9 mph. A Yahoo Autos page says 130 mph without tying it to this trim. No source said whether the speed is electronically limited. Read from search-result summary; page not opened."
+    },
+    {
+     "key": "curbWeightLb",
+     "number": 4030,
+     "publisher": "Edmunds (specification table)",
+     "url": "https://edmunds.com/tesla/model-3/2024/features-specs",
+     "sourceKind": "reference",
+     "basis": "republished",
+     "corroboratingUrl": "https://www.motormatchup.com/catalog/Tesla/Model-3/2024/Long-Range-AWD",
+     "note": "Search summary says Edmunds and Motor Matchup both list a curb weight of 4,030 lb for the 2024 Model 3 Long Range AWD; KBB lists 4,034 lb for the AWD. Listing-site figure only: no Tesla US figure for this configuration was found. Tesla's 2024+ owner's manual (China-English edition) gives a maximum curb mass of about 1,823 kg for 'Long Range', which is another market and was not converted or used; Tesla regional sites show about 1,824 kg. A second Edmunds page summary showed 3,891 lb, but that page was labeled rear-wheel drive. Read from search-result summary; page not opened."
+    }
+   ],
+   "notFound": [
+    "horsepower",
+    "torqueLbFt",
+    "construction"
+   ],
+   "conflicts": [
+    {
+     "key": "curbWeightLb",
+     "values": "4,030 lb (Edmunds, Motor Matchup: 2024 Long Range AWD); 4,034 lb (KBB, 2024 AWD); about 1,823-1,824 kg maximum curb mass (Tesla owner's manual China-English edition and Tesla regional sites, 'Long Range', not US market); 1,900 kg (Tesla 2017-2023 manual, previous generation, not applicable)",
+     "resolution": "Reported 4,030 lb as a listing-site (reference) figure because two listing sites agree on it for this exact trim; no US-market Tesla figure was found, and non-US Tesla figures were not converted. Leave it out if the catalogue requires a primary source."
+    },
+    {
+     "key": "topSpeedMph",
+     "values": "125 mph (InsideEVs, 2024 Long Range AWD on 19-inch wheels); 124.9 mph (EVSpecifications EU-market listings); 130 mph (Yahoo Autos, trim not stated)",
+     "resolution": "Reported 125 mph, which is tied to this configuration and matches the EU listing after rounding; the 130 mph figure is not tied to the Long Range AWD. It is a republished figure, not read from a Tesla page."
+    },
+    {
+     "key": "horsepower",
+     "values": "390 hp and 390 lb-ft (unnamed listing in search summary, trim unclear); up to 425 hp (Yahoo Autos, trim not stated); 498 hp / 366 kW (ArenaEV and autotijd.be, apparently the sum of 158 kW front and 208 kW rear); per-motor 194 kW rear + 137 kW front (EVSpecifications, North American listing)",
+     "resolution": "Left out. No Tesla or government whole-powertrain figure was found, the listing sites disagree widely, and some figures are sums of per-motor outputs."
+    },
+    {
+     "key": "torqueLbFt",
+     "values": "390 lb-ft (unnamed listing in search summary, trim unclear); per-motor 340 Nm rear and 219 Nm front (EVSpecifications)",
+     "resolution": "Left out. Only per-motor figures or an unattributed combined figure exist; no Tesla or government combined torque figure was found."
+    }
+   ],
+   "searchesUsed": 8
+  },
+  {
+   "id": "2024-toyota-camry-le",
+   "fields": [
+    {
+     "key": "aspiration",
+     "text": "naturally-aspirated",
+     "publisher": "CarBuzz",
+     "url": "https://www.carbuzz.com/cars/toyota/camry",
+     "sourceKind": "reference",
+     "basis": "republished",
+     "corroboratingUrl": "https://www.kbb.com/Toyota/Camry/2024",
+     "note": "CarBuzz's 2024 Toyota Camry review describes the base engine as a dual-injected naturally aspirated 2.5-liter inline four-cylinder making 203 hp and 184 lb-ft in the LE and SE with front-wheel drive, which matches this configuration. KBB's 2024 Camry page agrees in substance (the Camry 'doesn't go in for turbocharging', 2.5-liter making 203 to 206 hp by trim). Toyota's own pressroom page (pressroom.toyota.com/?p=85561) appeared in results but its summary only gave 2.5-liter Dynamic Force, 13:1 compression and D-4S injection, with no explicit aspiration wording, so no maker statement was found. Read from search-result summary; page not opened."
+    },
+    {
+     "key": "construction",
+     "text": "unibody",
+     "publisher": "Yahoo Autos (syndicated article 'The 2025 Toyota Camry Takes a Big Leap')",
+     "url": "https://autos.yahoo.com/2025-toyota-camry-takes-big-210500856.html",
+     "sourceKind": "reference",
+     "basis": "republished",
+     "corroboratingUrl": "https://autoworldhub.com/brands/toyota/camry/2024",
+     "note": "Weak, indirect sourcing; keep only if the catalogue accepts it. The article summary said the TNGA-K component set underpins most of Toyota's transverse-engine, unibody products, and that the 2025 Camry rides on the same TNGA-K platform that was underneath the eighth-generation model (the generation the 2024 Camry belongs to). It is a statement about the platform, not a sentence saying 'the 2024 Camry LE is unibody'. A second result, which I believe was the autoworldhub.com 2024 Camry page (the summary did not attribute it by URL), was summarised as listing the 2024 Camry on 'the TNGA-K unibody platform'. No Toyota statement using 'unibody' or 'unitized' was found; the Toyota pressroom summary only described TNGA-K with high-tensile steel, laser screw welding and adhesives. Read from search-result summary; page not opened."
+    }
+   ],
+   "notFound": [
+    "topSpeedMph",
+    "zeroToSixtySec",
+    "lateralGripG"
+   ],
+   "conflicts": [],
+   "searchesUsed": 6
+  },
+  {
+   "id": "2024-toyota-prius-le-fwd",
+   "fields": [
+    {
+     "key": "construction",
+     "text": "unibody",
+     "publisher": "Wikipedia (Toyota New Global Architecture article)",
+     "url": "https://www.Wikipedia.org/wiki/TNGA",
+     "sourceKind": "reference",
+     "basis": "republished",
+     "note": "The search summary of the Wikipedia TNGA article says the TNGA-C platform underpins unibody vehicles in the compact segment and that its vehicle list includes the Prius (XW60), the generation sold as the 2024 Prius. This is a platform-level statement, not specific to the LE FWD trim or the 2024 model year, and it is not a maker statement; Toyota's 2024 Prius release in the results describes the second-generation TNGA-C platform but the summary did not show the word unibody. No second source confirming the word was found. Read from search-result summary; page not opened."
+    }
+   ],
+   "notFound": [
+    "aspiration - no maker, EPA or named-publication statement surfaced. Toyota's 2024 Prius release (pressroom.toyota.com) names the M20A-FXS 2.0L inline four but the summaries showed no aspiration wording. A mirror of EPA data was summarized as giving the engine descriptor 'SIDI & PFI; Hybrid' with no turbocharger or supercharger mention, but absence of a mention is an inference, not a statement, and the fueleconomy.gov record itself was not seen. One summary said unnamed third-party spec databases list the M20A-FXS as naturally aspirated for the 2023 global-market model; the summary did not tie that to a specific URL, and it is a different model year and market, so it was not used.",
+    "topSpeedMph - no top speed for the 2024 Prius LE FWD surfaced. A 112 mph figure appeared only for the Prius Prime plug-in hybrid (a different model), so it was not used. No source settled whether the speed is governed.",
+    "lateralGripG - a Car and Driver comparison (syndicated on Yahoo/AOL) was summarized as giving 0.87 g skidpad and a 194 ft 70-0 stop for 'the standard Prius', but the summary did not name the trim, drivetrain or model year of the car tested, so it cannot be tied to the LE FWD (trims differ in wheel and tire size) and was left out."
+   ],
+   "conflicts": [],
+   "searchesUsed": 8
+  },
+  {
+   "id": "2024-toyota-rav4-xle-awd",
+   "fields": [
+    {
+     "key": "aspiration",
+     "text": "naturally-aspirated",
+     "publisher": "Kelley Blue Book",
+     "url": "https://www.kbb.com/toyota/rav4/2024/expert-review/",
+     "sourceKind": "reference",
+     "basis": "republished",
+     "corroboratingUrl": "https://www.kbb.com/toyota/rav4/2024/adventure",
+     "note": "KBB's 2024 Toyota RAV4 expert review was quoted in the search summary as: \"Its naturally aspirated (non-turbo) 2.5-liter 4-cylinder engine won't light streets on fire with 203 horsepower\". This is the only gasoline engine of the 2024 RAV4 (203 hp, 2.5L), which is the engine of the XLE AWD. A second KBB 2024 RAV4 page (Adventure trim, same engine) was summarised as calling it the non-turbo 2.5-liter making 203 hp. No Toyota or EPA statement of aspiration appeared in the results; this is an explicit description in a named publication, not the maker's own. Read from search-result summary; page not opened."
+    }
+   ],
+   "notFound": [
+    "topSpeedMph",
+    "zeroToSixtySec",
+    "lateralGripG",
+    "construction"
+   ],
+   "conflicts": [
+    {
+     "key": "zeroToSixtySec",
+     "values": "8.3 s (Yahoo Autos, republishing a test of a RAV4 TRD Off-Road, https://autos.yahoo.com/reason-why-toyota-rav4-outsells-130000586.html); 8.3 s (Car Revs Daily, trim not stated in summary, https://car-revs-daily.com/?p=396395); 8.1 s 'estimated' (Autoblog, https://www.autoblog.com/article/2024-toyota-rav4-review/); 8.1 s 0-62 mph AWD (Auto Express, UK market)",
+     "resolution": "Left out. No result was a named instrumented test of the 2024 XLE AWD: the 8.3 s figure is for the TRD Off-Road trim (different tires and weight) or an unidentified car, the Autoblog figure is an estimate, and the Auto Express figure is 0-62 mph for another market."
+    },
+    {
+     "key": "construction",
+     "values": "'unibody' stated only for the 2025 RAV4 PHEV (boronextrication.com) and the 2026 RAV4 TNGA-K platform; Toyota's material for the fifth-generation RAV4 names the TNGA-K platform without the word unibody",
+     "resolution": "Left out. No search result stated unibody or unitized body for the 2024 gasoline RAV4 itself; carrying it over from another model year or the PHEV is not allowed."
+    }
+   ],
+   "searchesUsed": 6
+  },
+  {
+   "id": "2024-toyota-tacoma-trd-off-road",
+   "fields": [
+    {
+     "key": "construction",
+     "text": "body-on-frame",
+     "publisher": "Toyota USA Newsroom",
+     "url": "https://pressroom.toyota.com/all-new-2024-toyota-tacoma-is-adventure-ready-out-of-the-box/",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "corroboratingUrl": "https://wardsauto.com/vehicles/2024-toyota-tacoma-equipped-maintain-dominance",
+     "note": "Toyota's 2024 Tacoma release describes the truck as built on the TNGA-F truck platform and 'constructed from a high-strength boxed, steel-ladder frame', and places it in the 'mid-size, body-on-frame pickup segment'. This applies to the whole 2024 Tacoma line, not a single trim. Ward's separately describes a fully boxed high-strength steel ladder frame. Read from search-result summary; page not opened."
+    },
+    {
+     "key": "zeroToSixtySec",
+     "number": 6.8,
+     "publisher": "Car and Driver (comparison test, as republished by 0-60specs.com)",
+     "url": "https://www.0-60specs.com/toyota/tacoma-0-60-times",
+     "sourceKind": "reference",
+     "basis": "republished",
+     "corroboratingUrl": "https://www.tacoma4g.com/forum/threads/c-d-comparison-test-2024-tacoma-trd-off-road-versus-2023-chevy-colorado-zr2.2061/latest",
+     "note": "A performance database lists 6.80 s 0-60 and a 15.2 s quarter mile at 92 mph for a 2024 Tacoma TRD Off-Road Double Cab 5-ft bed, 4WD, 8-speed automatic, 2.4L turbo 278 hp, and names Car and Driver as the source. A forum excerpt of Car and Driver's TRD Off-Road vs Colorado ZR2 comparison gives the same 6.8 s, 15.2 s and 92 mph. The original Car and Driver page was not in the results, so this is second-hand, and the option content of the tested truck is not known. Other tests gave 7.0 s and 7.2 s (see conflicts). Read from search-result summary; page not opened."
+    }
+   ],
+   "notFound": [
+    "topSpeedMph: no source gave a top speed for the automatic TRD Off-Road. A GearJunkie spec page lists 106 mph for the TRD Off-Road Manual, which is a different transmission and was not used.",
+    "curbWeightLb: Toyota's 2024 Tacoma product information sheet gives only a range of 4,485-4,720 lb for all i-FORCE 4x4 Double Cabs, with no figure tied to the TRD Off-Road. Not used: a 4,794 lb weight attributed to a Car and Driver test truck (a measured weight of an optioned truck, not the maker's figure), and 4,630 lb on carspecs.us (configuration unconfirmed).",
+    "lateralGripG: a dealer comparison page attributes 0.77 g to a MotorTrend test of a 'Tacoma 5-ft bed TRD Off-Road Double Cab', but the MotorTrend page was not in the results and the tested truck's options are unknown, so it was left out. No Car and Driver skidpad figure was found."
+   ],
+   "conflicts": [
+    {
+     "key": "zeroToSixtySec",
+     "values": "6.8 s (Car and Driver comparison test vs Colorado ZR2, via 0-60specs.com, a tacoma4g.com forum excerpt and a Toyota dealer comparison page); 7.0 s (a 'Tested: 2024 Toyota Tacoma Is No Longer a Dinosaur' article on autos.yahoo.com, quarter mile 15.3 s; publication and exact trim not confirmed in the summary); 7.2 s (MotorTrend first test of the TRD Off-Road, via a Valley Hi Toyota dealer summary)",
+     "resolution": "Used 6.8 s because three independent republishers agree on it and one of them states the exact configuration (TRD Off-Road Double Cab, 5-ft bed, 4WD, 8-speed automatic). All three figures are second-hand and may be from differently optioned trucks; none was read from the original test page. Marked as republished so the catalogue can drop it if a primary reading is required."
+    },
+    {
+     "key": "curbWeightLb",
+     "values": "4,485-4,720 lb (Toyota product information sheet, range for all i-FORCE 4x4 Double Cabs); 4,794 lb (weight of a TRD Off-Road test truck attributed to Car and Driver, via autos.yahoo.com); 4,630 lb (carspecs.us, TRD Off-Road Double Cab 5-ft bed automatic, configuration unconfirmed); 4,650 lb (iSeeCars, 2025 model year)",
+     "resolution": "Left out. The maker publishes only a range that does not single out this trim, the test-truck weight sits above that range (so it reflects options), and the listing-site figures are unconfirmed or for another year."
+    }
+   ],
+   "searchesUsed": 8
+  },
+  {
+   "id": "2024-volkswagen-golf-gti-s",
+   "fields": [
+    {
+     "key": "fuelType",
+     "text": "gasoline",
+     "publisher": "U.S. EPA / DOE (fueleconomy.gov)",
+     "url": "https://www.fueleconomy.gov/feg/Find.do?action=sbs&id=46781",
+     "corroboratingUrl": "https://www.fueleconomy.gov/Feg/bymake/Volkswagen2024.shtml",
+     "sourceKind": "agency",
+     "basis": "government-rating",
+     "note": "fueleconomy.gov results for the 2024 Volkswagen GTI, 2.0 L 4-cylinder, 6-speed manual, list it as Regular Gasoline, front-wheel drive, turbo, 27 combined / 23 city / 34 highway mpg, which matches the catalogue's EPA figures for this configuration. The summary did not tie the vehicle id 46781 to the manual explicitly, but the 23/34/27 figures are the manual's per the VW press kit. Read from search-result summary; page not opened."
+    },
+    {
+     "key": "aspiration",
+     "text": "turbocharged",
+     "publisher": "Volkswagen of America (media.vw.com, 2024 Golf GTI Press Kit)",
+     "url": "https://media.vw.com/press-kits/2024-golf-gti-press-kit",
+     "corroboratingUrl": "https://www.fueleconomy.gov/feg/Find.do?action=sbs&id=46781",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "VW's 2024 Golf GTI press kit describes the car as using a turbocharged 2.0-liter EA888 evo4 engine producing 241 hp and 273 lb-ft, paired with either a 6-speed manual or 7-speed DSG; one engine across all trims, so it applies to the manual S. The EPA listing for the 2024 GTI manual also marks it as turbo. Read from search-result summary; page not opened."
+    }
+   ],
+   "notFound": [
+    "topSpeedMph",
+    "zeroToSixtySec",
+    "lateralGripG",
+    "construction"
+   ],
+   "conflicts": [
+    {
+     "key": "zeroToSixtySec",
+     "values": "5.8 s (attributed to Car and Driver, manual, as repeated second-hand in a Detroit News review reprinted at https://henrypayne.com/?p=32746; trim tested not stated); 6.4 s (Consumer Reports manual test, per search summary of https://inventory.consumerreports.org/cars/volkswagen/gti/2024/road-test-report/; trim not stated); 5.1 s (Clean Fleet Report road test of the GTI 380 S, https://cleanfleetreport.com/road-test-2024-volkswagen-golf-gti-380-s-special-edition/; not shown to be an instrumented result)",
+     "resolution": "Left out. No original instrumented test page appeared in the results, the tested trim is not identified for the two named tests, and the three values disagree by up to 1.3 s. The Edmunds track-test page (https://www.edmunds.com/car-news/2024-vw-golf-gti-380-track-tested.html) exists but its 0-60 figure was not in the summary."
+    },
+    {
+     "key": "topSpeedMph",
+     "values": "127 mph (Detroit News review reprinted at https://henrypayne.com/?p=32746, source of figure and whether governed not stated); 155 mph electronically limited (https://tractionlife.com/2024-volkswagen-golf-gti-review/, no source named; VW's European release for the 265 PS facelift car also says 250 km/h, a different market and engine tune); 158 mph (Motor Matchup simulation, not a test)",
+     "resolution": "Left out, and topSpeedGoverned not reported. No maker figure for the US 2024 manual S and no original instrumented test appeared; the 155 mph figure traces to a different-market, different-output car."
+    },
+    {
+     "key": "epaHighwayMpg",
+     "values": "Not on my list, noted only for the record: the fueleconomy.gov comparison page and VW press kit give 23 city / 34 highway / 27 combined for the manual; a search summary of the fueleconomy.gov Volkswagen 2024 by-make page showed 24 city / 31 highway / 27 combined against a manual GTI entry.",
+     "resolution": "No change proposed; the catalogue's 23/34/27 matches the maker's press kit and the EPA comparison page. The 24/31 reading may be a mis-read row in the summary (it is the DSG's pattern); page not opened."
+    }
+   ],
+   "searchesUsed": 8
+  }
+ ],
+ "reviews": [
+  {
+   "id": "2024-chevrolet-corvette-stingray-z51",
+   "checks": [
+    {
+     "key": "powertrainWarrantyYears",
+     "verdict": "confirmed",
+     "claimed": "5",
+     "found": "5 years (Chevrolet Powertrain Limited Warranty, brand-wide)",
+     "url": "https://www.cars.com/articles/which-2024-vehicles-have-the-best-warranty-coverage-520187/",
+     "note": "A separate search summary reports the cars.com 2024 warranty comparison and a 2021 Corvette acknowledgment form both showing 5 years/60,000 miles powertrain for Chevrolet, matching the 2024 Complete Care form. The term is brand-wide, not Z51-specific; read from search summaries only, the chevrolet.com warranty page text was truncated."
+    },
+    {
+     "key": "powertrainWarrantyMiles",
+     "verdict": "confirmed",
+     "claimed": "60000",
+     "found": "60,000 miles (Chevrolet Powertrain Limited Warranty, brand-wide)",
+     "url": "https://www.cars.com/articles/which-2024-vehicles-have-the-best-warranty-coverage-520187/",
+     "note": "Same independent support as the years figure: cars.com 2024 comparison and the 2021 and 2024 Corvette forms give 5 years/60,000 miles. One CorvetteForum 'Ask Tadge' answer cites 5 years/100,000 miles, but it is undated in the results and looks like an older GM term, not the 2024 one."
+    },
+    {
+     "key": "groundClearanceIn",
+     "verdict": "unconfirmed",
+     "claimed": "5.3",
+     "found": "5.3 in on iSeeCars for the 2024 2dr Coupe w/2LT; 5 in on cars.com for a 2024 convertible; 100 mm (about 3.9 in) on carsales.com.au (Australian market)",
+     "url": "https://www.iseecars.com/car/2024-chevrolet-corvette-dimensions",
+     "note": "A third listing site repeats 5.3 in for the 2024 Stingray coupe, but none ties it to the Z51 package, no maker specification surfaced, and other listings give 5 in and 3.9 in. The listing sites appear to share one data feed (iSeeCars shows 5.300000190734863), so their agreement is not independent confirmation; the record's corroborating Autopadre page is described in results as a 2LT convertible."
+    },
+    {
+     "key": "drivetrain",
+     "verdict": "confirmed",
+     "claimed": "RWD",
+     "found": "rear wheel drive (Edmunds, 2024 Corvette Stingray)",
+     "url": "https://www.edmunds.com/chevrolet/corvette/2024/st-402000559/features-specs",
+     "note": "Search summary of the Edmunds 2024 Stingray features-specs page gives 'Drive Type: rear wheel drive'. The Z51 package does not change the driven wheels (only the E-Ray is AWD in the 2024 range), and RWD is within the allowed values."
+    }
+   ],
+   "concerns": [
+    "Everything here, the original record and this review, was read from search-result summaries; no page was opened. The maker's own 2024 specification sheet never surfaced in any search.",
+    "Ground clearance 5.3 in should stay out or be shown as unverified: it comes only from listing sites that appear to share one data feed, it is keyed to trim level (2LT/3LT) and not to the Z51 package, the corroborating Autopadre page is a convertible listing, and other listings give 5 in (cars.com, convertible) and 100 mm (carsales, Australia).",
+    "Curb weight: correctly left out. This review found two more disagreeing figures: 3,647 lb on Motor Matchup for a 2025 Stingray 1LT Z51 coupe (wrong model year) and 1,645 kg, about 3,627 lb, on carsales.com.au (Australian market). Together with 3,535 and 3,467 lb in the record, there are at least four different listing figures and none is the maker's for a 2024 Z51 coupe.",
+    "Top speed: correctly left out. The only maker-branded figure seen is Chevrolet Arabia's 2024 Stingray page, 312 km/h (about 194 mph), which is another market and not stated for the Z51; the 184 mph Z51 figure did not appear in any result in this review.",
+    "Lateral grip: correctly left out; nothing new surfaced, and the only traceable test remains a 2023 model-year car reported secondhand.",
+    "Aspiration: the only text found ('Aspirated', Australian listing) is outside the allowed values and from another market. Leaving it out is consistent with the rule, even though the 6.2 L V8 here is not described as turbocharged or supercharged by any source seen.",
+    "Drivetrain source quality: the record cites a LapMeta database page (Italian-language path, model year not stated). The Edmunds 2024 Stingray features-specs page is a better citation for RWD.",
+    "Warranty source quality: the cited document is a Chevrolet form hosted as a forum attachment, and the gmenvolve.com corroboration is a fleet/commercial GM site and not model-year specific. The figure is brand-wide, not specific to this configuration; chevrolet.com/owners/warranty would be the better publisher if its text can be read.",
+    "Established figures look consistent with what was seen: TrueCar and a dealer page state 490 hp / 465 lb-ft standard and 495 hp / 470 lb-ft with the performance exhaust that the Z51 package includes, and 0-60 in about 2.9 s with Z51. These are maker claims, not instrumented test results, and should be labelled that way."
+   ],
+   "searchesUsed": 4
+  },
+  {
+   "id": "2024-ford-f-150-raptor",
+   "checks": [
+    {
+     "key": "aspiration",
+     "verdict": "confirmed",
+     "claimed": "twin-turbocharged",
+     "found": "twin-turbocharged (\"3.5-liter TT High Output V6\", about 450 hp)",
+     "url": "https://www.slashgear.com/1390993/2024-ford-f-150-raptor-tremor-upgrades-performance-specifications",
+     "note": "A separate search returned launch coverage of the 2024 Raptor describing the engine as a 3.5-liter TT (twin-turbo) High Output V6 with about 450 hp, which matches the established 3.5L / 6-cylinder / 450 hp configuration and the record's Ford spec-sheet source. Value is inside the allowed list; the only other 2024 Raptor engine (5.2L supercharged V8) is the Raptor R and is not this record. Read from search summary, page not opened."
+    },
+    {
+     "key": "construction",
+     "verdict": "confirmed",
+     "claimed": "body-on-frame",
+     "found": "Ford 2024 Raptor spec sheet: \"high-strength steel frame, aluminum cabin and bed\"",
+     "url": "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2024/specs/2024-Ford-Raptor-and-Raptor-R-Tech-Specs.pdf",
+     "note": "My own search surfaced the same wording from Ford's 2024 Raptor sheet: a separate high-strength steel frame carrying an aluminum cab and bed, which is body-on-frame by definition. This is the same maker document the record cites, not a second publisher, and the words \"body-on-frame\" are an inference from the description; \"fully boxed\" appeared only in a 2027 Ford sheet and should not be attached to 2024. Read from search summary, page not opened."
+    },
+    {
+     "key": "fuelType",
+     "verdict": "confirmed",
+     "claimed": "gasoline",
+     "found": "gasoline (EPA-based listings say fuel type Regular; 3.5L 6-cyl turbo, Automatic S10, part-time 4WD, 14/18/16 mpg)",
+     "url": "https://driveclean.ca.gov/taxonomy/term/36292",
+     "note": "A separate search returned the California DriveClean and mpgbuddy listings for the 2024 F150 RAPTOR 4WD with the same 14/18/16 rating as the established configuration and a fuel type of Regular gasoline; nothing in any result indicates a hybrid, diesel or electric Raptor for 2024 (the hybrid PowerBoost is a different F-150 engine). Value is inside the allowed list. The summary did not make clear which of the two listings carried the fuel-type line; fueleconomy.gov itself did not appear."
+    }
+   ],
+   "concerns": [
+    "All three reported fields are plain configuration facts and all three checks rest on search-result summaries only; no page was opened by either reader.",
+    "Curb weight was correctly left out. My search found the same spread (Edmunds 5,710 lb; autopadre 5,863 lb; auto123 axle weights 3,330 + 2,533 lb with no configuration stated) plus auto-data.net giving a range of 5,709.97 to 5,866.5 lb for the facelift Raptor 3.5 EcoBoost. That range fits the pattern of roughly 5,710 lb for the base 35-inch truck and roughly 5,867 lb with the 37 Performance Package, so the 5,863 lb listing figures very likely belong to the 37-inch package truck and not the base configuration. No model-year-2024 maker curb weight was visible in any summary, so this is still an inference and curb weight should stay unrated.",
+    "The search summary describes Ford's 2024 Raptor and Raptor R tech specs PDF as a preliminary spec sheet, so figures taken from it could differ from final ones. That does not affect aspiration or frame construction, but it matters if curb weight is later read from that PDF.",
+    "EPA-based listings describe the engine only as turbocharged (the EPA data flags the presence of a turbocharger, not the count). This is not a contradiction of twin-turbocharged, which comes from Ford and launch coverage, but an editor should not treat the EPA listing as the source for the twin-turbo value.",
+    "Fuel grade is unsettled (EPA-based listings say Regular; the first reader's query assumed premium). It does not change fuelType = gasoline and is not a catalogue key, but do not publish a grade from this record.",
+    "Some sites give 15/18/17 mpg for a 2024 Raptor instead of the established 14/18/16. The EPA-based listings for the 3.5L S10 part-time 4WD truck match 14/18/16; the other figures look like a different year or a retailer error, but fueleconomy.gov itself was not seen.",
+    "The record's notFound and conflicts reasoning for zeroToSixtySec (Edmunds 5.8 s was a truck with the optional 37-inch tire package; Car and Driver and MotorTrend figures are 2021-2023 trucks), topSpeedMph (114 mph limiter figure is for the Raptor R) and lateralGripG reads as sound; I did not spend searches on them and found nothing that would let any of them be published for the base 2024 truck.",
+    "Transmission gear count is not a field in this record; the EPA code S10 seen in the listings indicates a 10-speed automatic, consistent with transmissionType = automatic, but no maker statement of the gear count was surfaced."
+   ],
+   "searchesUsed": 3
+  },
+  {
+   "id": "2024-ford-mustang-gt",
+   "checks": [
+    {
+     "key": "construction",
+     "verdict": "confirmed",
+     "claimed": "unibody",
+     "found": "unibody (unitized steel body)",
+     "note": "Not independently quoted in my search summaries: my one search that mentioned construction returned nothing on it. Confirmed on the basis that the value is within the allowed set, the record's own quoted Ford wording ('fully unitized steel chassis') means unibody, and nothing in any result suggests a separate frame for this car. The Ford preliminary PDF the record cites did appear in my results (same mirror URL), but its construction line was not shown to me."
+    },
+    {
+     "key": "curbWeightLb",
+     "verdict": "unconfirmed",
+     "claimed": "3741",
+     "found": "3,741 lb 'Base Curb Weight' for 2024 GT Fastback on Cars.com and Auto123 (transmission not stated); Ford preliminary estimate 3,730 lb manual / 3,752 lb automatic; reviews give 3,827 lb (Motor1, The Drive) and about 3,947 lb (Motorbiscuit, said to be manual)",
+     "url": "https://www.cars.com/research/ford-mustang-2024/specs/439075/",
+     "note": "The number itself is repeated for the GT Fastback trim by Cars.com and Auto123, but no result ties it to the 6-speed manual, and it sits exactly halfway between Ford's preliminary manual (3,730) and automatic (3,752) estimates. No final Ford figure for the manual fastback was found, and review figures differ by 86 to 206 lb, so the exact-configuration match is not established."
+    }
+   ],
+   "concerns": [
+    "Curb weight 3,741 lb is exactly the midpoint of Ford's preliminary estimates for the GT fastback manual (3,730 lb) and automatic (3,752 lb). It may be a data-provider figure that is not specific to the manual; the search summary itself says it 'may reflect either transmission'.",
+    "The listings that agree on 3,741 lb (CarBuzz, iSeeCars, Motor Matchup, Cars.com, Auto123) very likely draw on the same licensed data feed, so they should be counted as one source, not several independent ones.",
+    "Published review weights for the 2024 GT are much higher than the listing figure: 3,827 lb (Motor1 for a GT Premium; The Drive first drive, trim not stated in the summary) and about 3,947 lb (Motorbiscuit, described as the manual). A 200 lb spread means any single listing figure is doubtful; if the catalogue rule is to leave out doubtful figures, curb weight should be left out or shown as not rated.",
+    "The only maker figure for this exact body and transmission (3,730 lb) is a pre-production estimate dated Sept. 14, 2022, marked subject to change, and seen only on third-party mirrors (ffperformance.co, mustang7g.com). No final Ford 2024 specification sheet turned up in four searches.",
+    "The record's CarBuzz URL (carbuzz.com/cars/ford/mustang-gt/specs-and-trims) has no model year in it and did not appear in my results; it may now show a later model year than 2024. I could not check this.",
+    "The construction field is labelled sourceKind 'manufacturer', but the cited copy is a mirror on a non-Ford site, and the corroborating URL is the 2026 model-year sheet. The value is not in doubt; the source labelling is weaker than it looks.",
+    "I agree with leaving out top speed: results conflict (forum posts say the governor is 145 mph or 155 mph; Motor1 gives an estimated 160 mph; The Auto Channel says 'will top 150 mph'), and no Ford statement or instrumented figure for the non-Performance-Package manual GT was found.",
+    "I agree with leaving out 0-60 and lateral grip: the figures found (4.2 s manual via Motorbiscuit with no test named, 4.3 s for a Performance Package car, Motor1's 4.5 s estimate) are either estimates, unattributed, or from cars with the GT Performance Package, which changes tires, brakes and axle ratio.",
+    "Several results in the weight searches are for other markets (auto-data.net and autotijd.be list the 446 hp European GT at 1,733 kg and 1,808 kg DIN; carsales.com.au is Australian). None of these should be used for the US 480 hp car.",
+    "All findings are from search-result summaries; no page was opened, so none of the quoted figures were read on the source page itself."
+   ],
+   "searchesUsed": 4
+  },
+  {
+   "id": "2024-honda-odyssey-ex-l",
+   "checks": [
+    {
+     "key": "drivetrain",
+     "verdict": "confirmed",
+     "claimed": "FWD",
+     "found": "Front-wheel drive on every 2024 Odyssey trim; no AWD offered",
+     "url": "https://www.edmunds.com/honda/odyssey/2024/features-specs",
+     "note": "Two independent searches agreed: the Edmunds 2024 specification summary gave 'Drive Type: front wheel drive', and review summaries (Cars.com, TrueCar, CarBuzz) said every trim has the 3.5L V6, 10-speed automatic and front-wheel drive and that AWD is not available, unlike the Sienna and Pacifica. No result supported the dealer page's AWD mention. Read from search summaries; pages not opened."
+    },
+    {
+     "key": "aspiration",
+     "verdict": "confirmed",
+     "claimed": "naturally-aspirated",
+     "found": "No forced induction on any 2024 Odyssey trim; the exact phrase 'naturally aspirated' did not appear in the results I saw",
+     "url": "https://www.theautochannel.com/news/2024/02/22/1344817-2024-honda-odyssey-elite-review-by-david-colman.html",
+     "note": "Confirmed by inference, not by a stated specification: the KBB summary said no 2024 Odyssey trim offers a turbo engine, and The Auto Channel's 2024 Odyssey Elite review was summarised as contrasting its V6 with 'turbocharged' four-cylinder rivals, with a spec list showing direct injection and no forced induction. All trims share the single 3.5L SOHC i-VTEC V6 (280 hp, 262 lb-ft), so this carries to the EX-L. The value is within the allowed list."
+    }
+   ],
+   "concerns": [
+    "Aspiration rests on inference. Neither my searches nor the record's found a Honda or EPA page that states the aspiration; my targeted search for the phrase 'naturally aspirated' returned no result using it. The evidence is the absence of any turbo or supercharger in Honda's engine description plus review statements that no turbo engine is offered. The fact is not in real doubt, but the record's own citation wording (CarBuzz 'traditional naturally aspirated six-cylinder') was not seen by me.",
+    "The record's corroborating source for aspiration, doubleclutch.ca, is a Canadian outlet and its model year was not shown, so it is a different market and possibly a different year. It should not be relied on as the corroboration for a US 2024 EX-L.",
+    "The record's primary aspiration URL (carbuzz.com/cars/honda/odyssey-generations) appeared in results titled '2024 Honda Odyssey Review: Family-Friendly Fun', but the address is a generations page whose content may change with later model years.",
+    "I did not see the fueleconomy.gov page cited for drivetrain (id=46860) in my results, so I cannot vouch that that id is the 2024 Odyssey; the FWD value itself is independently supported.",
+    "Curb weight (already established, not part of this record): the summary of Honda's own 2024 Odyssey specification sheet on hondanews.com gave 4,482 / 4,526 / 4,535 / 4,559 / 4,590 lb for EX / EX-L / Sport / Touring / Elite, so 4,526 lb is the EX-L figure; Edmunds and Motor Matchup were summarised as agreeing. One VIN-lookup site showed 4,400 lb, an outlier.",
+    "The record's decisions to leave out zeroToSixtySec (both figures are for the Elite trim, one for 2025, via an aggregator), groundClearanceIn (listing sites disagree, 4.5 in vs 5 in) and topSpeedMph look right; I found nothing that would support adding them for the EX-L.",
+    "Construction was left out for lack of a 2024 source. The only statement the record found used 'unit-body', which is not one of the allowed values (unibody | body-on-frame) and was for the 2025 model; if it is ever added it must be normalised and sourced for 2024.",
+    "The dealer-page mention of an 'i-VTM4 AWD system' is unsupported by every other source and should not be carried into the catalogue; all results say the 2024 Odyssey is front-wheel drive only.",
+    "No horsepower or torque figure in this record was built by adding motor outputs; the vehicle has a single gasoline engine.",
+    "All of my findings come from search-result summaries, not from opened pages."
+   ],
+   "searchesUsed": 3
+  },
+  {
+   "id": "2024-jeep-wrangler-rubicon",
+   "checks": [
+    {
+     "key": "fuelType",
+     "verdict": "confirmed",
+     "claimed": "gasoline",
+     "found": "gasoline",
+     "note": "Follows from the established configuration: a 3.6L Pentastar V6 with EPA ratings of 16/19/17 in plain MPG (no MPGe, no electric range) is a gasoline vehicle; the plug-in 4xe and the 2.0L turbo are separate Wrangler powertrains. None of my four searches produced a new independent URL for this, and the record's cited URL is the EPA's 2024 Jeep index page rather than the vehicle page."
+    },
+    {
+     "key": "aspiration",
+     "verdict": "confirmed",
+     "claimed": "naturally-aspirated",
+     "found": "naturally-aspirated",
+     "note": "Confirmed on the basis of the established configuration only: 3.6L Pentastar V6 at 285 hp / 260 lb-ft is the non-boosted Pentastar output, and the only turbocharged 2024 Wrangler engine is the separate 2.0L four. My searches did not return a US-market page stating it, and the record's own source is an Australian-market news article, so the citation is weak even though the value is not in doubt."
+    },
+    {
+     "key": "curbWeightLb",
+     "verdict": "unconfirmed",
+     "claimed": "left out (4575 lb vs 4604 lb in conflict)",
+     "found": "4575 lb again on Motor Matchup and cars.com for a 2024 Rubicon 4-door, engine/transmission not stated; Jeep's own FAQ gives only a range of 4,287 to 4,976 lb for four-door models",
+     "url": "https://jeep.com/wrangler/faq.html",
+     "note": "Three searches found no source giving a curb weight for the Rubicon 4-door with the V6 and the 8-speed automatic specifically. 4604 lb was not corroborated by anything I saw, and 4575 lb is attached to the manual or to an unstated transmission, so leaving the figure out is correct."
+    },
+    {
+     "key": "groundClearanceIn",
+     "verdict": "unconfirmed",
+     "claimed": "left out (10.8 / 12.9 / 11.6 / 11.1 / 11 in, none tied to this configuration)",
+     "found": "10.8 in attributed by a search summary to The Drive's first-drive review for a four-door Rubicon on the standard 33-inch tires; 12.9 in is Jeep's headline figure (35-inch tire package)",
+     "url": "https://www.thedrive.com/car-reviews/2024-jeep-wrangler-first-drive-review-specs-price-options-impressions",
+     "note": "One search summary tied 10.8 in to a four-door Rubicon on 33-inch tires, which conflicts with the record's statement that 10.8 was given for the Sport S. That is a single unopened summary (and it called the figure 'measured', which is doubtful), so it is a lead for an editor rather than a confirmation; 12.9 in belongs to the 35-inch tire package and must not be used."
+    },
+    {
+     "key": "zeroToSixtySec",
+     "verdict": "unconfirmed",
+     "claimed": "left out (7.2 s calculated, 6.9 s simulated, 'mid-seven-second' hearsay)",
+     "found": "No instrumented test of the 2024 V6 Rubicon 4-door surfaced. Motor Matchup's simulation was summarised as 7.11 s this time, not the 6.9 s the record quotes from the same site",
+     "note": "Only simulations and figures for other powertrains turned up (Hagerty 6.0 s for the Rubicon 4xe; Jeep's 4.5 s estimate for the 392). Leaving it out is correct; the simulated figure even changes between passes."
+    },
+    {
+     "key": "topSpeedMph",
+     "verdict": "unconfirmed",
+     "claimed": "not found (127 mph seen only as a Motor Matchup simulation)",
+     "note": "No maker's claim, governed limit or tested top speed for this configuration appeared in any search. The simulated 127 mph should stay out."
+    },
+    {
+     "key": "lateralGripG",
+     "verdict": "unconfirmed",
+     "claimed": "not found",
+     "note": "No instrumented skidpad figure for a 2024 V6 Rubicon 4-door appeared in the search for instrumented tests."
+    },
+    {
+     "key": "construction",
+     "verdict": "unconfirmed",
+     "claimed": "not found",
+     "found": "body-on-frame is the expected value for every JL Wrangler, but no result I saw stated it",
+     "note": "My fourth search included 'body-on-frame' and the summary did not address construction. The value is not in real doubt for a Wrangler, but I saw no source for it in this pass, so I cannot mark it confirmed."
+    }
+   ],
+   "concerns": [
+    "Curb weight: 4575 lb is repeated across listing sites (J.D. Power, Auto123, cars.com, Motor Matchup), but where a transmission is stated it is the 6-speed manual. Do not publish it for this automatic record, and do not derive 4604 by adding a forum's 29 lb difference.",
+    "Jeep's own FAQ page gives only a curb-weight range for four-door Wranglers (4,287 to 4,976 lb per the search summary), not a per-trim, per-transmission figure; the maker's full specification sheet was not seen by either reader.",
+    "Ground clearance: the first reader attributed 10.8 in to the Sport S, while my search summary attributed 10.8 in to a four-door Rubicon on 33-inch tires (The Drive). One of the two summaries is misreading the source. Someone who can open the Stellantis 2024 Wrangler specification sheet or The Drive's review should settle it before the figure is used; until then it should stay out.",
+    "Jeep's headline 12.9 in ground clearance applies to the 35-inch tire package (Rubicon X / Xtreme 35), not to the standard Rubicon on 33-inch tires.",
+    "The aspiration citation is an Australian-market news article. The value is right for the engine, but a US-market source (maker's specification sheet) would be a better citation.",
+    "The fuelType citation URL is the EPA's 2024 Jeep index page, not the individual vehicle page, and the corroborating URL is a third-party aggregator.",
+    "No instrumented test (0-60, top speed, skidpad) of a 2024 V6 Rubicon 4-door was found by either reader; every performance number in circulation is a simulation, an estimate or belongs to the 392 or 4xe. Those attributes should stay unrated for this card.",
+    "All findings here come from search-result summaries; no page was opened by either reader."
+   ],
+   "searchesUsed": 4
+  },
+  {
+   "id": "2024-mazda-mx-5-miata-club",
+   "checks": [
+    {
+     "key": "drivetrain",
+     "verdict": "confirmed",
+     "claimed": "RWD",
+     "found": "RWD",
+     "url": "https://www.iseecars.com/car/2024-mazda-mx__5_miata-specs",
+     "note": "An independent listing (iSeeCars) was summarized as giving the 2024 Club 2-door convertible an RWD drive type. Reviews (Motor1, CarPro, Edmunds) describe the manual Club's asymmetric limited-slip rear differential, which fits a rear-drive layout; no result gave any other drivetrain for any 2024 MX-5. Value is within the allowed set (FWD | RWD | AWD | 4WD). Seen in search summaries only; no page was opened."
+    }
+   ],
+   "concerns": [
+    "Curb weight: the record's decision to leave it out holds up. My searches found the same split (2,341 lb on the cars.com Club Manual page; 2,368 lb on KBB and iSeeCars for the Club) plus two more values the record does not list: 2,374 lb (CarGurus, described as a base figure, trim not stated) and 2,484 lb (The Auto Channel's 2024 Club 6MT review). No Mazda-published 2024 figure surfaced; the 2024 MX-5 Spec Deck PDF appeared in results again but its weight figures were not shown in any summary.",
+    "The only field in the record (drivetrain) rests on a search-result summary of Mazda's pricing release, not on the page itself; my confirmation is likewise from search summaries, not opened pages.",
+    "Aspiration is listed as not found. The Skyactiv-G 2.0 in the MX-5 is not turbocharged or supercharged, but I did not search for or see a source stating 'naturally aspirated' for the 2024 Club, so I am not offering it as a confirmed value.",
+    "The record's left-out test figures (0-60 of 5.5 s and 5.7 s, 0.90 g lateral grip) all come from the RF hardtop body or other model years. My results also showed that the track-tested 2024 car at Edmunds was an RF Club, and a CarPro review covers a Club with the Brembo/BBS/Recaro package, so any test figure added later needs a body-style and option-package check before use.",
+    "I did not search for top speed, ground clearance or construction; those remain unverified and should stay out. For construction, the record only has Mazda's 2016/2017 press-kit wording, which is not a 2024 source."
+   ],
+   "searchesUsed": 3
+  },
+  {
+   "id": "2024-porsche-911-carrera",
+   "checks": [
+    {
+     "key": "zeroToSixtySec",
+     "verdict": "confirmed",
+     "claimed": "4.0 s (maker's claim, without Sport Chrono; 3.8 s with Sport Chrono)",
+     "found": "4.0 s, 3.8 s with launch control (Stuttcars 992.1 Carrera Coupe page, 2020-2024); a syndicated 'Tested: Base 2020 Porsche 911' article says Porsche claims about 4 seconds and reports a measured 3.2 s",
+     "url": "https://www.stuttcars.com/porsche-911-carrera-coupe-992/",
+     "note": "An independent reference page for the 992.1 Carrera Coupe (379 hp, 2020-2024) gives the same 4.0 s / 3.8 s pair, and a 2020 base-car test article repeats that Porsche claims about 4 seconds. This confirms it only as Porsche's claim for the 379 hp car, not as an instrumented result; no Porsche page for model year 2024 was seen, and all of this is from search summaries, not opened pages."
+    },
+    {
+     "key": "topSpeedMph",
+     "verdict": "confirmed",
+     "claimed": "182 mph (maker's top track speed claim)",
+     "found": "182 mph, described as the official figure (Stuttcars 992.1 Carrera Coupe page); an Encycarpedia 2019 911 Carrera coupe page also lists 182 mph",
+     "url": "https://www.stuttcars.com/porsche-911-carrera-coupe-992/",
+     "note": "Two reference sources other than the cited dealer page give 182 mph for the 379 hp 992.1 Carrera coupe; the 183 mph figure appeared only on Porsche's 992.2 specification sheet (2025 car, 3,342 lb, 3.9 s), which supports the record's conflict resolution. It is a maker's 'top track speed' claim for the generation, not a tested figure, and nothing seen says whether it is electronically limited."
+    }
+   ],
+   "concerns": [
+    "Both figures are Porsche's own claims repeated by reference sites, not instrumented test results. If the catalogue's rating rule needs a test figure, neither of these qualifies as one.",
+    "The cited source is weak: a dealer-hosted page whose title says 2026 while its URL says 2024. The Stuttcars 992.1 Carrera Coupe page (2020-2024) is a cleaner reference for the same values, though it is generation-wide rather than model year 2024 specifically. No Porsche newsroom or press-kit page for the 2024 base Carrera appeared in my results.",
+    "The 0-60 claim is far from the measured figure: a syndicated 'Tested: Base 2020 Porsche 911' article and Stuttcars both report repeated 3.2 s runs to 60 mph and an 11.5 s quarter-mile for a base 379 hp Carrera. That car was model year 2020 and its options (Sport Chrono launch control) were not stated in what I saw, so I agree it should not be used for this record, but the 4.0 s figure must be labelled as the maker's claim without Sport Chrono.",
+    "Encycarpedia is inconsistent across its pages: my search summary showed 4.1 s and 182 mph on its 2019 Carrera coupe page, while the record says its '2024' page lists 4.0 s, 183 mph and 389 hp (a 992.2 output). It should not be relied on for either figure.",
+    "Whether 182 mph is electronically governed was not found by me either; topSpeedGoverned should stay empty.",
+    "Curb weight (established as 3,354 lb) was not independently corroborated by my searches. The results returned only Porsche's Carrera T sheet (3,254 / 3,338 lb, with the manual/PDK assignment unclear between sources) and the 992.2 Carrera sheet (3,342 lb). Nothing contradicted 3,354 lb, but take care not to substitute the 992.2 figure.",
+    "The 1.08 g skidpad figure attributed to Car and Driver's 2020 base Carrera test did not appear in any result I saw; leaving lateralGripG out is correct. Construction and ground clearance also remain unsupported by any source seen.",
+    "My fourth search returned an error (domain filter rejected) and produced no results, so only three searches yielded evidence. Everything here is read from search-result summaries; no page was opened."
+   ],
+   "searchesUsed": 4
+  },
+  {
+   "id": "2024-subaru-outback-premium",
+   "checks": [
+    {
+     "key": "fuelType",
+     "verdict": "confirmed",
+     "claimed": "gasoline",
+     "found": "Unleaded gasoline (87 octane) for the 2.5-liter; EPA-derived listing gives regular gasoline for the 2024 Outback AWD",
+     "url": "https://www.subaru.com/services/vehicles/pdf/trimComparison/2024/OBK",
+     "note": "A separate search (different wording) again returned Subaru's 2024 Outback trim comparison sheet summarised as 'Unleaded gasoline (87 octane)', and an EPA-based listing (mpgbuddy.com/cars/subaru/outback-awd/2024) summarised as regular gasoline for the 2024 Outback AWD. It also follows from the established configuration (2.5L naturally aspirated flat-four with CVT, no hybrid system offered in the 2024 US Outback); the value is within the allowed enumeration. The fueleconomy.gov page itself did not appear in my results, so the record's primary URL is not independently re-seen; the Subaru sheet is."
+    }
+   ],
+   "concerns": [
+    "The record's note quotes an 18.5-gallon tank from the fueleconomy.gov summary. My search did not turn up that figure for 2024 (the only tank figure returned was 18 gallons on Subaru's 2026 Outback sheet, a different generation). Tank size is not a catalogue field here, but the note's detail is unverified and should not be reused as a figure.",
+    "The fueleconomy.gov URL cited as the primary source (46541.shtml) did not surface in my searches, so I could not confirm that this vehicle id is the 2024 Outback AWD 2.5L. The fuel type itself is confirmed from Subaru's trim comparison sheet; if the editor wants the EPA page as the primary citation, the id should be checked by opening it.",
+    "Curb weight (already established as 3,661 lb, not part of this record): the search summary supported 3,661 lb for the 2024 Premium from Edmunds (edmunds.com/subaru/outback/2024/st-401982692/features-specs), motormatchup.com and Subaru's trim comparison sheet, with Base at 3,641 lb. The summary warned that the Subaru table's column alignment was not clean, so the per-trim match rests mainly on Edmunds and a listing site; I found nothing contradicting it.",
+    "zeroToSixtySec was correctly left out. My search found no instrumented test of a 2024 Outback 2.5L. The nearest lead is an 8.6 s figure for a 2023 Outback Touring 2.5L on 0-60specs.com, attributed to Car and Driver in one entry and Motor Trend in another: different model year, different (heavier) trim, aggregator site with inconsistent attribution. It should not be used for the 2024 Premium.",
+    "lateralGripG was correctly left out: no skidpad figure for a 2024 Outback 2.5L was found. The only skidpad results returned were Edmunds figures for a 2010 Outback 2.5i (0.77 g) and a 2026 Outback (0.83 g), both different generations.",
+    "construction was left out by the first reader. My search found only weak sources stating unibody outright (repair-shop and FAQ pages such as kevinsautos.com and ahgautoservice.com); Subaru's own press material (media.subaru.com 2020 Outback release) describes the Subaru Global Platform and body stiffness without, in the summaries I saw, using the word unibody. Unibody is almost certainly correct as a matter of fact, but no maker or agency source stating it was seen, so leaving it out is consistent with the catalogue's rule; publishing it would rest on low-grade sources.",
+    "topSpeedMph: no search spent; no maker claim, governed limit or tested figure was seen for this configuration. Leaving it out stands.",
+    "All findings here are from search-result summaries; no page was opened."
+   ],
+   "searchesUsed": 4
+  },
+  {
+   "id": "2024-tesla-model-3-long-range-awd",
+   "checks": [
+    {
+     "key": "transmissionType",
+     "verdict": "confirmed",
+     "claimed": "single-speed",
+     "found": "single-speed (no independent result returned; confirmed from the established electric configuration and the record's own Tesla owner's-manual source)",
+     "note": "The value is inside the allowed list and follows from the established configuration: every Model 3 uses a single-speed fixed-gear reduction drive, and this is not market-dependent. None of my searches returned text that states it independently, and the cited manual pages are non-US editions (tesla.cn Canada-English, Ireland-English)."
+    },
+    {
+     "key": "topSpeedMph",
+     "verdict": "confirmed",
+     "claimed": "125",
+     "found": "125 mph (KBB, 2024 AWD trim); 124.9 mph / 201 km/h (EVSpecifications, 2024 Long Range AWD listing)",
+     "url": "https://www.kbb.com/tesla/model-3/2024/specs",
+     "note": "A search summary of KBB's 2024 Model 3 specs gives 125 mph for the AWD trim, and EVSpecifications' 2024 Long Range AWD listing gives 124.9 mph (201 km/h). Both are republished maker figures, not instrumented tests; no Tesla US page and no test result was found, and nothing says whether the speed is electronically limited."
+    },
+    {
+     "key": "curbWeightLb",
+     "verdict": "unconfirmed",
+     "claimed": "4030",
+     "found": "No better-supported value. Other listings for the same trim: 4,034 lb (KBB, US 2024 Long Range AWD); 4,080.76 lb / 1,851 kg (EVSpecifications, 2024 Long Range AWD listing, market not stated); 1,836 kg, about 4,047 lb (vehiclescore.co.uk, UK 2024-2025 Long Range AWD)",
+     "url": "https://www.evspecifications.com/en/model/98db3d2",
+     "note": "The only support for 4,030 lb is the record's own two listing sites (Edmunds, Motor Matchup), which may share one data feed. Other listings for the same trim range from 4,034 to about 4,081 lb, and no Tesla US figure or instrumented-test weight was found, so the figure cannot be supported beyond listing-site level."
+    }
+   ],
+   "concerns": [
+    "Curb weight has no primary or tested source. Listing sites spread from 4,030 to about 4,081 lb (roughly 1.3 percent), and Tesla's non-US manual figure of about 1,823-1,824 kg would be about 4,020 lb. If the catalogue needs a manufacturer, government or instrumented-test figure for curb weight, this one should be left out.",
+    "I could not check any Car and Driver or MotorTrend test sheet: the search restricted to those two domains was refused (domains not accessible), so no instrumented curb weight or tested top speed was seen for this trim.",
+    "Top speed of 125 mph is a republished maker claim, not a tested figure, and no source states whether it is governed. It should be labelled as a manufacturer claim, not a test result.",
+    "The record calls the EVSpecifications page (id 98db3d2) an EU-market listing, but search results title it '2024 Tesla Model 3 Long Range AWD' with a separate listing explicitly tagged 'EU' (d7fc3d8). The market of the 98db3d2 listing is therefore unclear; I did not open the page.",
+    "The transmission source URLs are non-US editions of the owner's manual (a tesla.cn page in Canada-English and an Ireland-English page); the US-English page was not seen. The single-speed fact itself is not market-dependent, but the 9:1 or 9.03:1 ratio in the note should not be published from these.",
+    "Horsepower and torque were correctly left out: the 498 hp figure seen on listing sites (ArenaEV, autotijd.be, auto-data.net) is a sum of per-motor outputs, and auto-data.net also shows a 440 hp variant, so listings disagree widely. No whole-powertrain Tesla or government figure appeared in my searches either.",
+    "Construction is listed as not found, so it stays unrated here; no search result I saw addresses it.",
+    "All findings come from search-result summaries; no page was opened. Search count: 4 calls made, of which 3 returned results and 1 was refused with a domain-access error."
+   ],
+   "searchesUsed": 4
+  },
+  {
+   "id": "2024-toyota-camry-le",
+   "checks": [
+    {
+     "key": "aspiration",
+     "verdict": "confirmed",
+     "claimed": "naturally-aspirated",
+     "found": "naturally aspirated (no turbocharger); 203 hp / 184 lb-ft in the LE with FWD",
+     "note": "A fresh search of 2024 Camry reviews returned a summary stating that the naturally aspirated 2.5-liter four-cylinder is standard on every trim except the TRD, and that the LE FWD makes 203 hp and 184 lb-ft, which matches the established configuration. The summary did not attribute that sentence to a single URL (results included Autoblog, Capital One, KBB and CarBuzz), so no URL is given; nothing in any result described the 2.5L as turbocharged. Value is within the allowed enumeration."
+    },
+    {
+     "key": "construction",
+     "verdict": "confirmed",
+     "claimed": "unibody",
+     "found": "TNGA-K (GA-K) platform classed as unibody; XV70 Camry (model years 2018-2024) is built on it",
+     "url": "https://handwiki.org/wiki/Engineering:Toyota_New_Global_Architecture",
+     "note": "An independent search summary cited the HandWiki TNGA entry as classing the GA-K platform as unibody (transverse engine, FWD/AWD), and the Wikipedia-derived XV70 pages as placing the 2018-2024 Camry on that platform. This is still a platform-level statement from a wiki-type source, not a Toyota sentence about the 2024 LE, but no result suggests anything other than unibody and a body-on-frame Camry does not exist. Value is within the allowed enumeration."
+    }
+   ],
+   "concerns": [
+    "Both confirmations rest on search-result summaries, not opened pages, and neither is a Toyota statement. The aspiration confirmation could not be tied to one specific URL; the construction confirmation is a wiki-type source describing the platform rather than this trim.",
+    "The record's cited construction source is an article about the 2025 Camry (a different model year and generation, XV80) and reaches the 2024 car only through the shared TNGA-K platform. The record's corroborating URL (autoworldhub.com) was attributed by the first reader with stated uncertainty ('which I believe was'); treat that link as unverified.",
+    "Curb weight (already established as 3310 lb, not part of this record) showed disagreement across listing pages in my search: Edmunds' LE page and one cars.com LE page give 3,310 lb, a CarBuzz trim listing gives 3,350 lb, and a second cars.com LE page gives 3,475 lb. The 2024 LE was also sold with AWD, so the higher figures are probably the AWD LE or another listing variant, but I could not verify that. 3,310 lb is the best-supported figure for the FWD LE; it would be worth checking against Toyota's own specification sheet before using it in a rating.",
+    "The 2024 LE was available with AWD, which is rated 202 hp / 182 lb-ft rather than 203 / 184. Some listing sites show 202 hp on Camry pages. Any figure later added to this record should be checked for being the FWD car and not the AWD LE.",
+    "topSpeedMph, zeroToSixtySec and lateralGripG are correctly left as not found; I saw no instrumented test of a 2024 LE FWD in any result and did not search further for one. Leaving them empty is consistent with the catalogue's rule.",
+    "No horsepower or torque figure in the record was built by adding motor outputs; this is a non-hybrid configuration."
+   ],
+   "searchesUsed": 3
+  },
+  {
+   "id": "2024-toyota-prius-le-fwd",
+   "checks": [
+    {
+     "key": "construction",
+     "verdict": "confirmed",
+     "claimed": "unibody",
+     "found": "unibody (platform-level statement only; no Toyota wording specific to the 2024 Prius LE FWD)",
+     "url": "https://www.Wikipedia.org/wiki/TNGA",
+     "note": "An independent search with different wording returned the same basis the record used: the Wikipedia TNGA article (and its wikiwand/handwiki mirrors) describe TNGA-C as underpinning unibody vehicles and list the Prius XW60 from 2022, while Toyota's 2024 Prius release (pressroom.toyota.com) describes the second-generation TNGA-C body with torsional-rigidity reinforcements and spot-welded structural joints but does not use the word unibody in the summary. Nothing contradicted it and construction does not vary by trim or drivetrain, but the confirmation is not a second independent source: it is a reference-site statement, not a maker statement. Read from search summaries; no page opened."
+    }
+   ],
+   "concerns": [
+    "The record's only field (construction) rests on Wikipedia alone; my search found no independent publisher or Toyota document using the word 'unibody' for the 2024 Prius. The mirrors (wikiwand, handwiki) are copies of the same article and do not count as separate sources. The record's own note already says this; the 'confirmed' verdict means consistent and uncontradicted, not doubly sourced.",
+    "The URL in the record is given as https://www.Wikipedia.org/wiki/TNGA (capital W, redirect-style short title) exactly as the search tool returned it; an editor may want the canonical article address checked before it is published as a source link.",
+    "Established curb weight 3097 lb: a search summary reported KBB, Edmunds and iSeeCars all listing 3,097 lb for the LE FWD (XLE 3,164, Limited 3,219 per Edmunds), which supports it. The same summary reported Cars.com and AutoPadre listing 3,230 lb for 'LE' (the summary guessed this is the AWD LE but said the sources do not state so) and Velocity Journal listing 3,571 lb. These are listing sites; no Toyota specification sheet was seen. The 3,097 figure looks right for FWD but the conflict on listing sites is worth knowing.",
+    "lateralGripG was correctly left out, and there is an additional reason: a search summary of the Car and Driver 2023 Prius test syndicated on Yahoo (autos.yahoo.com/tested-2023-toyota-prius-drives-120000770.html) reported a 70-0 mph stop of 171 ft, not the 194 ft that the record's note pairs with 0.87 g. The 0.87 g / 194 ft pair therefore appears to come from a different test or a different car (the summary said that piece discusses the XLE and Limited on 19-inch tires, and it is a 2023 model-year test). Neither figure can be tied to a 2024 LE FWD on its 17-inch tires.",
+    "topSpeedMph was correctly left out. The only figures that surfaced were about 112 mph 'electronically limited' from FAQ and forum-style pages (cardekho, priuschat, generic FAQ sites) speaking of 'most recent Prius models' or the 2023 model, plus a Prius Prime listing, and a simulated 132 mph for a 2024 LE from MotorMatchup, which is a calculated estimate, not a test or maker figure. No Toyota statement or instrumented test for the 2024 LE FWD was found.",
+    "aspiration was correctly left out as not found: my search surfaced no maker, EPA or named-publication statement that the M20A-FXS in the 2024 Prius is naturally aspirated. It is very likely naturally aspirated, but nothing I saw states it, so it should stay omitted rather than be inferred from the absence of a turbocharger mention.",
+    "No enumerated field in the record is outside its allowed values ('unibody' is an allowed construction value), and the record contains no horsepower or torque figure, so the summed-motor-output check does not apply here. The established 194 hp is described as a combined system figure; I did not re-verify it in this pass.",
+    "All four permitted searches were used; every finding above comes from search-result summaries, not opened pages."
+   ],
+   "searchesUsed": 4
+  },
+  {
+   "id": "2024-toyota-rav4-xle-awd",
+   "checks": [
+    {
+     "key": "aspiration",
+     "verdict": "confirmed",
+     "claimed": "naturally-aspirated",
+     "found": "naturally aspirated (non-turbo) 2.5-liter 4-cylinder, 203 hp",
+     "url": "https://www.kbb.com/toyota/rav4/2024/expert-review/",
+     "note": "Two of my own searches, worded differently from the record, returned the same Kelley Blue Book 2024 RAV4 text (\"naturally aspirated (non-turbo) 2.5-liter 4-cylinder ... 203 horsepower\"), and the results state the non-hybrid 2024 RAV4 has exactly one engine (2.5L, 203 hp, 184 lb-ft), which matches the established XLE AWD configuration. No result described a turbocharged or supercharged gasoline 2024 RAV4. The value is inside the allowed enumeration. Caveat: the support is the same publisher the record cites, not a second independent publisher, and no Toyota or EPA statement of aspiration appeared."
+    }
+   ],
+   "concerns": [
+    "Aspiration rests on one publisher only. The record's 'corroborating' URL is another Kelley Blue Book page, so it is not independent corroboration; my searches found no second named publication or Toyota document using the words naturally aspirated or non-turbo for the 2024 gasoline RAV4. The fact itself is not in doubt from anything I saw, but the sourcing is single-publisher and was read from search summaries, not from the opened page.",
+    "Curb weight (already established as 3515 lb, not part of this record) is not uniform across listing sites. iSeeCars lists 3515 lb for the AWD XLE (https://www.iseecars.com/car/2024-toyota-rav4-specs) and a Cars.com XLE spec page shows 3,515 lb base curb weight, which support the established figure. But Auto123 lists 3362 lb for a 2024 XLE AWD (https://www.auto123.com/en/specs/toyota/rav4/toyota-rav4-2024-xle-ti-445213/; a Canadian site, so probably a Canadian-market figure), and Kelley Blue Book lists 3405 lb for the XLE without stating the drivetrain (https://www.kbb.com/toyota/rav4/2024/xle). No Toyota pressroom or manufacturer spec sheet surfaced in my searches, so 3515 lb is supported by listing sites only.",
+    "EPA figures (established, not in this record): a CarMax summary gave 27 city / 33 highway for the gas XLE AWD and 27/34 for FWD, consistent with the established 27/33. A Cars.com LE page showed 27/35, which is the LE FWD figure and must not be carried over to the XLE AWD.",
+    "The record's decision to leave out zeroToSixtySec looks right: nothing in my searches turned up a named instrumented test of a 2024 XLE AWD. The 8.3 s figure the record mentions belongs to a TRD Off-Road (different tires and weight) and the 8.1 s figures are an estimate and a UK-market 0-62 mph number.",
+    "Leaving out construction, topSpeedMph and lateralGripG is consistent with what I saw: no result in my four searches stated unibody for the 2024 gasoline RAV4, gave a top speed (claimed, governed or tested), or gave a skidpad figure for this configuration.",
+    "All four of my searches returned summaries only; no page was opened, so every quotation above is as reported by the search tool."
+   ],
+   "searchesUsed": 4
+  },
+  {
+   "id": "2024-toyota-tacoma-trd-off-road",
+   "checks": [
+    {
+     "key": "construction",
+     "verdict": "confirmed",
+     "claimed": "body-on-frame",
+     "found": "body-on-frame",
+     "note": "Not searched: nothing in the record or the established configuration casts doubt on it. The value is inside the allowed set (unibody | body-on-frame), and the record's own manufacturer quote (boxed steel-ladder frame, TNGA-F truck platform) applies to the whole 2024 Tacoma line, so it cannot be a trim mix-up. Confirmed on that basis, not from an independent result I saw."
+    },
+    {
+     "key": "zeroToSixtySec",
+     "verdict": "unconfirmed",
+     "claimed": "6.8",
+     "found": "6.8 s (Car and Driver comparison test vs Colorado ZR2, seen only second-hand); 7.0 s (Car and Driver's separate standalone test of an automatic 4WD TRD Off-Road, republished on Yahoo Autos and cited by two newspaper columns); 7.2 s (MotorTrend first test, via a dealer blog)",
+     "url": "https://autos.yahoo.com/tested-2024-toyota-tacoma-no-164500137.html",
+     "note": "The 6.8 s figure does appear in search summaries, but only from the same second-hand sources the record cites (a forum excerpt and a Toyota dealer comparison page); the original Car and Driver page never surfaced. The 7.0 s figure the record lists as 'publication not confirmed' looks like Car and Driver's own standalone test of the same trim and transmission, so the same publisher has two different measured times for this configuration and the record kept the quicker one."
+    }
+   ],
+   "concerns": [
+    "zeroToSixtySec: the record's resolution says 'three independent republishers agree' on 6.8 s. They are not independent measurements: all three repeat one Car and Driver comparison test. Against it stand two other instrumented tests of an automatic 4WD TRD Off-Road (7.0 s and 7.2 s). Choosing 6.8 s means publishing the quickest of three test results, none read from a primary page.",
+    "zeroToSixtySec: the 7.0 s article ('Tested: 2024 Toyota Tacoma Is No Longer a Dinosaur') is described by an Inquirer column and a Bee News review as a Car and Driver figure, so the record's conflict note understates it. It is most likely the same publisher's road test of this trim, not an unknown source.",
+    "zeroToSixtySec: the option content of every tested truck is unknown. The 4,794 lb test-truck weight the record mentions sits above Toyota's 4,485-4,720 lb range for i-FORCE 4x4 Double Cabs, which suggests the tested truck carried options; that affects acceleration figures too.",
+    "A Valley Hi Toyota dealer blog about the Car and Driver comparison says the test truck had a '378 horsepower' 2.4L turbo. That is almost certainly a typo for 278 hp (no 378 hp Tacoma exists; the hybrid makes 326 hp), but it shows how unreliable the dealer pages are as republishers of test data.",
+    "The forum thread title calls the comparison rival a 2023 Colorado ZR2 while the dealer blog calls it a 2024. This does not change the Tacoma figure but shows the second-hand accounts disagree on details.",
+    "curbWeightLb (left out by the record): my searches found no maker figure for this exact trim either, so leaving it out is right. Figures that surfaced all belong elsewhere: 5,030 lb is the i-FORCE MAX hybrid TRD Off-Road; 4,650 lb on iSeeCars is a 2025 model and the summary ties it to the 6-speed manual; 4,605 lb on Cars.com came from a TRD Sport page and was not clearly tied to a trim. A Henry Payne column gives a line-wide range of 4,145-4,720 lb.",
+    "topSpeedMph (left out by the record): nothing found for the automatic TRD Off-Road in any of the four searches. Leaving it out is right.",
+    "lateralGripG (left out by the record): the only figure seen is 0.77 g, attributed to MotorTrend by a Toyota dealer comparison page; the MotorTrend page itself did not appear and the tested truck's tires and options are unknown. Leaving it out is right.",
+    "All four of my searches returned summaries only; no original Car and Driver, MotorTrend or Toyota specification page was read, so nothing here is a primary reading."
+   ],
+   "searchesUsed": 4
+  },
+  {
+   "id": "2024-volkswagen-golf-gti-s",
+   "checks": [
+    {
+     "key": "fuelType",
+     "verdict": "confirmed",
+     "claimed": "gasoline",
+     "found": "gasoline (EPA lists regular gasoline per an aggregator summary; a California state listing shows the 2.0L 4-cyl 6-speed manual at 23 city / 34 highway / 27 combined, matching the established EPA figures)",
+     "url": "https://driveclean.ca.gov/taxonomy/term/38137",
+     "note": "The value is within the allowed list and follows from the established configuration (non-hybrid 2.0 L turbo four with a 6-speed manual and ordinary EPA mpg ratings); nothing in four searches suggested any hybrid, diesel or electric variant of the US 2024 GTI. The California DriveClean summary did not state the fuel type itself, and the fueleconomy.gov page for id 46781 did not appear in my results, so that id is still not tied to the manual by anything I saw."
+    },
+    {
+     "key": "aspiration",
+     "verdict": "confirmed",
+     "claimed": "turbocharged",
+     "found": "turbocharged EA888 2.0-liter four-cylinder, 241 hp and 273 lb-ft, same engine in the manual (380) cars as the rest of the range",
+     "url": "https://www.motor1.com/news/684328/2024-volkswagen-golf-gti-380-debuts-final-manual/",
+     "note": "Independent coverage of the 2024 manual GTI (Motor1, and the same wording in several reprints of VW's announcement) describes a single turbocharged 2.0-liter EA888 engine at 241 hp / 273 lb-ft, which matches the established output. Single turbocharger, so 'turbocharged' rather than 'twin-turbocharged' is the right allowed value."
+    }
+   ],
+   "concerns": [
+    "Trim name: in the US for model year 2024 every manual GTI was sold with the '380' package, so the manual base car is the 'GTI 380 S', not a plain 'S'. Edmunds, KBB, iSeeCars and a VW dealer page all attach the 3,137 lb curb weight to the 380 S manual; the plain S is DSG-only and is listed at 3,188 lb. The catalogue label '2.0T S (6-speed manual)' describes a car that was not sold under that name; consider '380 S'. The established 3,137 lb is right for the manual.",
+    "The 380 package changes equipment relative to the plain S: 19-inch gloss black wheels and adaptive ('dynamic') dampers are reported as standard on all manual cars. Any instrumented figure (including the already-established 108 ft braking, which I did not check) should be from a 380 manual car, and the tire fitted to the tested car matters; I could not confirm which trim or tire produced the 108 ft figure.",
+    "0-60 mph: I agree with leaving it out. The only named instrumented figure I saw was the same second-hand 5.8 s attributed to Car and Driver in the Detroit News reprint (https://henrypayne.com/?p=32746); Car and Driver's own test page did not appear. A 5.4 s figure on Motor Matchup for the 380 SE manual has no stated source or method and should not be used.",
+    "Top speed: I agree with leaving it out, along with topSpeedGoverned. Only the second-hand 127 mph figure surfaced again; no result said whether it is a governed limit, a maker claim or a tested figure, and no VW US figure for the 2024 manual appeared.",
+    "Lateral grip: nothing found; no result gave a skidpad figure for the 2024 manual car.",
+    "The fueleconomy.gov vehicle id 46781 cited as the source URL for fuelType (and as the corroborating URL for aspiration) was not tied to the 6-speed manual by anything I saw, and the page did not come up in my searches. Both fields were read from search summaries, not opened pages, by the first reader and by me. The values themselves are safe; the specific URL should be checked before it is published as the source.",
+    "The 24 city / 31 highway reading noted in the record's conflicts is not supported for the manual: a California DriveClean listing gives the 2.0L 6-speed manual 23 / 34 / 27, agreeing with the catalogue. Note that the 2022 GTI manual was rated 24 / 34 / 28 on fueleconomy.gov, so older-year pages can easily be confused with 2024.",
+    "Canadian listings (Auto123) show 3,135 lb for the manual and 3,177 lb for the automatic; those are another market and should not replace the US 3,137 lb figure.",
+    "All four of my searches returned summaries only; no page was opened. Search budget fully used (4 of 4)."
+   ],
+   "searchesUsed": 4
+  }
+ ]
+}

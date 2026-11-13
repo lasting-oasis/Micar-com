@@ -1,0 +1,254 @@
+{
+ "gathered": "2026-11-11",
+ "supplement": true,
+ "method": "A third, still narrower search: the curb weight (the maker’s figure, or one measured in a named instrumented test of the same configuration) and the aspiration still missing for eight vehicles. One researcher per vehicle (2 to 4 searches), then a second reader (1 search) who tried to refute each figure. Web search results and their summaries; pages could not be opened.",
+ "status": "A supplement: scripts/build-catalogue.ts reads it after the other files and uses it only to fill a blank, under the same review rule. Two of its figures are left out by name in the script, on the second reader’s advice.",
+ "records": [
+  {
+   "id": "2024-chevrolet-corvette-stingray-z51",
+   "fields": [
+    {
+     "key": "aspiration",
+     "text": "naturally-aspirated",
+     "publisher": "SlashGear (attribution uncertain, see note)",
+     "url": "https://www.slashgear.com/1666975/2024-chevrolet-corvette-stingray-review-price-specs-performance",
+     "corroboratingUrl": "https://motorweek.org/first-impressions/quick-spins/2024-chevrolet-corvette-stingray-coupe-3lt",
+     "sourceKind": "reference",
+     "basis": "republished",
+     "note": "A search for 2024 Corvette Stingray reviews returned a summary stating that one review describes the engine as \"a naturally aspirated 6.2-liter V8 mounted midship rated at 495 and 470 with the optional Performance Exhaust\", and that another says it \"delivers 495 horsepower, which is naturally aspirated, coupled with an eight-speed dual-clutch automatic\"; Consumer Reports was summarised as noting no turbochargers or hybrid assist in the base car. The 495 hp / 470 lb-ft rating matches the performance-exhaust (Z51) LT2 configuration. IMPORTANT: the summary did not say which of the listed result pages carried each sentence. The two URLs given here (SlashGear 2024 Stingray review, MotorWeek 2024 Stingray Coupe 3LT quick spin) are the 2024 Stingray reviews in that result list and are the likely sources, but the sentence-to-page match is unverified, so this is marked reference rather than test. No maker statement was seen. Should be confirmed by opening the page before being treated as a test-sourced statement. Read from search-result summary; page not opened."
+    }
+   ],
+   "notFound": [
+    "curbWeightLb"
+   ],
+   "conflicts": [
+    {
+     "key": "curbWeightLb",
+     "values": "3,535 lb (Edmunds, 2024 Stingray 2LT coupe, not tied to Z51); 3,769 lb (iSeeCars, 2024 Stingray coupe w/3LT, Z51 not stated); iSeeCars range 3,637-4,026 lb with trims unlabeled; 3,366 lb (AutoPadre, 2LT, body shown as convertible); Corvette Forum user posts of 3,613 lb (2020 3LT Z51), 3,762 lb and ~3,538 lb (year/basis unstated)",
+     "resolution": "Field left out. No maker specification sheet, press kit or owner's manual figure surfaced (a Motor1 result summary says Chevrolet does not provide a C8 curb weight figure, written about the 2020 car), no Car and Driver or MotorTrend instrumented test of a 2024 model-year Z51 coupe surfaced, and no listing figure names the Z51 package. The listing and forum figures disagree by over 200 lb and none meets the rule."
+    }
+   ],
+   "searchesUsed": 4
+  },
+  {
+   "id": "2024-ford-f-150-raptor",
+   "fields": [],
+   "notFound": [
+    "curbWeightLb"
+   ],
+   "conflicts": [
+    {
+     "key": "curbWeightLb",
+     "values": "5,863 lb (auto123, autopadre, iSeeCars listing pages for 2024 Raptor SuperCrew 5.5' box, tire package not stated; auto123 labels it 'As Spec'd Curb Weight'); 5,710 lb (Ford's current consumer page, but for the 2026 model year); 5,710 / 5,757 lb (other listing figures seen by earlier passes)",
+     "resolution": "Field left out. No maker figure for the 2024 model year appeared in any summary: Ford's 2024 Raptor and Raptor R Tech Specs PDF (https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2024/f150/2024%20Ford%20Raptor%20and%20Raptor%20R%20Tech%20Specs.pdf) surfaced again, but the summary cut off before the curb weight row. No Car and Driver or MotorTrend instrumented test of a 2024 base-tire Raptor was found (the only MotorTrend measured weight in results, 5,969 lb, is a 2021 truck). The 5,863 lb listing figure does not name the 35-inch tire configuration and disagrees with other listing figures, so it does not meet the last-resort rule. The 5,710 lb Ford figure is for a later model year and cannot be carried over."
+    }
+   ],
+   "searchesUsed": 3
+  },
+  {
+   "id": "2024-ford-mustang-gt",
+   "fields": [
+    {
+     "key": "curbWeightLb",
+     "number": 3730,
+     "publisher": "Ford Motor Company (2024 Mustang Technical Specifications sheet; copy hosted by a third party, not Ford's media site)",
+     "url": "https://ffperformance.co/wp-content/uploads/2023/04/2024-mustang-technical-specifications.pdf",
+     "corroboratingUrl": "https://www.mustang7g.com/forums/attachments/2024-mustang-technical-specifications-pdf.557718",
+     "sourceKind": "manufacturer",
+     "basis": "manufacturer-claim",
+     "note": "Search summaries of Ford's 2024 Mustang technical specifications PDF say the GT column gives an estimated curb weight of 3,730 lb for the fastback with the manual transmission and 3,752 lb for the fastback with the automatic. CAVEATS: the sheet is marked preliminary (specifications as of Sept. 14, 2022, subject to change) and the weight is described as estimated; no final Ford sheet for 2024 was found. Both URLs are third-party re-hosts of the Ford PDF (a parts vendor and an owners' forum attachment), which is the same document twice, not two independent sources; the Ford media-site original did not appear in results. The summary does not say whether the figure includes or excludes the GT Performance Package; it is read as the base GT. Listing sites' 3,741 lb equals the midpoint of Ford's 3,730 (manual) and 3,752 (automatic), and none of them names a transmission. Read from search-result summary; page not opened."
+    }
+   ],
+   "notFound": [],
+   "conflicts": [
+    {
+     "key": "curbWeightLb",
+     "values": "3,730 lb (Ford preliminary technical specifications sheet, GT fastback manual; automatic 3,752 lb) vs 3,741 lb 'base curb weight' (Cars.com, Auto123, iSeeCars, Motor Matchup, CarBuzz; transmission not stated except CarBuzz reportedly pairing it with the manual) vs 3,827 lb (Yahoo Autos first-drive article, transmission not stated) vs 3,947 lb (MotorBiscuit, said to be for the manual; origin not stated in the summary)",
+     "resolution": "Used 3,730 lb: it is the only figure that comes from the maker and names this body and transmission. 3,741 is transmission-unspecified on the listing sites and happens to be the exact midpoint of Ford's manual and automatic figures. 3,827 and 3,947 come from articles whose summaries do not identify the configuration or a measured test, so they were not used. Residual risk: Ford's figure is a preliminary estimate dated Sept. 14, 2022; if the catalogue does not accept preliminary/estimated maker figures, leave the field out."
+    }
+   ],
+   "searchesUsed": 3
+  },
+  {
+   "id": "2024-jeep-wrangler-rubicon",
+   "fields": [],
+   "notFound": [
+    "curbWeightLb"
+   ],
+   "conflicts": [
+    {
+     "key": "curbWeightLb",
+     "values": "Listing/reference figures only, none tied in the summaries to the exact 2024 Rubicon 4-door 3.6L V6 8-speed automatic: 4,575 lb (cars.com 2024 Rubicon page https://www.cars.com/research/jeep-wrangler-2024/specs/435416 - summary says the body style/engine the figure belongs to is unclear); 4,222 lb (Edmunds 2024 Rubicon page https://www.edmunds.com/jeep/wrangler/2024/st-402003865/features-specs - seating figure suggests the 2-door); 2,088 kg / 4,603 lb (auto-data.net Rubicon 3.6 Pentastar V6 4x4 automatic, a page labelled 2023 facelift and a metric catalogue figure, https://www.auto-data.net/en/jeep-wrangler-iv-unlimited-jl-facelift-2023-rubicon-3.6-pentastar-v6-290hp-4x4-automatic-50544); 5,268 lb (iSeeCars 'Rubicon 4dr SUV', engine unstated, matches the Rubicon 392 V8 figure elsewhere). The maker (jeep.com Wrangler FAQ, https://jeep.com/wrangler/faq.html) publishes only a range for all 2024 four-door models: 4,287 to 4,976 lb base curb weight, not a Rubicon-specific figure.",
+     "resolution": "Field left out. The only maker figure seen is a range across all four-door trims, and picking a point inside a published range is not allowed. The listing-site figures disagree with each other (4,222 / 4,575 / 4,603 / 5,268 lb) and none was confirmed in a summary as naming this exact trim, body, engine and transmission; the 4,603 lb figure is a converted metric figure on a page labelled 2023. No Stellantis media specification sheet and no instrumented test (Car and Driver or MotorTrend) of a 2024 Rubicon 4-door V6 automatic appeared in any result. All read from search-result summaries; pages not opened."
+    }
+   ],
+   "searchesUsed": 3
+  },
+  {
+   "id": "2024-mazda-mx-5-miata-club",
+   "fields": [],
+   "notFound": [
+    "curbWeightLb",
+    "aspiration"
+   ],
+   "conflicts": [
+    {
+     "key": "curbWeightLb",
+     "values": "Listing sites naming the 2024 Club: KBB 2,368 lb (https://www.kbb.com/mazda/mx-5-miata/2024/club), iSeeCars 2,368 lb for 'Club 2dr convertible' (https://www.iseecars.com/car/2024-mazda-mx__5_miata-specs), cars.com 2,341 lb 'base curb weight' for the Club (https://www.cars.com/research/mazda-mx_5_miata-2024/specs/452538). Publications, not trim-specific or not measured: The Drive 2024 review spec box 2,366 lb (MT) / 2,405 lb (AT) (https://www.thedrive.com/car-reviews/2024-mazda-mx-5-review); Motor1 2024 first drive 2,341 lb (https://www.motor1.com/reviews/716685/2024-mazda-miata-first-drive/); The Auto Channel 2024 Club 6M review 2,484 lb (https://www2020.theautochannel.com/news/2024/05/01/1375027-2024-mazda-mx-5-club-6m-review-by-david-colman.html); 0-60specs aggregator 2,372 lb for a 2024 Club attributed to MotorTrend, original not seen (https://www.0-60specs.com/mazda/mx-5-miata-0-60-times). Mazda's own figure of 2,366 lb for Skyactiv-MT models appeared only on the current mazdausa.com page, which is for the 2026 model year (https://www.mazdausa.com/vehicles/mx-5-miata). Road & Track's 2,454 lb is a 2025 Club test.",
+     "resolution": "Field left out. No maker figure for the 2024 model year was seen (the 2024 Mazda newsroom pricing release summary carried no curb weight; the 2,366 lb maker figure is for 2026 and cannot be carried back). No named instrumented test of a 2024 soft-top Club manual with a measured weight was confirmed. The last-resort listing figures that do name the 2024 Club disagree with each other (2,368 vs 2,341 lb), so none was used. All read from search-result summaries; pages not opened."
+    }
+   ],
+   "searchesUsed": 4
+  },
+  {
+   "id": "2024-tesla-model-3-long-range-awd",
+   "fields": [
+    {
+     "key": "curbWeightLb",
+     "number": 4030,
+     "publisher": "Motor Matchup",
+     "url": "https://www.motormatchup.com/catalog/Tesla/Model-3/2024/Long-Range-AWD",
+     "sourceKind": "reference",
+     "basis": "republished",
+     "corroboratingUrl": "https://m.arenaev.com/2024_tesla_model_3_long_range_review-news-3760.php",
+     "note": "LAST-RESORT listing-site figure, not a maker document and not a measured test. The search summary said Motor Matchup's catalogue page for the 2024 Tesla Model 3 Long Range AWD lists a curb weight of 4,030 lb. The summary also said an ArenaEV review of the 2024 Model 3 Long Range lists 4,030 lb unladen for the Long Range AWD, and that Edmunds' 2024 Model 3 specs page shows 4,030 lb for the AWD car. No Tesla document for the 2024 model year Long Range AWD was seen: the summary of tesla.com/model3 gave 4,030 lb for the current 'Dual Motor All-Wheel Drive Premium' (the present-day lineup, not named as the 2024 Long Range AWD, so not used as the source), and the only owner's-manual figure surfaced (1,900 kg) came from the 2017-2023 manual, which is the earlier car. No Car and Driver or MotorTrend instrumented test of the 2024 Long Range AWD appeared in the results. Read from search-result summary; page not opened."
+    }
+   ],
+   "notFound": [
+    "curbWeightLb from a manufacturer document for the 2024 model year Long Range AWD (Tesla 2024+ owner's manual curb-weight table not surfaced in any summary)",
+    "curbWeightLb measured in a Car and Driver or MotorTrend instrumented test of a 2024 Long Range AWD"
+   ],
+   "conflicts": [
+    {
+     "key": "curbWeightLb",
+     "values": "4,030 lb (Motor Matchup 2024 Long Range AWD page; ArenaEV 2024 Long Range review; Edmunds AWD; also tesla.com/model3 for the current 'Dual Motor All-Wheel Drive Premium'); 4,034 lb (KBB, Autoblog); 4,081 lb / 1,851 kg (EVSpecifications, described in the summary as a European-spec figure); 4,065 lb (EVKX, from an earlier pass); 1,900 kg (Tesla 2017-2023 owner's manual, US-built Long Range AWD, the pre-refresh car); 3,891 lb (Edmunds/Autopadre, Long Range RWD); 3,862 lb (TrueDelta, trim unclear)",
+     "resolution": "Used 4,030 lb as a reference-grade figure only: it is the value on a page naming this exact configuration (2024 Long Range AWD), repeated by two other outlets, and it equals what Tesla's own site currently shows for the dual-motor AWD car. Rejected 4,081 lb (other market), 1,900 kg (earlier model year, and would need conversion), 3,891/3,862 lb (RWD or unclear trim). 4,034 lb (KBB/Autoblog) differs by 4 lb with no maker document behind either number. If the catalogue requires a maker or measured-test source, this field should be treated as not found."
+    }
+   ],
+   "searchesUsed": 3
+  },
+  {
+   "id": "2024-toyota-prius-le-fwd",
+   "fields": [],
+   "notFound": [
+    "aspiration"
+   ],
+   "conflicts": [],
+   "searchesUsed": 2
+  },
+  {
+   "id": "2024-toyota-tacoma-trd-off-road",
+   "fields": [
+    {
+     "key": "curbWeightLb",
+     "number": 4794,
+     "publisher": "Car and Driver (syndicated on Yahoo Autos)",
+     "url": "https://autos.yahoo.com/2024-toyota-tacoma-better-tests-140000353.html",
+     "corroboratingUrl": "https://www.0-60specs.com/toyota/tacoma-0-60-times",
+     "sourceKind": "test",
+     "basis": "measured-test",
+     "note": "Kind (b), measured test, not a maker's figure. Car and Driver's instrumented-test piece comparing a 2024 Tacoma TRD Off-Road (turbocharged 2.4L four-cylinder, four-wheel drive) with a 2017 TRD Pro states: 'Despite weighing an extra 133 pounds, the 4794-pound TRD Off-Road also outran the lighter TRD Pro in every other acceleration test.' CAVEAT: the Car and Driver text seen in the summaries does not itself state the tested truck's transmission or cab, and options carried were not given. The only tie to this configuration is a third-party database (0-60specs.com) whose entry for the Car and Driver TRD Off-Road test (6.8 s to 60 mph) is listed as Double Cab with 8-speed automatic; that same entry shows a different curb weight (4,550 lb), so it corroborates the configuration only, not the weight. If the catalogue requires the publisher's own statement of transmission and cab, treat this field as unconfirmed and leave it out. Read from search-result summary; page not opened."
+    }
+   ],
+   "notFound": [
+    "Maker's published curb weight for the TRD Off-Road Double Cab 4x4 8-speed automatic specifically (only the previously seen range exists; cars.com lists curb weight as N/A for this trim)",
+    "Car and Driver's own specification panel confirming the tested truck's transmission, cab and options (not visible in search summaries)"
+   ],
+   "conflicts": [
+    {
+     "key": "curbWeightLb",
+     "values": "4794 lb (Car and Driver measured, 2024 TRD Off-Road test, via Yahoo syndication); 4550 lb (0-60specs.com database entry for the same Car and Driver test, Double Cab 8-speed automatic); 4650 lb (iSeeCars, 4x4 TRD Off-Road Double Cab 8-speed automatic, but on a 2025 model-year page); 5030 lb (Motor Matchup, hybrid TRD Off-Road)",
+     "resolution": "Used 4794 lb because it is the figure Car and Driver's own text attributes to the tested 2024 TRD Off-Road. 4550 lb is an unsourced aggregator value; 4650 lb is a 2025 model-year listing; 5030 lb is the i-FORCE MAX hybrid. None of those three qualify. The tested truck's transmission and cab are confirmed only by the aggregator, not by Car and Driver's text as seen."
+    }
+   ],
+   "searchesUsed": 3
+  }
+ ],
+ "reviews": [
+  {
+   "id": "2024-chevrolet-corvette-stingray-z51",
+   "checks": [
+    {
+     "key": "aspiration",
+     "verdict": "confirmed",
+     "claimed": "naturally-aspirated",
+     "found": "naturally aspirated (search summary: 2024 Stingray 6.2L LT2 V8 is naturally aspirated / 'normally aspirated' in a spec listing; 490 hp base, 495 hp with performance exhaust or Z51)",
+     "url": "https://www.corvsport.com/corvette-of-the-day-2024-chevrolet-corvette-stingray-coupe/",
+     "note": "One independent search returned a summary describing the 2024 Stingray's LT2 as naturally aspirated, consistent with the record; aspiration does not vary by trim, Z51 package or body on the Stingray. Read from the search-result summary only, no page opened, and the summary did not tie each sentence to a specific result URL, so the URL given is the most likely 2024 Stingray coupe result rather than a verified sentence-to-page match."
+    }
+   ],
+   "concerns": [
+    "The record's own source attribution is unverified: its note says the sentence-to-page match for the SlashGear and MotorWeek URLs was not established and neither page was opened. My confirmation has the same weakness (search summary only; sentence-to-URL match not verified). The fact itself is not in doubt, but an editor who requires an opened page for the cited URL should treat the citation as unverified.",
+    "The record's SlashGear URL contains 'price' in its slug; the catalogue's no-price check must ignore source URLs for this record.",
+    "No curb weight is in the record (listed as notFound with conflicting listing/forum figures from 3,366 to 4,026 lb, none tied to a 2024 Z51 coupe). My single search was spent on aspiration as instructed and surfaced no curb weight figure; leaving the field out remains correct, so weight-dependent ratings for this card will show as not rated.",
+    "The search summary noted one spec table (corvettestory.com 2024 page) showing 670 hp, apparently Z06 data mixed into a Stingray page; it should not be used as a source for this configuration.",
+    "The search summary mentions a 2.8 s 0-60 listing alongside GM's 2.9 s with Z51; the established 2.9 s matches the maker's figure for the Z51 car."
+   ],
+   "searchesUsed": 1
+  },
+  {
+   "id": "2024-ford-mustang-gt",
+   "checks": [
+    {
+     "key": "curbWeightLb",
+     "verdict": "unconfirmed",
+     "claimed": "3730 lb (Ford preliminary technical specifications sheet, estimated, GT fastback manual)",
+     "found": "No independent source gives 3,730. Third-party figures for the 2024 GT fastback: 3,741 lb (Motor Matchup, TrueDelta, Auto123; transmission not stated) and 3,827 lb (Yahoo Autos first-drive review, listed alongside the 6-speed manual).",
+     "url": "https://autos.yahoo.com/2024-ford-mustang-gt-first-100000317.html",
+     "note": "My one search only returned the same preliminary Ford sheet (the two re-hosts already in the record), so nothing independent confirms 3,730 lb. The search summary also read the sheet's columns by inference (\"most likely the GT figure\"), and the other figures in circulation differ by 11 to 97 lb, so I recommend leaving the field out."
+    }
+   ],
+   "concerns": [
+    "The 3,730 lb figure is a preliminary estimate (sheet dated Sept. 14, 2022, before production). There are signs the preliminary weights were later revised: the same sheet's other fastback manual figure is 3,492 lb (apparently EcoBoost), while TrueDelta lists 3,588 lb for another 2024 Mustang trim, about 96 lb higher. Yahoo's 3,827 lb for the GT with the 6-speed manual is 97 lb above 3,730, the same size of gap. This is my inference from search summaries, not a confirmed Ford revision.",
+    "The search summary assigned 3,730 lb to the GT column by inference from column order (EcoBoost, GT, Dark Horse); no page was opened, so the column assignment is not verified.",
+    "Both URLs in the record are third-party re-hosts of the same Ford PDF (a parts vendor and a forum attachment), so they are one source, not two. Neither is Ford's own site.",
+    "Neither the Ford sheet summary nor any other result says whether the figure includes or excludes the GT Performance Package.",
+    "Yahoo's 3,827 lb was not opened, so I could not tell whether it is a Ford figure or a measured weight, or whether the tested car had the Performance Package. Auto-data's roughly 1,733 kg (about 3,820 lb) is for the 446 hp European-market GT, so it is a different market and does not bear on the US car.",
+    "The listing sites' 3,741 lb does not name a transmission and Auto123 shows the same number on the GT Premium page, so it cannot confirm or contradict the manual base GT figure."
+   ],
+   "searchesUsed": 1
+  },
+  {
+   "id": "2024-tesla-model-3-long-range-awd",
+   "checks": [
+    {
+     "key": "curbWeightLb",
+     "verdict": "confirmed",
+     "claimed": "4030 lb (Motor Matchup, 2024 Long Range AWD, republished listing figure)",
+     "found": "4,030 lb (Edmunds 2024 Model 3 Long Range specs, per search summary); other listings: 4,034 lb (KBB), about 4,081 lb / 1,851 kg (EVSpecifications)",
+     "url": "https://edmunds.com/tesla/model-3/2024/st-402053137/features-specs",
+     "note": "Confirmed only at listing-site level: the search summary says Edmunds gives the same 4,030 lb for the 2024 Long Range AWD, and KBB's 4,034 lb is within 15 lb. No Tesla document and no Car and Driver or MotorTrend measured test for this car surfaced, and no page was opened, so this is not a maker or measured-test figure."
+    }
+   ],
+   "concerns": [
+    "The confirmation is from the same kind of source as the record (a third-party listing site, read from a search summary, page not opened). Listing sites often share one data feed, so Edmunds and Motor Matchup agreeing is weak independence. If the catalogue's rule requires a maker document or a measured test for curb weight, this field should be treated as not found, as the record itself says.",
+    "I could not verify from the summary that the Edmunds trim page returned (st-402053137, titled 'Long Range') is the AWD car and not the Long Range RWD that joined the 2024 lineup later; the record cites 3,891 lb for the RWD on Edmunds/Autopadre, which suggests the 4,030 lb page is the AWD, but this was not checked on the page.",
+    "Listing figures for this configuration spread from 4,030 to about 4,081 lb. EVSpecifications lists about 4,081 lb (1,851 kg) on a page titled '2024 Tesla Model 3 Long Range AWD' and has a separate 'Long Range AWD EU' page, so the record's reading of 4,081 lb as a European-spec figure is not established by this search.",
+    "The search summary mentioned a 4,054 lb entry in KBB's trim table for another trim, not identified; it was not used.",
+    "No instrumented test (Car and Driver or MotorTrend) of the 2024 Long Range AWD appeared in this search either, matching the record's notFound entry."
+   ],
+   "searchesUsed": 1
+  },
+  {
+   "id": "2024-toyota-tacoma-trd-off-road",
+   "checks": [
+    {
+     "key": "curbWeightLb",
+     "verdict": "unconfirmed",
+     "claimed": "4794 lb (Car and Driver measured test, via Yahoo Autos syndication)",
+     "found": "No independent source gives 4794 lb. The one search returned only the same Yahoo-syndicated Car and Driver article. Its summary also reported a 4,630 lb base curb weight on a cars.com page for a 2024 TRD Off Road Double Cab 5' bed automatic.",
+     "url": "https://autos.yahoo.com/2024-toyota-tacoma-better-tests-140000353.html",
+     "note": "The 4794 lb figure is attributed to a 2024 TRD Off-Road with the turbo 2.4L and four-wheel drive, but the only source found is the record's own, so this is not independent confirmation. The tested truck's transmission, cab and bed are not stated in any publisher text seen; the TRD Off-Road was also sold with a 6-speed manual in 2024, so a manual test truck cannot be ruled out."
+    }
+   ],
+   "concerns": [
+    "The transmission of the tested truck is unverified. The 2024 TRD Off-Road was offered with a 6-speed manual (270 hp) as well as the 8-speed automatic (278 hp); if the Car and Driver truck was the manual, the figure is wrong-configuration. Only an aggregator (0-60specs.com) ties the test to Double Cab and 8-speed automatic, and that aggregator gives a different weight (4,550 lb) for the same test, which weakens it as a witness.",
+    "Cab and bed length (5 ft vs 6 ft) and the options carried by the test truck are not stated in the text seen. A measured weight includes options, so it sits above the maker's base figure.",
+    "The search summary reported a cars.com base curb weight of 4,630 lb for a 2024 TRD Off Road Double Cab 5' bed automatic (https://cars.com/research/toyota-tacoma-2024/specs/448733/). This conflicts with the record's statement that cars.com lists curb weight as N/A for this trim. It was read from a search summary only, the page was not opened, and its 4x4 status is not confirmed. A 164 lb gap between a base figure and a measured test weight is plausible and is not by itself a contradiction.",
+    "Both the record and this review read the Car and Driver text from search-result summaries of a Yahoo syndication; the original Car and Driver page and its specification panel were not opened by either reader.",
+    "Recommendation under the catalogue's leave-out-anything-doubtful rule: omit curbWeightLb for this record unless Car and Driver's own specification panel is checked and shows Double Cab, 8-speed automatic, 4WD."
+   ],
+   "searchesUsed": 1
+  }
+ ]
+}

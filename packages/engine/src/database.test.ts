@@ -24,7 +24,9 @@ describe('the reference catalogue', () => {
         expect(cell.source.kind, `${e.id} ${field}`).toBe('reference');
         expect(cell.source.name, `${e.id} ${field}`).toBeTruthy();
         expect(cell.source.url, `${e.id} ${field}`).toMatch(/^https?:\/\//);
-        expect(cell.source.asOf, `${e.id} ${field}`).toBe(e.asOf);
+        // A figure is dated the day it was gathered: the entry's own day, or a later one when a narrower search filled a blank.
+        expect(isIsoDate(cell.source.asOf), `${e.id} ${field}`).toBe(true);
+        expect(cell.source.asOf >= e.asOf, `${e.id} ${field}`).toBe(true);
       }
     }
   });
@@ -38,7 +40,9 @@ describe('the reference catalogue', () => {
   });
 
   it('carries no price anywhere', () => {
-    expect(JSON.stringify(CATALOGUE)).not.toMatch(/msrp|price|"\$|usd/i);
+    // A source's address is not the catalogue's own words: a review's URL can carry "price" in its slug.
+    const words = JSON.stringify(CATALOGUE, (key, value: unknown) => (key === 'url' ? undefined : value));
+    expect(words).not.toMatch(/msrp|price|"\$|usd/i);
   });
 
   it('scores the GT-R NISMO at exactly the brief’s example', () => {
