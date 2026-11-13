@@ -49,6 +49,16 @@ describe('seo pages', () => {
     }
   });
 
+  it('describes each model as a Car, never as an offer: MiCar sells no cars, and MSRPs are past sticker prices', () => {
+    const pages = buildModelPages(stickers as unknown as Sticker[]);
+    for (const p of pages) {
+      const ld = [...modelPageHtml(p, env).matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/g)].map((m) => JSON.parse(m[1]));
+      expect(ld.map((x) => x['@type'])).toEqual(['Car', 'BreadcrumbList']);
+      expect(ld[0]).toMatchObject({ name: `${p.make} ${p.model}`, brand: { '@type': 'Brand', name: p.make }, model: p.model, bodyType: p.body, url: `${SITE_URL}cars/${p.slug}/` });
+      expect(JSON.stringify(ld)).not.toMatch(/"offers"|Offer"|"price|lowPrice|highPrice/);
+    }
+  });
+
   it('index, sitemap, robots and llms.txt point at every page', () => {
     const pages = buildModelPages(stickers as unknown as Sticker[]);
     const index = indexPageHtml(pages, env);

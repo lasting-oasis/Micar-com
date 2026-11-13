@@ -144,15 +144,17 @@ ${rows}
 </tbody>
 </table>
 <p class="muted">Sticker prices come from manufacturer and pricing sources gathered for MiCar; today's values are estimates computed in the app from the sticker price, age, mileage, condition and region.</p>`;
+  // A Car, not a Product with offers: MiCar sells no cars, and the MSRPs are past sticker prices across many model
+  // years, not prices anyone is asking. They stay in the page's table, where they read as what they are.
   const jsonld = [
     {
       '@context': 'https://schema.org',
-      '@type': 'Product',
+      '@type': 'Car',
       name,
       brand: { '@type': 'Brand', name: p.make },
-      category: p.body,
+      model: p.model,
+      bodyType: p.body,
       url: canonical,
-      offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: allLow, highPrice: allHigh, offerCount: p.years.reduce((n, y) => n + y.trims, 0) },
     },
     {
       '@context': 'https://schema.org',
