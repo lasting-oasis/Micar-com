@@ -45,7 +45,9 @@ Tester mode, the owner's way to try any car without earning it first: set one mo
 
 ## Data
 
-[Vehicle data by Searlo](https://searlo.tech/): real dealer asking prices that calibrate each model's value curve, fetched by a GitHub Action (`.github/workflows/searlo-listings.yml`) with the key in the repo's secrets, never in the site. Only price, mileage, year, trim and city are kept: no VINs, dealer names or addresses. Also used: the U.S. Bureau of Labor Statistics' used-car price index (weekly), EPA's model lineups and published sticker prices.
+[Vehicle data by Searlo](https://searlo.tech/): real dealer asking prices for the models on the value page, fetched by a GitHub Action run by hand (`.github/workflows/searlo-listings.yml`), with the key in the repo's secrets, never in the site. Kept per listing: year, trim, price, mileage, condition (new, used or certified), the dealer's city and state, and days listed; per search: Searlo's price and mileage summary. No VINs, dealer names, websites, addresses, phone numbers or links are kept or printed. For now they are a check on the engine (`apps/value/scripts/dealer-check.ts`), not part of its values: fits made from them did not hold up on listings they were not fitted to (no better in other cities or on the hand-read samples, worse on older model years). `calibrate.ts --dealer` keeps the option, with the limits that review found it needs. Searlo also filled missing starting prices (`searlo-gapfill.yml`).
+
+Also used: the U.S. Bureau of Labor Statistics' used-car price index (monthly; the site's copy is refreshed weekly), EPA's model lineups, and published sticker prices (including iSeeCars).
 
 ## Run it
 

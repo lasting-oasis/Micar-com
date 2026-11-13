@@ -1,20 +1,27 @@
 name: Searlo dealer listings
 
-# Real dealer asking prices for every model on the value page (scripts/searlo_listings.py), which calibrate each
-# model's value curve. Vehicle data by Searlo: https://searlo.tech/
-# Runs when the job or its model list changes on the searlo-listings branch, or by hand. Resumable: each run skips
-# the searches already in data/searlo/listings.jsonl and commits what it found, even when it stops early.
+# Real dealer asking prices for the models on the value page (apps/value/scripts/searlo_listings.py), kept in
+# apps/value/data/searlo/listings.jsonl as a check on the engine (scripts/dealer-check.ts) and as input for
+# calibrate.ts --dealer. Vehicle data by Searlo: https://searlo.tech/
+# Run by hand only (Actions > Searlo dealer listings > Run workflow), so no push ever spends credits. The probe costs
+# about 10 credits; a fill never spends more than its budget and resumes where the last one stopped.
 on:
-  push:
-    branches: [searlo-listings]
-    paths: [.github/workflows/searlo-listings.yml, apps/value/scripts/searlo_listings.py, apps/value/data/searlo/models.json]
   workflow_dispatch:
+    inputs:
+      mode:
+        description: probe (two searches, prints the response's structure) or fill
+        type: choice
+        options: [probe, fill]
+        default: probe
+      budget:
+        description: most credits a fill may spend
+        default: '3000'
 
 permissions:
   contents: write
 
 concurrency:
-  group: searlo-listings
+  group: searlo
   cancel-in-progress: false
 
 jobs:
@@ -29,14 +36,26 @@ jobs:
       - run: python3 -u scripts/searlo_listings.py
         env:
           SEARCH_API_KEY: ${{ secrets.SEARCH_API_KEY }}
-          MODE: fill
-          BUDGET: '6000'
+          MODE: ${{ inputs.mode }}
+          BUDGET: ${{ inputs.budget }}
           MAX_MINUTES: '300'
       - name: Commit
-        if: always()
+        if: always() && inputs.mode == 'fill'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
           git add -A data/searlo
-          git commit -m "Searlo dealer listings $(date -u +%F)" || exit 0
-          for i in 1 2 3; do git pull --rebase -X theirs -q && git push && break; git rebase --abort 2>/dev/null; sleep 5; done
+          git commit -q -m "Searlo dealer listings $(date -u +%F)" || exit 0
+          # no "-X theirs": a conflicting edit made while the job ran stops the push instead of being overwritten
+          for i in 1 2 3; do
+            if git pull --rebase -q && git push -q; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            sleep 5
+          done
+          echo "::error::Could not push the listings; they are attached to this run as the searlo-listings artifact."
+          exit 1
+      - if: failure() && inputs.mode == 'fill'
+        uses: actions/upload-artifact@v4
+        with:
+          name: searlo-listings
+          path: apps/value/data/searlo

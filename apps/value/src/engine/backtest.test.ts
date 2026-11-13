@@ -53,17 +53,14 @@ describe('engine vs real listings', () => {
   }
 });
 
-describe('models calibrated from dealer listings alone (vehicle data by Searlo)', () => {
-  const curated = new Set(samples.map((s) => `${s.make} ${s.model}`));
-  const dealerOnly = calibration.models.filter((c) => !curated.has(`${c.make} ${c.model}`));
-  it('each came from at least 8 listings, misses them by 15% or less on average, and moved its prior by 0.10 at most', () => {
-    expect(dealerOnly.length).toBeGreaterThan(0);
-    for (const c of dealerOnly) {
-      const name = `${c.make} ${c.model}`;
-      expect((c as { dealer?: number }).dealer, `${name} dealer listings`).toBeGreaterThanOrEqual(8);
-      expect(c.mae, `${name} MAE`).toBeLessThanOrEqual(0.15);
-      expect(Math.abs(c.residual5 - c.guess), `${name} residual shift`).toBeLessThanOrEqual(0.1 + 1e-9);
-      expect(MODELS.find((m) => m.make === c.make && m.model === c.model)?.calibrated, `${name} applied at load`).toBeTruthy();
+describe('calibration', () => {
+  // Fits from dealer listings alone (calibrate.ts --dealer) are opt-in: in review they did not hold up on listings
+  // they were not fitted to. Shipping one should be a decision, made here, not a side effect of a refit.
+  it('ships only models fitted on the hand-read samples', () => {
+    const curated = new Set(samples.map((s) => `${s.make} ${s.model}`));
+    for (const c of calibration.models) {
+      expect(curated.has(`${c.make} ${c.model}`), `${c.make} ${c.model}`).toBe(true);
+      expect((c as { dealer?: number }).dealer, `${c.make} ${c.model} dealer listings`).toBeUndefined();
     }
   });
 });

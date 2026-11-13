@@ -27,7 +27,7 @@ describe('the data credit', () => {
   it("carries Searlo's open-source credit, word for word, in both languages and on the static footer", () => {
     expect(DATA_CREDIT).toEqual({ label: 'Vehicle data by Searlo', href: 'https://searlo.tech/' });
     for (const lang of ['en', 'es'] as FooterLang[]) {
-      expect(footerHtml(lang, 2026)).toContain('<a class="mc-foot-credit" href="https://searlo.tech/" target="_blank" rel="noreferrer">Vehicle data by Searlo</a>');
+      expect(footerHtml(lang, 2026)).toContain('<a class="mc-foot-credit" href="https://searlo.tech/" target="_blank" rel="noreferrer" lang="en">Vehicle data by Searlo</a>');
     }
   });
 });

@@ -5,11 +5,17 @@ name: Searlo gap-fill
 on:
   push:
     branches: [main]
-    paths: [.github/workflows/searlo-gapfill.yml, apps/value/scripts/searlo_gapfill.py, apps/value/data/search/gaps.json]
+    # its own script or gap list only: editing this file never starts a paid run
+    paths: [apps/value/scripts/searlo_gapfill.py, apps/value/data/search/gaps.json]
   workflow_dispatch:
 
 permissions:
   contents: write
+
+# one Searlo job at a time (they share the key and its credits); a second one waits instead of cancelling
+concurrency:
+  group: searlo
+  cancel-in-progress: false
 
 jobs:
   fill:

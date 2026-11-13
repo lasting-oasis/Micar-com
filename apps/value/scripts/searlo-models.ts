@@ -6,12 +6,16 @@ import { MODELS } from '../src/engine/models';
 import { STICKERS } from '../src/engine/stickers';
 
 const sticker = new Set(STICKERS.map((s) => `${s.make}|${s.model}`));
+const allYears = MODELS.flatMap((m) => m.years ?? []);
+const PAGE_YEARS = Array.from({ length: Math.max(...allYears) - Math.min(...allYears) + 1 }, (_, i) => Math.min(...allYears) + i);
 const rows = MODELS.map((m, i) => ({
   make: m.make,
   model: m.model,
   // "718 Cayman / Boxster": the first name is the one dealers list it under
   query: m.model.split(' / ')[0].trim(),
-  years: m.years ?? [],
+  // a hand-set model with no year list (F-250 Super Duty, Silverado 2500HD, Ram 2500) gets every year the page offers,
+  // so the year filter still applies to its listings
+  years: m.years?.length ? m.years : PAGE_YEARS,
   handSet: m.source !== 'epa',
   sticker: sticker.has(`${m.make}|${m.model}`),
   order: i,

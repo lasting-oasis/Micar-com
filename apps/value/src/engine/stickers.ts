@@ -43,6 +43,12 @@ export function stickerTrim(y: StickerYear, trim: string): StickerTrim {
  * file, else the search filter's trim, else the base trim. For pickups, prefer
  * the crew-cab 4x4 configuration of that trim, which is what most used trucks are. */
 export function resolveStickerTrim(y: StickerYear, candidates: (string | null | undefined)[], body?: string): StickerTrim {
+  return matchStickerTrim(y, candidates, body) ?? y.trims[0];
+}
+
+/** resolveStickerTrim without the base-trim fallback: null when no candidate names a trim on file, so a
+ * calibration can skip a listing instead of pricing a Z06 against a 1LT's sticker. */
+export function matchStickerTrim(y: StickerYear, candidates: (string | null | undefined)[], body?: string): StickerTrim | null {
   const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '');
   const words = (s: string) => ` ${s.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()} `;
   const pick = (rows: StickerTrim[]) => {
@@ -78,7 +84,7 @@ export function resolveStickerTrim(y: StickerYear, candidates: (string | null | 
     const hits = y.trims.filter((t) => words(t.trim).includes(needle));
     if (hits.length) return pick(hits);
   }
-  return y.trims[0];
+  return null;
 }
 
 export function stickerMsrp(y: StickerYear, trim: string): number {

@@ -26,7 +26,7 @@ export function Footer() {
         <div className="mc-foot-legal">
           <span>{footerCopyright(year)}</span>
           <span>{FOOTER_ESTIMATES[lang]}</span>
-          <a className="mc-foot-credit" href={DATA_CREDIT.href} target="_blank" rel="noreferrer">{DATA_CREDIT.label}</a>
+          <a className="mc-foot-credit" href={DATA_CREDIT.href} target="_blank" rel="noreferrer" lang="en">{DATA_CREDIT.label}</a>
         </div>
       </div>
     </footer>

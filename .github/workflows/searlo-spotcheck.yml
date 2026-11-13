@@ -4,11 +4,17 @@ name: Searlo spot-check of iSeeCars prices
 on:
   push:
     branches: [main]
-    paths: [.github/workflows/searlo-spotcheck.yml, apps/value/scripts/searlo_spotcheck.py]
+    # its own script only: editing this file never starts a paid run
+    paths: [apps/value/scripts/searlo_spotcheck.py]
   workflow_dispatch:
 
 permissions:
   contents: write
+
+# one Searlo job at a time (they share the key and its credits); a second one waits instead of cancelling
+concurrency:
+  group: searlo
+  cancel-in-progress: false
 
 jobs:
   check:

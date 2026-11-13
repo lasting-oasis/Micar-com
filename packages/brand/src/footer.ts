@@ -78,7 +78,7 @@ export function footerHtml(lang: FooterLang, year: number): string {
     const blurb = col.blurb ? `<p class="mc-foot-blurb">${esc(col.blurb[lang])}</p>` : '';
     return `<div class="mc-foot-col"><p class="mc-foot-h">${esc(col.title[lang])}</p>${blurb}<div class="mc-foot-links">${links}</div></div>`;
   }).join('');
-  const credit = `<a class="mc-foot-credit" href="${esc(DATA_CREDIT.href)}" target="_blank" rel="noreferrer">${esc(DATA_CREDIT.label)}</a>`;
+  const credit = `<a class="mc-foot-credit" href="${esc(DATA_CREDIT.href)}" target="_blank" rel="noreferrer" lang="en">${esc(DATA_CREDIT.label)}</a>`;
   const legal = `<div class="mc-foot-legal"><span>${esc(footerCopyright(year))}</span><span>${esc(FOOTER_ESTIMATES[lang])}</span>${credit}</div>`;
   return `<footer class="mc-foot"><div class="mc-foot-in"><div class="mc-foot-cols">${cols}</div>${legal}</div></footer>`;
 }
