@@ -20,6 +20,7 @@ import { SLOT_COLORS, claimFinish, createRoom, holdsLoan, invitation, joinRoom, 
 import { MAGIC_TTL_MS, allowSend, clientIp, newSendLog, pruneSendLog, applyRecord, attachAccount, liveHolder, bootState, claimAllowance, findAccount, linkGuest, saveRecord, signMagic, signSession, utcDay, verifyGoogle, verifyMagic, verifySession, type Account, type Identity, type Jwk } from './src/world/accounts.js';
 import { RENTAL_DENIED, STRIP_LIMIT, VISITOR_DENIED, VISITOR_EVENTS, closeEvent, guestPlayer, hostIsVacant, isUntouchedGuest, linkTarget, pickHost, quitEvent, sanitizePosition } from './src/world/stripFlow.js';
 import { coalescingSaver, loadOrQuarantine, writeAtomic } from './src/world/persistence.js';
+import { healthReport, startLoadSampler, type SaveAtBoot } from './src/world/health.js';
 import { RACE_MAX, roomMaxFrom } from './src/world/race.js';
 import { grantTester, heldTestCar, returnTestCar, setTestCar, splitTesterName, testCarDef, topUp } from './src/world/tester.js';
 import { checkTesterKey, configuredTesterKey, isKeyAttempt, newAttemptLog, refusalText } from './src/world/testerKey.js';
@@ -54,10 +55,18 @@ const dropOffSpot = (lot: { x: number; z: number }, index: number) =>
 // Position payloads from clients are validated and clamped by sanitizePosition (stripFlow.ts):
 // the town to ±2000 world units, a Strip pose (district 'strip') to the circuits' grid.
 
+// For /healthz (src/world/health.ts): when this process booted, when it last wrote the save, what its boot found on the
+// disk, and its own load.
+const BOOTED_AT = Date.now();
+let lastSavedAt: number | null = null;
+let saveAtBoot: SaveAtBoot = null;
+const readLoad = startLoadSampler();
+
 // One write at a time (a save asked for mid-write coalesces into one more), each to a temp file renamed over the save.
 const saver = coalescingSaver(async () => {
     try {
         await writeAtomic(fs, DATA_FILE, JSON.stringify(gameState));
+        lastSavedAt = Date.now();
     } catch (err) {
         console.error('Failed to save game state:', err);
     }
@@ -67,6 +76,7 @@ const saveGameState = () => saver.save();
 async function loadGameState() {
     try {
         const loaded = await loadOrQuarantine(fs, DATA_FILE, Date.now());
+        saveAtBoot = loaded.kind;
         if (loaded.kind === 'quarantined') console.error(`The save file did not parse; it was set aside as ${loaded.to ?? '(rename failed)'} and the server starts fresh.`);
         const parsed = loaded.kind === 'loaded' ? loaded.data : null;
         if (parsed) {
@@ -2536,6 +2546,16 @@ async function startServer() {
     for (const t of TRACKS) readTrackSync(t.id);
     await loadGameState();
 
+    // What anyone may read from outside (health.ts): a new bootId after every deploy, whether this boot found the save on the
+    // disk, how old the last save is, two counts, which sign-ins are on, and the server's own load. Nothing that names anyone.
+    app.get('/healthz', (_req, res) => {
+        res.set('Cache-Control', 'no-store');
+        res.json(healthReport({
+            bootedAt: BOOTED_AT, now: Date.now(), saveAtBoot, savedAt: lastSavedAt,
+            accounts: Object.keys(gameState.accounts ?? {}).length, players: Object.keys(gameState.players).length,
+            caps: { google: CAPS.google, magic: CAPS.magic }, load: readLoad(),
+        }));
+    });
     // What the Strip entry card may offer before anyone has joined (init.caps arrives too late for it)
     app.get('/api/caps', (_req, res) => { res.set('Cache-Control', 'no-store'); res.json(CAPS); });
     // What a challenge link shows before its reader has joined: who is hosting, which race, which car. The code is the key.
