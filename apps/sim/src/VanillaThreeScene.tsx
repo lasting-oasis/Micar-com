@@ -6,7 +6,7 @@ import { batchStatic } from './scene/staticBatcher';
 import { damp, groundLastOpaqueSort } from './scene/utils';
 import { Atmosphere } from './scene/atmosphere';
 import { carMeshId } from './scene/car/carMeshes';
-import { CAR_BODY_CHANGE, applyCarPaint, attachCarShadows, buildCarModel, carColorHex, carFrameTick, carStyleReady, deriveStyle, precompileCarsTick, disposeCarModel, disposeSharedCarAssets, setCarLights, syncCarWheels, updateCarLights, updateCars } from './scene/carModel';
+import { CAR_BODY_CHANGE, releaseHeldCarBodies, applyCarPaint, attachCarShadows, buildCarModel, carColorHex, carFrameTick, carStyleReady, deriveStyle, precompileCarsTick, disposeCarModel, disposeSharedCarAssets, setCarLights, syncCarWheels, updateCarLights, updateCars } from './scene/carModel';
 import { BlobShadows, Character, customerLook, dealerLook, disposeCharacterAssets } from './scene/characterModel';
 import { createGroundHeight } from './scene/groundHeight';
 import { createWorldContext } from './scene/world/context';
@@ -835,6 +835,7 @@ export function VanillaThreeScene() {
             S.enter(driver.V, mesh);
             carFeel.clearSkids('town');
             district = 'strip'; paused = false; resultsShown = false; driftMode = false;
+            releaseHeldCarBodies(); // (cars held for the town's precompile, which does not run in the Strip)
             applyPixelRatio();
             chase.reset(driver.V);
             interactPrompt.material.opacity = 0;
@@ -969,6 +970,7 @@ export function VanillaThreeScene() {
             stripExit.group.visible = !visitor(); // a visitor has no way back to town
             S.lobby(driveCam);
             lobby = true; district = 'strip'; paused = false;
+            releaseHeldCarBodies();
             applyPixelRatio();
             if (layerRoot) im.attach(layerRoot); // Esc and Enter (the pause menu, the results card)
             interactPrompt.material.opacity = 0;

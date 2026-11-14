@@ -369,7 +369,6 @@ export const buildCarModel = (style: string, rawColor: string, bodyCond: number 
     if (meshId) {
         const fit = (m: MeshGeometry) => {
             if (!afterPrecompile || pre.state === 'done') return fitMeshBody(group, m);
-            if (!heldFits.length) heldSince = performance.now();
             heldFits.push([group, m]);
         };
         const mg = carMeshes().request(meshId);
@@ -551,7 +550,6 @@ export const updateCars = (camPos: THREE.Vector3, high: boolean, driven: THREE.O
         if (b.parent !== tiltNode) { b.removeFromParent(); tiltNode.add(b); b.position.set(0, 0.12, partsOf(driven)!.beamZ - 16.4); }
         b.visible = true;
     } else if (beam && beam.parent) { beam.removeFromParent(); beam.visible = false; }
-    if (heldFits.length && now - heldSince > HOLD_MS) for (const [car, mg] of heldFits.splice(0)) if (cars.includes(car)) fitMeshBody(car, mg);
     if (shared) shared.shadow.opacity = high ? 0.38 : 0.6;
     const sm = ensureShadowMesh(cars.length);
     if (!sm) return;
@@ -628,13 +626,13 @@ export const precompileCarsTick = (renderer: THREE.WebGLRenderer, scene: THREE.S
     keptPaintDouble?.dispose(); keptPaintDouble = (pre.broken!.children[1] as THREE.Mesh).material as THREE.Material;
     c.smoke.geometry.dispose(); c.halos.geometry.dispose(); c.wheelMesh.dispose();
     pre.state = 'done'; pre.probe = pre.broken = undefined;
-    for (const [car, mg] of heldFits.splice(0)) if (cars.includes(car)) fitMeshBody(car, mg);
+    releaseHeldCarBodies();
 };
-/** Mesh bodies waiting for the precompile (buildCarModel's afterPrecompile); put in anyway after HOLD_MS (no precompile
- *  coming, e.g. the player left the town first). */
+/** Mesh bodies waiting for the precompile (buildCarModel's afterPrecompile). */
 const heldFits: [THREE.Object3D, MeshGeometry][] = [];
-let heldSince = 0;
-const HOLD_MS = 8000;
+/** Put the held models in now: when the precompile is done, and when the player leaves the town before it (the
+ *  precompile runs in the town only, so it would not come). */
+export const releaseHeldCarBodies = () => { for (const [car, mg] of heldFits.splice(0)) if (cars.includes(car)) fitMeshBody(car, mg); };
 
 /** Remove a car and free what belongs to it alone (shared geometry/materials stay). */
 export const disposeCarModel = (group: THREE.Object3D) => {
