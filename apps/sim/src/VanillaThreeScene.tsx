@@ -37,7 +37,7 @@ import { racesAllowed } from './world/raceMenu';
 import { DriveLayer } from './world/DriveLayer';
 import { RENTAL_BAY, RENTAL_FLEET, type RentalKey, canRent, heldRental, isVisitor } from './world/rental';
 import { heldTestCar, testCarDef } from './world/tester';
-import { SLOT_COLORS, type RoomView } from './world/race';
+import { SLOT_COLORS, roundPose, type RoomView } from './world/race';
 import { remotes, serverNow } from './world/raceNet';
 import { cardOf, newsOf, raceLabel } from './strip/challengeCopy';
 import { getLang, t } from './i18n';
@@ -719,7 +719,7 @@ export function VanillaThreeScene() {
             styleRating: () => localDrivingCarId ? visualRating(buildOf(localDrivingCarId).cfg) : 0,
             renderer,
             // a challenge race is its room's (the race_* messages): it is never entered, finished or quit as a paid event
-            onEventStart: (ev, PV) => { chase.reset(PV); resultsShown = false; paused = false; if (challenge) raceEmit('race_ready'); else socketEmit('enter_event', { eventId: ev.id }); },
+            onEventStart: (ev, PV) => { chase.reset(PV); resultsShown = false; paused = false; if (challenge) raceEmit('race_ready', { batch: true }); else socketEmit('enter_event', { eventId: ev.id }); },
             onZone: (_z, PV) => chase.reset(PV),
             // at the line: where the car is, then this driver's own time (the server decides whether it stands)
             onPlayerFinish: a => { if (!challenge || !a.net) return; sendPose(a, false); raceEmit('race_finish', { time: a.pFt, score: Math.round(a.drift.score), failed: !!a.fail }); },
@@ -752,7 +752,7 @@ export function VanillaThreeScene() {
         const sendPose = (a: ActiveEvent, lossy: boolean) => {
             const sk = useGameStore.getState().socket, V = driver?.V;
             if (!sk || !V) return;
-            const pose = [serverNow(), V.x, V.z, V.h, V.u, a.pS, Math.round(a.drift.score + a.drift.cur * a.drift.mult)];
+            const pose = roundPose([serverNow(), V.x, V.z, V.h, V.u, a.pS, a.drift.score + a.drift.cur * a.drift.mult]); // to the centimetre: fewer bytes for every other racer
             if (lossy) sk.volatile.emit('race_pose', pose); else sk.emit('race_pose', pose); // a pose lost on the way is replaced by the next
         };
         const endChallenge = () => { challenge = null; fieldRoom = cardRoom = null; poseAccum = 0; };
@@ -1270,6 +1270,13 @@ export function VanillaThreeScene() {
             },
             /** the challenge room this page is in: its code and phase, how many are in it, and this player's state there */
             race: () => { const st = useGameStore.getState(), r = st.race; return r ? { code: r.code, phase: r.phase, members: r.members.length, me: r.members.find(m => m.id === st.playerId)?.state ?? null } : null; },
+            /** a challenge's other racers: the room's others, and those this page places from their poses (raceNet's remotes, as placePeople reads them) */
+            remotes: () => {
+                const st = useGameStore.getState(), a = district === 'strip' ? strip?.runner.active : null;
+                const others = (st.race?.members ?? []).filter(m => m.id !== st.playerId).map(m => m.id);
+                const drawn = a?.net ? a.racers.filter(R => R.remote && R.pid && remotes.get(R.pid)?.pose(serverNow(), a.route)).map(R => R.pid as string) : [];
+                return { others, drawn };
+            },
             /** sign in with a magic-link token, as the link's page does (the smoke) */
             linkMagic: (token: string) => { useGameStore.getState().linkAccount({ magic: token }); },
             /** open the Garage menu on `carId`, else your first car (the same call the lot's [Enter] GARAGE makes) */

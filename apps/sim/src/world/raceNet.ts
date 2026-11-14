@@ -3,6 +3,7 @@
    measured it), and each other racer's car. */
 import { RACE_MAX } from './race';
 import { RemoteCar } from './strip/remote';
+import { unpackPoses } from './racePoses';
 
 type Emitter = { emit(ev: string, ...args: unknown[]): unknown };
 
@@ -49,6 +50,11 @@ export function takePose(msg: unknown, now: number = serverNow()): void {
     car = new RemoteCar(); remotes.set(id, car);
   }
   car.push({ t, x, z, h, v, s, sc }, now);
+}
+
+/** One tick's poses (race_poses: racePoses.ts), each as takePose takes one: `idOfSlot` names the racer on a grid place. */
+export function takePoses(msg: unknown, goAt: number, idOfSlot: (slot: number) => string | undefined, now: number = serverNow()): void {
+  for (const pose of unpackPoses(msg, goAt, idOfSlot)) takePose(pose, now);
 }
 
 export function dropRemotes(): void { remotes.clear(); }

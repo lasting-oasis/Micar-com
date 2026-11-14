@@ -183,6 +183,7 @@ const DICT: Record<string, Entry> = {
   'strip.ch.holding': { en: 'Finish what you are driving first.', es: 'Termina primero lo que estás manejando.' },
   'strip.ch.pick': { en: 'That race or car is not open to you.', es: 'Esa carrera o ese auto no está disponible para ti.' },
   'strip.ch.notNow': { en: 'Not right now.', es: 'Ahora no.' },
+  'strip.ch.size': { en: 'That grid is smaller than the room, or too big for this race.', es: 'Esa parrilla es más pequeña que la sala o demasiado grande para esta carrera.' },
   'setup.namePlaceholder': { en: 'e.g. Queen City Motors', es: 'ej. Queen City Motors' },
   'setup.careerPath': { en: 'Select Career Path', es: 'Elige tu Carrera' },
   'setup.dealership': { en: 'Dealership', es: 'Concesionario' },

@@ -21,7 +21,8 @@ import { MAGIC_TTL_MS, allowSend, clientIp, newSendLog, pruneSendLog, applyRecor
 import { RENTAL_DENIED, STRIP_LIMIT, VISITOR_DENIED, VISITOR_EVENTS, closeEvent, guestPlayer, hostIsVacant, isUntouchedGuest, linkTarget, pickHost, quitEvent, sanitizePosition } from './src/world/stripFlow.js';
 import { coalescingSaver, loadOrQuarantine, writeAtomic } from './src/world/persistence.js';
 import { healthReport, startLoadSampler, type SaveAtBoot } from './src/world/health.js';
-import { RACE_MAX, roomMaxFrom } from './src/world/race.js';
+import { RACE_MAX, roomMaxFrom, roomSizeFor, roundPose } from './src/world/race.js';
+import { packPoses } from './src/world/racePoses.js';
 import { grantTester, heldTestCar, returnTestCar, setTestCar, splitTesterName, testCarDef, topUp } from './src/world/tester.js';
 import { checkTesterKey, configuredTesterKey, isKeyAttempt, newAttemptLog, refusalText } from './src/world/testerKey.js';
 import { TRACKS } from './src/world/strip/district.js';
@@ -148,12 +149,22 @@ const raceOf = new Map<string, string>();
 const lastRoomAt = new Map<string, number>();
 const lastPoseAt = new Map<string, number>();
 const ROOM_GAP_MS = 3000, POSE_GAP_MS = 40;
-/** How many a challenge room holds: four, unless RACE_ROOM_MAX asks for more, which only a load test does (race.ts). */
+/** The most a challenge room may hold: four, unless RACE_ROOM_MAX says more (race.ts). A host picks a grid up to it. */
 const ROOM_MAX = roomMaxFrom(process.env.RACE_ROOM_MAX);
-if (ROOM_MAX !== RACE_MAX) console.log(`RACE_ROOM_MAX: challenge rooms hold ${ROOM_MAX} (load tests only: the Strip's grid shows ${RACE_MAX})`);
+if (ROOM_MAX !== RACE_MAX) console.log(`RACE_ROOM_MAX: a challenge room may hold up to ${ROOM_MAX}`);
 /** A pose's time is the sender's reading of this server's clock: one further off than this is replaced by the server's own. */
 const POSE_SKEW_MS = 5000;
 const raceChannel = (code: string) => 'race:' + code;
+/** The members of a room who are sent single poses (race_pose): every member, until it asks for them a tick at a time. */
+const poseChannel = (code: string) => 'poses:' + code;
+// The batched relay (racePoses.ts): the pages that asked for their poses a tick at a time (race_ready { batch: true }),
+// each racer's newest pose by room (with a running number), and the number each such page last got from each racer.
+const batchedPoses = new Set<string>();
+const newestPose = new Map<string, Map<string, { pose: number[]; n: number }>>();
+const seenPose = new Map<string, Map<string, number>>();
+let poseNo = 0;
+/** How often a batching page is sent the poses that moved since the last: as often as a racer sends its own. */
+const POSE_TICK_MS = 66;
 
 /** After any change to a room: the lent cars are made to match it (a racer holds one until a DNF, or until the race
  *  closes), and every member is sent the room. `changed`: an inventory already changed on the way here. */
@@ -182,6 +193,8 @@ function leaveRace(socketId: string, left = false) {
     const had = !!(player && returnLoan(player));
     if (had) drivenCar.delete(socketId);
     io.sockets.sockets.get(socketId)?.leave(raceChannel(code));
+    io.sockets.sockets.get(socketId)?.leave(poseChannel(code));
+    batchedPoses.delete(socketId); seenPose.delete(socketId); newestPose.get(code)?.delete(socketId);
     if (room) { leaveRoom(room, socketId, Date.now(), !left); syncRoom(room, had); }
     else if (had) broadcastState(io, gameState);
 }
@@ -192,7 +205,30 @@ setInterval(() => {
     const now = Date.now();
     for (const room of raceRooms.values()) if (tick(room, now)) syncRoom(room);
     sweep(raceRooms, now);
+    for (const code of newestPose.keys()) if (raceRooms.get(code)?.phase !== 'racing') newestPose.delete(code); // a race over: its poses go
 }, 1000);
+
+// Every POSE_TICK_MS, to each page in a race that asked for it: one race_poses with the newest pose of every other racer
+// that has moved since the last it was sent (racePoses.ts packPoses: each racer named by its grid place).
+setInterval(() => {
+    if (!batchedPoses.size) return;
+    for (const [code, poses] of newestPose) {
+        const room = raceRooms.get(code);
+        if (!room || room.phase !== 'racing' || room.goAt === null) continue;
+        for (const m of room.members) {
+            if (!batchedPoses.has(m.id)) continue;
+            const seen = seenPose.get(m.id) ?? new Map<string, number>(), out: { slot: number; pose: number[] }[] = [];
+            for (const [from, p] of poses) {
+                if (from === m.id || (seen.get(from) ?? 0) >= p.n) continue;
+                const sender = room.members.find(x => x.id === from);
+                if (!sender) continue;
+                out.push({ slot: sender.slot, pose: p.pose }); seen.set(from, p.n);
+            }
+            seenPose.set(m.id, seen);
+            if (out.length) io.to(m.id).volatile.emit('race_poses', packPoses(room.goAt, out));
+        }
+    }
+}, POSE_TICK_MS);
 
 // Timestamp of the last accepted end_day, used to throttle host day-advances.
 let lastEndDayAt = 0;
@@ -204,6 +240,7 @@ const CAPS = {
     google: !!process.env.GOOGLE_CLIENT_ID,
     googleClientId: process.env.GOOGLE_CLIENT_ID ?? null, // public: the browser needs it for Google sign-in
     magic: !!(process.env.RESEND_API_KEY && process.env.MAGIC_SECRET && process.env.MAGIC_FROM),
+    raceMax: ROOM_MAX, // the biggest grid a host may pick (RACE_ROOM_MAX; four unless the owner raises it)
 };
 // Tester mode (src/world/tester.ts): off unless TESTER_KEY is set to 8-128 characters. The key is compared, never
 // sent, stored or logged; misses are rationed per address and overall (src/world/testerKey.ts).
@@ -1553,6 +1590,7 @@ io.on('connection', (socket) => {
       if (raceOf.get(socket.id) !== room.code) leaveRace(socket.id, true);
       raceOf.set(socket.id, room.code);
       socket.join(raceChannel(room.code));
+      if (!batchedPoses.has(socket.id)) socket.join(poseChannel(room.code));
       syncRoom(room);
   };
 
@@ -1565,10 +1603,13 @@ io.on('connection', (socket) => {
       if (handsFull(player)) { raceNo('holding'); return; }
       const now = Date.now(), last = lastRoomAt.get(socket.id);
       if (last !== undefined && now - last < ROOM_GAP_MS) { raceNo('slow'); return; }
-      const { eventId, car } = fields(msg);
+      const { eventId, car, size } = fields(msg);
+      // the grid the host asked for, up to the ceiling (race.ts roomSizeFor: no size is the ceiling, a drag is four)
+      const max = roomSizeFor(size, ROOM_MAX, EVENTS.find(e => e.id === eventId)?.type === 'drag');
+      if (max === null) { raceNo('size'); return; }
       // rationed by address too (race.ts): the gap above is per socket, and a script makes a new socket for every room
       const made = createRoom(raceRooms, { id: socket.id, name: player.name }, { eventId, car }, stageOf(stripOf(player).rep), Math.random,
-          clientIp(socket.handshake.headers as any, socket.handshake.address), ROOM_MAX);
+          clientIp(socket.handshake.headers as any, socket.handshake.address), max);
       if (!made.ok) { raceNo(made.why); return; }
       lastRoomAt.set(socket.id, now);
       enterRoom(made.room);
@@ -1588,8 +1629,8 @@ io.on('connection', (socket) => {
   socket.on('race_set', (msg: unknown) => {
       const player = gameState.players[socket.id], room = myRoom();
       if (!player || !room) return;
-      const { eventId, car } = fields(msg);
-      const set = setRace(room, socket.id, { eventId, car }, stageOf(stripOf(player).rep));
+      const { eventId, car, size } = fields(msg);
+      const set = setRace(room, socket.id, { eventId, car, size }, stageOf(stripOf(player).rep), ROOM_MAX);
       if (!set.ok) { raceNo(set.why); return; }
       syncRoom(room);
   });
@@ -1603,8 +1644,10 @@ io.on('connection', (socket) => {
   });
 
   // on the grid in the lent car, the circuit loaded
-  socket.on('race_ready', () => {
+  // `{ batch: true }`: from now on this page is sent its poses a tick at a time (race_poses), not one by one
+  socket.on('race_ready', (msg: unknown) => {
       const room = myRoom();
+      if (room && fields(msg).batch === true) { batchedPoses.add(socket.id); socket.leave(poseChannel(room.code)); }
       if (room && markReady(room, socket.id, Date.now()).ok) syncRoom(room);
   });
 
@@ -1620,8 +1663,11 @@ io.on('connection', (socket) => {
       lastPoseAt.set(socket.id, now);
       const [t, x, z, h, v, s, sc] = msg as number[];
       const within = (n: number, lim: number) => Math.max(-lim, Math.min(lim, n));
-      socket.to(raceChannel(room.code)).volatile.emit('race_pose',
-          [socket.id, Math.abs(t - now) <= POSE_SKEW_MS ? t : now, within(x, STRIP_LIMIT), within(z, STRIP_LIMIT), within(h, 1000), within(v, 200), within(s, STRIP_LIMIT), Math.max(0, Math.min(9_999_999, sc))]);
+      // rounded as a page rounds it (race.ts roundPose), so an older page's long numbers cost the others no more
+      const pose = roundPose([Math.abs(t - now) <= POSE_SKEW_MS ? t : now, within(x, STRIP_LIMIT), within(z, STRIP_LIMIT), within(h, 1000), within(v, 200), within(s, STRIP_LIMIT), Math.max(0, Math.min(9_999_999, sc))]);
+      socket.to(poseChannel(room.code)).volatile.emit('race_pose', [socket.id, ...pose]);
+      let poses = newestPose.get(room.code); if (!poses) newestPose.set(room.code, poses = new Map());
+      poses.set(socket.id, { pose, n: ++poseNo });
   });
 
   // The racer's own word on their finish: race.ts decides whether that time stands, or the server's own.

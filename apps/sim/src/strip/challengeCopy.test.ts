@@ -16,8 +16,9 @@ describe('the challenge screens: their words', () => {
     }
   });
   it('every refusal the server can send has a line', () => {
-    const all: DenyWhy[] = ['gone', 'full', 'busy', 'slow', 'holding', 'host', 'few', 'state', 'pick'];
+    const all: DenyWhy[] = ['gone', 'full', 'busy', 'slow', 'holding', 'host', 'few', 'state', 'pick', 'size'];
     for (const why of all) expect(CH_KEYS, why).toContain(denyKey(why));
+    expect(t('en', denyKey('size'))).toBe('That grid is smaller than the room, or too big for this race.');
     expect(t('en', denyKey('gone'))).toBe('That challenge has ended.');
     expect(t('en', denyKey('full'))).toBe('That race is full.');
     expect(t('en', denyKey('host'))).toBe('Only the host can do that.');

@@ -10,7 +10,7 @@ import type { Tab } from './bay/slots';
 import { isWorkOrder, type Door, type OrderLine, type WorkOrder } from './bay/order';
 import { routeFromLocation, withRace } from './route';
 import type { DenyWhy, RoomView } from './world/race';
-import { dropRemotes, syncClock, takePose } from './world/raceNet';
+import { dropRemotes, syncClock, takePose, takePoses } from './world/raceNet';
 import { keepOnly, mergePositions } from './world/netPositions';
 import { applyPatch, type StatePatch } from './world/stateSync';
 
@@ -279,6 +279,13 @@ export function raceHandlers(socket: { emit(ev: string, ...args: unknown[]): unk
       useGameStore.setState({ raceDenied: why });
     },
     race_pose(msg: unknown): void { takePose(msg); },
+    /** a tick's poses at once (asked for in race_ready): each racer named by its grid place in the room this page holds,
+     *  this page's own place left out */
+    race_poses(msg: unknown): void {
+      const st = useGameStore.getState(), room = st.race;
+      if (!room || room.goAt == null) return;
+      takePoses(msg, room.goAt, slot => { const m = room.members.find(x => x.slot === slot); return m && m.id !== st.playerId ? m.id : undefined; });
+    },
     onInit(): void {
       const code = useGameStore.getState().raceCode;
       useGameStore.setState({ race: null, raceNote: null });
@@ -520,6 +527,7 @@ export const useGameStore = create<StoreState>((set, get) => ({
     socket.on('race_room', race.race_room);
     socket.on('race_denied', race.race_denied);
     socket.on('race_pose', race.race_pose);
+    socket.on('race_poses', race.race_poses);
     // The server did not take the tester key, so it did not join us. A key it calls wrong is no longer worth keeping.
     // From the entry card: stop, and let the card say why (its button then joins as an ordinary guest). After a dropped
     // connection, with the world already up: carry on as an ordinary guest, and say why in the world.
