@@ -26,6 +26,9 @@ type Nodes = {
 
 export const SFX_NAMES = ['tick', 'buy', 'ok', 'no', 'beep', 'go', 'cp', 'finish', 'perfect', 'crash', 'horn', 'shift', 'bov', 'nosfire'] as const;
 
+/** ms between two looks at the clock past which nothing is known about the time between them. */
+const WATCH_GAP_MS = 500;
+
 /** The page's one audio context and how many Audio instances are using it. */
 let shared: { AC: Ctx; refs: number } | null = null;
 const workletLoaded = new WeakMap<object, Promise<void>>();
@@ -46,7 +49,7 @@ export class Audio {
   /** How often the engine processor has started the model afresh after a sample that was not a number. */
   private modelResets = 0;
   /** ms: the longest the output's clock has stood still while 'running' (kept across rebuilds), and the freeze now under way. */
-  private longestFreeze = 0; private frozeSince = -1; private started = false;
+  private longestFreeze = 0; private frozeSince = -1; private started = false; private lastWatch = -Infinity;
   /** ?audiodebug only: analysers on the engine model's output and on the whole output, made on the first readout. */
   private probe: { AC: Ctx; out: AnalyserNode; eng: AnalyserNode | null; engOf: AudioNode | null; buf: Float32Array<ArrayBuffer> } | null = null;
 
@@ -81,11 +84,15 @@ export class Audio {
     const running = AC.state === 'running', moving = running && AC.currentTime !== this.seenTime;
     if (moving) this.stuckSince = -1; else if (this.stuckSince < 0) this.stuckSince = this.clock();
     // The longest freeze while 'running', once the clock has first moved (startup is not one), for ?audiodebug.
+    // A gap with nothing watching (on foot, a hidden tab, a long task) says nothing about the clock: it ends the freeze under way.
+    const now = this.clock();
+    if (now - this.lastWatch > WATCH_GAP_MS) this.frozeSince = -1;
+    this.lastWatch = now;
     if (moving) {
-      if (this.frozeSince >= 0 && this.started) this.longestFreeze = Math.max(this.longestFreeze, this.clock() - this.frozeSince);
+      if (this.frozeSince >= 0 && this.started) this.longestFreeze = Math.max(this.longestFreeze, now - this.frozeSince);
       this.frozeSince = -1; if (this.seenTime >= 0) this.started = true;
     } else if (!running) this.frozeSince = -1;
-    else if (this.frozeSince < 0) this.frozeSince = this.clock();
+    else if (this.frozeSince < 0) this.frozeSince = now;
     this.seenTime = AC.currentTime;
   }
 

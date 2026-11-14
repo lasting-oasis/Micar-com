@@ -198,6 +198,19 @@ describe('one audio output, and waking it', () => {
       expect(a.debugLine()).toContain('froze 2.4s');
     } finally { a.dispose(); }
   });
+  it('time when nothing watches (out of the car, a hidden tab) is not counted as a freeze', () => {
+    withFake(); const clock = { t: 0 }, a = new Audio(false, 'classic'); (a as unknown as { clock: () => number }).clock = () => clock.t;
+    a.resume();
+    const V = makeVehicle(carParams(ARCHETYPES.sedan, STOCK_CFG.perf, TUNE_DEF));
+    const frames = (n: number, moving: boolean) => { for (let i = 0; i < n; i++) { clock.t += 16; if (moving) made[0].currentTime += 0.016; a.engine(V, 10, true); } };
+    try {
+      frames(30, true);
+      frames(1, false);                          // the last frame in the car happens to see the clock between steps
+      clock.t += 5000; made[0].currentTime += 5; // five seconds on foot: the clock runs, nothing watches it
+      frames(30, true);
+      expect(a.debugLine()).toContain('froze 0.0s');
+    } finally { a.dispose(); }
+  });
   it('after everything is closed, the next Audio starts a fresh output', () => {
     withFake(); const a = new Audio(false, 'classic'); a.resume(); a.dispose();
     const b = new Audio(false, 'classic'); b.resume();
