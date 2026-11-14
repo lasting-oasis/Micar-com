@@ -1,0 +1,20 @@
+{
+  "name": "@micar/physics",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MiCar's driving physics: real figures about a car go in; how it launches, turns, stops and wears comes out. One engine for the car the player drives, the cars they race and the bench that tests them. Pure TypeScript, no dependencies, no DOM, no Node, and the same result on every machine: each app compiles it with its own toolchain.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "bash scripts/check.sh"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2",
+    "vite": "8.3.5",
+    "vitest": "5.0.5"
+  }
+}
