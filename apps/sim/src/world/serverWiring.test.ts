@@ -615,7 +615,9 @@ describe('server wiring', () => {
     expect(done.last!.raceNo).toBe(1);
     expect(done.last!.rows.map(r => [r.name, r.pos, r.why])).toEqual([['Ana', 1, null], ['Bo', 2, null], ['Cy', 3, 'quit']]);
     const bTime = done.last!.rows[1].time!;
-    expect(bTime).toBeGreaterThanOrEqual(bSent - 0.01); expect(bTime).toBeLessThan(bSent + 0.5);
+    // bSent is this process's clock and bTime the server's; two processes' clocks can read a few ms apart (4 ms measured on
+    // Windows), so the lower bound allows the same CLAIM_LATE_S the server allows a claim.
+    expect(bTime).toBeGreaterThanOrEqual(bSent - CLAIM_LATE_S); expect(bTime).toBeLessThan(bSent + 0.5);
     expect(done.members.map(m => m.state)).toEqual(['waiting', 'waiting', 'waiting']);
     expect(done.goAt).toBeNull(); expect(done.closesAt).toBeNull();
     // the cars are back and nothing was won or lost
