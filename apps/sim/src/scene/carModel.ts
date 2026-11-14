@@ -11,7 +11,8 @@ import { carMeshes, disposeMeshDarkMaterial, meshDarkMaterial, type MeshGeometry
 // the trim (lamps, grille, plates, black plastic, chrome, interior — one material shared
 // by every car), the glass (shared) and the four wheels (one instanced mesh). Far away
 // it is 2: a ~400-triangle version with the same paint and the shared trim material.
-// A car with its own 3D model adds its lamp lenses (two draws: head and tail lenses), near and far.
+// A car with its own 3D model adds its lamp lenses, near and far: one draw while its lamps are off (parked), two
+// while they are lit (head and tail lenses, the tail ones with a glow of their own).
 // Geometry is built once per body style (see car/carStyles.ts). The model faces -Z,
 // the direction the game drives.
 // A car model with its own 3D model (car/carMeshes.ts) shows the lofted body of its style
@@ -45,9 +46,10 @@ type Shared = {
     trimLit: THREE.MeshStandardMaterial;       // lamps on (driven): glow follows the time of day
     trimBrake: THREE.MeshStandardMaterial;     // ... and braking: tail lamps brighter
     trimReverse: THREE.MeshStandardMaterial;   // ... and reversing: white reverse lamps on
-    // a mesh body's lamp lenses per mode: [head lenses, tail lenses] (meshLamps' two groups). The tail lenses have lamp
-    // materials of their own (the same shader program) whose glow does not rise at night: it would tone-map to white
-    lens: Record<LampMode, THREE.MeshStandardMaterial[]>;
+    // a mesh body's lit lamp lenses per mode: [head lenses, tail lenses] (meshLamps' two groups). The tail lenses have lamp
+    // materials of their own (the same shader program) whose glow does not rise at night: it would tone-map to white.
+    // Unlit (every parked car), the lenses take the plain trim alone: one material, so one draw.
+    lens: Record<Exclude<LampMode, 'off'>, THREE.MeshStandardMaterial[]>;
     glass: THREE.MeshStandardMaterial;
     glassBroken: THREE.MeshStandardMaterial;
     smoke: THREE.PointsMaterial;
@@ -127,7 +129,7 @@ function getShared(): Shared {
     const trimBrake = lampTrim({ ...trimParams, emissiveIntensity: 1 }, LAMP_BRAKE, 0);
     const trimReverse = lampTrim({ ...trimParams, emissiveIntensity: 1 }, 1, 3);
     const lens = {
-        off: [trim, trim], on: [trimLit, lampTrim({ ...trimParams, emissiveIntensity: 1 }, 1, 0)],
+        on: [trimLit, lampTrim({ ...trimParams, emissiveIntensity: 1 }, 1, 0)],
         brake: [trimBrake, lampTrim({ ...trimParams, emissiveIntensity: 1 }, LAMP_BRAKE, 0)],
         reverse: [trimReverse, lampTrim({ ...trimParams, emissiveIntensity: 1 }, 1, 3)],
     };
@@ -504,7 +506,7 @@ export const setCarLights = (group: THREE.Object3D, mode: LampMode | boolean) =>
 const showLamps = (c: CarParts) => {
     const m = c.lamps;
     const mat = trimFor(m);
-    if (mat) { if (c.mesh) c.lampPatch.material = c.farLampPatch.material = shared!.lens[m]; else { c.trim.material = mat; c.farTrim.material = mat; } }
+    if (mat) { if (c.mesh) c.lampPatch.material = c.farLampPatch.material = m === 'off' ? mat : shared!.lens[m]; else { c.trim.material = mat; c.farTrim.material = mat; } }
     c.halos.visible = m !== 'off' && nightOn;
     // tail glow: dim red when on, bright red when braking, whitish when reversing
     const col = c.halos.geometry.getAttribute('color') as THREE.BufferAttribute, dir = c.halos.geometry.getAttribute('lampDir') as THREE.BufferAttribute;

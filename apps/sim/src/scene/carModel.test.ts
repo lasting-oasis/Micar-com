@@ -124,10 +124,14 @@ describe('a car with its own model', () => {
         const key = (L.trim.material as THREE.Material).customProgramCacheKey();
         for (const m of ['on', 'brake', 'reverse', 'off'] as const) {
             setCarLights(lofted, m); setCarLights(group, m);
+            if (m === 'off') { // unlit (every parked car): the plain trim, one material, so the lenses are one draw (three draws a
+                expect(c.lampPatch.material).toBe(L.trim.material); // single material over the whole geometry, groups or not)
+                expect(Array.isArray(c.farLampPatch.material)).toBe(false); expect(c.farLampPatch.material).toBe(L.trim.material);
+                continue;
+            }
             const [head, tail] = c.lampPatch.material as THREE.Material[]; // meshLamps' two groups: head lenses, tail lenses
             expect(head).toBe(L.trim.material); // the same lamp material (and shader) as the lofted trim
-            if (m === 'off') expect(tail).toBe(head); // unlit: the plain trim
-            else {
+            {
                 expect(tail).not.toBe(head); expect(tail.customProgramCacheKey()).toBe(key); // its own glow...
                 // ...on the same shader program: everything three builds the program from is the head material's, all but the glow
                 const program = (x: THREE.Material) => { const j = x.toJSON() as Record<string, unknown>; delete j.uuid; delete j.emissiveIntensity; return j; };
