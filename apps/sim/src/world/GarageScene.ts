@@ -101,13 +101,14 @@ export class GarageScene {
     spot(0xf3f6fb, .9, 7, 3, -5, .6, .7);
   }
 
-  /** Show `cfg` / `tune` on a lofted `style` body. Rebuilds the body when the style or paint changes; otherwise re-fits the kit. */
-  setCar(style: BodyStyle, cfg: CarCfg, tune: Tune): void {
-    const key = JSON.stringify([cfg, style]), bodyKey = style + cfg.color;
+  /** Show `cfg` / `tune` on a `style` body (the car's own model with `meshId`, once loaded). Rebuilds the body when the
+   *  style, model or paint changes; otherwise re-fits the kit. */
+  setCar(style: BodyStyle, cfg: CarCfg, tune: Tune, meshId: string | null = null): void {
+    const key = JSON.stringify([cfg, style, meshId]), bodyKey = style + cfg.color + (meshId ?? '');
     if (key === this.shownKey && this.car) { this.car.position.y = rideYOf(tune); return; }
     if (!this.car || this.car.userData.garageBody !== bodyKey) {
       this.clearCar();
-      const car = buildCarModel(style, cfg.color).group;
+      const car = buildCarModel(style, cfg.color, 100, 100, meshId).group;
       car.userData.garageBody = bodyKey; car.rotation.y = Math.PI; setCarLights(car, 'on');
       this.scene.add(car); this.car = car;
     } else if (this.kit) { disposeParts(this.kit); this.kit = null; }

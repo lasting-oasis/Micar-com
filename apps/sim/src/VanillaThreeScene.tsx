@@ -5,6 +5,7 @@ import { LightPool } from './scene/lightPool';
 import { batchStatic } from './scene/staticBatcher';
 import { damp, groundLastOpaqueSort } from './scene/utils';
 import { Atmosphere } from './scene/atmosphere';
+import { carMeshId } from './scene/car/carMeshes';
 import { applyCarPaint, attachCarShadows, buildCarModel, carColorHex, carFrameTick, carStyleReady, deriveStyle, precompileCarsTick, disposeCarModel, disposeSharedCarAssets, setCarLights, syncCarWheels, updateCarLights, updateCars } from './scene/carModel';
 import { BlobShadows, Character, customerLook, dealerLook, disposeCharacterAssets } from './scene/characterModel';
 import { createGroundHeight } from './scene/groundHeight';
@@ -1490,7 +1491,7 @@ export function VanillaThreeScene() {
                         const carStyle = (car as any).bodyStyle || deriveStyle(car.model);
                         // body styles are built a few milliseconds per frame; the car appears once its style is ready
                         if (!carStyleReady(carStyle)) return;
-                        const assets = buildCarModel(carStyle, carColorHex(car.color), car.bodyCondition, car.mechanicCondition);
+                        const assets = buildCarModel(carStyle, carColorHex(car.color), car.bodyCondition, car.mechanicCondition, carMeshId(car.make, car.model));
                         
                         const mesh = assets.group;
                         if (car.lotPosition) {

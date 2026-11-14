@@ -4,6 +4,7 @@
 import React, { useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import { useGameStore } from '../store';
 import { deriveStyle } from '../scene/carModel';
+import { carMeshId } from '../scene/car/carMeshes';
 import { GarageModel, drawDyno, type Row, type RowTone } from './garage';
 import { GarageScene } from './GarageScene';
 import { Audio } from './audio';
@@ -121,7 +122,7 @@ export function GarageMenu({ onQuickRace }: { onQuickRace?: (eventId: string) =>
   // keep the turntable on the previewed cfg and the menu's camera
   useEffect(() => {
     const sc = scene.current; if (!sc || !shown) return;
-    sc.setCar(style, shown.cfg, shown.tune);
+    sc.setCar(style, shown.cfg, shown.tune, carMeshId(car?.make, car?.model));
     const cam = g.cam(); if (cam !== lastCam.current) { lastCam.current = cam; sc.setCam(cam); }
   });
 
