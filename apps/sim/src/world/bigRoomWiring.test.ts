@@ -388,9 +388,10 @@ describe('a server without RACE_ROOM_MAX', () => {
     const second = r.roomSeen(c.s); c.s.emit('race_quick', { track: 'cota' }); const y = await second; // x is racing: c opens y
     expect(y.code).not.toBe(x.code);
     const moved = r.roomSeen(c.s, v => v.code === x.code); a.s.emit('race_quit'); b.s.emit('race_quit'); await moved;
-    // c races in x: its ready and its poses count there
-    const racing2 = r.roomSeen(c.s, v => v.code === x.code && v.phase === 'racing'); a.s.emit('race_start');
-    await r.roomSeen(c.s, v => v.code === x.code && (v.phase === 'loading' || v.phase === 'racing'));
+    // its first member cannot cut the result short; x starts by itself when its wait is over, and c races in it
+    const refused = r.denied(a.s); a.s.emit('race_start'); expect(await refused).toEqual({ why: 'state' });
+    const racing2 = r.next<RoomView>(c.s, 'race_room', v => v.code === x.code && v.phase === 'racing', 50_000);
+    await r.next<RoomView>(c.s, 'race_room', v => v.code === x.code && (v.phase === 'loading' || v.phase === 'racing'), 45_000);
     for (const s of [a.s, b.s, c.s]) s.emit('race_ready');
     const go = await racing2;
     const heard = r.next<any[]>(a.s, 'race_pose', p => p[0] === c.id);
@@ -402,7 +403,7 @@ describe('a server without RACE_ROOM_MAX', () => {
     await new Promise(res => setTimeout(res, 500));
     c.s.off('race_room', on);
     expect(fromY).toBe(0);
-  }, 40_000);
+  }, 80_000);
   it("a quick room's link, after its racers were moved on, leads to the room they moved into", async () => {
     const [a, b, c, d] = [await r.guest('Fwd A'), await r.guest('Fwd B'), await r.guest('Fwd C'), await r.guest('Fwd D')];
     const opened = r.roomSeen(a.s); a.s.emit('race_quick', { track: 'silverstone' }); const x = await opened;

@@ -110,7 +110,7 @@ export type Room = {
   max: number;
 };
 /** What the members are sent. */
-export type RoomView = Pick<Room, 'code' | 'eventId' | 'car' | 'hostId' | 'phase' | 'raceNo' | 'members' | 'goAt' | 'closesAt' | 'last' | 'note' | 'max' | 'quick' | 'startsAt'>;
+export type RoomView = Pick<Room, 'code' | 'eventId' | 'car' | 'hostId' | 'phase' | 'raceNo' | 'members' | 'goAt' | 'closesAt' | 'last' | 'note' | 'max' | 'quick' | 'startsAt' | 'restUntil'>;
 /** What anyone holding the code may read before joining. */
 export type Invitation = { host: string; eventId: string; car: RentalKey; count: number; max: number; phase: Phase };
 type Ok = { ok: true };
@@ -184,9 +184,10 @@ export function leaveRoom(room: Room, id: string, now: number, dropped = false):
   if (room.hostId === id) setHost(room, room.members[0]);
   if (room.members.length === 0) { room.emptySince = now; room.emptyFor = dropped ? DROPPED_TTL_MS : EMPTY_TTL_MS; }
   if (room.quick && room.members.length < RACE_MIN) room.startsAt = null; // alone again: no wait
-  // a quick room everyone has left forgets its race: whoever the list sends there next starts afresh
-  if (room.quick && room.members.length === 0) { room.last = null; room.note = null; room.endedAt = room.restUntil = null; }
   settle(room, now);
+  // a quick room everyone has left forgets its race, after settle, which closes a race its last racer left: whoever the
+  // list sends there next starts afresh
+  if (room.quick && room.members.length === 0) { room.last = null; room.note = null; room.endedAt = room.restUntil = null; }
 }
 
 /** The host's next race, car and grid. No size keeps the room's own (a drag's is four); a size the server does not make
@@ -207,6 +208,9 @@ export function setRace(room: Room, id: string, pick: Choice & { size?: unknown 
 export function startRace(room: Room, id: string, now: number): Ok | Denied {
   if (id !== room.hostId) return no('host');
   if (room.phase !== 'open') return no('state');
+  // a quick room's wait after a race or a call-off holds: its first member, a stranger to the others, cannot cut the
+  // result short (the owner's call); the room starts by itself when the wait is over
+  if (room.quick && room.restUntil !== null && now < room.restUntil) return no('state');
   const n = room.members.length;
   if (n < RACE_MIN) return no('few');
   room.raceNo++; room.startsAt = null; room.endedAt = null; room.restUntil = null;
@@ -295,8 +299,8 @@ export function holdsLoan(room: Room, id: string): boolean {
 }
 
 export function roomView(room: Room): RoomView {
-  const { code, eventId, car, hostId, phase, raceNo, members, goAt, closesAt, last, note, max, quick, startsAt } = room;
-  return { code, eventId, car, hostId, phase, raceNo, members, goAt, closesAt, last, note, max, quick, startsAt };
+  const { code, eventId, car, hostId, phase, raceNo, members, goAt, closesAt, last, note, max, quick, startsAt, restUntil } = room;
+  return { code, eventId, car, hostId, phase, raceNo, members, goAt, closesAt, last, note, max, quick, startsAt, restUntil };
 }
 
 export function invitation(room: Room): Invitation {
@@ -367,31 +371,38 @@ export function missedLoad(room: Room, now: number): string[] {
 
 /** One quick room filling per circuit, the owner's rules (2026-11-14). A room whose race ended less than QUICK_WAIT_MS
  *  ago is resting: its racers keep their room, their result and their wait, and the circuit's other open quick rooms move
- *  into it, up to its size; two resting rooms stay apart. Any other open quick room counts like a fresh one: the fuller
- *  takes the emptier, so a racer left alone after a race joins the other room once its wait is over. A move is no join:
- *  it does not end the room's wait (joinRoom). Returns who moved where; the server moves their sockets. */
+ *  into it; two resting rooms stay apart. Any other open quick room counts like a fresh one: the fuller takes the emptier,
+ *  so a racer left alone after a race joins the other room once its wait is over. Only whole rooms move: a room that does
+ *  not fit stays together (people waiting to race each other are never split). A move is no join: it does not end the
+ *  room's wait (joinRoom). Returns who moved where; the server moves their sockets. */
 export function mergeQuick(rooms: Map<string, Room>, now: number): { id: string; from: string; to: string }[] {
   const moves: { id: string; from: string; to: string }[] = [];
   const resting = (r: Room) => r.endedAt !== null && now - r.endedAt < QUICK_WAIT_MS;
+  const due = (r: Room) => r.startsAt !== null && now >= r.startsAt; // starts now (the loop's tick starts it first)
   const byEvent = new Map<string, Room[]>();
   for (const r of rooms.values())
     if (r.quick && r.phase === 'open' && r.members.length > 0) byEvent.set(r.eventId, [...(byEvent.get(r.eventId) ?? []), r]);
   for (const list of byEvent.values()) {
-    for (;;) {
+    // each move empties a room, so this ends: at most one round per room
+    for (let moved = true; moved;) {
+      moved = false;
       const live = list.filter(r => r.members.length > 0);
-      // into: a resting room first, else the fullest, with space; out of: the emptiest room that is not resting and whose
-      // start has not come (the loop's tick starts it first; this holds whatever the order)
-      const due = (r: Room) => r.startsAt !== null && now >= r.startsAt;
-      const to = live.filter(r => r.members.length < r.max).sort((p, q) => Number(resting(q)) - Number(resting(p)) || q.members.length - p.members.length)[0];
-      const from = to && live.filter(r => r !== to && !resting(r) && !due(r)).sort((p, q) => p.members.length - q.members.length)[0];
-      if (!to || !from || (!resting(to) && from.members.length > to.members.length)) break;
-      while (from.members.length > 0 && to.members.length < to.max) {
-        const m = from.members[0];
-        leaveRoom(from, m.id, now);
-        joinRoom(to, { id: m.id, name: m.name });
-        moves.push({ id: m.id, from: from.code, to: to.code });
+      // into: a resting room first, else the fullest, with space; out of: the emptiest room that fits whole, is not
+      // resting, does not start now, and (into a room that is not resting) is no fuller than it
+      const into = live.filter(r => r.members.length < r.max).sort((p, q) => Number(resting(q)) - Number(resting(p)) || q.members.length - p.members.length);
+      for (const to of into) {
+        const from = live.filter(r => r !== to && !resting(r) && !due(r) && r.members.length <= to.max - to.members.length
+          && (resting(to) || r.members.length <= to.members.length)).sort((p, q) => p.members.length - q.members.length)[0];
+        if (!from) continue;
+        for (const m of [...from.members]) {
+          leaveRoom(from, m.id, now);
+          joinRoom(to, { id: m.id, name: m.name });
+          moves.push({ id: m.id, from: from.code, to: to.code });
+        }
+        waitQuick(to, now);
+        moved = true;
+        break;
       }
-      waitQuick(to, now);
     }
   }
   return moves;
