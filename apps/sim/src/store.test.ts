@@ -135,9 +135,9 @@ describe('a challenge room', () => {
     raceHandlers(quiet).onLinked({ replaced: true }); // in no room: nothing to come back to
     expect(quiet.sent()).toEqual([]);
   });
-  it('a gone or full room is forgotten; other refusals keep the room', () => {
+  it('a gone or full room, or a quick room that took this page out, is forgotten; other refusals keep the room', () => {
     const h = raceHandlers(stub());
-    for (const why of ['gone', 'full'] as const) {
+    for (const why of ['gone', 'full', 'idle'] as const) {
       useGameStore.setState({ race: view(), raceCode: 'K7M2QX', raceNote: 'missed' });
       h.race_denied({ why });
       expect(useGameStore.getState()).toMatchObject({ race: null, raceCode: null, raceDenied: why, raceNote: null });

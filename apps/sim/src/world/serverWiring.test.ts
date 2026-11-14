@@ -691,6 +691,7 @@ describe('server wiring', () => {
     await rentOne(g[4].s, g[4].id);
     d = raceDenied(g[4].s); g[4].s.emit('race_create', { eventId: 'royal_drag', car: 'ronin' }); expect((await d).why).toBe('holding');
     d = raceDenied(g[4].s); g[4].s.emit('race_join', { code }); expect((await d).why).toBe('holding');
+    d = raceDenied(g[4].s); g[4].s.emit('race_quick', { track: 'monaco' }); expect((await d).why).toBe('holding');
     // rooms are not made in a burst; the refusal leaves the first room alone
     const solo = await guest('Burst'), first = (await makeRoom(solo)).code;
     d = raceDenied(solo.s); solo.s.emit('race_create', { eventId: 'royal_drag', car: 'ronin' }); expect((await d).why).toBe('slow');
@@ -708,7 +709,7 @@ describe('server wiring', () => {
   it('junk on every race message stops nobody', async () => {
     const g = await guest('Junk');
     let turnedAway = false; g.s.on('strip_denied', (d: any) => { if (d?.reason === VISITOR_DENIED) turnedAway = true; });
-    for (const ev of ['race_time', 'race_create', 'race_join', 'race_set', 'race_start', 'race_ready', 'race_pose', 'race_finish', 'race_quit', 'race_leave'])
+    for (const ev of ['race_time', 'race_create', 'race_join', 'race_quick', 'race_set', 'race_start', 'race_ready', 'race_pose', 'race_finish', 'race_quit', 'race_leave'])
       for (const junk of [null, 'x', 42, {}, [], undefined]) g.s.emit(ev, junk);
     for (const pose of [[NaN, 1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6, 7, 8], ['a', 1, 2, 3, 4, 5, 6], [Infinity, 1, 2, 3, 4, 5, 6]]) g.s.emit('race_pose', pose);
     await new Promise(r => setTimeout(r, 400));

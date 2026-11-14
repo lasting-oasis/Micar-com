@@ -184,6 +184,7 @@ const DICT: Record<string, Entry> = {
   'strip.ch.pick': { en: 'That race or car is not open to you.', es: 'Esa carrera o ese auto no está disponible para ti.' },
   'strip.ch.notNow': { en: 'Not right now.', es: 'Ahora no.' },
   'strip.ch.size': { en: 'That grid is smaller than the room, or too big for this race.', es: 'Esa parrilla es más pequeña que la sala o demasiado grande para esta carrera.' },
+  'strip.ch.idle': { en: 'You are out of the quick race: your page did not load it in time.', es: 'Quedó fuera de la carrera rápida: su página no la cargó a tiempo.' },
   'setup.namePlaceholder': { en: 'e.g. Queen City Motors', es: 'ej. Queen City Motors' },
   'setup.careerPath': { en: 'Select Career Path', es: 'Elige tu Carrera' },
   'setup.dealership': { en: 'Dealership', es: 'Concesionario' },

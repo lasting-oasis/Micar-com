@@ -16,8 +16,10 @@ describe('the challenge screens: their words', () => {
     }
   });
   it('every refusal the server can send has a line', () => {
-    const all: DenyWhy[] = ['gone', 'full', 'busy', 'slow', 'holding', 'host', 'few', 'state', 'pick', 'size'];
+    const all: DenyWhy[] = ['gone', 'full', 'busy', 'slow', 'holding', 'host', 'few', 'state', 'pick', 'size', 'idle'];
     for (const why of all) expect(CH_KEYS, why).toContain(denyKey(why));
+    expect(t('en', denyKey('idle'))).toBe('You are out of the quick race: your page did not load it in time.');
+    expect(t('es', denyKey('idle'))).toBe('Quedó fuera de la carrera rápida: su página no la cargó a tiempo.');
     expect(t('en', denyKey('size'))).toBe('That grid is smaller than the room, or too big for this race.');
     expect(t('en', denyKey('gone'))).toBe('That challenge has ended.');
     expect(t('en', denyKey('full'))).toBe('That race is full.');

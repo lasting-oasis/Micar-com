@@ -275,7 +275,7 @@ export function raceHandlers(socket: { emit(ev: string, ...args: unknown[]): unk
     },
     race_denied(d: { why?: DenyWhy } | null | undefined): void {
       const why: DenyWhy = d && typeof d.why === 'string' ? d.why : 'state';
-      if (why === 'gone' || why === 'full') forgetRace(); // there is no room to be in
+      if (why === 'gone' || why === 'full' || why === 'idle') forgetRace(); // there is no room to be in (idle: a quick room took this page out)
       useGameStore.setState({ raceDenied: why });
     },
     race_pose(msg: unknown): void { takePose(msg); },
