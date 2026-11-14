@@ -107,14 +107,16 @@ export const CONDITIONS: (Option & { recon: number })[] = [
 
 export const TITLES: Option[] = [
   { name: 'Clean', mult: 1.0, desc: 'No salvage or rebuilt brand on the title, as you report it. MiCar has checked no record.' },
-  { name: 'Rebuilt', mult: 0.75, desc: 'Once branded salvage, then repaired and retitled by a state. What the state inspected varies.' },
-  { name: 'Salvage', mult: 0.55, desc: 'Branded salvage, usually after an insurer declared a total loss.' },
+  // the owner's dealer rule of thumb (2026-11-14): a rebuilt title sells 30-35% under the same car with a clean one
+  // (the middle, 32.5%, is used), a salvage title 40% under
+  { name: 'Rebuilt', mult: 0.675, desc: 'Once branded salvage, then repaired and retitled by a state. What the state inspected varies.' },
+  { name: 'Salvage', mult: 0.6, desc: 'Branded salvage, usually after an insurer declared a total loss.' },
 ];
 
-/** The warning under a branded title's figure: the flat title multipliers have not been tested against sale prices. */
+/** The warning under a branded title's figure: where the cut comes from, and that nothing about this car was checked. */
 export const BRANDED_NOTES: Record<string, string> = {
-  Rebuilt: 'This is a rule-of-thumb figure for a rebuilt title. MiCar has not tested it against sale prices and has checked no record. Get an independent appraisal before relying on it.',
-  Salvage: 'This is a rule-of-thumb figure for a salvage title. MiCar has not tested it against sale prices and has checked no record. Get an independent appraisal before relying on it.',
+  Rebuilt: "Rebuilt cars usually sell for about 30–35% less than the same car with a clean title. That's a dealer's rule of thumb, not a check of this car: MiCar has checked no record. Get an independent appraisal before relying on it.",
+  Salvage: "Salvage cars usually sell for about 40% less than the same car with a clean title. That's a dealer's rule of thumb, not a check of this car: MiCar has checked no record. Get an independent appraisal before relying on it.",
 };
 
 export const ACCIDENTS: Option[] = [

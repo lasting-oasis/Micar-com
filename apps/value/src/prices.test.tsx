@@ -8,6 +8,8 @@ import { setLang } from './i18n';
 import { defaults, parse } from './urlState';
 
 const now = new Date('2026-11-14T12:00:00Z');
+/** The markup with React's escapes undone, so a sentence with an apostrophe can be looked for as written. */
+const text = (html: string) => html.replace(/&#x27;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, '&');
 const val = (title: string) => valuate(parse({ ...defaults(now), make: 'Honda', model: 'Civic', year: '2019', msrp: '20250', mileage: '60000', title }, now).inputs!, now);
 
 afterEach(() => setLang('en', false));
@@ -17,7 +19,7 @@ describe('the value of a car with a branded title', () => {
     for (const title of ['Rebuilt', 'Salvage']) {
       const html = renderToStaticMarkup(<Prices val={val(title)} title={title} />);
       expect(html, title).toContain('role="note"');
-      expect(html, title).toContain(BRANDED_NOTES[title]);
+      expect(text(html), title).toContain(BRANDED_NOTES[title]);
     }
     expect(renderToStaticMarkup(<Prices val={val('Clean')} title="Clean" />)).not.toContain('role="note"');
     expect(renderToStaticMarkup(<Prices val={val('Clean')} />)).not.toContain('role="note"');
@@ -27,6 +29,6 @@ describe('the value of a car with a branded title', () => {
 
   it('says it in Spanish on a Spanish page', () => {
     setLang('es', false);
-    expect(renderToStaticMarkup(<Prices val={val('Salvage')} title="Salvage" />)).toContain('Esta es una cifra aproximada para un título de salvamento.');
+    expect(renderToStaticMarkup(<Prices val={val('Salvage')} title="Salvage" />)).toContain('Los autos de salvamento suelen venderse por un 40% menos');
   });
 });
