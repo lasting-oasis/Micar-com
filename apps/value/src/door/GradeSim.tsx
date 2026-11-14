@@ -3,7 +3,7 @@
 // reads is kept in the Garage.
 import { GRADE_CATEGORIES, GRADE_WEIGHTS } from '@micar/engine';
 import { garageUrl } from '../car/record';
-import { ACCIDENTS, CONDITIONS } from '../engine/data';
+import { ACCIDENTS, CONDITIONS, optionLabel } from '../engine/data';
 import { GRADE_CATEGORY_NAMES } from '../garage/CollectibleCard';
 import { t } from '../i18n';
 import { TIERS, gradeFor, type Card, type GradeInputs } from './card';
@@ -20,7 +20,7 @@ export function GradeSim({ card, g, onChange }: { card: Card; g: GradeInputs; on
           <label><span>{t('Condition')}</span>
             <select value={g.cond} onChange={(e) => set('cond', e.target.value)}>{CONDITIONS.map((c) => <option key={c.name} value={c.name}>{t(c.name)}</option>)}</select></label>
           <label><span>{t('Accident history')}</span>
-            <select value={g.accident} onChange={(e) => set('accident', e.target.value)}>{ACCIDENTS.map((a) => <option key={a.name} value={a.name}>{t(a.name)}</option>)}</select></label>
+            <select value={g.accident} onChange={(e) => set('accident', e.target.value)}>{ACCIDENTS.map((a) => <option key={a.name} value={a.name}>{t(optionLabel(ACCIDENTS, a.name))}</option>)}</select></label>
         </div>
         <p className="sim-note">{t('That is all this page is told about the car, and your own word on its condition counts up to 60. The other categories read its VIN, its papers, its photographs and its records. Those are kept in the Garage.')}</p>
         <div className="formula" style={{ marginTop: 22 }}>

@@ -317,7 +317,7 @@ function VehicleForm({ form, set, errors, msrpAuto }: { form: FormState; set: (k
       </div>
       <Segmented name="condition" legend={t('Condition')} value={form.condition} options={CONDITIONS} onChange={radio('condition')} />
       <Segmented name="title" legend={t('Title')} value={form.title} options={TITLES} onChange={radio('title')} />
-      <Segmented name="accident" legend={t('Accident history')} value={form.accident} options={ACCIDENTS} onChange={radio('accident')} />
+      <Segmented name="accident" legend={t('Reported accidents')} value={form.accident} options={ACCIDENTS} onChange={radio('accident')} />
       <Field id="region" label={t('Where it will be sold')}>
         <select id="region" className="field" value={form.region} onChange={set('region')}>
           {REGIONS.map((r) => <option key={r} value={r}>{t(r)}</option>)}

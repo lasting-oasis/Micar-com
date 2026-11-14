@@ -2,7 +2,7 @@
 // The QR code on the sheet opens the car page with the same record (nothing is stored on a server).
 import { Check, Download, ExternalLink, Link2, Printer } from 'lucide-react';
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react';
-import { ACCIDENTS, BODY_STYLES, CONDITIONS, MAKES, REGIONS, SEGMENT_LABELS, TITLES } from '../engine/data';
+import { ACCIDENTS, BODY_STYLES, CONDITIONS, MAKES, REGIONS, SEGMENT_LABELS, TITLES, optionLabel } from '../engine/data';
 import { findModel, modelsForMake, yearRanges } from '../engine/models';
 import { stickerFor, trimChoices } from '../engine/stickers';
 import { qrSvg } from './qr';
@@ -156,7 +156,7 @@ export default function StickerBuilder({ code }: { code?: string }) {
                 <div className="grid grid-cols-3 gap-3">
                   <Select label={t('Condition')} value={r.condition} onChange={(v) => set('condition', v)}>{CONDITIONS.map((c) => <option key={c.name} value={c.name}>{t(c.name)}</option>)}</Select>
                   <Select label={t('Title')} value={r.title} onChange={(v) => set('title', v)}>{TITLES.map((c) => <option key={c.name} value={c.name}>{t(c.name)}</option>)}</Select>
-                  <Select label={t('Accidents')} value={r.accident} onChange={(v) => set('accident', v)}>{ACCIDENTS.map((c) => <option key={c.name} value={c.name}>{t(c.name)}</option>)}</Select>
+                  <Select label={t('Accidents')} value={r.accident} onChange={(v) => set('accident', v)}>{ACCIDENTS.map((c) => <option key={c.name} value={c.name}>{t(optionLabel(ACCIDENTS, c.name))}</option>)}</Select>
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   <Select label={t('Region (for the value)')} value={r.region} onChange={(v) => set('region', v as CarRecord['region'])}>{REGIONS.map((x) => <option key={x} value={x}>{t(x)}</option>)}</Select>
