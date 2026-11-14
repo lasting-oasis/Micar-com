@@ -70,7 +70,9 @@ describe('one audio output, and waking it', () => {
   });
   type Event = { time: number; set?: number; target?: number; tau?: number };
   /** A gain's AudioParam with the browser's timeline for the calls Audio makes on it (setValueAtTime, setTargetAtTime,
-   *  cancelScheduledValues), read at the context's currentTime. Ramps are not evaluated: nothing here reads a sound effect's gain. */
+   *  cancelScheduledValues), read at the context's currentTime. Ramps are not evaluated: nothing here reads a sound effect's gain.
+   *  Where browsers differ it does what the strictest does: a timeline emptied by a cancel falls back to the gain's default
+   *  of 1, as Firefox's does (Chrome and WebKit keep the last value), so the page must never empty one. */
   class FakeParam {
     private events: Event[] = [];
     constructor(private readonly ctx: { currentTime: number }, private readonly initial = 1) {}
@@ -80,8 +82,8 @@ describe('one audio output, and waking it', () => {
     private add(e: Event): this { let i = this.events.length; while (i > 0 && this.events[i - 1].time > e.time) i--; this.events.splice(i, 0, e); return this; }
     setValueAtTime(v: number, t: number) { return this.add({ time: t, set: v }); }
     setTargetAtTime(target: number, t: number, tau: number) { return this.add({ time: t, target, tau }); }
-    /** Removes every event at or after `t`. */
-    cancelScheduledValues(t: number) { this.events = this.events.filter(e => e.time < t); return this; }
+    /** Removes every event at or after `t`; a `t` already past counts as now (the spec, Chrome and Firefox clamp it). */
+    cancelScheduledValues(t: number) { const from = Math.max(t, this.ctx.currentTime); this.events = this.events.filter(e => e.time < from); return this; }
     linearRampToValueAtTime() { return this; }
     exponentialRampToValueAtTime() { return this; }
     private at(T: number): number {
@@ -299,6 +301,8 @@ describe('one audio output, and waking it', () => {
       for (let i = 0; i < n; i++) { made[0].currentTime += 1 / 60; a.engine(car, 10, on); out.push(read()); }
       return out;
     };
+    /** A Garage turbo at full boost, the hand brake on and the nitrous firing: every bed plays. */
+    const everyBed = () => { const v = makeVehicle(carParams(ARCHETYPES.sedan, { ...STOCK_CFG.perf, turbo: 2 }, TUNE_DEF)); v.thr = 1; v.rpm = 3000; v.boost = 1; v.hand = true; v.nosOn = true; return v; };
     const modelGain = (a: Audio) => (a as unknown as { nodeGain: { gain: { value: number } } }).nodeGain.gain.value;
     /** Once back, a level only rises (each bed ramps at its own pace), and a second on it is back where it was. */
     const comesBack = (before: number, back: number[]) => {
@@ -306,10 +310,10 @@ describe('one audio output, and waking it', () => {
       expect(back.at(-1)!).toBeGreaterThan(0.95 * before);
     };
     it('every bed of the classic engine comes back to its level and stays there after a 0.1 s pause', () => {
-      withFake(); const a = new Audio(false, 'classic'); a.resume(); const car = V();
+      withFake(); const a = new Audio(false, 'classic'); a.resume(); const car = everyBed();
       try {
-        const before = frames(a, car, 60, true, () => a.levels()).at(-1)!;   // engine 0.16, wind 0.006; the rest 0 with no turbo, skid or nitrous
-        expect(before[0]).toBeGreaterThan(0.15);
+        const before = frames(a, car, 60, true, () => a.levels()).at(-1)!;   // engine, turbo, skid, nitrous, wind
+        for (const level of before) expect(level).toBeGreaterThan(0);
         frames(a, car, 6, false, () => a.levels());
         const back = frames(a, car, 60, true, () => a.levels());              // across the 0.4 s mark, 18 frames in
         before.forEach((level, bed) => { if (level > 0) comesBack(level, back.map(l => l[bed])); });
@@ -324,6 +328,18 @@ describe('one audio output, and waking it', () => {
         expect(before).toBeGreaterThan(0.85);
         frames(a, car, 6, false, () => modelGain(a));
         comesBack(before, frames(a, car, 60, true, () => modelGain(a)));
+      } finally { a.dispose(); }
+    });
+    // The first frame after the sound is built comes back from quiet too, and can come before the context's clock has
+    // moved (a context that has not started yet). Cancelling then would take the gains' own starting 0 with it.
+    it('the first frame after the sound is built starts every bed and the model from 0, before the clock has moved', async () => {
+      withFake(); withWorklet();
+      const a = new Audio(false, 'model'); a.setCar(soundFactsFor({ engine: '5.0L V8', bodyStyle: 'coupe', redline: 7000 })); a.resume();
+      try {
+        await modelStarted(); const car = everyBed();
+        a.engine(car, 10, true);                                               // currentTime is still 0
+        expect([...a.levels(), modelGain(a)]).toEqual([0, 0, 0, 0, 0, 0]);
+        for (const l of frames(a, car, 30, true, () => [...a.levels(), modelGain(a)])) for (const v of l) expect(v).toBeLessThanOrEqual(0.9);
       } finally { a.dispose(); }
     });
     it('with nothing coming back, every bed and the model are exactly 0 from 0.4 s on', async () => {

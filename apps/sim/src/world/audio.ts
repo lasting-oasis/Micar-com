@@ -34,6 +34,8 @@ export class Audio {
   private AC: Ctx | null = null;
   private A: Nodes | null = null;
   private quiet = true;
+  /** When the last silence()'s hold at exactly 0 takes effect, in context time; -1: none to come. */
+  private holdAt = -1;
   private facts: SoundFacts | null = null;
   private node: AudioWorkletNode | null = null;
   private nodeGain: GainNode | null = null;
@@ -182,8 +184,10 @@ export class Audio {
     const AC = this.AC, A = this.A; if (!AC || !A) return; const t = AC.currentTime;
     this.watch();
     if (!on) { this.silence(); return; }
-    // Back within 0.4 s of a silence, its hold at exactly 0 is still to come: it would cut the sound off just after it came back.
-    if (this.quiet) { for (const g of this.beds(A)) g.gain.cancelScheduledValues(t); this.quiet = false; }
+    // Back within 0.4 s of a silence (of the context's time), its hold at exactly 0 is still to come: it would cut the sound
+    // off just after it came back. Only the hold goes: a cancel from any earlier time can take a gain's starting value with
+    // it, and a gain left with no events goes back to its default of 1 in Firefox.
+    if (this.quiet) { if (t < this.holdAt) for (const g of this.beds(A)) g.gain.cancelScheduledValues(this.holdAt); this.holdAt = -1; this.quiet = false; }
     const model = this.modelActive && this.node && this.nodeGain;
     if (model) {
       if (!!V.P.turbo !== this.sentTurbo || V.P.redline !== this.sentRedline) { this.sentTurbo = !!V.P.turbo; this.sentRedline = V.P.redline; this.send(); }
@@ -202,12 +206,13 @@ export class Audio {
     A.nsg.gain.setTargetAtTime(V.nosOn ? .09 : 0, t, .05); A.wdg.gain.setTargetAtTime(Math.min(.12, sp * sp * .00006), t, .1);
   }
 
-  /** Fade every engine bed (engine, turbo, skid, nitrous, wind) to silence: out of the car, paused, the Garage.
-   *  A short fade, then exactly 0 from 0.4 s on. Once quiet, later calls schedule nothing. */
+  /** Fade every engine bed (engine, turbo, skid, nitrous, wind, and the engine model's gain) to silence: out of the car,
+   *  paused, the Garage. A short fade, then exactly 0 from 0.4 s on, unless engine() brings the sound back first (it
+   *  cancels the hold). Once quiet, later calls schedule nothing. */
   silence(): void {
     const AC = this.AC, A = this.A; if (!AC || !A || this.quiet) return; const t = AC.currentTime;
     for (const g of this.beds(A)) { g.gain.cancelScheduledValues(t); g.gain.setTargetAtTime(0, t, .05); g.gain.setValueAtTime(0, t + .4); }
-    this.quiet = true;
+    this.quiet = true; this.holdAt = t + .4;
   }
   /** The gains silence() fades: the engine, turbo, skid, nitrous and wind beds and the engine model's. */
   private beds(A: Nodes): GainNode[] { return [A.eg, A.whg, A.skg, A.nsg, A.wdg, ...(this.nodeGain ? [this.nodeGain] : [])]; }
@@ -249,7 +254,7 @@ export class Audio {
       if (this.node) this.node.port.onmessage = null;
       try { this.A?.master.disconnect(); } catch { /* not connected */ }
     }
-    this.sources = []; this.AC = null; this.A = null; this.node = null; this.nodeGain = null; this.probe = null; this.quiet = true; this.forget();
+    this.sources = []; this.AC = null; this.A = null; this.node = null; this.nodeGain = null; this.probe = null; this.quiet = true; this.holdAt = -1; this.forget();
     this.offState?.(); this.offState = null;
   }
 
