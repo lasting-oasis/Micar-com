@@ -14,7 +14,7 @@ import { signMagic, signSession } from './accounts';
 import { EVENTS, freshStrip, stageOf } from './data';
 import { partPrice } from './payout';
 import { RENTAL_DENIED, STRIP_LIMIT, VISITOR_DENIED } from './stripFlow';
-import { SLOT_COLORS, type RoomView } from './race';
+import { CLAIM_LATE_S, SLOT_COLORS, type RoomView } from './race';
 import { TESTER_MONEY, TESTER_REFUSED, TESTER_REP } from './tester';
 import { ATTEMPTS_PER_IP } from './testerKey';
 
@@ -603,6 +603,9 @@ describe('server wiring', () => {
     expect(home.members.find(m => m.id === a.id)!.time).toBeCloseTo(claim, 2); // its own time stands: it agrees with the server's clock
     expect(home.phase).toBe('racing');
     expect(home.closesAt).toBeGreaterThan(Date.now() + 55_000); // the others have a minute
+    // Ana's time is her own claim, taken on this process's clock, and the server lets a claim run up to CLAIM_LATE_S past its own
+    // clock; Bo's is the server's clock. Bo finishes well after that window, so he is second whatever the two clocks read.
+    await new Promise(r => setTimeout(r, (CLAIM_LATE_S + 0.15) * 1000));
     // b claims a time nobody could drive and gets the server's figure; with nobody left racing the race closes
     const closed = [a, b, c].map(p => roomSeen(p.s, r => r.phase === 'open' && !!r.last));
     const back = [a, b, c].map(p => mineAfter(p.s, p.id, me => !loanOf(me)));
@@ -612,7 +615,9 @@ describe('server wiring', () => {
     expect(done.last!.raceNo).toBe(1);
     expect(done.last!.rows.map(r => [r.name, r.pos, r.why])).toEqual([['Ana', 1, null], ['Bo', 2, null], ['Cy', 3, 'quit']]);
     const bTime = done.last!.rows[1].time!;
-    expect(bTime).toBeGreaterThanOrEqual(bSent - 0.01); expect(bTime).toBeLessThan(bSent + 0.5);
+    // bSent is this process's clock and bTime the server's; two processes' clocks can read a few ms apart (4 ms measured on
+    // Windows), so the lower bound allows the same CLAIM_LATE_S the server allows a claim.
+    expect(bTime).toBeGreaterThanOrEqual(bSent - CLAIM_LATE_S); expect(bTime).toBeLessThan(bSent + 0.5);
     expect(done.members.map(m => m.state)).toEqual(['waiting', 'waiting', 'waiting']);
     expect(done.goAt).toBeNull(); expect(done.closesAt).toBeNull();
     // the cars are back and nothing was won or lost

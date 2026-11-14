@@ -123,7 +123,7 @@ function Car({ r, code, now }: { r: CarRecord; code: string; now: Date }) {
               <section className="border-b p-5 sm:p-7 lg:col-span-7 lg:border-b-0 lg:border-r" style={{ borderColor: 'var(--rule)' }}>
                 <h2 className="font-cond text-2xl font-semibold">{t('How the value was worked out')}</h2>
                 <p className="mb-5 text-sm" style={{ color: 'var(--ink-3)' }}>{t('Starting from what this car cost new, step by step.')}</p>
-                <Prices val={snap.val} />
+                <Prices val={snap.val} title={r.title} />
                 <Ledger val={snap.val} />
               </section>
               <section className="p-5 sm:p-7 lg:col-span-5">
