@@ -159,29 +159,30 @@ The page now says `proto: 2` when it joins. A connection that does not (a tab op
 
 ## The result (measured)
 
-Measured on 2026-11-14 on the owner's PC with `apps/sim/e2e/data.ts`, the same program on both sides, run back to back: "before" on `origin/main` (`8412528`), "after" on `lane-d/data-diet` (`19a90d3`; its one later commit, `3c5aa0c`, changes only what a page is sent after a sign-out, not the traffic measured here). 20 seconds a row, as in the first measurement; the smoothness columns time the gap between position updates of each other player, and the first of them is the twenty nearest players within 200 m, the ones this design keeps at full rate. The figures are in `2026-11-14-world-data-diet-data/` (`final-before-*`, `after-*`, one row per line, and `before-after.md`).
+Measured on 2026-11-14 on the owner's PC with `apps/sim/e2e/data.ts`, the same program on both sides: "before" on `origin/main` (`8412528`), "after" on the code branch's head, `lane-d/data-diet` `3c5aa0c`, each in a clean checkout. 20 seconds a row, as in the first measurement. The smoothness columns time the gap between position updates of each other player; the first of them is the twenty nearest players within 200 m, the ones this design keeps at full rate. An earlier "after" run on `19a90d3` (the commit before the head, which differs only in what a page is sent after a sign-out) gave the same traffic, row for row. The figures are in `2026-11-14-world-data-diet-data/` (`final-before-*` and `after-*`, one row per line in the `.jsonl` files, and `before-after.md`).
 
 | Mode | Layout | Online | Each player downloads, KB/s | of which state | Joins, MB in all | Nearest twenty within 200 m, update gap ms (median / p95) | Rest of the district | Other districts | Server CPU | Server memory, MB |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| drive | all in the hub | 10 | 18.6 → **0.9** | 0.0 → 0.0 | 1.3 → 0.2 | 105 / 115 → 105 / 115 | 105 / 115 → 535 / 815 | — | 2.3% → 2.2% | 104 → 105 |
-| drive | all in the hub | 25 | 46.0 → **2.5** | 0.0 → 0.0 | 9.6 → 0.9 | 105 / 115 → 105 / 115 | 105 / 115 → 535 / 955 | — | 2.2% → 3.9% | 130 → 137 |
-| drive | all in the hub | 50 | 91.8 → **4.3** | 0.0 → 0.0 | 54.4 → 2.9 | 105 / 115 → 105 / 115 | 105 / 115 → 535 / 945 | — | 4.5% → 4.1% | 133 → 169 |
-| drive | all in the hub | 100 | 184 → **6.1** | 0.0 → 0.0 | 344 → 9.9 | 105 / 115 → 105 / 115 | 105 / 115 → 525 / 955 | — | 6.3% → 7.3% | 139 → 150 |
-| drive | spread over 11 | 10 | 18.5 → **0.1** | 0.0 → 0.0 | 1.2 → 0.2 | — | — | 105 / 115 → 5035 / 5045 | 1.5% → 0.8% | 130 → 130 |
-| drive | spread over 11 | 25 | 45.7 → **0.4** | 0.0 → 0.0 | 10.0 → 0.9 | 105 / 115 → 105 / 115 | 105 / 115 → 525 / 545 | 105 / 115 → 4975 / 5055 | 1.9% → 1.4% | 130 → 133 |
-| drive | spread over 11 | 50 | 91.1 → **0.9** | 0.0 → 0.0 | 54.2 → 2.9 | 105 / 115 → 105 / 115 | 105 / 115 → 525 / 545 | 105 / 115 → 4995 / 5055 | 3.2% → 3.2% | 133 → 161 |
-| drive | spread over 11 | 100 | 182 → **1.9** | 0.0 → 0.0 | 346 → 10.0 | 105 / 115 → 105 / 115 | 105 / 115 → 525 / 545 | 105 / 115 → 4995 / 5055 | 6.5% → 3.9% | 138 → 174 |
-| play | all in the hub | 10 | 27.2 → **1.0** | 8.8 → 0.1 | 1.3 → 0.2 | 105 / 115 → 105 / 115 | 105 / 115 → 525 / 845 | — | 0.5% → 2.0% | 128 → 104 |
-| play | all in the hub | 25 | 80.2 → **2.6** | 34.4 → 0.1 | 9.6 → 0.9 | 105 / 115 → 105 / 115 | 105 / 115 → 535 / 965 | — | 3.2% → 1.5% | 114 → 140 |
-| play | all in the hub | 50 | 206 → **4.4** | 115 → 0.1 | 54.6 → 2.9 | 105 / 115 → 105 / 115 | 105 / 115 → 525 / 955 | — | 5.5% → 3.1% | 165 → 145 |
-| play | all in the hub | 100 | 582 → **6.2** | 410 → 0.1 | 344 → 10.1 | 105 / 175 → 105 / 115 | 105 / 175 → 525 / 955 | — | 29.0% → 7.6% | 464 → 177 |
+| drive | all in the hub | 10 | 18.6 → **0.9** | 0.0 → 0.0 | 1.3 → 0.2 | 105 / 115 → 105 / 115 | 105 / 115 → 525 / 845 | — | 2.3% → 1.2% | 104 → 103 |
+| drive | all in the hub | 25 | 46.0 → **2.5** | 0.0 → 0.0 | 9.6 → 0.9 | 105 / 115 → 105 / 115 | 105 / 115 → 525 / 955 | — | 2.2% → 2.8% | 130 → 135 |
+| drive | all in the hub | 50 | 91.8 → **4.3** | 0.0 → 0.0 | 54.4 → 2.9 | 105 / 115 → 105 / 115 | 105 / 115 → 535 / 955 | — | 4.5% → 4.6% | 133 → 168 |
+| drive | all in the hub | 100 | 184 → **6.1** | 0.0 → 0.0 | 344 → 10.0 | 105 / 115 → 105 / 115 | 105 / 115 → 525 / 955 | — | 6.3% → 5.6% | 139 → 174 |
+| drive | spread over 11 | 10 | 18.5 → **0.1** | 0.0 → 0.0 | 1.2 → 0.2 | — | — | 105 / 115 → 4965 / 5005 | 1.5% → 1.4% | 130 → 129 |
+| drive | spread over 11 | 25 | 45.7 → **0.4** | 0.0 → 0.0 | 10.0 → 0.9 | 105 / 115 → 105 / 115 | 105 / 115 → 525 / 545 | 105 / 115 → 4985 / 5055 | 1.9% → 1.4% | 130 → 131 |
+| drive | spread over 11 | 50 | 91.1 → **0.9** | 0.0 → 0.0 | 54.2 → 2.9 | 105 / 115 → 105 / 115 | 105 / 115 → 525 / 545 | 105 / 115 → 5005 / 5035 | 3.2% → 2.0% | 133 → 161 |
+| drive | spread over 11 | 100 | 182 → **1.9** | 0.0 → 0.0 | 346 → 10.0 | 105 / 115 → 105 / 115 | 105 / 115 → 525 / 545 | 105 / 115 → 4995 / 5035 | 6.5% → 5.3% | 138 → 173 |
+| play | all in the hub | 10 | 27.2 → **1.0** | 8.8 → 0.1 | 1.3 → 0.2 | 105 / 115 → 105 / 115 | 105 / 115 → 525 / 755 | — | 0.5% → 1.3% | 128 → 103 |
+| play | all in the hub | 25 | 80.2 → **2.6** | 34.4 → 0.1 | 9.6 → 0.9 | 105 / 115 → 105 / 115 | 105 / 115 → 525 / 955 | — | 3.2% → 3.1% | 114 → 113 |
+| play | all in the hub | 50 | 206 → **4.4** | 115 → 0.1 | 54.6 → 2.9 | 105 / 115 → 105 / 115 | 105 / 115 → 525 / 955 | — | 5.5% → 2.2% | 165 → 169 |
+| play | all in the hub | 100 | 582 → **6.2** | 410 → 0.1 | 344 → 10.1 | 105 / 175 → 105 / 115 | 105 / 175 → 525 / 955 | — | 29.0% → 7.7% | 464 → 175 |
 
 What it shows:
 - **Each player's download at 100 online: 6.1 KB/s all in the hub and 1.9 KB/s spread, from 184 and 182**, under the owner's estimate of about 10 KB/s. Playing, 6.2 KB/s from 582.
 - **100 joins: 10 MB in all, from 344.**
 - **The full copies of the state are gone**: in play at 100, 0.1 KB/s each from 410.
 - **The nearest players move as smoothly as before**: 105 ms median and 115 ms 95th percentile at every size, before and after; in play at 100 the 95th percentile improved (175 → 115 ms). The rest of a district now updates about twice a second, and other districts every 5 seconds, as designed.
-- **Server**: as a share of one PC core, driving at 100 in the hub 6.3% → 7.3%, spread 6.5% → 3.9%, playing 29.0% → 7.6%; memory playing at 100, 464 → 177 MB. The CPU figures move a few points between runs on this PC, which other workers share (the first, unpaired measurement had 3.6% before, driving at 100 in the hub).
+- **Server CPU**, as a share of one PC core, at 100 online: driving in the hub 6.3% → 5.6%, spread 6.5% → 5.3%, playing 29.0% → 7.7%. These figures move a few points between runs on this PC, which other workers share: the earlier "after" run had 7.3% driving in the hub, and the first, unpaired "before" had 3.6%. So driving costs about the same CPU as before, give or take that noise, and playing much less.
+- **Server memory** (the process's working set at the end of a row): **driving at 50 and 100 online it was 28 to 36 MB larger than before** (133 → 168, 139 → 174, 133 → 161, 138 → 173 MB), at most 174 MB of the instance's 512 MB; playing at 100 it was 289 MB smaller (464 → 175). The working set moves with garbage collection: the two "after" runs differ by up to 27 MB in the same row (150 and 174 MB driving at 100 in the hub). The diet's own bookkeeping at 100 online, one record per pair of players and each player's record as JSON, is a few MB (estimate); the rest of the rise is not explained here.
 - **Render's bill, an estimate** from the per-player rates (KB of 1024 bytes; GB of 10⁹): 100 people driving in the hub for an hour are sent about 2.2 GB in all, from about 68 GB; playing, about 2.3 GB from about 215 GB. Past the 5 GB a month included, at $0.15 per GB: about $0.34 an hour of such play, from about $32.
 
 Not measured: the town (guests cannot enter it, so dealers are in the browser check but not in this table), real phones on a mobile network, TCP/IP and TLS headers, and Render itself.
@@ -204,7 +205,7 @@ Changed: `apps/sim/server.ts` (the private-field view, `broadcastState`, the pos
 
 ## Other calls worker D made overnight
 
-- The measurement uses guests, which can only be in the Strip; "spread" means over the hub and the ten circuits, each district's players within 150 m of its meeting point (the hub's spawn, a circuit's lobby), as players gather. Players join standing still, so join data is counted apart from driving. The smoothness column counts the ten nearest players **within 200 m**: the players the design keeps at full rate.
+- The measurement uses guests, which can only be in the Strip; "spread" means over the hub and the ten circuits, each district's players within 150 m of its meeting point (the hub's spawn, a circuit's lobby), as players gather. Players join standing still, so join data is counted apart from driving. The smoothness column of the first measurement counted the ten nearest players within 200 m; the final one counts the twenty nearest within 200 m, exactly the players the design keeps at full rate.
 - A second mode, `play`, besides the owner's driving-only measurement: each guest rents a car, streams fuel as the page does and, once every 30 s, asks to tune its rental. The server refuses (a rental stays stock) and sends the state again, as after any refusal, so every action is counted as it reaches everyone. It shows what real play costs, which driving alone hides.
 - One independent read of this design by a fresh agent before planning. It raised one question (the drifting fields, section 4); its answer is now in the design. No reviewer agent per task: the boss is the reviewer (trial rules, rule 3).
 

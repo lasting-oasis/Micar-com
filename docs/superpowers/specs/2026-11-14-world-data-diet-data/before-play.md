@@ -5,4 +5,4 @@
 | play | all in the hub | 50 | 205 / 205 | 90.2 | 115 | 10.0 | 54.9 | 105 / 115 | 105 / 115 | — | 4.2% | 140 |
 | play | all in the hub | 100 | 586 / 586 | 174 | 412 | 57.2 | 347 | 105 / 185 | 105 / 185 | — | 31.9% | 414 |
 
-(full figures in C:/Users/Owner/Micar-com-data/docs/superpowers/specs/2026-11-14-world-data-diet-data/before-play.json)
+(full figures in before-play.json, in this folder)

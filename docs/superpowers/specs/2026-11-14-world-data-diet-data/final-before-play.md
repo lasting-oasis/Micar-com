@@ -5,4 +5,4 @@
 | play | all in the hub | 50 | 206 / 206 | 91.2 | 115 | 10.1 | 54.6 | 105 / 115 | 105 / 115 | — | 5.5% | 165 |
 | play | all in the hub | 100 | 582 / 582 | 172 | 410 | 56.8 | 344 | 105 / 175 | 105 / 175 | — | 29.0% | 464 |
 
-(full figures in C:/Users/Owner/AppData/Local/Temp/claude/4c74040574c1e020/ea85c983-fdac-4d5b-adc7-85aad395d05e/scratchpad/final/before-play.json)
+(full figures in final-before-play.jsonl, in this folder, one row per line)

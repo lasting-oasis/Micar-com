@@ -9,4 +9,4 @@
 | drive | spread over 11 | 50 | 91.6 / 91.6 | 91.5 | 0.0 | 4.5 | 54.8 | 105 / 115 | 105 / 115 | 105 / 115 | 3.1% | 133 |
 | drive | spread over 11 | 100 | 178 / 178 | 178 | 0.0 | 17.4 | 347 | 105 / 115 | 105 / 115 | 105 / 115 | 4.5% | 142 |
 
-(full figures in C:/Users/Owner/Micar-com-data/docs/superpowers/specs/2026-11-14-world-data-diet-data/before-drive.json)
+(full figures in before-drive.json, in this folder)
