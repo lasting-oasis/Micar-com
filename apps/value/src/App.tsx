@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { Area, CartesianGrid, ComposedChart, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { Check, Link2, RotateCcw, Search } from 'lucide-react';
-import { ACCIDENTS, BODY_STYLES, CONDITIONS, MAKES, REGIONS, SEGMENT_LABELS, TITLES } from './engine/data';
+import { ACCIDENTS, BODY_STYLES, BRANDED_NOTES, CONDITIONS, MAKES, REGIONS, SEGMENT_LABELS, TITLES } from './engine/data';
 import { describe as describeListings, parseListingsPage, type ParsedListing } from './engine/listings';
 import { MARKET, snapshotAgeDays } from './engine/market';
 import { findModel, modelsForMake, yearRanges } from './engine/models';
@@ -187,7 +187,7 @@ export default function App() {
 
             <section aria-labelledby="value-h" aria-live="polite" className={`p-5 sm:p-7 lg:col-span-7 transition-opacity ${stale ? 'opacity-50' : ''}`}>
               <h2 id="value-h" className="sr-only">{t('Estimated value')}</h2>
-              {val && <Prices val={val} />}
+              {val && <Prices val={val} title={active?.title} />}
               {val && <Ledger val={val} />}
             </section>
           </div>
@@ -414,8 +414,10 @@ function MarketForm({ form, set, errors, pageResult, usePage, setUsePage, live, 
   );
 }
 
-export function Prices({ val }: { val: Valuation }) {
+export function Prices({ val, title }: { val: Valuation; title?: string }) {
   const pp = useTween(val.privateParty);
+  // a rebuilt or salvage title's figure comes from an untested flat multiplier: say so under it
+  const branded = title && Object.hasOwn(BRANDED_NOTES, title) ? BRANDED_NOTES[title] : undefined;
   return (
     <div>
       <p className="text-sm font-semibold" style={{ color: 'var(--ink-2)' }}>{t('Private-party value')}</p>
@@ -423,6 +425,7 @@ export function Prices({ val }: { val: Valuation }) {
       <p className="mt-2 text-sm" style={{ color: 'var(--ink-2)' }}>
         {tx('Most sales of a car like this land between {low} and {high}.', { low: <strong className="num">{usd(val.range.low)}</strong>, high: <strong className="num">{usd(val.range.high)}</strong> })}
       </p>
+      {branded && <p role="note" className="mt-2 text-sm" style={{ color: 'var(--ink-2)' }}>{t(branded)}</p>}
       {val.compsUsed > 0 && (
         <p className="mt-1 text-sm" style={{ color: 'var(--ink-3)' }}>
           {(() => {

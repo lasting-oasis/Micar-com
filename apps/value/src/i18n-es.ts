@@ -186,6 +186,8 @@ export const ES: Record<string, string> = {
   'No salvage or rebuilt brand on the title, as you report it. MiCar has checked no record.': 'Sin marca de salvamento ni de reconstruido en el título, según usted lo informa. MiCar no ha revisado ningún registro.',
   'Once branded salvage, then repaired and retitled by a state. What the state inspected varies.': 'Tuvo marca de salvamento; luego fue reparado y un estado le emitió un título nuevo. Lo que el estado inspeccionó varía.',
   'Branded salvage, usually after an insurer declared a total loss.': 'Con marca de salvamento, por lo general después de que una aseguradora lo declaró pérdida total.',
+  'This is a rule-of-thumb figure for a rebuilt title. MiCar has not tested it against sale prices and has checked no record. Get an independent appraisal before relying on it.': 'Esta es una cifra aproximada para un título reconstruido. MiCar no la ha comparado con precios de venta y no ha revisado ningún registro. Obtenga una tasación independiente antes de confiar en ella.',
+  'This is a rule-of-thumb figure for a salvage title. MiCar has not tested it against sale prices and has checked no record. Get an independent appraisal before relying on it.': 'Esta es una cifra aproximada para un título de salvamento. MiCar no la ha comparado con precios de venta y no ha revisado ningún registro. Obtenga una tasación independiente antes de confiar en ella.',
   'None': 'Ninguno', 'Minor': 'Menor', 'Major': 'Grave',
   'No reported accidents': 'Sin accidentes reportados',
   'Cosmetic or minor reported damage': 'Daño estético o menor reportado',

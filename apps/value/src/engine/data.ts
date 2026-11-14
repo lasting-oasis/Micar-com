@@ -111,6 +111,12 @@ export const TITLES: Option[] = [
   { name: 'Salvage', mult: 0.55, desc: 'Branded salvage, usually after an insurer declared a total loss.' },
 ];
 
+/** The warning under a branded title's figure: the flat title multipliers have not been tested against sale prices. */
+export const BRANDED_NOTES: Record<string, string> = {
+  Rebuilt: 'This is a rule-of-thumb figure for a rebuilt title. MiCar has not tested it against sale prices and has checked no record. Get an independent appraisal before relying on it.',
+  Salvage: 'This is a rule-of-thumb figure for a salvage title. MiCar has not tested it against sale prices and has checked no record. Get an independent appraisal before relying on it.',
+};
+
 export const ACCIDENTS: Option[] = [
   { name: 'None', label: 'None reported', mult: 1.0, desc: 'No reported accidents' },
   { name: 'Minor', label: 'Minor reported', mult: 0.94, desc: 'Cosmetic or minor reported damage' },
