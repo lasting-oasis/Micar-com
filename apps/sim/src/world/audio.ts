@@ -37,7 +37,8 @@ export class Audio {
   private facts: SoundFacts | null = null;
   private node: AudioWorkletNode | null = null;
   private nodeGain: GainNode | null = null;
-  private sentTurbo = false;
+  /** What the Garage changed that the model was last told: a turbo fitted, and the redline (an ECU remap raises it). */
+  private sentTurbo = false; private sentRedline = 0;
   private sources: AudioScheduledSourceNode[] = [];
   // Health: an iPhone can leave the output interrupted, or 'running' with its clock stopped. Looked at each frame in the car
   // and at each tap. Only what the looks saw counts: the last look's clock, state and time (ms), and the last look that saw
@@ -103,15 +104,20 @@ export class Audio {
   constructor(private muted = false, private mode: SoundMode = 'classic') {}
 
   /** The car being driven, for the engine sound model (null: no piston engine to model). Safe before resume(). */
-  setCar(facts: SoundFacts | null): void { this.facts = facts; this.sentTurbo = false; this.send(false); }
+  setCar(facts: SoundFacts | null): void { this.facts = facts; this.sentTurbo = false; this.sentRedline = facts?.redline ?? 0; this.send(); }
 
   /** True when the physical model is voicing the engine. */
   get modelActive(): boolean { return !!this.node && !!this.facts; }
 
-  // A Garage turbo on an engine that has none from the factory still whistles.
-  private send(turbo: boolean): void {
+  // The car as the Garage built it. A Garage turbo on an engine that has none from the factory still whistles. An ECU
+  // remap moves the redline the engine runs to; the exhaust keeps the bore it was sized with (a remap changes no pipe).
+  // Each message builds a new model on the audio thread, so it goes only when one of these changes.
+  private send(): void {
     const f = this.facts;
-    this.node?.port.postMessage({ facts: f && turbo && f.engine.induction === 'na' ? { ...f, engine: { ...f.engine, induction: 'turbo' } } : f });
+    let g = f;
+    if (f && this.sentTurbo && f.engine.induction === 'na') g = { ...f, engine: { ...f.engine, induction: 'turbo' } };
+    if (g && this.sentRedline !== g.redline) g = { ...g, redline: this.sentRedline };
+    this.node?.port.postMessage({ facts: g });
   }
 
   private startModel(AC: Ctx, master: GainNode): void {
@@ -129,7 +135,7 @@ export class Audio {
         // A processor counts its own fresh starts; the readout keeps counting across rebuilds and ignores a processor gone since.
         const before = this.modelResets;
         node.port.onmessage = (e: MessageEvent<{ resets?: number }>) => { if (this.node === node && typeof e.data?.resets === 'number') this.modelResets = before + e.data.resets; };
-        this.node = node; this.nodeGain = g; this.send(this.sentTurbo);
+        this.node = node; this.nodeGain = g; this.send();
       })
       .catch(() => { /* the classic engine keeps playing */ });
   }
@@ -179,7 +185,7 @@ export class Audio {
     this.quiet = false;
     const model = this.modelActive && this.node && this.nodeGain;
     if (model) {
-      if (!!V.P.turbo !== this.sentTurbo) { this.sentTurbo = !!V.P.turbo; this.send(this.sentTurbo); }
+      if (!!V.P.turbo !== this.sentTurbo || V.P.redline !== this.sentRedline) { this.sentTurbo = !!V.P.turbo; this.sentRedline = V.P.redline; this.send(); }
       const d = engineDrive(V), p = this.node!.parameters;
       for (const k of ['rpm', 'throttle', 'load', 'boost', 'cut'] as const) p.get(k)?.setTargetAtTime(d[k], t, .01);
       this.nodeGain!.gain.setTargetAtTime(this.muted ? 0 : .9, t, .03);

@@ -101,6 +101,7 @@ function engineStep(V: Vehicle, I: Input, dt: number): number {
     V.rpm = Math.max(P.idle, slip > 0 ? Math.cbrt(slip ** 3 + r ** 3) : r);
   }
   if (P.turbo) { const bt = (thr > .3 && V.rpm > 2200 && V.shift <= 0) ? clamp((V.rpm - 2200) / 3000, 0, 1) : 0; const rate = bt > V.boost ? dt / P.turbo.spool : dt / .22; if (bt < V.boost - .3 && V.boost > .5 && V.bov <= 0) V.bov = .4; V.boost += clamp(bt - V.boost, -rate, rate); }
+  else V.boost = 0; // no turbo, no boost: the Garage can take one off a moving car (Driver.rebuild keeps the state)
   if (V.bov > 0) V.bov -= dt;
   let Tq = torqueAt(P, V.rpm, V.boost);
   const nosOn = !!(I.nos && V.nos > 0 && thr > .1 && V.gear > 0 && V.shift <= 0);

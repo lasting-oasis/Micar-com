@@ -42,7 +42,7 @@ All of it is in `apps/sim/src/sound/`. It has no dependencies and does not touch
 
 ### Inputs each frame
 
-`rpm`, `throttle` (0 to 1), `load` (−1 to 1, negative is engine braking), `boost` (0 to 1), `cut` (0 or 1). `engineDrive()` in `world/audio.ts` reads these from today's driving model. The planned physics core should supply them directly; its Telemetry list does not yet include throttle, engine load or the cut flag.
+`rpm`, `throttle` (0 to 1), `load` (−1 to 1, negative is engine braking), `boost` (0 to 1), `cut` (0 or 1). `engineDrive()` in `world/audio.ts` reads these from today's driving model. A car without a turbo has a boost of 0, including one whose turbo the Garage has just taken off. The planned physics core should supply them directly; its Telemetry list does not yet include throttle, engine load or the cut flag.
 
 An AudioParam carries any float, so the model takes an input past either end of its range as that end, and NaN as the low end. rpm stops at ten times the redline (`RPM_CEILING`). That is a guard, not physics: the game reaches about 4.7 times on a downshift at speed, and a few million rpm once hung the audio thread in the crank clock. Before 2026-11-14 a boost below zero on a turbo engine made the whistle's phase NaN for good, and every sample with it.
 
@@ -79,13 +79,18 @@ These are the same for every car and are not tuned per car.
 
 Each car's facts carry a `basis` saying which parts are derived from the catalog and which are class defaults. No car has sourced exhaust data yet. A flat-plane V8 or an equal-length flat-four cannot be told from the catalog string, so those cars need a per-model entry before they sound right; the model already supports them.
 
-A Garage turbo on a naturally aspirated engine switches its induction to turbo.
+The Garage changes two facts:
+
+- A Garage turbo on a naturally aspirated engine switches its induction to turbo.
+- An ECU remap raises the redline by 150 rpm a step (`carParams`), so the model takes the driving model's redline. It sets the model's idle, its pops, its intake hiss, its supercharger whine and the rpm guard, and the limiter cut was already read from the driving model. The exhaust keeps the bore worked out from the stock redline, because a remap changes no pipe.
+
+Each new set of facts builds a new model on the audio thread (about 200 KB), so `Audio` sends them only when the car, its turbo or its redline changes. It does not send them every frame.
 
 ## In the game
 
 - `engine.worklet.ts` runs the model in the audio thread as the `micar-engine` processor.
 - `Audio` in `world/audio.ts` takes a mode. In `model` mode it loads the processor, sends it the car's facts and feeds it the frame inputs. Until the processor is running, and for cars with no facts, the old oscillators play.
-- `VanillaThreeScene.tsx` sends new facts whenever the driven car changes.
+- `VanillaThreeScene.tsx` sends new facts whenever the driven car changes, with the stock redline. `Audio.engine()` sends them again, once, when the Garage's turbo or ECU changes what the driving model has.
 - Every `Audio` on the page (the game's and the Garage menu's) shares one AudioContext, which closes with its last user. A health watch rebuilds it on a tap when a phone has left it dead: see "The health watch" below.
 - The processor checks every block it renders. A sample that is not a number stays in the model's filters for good, and in the page's one shared output it can silence every sound on the page (WebKit passes it on to the speakers unchanged; Chromium and Firefox turn it into silence). A throw out of `process()` ends the processor for good. Either way that block goes out silent and the model is built afresh from the same facts, at most once a second, because a new model allocates on the audio thread. The processor tells the page each time. Facts the model cannot be built from leave the engine silent rather than ending the processor.
 - `?audiodebug` shows, bottom left: the context's state, clock, rate and health; whether the model is on; how often the page rebuilt the sound (`rebuilt`); `froze`, the longest time the output's clock stood still while the context said 'running': from the last look that saw it move to the last that saw it still. The clock never runs backwards, so one that reads the same across a pause in frames stood still through it; a change of state (a suspend, an interruption) ends a freeze, and starting up is not one. Then `engine`, the model's own level before its gain and that gain, with `resets`, the processor's fresh starts counted across rebuilds; and `out`, the level of everything on its way to the speakers and the master gain. A level reads `NaN` if any sample is not a number, `silent` if all are below -100 dB. The two analysers behind the levels are made only when `?audiodebug` asks for them.
@@ -98,7 +103,7 @@ A Garage turbo on a naturally aspirated engine switches its induction to turbo.
 - `carSound.test.ts`: reading the catalog string and the class defaults.
 - `engineSound.test.ts` also checks that each input past its range sounds the same as the end of the range, and stays finite, on a turbo engine.
 - `engine.worklet.test.ts`: the real processor, with the audio thread's globals stood in. A block with a sample that is not a number goes out silent and the engine comes back; the page is told; a fault that stays is silent throughout and rebuilt at most once a second; a model that throws, or cannot be built, leaves the processor alive.
-- `world/audio.test.ts`: the switch, the frame inputs, the shared output, the health watch and the `?audiodebug` line.
+- `world/audio.test.ts`: the switch, the frame inputs, the shared output, the health watch and the `?audiodebug` line. Also: no boost once the Garage takes a turbo off a moving car. And a remapped redline: it reaches the processor with the stock exhaust, it is sent once per change, a stock ECU sends nothing extra, and it survives a rebuild of the sound.
 - `e2e/sound.smoke.mjs`: renders one second through the built processor in Chromium and fails if it is silent or out of range: a V8, and a turbo V8 told a boost of -0.5 (all 48,000 samples were NaN before the fix). It runs in CI beside the Strip smoke test.
 
 ## Measured from the clips
@@ -157,7 +162,7 @@ How it judges, as it stands:
 - `currentTime` never runs backwards. A clock that reads the same at a tap as at the last frame in the car, still 'running', stood still all the time between, however long nothing looked, so a tap on foot still catches a frozen output. One that has moved was fine.
 - A change of state between two looks starts afresh, and so does a fresh output.
 - Showing a hidden tab (`wake()`) resumes the output but never rebuilds it: that is no tap, so on an iPhone a new output made there would not start. The time hidden tells the watch nothing, so it starts afresh.
-- A rebuild moves every `Audio` on the old output (the Garage menu's too) to the new one at once, each with its car, turbo and mute. Then the old one is closed.
+- A rebuild moves every `Audio` on the old output (the Garage menu's too) to the new one at once, each with its car, turbo, redline and mute. Then the old one is closed.
 - If the browser refuses to make a context (the constructor throws), the next tap tries again.
 
 The three faults (found 2026-11-14 on branch `claude/engine-sound-nan-silence-83dgpw`):
@@ -173,6 +178,28 @@ Checked in Chromium with the real AudioContext, whose suspend, resume and close 
 Still open, and **not confirmed on an iPhone**:
 - PR #22 found that on the owner's iPhone closing one context interrupts the others. A rebuild makes the new output and closes the old one in the same tap, so the close may interrupt the new output. The next tap wakes it (a change of state starts the watch afresh). But if the looks see it interrupted for over a second before that tap, the tap rebuilds again, and the next close may interrupt that output too.
 - A context made in a `pointerdown` may not start on an iPhone, which counts only `touchend` and `click`. The `touchend` of the same touch wakes it. A fresh output starts the watch afresh, so it is not rebuilt again.
+
+## Two mismatches with the Garage (2026-11-14)
+
+Found while looking for the iPhone silence. Neither silences the sound: one makes it louder, the other changes its timbre.
+
+1. **A boost left after the turbo came off.** `world/physics.ts` updated boost only when the car had a turbo. When the Garage took the turbo off, `Driver.rebuild` swapped the car's Params and kept its state, so boost stayed at its last value (often 1) until the car was reset, and `engineDrive()` kept sending it. The non-turbo model then played its firing and intake pulses up to 1.6 times as big. Reproduced: a maxed Mustang, 6 s at full throttle, turbo off, 10 s off the throttle: boost still 1. Now a car without a turbo has a boost of 0 from its next physics step.
+2. **The sound's redline ignored the ECU.** The facts carried the stock redline, while the driving model's limiter sat 450 rpm higher on a maxed ECU (cutting at 600 rpm over the stock redline). It is now passed on as set out under Car facts.
+
+The boost change touches the driving model, so `simStats` was recorded for every body type before and after. `torqueAt` reads boost only when the car has a turbo, so nothing moved: every figure below is the same before and after, to the thousandth of a second and the hundredth of a km/h. Each cell is 0-100 km/h (s) / 0-200 km/h (s) / top speed (km/h). "Maxed" is every performance part at its top step, with the default tune.
+
+| Car | stock | maxed | maxed, turbo off |
+|---|---|---|---|
+| hatchback | 8.47 / 46.8 / 208 | 5.70 / 13.7 / 280 | 5.70 / 17.3 / 251 |
+| coupe | 6.40 / 28.5 / 231 | 4.10 / 10.4 / 314 | 4.10 / 12.8 / 277 |
+| sedan | 6.17 / 25.3 / 237 | 2.77 / 8.8 / 294 | 3.10 / 11.4 / 287 |
+| sports | 6.23 / 23.3 / 240 | 4.13 / 9.5 / 321 | 4.07 / 11.3 / 289 |
+| truck | 7.43 / 43.2 / 206 | 3.97 / 11.9 / 277 | 4.23 / 15.8 / 251 |
+| SUV | 7.57 / 43.7 / 206 | 3.37 / 11.5 / 278 | 3.90 / 15.7 / 252 |
+| van | 8.93 / 42.5 / 213 | 6.30 / 14.6 / 284 | 6.30 / 17.6 / 256 |
+| Ford Mustang (coupe) | 6.03 / 17.4 / 249 | 4.23 / 8.5 / 267 | 4.23 / 9.3 / 267 |
+
+`simStats` starts each run from a fresh car, so it never meets a turbo taken off mid-drive. The test in `world/audio.test.ts` covers that path.
 
 ## Cost
 
