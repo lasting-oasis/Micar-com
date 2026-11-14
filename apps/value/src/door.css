@@ -105,16 +105,18 @@
 @keyframes hum { 0%, 93%, 100% { opacity: 1; } 94% { opacity: .45; } 96% { opacity: 1; } 97% { opacity: .6; } }
 /* The showcase: a chrome pedestal mid-bay under a light shaft; the slab stands on it at a third of the bay.
    The well holds it at the pedestal's depth and cuts everything off at the ceiling, so the card is only ever seen
-   inside the garage. */
-.dp .well { position: absolute; inset: 0; transform: translateZ(calc(var(--bd) * -.42)); clip-path: polygon(-40% 0, 140% 0, 140% 140%, -40% 140%); pointer-events: none; }
-.dp .showcase { position: absolute; left: 50%; bottom: 7.5%; width: 33%; margin-left: -16.5%; transform-origin: 50% 100%; transition: transform 1.2s var(--ease-out); }
+   inside the garage. Its top edge is the ceiling; it reaches past the walls and the floor so nothing else is cut.
+   It clips with overflow, the one way every browser clips a box in a 3D scene (iPhone Safari included). */
+.dp .well { position: absolute; top: 0; left: -40%; right: -40%; bottom: -40%; transform: translateZ(calc(var(--bd) * -.42)); overflow: hidden; pointer-events: none; }
+.dp .showcase { position: absolute; left: 50%; bottom: calc(var(--bh) * .475); width: calc(var(--bw) * .33); margin-left: calc(var(--bw) * -.165); transform-origin: 50% 100%; transition: transform 1.2s var(--ease-out); }
 .dp.open .showcase { transform: translateY(-3%) rotateY(-9deg) scale(1.03); cursor: zoom-in; }
 .dp.open .showcase:focus-visible { outline: 2px solid var(--paint); outline-offset: 8px; }
 .dp.anim .showcase { opacity: 0; }
 .dp.anim .showcase.slam { opacity: 1; animation: slam .62s cubic-bezier(.3,0,.2,1) 1.35s both; }
 .dp.revealed .showcase { opacity: 1; }
-/* The card waits above the ceiling (out of sight, in the well) while the door goes up, then comes down onto the pedestal. */
-@keyframes slam { 0% { transform: translateY(calc(var(--bh) * -.95)); } 62% { transform: translateY(2%) scale(.97); } 100% { transform: none; } }
+/* The card waits above the ceiling while the door goes up, then comes down onto the pedestal. While it waits it is
+   hidden as well as cut off, so no browser can show it outside the garage. */
+@keyframes slam { 0% { transform: translateY(calc(var(--bh) * -.95)); visibility: hidden; } 1% { visibility: visible; } 62% { transform: translateY(2%) scale(.97); } 100% { transform: none; visibility: visible; } }
 .dp .pedestal { position: absolute; left: 50%; bottom: 0; width: 40%; height: 7.5%; margin-left: -20%; transform: translateZ(calc(var(--bd) * -.42)); border-radius: 5px 5px 0 0;
   background: linear-gradient(90deg, #2b313c, #cfd6e1 14%, #6b7486 38%, #f3f6fb 54%, #5d6678 76%, #2b313c); box-shadow: 0 -2px 0 rgba(255,255,255,.45), inset 0 -8px 12px rgba(0,0,0,.5); }
 .dp .pedestal::after { content: ""; position: absolute; left: 6%; right: 6%; top: 42%; height: 3px; background: var(--paint); opacity: 0; box-shadow: 0 0 12px var(--paint); transition: opacity .6s; }
@@ -296,6 +298,43 @@
 .dp .mini .lab-g b { font-size: 22px; } .dp .mini .stats { font-size: 7px; } .dp .mini .stats b { font-size: 15px; } .dp .mini .lab-g small { font-size: 6px; } .dp .mini .lab-g em { font-size: 7px; }
 @media (hover: none) { .dp .live .foil { animation: sheen 6s ease-in-out infinite alternate; } }
 @keyframes sheen { from { background-position: 20% 30%; } to { background-position: 80% 70%; } }
+/* A card that inspects itself (door/Slab.tsx, `inspect`; the bay's showcase): it tilts to the light, turns over to show
+   its back, sways there, and turns back the same way round, then rests a while: sixteen seconds a loop, until the
+   visitor touches it. One loop turns the card and two say which face shows, switched as the card passes edge-on (at
+   17% and at 50%, where the turn is pinned to 90 and 270 degrees), exactly as a tapped turn swaps its faces (see
+   .sl-face above). The light (--mx, --my, read by the glare on both faces) moves with the card. Off screen it pauses;
+   with reduced motion it never starts (.anim). */
+@property --mx { syntax: '<number>'; inherits: true; initial-value: 50; }
+@property --my { syntax: '<number>'; inherits: true; initial-value: 50; }
+.dp.anim .slab.auto { animation: inspect-light 16s ease-in-out infinite; }
+.dp.anim .slab.auto .slab-in { transition: none; animation: inspect-turn 16s linear infinite; }
+.dp.anim .slab.auto .sl-face.front { animation: inspect-front 16s step-end infinite; }
+.dp.anim .slab.auto .sl-face.back { animation: inspect-back 16s step-end infinite; }
+.dp.anim .slab.auto.away, .dp.anim .slab.auto.away .slab-in, .dp.anim .slab.auto.away .sl-face { animation-play-state: paused; }
+@keyframes inspect-turn {
+  0% { transform: rotateY(0deg) rotateX(0deg); animation-timing-function: ease-in-out; }
+  12% { transform: rotateY(-16deg) rotateX(5deg); animation-timing-function: ease-in; }
+  17% { transform: rotateY(90deg) rotateX(6deg); animation-timing-function: ease-out; }
+  22% { transform: rotateY(196deg) rotateX(4deg); animation-timing-function: ease-in-out; }
+  34% { transform: rotateY(166deg) rotateX(-3deg); animation-timing-function: ease-in-out; }
+  45% { transform: rotateY(176deg) rotateX(3deg); animation-timing-function: ease-in; }
+  50% { transform: rotateY(270deg) rotateX(5deg); animation-timing-function: ease-out; }
+  55% { transform: rotateY(364deg) rotateX(4deg); animation-timing-function: ease-in-out; }
+  72% { transform: rotateY(346deg) rotateX(-3deg); animation-timing-function: ease-in-out; }
+  86%, 100% { transform: rotateY(360deg) rotateX(0deg); }
+}
+@keyframes inspect-front { 0% { visibility: visible; } 17% { visibility: hidden; } 50%, 100% { visibility: visible; } }
+@keyframes inspect-back { 0% { visibility: hidden; } 17% { visibility: visible; } 50%, 100% { visibility: hidden; } }
+@keyframes inspect-light {
+  0% { --mx: 50; --my: 50; }
+  12% { --mx: 20; --my: 22; }
+  22% { --mx: 76; --my: 36; }
+  34% { --mx: 28; --my: 68; }
+  45% { --mx: 64; --my: 28; }
+  55% { --mx: 24; --my: 32; }
+  72% { --mx: 74; --my: 64; }
+  86%, 100% { --mx: 50; --my: 50; }
+}
 /* the mark on a card's corner that says it turns over; a button where the card's own tap is taken (door/flip.tsx) */
 .dp .flip-cue { position: absolute; right: -7px; top: -7px; z-index: 8; width: clamp(22px, 12%, 34px); aspect-ratio: 1; display: grid; place-items: center; padding: 0; border-radius: 50%; border: 1px solid rgba(255,255,255,.5); background: var(--paint); color: #0b0d12; box-shadow: 0 4px 12px rgba(0,0,0,.6); pointer-events: none; transition: transform .35s var(--ease-out); }
 .dp .flip-cue svg { width: 62%; height: 62%; }

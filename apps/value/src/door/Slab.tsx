@@ -20,6 +20,19 @@ export function useQr(link: string) {
   return svg;
 }
 
+/** True while the element is off screen, watched only while `on`: a card that animates itself pauses out of sight. */
+function useAway(ref: { current: HTMLElement | null }, on: boolean) {
+  const [away, setAway] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!on || !el || typeof IntersectionObserver === 'undefined') { setAway(false); return; }
+    const io = new IntersectionObserver(([e]) => setAway(!e.isIntersecting));
+    io.observe(el);
+    return () => io.disconnect();
+  }, [on, ref]);
+  return away;
+}
+
 /** Tilt and shine follow the pointer; a tap flips the card. */
 export function useLive(enabled: boolean) {
   const ref = useRef<HTMLDivElement>(null);
@@ -70,9 +83,15 @@ type Props = {
   mini?: boolean;
   className?: string;
   serial?: string;
+  /**
+   * The card inspects itself: now and then it tilts to the light, turns over to show its back and turns back, slowly
+   * (door.css, "inspects itself"). It never starts once the visitor has touched the card or tabbed to it, and stops for
+   * good at the first touch, settling on the face that shows. The bay's showcase sets it once the card has landed.
+   */
+  inspect?: boolean;
 };
 
-export function Slab({ card, g, flipped = false, onFlip, turn = 'tap', live = false, mini = false, className = '', serial }: Props) {
+export function Slab({ card, g, flipped = false, onFlip, turn = 'tap', live = false, mini = false, className = '', serial, inspect = false }: Props) {
   const grade = useMemo(() => gradeFor(card, g), [g, card]);
   const link = carPageUrl(card.code);
   const qr = useQr(link);
@@ -80,9 +99,18 @@ export function Slab({ card, g, flipped = false, onFlip, turn = 'tap', live = fa
   const cat = categoryOf(card.r.body);
   // Foil follows a grade a card has earned in its case. A starting grade has none yet.
   const style = { '--foil': 0 } as CSSProperties;
-  const { isFlipped, toggle, tap } = useFlip(flipped, onFlip, turn);
+  const { isFlipped, toggle, tap, set } = useFlip(flipped, onFlip, turn);
+  const [touched, setTouched] = useState(false);
+  const touring = inspect && !touched;
+  const away = useAway(ref, touring);
+  // The first touch, or the keyboard arriving, hands the card to the visitor: the tour ends on the face that shows.
+  const take = () => {
+    if (touring) { const back = ref.current?.querySelector('.sl-face.back'); if (back) set(getComputedStyle(back).visibility === 'visible'); }
+    if (!touched) setTouched(true);
+  };
   return (
-    <div ref={ref} className={`slab raw ${isFlipped ? 'flipped' : ''} ${live ? 'live' : ''} ${mini ? 'mini' : ''} ${className}`} style={style}
+    <div ref={ref} className={`slab raw ${isFlipped ? 'flipped' : ''} ${touring ? 'auto' : ''} ${touring && away ? 'away' : ''} ${live ? 'live' : ''} ${mini ? 'mini' : ''} ${className}`} style={style}
+      onPointerDownCapture={take} onFocusCapture={take}
       role={tap ? 'button' : undefined} tabIndex={tap ? 0 : undefined} aria-label={tap ? t('The card. Press Enter to flip it.') : undefined}
       onClick={tap ? toggle : undefined} onKeyDown={tap ? (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } } : undefined}>
       <div className="slab-in">
