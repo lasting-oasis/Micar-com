@@ -4,8 +4,7 @@ import { buildWheelGeometry } from './carGeometry';
 import { WORLD_PER_M } from '../../world/units';
 import { gltfLoader, type Loader } from '../../world/strip/park';
 import { getAssetBase } from '../../world/strip/district';
-import { CAR_MODELS, rowByGameName } from '../../carModels';
-import { modelIdOf } from '../../carCatalog';
+import { CAR_MODELS, modelIdOf, rowByGameName } from '../../carModels';
 
 // Car models drawn from their own 3D model (a mesh body) instead of the lofted body of their style.
 //

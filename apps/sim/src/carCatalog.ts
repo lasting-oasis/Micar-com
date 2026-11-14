@@ -1,4 +1,4 @@
-import { CAR_MODELS } from './carModels';
+import { CAR_MODELS, modelIdOf } from './carModels';
 
 // Real model line-ups per make, each tagged with the body style that drives its 3D silhouette. The server's auction
 // picks one of its makes (the original five), then a random model from it; the Strip's tester counter lists them all.
@@ -36,10 +36,6 @@ const ORIGINAL: Record<string, { model: string; style: string }[]> = {
     ],
 };
 export const ORIGINAL_MAKES = Object.keys(ORIGINAL);
-const MAKE_IDS: Record<string, string> = { Chevy: 'chevrolet' };
-const slug = (s: string) => s.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-/** The model-file id of a real make and model (Chevy Tahoe → chevrolet-tahoe), whether or not it has a file. */
-export const modelIdOf = (make: string, model: string) => (MAKE_IDS[make] ?? slug(make)) + '-' + slug(model);
 const originalIds = new Set(ORIGINAL_MAKES.flatMap(m => ORIGINAL[m].map(e => modelIdOf(m, e.model))));
 export const CAR_CATALOG: Record<string, { model: string; style: string }[]> = { ...ORIGINAL };
 for (const r of CAR_MODELS) if (!originalIds.has(r.id)) (CAR_CATALOG[r.gameMake] ??= []).push({ model: r.gameModel, style: r.style });
