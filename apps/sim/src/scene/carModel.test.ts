@@ -238,6 +238,33 @@ describe('when the player leaves the town before the precompile', () => {
 });
 
 describe('when the precompile fails', () => {
+    const heldCamry = async () => {
+        const { disposeSharedCarAssets } = await import('./carModel');
+        disposeSharedCarAssets();
+        setCarMeshCache(makeCarMeshCache(async () => fakeGltf(), () => '/'));
+        const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'toyota-camry', true);
+        await new Promise(r => setTimeout(r, 0));
+        expect(partsOf(group).mesh).toBeNull(); // held for the precompile
+        return group;
+    };
+    const asyncRenderer = (compileAsync: () => Promise<unknown>) => ({ compileAsync, compile() {}, render() {}, getScissorTest: () => false, getScissor: (v: THREE.Vector4) => v, setScissor() {}, setScissorTest() {}, shadowMap: { enabled: false, needsUpdate: false } }) as unknown as THREE.WebGLRenderer;
+    it('a compile that is rejected (a lost context) gives up the same way', async () => {
+        const group = await heldCamry(), warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+        const scene = new THREE.Scene();
+        carFrameTick(); precompileCarsTick(asyncRenderer(() => Promise.reject(new Error('context lost'))), scene, new THREE.PerspectiveCamera());
+        await new Promise(r => setTimeout(r, 0));
+        expect(partsOf(group).mesh).toBe('toyota-camry'); expect(warn).toHaveBeenCalledTimes(1); expect(scene.children.length).toBe(0);
+        warn.mockRestore(); disposeCarModel(group);
+    });
+    it('a compile that never finishes is given up after 20 s', async () => {
+        const group = await heldCamry(), warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+        const scene = new THREE.Scene(), r = asyncRenderer(() => new Promise(() => {})), cam = new THREE.PerspectiveCamera(), t0 = performance.now();
+        carFrameTick(); precompileCarsTick(r, scene, cam);
+        const at = (ms: number) => { const s = vi.spyOn(performance, 'now').mockReturnValue(t0 + ms); carFrameTick(); precompileCarsTick(r, scene, cam); s.mockRestore(); };
+        at(10000); expect(partsOf(group).mesh).toBeNull(); expect(warn).not.toHaveBeenCalled(); // still compiling
+        at(21000); expect(partsOf(group).mesh).toBe('toyota-camry'); expect(warn).toHaveBeenCalledTimes(1); expect(scene.children.length).toBe(0);
+        warn.mockRestore(); disposeCarModel(group);
+    });
     it('gives it up once, warns, and puts the held models in (the town is not left on lofted bodies)', async () => {
         const { disposeSharedCarAssets } = await import('./carModel');
         disposeSharedCarAssets();

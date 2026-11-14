@@ -611,21 +611,29 @@ export const updateCars = (camPos: THREE.Vector3, high: boolean, driven: THREE.O
  * in a later frame draws it once into a single pixel: some drivers, and software
  * rendering, only finish a shader (and upload textures) on its first draw.
  */
-type Precompile = { state: 'build' | 'compiling' | 'draw' | 'done'; probe?: THREE.Group; broken?: THREE.Mesh; idleFrames: number };
-const pre: Precompile = { state: 'build', idleFrames: 0 };
+type Precompile = { state: 'build' | 'compiling' | 'draw' | 'done'; probe?: THREE.Group; broken?: THREE.Mesh; idleFrames: number; since: number };
+const pre: Precompile = { state: 'build', idleFrames: 0, since: 0 };
+/** A compile still not finished after this long (a lost context never settles compileAsync) is given up. */
+const PRECOMPILE_GIVE_UP_MS = 20000;
 let keptPaint: THREE.Material | null = null, keptPaintDouble: THREE.Material | null = null;
 const FAR_AWAY = 1e5; // the probe waits out of sight (and its contact shadow with it)
 export const precompileCarsTick = (renderer: THREE.WebGLRenderer, scene: THREE.Scene, camera: THREE.Camera) => {
-    if (pre.state === 'done' || pre.state === 'compiling') return;
-    try { precompileStep(renderer, scene, camera); }
-    catch (err) {
-        // never leave the town's cars on their lofted bodies for good: give the precompile up, put the held models in
-        console.warn('car shader precompile failed; the car models go in without it', err);
-        const g = pre.probe;
-        if (g) { pre.broken?.removeFromParent(); getBeam().removeFromParent(); disposeCarModel(g); }
-        pre.state = 'done'; pre.probe = pre.broken = undefined;
-        releaseHeldCarBodies();
+    if (pre.state === 'done') return;
+    if (pre.state === 'compiling') {
+        if (performance.now() - pre.since > PRECOMPILE_GIVE_UP_MS) giveUpPrecompile(new Error('the compile did not finish'));
+        return;
     }
+    try { precompileStep(renderer, scene, camera); } catch (err) { giveUpPrecompile(err); }
+};
+/** The precompile failed (a step threw, the compile was rejected or never finished): never leave the town's cars on
+ *  their lofted bodies for good. Warn once, take the probe car away, call it done and put the held models in. */
+const giveUpPrecompile = (err: unknown) => {
+    if (pre.state === 'done') return;
+    console.warn('car shader precompile failed; the car models go in without it', err);
+    const g = pre.probe;
+    if (g) { pre.broken?.removeFromParent(); getBeam().removeFromParent(); disposeCarModel(g); }
+    pre.state = 'done'; pre.probe = pre.broken = undefined;
+    releaseHeldCarBodies();
 };
 const precompileStep = (renderer: THREE.WebGLRenderer, scene: THREE.Scene, camera: THREE.Camera) => {
     if (pre.state === 'build') {
@@ -644,10 +652,10 @@ const precompileStep = (renderer: THREE.WebGLRenderer, scene: THREE.Scene, camer
         g.add(broken, b); b.visible = true;
         scene.add(g);
         ensureShadowMesh(1);
-        pre.probe = g as THREE.Group; pre.broken = broken; pre.state = 'compiling';
+        pre.probe = g as THREE.Group; pre.broken = broken; pre.state = 'compiling'; pre.since = performance.now();
         const r = renderer as THREE.WebGLRenderer & { compileAsync?: (o: THREE.Object3D, c: THREE.Camera, t?: THREE.Scene) => Promise<unknown> };
         const next = () => { if (pre.probe === g) { pre.state = 'draw'; pre.idleFrames = 0; } }; // (unless the world closed meanwhile)
-        if (r.compileAsync) r.compileAsync(scene, camera).then(next, next);
+        if (r.compileAsync) r.compileAsync(scene, camera).then(next, err => { if (pre.probe === g) giveUpPrecompile(err); });
         else { renderer.compile(scene, camera); next(); }
         return;
     }
