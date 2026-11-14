@@ -38,5 +38,7 @@ services:
         - apps/value/**
         - packages/**
         - tools/**
+        - package.json          # the `site` script
+        - pnpm-workspace.yaml
         - pnpm-lock.yaml
         - render.yaml
