@@ -26,6 +26,10 @@ type Nodes = {
 
 export const SFX_NAMES = ['tick', 'buy', 'ok', 'no', 'beep', 'go', 'cp', 'finish', 'perfect', 'crash', 'horn', 'shift', 'bov', 'nosfire'] as const;
 
+/** The page's one audio context and how many Audio instances are using it. */
+let shared: { AC: Ctx; refs: number } | null = null;
+const workletLoaded = new WeakMap<object, Promise<void>>();
+
 export class Audio {
   private AC: Ctx | null = null;
   private A: Nodes | null = null;
@@ -35,6 +39,7 @@ export class Audio {
   private node: AudioWorkletNode | null = null;
   private nodeGain: GainNode | null = null;
   private sentTurbo = false;
+  private sources: AudioScheduledSourceNode[] = [];
 
   constructor(private muted = false, private mode: SoundMode = 'classic') {}
 
@@ -55,7 +60,9 @@ export class Audio {
     // The build bundles the worklet into one file. The dev server's worker wrapper does not run in a
     // worklet, so in development the module is loaded as the dev server serves it.
     const url = import.meta.env.DEV ? Promise.resolve('/src/sound/engine.worklet.ts') : import('../sound/engine.worklet.ts?worker&url').then(m => m.default);
-    url.then(u => AC.audioWorklet.addModule(u))
+    let loaded = workletLoaded.get(AC);   // a module registers its processor once per context
+    if (!loaded) { loaded = url.then(u => AC.audioWorklet.addModule(u)); workletLoaded.set(AC, loaded); }
+    loaded
       .then(() => {
         if (this.AC !== AC) return; // disposed while loading
         const node = new AudioWorkletNode(AC, 'micar-engine', { numberOfInputs: 0, outputChannelCount: [2], processorOptions: { facts: this.facts } });
@@ -70,7 +77,8 @@ export class Audio {
   /** Make (first call) and resume the context. Call from a pointerdown/keydown handler. */
   resume(): void {
     const AC = this.ctx();
-    if (AC && AC.state === 'suspended') void AC.resume().catch(() => {});
+    // A phone can also leave the context 'interrupted' (a call, another app, another context closing): wake that too.
+    if (AC && AC.state !== 'running' && AC.state !== 'closed') void AC.resume().catch(() => {});
   }
 
   setMute(m: boolean): void { this.muted = m; if (this.A) this.A.master.gain.value = m ? 0 : .55; }
@@ -135,14 +143,28 @@ export class Audio {
   wake(): void { if (this.AC) this.resume(); }
 
   /** Close the context (leaving the world). */
-  dispose(): void { if (this.AC) void this.AC.close().catch(() => {}); this.AC = null; this.A = null; this.node = null; this.nodeGain = null; this.quiet = true; }
+  dispose(): void {
+    const AC = this.AC;
+    if (AC) {
+      // Take this instance's sounds off the shared output; the context itself closes only with its last user.
+      for (const src of this.sources) { try { src.stop(); } catch { /* never started */ } }
+      try { this.node?.disconnect(); } catch { /* not connected */ }
+      try { this.A?.master.disconnect(); } catch { /* not connected */ }
+      if (shared && shared.AC === AC && --shared.refs <= 0) { shared = null; void AC.close().catch(() => {}); }
+    }
+    this.sources = []; this.AC = null; this.A = null; this.node = null; this.nodeGain = null; this.quiet = true;
+  }
 
   private ctx(): Ctx | null {
     if (this.AC) return this.AC; if (this.failed) return null;
     const g = globalThis as unknown as { AudioContext?: typeof AudioContext; webkitAudioContext?: typeof AudioContext };
     const Ctor = g.AudioContext || g.webkitAudioContext;
     if (!Ctor) { this.failed = true; return null; }
-    let AC: Ctx; try { AC = new Ctor(); } catch { this.failed = true; return null; }
+    // One context for the whole page. The Garage menu has its own Audio, and on an iPhone a second context
+    // closing interrupts the first: the game's sound then stayed off after a visit to the Garage.
+    let AC: Ctx;
+    if (shared && shared.AC.state !== 'closed') { AC = shared.AC; shared.refs++; }
+    else { try { AC = new Ctor(); } catch { this.failed = true; return null; } shared = { AC, refs: 1 }; }
     const master = AC.createGain(); master.gain.value = this.muted ? 0 : .55; master.connect(AC.destination);
     const nb = AC.createBuffer(1, AC.sampleRate * 2, AC.sampleRate), d = nb.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
     const noiseSrc = () => { const s = AC.createBufferSource(); s.buffer = nb; s.loop = true; s.start(); return s; };
@@ -155,6 +177,7 @@ export class Audio {
     const ns = noiseSrc(); const nf = AC.createBiquadFilter(); nf.type = 'highpass'; nf.frequency.value = 1800; const nsg = AC.createGain(); nsg.gain.value = 0; ns.connect(nf).connect(nsg).connect(master);
     const wd = noiseSrc(); const wf = AC.createBiquadFilter(); wf.type = 'lowpass'; wf.frequency.value = 600; const wdg = AC.createGain(); wdg.gain.value = 0; wd.connect(wf).connect(wdg).connect(master);
     this.AC = AC; this.A = { master, noise: nb, e1, e2, e3, ef, eg, wh, whg, skg, nsg, wdg };
+    this.sources = [e1, e2, e3, wh, sk, ns, wd];
     this.startModel(AC, master);
     return AC;
   }
