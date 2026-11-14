@@ -1,6 +1,9 @@
+import { CAR_MODELS, modelIdOf } from './carModels';
+
 // Real model line-ups per make, each tagged with the body style that drives its 3D silhouette. The server's auction
-// picks a make, then a random model from it; the Strip's tester counter lists them all.
-export const CAR_CATALOG: Record<string, { model: string; style: string }[]> = {
+// picks one of its makes (the original five), then a random model from it; the Strip's tester counter lists them all.
+// After the original five come the other finished 3D models (carModels.ts), under their game names, by body style.
+const ORIGINAL: Record<string, { model: string; style: string }[]> = {
     Toyota: [
         { model: 'Camry', style: 'sedan' }, { model: 'Corolla', style: 'sedan' },
         { model: 'RAV4', style: 'suv' }, { model: 'Tacoma', style: 'truck' },
@@ -32,3 +35,7 @@ export const CAR_CATALOG: Record<string, { model: string; style: string }[]> = {
         { model: 'Z4', style: 'sports' },
     ],
 };
+export const ORIGINAL_MAKES = Object.keys(ORIGINAL);
+const originalIds = new Set(ORIGINAL_MAKES.flatMap(m => ORIGINAL[m].map(e => modelIdOf(m, e.model))));
+export const CAR_CATALOG: Record<string, { model: string; style: string }[]> = { ...ORIGINAL };
+for (const r of CAR_MODELS) if (!originalIds.has(r.id)) (CAR_CATALOG[r.gameMake] ??= []).push({ model: r.gameModel, style: r.style });

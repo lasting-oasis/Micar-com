@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { disposeCarAtlas, getCarAtlas, stepCarAtlas } from './car/carAtlas';
 import { disposeStyleGeometries, getStyleGeometry, isStyleBuilt, stepStyle } from './car/carStyles';
 import { HALO_HEAD, HALO_TAIL } from './car/carGeometry';
+import { carMeshes, disposeMeshDarkMaterial, meshDarkMaterial, type MeshGeometry } from './car/carMeshes';
 
 // Car models and paint (colour names, rust, mud, smoke), lamps and the per-frame car
 // upkeep (far versions, contact shadows, headlight beam).
@@ -12,6 +13,10 @@ import { HALO_HEAD, HALO_TAIL } from './car/carGeometry';
 // it is 2: a ~400-triangle version with the same paint and the shared trim material.
 // Geometry is built once per body style (see car/carStyles.ts). The model faces -Z,
 // the direction the game drives.
+// A car model with its own 3D model (car/carMeshes.ts) shows the lofted body of its style
+// until that model has loaded, then its own: paint, glass, black trim (the model has no
+// UVs for the atlas, and no lamp glows yet), the sim's wheels where its wheels are, and
+// its own far version.
 
 // Map the game's colour names to real colours.
 export const carColorHex = (c?: string) => {
@@ -267,6 +272,10 @@ export const applyCarPaint = (body: THREE.Mesh, hex: string, bodyCond: number, d
 export type LampMode = 'off' | 'on' | 'brake' | 'reverse';
 type CarParts = {
     style: string; length: number; width: number;
+    mesh: string | null;  // the mesh body shown (its model id), or null: the lofted body of the style
+    wheelGeo: { wheel: THREE.BufferGeometry; wheelBlur: THREE.BufferGeometry }; wheelScale: THREE.Vector3[];
+    meshWheel: { r: number; w: number } | null; // a mesh body's front tyre (radius, width); the rear ones are scaled by wheelScale
+    beamZ: number;
     tilt: THREE.Group; // carries everything but the wheels; the driving code pitches/rolls it
     body: THREE.Mesh; trim: THREE.Mesh; glass: THREE.Mesh; wheelMesh: THREE.InstancedMesh;
     farBody: THREE.Mesh; farTrim: THREE.Mesh; halos: THREE.Points;
@@ -286,8 +295,12 @@ const FLIP = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0),
  * Build a car. `wheels` are the four wheel nodes (FL, FR, RL, RR: rotateX rolls them)
  * and `frontPivots` the two steering pivots (rotation.y steers); call syncCarWheels
  * after changing them. Dispose with disposeCarModel (shared parts stay alive).
+ * `meshId` (carMeshId of the car's make and model): the car's own 3D model, shown once
+ * loaded (at once if it already is); the lofted body of `style` until then, or if it fails.
+ * `afterPrecompile`: for a world that runs precompileCarsTick, put the model in only once
+ * that is done, so its first draw compiles no shader (a frame of ~200 ms otherwise).
  */
-export const buildCarModel = (style: string, rawColor: string, bodyCond: number = 100, mechCond: number = 100) => {
+export const buildCarModel = (style: string, rawColor: string, bodyCond: number = 100, mechCond: number = 100, meshId?: string | null, afterPrecompile = false) => {
     const S = getShared();
     const geo = getStyleGeometry(style);
     const group = new THREE.Group();
@@ -344,7 +357,7 @@ export const buildCarModel = (style: string, rawColor: string, bodyCond: number 
     for (const o of [...tilt.children, wheelMesh]) o.position.y += CAR_LIFT;
 
     const parts: CarParts = {
-        style, length: geo.length, width: geo.width, tilt, body, trim, glass, wheelMesh, farBody, farTrim, halos, pivots, wheels, smoke: smokeParticles,
+        style, length: geo.length, width: geo.width, mesh: null, meshWheel: null, wheelGeo: geo, wheelScale: geo.wheelPos.map(() => ONE.clone()), beamZ: geo.beamZ, tilt, body, trim, glass, wheelMesh, farBody, farTrim, halos, pivots, wheels, smoke: smokeParticles,
         lamps: 'off', far: false, blur: false, lastRoll: new THREE.Quaternion(), syncFrame: 0,
         sx: NaN, sz: NaN, sqy: NaN, sqw: NaN, ss: NaN, sv: false,
     };
@@ -353,14 +366,50 @@ export const buildCarModel = (style: string, rawColor: string, bodyCond: number 
     wheelMesh.computeBoundingSphere();
     cars.push(group);
     shadowsDirtyFrom = Math.min(shadowsDirtyFrom, cars.length - 1);
+    if (meshId) {
+        const fit = (m: MeshGeometry) => {
+            if (!afterPrecompile || pre.state === 'done') return fitMeshBody(group, m);
+            if (!heldFits.length) heldSince = performance.now();
+            heldFits.push([group, m]);
+        };
+        const mg = carMeshes().request(meshId);
+        if (mg) fit(mg);
+        else void carMeshes().when(meshId).then(m => { if (m && cars.includes(group)) fit(m); });
+    }
     return { group, tilt, wheels, body, frontPivots: pivots.slice(0, 2), smokeParticles };
 };
+
+/** Put a car's own model in place of its lofted body (same nodes, so the game's references to them stay good). */
+const fitMeshBody = (group: THREE.Object3D, mg: MeshGeometry) => {
+    const c = partsOf(group)!;
+    const dark = meshDarkMaterial();
+    c.mesh = mg.id;
+    c.body.geometry = mg.paint; c.glass.geometry = mg.glass;
+    c.trim.geometry = mg.dark; c.trim.material = dark; c.trim.castShadow = true;
+    c.farBody.geometry = mg.farPaint; c.farTrim.geometry = mg.farDark; c.farTrim.material = dark;
+    // the remixed shells are open in places: paint both faces (as the models' own materials do)
+    const paint = c.body.material as THREE.Material;
+    if (paint.side !== THREE.DoubleSide) { paint.side = THREE.DoubleSide; paint.needsUpdate = true; }
+    c.halos.geometry.dispose(); c.halos.geometry = mg.halos.clone(); c.halos.visible = false;
+    c.smoke.position.set(mg.smokePos.x, mg.smokePos.y + CAR_LIFT, mg.smokePos.z);
+    c.wheelGeo = mg; c.wheelMesh.geometry = c.blur ? mg.wheelBlur : mg.wheel;
+    mg.wheelPos.forEach((p, i) => { c.pivots[i].position.copy(p); c.wheelScale[i].setScalar(mg.wheelScale[i]); });
+    c.meshWheel = { r: mg.wheelR, w: mg.tyreW };
+    c.length = mg.length; c.width = mg.width; c.beamZ = mg.beamZ;
+    if (beam && beam.parent === c.tilt) beam.position.z = c.beamZ - 16.4;
+    syncCarWheels(group);
+    c.wheelMesh.computeBoundingSphere(); // from the new wheel matrices
+    shadowsDirtyFrom = 0; // the contact shadow takes the model's size
+    // whoever fitted a kit (Garage, the driven car) fits it again to the new body
+    group.dispatchEvent({ type: CAR_BODY_CHANGE } as never);
+};
+/** Dispatched on a car's group when its own model replaces the lofted body (refit anything placed on the old body). */
+export const CAR_BODY_CHANGE = 'carbodychange';
 
 const setBlur = (c: CarParts, blur: boolean) => {
     if (blur === c.blur) return;
     c.blur = blur;
-    const g = getStyleGeometry(c.style);
-    c.wheelMesh.geometry = blur ? g.wheelBlur : g.wheel;
+    c.wheelMesh.geometry = blur ? c.wheelGeo.wheelBlur : c.wheelGeo.wheel;
 };
 /**
  * Copy the wheel nodes' roll and steer into the instanced wheel mesh (call after turning
@@ -379,7 +428,7 @@ export const syncCarWheels = (group: THREE.Object3D) => {
         const pivot = c.pivots[i];
         tmpQ.copy(pivot.quaternion).multiply(c.wheels[i].quaternion);
         if (pivot.position.x < 0) tmpQ.multiply(FLIP); // left wheels: rim faces outward (-X)
-        c.wheelMesh.setMatrixAt(i, tmpM.compose(pivot.position, tmpQ, ONE));
+        c.wheelMesh.setMatrixAt(i, tmpM.compose(pivot.position, tmpQ, c.wheelScale[i]));
     }
     c.wheelMesh.instanceMatrix.needsUpdate = true;
 };
@@ -394,6 +443,7 @@ export const setCarLights = (group: THREE.Object3D, mode: LampMode | boolean) =>
     const m: LampMode = mode === true ? 'on' : mode === false ? 'off' : mode;
     if (!c || c.lamps === m) return;
     c.lamps = m;
+    if (c.mesh) return; // mesh bodies: no lamp glows yet (their trim is plain black)
     const mat = trimFor(m)!;
     c.trim.material = mat; c.farTrim.material = mat;
     c.halos.visible = m !== 'off' && nightOn;
@@ -432,7 +482,7 @@ export const updateCarLights = (nightFactor: number) => {
     const on = nightFactor > 0.05;
     shared.halo.opacity = 0.75 * nightFactor;
     if (beam) (beam.material as THREE.MeshBasicMaterial).opacity = 0.5 * nightFactor;
-    if (on !== nightOn) { nightOn = on; for (const g of cars) { const c = partsOf(g)!; c.halos.visible = c.lamps !== 'off' && on; } }
+    if (on !== nightOn) { nightOn = on; for (const g of cars) { const c = partsOf(g)!; c.halos.visible = !c.mesh && c.lamps !== 'off' && on; } }
 };
 
 // ---------------------------------------------------------------------------------
@@ -498,9 +548,10 @@ export const updateCars = (camPos: THREE.Vector3, high: boolean, driven: THREE.O
     if (driven && nightOn && partsOf(driven)) {
         const b = getBeam();
         const tiltNode = partsOf(driven)!.tilt;
-        if (b.parent !== tiltNode) { b.removeFromParent(); tiltNode.add(b); b.position.set(0, 0.12, getStyleGeometry(partsOf(driven)!.style).beamZ - 16.4); }
+        if (b.parent !== tiltNode) { b.removeFromParent(); tiltNode.add(b); b.position.set(0, 0.12, partsOf(driven)!.beamZ - 16.4); }
         b.visible = true;
     } else if (beam && beam.parent) { beam.removeFromParent(); beam.visible = false; }
+    if (heldFits.length && now - heldSince > HOLD_MS) for (const [car, mg] of heldFits.splice(0)) if (cars.includes(car)) fitMeshBody(car, mg);
     if (shared) shared.shadow.opacity = high ? 0.38 : 0.6;
     const sm = ensureShadowMesh(cars.length);
     if (!sm) return;
@@ -530,7 +581,7 @@ export const updateCars = (camPos: THREE.Vector3, high: boolean, driven: THREE.O
  */
 type Precompile = { state: 'build' | 'compiling' | 'draw' | 'done'; probe?: THREE.Group; broken?: THREE.Mesh; idleFrames: number };
 const pre: Precompile = { state: 'build', idleFrames: 0 };
-let keptPaint: THREE.Material | null = null;
+let keptPaint: THREE.Material | null = null, keptPaintDouble: THREE.Material | null = null;
 const FAR_AWAY = 1e5; // the probe waits out of sight (and its contact shadow with it)
 export const precompileCarsTick = (renderer: THREE.WebGLRenderer, scene: THREE.Scene, camera: THREE.Camera) => {
     if (pre.state === 'done' || pre.state === 'compiling') return;
@@ -539,6 +590,12 @@ export const precompileCarsTick = (renderer: THREE.WebGLRenderer, scene: THREE.S
         const g = buildCarModel('sedan', '#808080', 100, 20).group, c = partsOf(g)!;
         g.position.set(FAR_AWAY, -500, FAR_AWAY);
         const broken = new THREE.Mesh(c.glass.geometry, shared!.glassBroken);
+        // the mesh bodies' black trim and their double-sided paint
+        // (both cast shadows, as on a mesh body, so their shadow-map variants are compiled too)
+        const dsPaint = makePaintMaterial(); dsPaint.side = THREE.DoubleSide;
+        const darkProbe = new THREE.Mesh(c.glass.geometry, meshDarkMaterial()), paintProbe = new THREE.Mesh(c.glass.geometry, dsPaint);
+        darkProbe.castShadow = paintProbe.castShadow = true;
+        broken.add(darkProbe, paintProbe);
         const b = getBeam();
         c.farBody.visible = c.farTrim.visible = c.halos.visible = c.smoke.visible = true;
         g.add(broken, b); b.visible = true;
@@ -568,9 +625,16 @@ export const precompileCarsTick = (renderer: THREE.WebGLRenderer, scene: THREE.S
     b.removeFromParent(); b.visible = false; pre.broken!.removeFromParent(); g.removeFromParent();
     const i = cars.indexOf(g); if (i >= 0) { cars.splice(i, 1); shadowsDirtyFrom = Math.min(shadowsDirtyFrom, i); }
     keptPaint?.dispose(); keptPaint = c.body.material as THREE.Material;
+    keptPaintDouble?.dispose(); keptPaintDouble = (pre.broken!.children[1] as THREE.Mesh).material as THREE.Material;
     c.smoke.geometry.dispose(); c.halos.geometry.dispose(); c.wheelMesh.dispose();
     pre.state = 'done'; pre.probe = pre.broken = undefined;
+    for (const [car, mg] of heldFits.splice(0)) if (cars.includes(car)) fitMeshBody(car, mg);
 };
+/** Mesh bodies waiting for the precompile (buildCarModel's afterPrecompile); put in anyway after HOLD_MS (no precompile
+ *  coming, e.g. the player left the town first). */
+const heldFits: [THREE.Object3D, MeshGeometry][] = [];
+let heldSince = 0;
+const HOLD_MS = 8000;
 
 /** Remove a car and free what belongs to it alone (shared geometry/materials stay). */
 export const disposeCarModel = (group: THREE.Object3D) => {
@@ -589,6 +653,7 @@ export const disposeCarModel = (group: THREE.Object3D) => {
 /** Free the shared car geometry, materials and textures (when the 3D world closes). */
 export const disposeSharedCarAssets = () => {
     disposeStyleGeometries();
+    carMeshes().dispose(); disposeMeshDarkMaterial();
     if (shadowMesh) { shadowMesh.removeFromParent(); shadowMesh.geometry.dispose(); shadowMesh.dispose(); shadowMesh = null; }
     shadowScene = null;
     if (beam) { beam.removeFromParent(); beam.geometry.dispose(); const m = beam.material as THREE.MeshBasicMaterial; m.map?.dispose(); m.dispose(); beam = null; }
@@ -598,8 +663,8 @@ export const disposeSharedCarAssets = () => {
         shared = null;
     }
     disposeCarAtlas();
-    keptPaint?.dispose(); keptPaint = null;
-    pre.state = 'build'; pre.probe = pre.broken = undefined;
+    keptPaint?.dispose(); keptPaint = null; keptPaintDouble?.dispose(); keptPaintDouble = null;
+    pre.state = 'build'; pre.probe = pre.broken = undefined; heldFits.length = 0;
     cars.length = 0;
     nightOn = false; frameNo = 0; stepsThisFrame = 0;
 };

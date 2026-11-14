@@ -65,7 +65,7 @@ const MODEL_SPECS: Record<string, CarSpec> = {
 };
 
 // Old, tired cars of a body style (junkyard "Scrap Shell"s and anything unknown).
-const STYLE_SPECS: Record<string, CarSpec> = {
+export const STYLE_SPECS: Record<string, CarSpec> = {
   sedan:     S('2.4L I4', 150, 3200, 9.5, 112, 'FWD'),
   coupe:     S('3.0L V6', 210, 3300, 7.8, 125, 'RWD'),
   hatchback: S('1.6L I4', 110, 2600, 10.5, 108, 'FWD'),

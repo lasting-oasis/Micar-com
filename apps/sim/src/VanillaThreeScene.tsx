@@ -5,7 +5,8 @@ import { LightPool } from './scene/lightPool';
 import { batchStatic } from './scene/staticBatcher';
 import { damp, groundLastOpaqueSort } from './scene/utils';
 import { Atmosphere } from './scene/atmosphere';
-import { applyCarPaint, attachCarShadows, buildCarModel, carColorHex, carFrameTick, carStyleReady, deriveStyle, precompileCarsTick, disposeCarModel, disposeSharedCarAssets, setCarLights, syncCarWheels, updateCarLights, updateCars } from './scene/carModel';
+import { carMeshId } from './scene/car/carMeshes';
+import { CAR_BODY_CHANGE, applyCarPaint, attachCarShadows, buildCarModel, carColorHex, carFrameTick, carStyleReady, deriveStyle, precompileCarsTick, disposeCarModel, disposeSharedCarAssets, setCarLights, syncCarWheels, updateCarLights, updateCars } from './scene/carModel';
 import { BlobShadows, Character, customerLook, dealerLook, disposeCharacterAssets } from './scene/characterModel';
 import { createGroundHeight } from './scene/groundHeight';
 import { createWorldContext } from './scene/world/context';
@@ -1505,9 +1506,11 @@ export function VanillaThreeScene() {
                         const carStyle = (car as any).bodyStyle || deriveStyle(car.model);
                         // body styles are built a few milliseconds per frame; the car appears once its style is ready
                         if (!carStyleReady(carStyle)) return;
-                        const assets = buildCarModel(carStyle, carColorHex(car.color), car.bodyCondition, car.mechanicCondition);
+                        const assets = buildCarModel(carStyle, carColorHex(car.color), car.bodyCondition, car.mechanicCondition, carMeshId(car.make, car.model), district === 'town');
                         
                         const mesh = assets.group;
+                        // its own model arrived: the driven car's kit is fitted again, to the new body
+                        mesh.addEventListener(CAR_BODY_CHANGE as never, () => { if (car.id === localDrivingCarId && kit) fitKit(mesh, car); });
                         if (car.lotPosition) {
                              mesh.position.set(car.lotPosition.x, 0, car.lotPosition.z);
                              mesh.rotation.y = car.lotPosition.r;

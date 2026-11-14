@@ -3,6 +3,7 @@
    the localStorage save becomes StripRecord. Prices are dollars, unchanged. */
 import { carParams, simStats, type PerfCfg, type Tune, type VehicleSpec } from './physics';
 import { getCarSpec, hasModelSpec, type CarSpec } from '../carSpecs';
+import { rowByGameName } from '../carModels';
 import type { TrackId } from './strip/district';
 
 type Tier = PerfCfg['engine'];
@@ -240,7 +241,9 @@ export function specFor(car: { make?: string; model?: string; bodyStyle?: string
   const base = clone(ARCHETYPES[style]);
   base.gripMul = ch.gripMul;
   if (ch.h !== undefined) base.h = ch.h;
-  const out = hasModelSpec(car) ? { ...fitSpec(base, getCarSpec(car, style)), name: `${car.make} ${car.model}` } : base;
+  // (a finished model with no figures of its own (carModels.ts) drives on its style's, under its own name)
+  const out = hasModelSpec(car) ? { ...fitSpec(base, getCarSpec(car, style)), name: `${car.make} ${car.model}` }
+    : rowByGameName(car.make, car.model) ? { ...base, name: `${car.make} ${car.model}` } : base;
   specCache.set(key, out);
   return clone(out);
 }
