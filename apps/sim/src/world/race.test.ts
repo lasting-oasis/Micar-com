@@ -3,7 +3,7 @@ import { beforeAll, describe, expect, it } from 'vitest';
 import { TRACKS } from './strip/district';
 import { readTrackSync, setTrackDir } from './strip/districtNode';
 import {
-  GO_LEAD_MS, GRID_SIZES, QUICK_CAR, QUICK_WAIT_MS, SLOT_COLORS, claimFinish, createRoom, findQuick, holdsLoan, invitation, joinRoom, leaveRoom, makeCode, markReady,
+  GO_LEAD_MS, GRID_SIZES, LOAD_TIMEOUT_MS, QUICK_CAR, QUICK_WAIT_MS, SLOT_COLORS, claimFinish, createRoom, findQuick, holdsLoan, invitation, joinRoom, leaveRoom, makeCode, markReady, mergeQuick, missedLoad,
   normalizeCode, quickEventOf, quickWaiting, quitRace, roomMaxFrom, roomSizeFor, roomView, roundPose, setRace, startRace, sweep, tick, type Room,
 } from './race';
 
@@ -593,6 +593,86 @@ describe('quick rooms: one filling per circuit, starting by themselves', () => {
     expect(findQuick(rooms, 'monaco')).toBeUndefined(); // racing already: a new one is opened
     expect(findQuick(rooms, 'spa')).toBe(other);
     expect(findQuick(rooms, 'nowhere')).toBeUndefined();
+  });
+  it('a full quick room waits again after its race, as any quick room does: it does not start again before its wait is over', () => {
+    const rooms = new Map<string, Room>(), room = quick(rooms, 'monaco', 'h', 4);
+    for (const id of ['b', 'c', 'd']) joinRoom(room, who(id), 1_000);
+    expect(tick(room, 1_000)).toBe(true); expect(room.phase).toBe('loading'); // full: at once
+    for (const id of ['h', 'b', 'c', 'd']) markReady(room, id, 1_100);
+    for (const id of ['h', 'b', 'c', 'd']) quitRace(room, id, 10_000); // the race closes, all four still in the room
+    expect([room.phase, room.members.length, room.startsAt]).toEqual(['open', 4, 10_000 + QUICK_WAIT_MS]);
+    expect(tick(room, 11_000)).toBe(false); expect(room.phase).toBe('open'); // full, but the result shows for the whole wait
+    expect(tick(room, 10_000 + QUICK_WAIT_MS)).toBe(true); expect(room.phase).toBe('loading');
+  });
+  it('a full quick room whose start is called off waits again too', () => {
+    const rooms = new Map<string, Room>(), room = quick(rooms, 'monaco', 'h', 4);
+    for (const id of ['b', 'c', 'd']) joinRoom(room, who(id), 1_000);
+    tick(room, 1_000); // full: started
+    for (const id of ['b', 'c', 'd']) quitRace(room, id, 2_000); // three back out before the green light: called off
+    expect([room.phase, room.note, room.members.length, room.startsAt]).toEqual(['open', 'called-off', 4, 2_000 + QUICK_WAIT_MS]);
+    expect(tick(room, 3_000)).toBe(false); expect(room.phase).toBe('open');
+  });
+  it('the join that fills a quick room cuts its wait short: it starts at the next tick', () => {
+    const rooms = new Map<string, Room>(), room = quick(rooms, 'monaco', 'h', 4);
+    joinRoom(room, who('b'), 1_000); expect(room.startsAt).toBe(31_000);
+    joinRoom(room, who('c'), 2_000); expect(room.startsAt).toBe(31_000);
+    joinRoom(room, who('d'), 5_000); expect(room.startsAt).toBe(5_000); // full
+    expect(tick(room, 5_000)).toBe(true); expect(room.phase).toBe('loading');
+  });
+  it('a quick room names whoever has not loaded when the load time is up; a room made by link keeps them, as before', () => {
+    const rooms = new Map<string, Room>(), room = quick(rooms, 'monaco', 'h', 4);
+    for (const id of ['b', 'c']) joinRoom(room, who(id), 1_000);
+    expect(startRace(room, 'h', 2_000).ok).toBe(true);
+    expect(missedLoad(room, 2_500)).toEqual([]);
+    for (const id of ['h', 'b']) markReady(room, id, 2_100); // c never loads
+    expect(missedLoad(room, 2_000 + LOAD_TIMEOUT_MS - 1)).toEqual([]);
+    expect(missedLoad(room, 2_000 + LOAD_TIMEOUT_MS)).toEqual(['c']);
+    leaveRoom(room, 'c', 2_000 + LOAD_TIMEOUT_MS); // what the server does with it: the other two race
+    expect([room.phase, room.members.map(x => x.id)]).toEqual(['racing', ['h', 'b']]);
+    const made = createRoom(rooms, who('p'), { eventId: 'harbour_gp', car: 'ronin' }, 9, Math.random, '', 4);
+    if (!made.ok) throw new Error(made.why);
+    for (const id of ['p2', 'p3']) joinRoom(made.room, who(id));
+    startRace(made.room, 'p', 2_000); for (const id of ['p', 'p2']) markReady(made.room, id, 2_100);
+    expect(missedLoad(made.room, 2_000 + LOAD_TIMEOUT_MS)).toEqual([]); // a challenge keeps p3 for the next race
+    expect(missedLoad(quick(rooms, 'spa', 's'), 99_000)).toEqual([]); // open: nobody is loading
+  });
+  it('a quick room of two whose other racer never loads: the one who loaded is left alone, with no wait', () => {
+    const rooms = new Map<string, Room>(), room = quick(rooms, 'monaco', 'h', 4);
+    joinRoom(room, who('b'), 1_000);
+    startRace(room, 'h', 2_000); markReady(room, 'h', 2_100);
+    expect(missedLoad(room, 2_000 + LOAD_TIMEOUT_MS)).toEqual(['b']);
+    leaveRoom(room, 'b', 2_000 + LOAD_TIMEOUT_MS);
+    expect([room.phase, room.members.map(x => x.id), room.startsAt]).toEqual(['open', ['h'], null]);
+    expect(tick(room, 99_000)).toBe(false); // alone: it does not start again and again
+  });
+  it("after a race, the circuit's other open quick room moves into it, up to its size; never into a full or racing room, never across circuits", () => {
+    const rooms = new Map<string, Room>();
+    const a = quick(rooms, 'monaco', 'a', 4); for (const id of ['a2', 'a3']) joinRoom(a, who(id), 0);
+    startRace(a, 'a', 1_000); for (const id of ['a', 'a2', 'a3']) markReady(a, id, 1_100); // a races
+    const b = quick(rooms, 'monaco', 'b', 4); joinRoom(b, who('b2'), 2_000); // opened while a raced
+    const other = quick(rooms, 'spa', 's', 4);
+    expect(mergeQuick(rooms, 3_000)).toEqual([]); // a is racing: nothing to merge
+    for (const id of ['a', 'a2', 'a3']) quitRace(a, id, 10_000); // a's race ends: two open quick rooms on Monaco
+    expect(mergeQuick(rooms, 10_500)).toEqual([{ id: 'b', from: b.code, to: a.code }]); // a is full at four; b2 stays
+    expect(a.members.map(x => x.id)).toEqual(['a', 'a2', 'a3', 'b']);
+    expect(b.members.map(x => x.id)).toEqual(['b2']);
+    expect([a.startsAt, b.startsAt]).toEqual([10_000 + QUICK_WAIT_MS, null]); // a's result shows for its whole wait; b2 waits alone
+    expect(tick(a, 10_600)).toBe(false); // full by a move, not by a join: it keeps its wait
+    expect(mergeQuick(rooms, 11_000)).toEqual([]); // a full room takes nobody
+    expect(other.members).toHaveLength(1); // another circuit's room never mixes
+  });
+  it('merging: when the other room fits, it empties into the fuller one; on a tie, into the room that has raced', () => {
+    const rooms = new Map<string, Room>();
+    const a = quick(rooms, 'monaco', 'a', 4); joinRoom(a, who('a2'), 0);
+    startRace(a, 'a', 1_000); for (const id of ['a', 'a2']) markReady(a, id, 1_100);
+    const b = quick(rooms, 'monaco', 'b', 4); joinRoom(b, who('b2'), 2_000);
+    for (const id of ['a', 'a2']) quitRace(a, id, 10_000); // two and two: a has raced
+    expect(mergeQuick(rooms, 10_500)).toEqual([{ id: 'b', from: b.code, to: a.code }, { id: 'b2', from: b.code, to: a.code }]);
+    expect([a.members.length, b.members.length, b.emptySince]).toEqual([4, 0, 10_500]);
+    const c = quick(rooms, 'interlagos', 'c', 16), d = quick(rooms, 'interlagos', 'd', 16);
+    for (const id of ['d2', 'd3']) joinRoom(d, who(id), 0);
+    expect(mergeQuick(rooms, 20_000)).toEqual([{ id: 'c', from: c.code, to: d.code }]); // the emptier goes to the fuller
+    expect([d.members.length, d.startsAt]).toEqual([4, 30_000]); // d's wait began with its second arrival, and keeps
   });
   it('quickWaiting counts who is in each open quick room, by circuit, and nothing else', () => {
     const rooms = new Map<string, Room>();

@@ -80,7 +80,7 @@ export type MemberState = 'waiting' | 'loading' | 'ready' | 'racing' | 'finished
 /** Why a racer has no time. */
 export type Why = 'quit' | 'failed' | 'left' | 'timeout';
 /** Why the server said no. 'size': a grid the server does not make, or smaller than the room. */
-export type DenyWhy = 'gone' | 'full' | 'busy' | 'slow' | 'holding' | 'host' | 'few' | 'state' | 'pick' | 'size';
+export type DenyWhy = 'gone' | 'full' | 'busy' | 'slow' | 'holding' | 'host' | 'few' | 'state' | 'pick' | 'size' | 'idle';
 export type Member = { id: string; name: string; slot: number; state: MemberState; time: number | null; score: number; why: Why | null };
 export type ResultRow = { id: string; name: string; pos: number; time: number | null; score: number; why: Why | null };
 export type LastRace = { raceNo: number; eventId: string; rows: ResultRow[] };
@@ -149,13 +149,16 @@ export function createRoom(rooms: Map<string, Room>, host: { id: string; name: s
 }
 
 /** Into the room, in any phase: someone who arrives while a race is on is in the next one. In an open quick room the
- *  second to arrive starts its wait (`now`). */
+ *  second to arrive starts its wait (`now`), and the one who fills it ends the wait: it starts at the next tick. */
 export function joinRoom(room: Room, who: { id: string; name: string }, now?: number): Ok | Denied {
   if (find(room, who.id)) return OK;
   if (room.members.length >= room.max) return no('full');
   const m = member(who);
   room.members.push(m);
-  if (now !== undefined) waitQuick(room, now);
+  if (now !== undefined) {
+    waitQuick(room, now);
+    if (room.quick && room.phase === 'open' && room.members.length >= room.max && room.members.length >= RACE_MIN) room.startsAt = now;
+  }
   if (!room.hostId) setHost(room, m); // the room had emptied out: whoever comes back to it hosts
   room.emptySince = null;
   return OK;
@@ -243,8 +246,9 @@ export function quitRace(room: Room, id: string, now: number): void {
 
 /** What only the clock decides: the slow are left behind, the finish window closes, a race nobody finishes ends. True when the room changed. */
 export function tick(room: Room, now: number): boolean {
-  // a quick room starts by itself: at the end of its wait, or as soon as it is full
-  if (room.quick && room.phase === 'open' && room.members.length >= RACE_MIN && ((room.startsAt !== null && now >= room.startsAt) || room.members.length >= room.max))
+  // a quick room starts by itself at the end of its wait (a join that fills it ends the wait: joinRoom). A room full after
+  // a race waits like any other, so its result shows for the whole wait.
+  if (room.quick && room.phase === 'open' && room.members.length >= RACE_MIN && room.startsAt !== null && now >= room.startsAt)
     return startRace(room, room.hostId, now).ok;
   if (room.phase === 'loading' && room.startedAt !== null && now - room.startedAt >= LOAD_TIMEOUT_MS) {
     for (const m of room.members) if (m.state === 'loading') toWaiting(m);
@@ -337,6 +341,40 @@ export function quickWaiting(rooms: Map<string, Room>): Record<string, number> {
     if (track) out[track] = (out[track] ?? 0) + r.members.length;
   }
   return out;
+}
+
+/** A quick room's racers still loading when the load time is up. The server takes them out of the room and tells them
+ *  why ('idle'): a page in a background tab would otherwise hold up every start, and in a room of two call off every
+ *  one. A room made by link keeps them for its next race, as before (tick). */
+export function missedLoad(room: Room, now: number): string[] {
+  if (!room.quick || room.phase !== 'loading' || room.startedAt === null || now - room.startedAt < LOAD_TIMEOUT_MS) return [];
+  return room.members.filter(m => m.state === 'loading').map(m => m.id);
+}
+
+/** One quick room filling per circuit. A circuit has two open quick rooms with space when a newcomer opened the second
+ *  while the first was racing, and the first race has ended: the emptier then moves into the fuller (on a tie, into the
+ *  one that has raced), up to its size. A move is no join: it does not end the room's wait (joinRoom), so a result still
+ *  shows for its whole wait. Returns who moved where; the server moves their sockets. */
+export function mergeQuick(rooms: Map<string, Room>, now: number): { id: string; from: string; to: string }[] {
+  const moves: { id: string; from: string; to: string }[] = [];
+  const byEvent = new Map<string, Room[]>();
+  for (const r of rooms.values())
+    if (r.quick && r.phase === 'open' && r.members.length > 0 && r.members.length < r.max) byEvent.set(r.eventId, [...(byEvent.get(r.eventId) ?? []), r]);
+  for (const list of byEvent.values()) {
+    while (list.length > 1) {
+      list.sort((p, q) => q.members.length - p.members.length || Number(q.last !== null) - Number(p.last !== null));
+      const to = list[0], from = list[list.length - 1];
+      while (from.members.length > 0 && to.members.length < to.max) {
+        const m = from.members[0];
+        leaveRoom(from, m.id, now);
+        joinRoom(to, { id: m.id, name: m.name });
+        moves.push({ id: m.id, from: from.code, to: to.code });
+      }
+      waitQuick(to, now);
+      for (let i = list.length - 1; i >= 0; i--) if (list[i].members.length === 0 || list[i].members.length >= list[i].max) list.splice(i, 1);
+    }
+  }
+  return moves;
 }
 
 /** The quick room filling on `track`: open, with space, the fullest of them (undefined: none, open a new one). */

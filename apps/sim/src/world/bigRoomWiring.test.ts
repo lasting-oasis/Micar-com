@@ -269,4 +269,60 @@ describe('a server without RACE_ROOM_MAX', () => {
     const made = r.roomSeen(a.s); a.s.emit('race_create', { eventId: 'harbour_gp', car: 'ronin' });
     expect((await made).max).toBe(4);
   }, 30_000);
+  it('four quick racers fill a room of four: it starts with nobody pressing Start, and after the result it waits its thirty seconds', async () => {
+    const g = [await r.guest('Full A'), await r.guest('Full B'), await r.guest('Full C'), await r.guest('Full D')];
+    for (const [i, x] of g.slice(0, 3).entries()) {
+      const seen = r.roomSeen(x.s, v => v.members.length === i + 1);
+      x.s.emit('race_quick', { track: 'laguna' });
+      await seen;
+    }
+    const started = r.roomSeen(g[0].s, v => v.phase === 'loading');
+    g[3].s.emit('race_quick', { track: 'laguna' }); // the fourth fills it
+    expect((await started).members).toHaveLength(4); // and nobody sent race_start
+    const racing = r.roomSeen(g[0].s, v => v.phase === 'racing');
+    for (const x of g) x.s.emit('race_ready');
+    await racing;
+    const closed = r.roomSeen(g[0].s, v => v.phase === 'open');
+    for (const x of g) x.s.emit('race_quit'); // all out: the race closes, all four still in the room
+    const after = await closed;
+    expect(after.members).toHaveLength(4);
+    expect(after.startsAt! - Date.now()).toBeGreaterThan(25_000);
+    const phases: string[] = []; const on = (v: RoomView) => { phases.push(v.phase); };
+    g[0].s.on('race_room', on);
+    await new Promise(res => setTimeout(res, 2_500)); // two and a half of the server's one-second ticks
+    g[0].s.off('race_room', on);
+    expect(phases.filter(p => p !== 'open')).toEqual([]); // full, and still waiting: the result shows
+  }, 40_000);
+
+  it('a quick racer whose page never loads the race is taken out when the load time is up, is told why, and can pick the circuit again', async () => {
+    const a = await r.guest('Loads'), b = await r.guest('Idle');
+    const opened = r.roomSeen(a.s); a.s.emit('race_quick', { track: 'monaco' }); await opened;
+    const two = r.roomSeen(a.s, v => v.members.length === 2); b.s.emit('race_quick', { track: 'monaco' }); await two;
+    const loading = r.roomSeen(a.s, v => v.phase === 'loading'); a.s.emit('race_start'); await loading; // its first member starts it early
+    a.s.emit('race_ready'); // b never does: a page in a background tab
+    const out = r.next<{ why: string }>(b.s, 'race_denied', () => true, 45_000);
+    const alone = r.next<RoomView>(a.s, 'race_room', v => v.members.length === 1, 45_000);
+    expect(await out).toEqual({ why: 'idle' });
+    const left = await alone;
+    expect([left.members.map(m => m.id), left.phase, left.startsAt]).toEqual([[a.id], 'open', null]);
+    const back = r.roomSeen(b.s, v => v.members.length === 2); b.s.emit('race_quick', { track: 'monaco' }); // back from the background
+    expect((await back).code).toBe(left.code);
+  }, 70_000);
+
+  it("when a quick room's race ends, the circuit's other open quick room moves into it", async () => {
+    const [a, b, c] = [await r.guest('Merge A'), await r.guest('Merge B'), await r.guest('Merge C')];
+    const opened = r.roomSeen(a.s); a.s.emit('race_quick', { track: 'interlagos' }); const first = await opened;
+    const two = r.roomSeen(a.s, v => v.members.length === 2); b.s.emit('race_quick', { track: 'interlagos' }); await two;
+    const racing = r.roomSeen(a.s, v => v.phase === 'racing'); a.s.emit('race_start');
+    await r.roomSeen(a.s, v => v.phase === 'loading' || v.phase === 'racing');
+    a.s.emit('race_ready'); b.s.emit('race_ready');
+    await racing;
+    const second = r.roomSeen(c.s); c.s.emit('race_quick', { track: 'interlagos' }); // the first is racing: c opens a second
+    expect((await second).code).not.toBe(first.code);
+    const moved = r.roomSeen(c.s, v => v.code === first.code);
+    a.s.emit('race_quit'); b.s.emit('race_quit'); // the first race ends
+    const merged = await moved;
+    expect([merged.phase, merged.members.map(m => m.id).sort()]).toEqual(['open', [a.id, b.id, c.id].sort()]);
+    expect(merged.startsAt! - Date.now()).toBeGreaterThan(25_000); // the first room's result shows for its wait
+  }, 40_000);
 });

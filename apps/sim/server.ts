@@ -16,7 +16,7 @@ import { guarded, handlerErrorLog } from './src/world/safeHandler.js';
 import { REPAIR_JOBS, repairJobFor } from './src/bay/catalog.js';
 import { GATE_RETURN } from './src/scene/world/gateSpot.js';
 import { RENTAL_FLEET, canRent, heldLoan, heldRental, isRental, isVisitor, lend, rent, returnLoan, type RentalKey } from './src/world/rental.js';
-import { QUICK_CAR, SLOT_COLORS, claimFinish, createRoom, findQuick, holdsLoan, invitation, joinRoom, leaveRoom, markReady, normalizeCode, quickEventOf, quickWaiting, quitRace, roomView, setRace, startRace, sweep, tick, type DenyWhy, type Room } from './src/world/race.js';
+import { QUICK_CAR, SLOT_COLORS, claimFinish, createRoom, findQuick, holdsLoan, invitation, joinRoom, leaveRoom, markReady, mergeQuick, missedLoad, normalizeCode, quickEventOf, quickWaiting, quitRace, roomView, setRace, startRace, sweep, tick, type DenyWhy, type Room } from './src/world/race.js';
 import { MAGIC_TTL_MS, allowSend, clientIp, newSendLog, pruneSendLog, applyRecord, attachAccount, liveHolder, bootState, claimAllowance, findAccount, linkGuest, saveRecord, signMagic, signSession, utcDay, verifyGoogle, verifyMagic, verifySession, type Account, type Identity, type Jwk } from './src/world/accounts.js';
 import { RENTAL_DENIED, STRIP_LIMIT, VISITOR_DENIED, VISITOR_EVENTS, closeEvent, guestPlayer, hostIsVacant, isUntouchedGuest, linkTarget, pickHost, quitEvent, sanitizePosition } from './src/world/stripFlow.js';
 import { coalescingSaver, loadOrQuarantine, writeAtomic } from './src/world/persistence.js';
@@ -199,11 +199,27 @@ function leaveRace(socketId: string, left = false) {
     else if (had) broadcastState(io, gameState);
 }
 
+/** A racer moved from one quick room to another (race.ts mergeQuick): its socket follows it. */
+function moveSocket(id: string, from: string, to: string) {
+    const s = io.sockets.sockets.get(id);
+    s?.leave(raceChannel(from)); s?.leave(poseChannel(from));
+    raceOf.set(id, to);
+    s?.join(raceChannel(to)); if (!batchedPoses.has(id)) s?.join(poseChannel(to));
+}
+
 // Once a second: what only the clock decides in a room (the slow are left behind, the finish window closes, a race
 // nobody finishes ends), and the rooms nobody has been in for too long go (two minutes after a Leave, fifteen after a drop).
+// A quick room takes out whoever has not loaded when the load time is up, and tells them why; then a circuit's open quick
+// rooms are made one (race.ts missedLoad, mergeQuick).
 setInterval(() => {
     const now = Date.now();
-    for (const room of raceRooms.values()) if (tick(room, now)) syncRoom(room);
+    for (const room of raceRooms.values()) {
+        for (const id of missedLoad(room, now)) { leaveRace(id, true); io.to(id).emit('race_denied', { why: 'idle' }); }
+        if (tick(room, now)) syncRoom(room);
+    }
+    const moved = mergeQuick(raceRooms, now);
+    for (const { id, from, to } of moved) moveSocket(id, from, to);
+    for (const code of new Set(moved.flatMap(m => [m.from, m.to]))) { const room = raceRooms.get(code); if (room) syncRoom(room); }
     sweep(raceRooms, now);
     for (const code of newestPose.keys()) if (raceRooms.get(code)?.phase !== 'racing') newestPose.delete(code); // a race over: its poses go
 }, 1000);

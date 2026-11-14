@@ -15,11 +15,12 @@ export const CH_KEYS: readonly string[] = [
   'strip.ch.invited', 'strip.ch.invitedPlain', 'strip.ch.join',
   'strip.ch.gone', 'strip.ch.full', 'strip.ch.onlyHost', 'strip.ch.busy', 'strip.ch.holding', 'strip.ch.pick', 'strip.ch.notNow',
   'strip.ch.size',
+  'strip.ch.idle',
 ];
 
 const DENY: Record<DenyWhy, string> = {
   gone: 'strip.ch.gone', full: 'strip.ch.full', host: 'strip.ch.onlyHost', busy: 'strip.ch.busy', slow: 'strip.ch.busy',
-  holding: 'strip.ch.holding', pick: 'strip.ch.pick', few: 'strip.ch.needTwo', state: 'strip.ch.notNow', size: 'strip.ch.size',
+  holding: 'strip.ch.holding', pick: 'strip.ch.pick', few: 'strip.ch.needTwo', state: 'strip.ch.notNow', size: 'strip.ch.size', idle: 'strip.ch.idle',
 };
 /** The line for a refusal; a reason this page does not know is still a no. */
 export const denyKey = (why: DenyWhy): string => DENY[why] ?? DENY.state;
