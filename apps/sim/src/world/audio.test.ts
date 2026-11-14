@@ -68,6 +68,33 @@ describe('one audio output, and waking it', () => {
     set: (t, k, v) => { (t as Record<string | symbol, unknown>)[k] = v; return true; },
     apply: () => node(),
   });
+  type Event = { time: number; set?: number; target?: number; tau?: number };
+  /** A gain's AudioParam with the browser's timeline for the calls Audio makes on it (setValueAtTime, setTargetAtTime,
+   *  cancelScheduledValues), read at the context's currentTime. Ramps are not evaluated: nothing here reads a sound effect's gain. */
+  class FakeParam {
+    private events: Event[] = [];
+    constructor(private readonly ctx: { currentTime: number }, private readonly initial = 1) {}
+    get value(): number { return this.at(this.ctx.currentTime); }
+    set value(v: number) { this.setValueAtTime(v, this.ctx.currentTime); }
+    /** An event goes after every event at or before its time, before every later one. */
+    private add(e: Event): this { let i = this.events.length; while (i > 0 && this.events[i - 1].time > e.time) i--; this.events.splice(i, 0, e); return this; }
+    setValueAtTime(v: number, t: number) { return this.add({ time: t, set: v }); }
+    setTargetAtTime(target: number, t: number, tau: number) { return this.add({ time: t, target, tau }); }
+    /** Removes every event at or after `t`. */
+    cancelScheduledValues(t: number) { this.events = this.events.filter(e => e.time < t); return this; }
+    linearRampToValueAtTime() { return this; }
+    exponentialRampToValueAtTime() { return this; }
+    private at(T: number): number {
+      let v = this.initial, from = 0, cur: Event | null = null;
+      const toward = (c: Event, at: number) => c.target! + (from - c.target!) * Math.exp(-(at - c.time) / c.tau!);
+      for (const e of this.events) {
+        if (e.time > T) break;
+        if (cur) v = toward(cur, e.time);
+        if (e.set !== undefined) { v = e.set; cur = null; } else { cur = e; from = v; }
+      }
+      return cur ? toward(cur, T) : v;
+    }
+  }
   class FakeCtx {
     /** The browser refuses to make a context: the constructor throws. */
     static refusing = false;
@@ -90,7 +117,7 @@ describe('one audio output, and waking it', () => {
     suspend() { this.setState('suspended'); return Promise.resolve(); }
     close() { this.closed++; this.setState('closed'); return Promise.resolve(); }
     createBuffer() { return { getChannelData: () => new Float32Array(8) }; }
-    createGain() { const g = node() as { disconnect: () => void; cut: number }; const m = { cut: 0, gain: { value: 0, setTargetAtTime() {}, setValueAtTime() {}, cancelScheduledValues() {}, linearRampToValueAtTime() {}, exponentialRampToValueAtTime() {} }, connect: (d: unknown) => { if (this.analysers.includes(d as never)) (d as { from: unknown }).from = m; return d; }, disconnect: () => { m.cut++; } }; this.masters.push(m); void g; return m; }
+    createGain() { const g = node() as { disconnect: () => void; cut: number }; const m = { cut: 0, gain: new FakeParam(this), connect: (d: unknown) => { if (this.analysers.includes(d as never)) (d as { from: unknown }).from = m; return d; }, disconnect: () => { m.cut++; } }; this.masters.push(m); void g; return m; }
     createOscillator() { this.oscillators++; return node(); } createBiquadFilter() { return node(); } createBufferSource() { return node(); }
   }
   const G = globalThis as unknown as { AudioContext?: unknown; AudioWorkletNode?: unknown };
@@ -259,6 +286,54 @@ describe('one audio output, and waking it', () => {
         await modelStarted();
         expect(ports.length).toBe(2);
         expect(told[told.length - 1]!.redline).toBe(stock + 450);
+      } finally { a.dispose(); }
+    });
+  });
+  // silence() fades every bed and holds it at exactly 0 from 0.4 s on. A pause, a menu, the Garage or getting out
+  // and straight back in can bring the sound back sooner: the hold must not then cut it to 0 at the 0.4 s mark.
+  describe('sound that comes back within 0.4 s of a silence', () => {
+    const V = () => { const v = makeVehicle(carParams(ARCHETYPES.sedan, STOCK_CFG.perf, TUNE_DEF)); v.thr = 1; v.rpm = 3000; return v; };
+    /** Frames at 60 Hz with the sound on or off; what `read` gives after each one. */
+    const frames = <T,>(a: Audio, car: ReturnType<typeof V>, n: number, on: boolean, read: () => T): T[] => {
+      const out: T[] = [];
+      for (let i = 0; i < n; i++) { made[0].currentTime += 1 / 60; a.engine(car, 10, on); out.push(read()); }
+      return out;
+    };
+    const modelGain = (a: Audio) => (a as unknown as { nodeGain: { gain: { value: number } } }).nodeGain.gain.value;
+    /** Once back, a level only rises (each bed ramps at its own pace), and a second on it is back where it was. */
+    const comesBack = (before: number, back: number[]) => {
+      back.forEach((v, i) => { if (i > 0) expect(v).toBeGreaterThanOrEqual(back[i - 1] - 1e-12); });
+      expect(back.at(-1)!).toBeGreaterThan(0.95 * before);
+    };
+    it('every bed of the classic engine comes back to its level and stays there after a 0.1 s pause', () => {
+      withFake(); const a = new Audio(false, 'classic'); a.resume(); const car = V();
+      try {
+        const before = frames(a, car, 60, true, () => a.levels()).at(-1)!;   // engine 0.16, wind 0.006; the rest 0 with no turbo, skid or nitrous
+        expect(before[0]).toBeGreaterThan(0.15);
+        frames(a, car, 6, false, () => a.levels());
+        const back = frames(a, car, 60, true, () => a.levels());              // across the 0.4 s mark, 18 frames in
+        before.forEach((level, bed) => { if (level > 0) comesBack(level, back.map(l => l[bed])); });
+      } finally { a.dispose(); }
+    });
+    it('the engine model comes back to its level and stays there after a 0.1 s pause', async () => {
+      withFake(); withWorklet();
+      const a = new Audio(false, 'model'); a.setCar(soundFactsFor({ engine: '5.0L V8', bodyStyle: 'coupe', redline: 7000 })); a.resume();
+      try {
+        await modelStarted(); const car = V();
+        const before = frames(a, car, 60, true, () => modelGain(a)).at(-1)!;
+        expect(before).toBeGreaterThan(0.85);
+        frames(a, car, 6, false, () => modelGain(a));
+        comesBack(before, frames(a, car, 60, true, () => modelGain(a)));
+      } finally { a.dispose(); }
+    });
+    it('with nothing coming back, every bed and the model are exactly 0 from 0.4 s on', async () => {
+      withFake(); withWorklet();
+      const a = new Audio(false, 'model'); a.setCar(soundFactsFor({ engine: '5.0L V8', bodyStyle: 'coupe', redline: 7000 })); a.resume();
+      try {
+        await modelStarted(); const car = V();
+        frames(a, car, 60, true, () => 0);
+        const off = frames(a, car, 60, false, () => [...a.levels(), modelGain(a)]);
+        for (const l of off.slice(25)) expect(l).toEqual([0, 0, 0, 0, 0, 0]);   // 25 frames: 0.417 s
       } finally { a.dispose(); }
     });
   });

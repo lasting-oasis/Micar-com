@@ -182,7 +182,8 @@ export class Audio {
     const AC = this.AC, A = this.A; if (!AC || !A) return; const t = AC.currentTime;
     this.watch();
     if (!on) { this.silence(); return; }
-    this.quiet = false;
+    // Back within 0.4 s of a silence, its hold at exactly 0 is still to come: it would cut the sound off just after it came back.
+    if (this.quiet) { for (const g of this.beds(A)) g.gain.cancelScheduledValues(t); this.quiet = false; }
     const model = this.modelActive && this.node && this.nodeGain;
     if (model) {
       if (!!V.P.turbo !== this.sentTurbo || V.P.redline !== this.sentRedline) { this.sentTurbo = !!V.P.turbo; this.sentRedline = V.P.redline; this.send(); }
@@ -205,9 +206,11 @@ export class Audio {
    *  A short fade, then exactly 0 from 0.4 s on. Once quiet, later calls schedule nothing. */
   silence(): void {
     const AC = this.AC, A = this.A; if (!AC || !A || this.quiet) return; const t = AC.currentTime;
-    for (const g of [A.eg, A.whg, A.skg, A.nsg, A.wdg, ...(this.nodeGain ? [this.nodeGain] : [])]) { g.gain.cancelScheduledValues(t); g.gain.setTargetAtTime(0, t, .05); g.gain.setValueAtTime(0, t + .4); }
+    for (const g of this.beds(A)) { g.gain.cancelScheduledValues(t); g.gain.setTargetAtTime(0, t, .05); g.gain.setValueAtTime(0, t + .4); }
     this.quiet = true;
   }
+  /** The gains silence() fades: the engine, turbo, skid, nitrous and wind beds and the engine model's. */
+  private beds(A: Nodes): GainNode[] { return [A.eg, A.whg, A.skg, A.nsg, A.wdg, ...(this.nodeGain ? [this.nodeGain] : [])]; }
 
   /** The engine beds' current gains (engine, turbo, skid, nitrous, wind); [] before the context exists. */
   levels(): number[] { const A = this.A; return A ? [A.eg, A.whg, A.skg, A.nsg, A.wdg].map(g => g.gain.value) : []; }
