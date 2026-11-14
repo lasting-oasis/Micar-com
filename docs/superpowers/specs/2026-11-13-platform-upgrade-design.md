@@ -87,6 +87,35 @@ Pay for the Render service that already runs the World, attach a disk, buy a dom
 | First paying shop, or about 2,000 accounts, or deploys that interrupt races become a complaint | A managed database (Firestore or Postgres) behind the two seams, replacing the disk. This also brings back deploys with no downtime |
 | Photos and receipts need to follow an account across devices | File storage (Firebase Storage, R2 or similar) |
 
+## Capacity: how many racers the $7 instance carries
+
+The owner asked on 2026-11-13 whether 8 to 16 person races could run on the $7 instance. Nobody knows yet; this is how it gets measured before anyone pays.
+
+**What the code does today** (read from the repository):
+
+- A challenge room holds four people (`RACE_MAX` in `apps/sim/src/world/race.ts`), because the Strip's grid has four places.
+- Each racer's browser runs its own car. It sends its position about 15 times a second; the server checks it, passes it to the others in the room, and keeps nothing.
+- The server also sends every connected player the positions of everyone online, every 100 to 300 ms. Whenever someone joins or a car is lent, it builds and sends each player a full copy of the game state.
+
+**Estimate, not measured:** one 16-person race passes about 3,600 position messages a second (16 racers × 15 a second × 15 others). Half a CPU should carry that for a few races at once. The full copies of the game state grow with the square of the number of people online, and may cost more than the races themselves.
+
+**How it gets measured** (lane A, Part 1, Tasks 4 and 5):
+
+1. **Free, on the PC, before paying.** A test program joins fake players and races them in rooms of 4, 8 and 16, more and more rooms at once. It measures how late positions arrive and how many are lost, and reads the server's own CPU, lag and memory from `/healthz`. Rooms bigger than four exist only when `RACE_ROOM_MAX` is set, which only the test does: the page still shows four cars.
+2. **On the paid server, after it is live**, at a quiet hour the owner picks: the same test, rooms of four unless the owner switches bigger rooms on for that run.
+
+**The limits** (proposals; the owner can change them): a step passes when at most 1% of positions are lost, the 95th-percentile delay is at most 50 ms more than the plain round trip, and the server's event loop is never more than 50 ms late. On the PC, a step "fits the $7 instance" when the server uses at most 25% of one PC core: half of the instance's half core, leaving room for slower cores and the rest of the World. On the real server the limit is 35% (70% of its half core).
+
+**What the result decides:**
+
+| Result | Then |
+| --- | --- |
+| 16-person rooms pass and fit the $7 budget | Bigger races can be designed on the $7 instance |
+| They pass on the PC but need more than the $7 budget | Plan on the $25 instance (1 CPU, 2 GB) for when bigger races launch: a one-line change |
+| They fail even on the PC | The code must send less (fewer updates, full rate for nearby cars only) before bigger races, on any host |
+
+The test covers race traffic only. A real player's browser also sends its town position and car state, so treat the result as the least the server will need.
+
 ## Costs
 
 | Item | Monthly | Source |
