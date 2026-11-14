@@ -1,7 +1,7 @@
 // Spanish coverage. Fails when the code, a data table or the engine produces English text
 // that the Spanish table can't translate, or when a translation drops or invents a {placeholder}.
 import { describe, expect, it } from 'vitest';
-import { ACCIDENTS, BODY_STYLES, CONDITIONS, MAKES, REGIONS, SEGMENT_LABELS, TITLES } from './engine/data';
+import { ACCIDENTS, BODY_STYLES, BRANDED_NOTES, CONDITIONS, MAKES, REGIONS, SEGMENT_LABELS, TITLES, optionLabel } from './engine/data';
 import { describe as describeListings, type ParseResult } from './engine/listings';
 import { marketNote } from './engine/market';
 import { CALIBRATION, MODELS } from './engine/models';
@@ -40,7 +40,7 @@ describe('Spanish table', () => {
 
   it('has every label that comes from a data table', () => {
     const keys = [
-      ...CONDITIONS.flatMap((o) => [o.name, o.desc]), ...TITLES.flatMap((o) => [o.name, o.desc]), ...ACCIDENTS.flatMap((o) => [o.name, o.desc]),
+      ...CONDITIONS.flatMap((o) => [o.name, o.desc]), ...TITLES.flatMap((o) => [o.name, o.desc]), ...ACCIDENTS.flatMap((o) => [o.name, o.desc, optionLabel(ACCIDENTS, o.name)]), ...Object.values(BRANDED_NOTES),
       ...BODY_STYLES.map((b) => b.name), ...REGIONS, ...Object.values(SEGMENT_LABELS),
       ...MARKET_OPTIONS.filter((o) => o.value !== 'auto').flatMap((o) => [o.name, o.desc]), 'Auto', ...URGENCY_OPTIONS.flatMap((o) => [o.name, o.desc]),
       ...FEATURES.map((f) => f.label), ...FEATURE_GROUPS, DEFAULT_WARRANTY, 'Enter a 5-digit ZIP first.', 'Lookup failed.',

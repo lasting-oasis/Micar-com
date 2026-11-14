@@ -2,7 +2,7 @@
 // value tests check it; the sim server (apps/sim/server.ts) mounts it at GET /api/v1/value, because GitHub Pages
 // can't run code. It reads the same parameters as the app's links (urlState.ts KEYS), so a link that opens the
 // calculator and a call to this API with the same query get the same numbers.
-import { ACCIDENTS, CONDITIONS, MAKES, REGIONS, TITLES } from '../engine/data';
+import { ACCIDENTS, BRANDED_NOTES, CONDITIONS, MAKES, REGIONS, TITLES } from '../engine/data';
 import { MODELS } from '../engine/models';
 import { prefillMsrp } from '../engine/prefill';
 import { STICKERS, findStickerTrim, stickerFor, stickerTrim } from '../engine/stickers';
@@ -10,6 +10,9 @@ import { expectedMilesFor, forecast, valuate } from '../engine/valuation';
 import { MARKET_OPTIONS, URGENCY_OPTIONS, URL_KEYS, defaults, parse, type FormState } from '../urlState';
 
 export const APP_URL = 'https://lasting-oasis.github.io/Micar-com/';
+
+/** Every answer says how MiCar knows what it was told: today, only from the caller. */
+export const SELF_DECLARED_NOTE = 'Title, accident history, condition and mileage are as the caller stated them or as MiCar assumed them. MiCar has checked no record and inspected nothing.';
 
 export type ApiResponse = { status: number; body: Record<string, unknown> };
 
@@ -175,14 +178,22 @@ export function valueQuery(params: URLSearchParams, now: Date = new Date()): Api
     const core = ['make', 'model', 'trim', 'body', 'msrp', 'year', 'mileage', 'condition', 'title', 'accident', 'region'].includes(k);
     if ((core || extra.has(k)) && form[k]) q.set(k, form[k]);
   }
+  const head = {
+    ok: true,
+    asOf: now.toISOString().slice(0, 10),
+    car: { make: inputs.make, model: inputs.model, trim: inputs.trim || null, body: inputs.body, year: inputs.year },
+    inputs: { msrpUsd: inputs.msrp, mileage: inputs.mileage, condition: inputs.condition, title: inputs.title, accident: inputs.accident, region: inputs.region, marketChoice: form.market, market: inputs.market, listings: inputs.listings, urgency: form.urgency, comps: inputs.comps, annualMiles: annual },
+    assumed,
+    evidence: { tier: 'self-declared', titleFrom: get('title') ? 'caller' : 'default', note: SELF_DECLARED_NOTE },
+  };
+  // a rebuilt or salvage figure rests on a dealer's rule of thumb: the answer carries the warning the calculator shows
+  // (hasOwnProperty, not Object.hasOwn: the World's server compiles this file with an older library)
+  const warning = Object.prototype.hasOwnProperty.call(BRANDED_NOTES, inputs.title) ? { reason: 'branded-title', message: BRANDED_NOTES[inputs.title] } : undefined;
   return {
     status: 200,
     body: {
-      ok: true,
-      asOf: now.toISOString().slice(0, 10),
-      car: { make: inputs.make, model: inputs.model, trim: inputs.trim || null, body: inputs.body, year: inputs.year },
-      inputs: { msrpUsd: inputs.msrp, mileage: inputs.mileage, condition: inputs.condition, title: inputs.title, accident: inputs.accident, region: inputs.region, marketChoice: form.market, market: inputs.market, listings: inputs.listings, urgency: form.urgency, comps: inputs.comps, annualMiles: annual },
-      assumed,
+      ...head,
+      ...(warning ? { warning } : {}),
       valueUsd: { tradeIn: Math.round(v.tradeIn), privateParty: Math.round(v.privateParty), dealerRetail: Math.round(v.dealerRetail), range: { low: Math.round(v.range.low), high: Math.round(v.range.high) } },
       confidence: { level: v.confidence, reasons: v.confidenceReasons },
       drivers: v.drivers,

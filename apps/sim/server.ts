@@ -20,11 +20,17 @@ import { SLOT_COLORS, claimFinish, createRoom, holdsLoan, invitation, joinRoom, 
 import { MAGIC_TTL_MS, allowSend, clientIp, newSendLog, pruneSendLog, applyRecord, attachAccount, liveHolder, bootState, claimAllowance, findAccount, linkGuest, saveRecord, signMagic, signSession, utcDay, verifyGoogle, verifyMagic, verifySession, type Account, type Identity, type Jwk } from './src/world/accounts.js';
 import { RENTAL_DENIED, STRIP_LIMIT, VISITOR_DENIED, VISITOR_EVENTS, closeEvent, guestPlayer, hostIsVacant, isUntouchedGuest, linkTarget, pickHost, quitEvent, sanitizePosition } from './src/world/stripFlow.js';
 import { coalescingSaver, loadOrQuarantine, writeAtomic } from './src/world/persistence.js';
+import { healthReport, startLoadSampler, type SaveAtBoot } from './src/world/health.js';
+import { RACE_MAX, roomMaxFrom, roomSizeFor, roundPose } from './src/world/race.js';
+import { packPoses } from './src/world/racePoses.js';
 import { grantTester, heldTestCar, returnTestCar, setTestCar, splitTesterName, testCarDef, topUp } from './src/world/tester.js';
 import { checkTesterKey, configuredTesterKey, isKeyAttempt, newAttemptLog, refusalText } from './src/world/testerKey.js';
 import { TRACKS } from './src/world/strip/district.js';
 import { readTrackSync, setTrackDir } from './src/world/strip/districtNode.js';
 import { valueRoute } from './src/valueRoute.ts';
+import { PositionRelay, relayed, type NetPos } from './src/world/netPositions.js';
+import { StateSync, othersView, ownView, viewFor } from './src/world/stateSync.js';
+import { AsyncLocalStorage } from 'node:async_hooks';
 
 const app = express();
 const httpServer = createServer(app);
@@ -50,10 +56,18 @@ const dropOffSpot = (lot: { x: number; z: number }, index: number) =>
 // Position payloads from clients are validated and clamped by sanitizePosition (stripFlow.ts):
 // the town to ±2000 world units, a Strip pose (district 'strip') to the circuits' grid.
 
+// For /healthz (src/world/health.ts): when this process booted, when it last wrote the save, what its boot found on the
+// disk, and its own load.
+const BOOTED_AT = Date.now();
+let lastSavedAt: number | null = null;
+let saveAtBoot: SaveAtBoot = null;
+const readLoad = startLoadSampler();
+
 // One write at a time (a save asked for mid-write coalesces into one more), each to a temp file renamed over the save.
 const saver = coalescingSaver(async () => {
     try {
         await writeAtomic(fs, DATA_FILE, JSON.stringify(gameState));
+        lastSavedAt = Date.now();
     } catch (err) {
         console.error('Failed to save game state:', err);
     }
@@ -63,6 +77,7 @@ const saveGameState = () => saver.save();
 async function loadGameState() {
     try {
         const loaded = await loadOrQuarantine(fs, DATA_FILE, Date.now());
+        saveAtBoot = loaded.kind;
         if (loaded.kind === 'quarantined') console.error(`The save file did not parse; it was set aside as ${loaded.to ?? '(rename failed)'} and the server starts fresh.`);
         const parsed = loaded.kind === 'loaded' ? loaded.data : null;
         if (parsed) {
@@ -134,9 +149,22 @@ const raceOf = new Map<string, string>();
 const lastRoomAt = new Map<string, number>();
 const lastPoseAt = new Map<string, number>();
 const ROOM_GAP_MS = 3000, POSE_GAP_MS = 40;
+/** The most a challenge room may hold: four, unless RACE_ROOM_MAX says more (race.ts). A host picks a grid up to it. */
+const ROOM_MAX = roomMaxFrom(process.env.RACE_ROOM_MAX);
+if (ROOM_MAX !== RACE_MAX) console.log(`RACE_ROOM_MAX: a challenge room may hold up to ${ROOM_MAX}`);
 /** A pose's time is the sender's reading of this server's clock: one further off than this is replaced by the server's own. */
 const POSE_SKEW_MS = 5000;
 const raceChannel = (code: string) => 'race:' + code;
+/** The members of a room who are sent single poses (race_pose): every member, until it asks for them a tick at a time. */
+const poseChannel = (code: string) => 'poses:' + code;
+// The batched relay (racePoses.ts): the pages that asked for their poses a tick at a time (race_ready { batch: true }),
+// each racer's newest pose by room (with a running number), and the number each such page last got from each racer.
+const batchedPoses = new Set<string>();
+const newestPose = new Map<string, Map<string, { pose: number[]; n: number }>>();
+const seenPose = new Map<string, Map<string, number>>();
+let poseNo = 0;
+/** How often a batching page is sent the poses that moved since the last: as often as a racer sends its own. */
+const POSE_TICK_MS = 66;
 
 /** After any change to a room: the lent cars are made to match it (a racer holds one until a DNF, or until the race
  *  closes), and every member is sent the room. `changed`: an inventory already changed on the way here. */
@@ -165,6 +193,8 @@ function leaveRace(socketId: string, left = false) {
     const had = !!(player && returnLoan(player));
     if (had) drivenCar.delete(socketId);
     io.sockets.sockets.get(socketId)?.leave(raceChannel(code));
+    io.sockets.sockets.get(socketId)?.leave(poseChannel(code));
+    batchedPoses.delete(socketId); seenPose.delete(socketId); newestPose.get(code)?.delete(socketId);
     if (room) { leaveRoom(room, socketId, Date.now(), !left); syncRoom(room, had); }
     else if (had) broadcastState(io, gameState);
 }
@@ -175,7 +205,30 @@ setInterval(() => {
     const now = Date.now();
     for (const room of raceRooms.values()) if (tick(room, now)) syncRoom(room);
     sweep(raceRooms, now);
+    for (const code of newestPose.keys()) if (raceRooms.get(code)?.phase !== 'racing') newestPose.delete(code); // a race over: its poses go
 }, 1000);
+
+// Every POSE_TICK_MS, to each page in a race that asked for it: one race_poses with the newest pose of every other racer
+// that has moved since the last it was sent (racePoses.ts packPoses: each racer named by its grid place).
+setInterval(() => {
+    if (!batchedPoses.size) return;
+    for (const [code, poses] of newestPose) {
+        const room = raceRooms.get(code);
+        if (!room || room.phase !== 'racing' || room.goAt === null) continue;
+        for (const m of room.members) {
+            if (!batchedPoses.has(m.id)) continue;
+            const seen = seenPose.get(m.id) ?? new Map<string, number>(), out: { slot: number; pose: number[] }[] = [];
+            for (const [from, p] of poses) {
+                if (from === m.id || (seen.get(from) ?? 0) >= p.n) continue;
+                const sender = room.members.find(x => x.id === from);
+                if (!sender) continue;
+                out.push({ slot: sender.slot, pose: p.pose }); seen.set(from, p.n);
+            }
+            seenPose.set(m.id, seen);
+            if (out.length) io.to(m.id).volatile.emit('race_poses', packPoses(room.goAt, out));
+        }
+    }
+}, POSE_TICK_MS);
 
 // Timestamp of the last accepted end_day, used to throttle host day-advances.
 let lastEndDayAt = 0;
@@ -187,6 +240,7 @@ const CAPS = {
     google: !!process.env.GOOGLE_CLIENT_ID,
     googleClientId: process.env.GOOGLE_CLIENT_ID ?? null, // public: the browser needs it for Google sign-in
     magic: !!(process.env.RESEND_API_KEY && process.env.MAGIC_SECRET && process.env.MAGIC_FROM),
+    raceMax: ROOM_MAX, // the biggest grid a host may pick (RACE_ROOM_MAX; four unless the owner raises it)
 };
 // Tester mode (src/world/tester.ts): off unless TESTER_KEY is set to 8-128 characters. The key is compared, never
 // sent, stored or logged; misses are rationed per address and overall (src/world/testerKey.ts).
@@ -215,14 +269,14 @@ let googleForcedAt = 0;
 const redact = (s: string) => s.slice(0, 3) + '…';
 const accountView = (a: Account) => ({ id: a.id, identity: a.identities[0], allowanceToday: a.lastAllowance === utcDay(Date.now()) });
 const issueSession = (accountId: string) => process.env.MAGIC_SECRET ? signSession(accountId, Date.now(), process.env.MAGIC_SECRET) : null;
-/** Another player as a viewer sees them: no work orders, and nothing of what they spent on a car. */
-const othersView = (p: Player): Player => ({ ...p, accountId: undefined, tester: undefined, orders: [], inventory: (p.inventory ?? []).map(c => ({ ...c, recon: 0 })) });
-// The state a client may see: never the accounts (identities are private), nor other players' account ids or tester flag.
-const publicState = (viewerId: string) => {
-    const { accounts: _accounts, ...rest } = gameState;
-    const players: Record<string, Player> = {};
-    for (const [pid, p] of Object.entries(gameState.players)) players[pid] = pid === viewerId ? p : othersView(p);
-    return { ...rest, players };
+/** A page's whole state for an `init` (at a join, and at a sign-out, which makes its player anew without one): what it
+ *  may see (src/world/stateSync.ts: never the accounts, nor another player's private fields) and the recent chat. The
+ *  page starts again from it: a proto: 2 page's patches start from this copy, and everyone's position comes again. */
+const initState = (viewerId: string) => {
+    sync.refresh(gameState);
+    relay.forgetRecipient(viewerId);
+    const view = proto2.has(viewerId) ? sync.full(viewerId) : viewFor(gameState, viewerId, id => netIds.get(id));
+    return { ...view, chatLog: gameState.chatLog ?? [] };
 };
 
 /** Copy an account holder's live progress into their account record. flush: write the save file now. */
@@ -319,35 +373,35 @@ setInterval(() => {
     if (changed) broadcastState(io, gameState);
 }, 60_000);
 
+// --- The data diet (docs/superpowers/specs/2026-11-14-world-data-diet-design.md) -------------------------------
+// A page that joins with proto: 2 is sent `pos`, only the positions due for it (src/world/netPositions.ts), and
+// `patch`, only what changed for it since its last copy or patch (src/world/stateSync.ts). Any other page (a tab
+// opened before the deploy) is served as before. Every connection has a short number for `pos`, never reused, and
+// every player record a page is sent carries it as `n`.
+const netIds = new Map<string, number>();
+let nextNetId = 1;
+const proto2 = new Set<string>();
+const relay = new PositionRelay();
+const sync = new StateSync(id => netIds.get(id));
+/** The socket whose handler is running: its page gets its own record back after any change it causes, changed or not. */
+const acting = new AsyncLocalStorage<string>();
+
 function broadcastState(io: Server, state: GameState) {
+    sync.refresh(state);
+    const actor = acting.getStore();
     const sockets = io.sockets.sockets;
     for (const [id, socket] of sockets) {
-        // Build a per-recipient view WITHOUT deep-cloning the whole state. The
-        // recipient's own player and the shared market data are passed by
-        // reference (socket.io serializes a snapshot); only OTHER players are
-        // shallow-copied to strip private fields.
-        const players: Record<string, any> = {};
-        for (const pid in state.players) {
-            const p = state.players[pid] as any;
-            if (pid === id) {
-                players[pid] = p;
-            } else {
-                players[pid] = {
-                    ...p,
-                    money: 0,
-                    contracts: [],
-                    customers: [],
-                    balanceSheet: { totalIncome: 0, totalExpenses: 0, lastTickIncome: 0, lastTickExpense: 0 },
-                    floorPlanDebt: 0,
-                    gateCode: undefined,   // never reveal another player's gate code
-                    shareHoldings: {},     // portfolios are private
-                    accountId: undefined,  // account ids are private
-                    tester: undefined,     // and so is who is testing
-                    orders: [],            // work orders are private
-                    inventory: p.inventory ? p.inventory.map((c: any) => ({ ...c, buyPrice: 0, recon: 0 })) : []   // so is what was paid and spent
-                };
-            }
+        // A proto: 2 page: only what changed for it, and its own record back when the change was its own doing.
+        if (proto2.has(id)) {
+            const patch = sync.patch(id, id === actor);
+            if (patch) socket.emit('patch', patch);
+            continue;
         }
+        // Any other page: the whole state, as before. Built per recipient WITHOUT deep-cloning the whole state: the
+        // shared market data is passed by reference (socket.io serializes a snapshot); players are shallow-copied, the
+        // others with their private fields stripped (stateSync.ts othersView).
+        const players: Record<string, any> = {};
+        for (const pid in state.players) players[pid] = pid === id ? ownView(state.players[pid], netIds.get(pid)) : othersView(state.players[pid], netIds.get(pid));
         const myWalkIns = state.activeWalkIns?.[id];
         // The chat log is sent once on join ('init'); new messages arrive as 'chat'
         // events, so it's left out of every state update to keep them small.
@@ -1022,35 +1076,49 @@ setInterval(() => {
     }
 }, 1000);
 
-// Live player positions. Clients send theirs ~10x/sec (sync_player_pos); this
-// relays everyone's to everyone at the same rate so other players move smoothly
-// instead of only updating when some unrelated event triggers a full broadcast.
-// Only sent while someone's position is actually changing (clients keep resending
-// theirs while standing still). Volatile: a dropped packet is fine, the next one is
-// 100 ms away; 300 ms after movement stops, one final copy is sent reliably so a
-// client that dropped the last moving packets isn't left with stale positions.
+// Live player positions. Clients send theirs ~10x/sec (sync_player_pos); every 100 ms the server relays them.
+// A proto: 2 page hears only the players due for it (src/world/netPositions.ts): the 20 nearest in its district every
+// tick, the rest of its district less often, other districts rarely; first contact, a change of district and a player's
+// last position once it stops are sent reliably, moves as volatile.
+// Any other page gets everyone's to everyone, as before: only while someone's position is actually changing (clients
+// keep resending theirs while standing still). Volatile: a dropped packet is fine, the next one is 100 ms away; 300 ms
+// after movement stops, one final copy is sent reliably so a client that dropped the last moving packets isn't left
+// with stale positions.
 let positionsDirty = false;
 let quietTicks = 3; // relay ticks since a position last changed
 setInterval(() => {
+    const live = new Map<string, { n: number; pos: NetPos }>();
+    for (const pid in gameState.players) {
+        const n = netIds.get(pid), pos = relayed(gameState.players[pid].worldPosition, stripPositions.get(pid));
+        if (n !== undefined && pos) live.set(pid, { n, pos });
+    }
+    for (const [id, { moving, sure }] of relay.tick(Date.now(), live, [...proto2].filter(id => gameState.players[id]))) {
+        const socket = io.sockets.sockets.get(id);
+        if (moving.length) socket?.volatile.emit('pos', moving);
+        if (sure.length) socket?.emit('pos', sure);
+    }
+
     if (positionsDirty) quietTicks = 0;
     else if (++quietTicks !== 3) return;
+    const dirty = positionsDirty;
+    positionsDirty = false;
+    if (io.sockets.sockets.size <= proto2.size) return; // nobody on the old messages
     const positions: Record<string, any> = {};
     for (const pid in gameState.players) {
         const wp = (gameState.players[pid] as any).worldPosition, sp = stripPositions.get(pid);
         if (wp) positions[pid] = sp && wp.district === 'strip' ? { ...wp, stripPosition: sp } : wp;
     }
-    if (positionsDirty) {
-        positionsDirty = false;
-        io.volatile.emit('player_positions', positions);
-    } else {
-        io.emit('player_positions', positions);
-    }
+    const old = io.except([...proto2]);
+    if (dirty) old.volatile.emit('player_positions', positions);
+    else old.emit('player_positions', positions);
 }, 100);
 
 io.on('connection', (socket) => {
+    netIds.set(socket.id, nextNetId++); // its short number in `pos`
     // A handler that throws, or whose promise rejects, is logged and the server carries on. The error's message only: never the payload.
+    // Each runs as this socket's doing (acting), so a change it causes sends this page its own record back.
     const on = socket.on.bind(socket) as (event: string, fn: (...args: any[]) => unknown) => unknown;
-    (socket as any).on = (event: string, fn: (...args: any[]) => unknown) => on(event, guarded(event, fn, (ev, error) => console.log('--- HANDLER ERROR ---', handlerErrorLog(ev, error))));
+    (socket as any).on = (event: string, fn: (...args: any[]) => unknown) => on(event, guarded(event, (...args: any[]) => acting.run(socket.id, () => fn(...args)), (ev, error) => console.log('--- HANDLER ERROR ---', handlerErrorLog(ev, error))));
     // A Strip visitor (a guest or a Strip account holder) may send only the Strip's own events (VISITOR_EVENTS): no
     // dealer handler ever runs for one, so no money made there can be carried into an account.
     socket.use(([event], next) => {
@@ -1080,7 +1148,7 @@ io.on('connection', (socket) => {
       } else if (tester) grantTester(p);
       gameState.players[socket.id] = p;
       lastOutrunAt.set(socket.id, now); // they start in the Strip: the outrun clock starts now
-      socket.emit('init', { id: socket.id, state: publicState(socket.id), caps: CAPS, ...(account ? { account: accountView(account) } : {}) });
+      socket.emit('init', { id: socket.id, state: initState(socket.id), caps: CAPS, ...(account ? { account: accountView(account) } : {}) });
       broadcastState(io, gameState);
       return p;
     };
@@ -1106,6 +1174,8 @@ io.on('connection', (socket) => {
               }
           }
       }
+      // A page that says proto: 2 reads `pos` and `patch`; any other is sent the old messages (initState starts it again).
+      if (msg?.proto === 2) proto2.add(socket.id); else { proto2.delete(socket.id); sync.forget(socket.id); }
       // a re-join on the same socket replaces its player: save an account holder's progress first
       const prior = gameState.players[socket.id];
       if (prior?.accountId) persistAccount(prior);
@@ -1198,7 +1268,7 @@ io.on('connection', (socket) => {
         shopSpecialty: isStandalone ? (shopSpecialty || 'dual') : undefined
       } as any;
       if (process.env.SMOKE === '1') grantStarterCar(gameState.players[socket.id]);
-      socket.emit('init', { id: socket.id, state: publicState(socket.id), caps: CAPS });
+      socket.emit('init', { id: socket.id, state: initState(socket.id), caps: CAPS });
       broadcastState(io, gameState);
       const joinedName = gameState.players[socket.id].name;
       pushChat(io, { id: `${Date.now()}-j`, playerId: '', name: 'System', text: `${joinedName} entered the world`, ts: Date.now(), system: true });
@@ -1520,6 +1590,7 @@ io.on('connection', (socket) => {
       if (raceOf.get(socket.id) !== room.code) leaveRace(socket.id, true);
       raceOf.set(socket.id, room.code);
       socket.join(raceChannel(room.code));
+      if (!batchedPoses.has(socket.id)) socket.join(poseChannel(room.code));
       syncRoom(room);
   };
 
@@ -1532,10 +1603,13 @@ io.on('connection', (socket) => {
       if (handsFull(player)) { raceNo('holding'); return; }
       const now = Date.now(), last = lastRoomAt.get(socket.id);
       if (last !== undefined && now - last < ROOM_GAP_MS) { raceNo('slow'); return; }
-      const { eventId, car } = fields(msg);
+      const { eventId, car, size } = fields(msg);
+      // the grid the host asked for, up to the ceiling (race.ts roomSizeFor: no size is the ceiling, a drag is four)
+      const max = roomSizeFor(size, ROOM_MAX, EVENTS.find(e => e.id === eventId)?.type === 'drag');
+      if (max === null) { raceNo('size'); return; }
       // rationed by address too (race.ts): the gap above is per socket, and a script makes a new socket for every room
       const made = createRoom(raceRooms, { id: socket.id, name: player.name }, { eventId, car }, stageOf(stripOf(player).rep), Math.random,
-          clientIp(socket.handshake.headers as any, socket.handshake.address));
+          clientIp(socket.handshake.headers as any, socket.handshake.address), max);
       if (!made.ok) { raceNo(made.why); return; }
       lastRoomAt.set(socket.id, now);
       enterRoom(made.room);
@@ -1555,8 +1629,8 @@ io.on('connection', (socket) => {
   socket.on('race_set', (msg: unknown) => {
       const player = gameState.players[socket.id], room = myRoom();
       if (!player || !room) return;
-      const { eventId, car } = fields(msg);
-      const set = setRace(room, socket.id, { eventId, car }, stageOf(stripOf(player).rep));
+      const { eventId, car, size } = fields(msg);
+      const set = setRace(room, socket.id, { eventId, car, size }, stageOf(stripOf(player).rep), ROOM_MAX);
       if (!set.ok) { raceNo(set.why); return; }
       syncRoom(room);
   });
@@ -1570,8 +1644,10 @@ io.on('connection', (socket) => {
   });
 
   // on the grid in the lent car, the circuit loaded
-  socket.on('race_ready', () => {
+  // `{ batch: true }`: from now on this page is sent its poses a tick at a time (race_poses), not one by one
+  socket.on('race_ready', (msg: unknown) => {
       const room = myRoom();
+      if (room && fields(msg).batch === true) { batchedPoses.add(socket.id); socket.leave(poseChannel(room.code)); }
       if (room && markReady(room, socket.id, Date.now()).ok) syncRoom(room);
   });
 
@@ -1587,8 +1663,11 @@ io.on('connection', (socket) => {
       lastPoseAt.set(socket.id, now);
       const [t, x, z, h, v, s, sc] = msg as number[];
       const within = (n: number, lim: number) => Math.max(-lim, Math.min(lim, n));
-      socket.to(raceChannel(room.code)).volatile.emit('race_pose',
-          [socket.id, Math.abs(t - now) <= POSE_SKEW_MS ? t : now, within(x, STRIP_LIMIT), within(z, STRIP_LIMIT), within(h, 1000), within(v, 200), within(s, STRIP_LIMIT), Math.max(0, Math.min(9_999_999, sc))]);
+      // rounded as a page rounds it (race.ts roundPose), so an older page's long numbers cost the others no more
+      const pose = roundPose([Math.abs(t - now) <= POSE_SKEW_MS ? t : now, within(x, STRIP_LIMIT), within(z, STRIP_LIMIT), within(h, 1000), within(v, 200), within(s, STRIP_LIMIT), Math.max(0, Math.min(9_999_999, sc))]);
+      socket.to(poseChannel(room.code)).volatile.emit('race_pose', [socket.id, ...pose]);
+      let poses = newestPose.get(room.code); if (!poses) newestPose.set(room.code, poses = new Map());
+      poses.set(socket.id, { pose, n: ++poseNo });
   });
 
   // The racer's own word on their finish: race.ts decides whether that time stands, or the server's own.
@@ -2497,6 +2576,7 @@ io.on('connection', (socket) => {
     resetSocketState(socket.id);
     const leaving = gameState.players[socket.id];
     delete gameState.players[socket.id];
+    relay.forget(socket.id); sync.forget(socket.id); proto2.delete(socket.id); netIds.delete(socket.id);
     if (gameState.hostId === socket.id) gameState.hostId = pickHost(gameState.players); // a dealer, never a visitor
     if (leaving) {
         pushChat(io, { id: `${Date.now()}-l`, playerId: '', name: 'System', text: `${leaving.name} left the world`, ts: Date.now(), system: true });
@@ -2512,6 +2592,16 @@ async function startServer() {
     for (const t of TRACKS) readTrackSync(t.id);
     await loadGameState();
 
+    // What anyone may read from outside (health.ts): a new bootId after every deploy, whether this boot found the save on the
+    // disk, how old the last save is, two counts, which sign-ins are on, and the server's own load. Nothing that names anyone.
+    app.get('/healthz', (_req, res) => {
+        res.set('Cache-Control', 'no-store');
+        res.json(healthReport({
+            bootedAt: BOOTED_AT, now: Date.now(), saveAtBoot, savedAt: lastSavedAt,
+            accounts: Object.keys(gameState.accounts ?? {}).length, players: Object.keys(gameState.players).length,
+            caps: { google: CAPS.google, magic: CAPS.magic }, load: readLoad(),
+        }));
+    });
     // What the Strip entry card may offer before anyone has joined (init.caps arrives too late for it)
     app.get('/api/caps', (_req, res) => { res.set('Cache-Control', 'no-store'); res.json(CAPS); });
     // What a challenge link shows before its reader has joined: who is hosting, which race, which car. The code is the key.

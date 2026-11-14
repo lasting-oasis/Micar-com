@@ -280,7 +280,7 @@ Free, read-only, no key. Static files rebuilt with every deploy, plus one live v
 
 ## Valuation API (live)
 
-- GET https://micar-sim.onrender.com/api/v1/value?id=honda-civic&year=2019&mileage=60000 returns today's trade-in, private-party and dealer retail value, a range, confidence, the line-by-line build-up and a five-year forecast. Same engine and parameters as the calculator; make and model work in place of id. MSRP and mileage are filled in when left out and listed under "assumed". Free hosting: the first call after a quiet spell can take up to a minute.
+- GET https://micar-sim.onrender.com/api/v1/value?id=honda-civic&year=2019&mileage=60000 returns today's trade-in, private-party and dealer retail value, a range, confidence, the line-by-line build-up and a five-year forecast. Same engine and parameters as the calculator; make and model work in place of id. MSRP and mileage are filled in when left out and listed under "assumed". Every answer says that the title, accidents, condition and mileage are self-declared: MiCar has checked no record. A rebuilt or salvage title is priced by a dealer's rule of thumb (rebuilt about 30-35% under the same car with a clean title, salvage about 40% under), and the answer carries a warning saying so. Free hosting: the first call after a quiet spell can take up to a minute.
 
 ## Makes covered
 

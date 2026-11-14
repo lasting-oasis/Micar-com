@@ -108,6 +108,7 @@ export type Player = {
   tester?: boolean; // joined the Strip with the server's tester key: money is never short, every stage is open
   inventory: Car[]; lotPosition: { x: number; z: number };
   worldPosition?: { x: number; y: number; z: number; rotation: number; district?: 'town' | 'strip' }; // district: relayed in player_positions
+  n?: number; // the connection's short number in `pos` messages: set by the server on every record it sends, never saved
   partsInventory: Record<string, number>; // Maps part name to quantity owned
   orders?: WorkOrder[]; // the bay's work orders, newest first, at most 30
   lotScale: 'Small' | 'Medium' | 'Large';

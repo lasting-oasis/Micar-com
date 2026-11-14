@@ -149,6 +149,16 @@ describe('a challenge room', () => {
     for (const junk of [null, undefined, {}, { why: 7 }]) h.race_denied(junk as never); // a refusal with no reason is still a refusal
     expect(useGameStore.getState().raceDenied).toBe('state');
   });
+  it('poses that come a tick at a time reach the same cars single ones would, never this page itself', () => {
+    const h = raceHandlers(stub()), slotted = (id: string, slot: number) => ({ ...member(id, 'racing'), slot });
+    h.race_room(view({ phase: 'racing', raceNo: 1, goAt: 5000, members: [slotted('h', 0), slotted('p1', 1), slotted('x', 3)] }));
+    h.race_poses([[0, 10, 1, 2, 0.5, 30, 100, 0], [3, 12, 5, 6, 0, 0, 0, 0], [1, 9, 7, 7, 0, 0, 0, 0], [9, 9, 7, 7, 0, 0, 0, 0]]);
+    expect([...remotes.keys()].sort()).toEqual(['h', 'x']); // place 1 is this page; nobody holds place 9
+    for (const junk of [null, 'x', 42, {}]) h.race_poses(junk as never);
+    useGameStore.setState({ race: null });
+    h.race_poses([[0, 10, 1, 2, 0.5, 30, 100, 0]]); // out of the room: nothing
+    expect(remotes.size).toBe(2);
+  });
   it('missing a start is said once', () => {
     const h = raceHandlers(stub());
     h.race_room(view({ phase: 'loading', raceNo: 1, members: [member('h', 'loading'), member('p1', 'loading')] }));

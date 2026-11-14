@@ -4,9 +4,9 @@
 
 **Goal:** MiCar stops claiming more than it knows about a car's title: the valuation API gives no number for a rebuilt or salvage title and says nothing was checked, the title and accident choices say what they mean, a branded car's figure carries a plain warning, and nothing promises a grade "for life".
 
-**Architecture:** Four small changes, none of which alters a number the calculator shows. The API change is made on pull request #21's branch before it is merged, so the API never ships returning a branded figure. The wording changes are one pull request from `main`. Option values (`Clean`, `Rebuilt`, `Salvage`, `None`, `Minor`, `Major`) stay exactly as they are in links, saved records and the engine; only what a visitor reads changes.
+**Architecture:** Four small changes, none of which alters a number the calculator shows. Pull request #21 was merged on 2026-11-13 before this fix, so the live valuation API can return a figure for a rebuilt or salvage title until Part 1 is merged: Part 1 goes first. Each part is one pull request from `main`. Option values (`Clean`, `Rebuilt`, `Salvage`, `None`, `Minor`, `Major`) stay exactly as they are in links, saved records and the engine; only what a visitor reads changes.
 
-**Tech Stack:** apps/value (React 19, Vite, vitest); the valuation API module from PR #21; the README. No new dependencies.
+**Tech Stack:** apps/value (React 19, Vite, vitest); the valuation API module (merged in pull request #21); the README. No new dependencies.
 
 **Spec:** `claude/micar-title-debate-result.md` in the project (the judge's eight changes). This plan does the parts that need no new data and no new cost: the API rule in changes 2 and 8, the honest half of change 3, the relabel in change 6, and the wording in change 8. What it leaves out, and why, is listed under "Left for the owner".
 
@@ -18,7 +18,7 @@
 - Every string a visitor sees has a Spanish entry in `apps/value/src/i18n-es.ts`, written with "usted". The Spanish for each new string is given in this plan; use it as written.
 - The API never returns a grade. For a title other than `Clean` it never returns a value, a range, a forecast, a confidence level or the price steps.
 - The segmented controls on the calculator keep their size: their three short words do not change.
-- Files this lane owns. On branch `json-api`: `apps/value/src/api/valueApi.ts` and its test, the `Value` schema and the `/value` path in `apps/value/src/seo/api.ts`, `api.test.ts`, and the "Valuation API (live)" paragraph of `llmsTxt` in `apps/value/src/seo/pages.ts`. On branch `lane-c/trust-wording`: `apps/value/src/engine/data.ts`, `engine/data.test.ts`, `apps/value/src/i18n-es.ts`, `apps/value/src/i18n.test.ts`, `apps/value/src/App.tsx`, one line each of `door/GradeSim.tsx`, `garage/PassportPanel.tsx`, `car/StickerBuilder.tsx` and `car/CarPage.tsx`, the sentence at line 161 of `door/Door.tsx`, and the root `README.md`.
+- Files this lane owns. On branch `lane-c/api-branded`: `apps/value/src/api/valueApi.ts` and its test, the `Value` schema and the `/value` path in `apps/value/src/seo/api.ts`, `api.test.ts`, and the "Valuation API (live)" paragraph of `llmsTxt` in `apps/value/src/seo/pages.ts`. On branch `lane-c/trust-wording`: `apps/value/src/engine/data.ts`, `engine/data.test.ts`, `apps/value/src/i18n-es.ts`, `apps/value/src/i18n.test.ts`, `apps/value/src/App.tsx`, one line each of `door/GradeSim.tsx`, `garage/PassportPanel.tsx`, `car/StickerBuilder.tsx` and `car/CarPage.tsx`, the sentence at line 161 of `door/Door.tsx`, and the root `README.md`.
 - Checks before every boss submission: `pnpm --filter @micar/value test`, `pnpm --filter @micar/sim exec tsc --noEmit` (Part 1 only: the World's server imports the API module), `pnpm site`.
 
 ## Review Focus
@@ -31,7 +31,7 @@
 
 ---
 
-## Part 1 — on pull request #21's branch, `json-api`
+## Part 1 — one pull request from `main`, branch `lane-c/api-branded`. Do this first.
 
 ### Task 1: No number for a branded title, and say what was checked
 
@@ -110,12 +110,12 @@ it('the Value schema allows a withheld value and requires the evidence', () => {
 - [ ] **Step 5: Update `llmsTxt`.** In the "Valuation API (live)" paragraph add: "Every answer says that the title, accidents, condition and mileage are self-declared: MiCar has checked no record. For a rebuilt or salvage title it returns no figures, because MiCar has not tested values for those cars against sale prices."
 
 - [ ] **Step 6: Run the checks from Global Constraints**
-Expected: `valueApi.test.ts` has 6 passing tests and `api.test.ts` has 5; the World's type check is clean; `grep -c '"withheld"' site/api/v1/openapi.json` prints `1` or more.
+Expected: the new tests pass, and so does every test that passed before, including the one that checks every 200 answer against the `Value` schema ("answers in the shape openapi.json publishes"); its cases must include a rebuilt and a salvage query. The World's type check is clean; `grep -c '"withheld"' site/api/v1/openapi.json` prints `1` or more.
 
 - [ ] **Step 7: See it answer.** Run `cd apps/sim && (PORT=5820 NODE_ENV=production npx tsx server.ts &) ; sleep 8; curl -s "localhost:5820/api/v1/value?id=honda-civic&year=2019&title=Rebuilt"`
 Expected: one line of JSON with `"valueUsd":null` and the `withheld` message. Then stop the server.
 
-- [ ] **Step 8: Commit and push to `json-api`**; add a comment on pull request #21 saying what changed and why. The boss reviews the whole of #21. Do not merge.
+- [ ] **Step 8: Commit, push, and open the pull request** "Valuation API: no figure for a rebuilt or salvage title, and say nothing was checked". The boss reviews it through the relay (see the trial rules). Do not merge.
 
 ---
 

@@ -90,7 +90,13 @@ export const BODY_STYLES: BodyStyle[] = [
   { name: 'Minivan', adj: -0.03 },
 ];
 
-export type Option = { name: string; mult: number; desc: string };
+/** name is the value links, saved records and prices use; label, when there is one, is what a visitor reads. */
+export type Option = { name: string; mult: number; desc: string; label?: string };
+
+/** What a visitor reads for an option: its label if it has one, else its name. A name that is no option comes back as it is. */
+export function optionLabel(options: readonly { name: string; label?: string }[], name: string): string {
+  return options.find((o) => o.name === name)?.label ?? name;
+}
 
 export const CONDITIONS: (Option & { recon: number })[] = [
   { name: 'Excellent', mult: 1.06, recon: 600, desc: 'Like new, no defects, full service records' },
@@ -100,15 +106,23 @@ export const CONDITIONS: (Option & { recon: number })[] = [
 ];
 
 export const TITLES: Option[] = [
-  { name: 'Clean', mult: 1.0, desc: 'Original title, no total-loss history' },
-  { name: 'Rebuilt', mult: 0.75, desc: 'Formerly salvage, repaired and re-certified' },
-  { name: 'Salvage', mult: 0.55, desc: 'Declared a total loss by an insurer' },
+  { name: 'Clean', mult: 1.0, desc: 'No salvage or rebuilt brand on the title, as you report it. MiCar has checked no record.' },
+  // the owner's dealer rule of thumb (2026-11-14): a rebuilt title sells 30-35% under the same car with a clean one
+  // (the middle, 32.5%, is used), a salvage title 40% under
+  { name: 'Rebuilt', mult: 0.675, desc: 'Once branded salvage, then repaired and retitled by a state. What the state inspected varies.' },
+  { name: 'Salvage', mult: 0.6, desc: 'Branded salvage, usually after an insurer declared a total loss.' },
 ];
 
+/** The warning under a branded title's figure: where the cut comes from, and that nothing about this car was checked. */
+export const BRANDED_NOTES: Record<string, string> = {
+  Rebuilt: "Rebuilt cars usually sell for about 30–35% less than the same car with a clean title. That's a dealer's rule of thumb, not a check of this car: MiCar has checked no record. Get an independent appraisal before relying on it.",
+  Salvage: "Salvage cars usually sell for about 40% less than the same car with a clean title. That's a dealer's rule of thumb, not a check of this car: MiCar has checked no record. Get an independent appraisal before relying on it.",
+};
+
 export const ACCIDENTS: Option[] = [
-  { name: 'None', mult: 1.0, desc: 'No reported accidents' },
-  { name: 'Minor', mult: 0.94, desc: 'Cosmetic or minor reported damage' },
-  { name: 'Major', mult: 0.82, desc: 'Structural damage or airbag deployment' },
+  { name: 'None', label: 'None reported', mult: 1.0, desc: 'No reported accidents' },
+  { name: 'Minor', label: 'Minor reported', mult: 0.94, desc: 'Cosmetic or minor reported damage' },
+  { name: 'Major', label: 'Major reported', mult: 0.82, desc: 'Structural damage or airbag deployment' },
 ];
 
 export const REGIONS = ['Northeast', 'Southeast', 'Midwest', 'Southwest', 'West'] as const;

@@ -9,8 +9,30 @@ import { raceCapS } from './strip/events';
 
 export { CODE_ALPHABET, CODE_LEN, makeCode, normalizeCode } from './raceCode';
 
-/** A room holds at most this many people (the grid has four places), and a race needs at least two. */
+/** A room holds this many on a server whose ceiling is four (RACE_ROOM_MAX unset). With a higher ceiling a room holds
+ *  the grid its host picks, or the ceiling when no size is asked (roomSizeFor). A drag always holds four: it has four
+ *  lanes. A race needs at least two. */
 export const RACE_MAX = 4, RACE_MIN = 2;
+/** The most a room may be made to hold: the sixteen places of the grid (strip/grid.ts). */
+export const ROOM_MAX_LIMIT = 16;
+/** The grids a host picks from, up to the server's ceiling. */
+export const GRID_SIZES: readonly number[] = [4, 8, 12, 16];
+/**
+ * How many a room is made to hold, or null when that is refused: what the host asked for when it is one of GRID_SIZES
+ * and no more than the server's `ceiling` (roomMaxFrom). A page that asks for no size (one from before rooms grew, and
+ * lane A's load test) gets the ceiling, which is RACE_MAX unless RACE_ROOM_MAX says more. A drag is RACE_MAX, always.
+ */
+export function roomSizeFor(asked: unknown, ceiling: number, drag: boolean): number | null {
+  if (asked === undefined || asked === null) return drag ? RACE_MAX : ceiling;
+  if (drag) return asked === RACE_MAX ? RACE_MAX : null;
+  return typeof asked === 'number' && GRID_SIZES.includes(asked) && asked <= ceiling ? asked : null;
+}
+/** How many a room holds: RACE_MAX, unless `env` (RACE_ROOM_MAX), trimmed, is a whole number from RACE_MAX to ROOM_MAX_LIMIT. */
+export function roomMaxFrom(env: string | undefined): number {
+  const s = (env ?? '').trim();
+  const n = /^\d+$/.test(s) ? Number(s) : NaN;
+  return n >= RACE_MAX && n <= ROOM_MAX_LIMIT ? n : RACE_MAX;
+}
 export const ROOMS_MAX = 100;
 /** The rooms one address may hold at a time: a fifth of them all, so that no one script can take every room. */
 export const ROOMS_PER_ADDRESS = 20;
@@ -25,16 +47,30 @@ const NAME_MAX = 24;
 /** A browser's own time stands when it is at most this far under the server's figure (a slow connection), and at most
  *  CLAIM_LATE_S over it (two clocks never agree to the millisecond). */
 export const CLAIM_TOLERANCE_S = 0.5, CLAIM_LATE_S = 0.1;
-/** The lent car's colour, by grid place. */
-export const SLOT_COLORS: readonly string[] = ['#ffd23f', '#2a9df4', '#e8463c', '#f3f6fb'];
+/** The lent car's colour, by grid place: the first four as a race of four always had them, then twelve more chosen to be
+ *  as far as possible from those and from each other (race.test.ts holds every pair at least 20 apart in CIEDE2000), the
+ *  most distinct first so that a smaller room gets them; none too dark to read on the HUD's night panel. */
+export const SLOT_COLORS: readonly string[] = [
+  '#ffd23f', '#2a9df4', '#e8463c', '#f3f6fb',
+  '#117744', '#9900dd', '#00ff55', '#886600', '#ff77cc', '#00cccc', '#88aa00', '#994466', '#ee8800', '#ffaa99', '#5566aa', '#aa99ff',
+];
 const SCORE_MAX = 9_999_999;
+/** A racer's pose as it travels, [t, x, z, h, v, s, score]: the time to the whole millisecond, the distances to the
+ *  centimetre, the heading to the milliradian, the speed to the centimetre a second, the score whole. A full-precision
+ *  pose costs 15 to 18 bytes a number; rounded, the relayed message is about 60% of what it was (149 bytes to 92 for
+ *  the one the spec measured). The sender rounds, and the server rounds again as it relays (an older page). */
+export function roundPose(p: readonly number[]): number[] {
+  const r = (n: number, k: number) => Math.round(n * k) / k;
+  const [t, x, z, h, v, s, sc] = p;
+  return [Math.round(t), r(x, 100), r(z, 100), r(h, 1000), r(v, 100), r(s, 100), Math.round(sc)];
+}
 
 export type Phase = 'open' | 'loading' | 'racing';
 export type MemberState = 'waiting' | 'loading' | 'ready' | 'racing' | 'finished' | 'dnf';
 /** Why a racer has no time. */
 export type Why = 'quit' | 'failed' | 'left' | 'timeout';
-/** Why the server said no. */
-export type DenyWhy = 'gone' | 'full' | 'busy' | 'slow' | 'holding' | 'host' | 'few' | 'state' | 'pick';
+/** Why the server said no. 'size': a grid the server does not make, or smaller than the room. */
+export type DenyWhy = 'gone' | 'full' | 'busy' | 'slow' | 'holding' | 'host' | 'few' | 'state' | 'pick' | 'size';
 export type Member = { id: string; name: string; slot: number; state: MemberState; time: number | null; score: number; why: Why | null };
 export type ResultRow = { id: string; name: string; pos: number; time: number | null; score: number; why: Why | null };
 export type LastRace = { raceNo: number; eventId: string; rows: ResultRow[] };
@@ -51,9 +87,11 @@ export type Room = {
   emptySince: number | null; emptyFor: number;
   /** the name of the last member to host it (the link names them while the room waits empty); the address it was made from */
   hostName: string; from: string;
+  /** how many people it holds (roomMaxFrom) */
+  max: number;
 };
 /** What the members are sent. */
-export type RoomView = Pick<Room, 'code' | 'eventId' | 'car' | 'hostId' | 'phase' | 'raceNo' | 'members' | 'goAt' | 'closesAt' | 'last' | 'note'>;
+export type RoomView = Pick<Room, 'code' | 'eventId' | 'car' | 'hostId' | 'phase' | 'raceNo' | 'members' | 'goAt' | 'closesAt' | 'last' | 'note' | 'max'>;
 /** What anyone holding the code may read before joining. */
 export type Invitation = { host: string; eventId: string; car: RentalKey; count: number; max: number; phase: Phase };
 type Ok = { ok: true };
@@ -78,8 +116,8 @@ function checkChoice(pick: Choice, stage: number): { ok: true; eventId: string; 
   return { ok: true, eventId: ev.id, car: car.key };
 }
 
-/** A new room, `host` in it. `from`: the address asking (none: no ration by address). */
-export function createRoom(rooms: Map<string, Room>, host: { id: string; name: string }, pick: Choice, stage: number, rand: () => number, from = ''): { ok: true; room: Room } | Denied {
+/** A new room, `host` in it. `from`: the address asking (none: no ration by address). `max`: how many it holds. */
+export function createRoom(rooms: Map<string, Room>, host: { id: string; name: string }, pick: Choice, stage: number, rand: () => number, from = '', max = RACE_MAX): { ok: true; room: Room } | Denied {
   if (rooms.size >= ROOMS_MAX) return no('busy');
   if (from && [...rooms.values()].filter(r => r.from === from).length >= ROOMS_PER_ADDRESS) return no('busy');
   const choice = checkChoice(pick, stage);
@@ -91,7 +129,7 @@ export function createRoom(rooms: Map<string, Room>, host: { id: string; name: s
   const room: Room = {
     code, eventId: choice.eventId, car: choice.car, hostId: first.id, phase: 'open', raceNo: 0, members: [first],
     startedAt: null, goAt: null, closesAt: null, gone: [], last: null, note: null, emptySince: null, emptyFor: EMPTY_TTL_MS,
-    hostName: first.name, from,
+    hostName: first.name, from, max,
   };
   rooms.set(code, room);
   return { ok: true, room };
@@ -100,7 +138,7 @@ export function createRoom(rooms: Map<string, Room>, host: { id: string; name: s
 /** Into the room, in any phase: someone who arrives while a race is on is in the next one. */
 export function joinRoom(room: Room, who: { id: string; name: string }): Ok | Denied {
   if (find(room, who.id)) return OK;
-  if (room.members.length >= RACE_MAX) return no('full');
+  if (room.members.length >= room.max) return no('full');
   const m = member(who);
   room.members.push(m);
   if (!room.hostId) setHost(room, m); // the room had emptied out: whoever comes back to it hosts
@@ -121,12 +159,17 @@ export function leaveRoom(room: Room, id: string, now: number, dropped = false):
   settle(room, now);
 }
 
-export function setRace(room: Room, id: string, pick: Choice, stage: number): Ok | Denied {
+/** The host's next race, car and grid. No size keeps the room's own (a drag's is four); a size the server does not make
+ *  (`ceiling`: roomSizeFor), or one smaller than the room, is refused and changes nothing. */
+export function setRace(room: Room, id: string, pick: Choice & { size?: unknown }, stage: number, ceiling = RACE_MAX): Ok | Denied {
   if (id !== room.hostId) return no('host');
   if (room.phase !== 'open') return no('state');
   const choice = checkChoice(pick, stage);
   if (!choice.ok) return choice;
-  room.eventId = choice.eventId; room.car = choice.car;
+  const drag = EVENTS.find(e => e.id === choice.eventId)?.type === 'drag', asked = pick?.size;
+  const size = asked === undefined || asked === null ? (drag ? RACE_MAX : room.max) : roomSizeFor(asked, ceiling, drag);
+  if (size === null || size < room.members.length) return no('size');
+  room.eventId = choice.eventId; room.car = choice.car; room.max = size;
   return OK;
 }
 
@@ -216,12 +259,12 @@ export function holdsLoan(room: Room, id: string): boolean {
 }
 
 export function roomView(room: Room): RoomView {
-  const { code, eventId, car, hostId, phase, raceNo, members, goAt, closesAt, last, note } = room;
-  return { code, eventId, car, hostId, phase, raceNo, members, goAt, closesAt, last, note };
+  const { code, eventId, car, hostId, phase, raceNo, members, goAt, closesAt, last, note, max } = room;
+  return { code, eventId, car, hostId, phase, raceNo, members, goAt, closesAt, last, note, max };
 }
 
 export function invitation(room: Room): Invitation {
-  return { host: room.hostName, eventId: room.eventId, car: room.car, count: room.members.length, max: RACE_MAX, phase: room.phase };
+  return { host: room.hostName, eventId: room.eventId, car: room.car, count: room.members.length, max: room.max, phase: room.phase };
 }
 
 // ---- the phases

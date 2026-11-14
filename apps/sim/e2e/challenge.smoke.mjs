@@ -24,7 +24,10 @@ async function driver(who) {
   await p.addInitScript(() => { try { localStorage.clear(); localStorage.setItem('cds.graphics', 'low'); } catch {} });
   p.on('console', m => { if (m.type() === 'error' && !/ERR_TUNNEL_CONNECTION_FAILED|ERR_NAME_NOT_RESOLVED|ERR_INTERNET_DISCONNECTED/.test(m.text())) errs.push(`${who} console.error: ${m.text()}`); });
   p.on('pageerror', e => errs.push(`${who} pageerror: ${e.message}`));
-  return { browser, p, who };
+  // the other racers' poses as they reach this page: a tick at a time (race_poses) or one by one (race_pose)
+  const frames = { batches: 0, singles: 0 };
+  p.on('websocket', ws => ws.on('framereceived', f => { const s = String(f.payload); if (s.startsWith('42["race_poses",')) frames.batches++; else if (s.startsWith('42["race_pose",')) frames.singles++; }));
+  return { browser, p, who, frames };
 }
 // what the page shows, as it is written (innerText would give it as styled: the cards' headings are upper-cased by CSS)
 const text = (d) => d.p.evaluate(() => document.body.textContent);
@@ -98,8 +101,14 @@ try {
     ok(s.cars === 1 && s.money === 500, `${d.who}: racing in a lent car that cost nothing (1 car, $${s.money})`);
     ok(s.race?.phase === 'racing' && s.race.me === 'racing', `${d.who}: the room says it is racing`);
   }
+  // mid-race, each page places the other racer from its poses, and every pose it was sent came a tick at a time
+  for (const d of [host, friend]) {
+    await d.p.waitForFunction(() => { const r = window.__micar.remotes(); return r.others.length === 1 && r.drawn.length === 1 && r.drawn[0] === r.others[0]; }, null, { timeout: 60000 });
+    ok(d.frames.batches > 0 && d.frames.singles === 0, `${d.who}: mid-race, the other racer is placed from its poses, which came a tick at a time (so far ${d.frames.batches} race_poses, ${d.frames.singles} race_pose)`);
+  }
   const runs = await Promise.all([host, friend].map(driveTheQuarter));
   for (const [i, d] of [host, friend].entries()) ok(runs[i].card, `${d.who}: a results card came up (${runs[i].seconds} s wall clock)`);
+  for (const d of [host, friend]) ok(d.frames.batches > 0 && d.frames.singles === 0, `${d.who}: the whole race came a tick at a time (${d.frames.batches} race_poses, ${d.frames.singles} race_pose)`);
 
   // 5. the race closes: both cards list both drivers, with a time each; then back to the waiting room, nothing won or lost
   for (const d of [host, friend]) {

@@ -26,14 +26,14 @@ The work itself is real. It is the first stage of the platform upgrade (`docs/su
 
 | Lane and part | Branch | Can start |
 | --- | --- | --- |
-| A, Part 1: the World keeps its data; preview links; one build for any address | `lane-a/platform` | Now |
-| A, Part 2: one address book | `lane-a/addresses` | After pull request #21 is merged |
-| A, Part 3: the domain; accounts on; visitor counts | `lane-a/domain` | After Part 2 is merged, Part 1's last step has passed, and the owner has bought the domain |
+| A, Part 1: the World keeps its data; preview links; one build for any address; a load test on this PC | `lane-a/platform` | Now |
+| A, Part 2: one address book | `lane-a/addresses` | After C, Part 1 is merged |
+| A, Part 3: the domain; accounts on; visitor counts | `lane-a/domain` | After Part 2 is merged, the World has been seen to keep its data across a deploy, and the owner has bought the domain |
 | B: challenge a friend to a card race | `lane-b/card-challenge` | Now |
-| C, Part 1: the valuation API gives no number for a branded title | `json-api` (pull request #21) | Now |
+| C, Part 1: the valuation API gives no number for a branded title | `lane-c/api-branded` | Now, and first: pull request #21 was merged without it |
 | C, Part 2: trust wording | `lane-c/trust-wording` | Now |
 
-There is one hard chain: **C Part 1 → the boss approves #21 → the owner merges #21 → A Part 2.** Everything else can merge in any order once the boss approves it. Whoever merges second rebases.
+There is one hard chain: **C, Part 1 is merged → A, Part 2 starts.** Both change `seo/api.ts` and `api/valueApi.ts`. Everything else can merge in any order once the boss approves it. Whoever merges second rebases.
 
 ## Rules for every worker
 
@@ -90,10 +90,11 @@ Each lane changes different lines, so git should merge them without help. If it 
 
 | File | Lane A | Lane B | Lane C |
 | --- | --- | --- | --- |
-| `render.yaml` | Part 1: the plan id, health check and disk, directly under `plan:`; a second service at the end | | #21 already adds one line to `buildFilter` |
-| `apps/sim/server.ts` | Part 1: an import under the `persistence.js` import, and `/healthz` above `/api/caps`. Part 2: `DEFAULT_ORIGIN` | | #21 already adds an import and `/api/v1/value` lower down |
+| `render.yaml` | Part 1: the plan id, health check and disk, directly under `plan:`; a second service at the end | | |
+| `apps/sim/server.ts` | Part 1: an import under the `persistence.js` import, `/healthz` above `/api/caps`, the room-size line beside `ROOM_GAP_MS` and the `createRoom` call. Part 2: `DEFAULT_ORIGIN` | | |
+| `apps/sim/src/world/race.ts` | Part 1: a room's size (`Room.max`, `roomMaxFrom`), for the load test only | | |
 | `apps/value/src/door/Door.tsx` | Part 1: the `BASE` line, only if it is at fault. Part 2: the Strip link, line 253 | | Part 2: the sentence at line 161 |
-| `apps/value/src/seo/pages.ts`, `seo/api.ts`, `api/valueApi.ts` | Part 2, after #21 is merged: address lines | | Part 1, before #21 is merged |
+| `apps/value/src/seo/pages.ts`, `seo/api.ts`, `api/valueApi.ts` | Part 2, after C, Part 1 is merged: address lines | | Part 1 |
 | `apps/value/src/garage/` | Part 1: the `BASE` line of `CollectibleCard.tsx` and `back.ts`, only if at fault | The challenge files, `Garage.tsx`, `RacePanel.tsx`, `panels.css`, `es-panels.ts`, `es.test.ts` | Part 2: one line of `PassportPanel.tsx` |
 | `apps/value/src/App.tsx`, `i18n-es.ts`, `i18n.test.ts`, `engine/data.ts` | | | Part 2: all of it |
 
@@ -102,7 +103,7 @@ Each lane changes different lines, so git should merge them without help. If it 
 **Before anything is built**
 
 1. Read the platform design. It is short, and it asks for one yes: about $7.25 a month from the day lane A's first pull request is merged, and about $1 a month more once a domain is bought.
-2. Merge the pull request that adds these documents. It holds documents only. The workers read their plans from `main`.
+2. Merge the latest plan pull request, if one is open. Plan pull requests hold documents only. The workers read their plans from `main`.
 
 **Start the three lanes**
 
@@ -157,9 +158,9 @@ You are worker B in MiCar's three-worker trial. Your lane is "challenge a friend
 ```
 You are the relay for lane C in MiCar's three-worker trial. Lane C's code is written by Claude in the cloud and pushed to GitHub. The cloud cannot reach the boss on the Pi, so you carry each finished part to the boss from this PC. You change no code and you fix nothing.
 
-Read docs/superpowers/plans/2026-11-13-trial-rules.md first. Then, for the branch I name (json-api, which is pull request #21, or lane-c/trust-wording):
+Read docs/superpowers/plans/2026-11-13-trial-rules.md first. Then, for the branch I name (lane-c/api-branded or lane-c/trust-wording):
 
-1. In the main clone run git fetch origin. Use a worktree for that branch (~/Micar-com-json-api already exists for json-api; make ~/Micar-com-lane-c for the other) and bring it to exactly origin/<branch>. Use Node 22 (fnm use 22) and run pnpm install --frozen-lockfile.
+1. In the main clone run git fetch origin. Use one worktree for lane C, ~/Micar-com-lane-c (make it the first time), switch it to that branch and bring it to exactly origin/<branch>. Use Node 22 (fnm use 22) and run pnpm install --frozen-lockfile.
 2. Clear out anything left in .boss/shots/ from an earlier review. Run the checks listed under Global Constraints in docs/superpowers/plans/2026-11-13-trial-lane-c-trust-fixes.md and save their full output to .boss/tests.txt. If a check fails, stop and show me the failure.
 3. Write .boss/request.md: the pull request's description, word for word. Read it with gh pr view <number> --json body -q .body, or from https://github.com/lasting-oasis/Micar-com/pull/<number>.
 4. If the description says Visual: yes, build the site and take the screenshots that the plan's "Look at it" step lists, into .boss/shots/.
@@ -177,7 +178,7 @@ Worker C keeps both tables in the project document `claude/micar-parallel-trial-
 | A, Part 2 | | | | | | | |
 | A, Part 3 | | | | | | | |
 | B | | | | | | | |
-| C, Part 1 | #21 | | | | | | |
+| C, Part 1 | | | | | | | |
 | C, Part 2 | | | | | | | |
 
 | Day | Plan usage at the end of the day | Owner's minutes | Stops, and what for |
@@ -210,12 +211,13 @@ These are proposals. The owner can change any of them.
 Also proposals. After seven days:
 
 - Lane A's Part 1 is merged and the World has been seen to keep its data across a deploy.
+- The load test has run on this PC, and its table is in lane A's pull request.
 - Lane B is merged and a challenge link works between two phones.
 - Both parts of lane C are merged.
 - Nothing on the live site broke, and no secret leaked.
 - The boss needed two reviews or fewer for most tasks.
 - The owner spent about 20 minutes a day or less.
 
-If all six hold, try five workers. If some do not, stay at three and fix whatever the scoreboard shows was slowest: the boss's rounds, the owner's steps, clashes, lane C's relay, or usage.
+If all seven hold, try five workers. If some do not, stay at three and fix whatever the scoreboard shows was slowest: the boss's rounds, the owner's steps, clashes, lane C's relay, or usage.
 
 There is no measured baseline for one worker. The nearest comparison is the pull requests merged in the week before the trial, which worker C can count from GitHub.

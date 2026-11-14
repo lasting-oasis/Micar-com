@@ -158,7 +158,7 @@ export default function Door() {
               </h1>
             </div>
             <div className="hero-side">
-              <p style={{ '--d': '.8s' } as React.CSSProperties}>{t("Type the car. The door opens on what it's worth today, on a card. Three entries later the card goes in a case with a grade that follows the car for life. The number is free, for everyone, forever. Nobody here wants to buy your car.")}</p>
+              <p style={{ '--d': '.8s' } as React.CSSProperties}>{t("Type the car. The door opens on what it's worth today, on a card. Three entries later the card goes in a case with a grade worked out from the car's own record. The number is free, for everyone, forever. Nobody here wants to buy your car.")}</p>
               <div className="btns" style={{ '--d': '.95s' } as React.CSSProperties}>
                 <a className="ghostbtn" href="#card">{t('See a graded card')}</a>
                 <a className="ghostbtn" href={WORLD_URL}>{t('Enter MiCar World')}</a>
