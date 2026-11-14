@@ -1508,7 +1508,7 @@ export function VanillaThreeScene() {
                         const carStyle = (car as any).bodyStyle || deriveStyle(car.model);
                         // body styles are built a few milliseconds per frame; the car appears once its style is ready
                         if (!carStyleReady(carStyle)) return;
-                        const assets = buildCarModel(carStyle, carColorHex(car.color), car.bodyCondition, car.mechanicCondition, carMeshId(car.make, car.model), district === 'town');
+                        const assets = buildCarModel(carStyle, carColorHex(car.color), car.bodyCondition, car.mechanicCondition, carMeshId(car.make, car.model), () => district === 'town'); // (asked when the model arrives)
                         
                         const mesh = assets.group;
                         // its own model arrived: the driven car's kit is fitted again, to the new body

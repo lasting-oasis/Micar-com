@@ -297,10 +297,10 @@ const FLIP = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0),
  * after changing them. Dispose with disposeCarModel (shared parts stay alive).
  * `meshId` (carMeshId of the car's make and model): the car's own 3D model, shown once
  * loaded (at once if it already is); the lofted body of `style` until then, or if it fails.
- * `afterPrecompile`: for a world that runs precompileCarsTick, put the model in only once
+ * `afterPrecompile` (or a function asked when the model arrives): for a world that runs precompileCarsTick, put the model in only once
  * that is done, so its first draw compiles no shader (a frame of ~200 ms otherwise).
  */
-export const buildCarModel = (style: string, rawColor: string, bodyCond: number = 100, mechCond: number = 100, meshId?: string | null, afterPrecompile = false) => {
+export const buildCarModel = (style: string, rawColor: string, bodyCond: number = 100, mechCond: number = 100, meshId?: string | null, afterPrecompile: boolean | (() => boolean) = false) => {
     const S = getShared();
     const geo = getStyleGeometry(style);
     const group = new THREE.Group();
@@ -368,7 +368,8 @@ export const buildCarModel = (style: string, rawColor: string, bodyCond: number 
     shadowsDirtyFrom = Math.min(shadowsDirtyFrom, cars.length - 1);
     if (meshId) {
         const fit = (m: MeshGeometry) => {
-            if (!afterPrecompile || pre.state === 'done') return fitMeshBody(group, m);
+            const hold = typeof afterPrecompile === 'function' ? afterPrecompile() : afterPrecompile;
+            if (!hold || pre.state === 'done') return fitMeshBody(group, m);
             heldFits.push([group, m]);
         };
         const mg = carMeshes().request(meshId);
@@ -397,7 +398,8 @@ const fitMeshBody = (group: THREE.Object3D, mg: MeshGeometry) => {
     c.length = mg.length; c.width = mg.width; c.beamZ = mg.beamZ;
     if (beam && beam.parent === c.tilt) beam.position.z = c.beamZ - 16.4;
     syncCarWheels(group);
-    c.wheelMesh.computeBoundingSphere(); // from the new wheel matrices
+    // the culling sphere from the new wheel matrices, all four (a kit may have set the count to 0: replaceWheels)
+    const n = c.wheelMesh.count; c.wheelMesh.count = 4; c.wheelMesh.computeBoundingSphere(); c.wheelMesh.count = n;
     shadowsDirtyFrom = 0; // the contact shadow takes the model's size
     // whoever fitted a kit (Garage, the driven car) fits it again to the new body
     group.dispatchEvent({ type: CAR_BODY_CHANGE } as never);
