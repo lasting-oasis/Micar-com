@@ -45,6 +45,18 @@ const pick = (value: string | null, options: readonly string[], field: string, e
   return hit;
 };
 
+/** The query of a request URL as the server receives it (e.g. Express's req.originalUrl): all of it, a literal '?' inside
+ *  a value included, where splitting on the first '?' would drop every parameter after it. Repeated keys: the first. */
+export function queryOf(url: string): URLSearchParams {
+  return new URL(url, 'http://micar.local').searchParams;
+}
+
+/** The Cache-Control for an answer: the same query always gets the same answer for the day, a refusal included, so an
+ *  hour is safe; a server failure is never cached, so the next call tries again. */
+export function cacheControlFor(status: number): string {
+  return status >= 500 ? 'no-store' : 'public, max-age=3600';
+}
+
 /** GET /api/v1/value?<query>. Errors come back as 400 with a message per field, never as a guessed value. */
 export function valueQuery(params: URLSearchParams, now: Date = new Date()): ApiResponse {
   const errors: Record<string, string> = {};
@@ -86,13 +98,23 @@ export function valueQuery(params: URLSearchParams, now: Date = new Date()): Api
       const withSticker = sameId.find((c) => stickerFor(c.make, c.model, yr));
       if (withSticker && !stickerFor(form.make, form.model, yr)) { form.make = withSticker.make; form.model = withSticker.model; }
     }
-    const pre = prefillMsrp(form.make, form.model, yr, form.trim);
+    // a trim the caller names must be on file for that year: stickerTrim would quietly fall back to the base trim
+    // (the calculator's prefill does), and this API never prices a guess; with the caller's own msrp a trim is a label
+    const onFile = stickerFor(form.make, form.model, yr);
+    if (onFile && form.trim) {
+      const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '');
+      const want = norm(form.trim);
+      if (!onFile.year.trims.some((t) => norm(t.trim) === want || (want && norm(t.trim).startsWith(want)))) {
+        errors.trim = `No ${yr} ${form.make} ${form.model} trim called "${form.trim}". Trims on file for that year: ${onFile.year.trims.map((t) => t.trim).join(', ')}; or give msrp (original MSRP in dollars, excluding destination) to value it at your own sticker price.`;
+      }
+    }
+    const pre = errors.trim ? null : prefillMsrp(form.make, form.model, yr, form.trim);
     if (pre) {
       form.msrp = String(pre.msrp);
       const st = pre.source === 'sticker' ? stickerFor(form.make, form.model, yr) : undefined;
       if (st) form.trim = stickerTrim(st.year, form.trim).trim;
       assumed.push(`MSRP $${pre.msrp.toLocaleString('en-US')}: ${pre.label}`);
-    } else errors.msrp = 'No sticker price on file for this car; give msrp (original MSRP in dollars, excluding destination).';
+    } else if (!errors.trim) errors.msrp = 'No sticker price on file for this car; give msrp (original MSRP in dollars, excluding destination).';
   }
 
   if (get('mileage')) form.mileage = get('mileage')!;

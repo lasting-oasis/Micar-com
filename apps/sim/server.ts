@@ -24,7 +24,7 @@ import { grantTester, heldTestCar, returnTestCar, setTestCar, splitTesterName, t
 import { checkTesterKey, configuredTesterKey, isKeyAttempt, newAttemptLog, refusalText } from './src/world/testerKey.js';
 import { TRACKS } from './src/world/strip/district.js';
 import { readTrackSync, setTrackDir } from './src/world/strip/districtNode.js';
-import { valueQuery } from '../value/src/api/valueApi.ts';
+import { cacheControlFor, queryOf, valueQuery } from '../value/src/api/valueApi.ts';
 
 const app = express();
 const httpServer = createServer(app);
@@ -2527,14 +2527,13 @@ async function startServer() {
     // Read-only and keyless; documented at https://lasting-oasis.github.io/Micar-com/api/v1/openapi.json
     app.get('/api/v1/value', (req, res) => {
         res.set('Access-Control-Allow-Origin', '*');
-        res.set('Cache-Control', 'public, max-age=3600');
-        // the whole query, a literal '?' inside a value included (splitting on the first '?' dropped everything after it)
-        const q = new URL(req.originalUrl, 'http://micar.local').searchParams;
         try {
-            const out = valueQuery(q);
+            const out = valueQuery(queryOf(req.originalUrl));      // the whole query, a literal '?' in a value included
+            res.set('Cache-Control', cacheControlFor(out.status));
             res.status(out.status).json(out.body);
         } catch (e) {
             console.error('value api', e);
+            res.set('Cache-Control', cacheControlFor(500));         // never cache a failure
             res.status(500).json({ ok: false, errors: { server: 'The valuation failed. Try again, or open the calculator.' } });
         }
     });

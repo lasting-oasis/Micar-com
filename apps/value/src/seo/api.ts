@@ -178,7 +178,7 @@ export function openApiJson() {
             { name: 'make', in: 'query', schema: { type: 'string' } },
             { name: 'model', in: 'query', schema: { type: 'string' } },
             { name: 'year', in: 'query', required: true, schema: { type: 'integer' } },
-            { name: 'trim', in: 'query', schema: { type: 'string' } },
+            { name: 'trim', in: 'query', description: "A trim on file for that year (listed in /cars/{id}.json). Left out, the cheapest trim's sticker is used and named under \"assumed\"; a trim not on file is refused with 400 unless msrp is given, when it is only a label.", schema: { type: 'string' } },
             { name: 'msrp', in: 'query', description: 'Original MSRP in dollars, excluding destination. Required for a car not in the data.', schema: { type: 'number' } },
             { name: 'mileage', in: 'query', schema: { type: 'number' } },
             { name: 'body', in: 'query', schema: { $ref: '#/components/schemas/Body' } },
@@ -189,7 +189,7 @@ export function openApiJson() {
             { name: 'market', in: 'query', description: 'Used-car market: Auto (the weekly index, default), Soft, Normal or Tight.', schema: { enum: ['Auto', 'Soft', 'Normal', 'Tight'] } },
             { name: 'listings', in: 'query', description: 'How many similar cars are for sale nearby (0-999).', schema: { type: 'integer' } },
             { name: 'urgency', in: 'query', description: 'How fast it needs to sell.', schema: { enum: ['No rush', 'Within a month', 'This week'] } },
-            { name: 'comps', in: 'query', description: 'Up to 8 asking prices for similar cars, e.g. "21500, 22900"; ones far from the estimate are ignored.', schema: { type: 'string' } },
+            { name: 'comps', in: 'query', description: 'Up to 8 asking prices for similar cars, separated by a comma and a space or by spaces, e.g. "21500, 22900" or "$21.5k 22900" (as the calculator reads them; "21500,22900" without a space reads as one number and is dropped); ones far from the estimate are ignored. The prices used are echoed in inputs.comps.', schema: { type: 'string' } },
             { name: 'annual', in: 'query', description: 'Miles driven a year, for the forecast; clamped to 3,000-30,000, default 12,000.', schema: { type: 'number' } },
           ],
           responses: {

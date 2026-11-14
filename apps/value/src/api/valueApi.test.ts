@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { forecast, valuate } from '../engine/valuation';
 import { parse, defaults, URL_KEYS } from '../urlState';
-import { resolveCar, valueQuery } from './valueApi';
+import { cacheControlFor, queryOf, resolveCar, valueQuery } from './valueApi';
 import stickers from '../data/stickers.json';
 import epaFile from '../data/epa-configs.json';
 import { buildCarRecords, openApiJson, type ApiSticker, type EpaFile } from '../seo/api';
@@ -83,6 +83,44 @@ describe('value api', () => {
     const schema = openApiJson().components.schemas.Value.properties;
     expect(schema.forecastUsd.items.properties.mileage.type).toBe('number');
     expect(b.forecastUsd[0].mileage).toBe(40000.7);
+  });
+
+  it('refuses a trim it has no sticker for, instead of pricing it as the base trim', () => {
+    const r = call('make=Honda&model=Civic&trim=Si?&year=2019&mileage=60000');
+    expect(r.status).toBe(400);
+    const e = (r.body as Body).errors.trim as string;
+    expect(e).toMatch(/No 2019 Honda Civic trim called "Si\?"/);
+    expect(e).toMatch(/\bLX\b/);                                                // it lists the trims on file
+    expect(e).toMatch(/or give msrp/);
+    // a trim on file, in any case or spelling the calculator's own matching accepts, is priced as that trim
+    expect((call('make=Honda&model=Civic&trim=sport&year=2020&mileage=40000').body as Body).car.trim).toBe('Sport');
+    expect((call('make=Honda&model=Civic&trim=ex-l&year=2019&mileage=40000').body as Body).ok).toBe(true);
+    // with the caller's own MSRP the trim is only a label, as in the calculator
+    const own = call('make=Honda&model=Civic&trim=Si?&year=2019&mileage=60000&msrp=25200').body as Body;
+    expect(own.ok).toBe(true);
+    expect(own.car.trim).toBe('Si?');
+    expect(own.inputs.msrpUsd).toBe(25200);
+    // no trim given: the cheapest, and it says so
+    const base = call('make=Honda&model=Civic&year=2019&mileage=60000').body as Body;
+    expect(base.car.trim).toBe('LX');
+    expect(base.assumed[0]).toMatch(/^MSRP \$20,250: Sticker for the 2019 Civic LX/);
+  });
+
+  it('reads the whole query, a literal "?" in a value included (the server hands it the raw URL)', () => {
+    const q = queryOf('/api/v1/value?make=Honda&model=Civic&trim=Si?&year=2019&mileage=60000');
+    expect(q.get('trim')).toBe('Si?');
+    expect(q.get('year')).toBe('2019');
+    expect(q.get('mileage')).toBe('60000');
+    expect([...queryOf('/api/v1/value').keys()]).toEqual([]);
+    expect(queryOf('/api/v1/value?id=honda-civic&year=2019&id=x').get('id')).toBe('honda-civic');
+  });
+
+  it('lets answers be cached for an hour, but never a server failure', () => {
+    expect(cacheControlFor(200)).toBe('public, max-age=3600');
+    expect(cacheControlFor(400)).toBe('public, max-age=3600');                 // the same query always gets the same refusal
+    expect(cacheControlFor(404)).toBe('public, max-age=3600');
+    expect(cacheControlFor(500)).toBe('no-store');
+    expect(cacheControlFor(503)).toBe('no-store');
   });
 
   it('accepts loose spelling or a data-API id, and fills MSRP and mileage it can, saying so', () => {
