@@ -181,12 +181,14 @@ export function meshLamps(paint: THREE.BufferGeometry, dark: THREE.BufferGeometr
 type Fitted = [LampRect, number, number];
 
 /** The lens quads of the fitted lamps on `body`: one per grid cell (so the reverse lamp's columns are a swatch of their
- *  own), facing out of their end, OUT in front of the surface at the grid's points and lifted (up to MAX_LIFT) where the
+ *  own), facing out of their end, in two groups: the head lenses (material 0), then the tail lenses (material 1, which
+ *  glow on their own: carModel.ts), OUT in front of the surface at the grid's points and lifted (up to MAX_LIFT) where the
  *  body stands out between them. `reseat`: take each grid point's depth from this body (the far version's), and leave out
  *  a cell where it has no surface under a corner (its vertices stay, so the layout matches the near lenses'). `lift`: the
  *  most any cell of each lamp was lifted. */
 function lenses(fitted: Fitted[], body: Body, reseat: boolean): { geometry: THREE.BufferGeometry; lift: number[] } {
     const pos: number[] = [], nor: number[] = [], uv: number[] = [], index: number[] = [], lift: number[] = [];
+    let heads = 0; // the head lenses' index count (the fitted lamps come head first)
     for (const [r, dir, cap] of fitted) {
         const s = body.end(dir), endZ = dir < 0 ? body.minZ : body.maxZ;
         let n = 0, most = 0;
@@ -230,12 +232,14 @@ function lenses(fitted: Fitted[], body: Body, reseat: boolean): { geometry: THRE
             n += (ROWS + 1) * (COLS + 1);
         }
         lift.push(most);
+        if (dir < 0) heads = index.length;
     }
     const geometry = new THREE.BufferGeometry();
     geometry.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
     geometry.setAttribute('normal', new THREE.Float32BufferAttribute(nor, 3));
     geometry.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
     geometry.setIndex(index);
+    geometry.addGroup(0, heads, 0); geometry.addGroup(heads, index.length - heads, 1);
     geometry.computeBoundingBox(); geometry.computeBoundingSphere();
     return { geometry, lift };
 }

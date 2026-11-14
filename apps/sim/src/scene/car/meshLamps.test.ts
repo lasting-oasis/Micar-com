@@ -68,6 +68,23 @@ describe('lamps fitted to a model from its own shape', () => {
         for (let i = 0; i < uv.count; i++) seen.add(uv.getX(i).toFixed(4) + ',' + uv.getY(i).toFixed(4));
         for (const sw of ['lampHead', 'lampTail', 'lampRev'] as const) expect(seen).toContain(swatchUV(sw).map(v => v.toFixed(4)).join(','));
     });
+    it('comes in two groups, head lenses then tail lenses, so the tail ones can take a material of their own (near and far)', () => {
+        const far = box(4.74); far.translate(0, 0, -0.07 * S);
+        const r = meshLamps(box(), empty(), 'sedan', 1.0 * S, { paint: far, dark: empty() });
+        for (const g of [r.lamps!, r.farLamps!]) {
+            const idx = g.getIndex()!, p = g.getAttribute('position');
+            expect(g.groups.map(x => x.materialIndex)).toEqual([0, 1]);
+            expect(g.groups[0].start).toBe(0); expect(g.groups[1].start).toBe(g.groups[0].count);
+            expect(g.groups[0].count).toBeGreaterThan(0); expect(g.groups[0].count + g.groups[1].count).toBe(idx.count);
+            for (let t = 0; t < idx.count; t++) expect(Math.sign(p.getZ(idx.getX(t)))).toBe(t < g.groups[0].count ? -1 : 1); // head at the nose
+        }
+        // a model with tail lamps only: an empty head group, then its tail lenses
+        const g = box(), gr = g.groups[5], idx = Array.from(g.getIndex()!.array); // an open nose (BoxGeometry's group 5, -Z)
+        g.setIndex(idx.filter((_, i) => i < gr.start || i >= gr.start + gr.count));
+        const tailOnly = meshLamps(g, empty(), 'sedan', 1.0 * S);
+        expect(tailOnly.head).toBeNull(); expect(tailOnly.tail).not.toBeNull();
+        expect(tailOnly.lamps!.groups[0].count).toBe(0); expect(tailOnly.lamps!.groups[1].count).toBe(tailOnly.lamps!.getIndex()!.count);
+    });
     it('glows at night where the lamps are: one point per lamp and side, head white facing forward, tail red facing back', () => {
         const h = fit.halos, p = h.getAttribute('position'), col = h.getAttribute('color'), dir = h.getAttribute('lampDir');
         expect(p.count).toBe(4);
