@@ -25,6 +25,9 @@ export const CAMS: Record<string, Cam> = Object.fromEntries(Object.entries({
 } satisfies Record<string, Cam>).map(([k, c]) => [k, m2(c)]));
 /** The orbit's distance for a car `len` world units long: as set for cars up to 4.9 m, further out for longer ones. */
 export const camFit = (len: number) => Math.max(1, len / (4.9 * W));
+/** The camera distance `r` (the player's zoom included) for a car of length `len`, after one whose camFit was `fitK`:
+ *  scaled by the change, and the new factor. */
+export const refitCam = (r: number, fitK: number, len: number) => { const k = camFit(len); return { r: k === fitK ? r : r * k / fitK, fitK: k }; };
 const rideYOf = (tune: Tune) => -.07 * (tune.ride + 1) / 2 * W;
 
 type ModelParts = { body: THREE.Mesh; trim: THREE.Mesh; glass: THREE.Mesh; wheelMesh: THREE.Object3D; farBody: THREE.Mesh; farTrim: THREE.Mesh; far: boolean };
@@ -121,8 +124,8 @@ export class GarageScene {
     } else if (this.kit) { disposeParts(this.kit); this.kit = null; }
     this.kit = attachParts(this.car, cfg, style, cfg.perf.brakes);
     // a longer (or shorter) car than the last: the camera stands back by as much, keeping the player's own zoom
-    const k = camFit((this.car.userData.car as { length: number }).length);
-    if (k !== this.fitK) { this.tgt.r *= k / this.fitK; this.fitK = k; }
+    const f = refitCam(this.tgt.r, this.fitK, (this.car.userData.car as { length: number }).length);
+    this.tgt.r = f.r; this.fitK = f.fitK;
     this.car.position.y = rideYOf(tune);
     this.shownKey = key;
   }

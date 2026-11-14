@@ -15,14 +15,21 @@ describe('drive options', () => {
   it('saves every option under one key and reads it back', () => {
     const s = memStore(); g.localStorage = s;
     setOption('manual', true); setOption('units', 'kmh'); setOption('cam', 2); setOption('mute', true); setOption('controls', 'buttons');
-    expect(JSON.parse(s.m.get(OPTIONS_KEY)!)).toEqual({ manual: true, units: 'kmh', cam: 2, mute: true, controls: 'buttons' });
+    setOption('models', false);
+    expect(JSON.parse(s.m.get(OPTIONS_KEY)!)).toEqual({ manual: true, units: 'kmh', cam: 2, mute: true, controls: 'buttons', models: false });
     resetOptionsCache();
-    expect(getOptions()).toEqual({ manual: true, units: 'kmh', cam: 2, mute: true, controls: 'buttons' });
+    expect(getOptions()).toEqual({ manual: true, units: 'kmh', cam: 2, mute: true, controls: 'buttons', models: false });
   });
   it('touch controls default to the sticks, also for options saved before the setting existed', () => {
     expect(OPTION_DEFAULTS.controls).toBe('sticks');
     expect(parseOptions(JSON.stringify({ manual: true, units: 'kmh', cam: 1, mute: false })).controls).toBe('sticks');
     expect(parseOptions(JSON.stringify({ controls: 'joystick' })).controls).toBe('sticks');
+  });
+  it('car models are on by default, also for options saved before the setting existed, and a bad value is on', () => {
+    expect(OPTION_DEFAULTS.models).toBe(true);
+    expect(parseOptions(JSON.stringify({ manual: true, units: 'kmh', cam: 1, mute: false, controls: 'sticks' })).models).toBe(true);
+    expect(parseOptions(JSON.stringify({ models: 'off' })).models).toBe(true);
+    expect(parseOptions(JSON.stringify({ models: false })).models).toBe(false);
   });
   it('ignores a bad value and keeps working when storage throws', () => {
     g.localStorage = { getItem: () => { throw new Error('blocked'); }, setItem: () => { throw new Error('blocked'); } };

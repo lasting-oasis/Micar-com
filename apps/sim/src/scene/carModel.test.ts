@@ -1,4 +1,4 @@
-import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import * as THREE from 'three';
 
 // carModel draws its shared textures on canvases and builds the lofted bodies from the atlas: stand-ins for both, so
@@ -156,9 +156,12 @@ describe('a car with its own model', () => {
         const c = partsOf(group);
         c.wheelMesh.count = 0; // what the Night Tuner kit's replaceWheels does
         release(); await new Promise(r => setTimeout(r, 0));
+        expect(c.mesh).toBe('toyota-camry'); // the model did arrive
         expect(c.wheelMesh.count).toBe(0); // left as the kit set it
         c.wheelMesh.count = 4; // the kit comes off (removeWheels)
-        for (const i of [0, 1, 2, 3]) expect(c.wheelMesh.boundingSphere!.containsPoint(wheelAt(c, i).pos)).toBe(true);
+        const sphere = c.wheelMesh.boundingSphere!;
+        expect(sphere.radius).toBeGreaterThan(2); // not empty (-1): it spans the axles, 2.8 world units from the middle
+        for (const i of [0, 1, 2, 3]) expect(sphere.containsPoint(wheelAt(c, i).pos)).toBe(true);
         disposeCarModel(group);
     });
 
@@ -233,3 +236,140 @@ describe('when the player leaves the town before the precompile', () => {
         disposeCarModel(group);
     });
 });
+
+describe('when the precompile fails', () => {
+    const heldCamry = async () => {
+        const { disposeSharedCarAssets } = await import('./carModel');
+        disposeSharedCarAssets();
+        setCarMeshCache(makeCarMeshCache(async () => fakeGltf(), () => '/'));
+        const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'toyota-camry', true);
+        await new Promise(r => setTimeout(r, 0));
+        expect(partsOf(group).mesh).toBeNull(); // held for the precompile
+        return group;
+    };
+    const asyncRenderer = (compileAsync: () => Promise<unknown>, lost = () => false) => ({ compileAsync, getContext: () => ({ isContextLost: lost }), compile() {}, render() {}, getScissorTest: () => false, getScissor: (v: THREE.Vector4) => v, setScissor() {}, setScissorTest() {}, shadowMap: { enabled: false, needsUpdate: false } }) as unknown as THREE.WebGLRenderer;
+    it('a compile that is rejected (a lost context) gives up the same way', async () => {
+        const group = await heldCamry(), warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+        const scene = new THREE.Scene();
+        carFrameTick(); precompileCarsTick(asyncRenderer(() => Promise.reject(new Error('context lost'))), scene, new THREE.PerspectiveCamera());
+        await new Promise(r => setTimeout(r, 0));
+        expect(partsOf(group).mesh).toBe('toyota-camry'); expect(warn).toHaveBeenCalledTimes(1); expect(scene.children.length).toBe(0);
+        warn.mockRestore(); disposeCarModel(group);
+    });
+    it('a slow compile is waited for however long it takes; a lost context (which never finishes it) is given up', async () => {
+        const group = await heldCamry(), warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+        let lost = false;
+        const scene = new THREE.Scene(), r = asyncRenderer(() => new Promise(() => {}), () => lost), cam = new THREE.PerspectiveCamera(), t0 = performance.now();
+        carFrameTick(); precompileCarsTick(r, scene, cam);
+        const at = (ms: number) => { const s = vi.spyOn(performance, 'now').mockReturnValue(t0 + ms); carFrameTick(); precompileCarsTick(r, scene, cam); s.mockRestore(); };
+        at(60000); expect(partsOf(group).mesh).toBeNull(); expect(warn).not.toHaveBeenCalled(); // a minute in: still compiling, still held
+        lost = true; // the context goes
+        at(61000); expect(partsOf(group).mesh).toBe('toyota-camry'); expect(warn).toHaveBeenCalledTimes(1); expect(scene.children.length).toBe(0);
+        warn.mockRestore(); disposeCarModel(group);
+    });
+    it('a draw that throws still gives the renderer its whole view back, and gives up', async () => {
+        const group = await heldCamry(), warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+        const box0 = new THREE.Vector4(0, 0, 1280, 720), calls: string[] = [];
+        let scissorOn = false; const box = box0.clone();
+        const r = { compile() {}, render() { throw new Error('draw failed'); }, getScissorTest: () => scissorOn, getScissor: (v: THREE.Vector4) => v.copy(box),
+            setScissor: (v: THREE.Vector4 | number, y?: number, w?: number, h?: number) => { if (typeof v === 'number') box.set(v, y!, w!, h!); else box.copy(v); calls.push('box'); },
+            setScissorTest: (on: boolean) => { scissorOn = on; calls.push('test ' + on); }, shadowMap: { enabled: false, needsUpdate: false } } as unknown as THREE.WebGLRenderer;
+        const scene = new THREE.Scene(), cam = new THREE.PerspectiveCamera();
+        carFrameTick(); precompileCarsTick(r, scene, cam); // build + compile (no compileAsync): on to the draw
+        carFrameTick(); precompileCarsTick(r, scene, cam); // the draw throws
+        expect(scissorOn).toBe(false); expect(box.equals(box0)).toBe(true); expect(calls.at(-1)).toBe('test false');
+        expect(partsOf(group).mesh).toBe('toyota-camry'); expect(warn).toHaveBeenCalledTimes(1); expect(scene.children.length).toBe(0);
+        warn.mockRestore(); disposeCarModel(group);
+    });
+    it('gives it up once, warns, and puts the held models in (the town is not left on lofted bodies)', async () => {
+        const { disposeSharedCarAssets } = await import('./carModel');
+        disposeSharedCarAssets();
+        setCarMeshCache(makeCarMeshCache(async () => fakeGltf(), () => '/'));
+        const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'toyota-camry', true);
+        await new Promise(r => setTimeout(r, 0));
+        expect(partsOf(group).mesh).toBeNull(); // held for the precompile
+        const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+        const broken = { compile() { throw new Error('context lost'); }, render() {}, getScissorTest: () => false, getScissor: (v: THREE.Vector4) => v, setScissor() {}, setScissorTest() {}, shadowMap: { enabled: false, needsUpdate: false } } as unknown as THREE.WebGLRenderer;
+        const scene = new THREE.Scene();
+        carFrameTick(); precompileCarsTick(broken, scene, new THREE.PerspectiveCamera());
+        expect(partsOf(group).mesh).toBe('toyota-camry');
+        expect(warn).toHaveBeenCalledTimes(1);
+        expect(scene.children.length).toBe(0); // the probe car is gone again
+        carFrameTick(); precompileCarsTick(broken, scene, new THREE.PerspectiveCamera()); // done: no second try, no second warning
+        expect(warn).toHaveBeenCalledTimes(1);
+        // and it really is done (not stuck mid-way): the next town car gets its model at once
+        const next = buildCarModel('sedan', '#0000ff', 100, 100, 'toyota-camry', true).group;
+        expect(partsOf(next).mesh).toBe('toyota-camry');
+        disposeCarModel(next);
+        warn.mockRestore();
+        disposeCarModel(group);
+    });
+});
+
+describe('the Car models setting (Garage, Options)', () => {
+    afterEach(async () => { (await import('./carModel')).setCarModels(true); });
+    it('off: a car is built on its lofted body and no model file is asked for', async () => {
+        const { setCarModels } = await import('./carModel');
+        setCarModels(false);
+        setCarMeshCache(deferred());
+        const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'toyota-camry');
+        expect(urls).toEqual([]);
+        expect(partsOf(group).mesh).toBeNull();
+        disposeCarModel(group);
+    });
+    it('turned off, a car on its model goes back to its lofted body, whole; turned on, its model comes back without a second fetch', async () => {
+        const { setCarModels } = await import('./carModel');
+        const lofted = buildCarModel('sedan', '#00ff00', 100, 100).group, L = partsOf(lofted) as Parts & { pivots: THREE.Object3D[]; beamZ: number };
+        setCarLights(lofted, 'on');
+        const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'toyota-camry');
+        const c = partsOf(group) as Parts & { pivots: THREE.Object3D[]; beamZ: number };
+        setCarLights(group, 'on');
+        expect(c.mesh).toBe('toyota-camry');
+        let changed = 0; group.addEventListener(CAR_BODY_CHANGE as never, () => { changed++; });
+        setCarModels(false);
+        expect(c.mesh).toBeNull(); expect(changed).toBe(1); // the kit and the Garage camera fit again
+        // every part as on a car built lofted: geometry, trim material (lit), shadows, paint side, wheels, sizes
+        for (const k of ['body', 'trim', 'glass', 'farBody', 'farTrim'] as const) expect(c[k].geometry).toBe(L[k].geometry);
+        expect(c.trim.material).toBe(L.trim.material); expect(c.farTrim.material).toBe(L.farTrim.material);
+        expect(c.trim.castShadow).toBe(false);
+        expect((c.body.material as THREE.Material).side).toBe(THREE.FrontSide);
+        expect(c.wheelMesh.geometry).toBe(L.wheelMesh.geometry);
+        for (const i of [0, 1, 2, 3]) { expect(c.pivots[i].position).toEqual(L.pivots[i].position); expect(wheelAt(c, i).s.x).toBeCloseTo(1); }
+        expect(c.length).toBe(L.length); expect(c.width).toBe(L.width); expect(c.beamZ).toBe(L.beamZ);
+        expect(c.halos.geometry.getAttribute('position').count).toBe(L.halos.geometry.getAttribute('position').count);
+        expect((c as unknown as { meshWheel: unknown }).meshWheel).toBeNull(); // the kit sizes its wheels from the lofted body again
+        expect(c.wheelMesh.boundingSphere!.center).toEqual(L.wheelMesh.boundingSphere!.center); // culled by the lofted wheels
+        expect(c.wheelMesh.boundingSphere!.radius).toBeCloseTo(L.wheelMesh.boundingSphere!.radius, 6);
+        urls = [];
+        setCarModels(true);
+        expect(c.mesh).toBe('toyota-camry'); expect(changed).toBe(2); expect(urls).toEqual([]);
+        expect((c.body.material as THREE.Material).side).toBe(THREE.DoubleSide);
+        disposeCarModel(group); disposeCarModel(lofted);
+    });
+    it('a model that arrives after the setting went off is not put in, and turning it on again puts it in once', async () => {
+        const { setCarModels } = await import('./carModel');
+        setCarMeshCache(deferred());
+        const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'honda-civic');
+        let changed = 0; group.addEventListener(CAR_BODY_CHANGE as never, () => { changed++; });
+        setCarModels(false); setCarModels(true); setCarModels(false); setCarModels(true); // flipped while the file loads
+        release(); await new Promise(r => setTimeout(r, 0));
+        expect(partsOf(group).mesh).not.toBeNull(); expect(changed).toBe(1); // put in once, not once per flip
+        setCarMeshCache(deferred());
+        const late = buildCarModel('sedan', '#00ff00', 100, 100, 'honda-fit').group;
+        setCarModels(false);
+        release(); await new Promise(r => setTimeout(r, 0));
+        expect(partsOf(late).mesh).toBeNull();
+        disposeCarModel(group); disposeCarModel(late);
+    });
+    it('a model held for the precompile is dropped when the setting goes off', async () => {
+        const { disposeSharedCarAssets, setCarModels, releaseHeldCarBodies } = await import('./carModel');
+        disposeSharedCarAssets();
+        const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'toyota-camry', true);
+        expect(partsOf(group).mesh).toBeNull(); // held
+        setCarModels(false);
+        releaseHeldCarBodies();
+        expect(partsOf(group).mesh).toBeNull();
+        disposeCarModel(group);
+    });
+});
+

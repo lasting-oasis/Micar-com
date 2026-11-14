@@ -57,3 +57,32 @@ describe('the Garage camera', () => {
     expect(camFit(6.085 * 2)).toBeCloseTo(1.24, 2);
   });
 });
+
+describe('the Garage camera between cars', () => {
+  it("keeps the player's zoom: scaled by the change in camFit when a longer car comes, unchanged for the same length", async () => {
+    const { camFit, refitCam } = await import('./GarageScene');
+    const tundra = 6.085 * 2, sedan = 9.4, zoomed = 11; // a player zoomed in on a sedan (camFit 1)
+    const a = refitCam(zoomed, 1, tundra);
+    expect(a.fitK).toBeCloseTo(camFit(tundra)); expect(a.r).toBeCloseTo(zoomed * camFit(tundra));
+    expect(refitCam(a.r, a.fitK, tundra)).toEqual(a); // the same car rebuilt (a colour previewed): no change
+    const b = refitCam(a.r, a.fitK, sedan); // back to the sedan: the player's own zoom again
+    expect(b.r).toBeCloseTo(zoomed); expect(b.fitK).toBe(1);
+  });
+});
+
+describe('the Options menu', () => {
+  it('has a Car models row: Detailed by default, Simple after one press, which it hands to the options storage', () => {
+    const set: [string, unknown][] = [];
+    const g = model({});
+    (g as unknown as { ctx: { setOpt: (k: string, v: unknown) => void } }).ctx.setOpt = (k, v) => { set.push([k, v]); };
+    g.enterPath(['options']);
+    const i = g.rowIds().indexOf('models');
+    expect(i).toBeGreaterThanOrEqual(0);
+    expect(g.rows()[i].status).toEqual({ text: 'Detailed', tone: 'muted' });
+    g.select(i); expect(g.desc()).toMatch(/built-in body/i);
+    g.activate();
+    expect(set).toEqual([['models', false]]);
+    expect(g.rows()[i].status!.text).toBe('Simple');
+  });
+});
+

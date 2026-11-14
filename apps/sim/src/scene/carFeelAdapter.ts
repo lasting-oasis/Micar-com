@@ -14,6 +14,7 @@ export class CarFeelAdapter {
   private feel: Feel = freshFeel();
   private smoke: TireSmoke | null = null;
   private smokeFor: THREE.Object3D | null = null;
+  private smokeIdx: number[] = []; // the wheels the smoke comes from (RR, RL, and the fronts on a FWD car)
   private skids: Partial<Record<'town' | 'strip', SkidMarks>> = {};
   private last: [number, number] | null = null;
 
@@ -30,7 +31,7 @@ export class CarFeelAdapter {
     }
     if (this.smokeFor !== mesh) {
       this.smoke?.dispose();
-      const idx = V.P.drive === 'FWD' ? [2, 3, 0, 1] : [2, 3];
+      const idx = this.smokeIdx = V.P.drive === 'FWD' ? [2, 3, 0, 1] : [2, 3];
       this.smoke = new TireSmoke(mesh, idx.map(i => new THREE.Vector3(rig.pivots[i].position.x, 0, rig.pivots[i].position.z)));
       this.smokeFor = mesh;
     }
@@ -56,6 +57,11 @@ export class CarFeelAdapter {
   /** The marks of a district go when the car leaves it. */
   clearSkids(district: 'town' | 'strip'): void { this.skids[district]?.dispose(); delete this.skids[district]; this.last = null; }
 
+  /** The car's body changed (its own model, or the lofted one back): the tyre smoke moves to its new wheels. */
+  resetSmoke(): void {
+    const rig = this.smokeFor?.userData.car as Rig | undefined;
+    if (this.smoke && rig) this.smoke.moveTo(this.smokeIdx.map(i => new THREE.Vector3(rig.pivots[i].position.x, 0, rig.pivots[i].position.z)));
+  }
   /** Out of the car: the body levels, smoke and marks go. */
   release(mesh: THREE.Group | undefined): void {
     const rig = mesh?.userData.car as Rig | undefined;

@@ -8,6 +8,7 @@
 import { CATS, EVENTS, EV_NAME, TRACK_NAMES, PERF, TUNES, getV, isOwned, withV, type CarCfg, type PartValue, type EventDef } from './data';
 import { carParams, clamp, dynoCurve, simStats, type Params, type PerfCfg, type Tune, type VehicleSpec } from './physics';
 import { routeFor, trackLoaded, TRACKS } from './strip/district';
+import { OPTION_DEFAULTS } from './options';
 
 const clone = <T>(o: T): T => JSON.parse(JSON.stringify(o)) as T;
 const money = (n: number): string => '$' + Math.round(n).toLocaleString('en-US');
@@ -62,7 +63,7 @@ export const MENU: Record<string, MenuDef> = {
     { n: 'Visual', to: 'visual', d: 'Paint, rims, body kits, vinyls, lights and hydraulics. Raises your star rating.' },
     { n: 'Performance', to: 'perf', d: 'Engine, turbo, nitrous and handling parts, plus dyno tuning.' },
     { n: 'Your cars', to: 'cars', d: 'Switch to another car you own. Each keeps its own parts.' },
-    { n: 'Options', to: 'options', d: 'Transmission, units, camera, sound, touch controls.' },
+    { n: 'Options', to: 'options', d: 'Transmission, units, camera, sound, touch controls, car models.' },
   ] },
   visual: { n: 'Visual', items: [{ n: 'Paint', to: 'g_paint' }, { n: 'Rims', to: 'g_rims' }, { n: 'Body kit', to: 'g_body' }, { n: 'Graphics', to: 'g_gfx' }, { n: 'Lights', to: 'g_lights' }, { cat: 'hydraulics' }] },
   g_paint: { n: 'Paint', items: [{ cat: 'color' }, { cat: 'finish' }] },
@@ -79,8 +80,9 @@ export const OPTS: { k: string; n: string; vals: unknown[]; lab: string[]; d?: s
   { k: 'cam', n: 'Camera', vals: [0, 1, 2], lab: ['Chase', 'Far chase', 'Hood'] },
   { k: 'mute', n: 'Sound', vals: [false, true], lab: ['On', 'Off'] },
   { k: 'controls', n: 'Touch controls', vals: ['sticks', 'buttons'], lab: ['Sticks', 'Buttons'], d: 'On a phone: a steering stick and a gas stick, or the old buttons.' },
+  { k: 'models', n: 'Car models', vals: [true, false], lab: ['Detailed', 'Simple'], d: "Detailed: each car's own 3D model where it has one. Simple: every car on its lighter built-in body, and no car model is downloaded." },
 ];
-const OPT_DEF: Record<string, unknown> = { manual: false, units: 'mph', cam: 0, mute: false, controls: 'sticks' };
+const OPT_DEF: Record<string, unknown> = { ...OPTION_DEFAULTS };
 
 const routeLen = new Map<string, number>();
 /** One route length of an event, in metres: the loaded route's, else the index's per-event length (the lap length as a last resort). Exported for tests. */
