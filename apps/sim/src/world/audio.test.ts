@@ -52,7 +52,11 @@ describe('one audio output, and waking it', () => {
   });
   class FakeCtx {
     state = 'running'; currentTime = 0; sampleRate = 48000; destination = node(); resumed = 0; closed = 0; masters: { disconnect: () => void; cut: number }[] = [];
+    audioWorklet = { addModule: () => Promise.resolve() };
+    /** Every analyser made, with the sample value it reads back. */
+    analysers: { fill: number; fftSize: number; connect: () => void; disconnect: () => void; getFloatTimeDomainData: (b: Float32Array) => void }[] = [];
     constructor() { made.push(this); }
+    createAnalyser() { const a = { fill: 0, fftSize: 2048, connect() {}, disconnect() {}, getFloatTimeDomainData(b: Float32Array) { b.fill(a.fill); } }; this.analysers.push(a); return a; }
     resume() { this.resumed++; this.state = 'running'; return Promise.resolve(); }
     suspend() { this.state = 'suspended'; return Promise.resolve(); }
     close() { this.closed++; this.state = 'closed'; return Promise.resolve(); }
@@ -60,9 +64,16 @@ describe('one audio output, and waking it', () => {
     createGain() { const g = node() as { disconnect: () => void; cut: number }; const m = { cut: 0, gain: { value: 0, setTargetAtTime() {}, setValueAtTime() {}, cancelScheduledValues() {}, linearRampToValueAtTime() {}, exponentialRampToValueAtTime() {} }, connect: (d: unknown) => d, disconnect: () => { m.cut++; } }; this.masters.push(m); void g; return m; }
     createOscillator() { return node(); } createBiquadFilter() { return node(); } createBufferSource() { return node(); }
   }
-  const G = globalThis as unknown as { AudioContext?: unknown };
+  const G = globalThis as unknown as { AudioContext?: unknown; AudioWorkletNode?: unknown };
   const withFake = () => { made.length = 0; G.AudioContext = FakeCtx; };
-  afterEach(() => { delete G.AudioContext; });
+  afterEach(() => { delete G.AudioContext; delete G.AudioWorkletNode; });
+  /** The engine model's node: its port is what the processor talks to the page through. */
+  const ports: { onmessage: ((e: { data: unknown }) => void) | null }[] = [];
+  const withWorklet = () => {
+    ports.length = 0;
+    G.AudioWorkletNode = class { port = { onmessage: null, postMessage() {} }; parameters = new Map(); constructor() { ports.push(this.port); } connect(d: unknown) { return d; } disconnect() {} };
+  };
+  const modelStarted = () => new Promise(r => setTimeout(r, 0));
 
   it('wakes a context the phone has interrupted, not only one it suspended itself', () => {
     withFake(); const a = new Audio(false, 'classic'); a.resume();
@@ -131,6 +142,40 @@ describe('one audio output, and waking it', () => {
     a.resume(); drive(a, clock, 0.8);
     expect(a.health()).toBe('ok');
     a.dispose();
+  });
+  // ?audiodebug, for a phone with no console: where does the sound stop?
+  it('the debug line counts the engine model starting afresh after a sample that was not a number', async () => {
+    withFake(); withWorklet();
+    const a = new Audio(false, 'model'); a.setCar(soundFactsFor({ engine: '2.0L I4 Turbo', bodyStyle: 'coupe', redline: 7000 })); a.resume();
+    try {
+      await modelStarted();
+      expect(a.modelActive).toBe(true);
+      expect(a.debugLine()).toContain('resets=0');
+      ports[0].onmessage?.({ data: { resets: 2 } });
+      expect(a.debugLine()).toContain('resets=2');
+    } finally { a.dispose(); }
+  });
+  it('the debug line says NaN when what reaches the speakers is not a number', () => {
+    withFake(); const a = new Audio(false, 'classic'); a.resume();
+    try {
+      a.debugLine();
+      for (const an of made[0].analysers) an.fill = NaN;
+      expect(a.debugLine()).toMatch(/out NaN/);
+    } finally { a.dispose(); }
+  });
+  it('the debug line gives the engine\'s level and the whole output\'s level', async () => {
+    withFake(); withWorklet();
+    const a = new Audio(false, 'model'); a.setCar(soundFactsFor({ engine: '2.0L I4 Turbo', bodyStyle: 'coupe', redline: 7000 })); a.resume();
+    try {
+      await modelStarted();
+      a.debugLine();
+      for (const an of made[0].analysers) an.fill = 0.125;   // -18 dB
+      const line = a.debugLine();
+      expect(line).toMatch(/engine -18dB/);
+      expect(line).toMatch(/out -18dB/);
+      for (const an of made[0].analysers) an.fill = 0;
+      expect(a.debugLine()).toMatch(/engine silent.*out silent/);
+    } finally { a.dispose(); }
   });
   it('after everything is closed, the next Audio starts a fresh output', () => {
     withFake(); const a = new Audio(false, 'classic'); a.resume(); a.dispose();

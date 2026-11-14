@@ -43,6 +43,10 @@ export class Audio {
   // Health: an iPhone can leave the output interrupted, or 'running' with its clock stopped. Watched each frame.
   private clock = (): number => performance.now();
   private seenTime = -1; private stuckSince = -1; private rebuilt = 0;
+  /** How often the engine processor has started the model afresh after a sample that was not a number. */
+  private modelResets = 0;
+  /** ?audiodebug only: analysers on the engine model's output and on the whole output, made on the first readout. */
+  private probe: { AC: Ctx; out: AnalyserNode; eng: AnalyserNode | null; engOf: AudioNode | null; buf: Float32Array<ArrayBuffer> } | null = null;
 
   /** 'ok', 'stalled' (its clock has not moved for over a second), 'interrupted'/'suspended' (stuck so for over a second), 'closed', or 'none' before the first tap. */
   health(): 'ok' | 'stalled' | 'interrupted' | 'suspended' | 'closed' | 'none' {
@@ -51,10 +55,24 @@ export class Audio {
     if (this.stuckSince < 0 || this.clock() - this.stuckSince < 1000) return 'ok';
     return AC.state === 'running' ? 'stalled' : (AC.state as 'interrupted' | 'suspended');
   }
-  /** One line for the on-screen readout (?audiodebug). */
+  /** One line for the on-screen readout (?audiodebug): the context, then where the sound is lost, if it is.
+   *  "engine" is the model's own output before its gain, "out" everything on its way to the speakers. */
   debugLine(): string {
-    const AC = this.AC; if (!AC) return 'audio: not started (tap)';
-    return `audio: ${AC.state} t=${AC.currentTime.toFixed(1)} ${AC.sampleRate}Hz ${this.health()} model=${this.modelActive ? 'on' : 'off'} rebuilt=${this.rebuilt}`;
+    const AC = this.AC, A = this.A; if (!AC || !A) return 'audio: not started (tap)';
+    let p = this.probe;
+    if (!p || p.AC !== AC) { const out = AC.createAnalyser(); out.fftSize = 2048; A.master.connect(out); p = this.probe = { AC, out, eng: null, engOf: null, buf: new Float32Array(2048) }; }
+    if (this.node && p.engOf !== this.node) { const eng = AC.createAnalyser(); eng.fftSize = 2048; this.node.connect(eng); p.eng = eng; p.engOf = this.node; }
+    const gain = (g: GainNode | null) => g ? g.gain.value.toFixed(2) : '-';
+    return `audio: ${AC.state} t=${AC.currentTime.toFixed(1)} ${AC.sampleRate}Hz ${this.health()} model=${this.modelActive ? 'on' : 'off'} rebuilt=${this.rebuilt}`
+      + ` | engine ${this.level(p.eng)} x${gain(this.nodeGain)} resets=${this.modelResets} | out ${this.level(p.out)} x${gain(A.master)}`;
+  }
+  /** The peak an analyser sees, in dB; "NaN" if any sample is not a number. */
+  private level(an: AnalyserNode | null): string {
+    const b = this.probe?.buf; if (!an || !b) return '-';
+    an.getFloatTimeDomainData(b);
+    let peak = 0;
+    for (let i = 0; i < b.length; i++) { const v = b[i]; if (v - v !== 0) return 'NaN'; const m = v < 0 ? -v : v; if (m > peak) peak = m; }
+    return peak < 1e-5 ? 'silent' : `${Math.round(20 * Math.log10(peak))}dB`;
   }
   private watch(): void {
     const AC = this.AC; if (!AC) return;
@@ -89,6 +107,7 @@ export class Audio {
         if (this.AC !== AC) return; // disposed while loading
         const node = new AudioWorkletNode(AC, 'micar-engine', { numberOfInputs: 0, outputChannelCount: [2], processorOptions: { facts: this.facts } });
         const g = AC.createGain(); g.gain.value = 0; node.connect(g).connect(master);
+        node.port.onmessage = (e: MessageEvent<{ resets?: number }>) => { if (typeof e.data?.resets === 'number') this.modelResets = e.data.resets; };
         this.node = node; this.nodeGain = g; this.send(this.sentTurbo);
       })
       .catch(() => { /* the classic engine keeps playing */ });
@@ -185,7 +204,7 @@ export class Audio {
       try { this.A?.master.disconnect(); } catch { /* not connected */ }
       if (shared && shared.AC === AC && --shared.refs <= 0) { shared = null; void AC.close().catch(() => {}); }
     }
-    this.sources = []; this.AC = null; this.A = null; this.node = null; this.nodeGain = null; this.quiet = true; this.stuckSince = -1; this.seenTime = -1;
+    this.sources = []; this.AC = null; this.A = null; this.node = null; this.nodeGain = null; this.probe = null; this.quiet = true; this.stuckSince = -1; this.seenTime = -1;
   }
 
   private ctx(): Ctx | null {

@@ -139,6 +139,23 @@ describe('EngineSound: safety and cost', () => {
     }
     expect(bad).toBe(0);
   });
+  // The audio thread hands the model whatever floats it is given. Past either end of its range an input counts as that end.
+  it.each([
+    ['boost below 0', { boost: -0.2 }, { boost: 0 }],
+    ['boost above 1', { boost: 1.7 }, { boost: 1 }],
+    ['throttle below 0', { throttle: -0.5 }, { throttle: 0 }],
+    ['throttle above 1', { throttle: 1.5 }, { throttle: 1 }],
+    ['load above 1', { load: 2 }, { load: 1 }],
+    ['rpm below 0', { rpm: -500 }, { rpm: 0 }],
+    ['boost NaN', { boost: NaN }, { boost: 0 }],
+    ['rpm NaN', { rpm: NaN }, { rpm: 0 }],
+  ] as [string, Drive, Drive][])('a turbo engine told %s stays finite and sounds as at the end of the range', (_, past, end) => {
+    const f = facts({ induction: 'turbo' }), all: Mix = { exhaustGain: 1, intakeGain: 1, bayGain: 1 };
+    const [L] = render(f, past, 1, 1, all), [E] = render(f, end, 1, 1, all);
+    expect(L.every(Number.isFinite)).toBe(true);
+    let most = 0; for (let i = 0; i < L.length; i++) most = Math.max(most, Math.abs(L[i] - E[i]));
+    expect(most).toBe(0);
+  });
   it('falls silent when the engine stops', () => {
     const s = new EngineSound(facts({}), SR, { seed: 1 });
     Object.assign(s, { rpm: 3000, throttle: 1, load: 1 });

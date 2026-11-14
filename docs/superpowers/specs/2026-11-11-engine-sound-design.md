@@ -44,6 +44,8 @@ All of it is in `apps/sim/src/sound/`. It has no dependencies and does not touch
 
 `rpm`, `throttle` (0 to 1), `load` (−1 to 1, negative is engine braking), `boost` (0 to 1), `cut` (0 or 1). `engineDrive()` in `world/audio.ts` reads these from today's driving model. The planned physics core should supply them directly; its Telemetry list does not yet include throttle, engine load or the cut flag.
 
+An AudioParam carries any float, so the model takes an input past either end of its range as that end, and NaN as the low end; rpm has no upper end. Before 2026-11-14 a boost below zero on a turbo engine made the whistle's phase NaN for good, and every sample with it.
+
 ### Constants
 
 These are the same for every car and are not tuned per car.
@@ -84,6 +86,8 @@ A Garage turbo on a naturally aspirated engine switches its induction to turbo.
 - `engine.worklet.ts` runs the model in the audio thread as the `micar-engine` processor.
 - `Audio` in `world/audio.ts` takes a mode. In `model` mode it loads the processor, sends it the car's facts and feeds it the frame inputs. Until the processor is running, and for cars with no facts, the old oscillators play.
 - `VanillaThreeScene.tsx` sends new facts whenever the driven car changes.
+- The processor checks every block it renders. A sample that is not a number stays in the model's filters for good, and in the page's one shared output it can silence every sound on the page. So that block goes out silent and the model is built afresh from the same facts, at most once a second, because a new model allocates on the audio thread. The processor tells the page each time.
+- `?audiodebug` shows, bottom left: the context's state, clock, rate and health; whether the model is on; how often the page rebuilt the sound (`rebuilt`). Then `engine`, the model's own level before its gain and that gain, with `resets`, the processor's fresh starts; and `out`, the level of everything on its way to the speakers and the master gain. A level reads `NaN` if any sample is not a number, `silent` if all are below -100 dB. The two analysers behind the levels are made only when `?audiodebug` asks for them.
 - Only the player's car is voiced.
 
 ## Tests
@@ -91,8 +95,10 @@ A Garage turbo on a naturally aspirated engine switches its induction to turbo.
 - `firing.test.ts`: spacing per layout and crank, the firing order check.
 - `engineSound.test.ts`: what the physics should give, measured from the rendered sound by engine order. Inline-four: second order leads. Cross-plane V8 on one bank's pipe: half orders stand within 10 dB of fourth order. Merged into equal pipes: they drop more than 20 dB. Unequal branches: they come back. Flat-plane: none. Flat-four with unequal runners: half orders rise more than 10 dB. Also load, cut, the two mufflers, intake, supercharger, turbo, pops, staying in range under random driving, silence when stopped, and speed.
 - `carSound.test.ts`: reading the catalog string and the class defaults.
-- `world/audio.test.ts`: the switch and the frame inputs.
-- `e2e/sound.smoke.mjs`: renders one second through the built processor in Chromium and fails if it is silent or out of range. It runs in CI beside the Strip smoke test.
+- `engineSound.test.ts` also checks that each input past its range sounds the same as the end of the range, and stays finite, on a turbo engine.
+- `engine.worklet.test.ts`: the real processor, with the audio thread's globals stood in. A block with a sample that is not a number goes out silent and the engine comes back; the page is told; a fault that stays is silent throughout and rebuilt at most once a second.
+- `world/audio.test.ts`: the switch, the frame inputs, the shared output, the health watch and the `?audiodebug` line.
+- `e2e/sound.smoke.mjs`: renders one second through the built processor in Chromium and fails if it is silent or out of range: a V8, and a turbo V8 told a boost of -0.5 (all 48,000 samples were NaN before the fix). It runs in CI beside the Strip smoke test.
 
 ## Measured from the clips
 
