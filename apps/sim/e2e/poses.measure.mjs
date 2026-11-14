@@ -59,7 +59,7 @@ out.extensions = { A: A.ext, B: B.ext }; // '' = no permessage-deflate negotiate
 const ai = await join(a, { mode: 'guest', name: 'PoseA' }), bi = await join(b, { mode: 'guest', name: 'PoseB' });
 out.ids = { A: ai.id, B: bi.id, idLen: ai.id.length };
 // the challenge, as serverWiring.test.ts drives it
-const made = roomSeen(a); a.emit('race_create', { eventId: 'royal_drag', car: 'ronin' });
+const made = roomSeen(a); a.emit('race_create', { eventId: 'harbour_gp', car: 'ronin' });
 const room = await made; out.room = { code: room.code, eventId: room.eventId };
 const two = roomSeen(a, r => r.members.length === 2);
 const bJoined = roomSeen(b); b.emit('race_join', { code: room.code }); await bJoined; await two;
