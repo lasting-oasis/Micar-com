@@ -14,7 +14,8 @@ import { TEST_CARS } from './tester';
 import { useLang, t } from '../i18n';
 import { TouchSticks } from './TouchSticks';
 import { getOptions } from './options';
-import { ChallengeButton, ChallengeSetup, StagingLine, WaitingRoom } from '../strip/Challenge';
+import { ChallengeButton, ChallengeSetup, QuickCountdown, StagingLine, WaitingRoom } from '../strip/Challenge';
+import { QuickRace } from '../strip/QuickRace';
 import { RaceMenu } from './RaceMenuScreen';
 
 const tap = (t: DriveTap) => useDriveUi.setState({ tap: t });
@@ -136,6 +137,7 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
   const returned = useDriveUi(s => s.returned);
   // a challenge race: its card in the lobby (making a room, or the host changing the race), the room, no restart
   const challenge = useDriveUi(s => s.challenge);
+  const quickRace = useDriveUi(s => s.quickRace);
   const netRace = useDriveUi(s => s.netRace);
   const inRoom = useGameStore(s => !!s.race);
   const lang = useLang();
@@ -239,10 +241,12 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
                   </div>
                 )}
                 {returned !== null && <div className="font-cond text-lg mb-3 text-white/80">Rental returned — {money(returned)} on hand</div>}
+                <QuickCountdown className="mb-3" />{/* only in a quick room counting down: the card is that room's race (no solo event while in a room) */}
                 {results.pending
                   ? <div role="status" className="w-full min-h-[44px] rounded-lg border border-market/40 py-2 text-center font-cond font-extrabold uppercase italic text-market">{t(lang, 'strip.ch.waitOthers')}</div>
                   : <div className="flex gap-2">
-                      {district === 'strip' && !netRace && returned === null && <button onClick={() => tap('again')} className="flex-1 min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">{t(lang, 'res.again')}</button>}
+                      {/* not in a room: the room races again by itself, and Race again would do nothing there */}
+                      {district === 'strip' && !netRace && !inRoom && returned === null && <button onClick={() => tap('again')} className="flex-1 min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">{t(lang, 'res.again')}</button>}
                       <button onClick={() => tap('continue')} className="flex-1 min-h-[44px] rounded-lg bg-market py-2 font-cond font-extrabold uppercase italic text-night">{t(lang, 'res.continue')} [Enter]</button>
                     </div>}
               </div>
@@ -280,7 +284,7 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
             </div>
           )}
 
-          {lobby && counter && !results && !paused && (challenge ? <ChallengeSetup /> : inRoom ? <WaitingRoom /> : <Counter />)}
+          {lobby && counter && !results && !paused && (challenge ? <ChallengeSetup /> : quickRace ? <QuickRace /> : inRoom ? <WaitingRoom /> : <Counter />)}
           {/* the lobby's pause button (Esc on a keyboard) */}
           <div className="absolute right-3 top-[38%]" style={{ display: touch && lobby && !results && !paused ? undefined : 'none' }}>
             <TapBtn t="pause" label="II" aria="Pause" />

@@ -1,6 +1,9 @@
 // The challenge screens' words and small sums, apart from their React: which line a refusal gets, the link a room is
 // sent by, how a race and a car are named, and what a result row says. Pure.
+import { t, type Lang } from '../i18n';
 import { EVENTS, EV_NAME } from '../world/data';
+import { quickEventOf } from '../world/race';
+import { CIRCUITS } from '../world/raceMenu';
 import { fmtT } from '../world/hud';
 import type { DenyWhy, RoomView } from '../world/race';
 import { RENTAL_FLEET } from '../world/rental';
@@ -10,12 +13,13 @@ export const CH_KEYS: readonly string[] = [
   'strip.ch.button', 'strip.ch.title', 'strip.ch.pickRace', 'strip.ch.pickCar', 'strip.ch.getLink', 'strip.ch.back',
   'strip.ch.room', 'strip.ch.link', 'strip.ch.share', 'strip.ch.copy', 'strip.ch.copied', 'strip.ch.shareText',
   'strip.ch.host', 'strip.ch.you', 'strip.ch.start', 'strip.ch.needTwo', 'strip.ch.waitingHost', 'strip.ch.change', 'strip.ch.save', 'strip.ch.leave',
-  'strip.ch.loading', 'strip.ch.getReady', 'strip.ch.inProgress', 'strip.ch.missed', 'strip.ch.calledOff',
+  'strip.ch.loading', 'strip.ch.getReady', 'strip.ch.inProgress', 'strip.ch.missed', 'strip.ch.calledOff', 'strip.ch.calledOffQuick',
   'strip.ch.last', 'strip.ch.dnf', 'strip.ch.racing', 'strip.ch.waitOthers', 'strip.ch.won', 'strip.ch.place', 'strip.ch.out',
   'strip.ch.invited', 'strip.ch.invitedPlain', 'strip.ch.join',
   'strip.ch.gone', 'strip.ch.full', 'strip.ch.onlyHost', 'strip.ch.busy', 'strip.ch.holding', 'strip.ch.pick', 'strip.ch.notNow',
   'strip.ch.size',
   'strip.ch.idle',
+  'strip.ch.quick', 'strip.ch.quickTitle', 'strip.ch.waiting', 'strip.ch.startsIn', 'strip.ch.quickNote',
 ];
 
 const DENY: Record<DenyWhy, string> = {
@@ -24,6 +28,17 @@ const DENY: Record<DenyWhy, string> = {
 };
 /** The line for a refusal; a reason this page does not know is still a no. */
 export const denyKey = (why: DenyWhy): string => DENY[why] ?? DENY.state;
+
+/** A quick room's countdown: whole seconds until `startsAt` (the server's clock), rounded up, never below zero. */
+export const startsInSeconds = (startsAt: number, now: number): number => Math.max(0, Math.ceil((startsAt - now) / 1000));
+/** The Quick race card's circuits: all ten, in the Races menu's order, each with its one quick event. Every one is open
+ *  to every stage (the owner's call, 2026-11-14: races between people pay nothing). The order never follows the counts,
+ *  so a row does not move under a finger. */
+export function quickRows(): { track: string; eventId: string }[] {
+  return CIRCUITS.flatMap(c => { const ev = quickEventOf(c.id); return ev ? [{ track: c.id as string, eventId: ev.id }] : []; });
+}
+/** How many are waiting in a circuit's quick room, as the Quick race list says it. */
+export const waitingText = (lang: Lang, n: number): string => t(lang, 'strip.ch.waiting').replace('{n}', String(n));
 
 /** The link a room is sent by: the Strip's entry card, with the room in the address. */
 export const shareUrl = (origin: string, code: string): string => `${origin}/strip?race=${code}`;

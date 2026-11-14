@@ -1,9 +1,37 @@
 import { describe, expect, it } from 'vitest';
 import { t } from '../i18n';
 import type { DenyWhy, RoomView } from '../world/race';
-import { CH_KEYS, cardOf, carLabel, denyKey, newsOf, raceLabel, rowsOf, shareUrl } from './challengeCopy';
+import { CH_KEYS, cardOf, carLabel, denyKey, newsOf, quickRows, raceLabel, rowsOf, shareUrl, startsInSeconds, waitingText } from './challengeCopy';
 
 const holes = (text: string) => [...text.matchAll(/\{(\w+)\}/g)].map(m => m[1]).sort();
+
+describe('quick race: its words and its countdown', () => {
+  it('the quick race lines are among the challenge lines, so each is in English and in Spanish', () => {
+    for (const key of ['strip.ch.quick', 'strip.ch.quickTitle', 'strip.ch.waiting', 'strip.ch.startsIn', 'strip.ch.quickNote', 'strip.ch.calledOffQuick']) expect(CH_KEYS).toContain(key);
+    // a quick room starts again by itself after a call-off: it does not ask anyone to try again
+    expect(t('en', 'strip.ch.calledOffQuick')).toBe('Not enough racers were ready: the room starts again by itself.');
+    expect(t('es', 'strip.ch.calledOffQuick')).toBe('No había suficientes corredores listos: la sala vuelve a empezar sola.');
+    expect(t('en', 'strip.ch.quick')).toBe('Quick race');
+    expect(t('es', 'strip.ch.quickTitle')).toBe('Elija un circuito'); // usted
+  });
+  it('the countdown is in whole seconds, rounded up, and never below zero', () => {
+    expect(startsInSeconds(31_000, 1_000)).toBe(30);
+    expect(startsInSeconds(31_000, 1_001)).toBe(30); // 29.999 s left reads 30
+    expect(startsInSeconds(31_000, 30_001)).toBe(1);
+    expect(startsInSeconds(31_000, 31_000)).toBe(0);
+    expect(startsInSeconds(31_000, 45_000)).toBe(0); // the server's tick is a second: it can be late, never negative
+  });
+  it("the Quick race card lists all ten circuits in the Races menu's order, every one open to every stage", () => {
+    const rows = quickRows();
+    expect(rows.map(r => r.track)).toEqual(['spa', 'monza', 'silverstone', 'suzuka', 'nurburgring', 'monaco', 'interlagos', 'cota', 'laguna', 'bathurst']);
+    // the Ardennes GP, a stage-5 race, is a row like any other: nothing on a row is about stages (the owner's call)
+    expect(rows.find(r => r.track === 'spa')).toEqual({ track: 'spa', eventId: 'ardennes_gp' });
+  });
+  it('"{n} waiting" says how many, in either language', () => {
+    expect(waitingText('en', 3)).toBe('3 waiting');
+    expect(waitingText('es', 0)).toBe('0 esperando');
+  });
+});
 
 describe('the challenge screens: their words', () => {
   it('every line is written in English and in Spanish, with the same blanks to fill', () => {

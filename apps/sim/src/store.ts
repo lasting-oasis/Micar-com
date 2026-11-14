@@ -192,9 +192,13 @@ interface StoreState {
   raceCode: string | null;
   /** the server's last refusal, until the next thing asked of the room */
   raceDenied: DenyWhy | null;
+  /** the room this page last left: a view of it still on its way (the room started as the page left) is not taken */
+  raceLeft: string | null;
   /** 'missed': a race went without this page (it was still loading at the start) */
   raceNote: 'missed' | null;
   createRace: (eventId: string, car: string) => void;
+  /** into the quick room filling on a circuit (Part 2), or a new one: the server picks the race and the car */
+  quickRace: (track: string) => void;
   joinRace: (code: string) => void;
   setRace: (eventId: string, car: string) => void;
   startRace: () => void;
@@ -262,6 +266,7 @@ export function raceHandlers(socket: { emit(ev: string, ...args: unknown[]): unk
   return {
     race_room(view: RoomView): void {
       if (!view || typeof view !== 'object' || typeof view.code !== 'string' || !Array.isArray(view.members)) return;
+      if (view.code === useGameStore.getState().raceLeft) return; // left already: a view still on its way does not pull the page back in
       const st = useGameStore.getState(), prev = st.race && st.race.code === view.code ? st.race : null, me = st.playerId;
       const was = prev?.members.find(m => m.id === me)?.state, now = view.members.find(m => m.id === me)?.state;
       let raceNote = st.raceNote;
@@ -422,14 +427,16 @@ export const useGameStore = create<StoreState>((set, get) => ({
   },
   race: null,
   raceCode: null,
+  raceLeft: null,
   raceDenied: null,
   raceNote: null,
-  createRace: (eventId, car) => { set({ raceDenied: null }); get().socket?.emit('race_create', { eventId, car }); },
+  createRace: (eventId, car) => { set({ raceDenied: null, raceLeft: null }); get().socket?.emit('race_create', { eventId, car }); },
+  quickRace: (track) => { set({ raceDenied: null, raceLeft: null }); get().socket?.emit('race_quick', { track }); },
   // before the player is in (a link just opened) this only remembers the room: the 'init' that follows joins it
-  joinRace: (code) => { set({ raceCode: code, raceDenied: null }); const s = get(); if (s.socket && s.playerId) s.socket.emit('race_join', { code }); },
+  joinRace: (code) => { set({ raceCode: code, raceDenied: null, raceLeft: null }); const s = get(); if (s.socket && s.playerId) s.socket.emit('race_join', { code }); },
   setRace: (eventId, car) => { set({ raceDenied: null }); get().socket?.emit('race_set', { eventId, car }); },
   startRace: () => { set({ raceDenied: null }); get().socket?.emit('race_start'); },
-  leaveRace: () => { get().socket?.emit('race_leave'); forgetRace(); },
+  leaveRace: () => { set({ raceLeft: get().race?.code ?? get().raceCode }); get().socket?.emit('race_leave'); forgetRace(); },
   strip: null,
   octane: 0,
   setStrip: (rec) => set({ strip: rec }),

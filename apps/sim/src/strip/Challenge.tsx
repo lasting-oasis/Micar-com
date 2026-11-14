@@ -8,22 +8,26 @@ import { useDriveUi } from '../world/driveUi';
 import { EVENTS, TRACK_NAMES, stageOf } from '../world/data';
 import { RENTAL_FLEET } from '../world/rental';
 import { RACE_MIN } from '../world/race';
-import { carLabel, denyKey, raceLabel, rowsOf, shareUrl } from './challengeCopy';
+import { serverNow } from '../world/raceNet';
+import { carLabel, denyKey, raceLabel, rowsOf, shareUrl, startsInSeconds } from './challengeCopy';
 
 // the rental counter's card and rows (DriveLayer.tsx), so the lobby's three cards sit in the same place on any screen;
 // on a phone these are tall, so they stop short of the right edge, where the lobby's pause button sits
-const CARD = 'pointer-events-auto absolute left-4 right-16 bottom-6 md:left-auto md:right-20 md:bottom-auto md:top-24 md:w-[340px] max-h-[calc(100dvh-6rem)] overflow-y-auto overscroll-contain rounded-xl border border-market/40 bg-night/95 p-5 text-white shadow-2xl';
-const ROW = 'w-full min-h-[44px] rounded-lg px-4 py-2 font-cond uppercase italic';
-const TITLE = 'font-cond italic font-black uppercase text-2xl md:text-3xl leading-none text-market';
-const LABEL = 'font-cond font-semibold uppercase tracking-[0.14em] text-xs text-haze';
-const SOLID = `${ROW} bg-market text-night font-extrabold text-center disabled:opacity-45 disabled:cursor-not-allowed`;
-const GHOST = `${ROW} border border-market/60 text-market font-extrabold text-center enabled:hover:bg-market enabled:hover:text-night disabled:opacity-45 disabled:cursor-not-allowed`;
-const PICK = `${ROW} text-left border border-market/60 aria-pressed:bg-market aria-pressed:text-night hover:border-market`;
-const ALERT = 'font-sans text-[13px] text-[#ff8a96]';
+/** A card's frame. CARD scrolls as a whole; the Quick race card scrolls only its list inside the frame, Back below it. */
+export const CARD_FRAME = 'pointer-events-auto absolute left-4 right-16 bottom-6 md:left-auto md:right-20 md:bottom-auto md:top-24 md:w-[340px] max-h-[calc(100dvh-6rem)] rounded-xl border border-market/40 bg-night/95 p-5 text-white shadow-2xl';
+export const CARD = `${CARD_FRAME} overflow-y-auto overscroll-contain`;
+export const ROW = 'w-full min-h-[44px] rounded-lg px-4 py-2 font-cond uppercase italic';
+export const TITLE = 'font-cond italic font-black uppercase text-2xl md:text-3xl leading-none text-market';
+export const LABEL = 'font-cond font-semibold uppercase tracking-[0.14em] text-xs text-haze';
+export const SOLID = `${ROW} bg-market text-night font-extrabold text-center disabled:opacity-45 disabled:cursor-not-allowed`;
+export const GHOST = `${ROW} border border-market/60 text-market font-extrabold text-center enabled:hover:bg-market enabled:hover:text-night disabled:opacity-45 disabled:cursor-not-allowed`;
+export const PICK = `${ROW} text-left border border-market/60 aria-pressed:bg-market aria-pressed:text-night hover:border-market`;
+export const ALERT = 'font-sans text-[13px] text-[#ff8a96]';
 /** a line with a name in it: the name goes in as it is (a name may hold a "$", which replace() would read as a pattern) */
 const fill = (text: string, hole: string, value: string) => text.replace(hole, () => value);
 
-/** The counter's way into a challenge; under it, what the server last said about one (a link to a room that is gone or full). */
+/** The counter's ways into a race of people: a challenge (a room and its link) and a quick race (a room filling on a
+ *  circuit); under them, what the server last said about one (a link to a room that is gone or full). */
 export function ChallengeButton() {
   const lang = useLang();
   const denied = useGameStore(s => s.raceDenied);
@@ -31,6 +35,9 @@ export function ChallengeButton() {
     <>
       <button type="button" className={`${SOLID} text-lg`} onClick={() => { useGameStore.setState({ raceDenied: null }); useDriveUi.setState({ challenge: true }); }}>
         {t(lang, 'strip.ch.button')}
+      </button>
+      <button type="button" className={`${GHOST} text-lg`} onClick={() => { useGameStore.setState({ raceDenied: null }); useDriveUi.setState({ quickRace: true }); }}>
+        {t(lang, 'strip.ch.quick')}
       </button>
       {denied && <p role="alert" className={ALERT}>{t(lang, denyKey(denied))}</p>}
     </>
@@ -94,6 +101,19 @@ export function ChallengeSetup() {
   );
 }
 
+/** A quick room's countdown to its next race, on the server's clock, drawn again a few times a second: in the waiting
+ *  room, and on the results card after a race, so nobody is put on the next grid without warning. Nothing when the room
+ *  is not counting. */
+export function QuickCountdown({ className = '' }: { className?: string }) {
+  const lang = useLang();
+  const room = useGameStore(s => s.race);
+  const counting = !!room?.quick && room.phase === 'open' && room.startsAt !== null;
+  const [, setTick] = useState(0);
+  useEffect(() => { if (!counting) return; const id = setInterval(() => setTick(n => n + 1), 250); return () => clearInterval(id); }, [counting]);
+  if (!counting) return null;
+  return <p role="timer" className={`font-cond italic font-extrabold uppercase text-2xl text-market ${className}`}>{fill(t(lang, 'strip.ch.startsIn'), '{s}', String(startsInSeconds(room!.startsAt!, serverNow())))}</p>;
+}
+
 /** The room: its race and car, the link to send, who is here, and (for the host) the start. */
 export function WaitingRoom() {
   const lang = useLang();
@@ -103,10 +123,23 @@ export function WaitingRoom() {
   const note = useGameStore(s => s.raceNote);
   const [copied, setCopied] = useState(false);
   useEffect(() => { if (!copied) return; const id = setTimeout(() => setCopied(false), 2000); return () => clearTimeout(id); }, [copied]);
+  // a quick room's wait after a race or a call-off ends at restUntil: drawn again then, so its first member has Start
+  // back while a later wait still counts down (a newcomer began it while the room was down to one)
+  const [, redraw] = useState(0);
+  const restUntil = room?.quick ? room.restUntil : null;
+  useEffect(() => {
+    if (restUntil == null) return;
+    const ms = restUntil - serverNow();
+    if (ms <= 0) return;
+    const id = setTimeout(() => redraw(n => n + 1), ms + 50);
+    return () => clearTimeout(id);
+  }, [restUntil]);
   if (!room) return null;
 
   const url = shareUrl(window.location.origin, room.code);
   const host = room.members.find(m => m.id === room.hostId), iHost = room.hostId === me;
+  // the wait after a quick room's race or call-off holds: no Start until it ends, when the room starts by itself (the owner's call)
+  const resting = !!room.quick && room.restUntil != null && serverNow() < room.restUntil;
   const racers = room.members.filter(m => m.state !== 'waiting');
   const drift = EVENTS.find(e => e.id === room.eventId)?.type === 'drift';
   const words = { dnf: t(lang, 'strip.ch.dnf'), racing: t(lang, 'strip.ch.racing') };
@@ -129,6 +162,7 @@ export function WaitingRoom() {
       <div className={`${TITLE} mb-2`}>{t(lang, 'strip.ch.room')}</div>
       <p className="font-cond font-extrabold italic uppercase text-xl leading-tight">{raceLabel(room.eventId)}</p>
       <p className="font-sans text-[13px] text-white/80 mb-3">{carLabel(room.car)}</p>
+      {room.quick && <p className="font-sans text-[13px] text-haze -mt-2 mb-3">{t(lang, 'strip.ch.quickNote')}</p>}
 
       <label className="block mb-3">
         <span className={`${LABEL} block mb-1.5`}>{t(lang, 'strip.ch.link')}</span>
@@ -154,19 +188,20 @@ export function WaitingRoom() {
       </ul>
 
       <div className="flex flex-col gap-2" aria-live="polite">
+        <QuickCountdown />
         {room.phase === 'loading' && <p className="font-cond text-lg text-white/90">{fill(fill(t(lang, 'strip.ch.loading'), '{n}', String(racers.filter(m => m.state !== 'loading').length)), '{of}', String(racers.length))}</p>}
         {room.phase === 'racing' && <p className="font-cond text-lg text-white/90">{t(lang, 'strip.ch.inProgress')}</p>}
         {note === 'missed' && <p role="status" className={ALERT}>{t(lang, 'strip.ch.missed')}</p>}
-        {room.note === 'called-off' && room.phase === 'open' && <p role="status" className={ALERT}>{t(lang, 'strip.ch.calledOff')}</p>}
+        {room.note === 'called-off' && room.phase === 'open' && <p role="status" className={ALERT}>{t(lang, room.quick ? 'strip.ch.calledOffQuick' : 'strip.ch.calledOff')}</p>}
         {denied && <p role="alert" className={ALERT}>{t(lang, denyKey(denied))}</p>}
-        {room.phase === 'open' && iHost && (
+        {room.phase === 'open' && iHost && !resting && (
           <>
             <button type="button" disabled={room.members.length < RACE_MIN} onClick={() => useGameStore.getState().startRace()} className={`${SOLID} text-lg`}>{t(lang, 'strip.ch.start')}</button>
             {room.members.length < RACE_MIN && <p className="font-sans text-[13px] text-haze">{t(lang, 'strip.ch.needTwo')}</p>}
-            <button type="button" onClick={() => { useGameStore.setState({ raceDenied: null }); useDriveUi.setState({ challenge: true }); }} className={GHOST}>{t(lang, 'strip.ch.change')}</button>
+            {!room.quick && <button type="button" onClick={() => { useGameStore.setState({ raceDenied: null }); useDriveUi.setState({ challenge: true }); }} className={GHOST}>{t(lang, 'strip.ch.change')}</button>}
           </>
         )}
-        {room.phase === 'open' && !iHost && <p className="font-cond text-lg text-white/90">{fill(t(lang, 'strip.ch.waitingHost'), '{host}', host?.name ?? '')}</p>}
+        {room.phase === 'open' && !iHost && !room.quick && <p className="font-cond text-lg text-white/90">{fill(t(lang, 'strip.ch.waitingHost'), '{host}', host?.name ?? '')}</p>}
       </div>
 
       {room.last && room.phase === 'open' && (

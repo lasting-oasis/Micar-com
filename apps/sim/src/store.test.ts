@@ -95,8 +95,8 @@ describe('a challenge room', () => {
     members: [member('h', 'waiting'), member('p1', 'waiting')], goAt: null, closesAt: null, last: null, note: null, ...over }) as unknown as RoomView;
   /** a socket that records what is sent; the clock probes (race_time) are the store's own business */
   const stub = () => { const all: unknown[][] = []; return { emit: (...a: unknown[]) => { all.push(a); return true; }, sent: () => all.filter(a => a[0] !== 'race_time'), probes: () => all.filter(a => a[0] === 'race_time').length }; };
-  beforeEach(() => { vi.useFakeTimers(); useGameStore.setState({ socket: null, playerId: 'p1', race: null, raceCode: null, raceDenied: null, raceNote: null }); });
-  afterEach(() => { vi.useRealTimers(); useGameStore.setState({ socket: null, playerId: null, race: null, raceCode: null, raceDenied: null, raceNote: null }); remotes.clear(); });
+  beforeEach(() => { vi.useFakeTimers(); useGameStore.setState({ socket: null, playerId: 'p1', race: null, raceCode: null, raceDenied: null, raceNote: null, raceLeft: null }); });
+  afterEach(() => { vi.useRealTimers(); useGameStore.setState({ socket: null, playerId: null, race: null, raceCode: null, raceDenied: null, raceNote: null, raceLeft: null }); remotes.clear(); });
 
   it('the room that arrives is kept, and is the room to come back to', () => {
     const s = stub(), h = raceHandlers(s);
@@ -197,12 +197,36 @@ describe('a challenge room', () => {
     expect(s.sent()).toEqual([['race_create', { eventId: 'royal_drag', car: 'ronin' }], ['race_join', { code: 'K7M2QX' }], ['race_set', { eventId: 'harbour_gp', car: 'civet' }], ['race_start']]);
     expect(useGameStore.getState()).toMatchObject({ raceCode: 'K7M2QX', raceDenied: null });
   });
+  it('quickRace sends the circuit the server reads, and clears a refusal', () => {
+    const s = stub();
+    useGameStore.setState({ socket: s as never, raceDenied: 'pick' });
+    useGameStore.getState().quickRace('monaco');
+    expect(s.sent()).toEqual([['race_quick', { track: 'monaco' }]]);
+    expect(useGameStore.getState().raceDenied).toBeNull();
+  });
   it('joinRace before the player is in only remembers the room: init joins it', () => {
     const s = stub();
     useGameStore.setState({ socket: s as never, playerId: null });
     useGameStore.getState().joinRace('K7M2QX');
     expect(s.sent()).toEqual([]);
     expect(useGameStore.getState().raceCode).toBe('K7M2QX');
+  });
+  it('after leaving, a view of that room already on its way does not pull the page back in; asking for it again does', () => {
+    const s = stub(), h = raceHandlers(s);
+    useGameStore.setState({ socket: s as never, race: view(), raceCode: 'K7M2QX' });
+    useGameStore.getState().leaveRace();
+    h.race_room(view({ phase: 'loading' })); // the server started the room as the page left it
+    expect(useGameStore.getState()).toMatchObject({ race: null, raceCode: null });
+    useGameStore.getState().joinRace('K7M2QX');
+    h.race_room(view());
+    expect(useGameStore.getState().race?.code).toBe('K7M2QX');
+  });
+  it('a page moved into another room follows it (the server merged its quick room into one whose race had ended)', () => {
+    const h = raceHandlers(stub());
+    useGameStore.setState({ race: view(), raceCode: 'K7M2QX' });
+    h.race_room(view({ code: 'B8N3RY', quick: true }));
+    expect(useGameStore.getState().raceCode).toBe('B8N3RY');
+    expect(useGameStore.getState().race?.code).toBe('B8N3RY');
   });
   it('leaveRace emits and forgets', () => {
     const s = stub();
