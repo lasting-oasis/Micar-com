@@ -33,6 +33,9 @@ const APP = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const EVENT = 'harbour_gp', CAR = 'ronin';
 /** The event-loop histogram's tick, as in health.ts: how late the loop was is its p99 less this. */
 const TICK_MS = 10;
+/** The first /healthz reading of a race: two of the server's 10 s load windows after the green light, so the window it
+ *  shows lies wholly inside the race. A race shorter than this gets one reading at its end, and is not judged on it. */
+const FIRST_READING_MS = 20_000;
 const DEFAULT_STEPS = '4x1,4x4,4x8,4x16,8x1,16x1,16x2,16x3';
 
 class Stop extends Error {} // an error that ends the run with exit 2
@@ -222,7 +225,8 @@ async function runStep(base: string, spec: StepSpec, seconds: number, hz: number
     await sleep(allGo - Date.now());
     loop.enable();
     const cpu0 = cpuTimes();
-    const figures = serverFigures(base, allGo + 12_000, firstEnd);
+    // /healthz gives its last completed 10 s window, which a reading 20 s after the green light can only show begun after it
+    const figures = serverFigures(base, allGo + FIRST_READING_MS, firstEnd);
     await driving;
     loop.disable();
     const cpu1 = cpuTimes();
