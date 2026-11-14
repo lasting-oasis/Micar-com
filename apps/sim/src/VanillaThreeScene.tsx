@@ -6,7 +6,7 @@ import { batchStatic } from './scene/staticBatcher';
 import { damp, groundLastOpaqueSort } from './scene/utils';
 import { Atmosphere } from './scene/atmosphere';
 import { carMeshId } from './scene/car/carMeshes';
-import { CAR_BODY_CHANGE, applyCarPaint, attachCarShadows, buildCarModel, carColorHex, carFrameTick, carStyleReady, deriveStyle, precompileCarsTick, disposeCarModel, disposeSharedCarAssets, setCarLights, syncCarWheels, updateCarLights, updateCars } from './scene/carModel';
+import { CAR_BODY_CHANGE, releaseHeldCarBodies, applyCarPaint, attachCarShadows, buildCarModel, carColorHex, carFrameTick, carStyleReady, deriveStyle, precompileCarsTick, disposeCarModel, disposeSharedCarAssets, setCarLights, syncCarWheels, updateCarLights, updateCars } from './scene/carModel';
 import { BlobShadows, Character, customerLook, dealerLook, disposeCharacterAssets } from './scene/characterModel';
 import { createGroundHeight } from './scene/groundHeight';
 import { createWorldContext } from './scene/world/context';
@@ -684,7 +684,7 @@ export function VanillaThreeScene() {
             const key = `${car.id}|${car.make}|${car.model}|${styleOf(car)}|${!!car.rental}|${!!car.testCar}`;
             if (!driveSpec || driveSpec.key !== key) {
                 driveSpec = { key, spec: specFor({ make: car.make, model: car.model, bodyStyle: styleOf(car), rental: car.rental, testCar: car.testCar }) };
-                audio.setCar(soundFactsFor({ engine: getCarSpec(car, styleOf(car)).engine, bodyStyle: styleOf(car), redline: driveSpec.spec.redline })); // no wheelbase: the driving spec's is its body type's stand-in, not this car's
+                audio.setCar(soundFactsFor({ engine: getCarSpec(car, styleOf(car)).engine, bodyStyle: styleOf(car), redline: driveSpec.spec.redline })); // no wheelbase: the driving spec's is its body type's stand-in, not this car's. The stock redline sizes the exhaust; audio.engine() passes on the redline an ECU remap gives the driving model
             }
             return driveSpec.spec;
         };
@@ -835,6 +835,7 @@ export function VanillaThreeScene() {
             S.enter(driver.V, mesh);
             carFeel.clearSkids('town');
             district = 'strip'; paused = false; resultsShown = false; driftMode = false;
+            releaseHeldCarBodies(); // (cars held for the town's precompile, which does not run in the Strip)
             applyPixelRatio();
             chase.reset(driver.V);
             interactPrompt.material.opacity = 0;
@@ -969,6 +970,7 @@ export function VanillaThreeScene() {
             stripExit.group.visible = !visitor(); // a visitor has no way back to town
             S.lobby(driveCam);
             lobby = true; district = 'strip'; paused = false;
+            releaseHeldCarBodies();
             applyPixelRatio();
             if (layerRoot) im.attach(layerRoot); // Esc and Enter (the pause menu, the results card)
             interactPrompt.material.opacity = 0;
@@ -1506,7 +1508,7 @@ export function VanillaThreeScene() {
                         const carStyle = (car as any).bodyStyle || deriveStyle(car.model);
                         // body styles are built a few milliseconds per frame; the car appears once its style is ready
                         if (!carStyleReady(carStyle)) return;
-                        const assets = buildCarModel(carStyle, carColorHex(car.color), car.bodyCondition, car.mechanicCondition, carMeshId(car.make, car.model), district === 'town');
+                        const assets = buildCarModel(carStyle, carColorHex(car.color), car.bodyCondition, car.mechanicCondition, carMeshId(car.make, car.model), () => district === 'town'); // (asked when the model arrives)
                         
                         const mesh = assets.group;
                         // its own model arrived: the driven car's kit is fitted again, to the new body

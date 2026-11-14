@@ -1,8 +1,10 @@
 import { afterEach, describe, expect, it } from 'vitest';
 import { Audio, engineDrive, soundMode } from './audio';
 import { soundFactsFor } from '../sound/carSound';
-import { carParams, makeVehicle } from './physics';
-import { ARCHETYPES, STOCK_CFG, TUNE_DEF } from './data';
+import type { SoundFacts } from '../sound/facts';
+import { carParams, makeVehicle, NO_INPUT } from './physics';
+import { ARCHETYPES, STOCK_CFG, TUNE_DEF, specFor } from './data';
+import { Driver } from './driver';
 
 describe('Audio', () => {
   it('is a no-op before resume and where there is no AudioContext (node)', () => {
@@ -36,6 +38,22 @@ describe('engine sound model wiring', () => {
     const b = car(); b.thr = 1; b.rpm = b.P.redline + 200; expect(engineDrive(b).cut).toBe(1);
     const c = car(); c.thr = 1; c.blown = true; expect(engineDrive(c).cut).toBe(1);
   });
+  // The Garage swaps the car's Params and keeps its state: a boost left from the turbo it had made the
+  // non-turbo model's firing and intake pulses up to 1.6 times as big.
+  it('tells the sound no boost once the Garage has taken the turbo off, on the throttle or off it', () => {
+    const spec = specFor({ make: 'Ford', model: 'Mustang', bodyStyle: 'coupe' });
+    const maxed = { ...STOCK_CFG, perf: { engine: 3, ecu: 3, turbo: 3, trans: 3, susp: 3, nos: 3, tires: 3, brakes: 3, weight: 3 } as const };
+    const d = new Driver(spec, { cfg: maxed, tune: TUNE_DEF }, { x: 0, z: 0, h: 0 });
+    const opts = { drift: false, fuel: () => 50, burn: () => {}, collide: () => 0 };
+    const full = { ...NO_INPUT, fwd: 1 };
+    for (let i = 0; i < 6 * 60; i++) d.stepFrame(1 / 60, full, opts);
+    expect(engineDrive(d.V).boost).toBeGreaterThan(0.9);   // spooled up
+    d.rebuild(spec, { cfg: { ...maxed, perf: { ...maxed.perf, turbo: 0 } }, tune: TUNE_DEF });
+    const told: number[] = [];
+    for (let i = 0; i < 2 * 60; i++) { d.stepFrame(1 / 60, full, opts); told.push(engineDrive(d.V).boost); }
+    for (let i = 0; i < 10 * 60; i++) { d.stepFrame(1 / 60, NO_INPUT, opts); told.push(engineDrive(d.V).boost); }
+    expect(Math.max(...told)).toBe(0);
+  });
   it('accepts a car before the sound is switched on', () => {
     const a = new Audio();
     expect(() => { a.setCar(soundFactsFor({ engine: '5.0L V8', bodyStyle: 'coupe', redline: 7000 })); a.setCar(null); }).not.toThrow();
@@ -51,7 +69,13 @@ describe('one audio output, and waking it', () => {
     apply: () => node(),
   });
   class FakeCtx {
-    state = 'running'; currentTime = 0; sampleRate = 48000; destination = node(); resumed = 0; closed = 0; masters: { disconnect: () => void; cut: number }[] = [];
+    /** The browser refuses to make a context: the constructor throws. */
+    static refusing = false;
+    /** The state a new context starts in: 'suspended' when made outside a tap the browser counts. */
+    static startState = 'running';
+    /** Whether resume() takes effect: not inside a tap an iPhone does not count (pointerdown). */
+    static counted = true;
+    state = FakeCtx.startState; currentTime = 0; sampleRate = 48000; destination = node(); resumed = 0; closed = 0; oscillators = 0; masters: { disconnect: () => void; cut: number }[] = [];
     audioWorklet = { addModule: () => Promise.resolve() };
     /** Every analyser made, with the sample value it reads back. */
     analysers: { fill: number; fftSize: number; from: unknown; connect: () => void; disconnect: () => void; getFloatTimeDomainData: (b: Float32Array) => void }[] = [];
@@ -60,25 +84,31 @@ describe('one audio output, and waking it', () => {
     addEventListener(type: string, f: () => void) { if (type === 'statechange') this.onState.push(f); }
     removeEventListener(type: string, f: () => void) { if (type === 'statechange') this.onState = this.onState.filter(g => g !== f); }
     setState(s: string) { this.state = s; for (const f of this.onState) f(); }
-    constructor() { made.push(this); }
+    constructor() { if (FakeCtx.refusing) throw new Error('cannot make an AudioContext'); made.push(this); }
     createAnalyser() { const a = { fill: 0, fftSize: 2048, from: null as unknown, connect() {}, disconnect() {}, getFloatTimeDomainData(b: Float32Array) { b.fill(a.fill); } }; this.analysers.push(a); return a; }
-    resume() { this.resumed++; this.setState('running'); return Promise.resolve(); }
+    resume() { this.resumed++; if (FakeCtx.counted) this.setState('running'); return Promise.resolve(); }
     suspend() { this.setState('suspended'); return Promise.resolve(); }
     close() { this.closed++; this.setState('closed'); return Promise.resolve(); }
     createBuffer() { return { getChannelData: () => new Float32Array(8) }; }
     createGain() { const g = node() as { disconnect: () => void; cut: number }; const m = { cut: 0, gain: { value: 0, setTargetAtTime() {}, setValueAtTime() {}, cancelScheduledValues() {}, linearRampToValueAtTime() {}, exponentialRampToValueAtTime() {} }, connect: (d: unknown) => { if (this.analysers.includes(d as never)) (d as { from: unknown }).from = m; return d; }, disconnect: () => { m.cut++; } }; this.masters.push(m); void g; return m; }
-    createOscillator() { return node(); } createBiquadFilter() { return node(); } createBufferSource() { return node(); }
+    createOscillator() { this.oscillators++; return node(); } createBiquadFilter() { return node(); } createBufferSource() { return node(); }
   }
   const G = globalThis as unknown as { AudioContext?: unknown; AudioWorkletNode?: unknown };
-  const withFake = () => { made.length = 0; G.AudioContext = FakeCtx; };
+  const withFake = () => { made.length = 0; FakeCtx.refusing = false; FakeCtx.startState = 'running'; FakeCtx.counted = true; G.AudioContext = FakeCtx; };
   afterEach(() => { delete G.AudioContext; delete G.AudioWorkletNode; });
   /** The engine model's node: its port is what the processor talks to the page through. */
   const ports: { onmessage: ((e: { data: unknown }) => void) | null }[] = [];
+  /** The worklet nodes made, for telling which analyser listens to the engine. */
   const nodes: unknown[] = [];
+  /** The facts each processor was built with, then every car message the page sent it, in order. */
+  const told: (SoundFacts | null)[] = [];
   const withWorklet = () => {
-    ports.length = 0;
-    nodes.length = 0;
-    G.AudioWorkletNode = class { port = { onmessage: null, postMessage() {} }; parameters = new Map(); constructor() { ports.push(this.port); nodes.push(this); } connect(d: unknown) { if (d && typeof d === 'object' && 'fill' in d) (d as unknown as { from: unknown }).from = this; return d; } disconnect() {} };
+    ports.length = 0; nodes.length = 0; told.length = 0;
+    G.AudioWorkletNode = class {
+      port = { onmessage: null, postMessage(m: { facts: SoundFacts | null }) { told.push(m.facts); } }; parameters = new Map();
+      constructor(_ctx: unknown, _name: string, o: { processorOptions: { facts: SoundFacts | null } }) { ports.push(this.port); nodes.push(this); told.push(o.processorOptions.facts); }
+      connect(d: unknown) { if (d && typeof d === 'object' && 'fill' in d) (d as unknown as { from: unknown }).from = this; return d; } disconnect() {}
+    };
   };
   const modelStarted = () => new Promise(r => setTimeout(r, 0));
 
@@ -176,6 +206,61 @@ describe('one audio output, and waking it', () => {
       ports[0].onmessage?.({ data: { resets: 5 } });   // a late word from the old processor
       expect(a.debugLine()).toContain('resets=4');
     } finally { a.dispose(); }
+  });
+  // The Garage's ECU remap raises the redline 150 rpm a step (carParams). The limiter cut already comes from the
+  // driving model's figure, so the rest of the model (its idle, pops, intake hiss, rpm guard) takes the same one.
+  describe('the redline the Garage\'s ECU moved', () => {
+    const coupe = ARCHETYPES.coupe, stock = coupe.redline;
+    const facts = () => soundFactsFor({ engine: '5.0L V8', bodyStyle: 'coupe', redline: stock })!;
+    const remapped = (ecu: 0 | 1 | 2 | 3) => makeVehicle(carParams(coupe, { ...STOCK_CFG.perf, ecu }, TUNE_DEF));
+    const started = async () => {
+      withFake(); withWorklet();
+      const a = new Audio(false, 'model'); a.setCar(facts()); a.resume();
+      await modelStarted();
+      return a;
+    };
+    it('reaches the engine model, with the exhaust still sized for the stock engine', async () => {
+      const a = await started();
+      try {
+        a.engine(remapped(3), 10, true);
+        const last = told[told.length - 1]!;
+        expect(last.redline).toBe(stock + 450);
+        expect(last.exhaust).toEqual(facts().exhaust);
+        expect(last.engine).toEqual(facts().engine);
+      } finally { a.dispose(); }
+    });
+    it('is sent once when it changes, not every frame: each message builds a new model on the audio thread', async () => {
+      const a = await started();
+      try {
+        const V = remapped(3);
+        const before = told.length;
+        for (let i = 0; i < 60; i++) a.engine(V, 10, true);
+        expect(told.length).toBe(before + 1);
+        V.P = remapped(1).P;                     // the Garage sells two steps back
+        for (let i = 0; i < 60; i++) a.engine(V, 10, true);
+        expect(told.length).toBe(before + 2);
+        expect(told[told.length - 1]!.redline).toBe(stock + 150);
+      } finally { a.dispose(); }
+    });
+    it('a stock ECU sends nothing more than the car itself', async () => {
+      const a = await started();
+      try {
+        const before = told.length;
+        for (let i = 0; i < 60; i++) a.engine(remapped(0), 10, true);
+        expect(told.length).toBe(before);
+        expect(told[told.length - 1]!.redline).toBe(stock);
+      } finally { a.dispose(); }
+    });
+    it('is still the remapped one after the sound is rebuilt on a tap', async () => {
+      const a = await started();
+      try {
+        a.engine(remapped(3), 10, true);
+        made[0].state = 'closed'; a.resume();    // something closed the output: the next tap builds the sound again
+        await modelStarted();
+        expect(ports.length).toBe(2);
+        expect(told[told.length - 1]!.redline).toBe(stock + 450);
+      } finally { a.dispose(); }
+    });
   });
   it('the debug line says NaN when what reaches the speakers is not a number', () => {
     withFake(); const a = new Audio(false, 'classic'); a.resume();
@@ -287,6 +372,113 @@ describe('one audio output, and waking it', () => {
         expect(a.debugLine()).toContain('froze 2.0s');
       } finally { a.dispose(); }
     });
+  });
+  // The watch looks at the output each frame in the car, and at each tap. Time with no look tells it nothing: getting out
+  // of the car, the lobby, the rental counter, a hidden tab, a long task on the page.
+  describe('time with nothing watching', () => {
+    const setup = () => {
+      withFake(); const clock = { t: 0 }, a = new Audio(false, 'classic'); (a as unknown as { clock: () => number }).clock = () => clock.t;
+      a.resume();
+      const V = makeVehicle(carParams(ARCHETYPES.sedan, STOCK_CFG.perf, TUNE_DEF));
+      const frames = (n: number, moving: boolean) => { for (let i = 0; i < n; i++) { clock.t += 16; if (moving) made[0].currentTime += 0.016; a.engine(V, 10, true); } };
+      frames(30, true);
+      frames(1, false);                            // the last frame in the car sees the clock between two of its steps
+      return { a, clock, frames };
+    };
+    it('a tap after it leaves a working output alone', () => {
+      const { a, clock } = setup();
+      try {
+        clock.t += 5000; made[0].currentTime += 5;   // five seconds on foot: the clock runs, nothing looks at it
+        a.resume();
+        expect(made.length).toBe(1); expect(made[0].closed).toBe(0); expect(a.health()).toBe('ok');
+      } finally { a.dispose(); }
+    });
+    it('a tap still catches an output whose clock stood still all that time', () => {
+      const { a, clock, frames } = setup();
+      try {
+        frames(1, true);                            // the last frame in the car sees the clock move
+        clock.t += 5000;                            // five seconds on foot, and the clock has not moved since
+        a.resume();
+        expect(made.length).toBe(2); expect(made[0].closed).toBe(1);
+      } finally { a.dispose(); }
+    });
+    it('a hidden tab shown again: the frames before its clock gets going are not a stall', () => {
+      const { a, clock, frames } = setup();
+      try {
+        a.suspend(); clock.t += 30000; a.wake();    // the clock stood still while suspended, as it should
+        frames(3, false);                           // 48 ms to get going again
+        a.resume();
+        expect(made.length).toBe(1); expect(made[0].closed).toBe(0);
+      } finally { a.dispose(); }
+    });
+    it('a tab shown again does not rebuild the sound (no tap: a new output could not start on an iPhone); a tap later does', () => {
+      const { a, frames } = setup();
+      try {
+        made[0].resume = () => Promise.resolve();   // a phone that will not let it go
+        made[0].state = 'interrupted'; frames(100, false);
+        expect(a.health()).toBe('interrupted');
+        a.suspend(); a.wake();
+        expect(made.length).toBe(1);
+        frames(70, false);                          // still interrupted, 1.1 s after the tab came back
+        a.resume();
+        expect(made.length).toBe(2);
+      } finally { a.dispose(); }
+    });
+  });
+  it('a tab shown again does not rebuild an output something else closed either; the next tap does', () => {
+    withFake(); const a = new Audio(false, 'classic'); a.resume();
+    try {
+      made[0].state = 'closed'; a.suspend(); a.wake();
+      expect(made.length).toBe(1);
+      a.resume();
+      expect(made.length).toBe(2);
+    } finally { a.dispose(); }
+  });
+  it('the tap after a rebuild wakes the new output rather than building another (an iPhone counts touchend, not pointerdown)', () => {
+    withFake(); const clock = { t: 0 }, a = new Audio(false, 'classic'); (a as unknown as { clock: () => number }).clock = () => clock.t;
+    a.resume(); drive(a, clock, 3);
+    try {
+      FakeCtx.startState = 'suspended'; FakeCtx.counted = false;
+      a.resume();                                      // pointerdown: the new output is made, but cannot start
+      expect(made.length).toBe(2); expect(made[1].state).toBe('suspended');
+      FakeCtx.counted = true; clock.t += 80;
+      a.resume();                                      // touchend, a moment later
+      expect(made.length).toBe(2); expect(made[1].state).toBe('running');
+    } finally { a.dispose(); }
+  });
+  it('an output woken from an interruption is not called stalled while its clock gets going', () => {
+    withFake(); const clock = { t: 0 }, a = new Audio(false, 'classic'); (a as unknown as { clock: () => number }).clock = () => clock.t;
+    a.resume(); made[0].currentTime = 1;
+    try {
+      made[0].state = 'interrupted'; drive(a, clock, 0.9);   // a call comes in, nearly a second
+      made[0].state = 'running'; drive(a, clock, 0.3);       // back, and the clock has yet to move
+      a.resume();
+      expect(made.length).toBe(1);
+    } finally { a.dispose(); }
+  });
+  it('a rebuild takes the Garage\'s sounds to the new output, not left on the closed one', () => {
+    withFake(); const clock = { t: 0 }, world = new Audio(false, 'classic'); (world as unknown as { clock: () => number }).clock = () => clock.t;
+    world.resume(); const garage = new Audio(false); garage.resume();
+    try {
+      drive(world, clock, 3);                       // the output froze
+      world.resume();                               // the next tap builds it again
+      expect(made.length).toBe(2); expect(made[0].closed).toBe(1);
+      expect(garage.health()).toBe('ok');
+      const before = made[1].oscillators; garage.sfx('buy');
+      expect(made[1].oscillators).toBe(before + 3); // its three notes play on the new output
+      garage.dispose(); expect(made[1].closed).toBe(0);   // leaving the Garage leaves the game's output open
+      world.dispose(); expect(made[1].closed).toBe(1);
+    } finally { garage.dispose(); world.dispose(); }
+  });
+  it('an output the browser would not make is tried again on the next tap', () => {
+    withFake(); const clock = { t: 0 }, a = new Audio(false, 'classic'); (a as unknown as { clock: () => number }).clock = () => clock.t;
+    a.resume(); drive(a, clock, 3);
+    try {
+      FakeCtx.refusing = true; a.resume();         // the rebuild's new output throws
+      expect(a.health()).toBe('none');
+      FakeCtx.refusing = false; a.resume();
+      expect(made.length).toBe(2); expect(a.health()).toBe('ok');
+    } finally { a.dispose(); }
   });
   it('after everything is closed, the next Audio starts a fresh output', () => {
     withFake(); const a = new Audio(false, 'classic'); a.resume(); a.dispose();

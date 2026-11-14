@@ -167,7 +167,11 @@ export function makeCarMeshCache(load: Loader, base: () => string): CarMeshCache
 }
 let active: CarMeshCache | null = null;
 /** The session's mesh bodies (from public/cars, through the circuits' Draco loader). */
-export const carMeshes = (): CarMeshCache => active ??= makeCarMeshCache(gltfLoader(() => import('three-stdlib'), getAssetBase), getAssetBase);
+export const carMeshes = (): CarMeshCache => active ??= makeCarMeshCache(gltfLoader(carLoaders, getAssetBase), getAssetBase);
+/** Only the two loaders, three's own (a small chunk), not the whole three-stdlib bundle the circuits load (~2.4 MB): the
+ *  town needs no more. */
+const carLoaders = () => Promise.all([import('three/examples/jsm/loaders/GLTFLoader.js'), import('three/examples/jsm/loaders/DRACOLoader.js')])
+    .then(([g, d]) => ({ GLTFLoader: g.GLTFLoader, DRACOLoader: d.DRACOLoader }) as unknown as Pick<typeof import('three-stdlib'), 'GLTFLoader' | 'DRACOLoader'>);
 /** Use another cache (tests). */
 export const setCarMeshCache = (c: CarMeshCache | null) => { active = c; };
 

@@ -36,7 +36,7 @@ export class GarageScene {
   private cur = { az: .7, pol: 1.22, r: 8.6 * W, t: new THREE.Vector3(0, .65 * W, 0) };
   private tgt: Cam = { ...CAMS.orbit };
   private autoRot = true;
-  private camName = 'orbit';
+  private fitK = 1; // camFit of the car shown
   private shown: [BodyStyle, CarCfg, Tune, string | null] | null = null; // the last setCar
   private drag: { x: number; y: number } | null = null;
   private owned: { dispose(): void }[] = [];
@@ -120,7 +120,9 @@ export class GarageScene {
       this.scene.add(car); this.car = car;
     } else if (this.kit) { disposeParts(this.kit); this.kit = null; }
     this.kit = attachParts(this.car, cfg, style, cfg.perf.brakes);
-    this.tgt.r = (CAMS[this.camName] || CAMS.orbit).r * camFit((this.car.userData.car as { length: number }).length); // a long car fits the view
+    // a longer (or shorter) car than the last: the camera stands back by as much, keeping the player's own zoom
+    const k = camFit((this.car.userData.car as { length: number }).length);
+    if (k !== this.fitK) { this.tgt.r *= k / this.fitK; this.fitK = k; }
     this.car.position.y = rideYOf(tune);
     this.shownKey = key;
   }
@@ -132,8 +134,8 @@ export class GarageScene {
 
   /** Night Tuner's setCam: ease to a named camera, the short way round. */
   setCam(name: string): void {
-    const c = CAMS[name] || CAMS.orbit; this.camName = name;
-    this.tgt = { ...c, r: c.r * camFit((this.car?.userData.car as { length?: number } | undefined)?.length ?? 0) }; this.autoRot = name === 'orbit';
+    const c = CAMS[name] || CAMS.orbit;
+    this.tgt = { ...c, r: c.r * this.fitK }; this.autoRot = name === 'orbit';
     let d = this.tgt.az - this.cur.az; d = ((d + Math.PI) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2) - Math.PI; this.tgt.az = this.cur.az + d;
   }
 
