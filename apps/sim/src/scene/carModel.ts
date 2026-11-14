@@ -585,6 +585,17 @@ let keptPaint: THREE.Material | null = null, keptPaintDouble: THREE.Material | n
 const FAR_AWAY = 1e5; // the probe waits out of sight (and its contact shadow with it)
 export const precompileCarsTick = (renderer: THREE.WebGLRenderer, scene: THREE.Scene, camera: THREE.Camera) => {
     if (pre.state === 'done' || pre.state === 'compiling') return;
+    try { precompileStep(renderer, scene, camera); }
+    catch (err) {
+        // never leave the town's cars on their lofted bodies for good: give the precompile up, put the held models in
+        console.warn('car shader precompile failed; the car models go in without it', err);
+        const g = pre.probe;
+        if (g) { pre.broken?.removeFromParent(); getBeam().removeFromParent(); disposeCarModel(g); }
+        pre.state = 'done'; pre.probe = pre.broken = undefined;
+        releaseHeldCarBodies();
+    }
+};
+const precompileStep = (renderer: THREE.WebGLRenderer, scene: THREE.Scene, camera: THREE.Camera) => {
     if (pre.state === 'build') {
         if (!carStyleReady('sedan')) return;
         const g = buildCarModel('sedan', '#808080', 100, 20).group, c = partsOf(g)!;

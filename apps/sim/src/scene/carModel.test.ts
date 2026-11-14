@@ -156,9 +156,12 @@ describe('a car with its own model', () => {
         const c = partsOf(group);
         c.wheelMesh.count = 0; // what the Night Tuner kit's replaceWheels does
         release(); await new Promise(r => setTimeout(r, 0));
+        expect(c.mesh).toBe('toyota-camry'); // the model did arrive
         expect(c.wheelMesh.count).toBe(0); // left as the kit set it
         c.wheelMesh.count = 4; // the kit comes off (removeWheels)
-        for (const i of [0, 1, 2, 3]) expect(c.wheelMesh.boundingSphere!.containsPoint(wheelAt(c, i).pos)).toBe(true);
+        const sphere = c.wheelMesh.boundingSphere!;
+        expect(sphere.radius).toBeGreaterThan(2); // not empty (-1): it spans the axles, 2.8 world units from the middle
+        for (const i of [0, 1, 2, 3]) expect(sphere.containsPoint(wheelAt(c, i).pos)).toBe(true);
         disposeCarModel(group);
     });
 
@@ -233,3 +236,26 @@ describe('when the player leaves the town before the precompile', () => {
         disposeCarModel(group);
     });
 });
+
+describe('when the precompile fails', () => {
+    it('gives it up once, warns, and puts the held models in (the town is not left on lofted bodies)', async () => {
+        const { disposeSharedCarAssets } = await import('./carModel');
+        disposeSharedCarAssets();
+        setCarMeshCache(makeCarMeshCache(async () => fakeGltf(), () => '/'));
+        const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'toyota-camry', true);
+        await new Promise(r => setTimeout(r, 0));
+        expect(partsOf(group).mesh).toBeNull(); // held for the precompile
+        const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+        const broken = { compile() { throw new Error('context lost'); }, render() {}, getScissorTest: () => false, getScissor: (v: THREE.Vector4) => v, setScissor() {}, setScissorTest() {}, shadowMap: { enabled: false, needsUpdate: false } } as unknown as THREE.WebGLRenderer;
+        const scene = new THREE.Scene();
+        carFrameTick(); precompileCarsTick(broken, scene, new THREE.PerspectiveCamera());
+        expect(partsOf(group).mesh).toBe('toyota-camry');
+        expect(warn).toHaveBeenCalledTimes(1);
+        expect(scene.children.length).toBe(0); // the probe car is gone again
+        carFrameTick(); precompileCarsTick(broken, scene, new THREE.PerspectiveCamera()); // done: no second try, no second warning
+        expect(warn).toHaveBeenCalledTimes(1);
+        warn.mockRestore();
+        disposeCarModel(group);
+    });
+});
+

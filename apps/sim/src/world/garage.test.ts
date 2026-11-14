@@ -57,3 +57,16 @@ describe('the Garage camera', () => {
     expect(camFit(6.085 * 2)).toBeCloseTo(1.24, 2);
   });
 });
+
+describe('the Garage camera between cars', () => {
+  it("keeps the player's zoom: scaled by the change in camFit when a longer car comes, unchanged for the same length", async () => {
+    const { camFit, refitCam } = await import('./GarageScene');
+    const tundra = 6.085 * 2, sedan = 9.4, zoomed = 11; // a player zoomed in on a sedan (camFit 1)
+    const a = refitCam(zoomed, 1, tundra);
+    expect(a.fitK).toBeCloseTo(camFit(tundra)); expect(a.r).toBeCloseTo(zoomed * camFit(tundra));
+    expect(refitCam(a.r, a.fitK, tundra)).toEqual(a); // the same car rebuilt (a colour previewed): no change
+    const b = refitCam(a.r, a.fitK, sedan); // back to the sedan: the player's own zoom again
+    expect(b.r).toBeCloseTo(zoomed); expect(b.fitK).toBe(1);
+  });
+});
+
