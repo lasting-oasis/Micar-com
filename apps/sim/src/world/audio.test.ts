@@ -1,8 +1,10 @@
 import { afterEach, describe, expect, it } from 'vitest';
 import { Audio, engineDrive, soundMode } from './audio';
 import { soundFactsFor } from '../sound/carSound';
-import { carParams, makeVehicle } from './physics';
-import { ARCHETYPES, STOCK_CFG, TUNE_DEF } from './data';
+import type { SoundFacts } from '../sound/facts';
+import { carParams, makeVehicle, NO_INPUT } from './physics';
+import { ARCHETYPES, STOCK_CFG, TUNE_DEF, specFor } from './data';
+import { Driver } from './driver';
 
 describe('Audio', () => {
   it('is a no-op before resume and where there is no AudioContext (node)', () => {
@@ -35,6 +37,22 @@ describe('engine sound model wiring', () => {
     const a = car(); a.thr = 1; a.shift = 0.2; expect(engineDrive(a).cut).toBe(1);
     const b = car(); b.thr = 1; b.rpm = b.P.redline + 200; expect(engineDrive(b).cut).toBe(1);
     const c = car(); c.thr = 1; c.blown = true; expect(engineDrive(c).cut).toBe(1);
+  });
+  // The Garage swaps the car's Params and keeps its state: a boost left from the turbo it had made the
+  // non-turbo model's firing and intake pulses up to 1.6 times as big.
+  it('tells the sound no boost once the Garage has taken the turbo off, on the throttle or off it', () => {
+    const spec = specFor({ make: 'Ford', model: 'Mustang', bodyStyle: 'coupe' });
+    const maxed = { ...STOCK_CFG, perf: { engine: 3, ecu: 3, turbo: 3, trans: 3, susp: 3, nos: 3, tires: 3, brakes: 3, weight: 3 } as const };
+    const d = new Driver(spec, { cfg: maxed, tune: TUNE_DEF }, { x: 0, z: 0, h: 0 });
+    const opts = { drift: false, fuel: () => 50, burn: () => {}, collide: () => 0 };
+    const full = { ...NO_INPUT, fwd: 1 };
+    for (let i = 0; i < 6 * 60; i++) d.stepFrame(1 / 60, full, opts);
+    expect(engineDrive(d.V).boost).toBeGreaterThan(0.9);   // spooled up
+    d.rebuild(spec, { cfg: { ...maxed, perf: { ...maxed.perf, turbo: 0 } }, tune: TUNE_DEF });
+    const told: number[] = [];
+    for (let i = 0; i < 2 * 60; i++) { d.stepFrame(1 / 60, full, opts); told.push(engineDrive(d.V).boost); }
+    for (let i = 0; i < 10 * 60; i++) { d.stepFrame(1 / 60, NO_INPUT, opts); told.push(engineDrive(d.V).boost); }
+    expect(Math.max(...told)).toBe(0);
   });
   it('accepts a car before the sound is switched on', () => {
     const a = new Audio();
@@ -74,9 +92,15 @@ describe('one audio output, and waking it', () => {
   afterEach(() => { delete G.AudioContext; delete G.AudioWorkletNode; });
   /** The engine model's node: its port is what the processor talks to the page through. */
   const ports: { onmessage: ((e: { data: unknown }) => void) | null }[] = [];
+  /** The facts each processor was built with, then every car message the page sent it, in order. */
+  const told: (SoundFacts | null)[] = [];
   const withWorklet = () => {
-    ports.length = 0;
-    G.AudioWorkletNode = class { port = { onmessage: null, postMessage() {} }; parameters = new Map(); constructor() { ports.push(this.port); } connect(d: unknown) { return d; } disconnect() {} };
+    ports.length = 0; told.length = 0;
+    G.AudioWorkletNode = class {
+      port = { onmessage: null, postMessage(m: { facts: SoundFacts | null }) { told.push(m.facts); } }; parameters = new Map();
+      constructor(_ctx: unknown, _name: string, o: { processorOptions: { facts: SoundFacts | null } }) { ports.push(this.port); told.push(o.processorOptions.facts); }
+      connect(d: unknown) { return d; } disconnect() {}
+    };
   };
   const modelStarted = () => new Promise(r => setTimeout(r, 0));
 
@@ -174,6 +198,61 @@ describe('one audio output, and waking it', () => {
       ports[0].onmessage?.({ data: { resets: 5 } });   // a late word from the old processor
       expect(a.debugLine()).toContain('resets=4');
     } finally { a.dispose(); }
+  });
+  // The Garage's ECU remap raises the redline 150 rpm a step (carParams). The limiter cut already comes from the
+  // driving model's figure, so the rest of the model (its idle, pops, intake hiss, rpm guard) takes the same one.
+  describe('the redline the Garage\'s ECU moved', () => {
+    const coupe = ARCHETYPES.coupe, stock = coupe.redline;
+    const facts = () => soundFactsFor({ engine: '5.0L V8', bodyStyle: 'coupe', redline: stock })!;
+    const remapped = (ecu: 0 | 1 | 2 | 3) => makeVehicle(carParams(coupe, { ...STOCK_CFG.perf, ecu }, TUNE_DEF));
+    const started = async () => {
+      withFake(); withWorklet();
+      const a = new Audio(false, 'model'); a.setCar(facts()); a.resume();
+      await modelStarted();
+      return a;
+    };
+    it('reaches the engine model, with the exhaust still sized for the stock engine', async () => {
+      const a = await started();
+      try {
+        a.engine(remapped(3), 10, true);
+        const last = told[told.length - 1]!;
+        expect(last.redline).toBe(stock + 450);
+        expect(last.exhaust).toEqual(facts().exhaust);
+        expect(last.engine).toEqual(facts().engine);
+      } finally { a.dispose(); }
+    });
+    it('is sent once when it changes, not every frame: each message builds a new model on the audio thread', async () => {
+      const a = await started();
+      try {
+        const V = remapped(3);
+        const before = told.length;
+        for (let i = 0; i < 60; i++) a.engine(V, 10, true);
+        expect(told.length).toBe(before + 1);
+        V.P = remapped(1).P;                     // the Garage sells two steps back
+        for (let i = 0; i < 60; i++) a.engine(V, 10, true);
+        expect(told.length).toBe(before + 2);
+        expect(told[told.length - 1]!.redline).toBe(stock + 150);
+      } finally { a.dispose(); }
+    });
+    it('a stock ECU sends nothing more than the car itself', async () => {
+      const a = await started();
+      try {
+        const before = told.length;
+        for (let i = 0; i < 60; i++) a.engine(remapped(0), 10, true);
+        expect(told.length).toBe(before);
+        expect(told[told.length - 1]!.redline).toBe(stock);
+      } finally { a.dispose(); }
+    });
+    it('is still the remapped one after the sound is rebuilt on a tap', async () => {
+      const a = await started();
+      try {
+        a.engine(remapped(3), 10, true);
+        made[0].state = 'closed'; a.resume();    // something closed the output: the next tap builds the sound again
+        await modelStarted();
+        expect(ports.length).toBe(2);
+        expect(told[told.length - 1]!.redline).toBe(stock + 450);
+      } finally { a.dispose(); }
+    });
   });
   it('the debug line says NaN when what reaches the speakers is not a number', () => {
     withFake(); const a = new Audio(false, 'classic'); a.resume();
