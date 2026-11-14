@@ -136,6 +136,15 @@ describe('a server whose ceiling is sixteen (RACE_ROOM_MAX=16)', () => {
       expect(me.strip).toMatchObject({ rep: 0, wins: {}, best: {} });
     }
   }, 90_000);
+
+  it('a room asked for with no size: a circuit gets the ceiling, a drag its four lanes', async () => {
+    // what a page from before this work sends, and what lane A's load test sends (it races harbour_gp in the Ronin)
+    const circuit = await r.guest('No size'), drag = await r.guest('No size drag');
+    const madeCircuit = r.roomSeen(circuit.s); circuit.s.emit('race_create', { eventId: 'harbour_gp', car: 'ronin' });
+    expect((await madeCircuit).max).toBe(16);
+    const madeDrag = r.roomSeen(drag.s); drag.s.emit('race_create', { eventId: 'royal_drag', car: 'ronin' });
+    expect((await madeDrag).max).toBe(4);
+  }, 30_000);
 });
 
 describe('a server without RACE_ROOM_MAX', () => {

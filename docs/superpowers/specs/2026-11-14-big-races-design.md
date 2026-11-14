@@ -87,9 +87,14 @@ Call: both. Rounding alone still leaves a sixteen-person race at about 1.2 GB an
 ### Room size and the server's ceiling (Part 1)
 
 - `GRID_SIZES = [4, 8, 12, 16]`. A room's size is chosen when it is made and can be changed by its host while it is open, never below the number of people already in it.
-- **The ceiling.** The server's `ROOM_MAX` (lane A: `roomMaxFrom(process.env.RACE_ROOM_MAX)`) is the largest size it makes. A size above the ceiling, or not one of the four, is refused. A page that sends no size gets the ceiling, as lane A's code already does: lane A's load test makes its rooms that way and relies on it. On the live server the ceiling is 4, so an old page still gets a room of 4. Call: keep lane A's rule rather than make "no size" mean 4, which would quietly stop its load test at rooms of four.
+- **The ceiling.** The server's `ROOM_MAX` (lane A: `roomMaxFrom(process.env.RACE_ROOM_MAX)`) is the largest size it makes. A size above the ceiling, or not one of the four, is refused. A page that sends no size gets the ceiling, as lane A's code already does. Lane A's load test (its plan, Task 5) makes every room that way, for `harbour_gp` in the Ronin: a circuit, so it gets rooms as big as the ceiling. A drag asked for with no size stays four. On the live server the ceiling is 4, so an old page still gets a room of 4.
+  - Call: keep lane A's rule rather than make "no size" mean 4, which would quietly stop its load test at rooms of four.
+  - Cost if wrong: once the owner raises the ceiling, a page cached from before this work that makes a room gets a room of 16, which it draws as four places with at most three other cars. Such a page lives only until its tab reloads; raising the ceiling comes days after this work is live (see Owner steps).
 - **The page learns the ceiling** from the server's capabilities, the same object the Strip entry card already reads: `/api/caps` and the `init` message gain `raceMax`. Call: one number in the existing capabilities, not a new address.
 - **A drag is always 4**: the picker offers only 4 for a drag, and the server refuses a drag in a room of more than four (or a room of more than four switching to a drag).
+- **Changing the race keeps the room's size.** When the host changes the race or the car without sending a size, the room keeps the size it has; a change to a drag makes it four.
+  - Call: the size kept is not checked again against the four sizes, because a room made with no size may hold an odd number (a ceiling of 10 makes rooms of 10).
+  - Cost if wrong: a room keeps a size the picker does not offer. Harmless: the page shows that many places.
 - **The picker shows only the sizes the server allows.** With the ceiling at 4 there is nothing to pick, so it does not show at all: **the live site looks exactly as it does today until the owner raises the ceiling.**
 - The room carries its size (`max`) to the page, so the waiting room can say "7 of 16" and the page knows how many other cars to keep (at most `ROOM_MAX_LIMIT − 1 = 15`).
 
@@ -112,6 +117,9 @@ So:
 ### Colours and numbers (Part 1)
 
 - **Sixteen colours.** The first four are today's (yellow, blue, red, white), so a four-car race looks as it does now. The other twelve are chosen to be as far apart as possible from each other and from the four; a test asserts every pair differs by at least a set distance in a perceptual colour space (CIEDE2000), so a later edit cannot slip in two near-twins.
+  - Call: the twelve were picked by a search, not by hand: the most distinct twelve given today's four, none darker than L* 41 (readable on the HUD's night panel) nor greyer than chroma 32 (visible on grey asphalt). They are ordered most distinct first, so a room of 8 or 12 gets the best of them.
+  - Measured: the closest two of the sixteen are 22.0 apart; of the first eight, 31.2; of the first twelve, 23.5. The test holds the line at 20.
+  - Cost if wrong: two may still look alike on a particular phone screen or under a circuit's light. The numbers on the labels still tell the cars apart, and the palette is one line in `race.ts`.
 - Colour alone cannot carry sixteen identities (no palette of sixteen survives every kind of colour blindness), so **each car also carries its number**: its grid place this race, 1 being pole. Call: the number is the grid place, which already decides the colour, so the colour, the number and the place all agree.
 - **Over each other car, on the HUD:** a small dark label in the old tag's look, with the number on a chip in the car's colour and the name after it (cut to fit). It sits over the car's roof, scales down with distance, fades out beyond about 150 m, and is not drawn for a car behind the camera. It replaces the 3D name sprite in races of people (four-car races included, so there is one way, not two). Call: labels show through scenery, as in most racing games; a car is easier to find than to lose.
 
@@ -184,7 +192,7 @@ If the owner wants prizes for big races later, it needs, first: accounts on, one
 ## How it is checked
 
 - Pure rules (sizes, the ceiling, the grid, the colours, the quick event, the computer drivers' stepping and results) are unit tests beside the code they test.
-- The server's wiring: a test starts the real server with `RACE_ROOM_MAX=16` and drives sixteen sockets through a room of 16: made with size 16, fifteen join, a seventeenth is refused, a drag is refused, the race starts, poses reach the other fifteen, everyone finishes, the result has sixteen rows, no money moved. A second server without the setting refuses a room of 8 and reports `raceMax: 4`.
+- The server's wiring: a test starts the real server with `RACE_ROOM_MAX=16` and drives sixteen sockets through a room of 16: made with size 16, fifteen join, a seventeenth is refused, a drag is refused, the race starts, poses reach the other fifteen, everyone finishes, the result has sixteen rows, no money moved; a room asked for with no size is 16 for a circuit and 4 for a drag. A second server without the setting refuses a room of 8, makes a room of 4 when no size is asked, and reports `raceMax: 4` in `/api/caps` and `init`.
 - In a real browser: a smoke runs one browser as host and fifteen scripted racers (socket clients that drive the route) on a server started with `RACE_ROOM_MAX=16`, through the lobby, the grid, the race and the results, screenshots at 375 px and 1280 px in English and Spanish, and the draw calls on every circuit.
 
 ## Owner steps

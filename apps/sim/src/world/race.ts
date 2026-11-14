@@ -9,8 +9,9 @@ import { raceCapS } from './strip/events';
 
 export { CODE_ALPHABET, CODE_LEN, makeCode, normalizeCode } from './raceCode';
 
-/** A room holds this many unless the server allows more (RACE_ROOM_MAX) and its host asks for it; a drag always (it has
- *  four lanes). A race needs at least two. */
+/** A room holds this many on a server whose ceiling is four (RACE_ROOM_MAX unset). With a higher ceiling a room holds
+ *  the grid its host picks, or the ceiling when no size is asked (roomSizeFor). A drag always holds four: it has four
+ *  lanes. A race needs at least two. */
 export const RACE_MAX = 4, RACE_MIN = 2;
 /** The most a room may be made to hold: the sixteen places of the grid (strip/grid.ts). */
 export const ROOM_MAX_LIMIT = 16;
