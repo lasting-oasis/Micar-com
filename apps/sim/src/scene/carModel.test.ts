@@ -127,13 +127,23 @@ describe('a car with its own model', () => {
             const [head, tail] = c.lampPatch.material as THREE.Material[]; // meshLamps' two groups: head lenses, tail lenses
             expect(head).toBe(L.trim.material); // the same lamp material (and shader) as the lofted trim
             if (m === 'off') expect(tail).toBe(head); // unlit: the plain trim
-            else { expect(tail).not.toBe(head); expect(tail.customProgramCacheKey()).toBe(key); } // its own glow, the same shader program
+            else {
+                expect(tail).not.toBe(head); expect(tail.customProgramCacheKey()).toBe(key); // its own glow...
+                // ...on the same shader program: everything three builds the program from is the head material's, all but the glow
+                const program = (x: THREE.Material) => { const j = x.toJSON() as Record<string, unknown>; delete j.uuid; delete j.emissiveIntensity; return j; };
+                expect(program(tail)).toEqual(program(head));
+                // and the same lamp uniforms for the mode: braking brightens the tail lamps, reversing lights the reverse lamps
+                const uniforms = (x: THREE.Material) => { const sh = { uniforms: {} as Record<string, { value: number }>, fragmentShader: '#include <common> #include <emissivemap_fragment>' };
+                    x.onBeforeCompile(sh as never, null as never); return [sh.uniforms.lampBrake.value, sh.uniforms.lampReverse.value]; };
+                expect(uniforms(tail)).toEqual(uniforms(head));
+                expect(uniforms(tail)).toEqual(m === 'brake' ? [LAMP_BRAKE, 0] : m === 'reverse' ? [1, 3] : [1, 0]);
+            }
             expect(c.trim.material).toBe(dark); expect(c.farTrim.material).toBe(dark);
         }
         disposeCarModel(group); disposeCarModel(lofted);
     });
 
-    it("reads red at night: its tail lenses' glow stays at the day's, so braking does not tone-map to white as the head lamps do", () => {
+    it("reads red at night: its tail lenses' glow does not rise with the head lamps' (it falls to TAIL_LENS_NIGHT), so braking does not tone-map to white", () => {
         const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'toyota-camry');
         const c = partsOf(group), glow = (m: 'on' | 'brake') => { setCarLights(group, m); return (c.lampPatch.material as THREE.MeshStandardMaterial[]).map(x => x.emissiveIntensity); };
         updateCarLights(0); // by day: as before, head and tail alike

@@ -7,14 +7,17 @@ import { fileURLToPath } from 'node:url';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { meshGeometryFrom } from './carMeshes';
 
-// The lamp lenses on every shipped model (public/cars/*.glb), measured independently of how meshLamps places them: from
-// 1 m out along each lens triangle's normal, a ray back to the body; the gap is where the body's first surface is,
-// behind the lens (+) or in front of it (-: the lens hidden). Near lenses against the near body, far lenses against the
-// far body. The ceilings guard what the fitting achieves today (4f7fba0: 6 near and 9 far hidden lens triangles of
-// ~34,500, 17 far ones more than 15 cm off the far body); a change that hides or floats more lenses fails here.
+// The lamp lenses on every shipped model (public/cars/*.glb), measured independently of how meshLamps places them: at 7
+// points of each lens triangle, a ray from 1 m out along z (the way the lamp faces) back to the body; the gap is where
+// the body's first surface is, behind the lens (+) or in front of it (-: the lens hidden there). Near lenses against the
+// near body, far lenses against the far body. The ceilings guard what the fitting achieves today; a change that hides,
+// floats, strands or drops more lenses fails here.
 
 const CARS = join(dirname(fileURLToPath(import.meta.url)), '../../../public/cars');
 const S = 2; // world units per metre
+// The ceilings, in lens triangles of ~34,700 (today's counts at c9f6fac, then a margin): hidden in places (24 near, 30
+// far), far off the far body (17) and stranded (3 near, 6 far)
+const NEAR_HIDDEN = 36, FAR_HIDDEN = 45, FAR_OFF = 30, NEAR_NONE = 6, FAR_NONE = 10;
 
 /** three's own Draco decoder (the one the game's DRACOLoader runs in a worker), in node: GLTFLoader's draco hook. */
 async function dracoHook() {
@@ -52,10 +55,11 @@ async function dracoHook() {
     };
 }
 
-/** For each lens triangle: the gap (world units) to the first surface of `body` behind it, along its normal; Infinity:
- *  none within 2 m. The lenses face along z, so the rays are z-aligned: the body's triangles are bucketed on x/y once,
- *  and a ray tests its bucket's (three's Raycaster gives the same numbers, at ~6x the time). */
-function gaps(lamps: THREE.BufferGeometry, body: THREE.BufferGeometry[]): number[] {
+/** For each lens triangle, at 7 points of it (its centre, and near each corner and each edge's middle): the gap (world
+ *  units) to the first surface of `body` behind that point, along z: the axis the lamps face and are seen along (the lens
+ *  facets themselves may tilt with the body); Infinity: none within 1 m either way. The rays being z-aligned, the body's
+ *  triangles are bucketed on x/y once and a ray tests its bucket's (three's Raycaster gives the same numbers, slower). */
+function gaps(lamps: THREE.BufferGeometry, body: THREE.BufferGeometry[]): number[][] {
     const CELL = 0.1 * S, tris: number[] = [], grid = new Map<number, number[]>(), key = (i: number, j: number) => (i + 4096) * 8192 + j + 4096;
     for (const g of body) {
         const p = g.getAttribute('position'), idx = g.getIndex(), n = idx ? idx.count : p.count;
@@ -69,12 +73,9 @@ function gaps(lamps: THREE.BufferGeometry, body: THREE.BufferGeometry[]): number
             }
         }
     }
-    const p = lamps.getAttribute('position'), n = lamps.getAttribute('normal'), idx = lamps.getIndex()!, out: number[] = [];
-    for (let t = 0; t < idx.count; t += 3) {
-        let x = 0, y = 0, z = 0;
-        for (let k = 0; k < 3; k++) { const v = idx.getX(t + k); x += p.getX(v) / 3; y += p.getY(v) / 3; z += p.getZ(v) / 3; }
-        const dir = Math.sign(n.getZ(idx.getX(t))), from = z + dir * S; // the ray starts 1 m out and runs back along -dir
-        expect(Math.abs(n.getZ(idx.getX(t)))).toBeCloseTo(1, 6); // (z-aligned: else this shortcut does not hold)
+    /** The gap at (x, y, z) on a lens facing `dir` (-1 nose, 1 tail): a ray from 1 m out, back along -dir. */
+    const gapAt = (x: number, y: number, z: number, dir: number) => {
+        const from = z + dir * S;
         let best = Infinity;
         for (const o of grid.get(key(Math.floor(x / CELL), Math.floor(y / CELL))) ?? []) {
             const q = o * 9, ax = tris[q], ay = tris[q + 1], bx = tris[q + 3], by = tris[q + 4], cx = tris[q + 6], cy = tris[q + 7];
@@ -85,36 +86,55 @@ function gaps(lamps: THREE.BufferGeometry, body: THREE.BufferGeometry[]): number
             const dist = dir * (from - (l1 * tris[q + 2] + l2 * tris[q + 5] + l3 * tris[q + 8])); // along the ray
             if (dist >= 0 && dist <= 2 * S && dist < best) best = dist;
         }
-        out.push(best - S);
+        return best - S;
+    };
+    // the sample points, as barycentric weights: the centre; near each corner and each edge's middle (5% in from the edge)
+    const W = [[1 / 3, 1 / 3, 1 / 3], [.9, .05, .05], [.05, .9, .05], [.05, .05, .9], [.475, .475, .05], [.05, .475, .475], [.475, .05, .475]];
+    const p = lamps.getAttribute('position'), n = lamps.getAttribute('normal'), idx = lamps.getIndex()!, out: number[][] = [];
+    for (let t = 0; t < idx.count; t += 3) {
+        const v = [0, 1, 2].map(k => idx.getX(t + k)), dir = Math.sign(n.getZ(v[0]));
+        out.push(W.map(w => gapAt(
+            w[0] * p.getX(v[0]) + w[1] * p.getX(v[1]) + w[2] * p.getX(v[2]),
+            w[0] * p.getY(v[0]) + w[1] * p.getY(v[1]) + w[2] * p.getY(v[2]),
+            w[0] * p.getZ(v[0]) + w[1] * p.getZ(v[1]) + w[2] * p.getZ(v[2]), dir)));
     }
     return out;
 }
+/** A lens triangle is hidden where any of its points has the body in front of it; off the body when its centre has the
+ *  body more than 15 cm back; stranded when its centre has no body within 1 m (beside the body, or over a hole in it). */
+const hidden = (g: number[]) => g.some(x => x < 0);
+const off = (g: number[]) => Number.isFinite(g[0]) && g[0] > 0.15 * S;
+const stranded = (g: number[]) => !Number.isFinite(g[0]);
 
 describe('the lamp lenses on every shipped model', () => {
-    it('stand clear of the body, near and far, and none hangs in the air off the far body', async () => {
+    it("stand clear of the body, near and far: hidden, far-off and off-body lenses stay under ceilings set at today's counts", async () => {
         const hook = await dracoHook(), files = readdirSync(CARS).filter(f => f.endsWith('.glb')).sort();
-        let tris = 0, nearHidden = 0, farHidden = 0, farOff = 0, both = 0;
-        const headOnly: string[] = [], none: string[] = [];
+        let tris = 0, farTris = 0, nearHidden = 0, farHidden = 0, farOff = 0, nearNone = 0, farNone = 0, both = 0;
+        const headOnly: string[] = [], other: string[] = [];
         for (const f of files) {
             const buf = readFileSync(join(CARS, f)), loader = new GLTFLoader();
             loader.setDRACOLoader(hook as never);
             const gltf = await new Promise<{ scene: THREE.Object3D }>((res, rej) => loader.parse(buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength), '', res as never, rej));
-            const mg = meshGeometryFrom(gltf.scene), lamps = mg.halos.getAttribute('position').count;
-            if (lamps === 4) both++; else if (lamps === 2) headOnly.push(f); else none.push(f);
+            const mg = meshGeometryFrom(gltf.scene), dirs = Array.from(mg.halos.getAttribute('lampDir').array as Float32Array);
+            if (dirs.length === 4) both++; else if (dirs.length === 2 && dirs.every(d => d < 0)) headOnly.push(f); else other.push(f);
             if (!mg.lamps) continue;
             const near = gaps(mg.lamps, [mg.paint, mg.dark]), far = gaps(mg.farLamps ?? mg.lamps, [mg.farPaint, mg.farDark]);
-            tris += near.length;
-            nearHidden += near.filter(g => g < 0).length;
-            farHidden += far.filter(g => g < 0).length;
-            farOff += far.filter(g => Number.isFinite(g) && g > 0.15 * S).length;
+            tris += near.length; farTris += far.length;
+            nearHidden += near.filter(hidden).length; farHidden += far.filter(hidden).length;
+            farOff += far.filter(off).length;
+            nearNone += near.filter(stranded).length; farNone += far.filter(stranded).length;
         }
-        console.log(`lens audit: ${files.length} models (${both} both lamps, head only: ${headOnly.join(' ') || 'none'}), ${tris} lens triangles; hidden near ${nearHidden}, far ${farHidden}; far over 15 cm off ${farOff}`);
+        console.log(`lens audit: ${files.length} models (${both} both lamps, head only: ${headOnly.join(' ') || 'none'}), lens triangles near ${tris}, far ${farTris}; `
+            + `hidden in places near ${nearHidden}, far ${farHidden}; far, centre over 15 cm off ${farOff}; centre with no body within 1 m near ${nearNone}, far ${farNone}`);
         expect(files.length).toBeGreaterThanOrEqual(362);
-        expect(none).toEqual([]);
+        expect(other).toEqual([]); // (no model without lamps, nor with tail lamps only)
         expect(headOnly).toEqual(['cadillac-xt6.glb']); // (a hole in its left rear: the Blender session's)
-        expect(tris).toBeGreaterThan(34000);
-        expect(nearHidden).toBeLessThanOrEqual(10); // today 6
-        expect(farHidden).toBeLessThanOrEqual(15); // today 9
-        expect(farOff).toBeLessThanOrEqual(30); // today 17
+        expect(tris).toBeGreaterThan(34000); // today 34,704
+        expect(farTris).toBeGreaterThan(34000); // today 34,516: the far version keeps (nearly) all its lenses
+        expect(nearHidden).toBeLessThanOrEqual(NEAR_HIDDEN);
+        expect(farHidden).toBeLessThanOrEqual(FAR_HIDDEN);
+        expect(farOff).toBeLessThanOrEqual(FAR_OFF);
+        expect(nearNone).toBeLessThanOrEqual(NEAR_NONE);
+        expect(farNone).toBeLessThanOrEqual(FAR_NONE);
     }, 300000);
 });
