@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { CAR_MODELS, gameNameOf, realNameOf } from './carModels';
 import { CAR_CATALOG, ORIGINAL_MAKES } from './carCatalog';
 import { getCarSpec, STYLE_SPECS } from './carSpecs';
-import { STYLES } from './world/data';
+import { STYLES, specFor } from './world/data';
 import { MESH_MODELS, carMeshId } from './scene/car/carMeshes';
 
 const carsDir = fileURLToPath(new URL('../public/cars/', import.meta.url));
@@ -63,6 +63,13 @@ describe("the world's catalog", () => {
         // no finished model yet (no mesh, a bad mesh, or flawed and back in Blender): the lofted body
         for (const [make, model] of [['Toyota', 'Supra'], ['Ford', 'Ranger'], ['Chevy', 'Silverado'], ['BMW', 'M4'], ['Ford', 'Mustang'], ['Toyota', 'RAV4']])
             expect(carMeshId(make, model)).toBeNull();
+    });
+    it("an added model is named by its game name in the Garage, on its body style's figures", () => {
+        const r = CAR_MODELS.find(x => x.id === 'ferrari-296-gtb')!;
+        const own = specFor({ make: r.gameMake, model: r.gameModel, bodyStyle: r.style }), style = specFor({ bodyStyle: r.style });
+        expect(own.name).toBe(`${r.gameMake} ${r.gameModel}`);
+        expect({ ...own, name: '' }).toEqual({ ...style, name: '' });
+        expect(specFor({ make: 'Nobody', model: 'Nothing', bodyStyle: 'sports' }).name).toBe(style.name); // unknown cars as before
     });
     it('an added model without its own figures drives on its body style\'s', () => {
         const r = CAR_MODELS.find(x => x.id === 'acura-adx')!;
