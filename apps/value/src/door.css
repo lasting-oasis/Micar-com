@@ -105,16 +105,18 @@
 @keyframes hum { 0%, 93%, 100% { opacity: 1; } 94% { opacity: .45; } 96% { opacity: 1; } 97% { opacity: .6; } }
 /* The showcase: a chrome pedestal mid-bay under a light shaft; the slab stands on it at a third of the bay.
    The well holds it at the pedestal's depth and cuts everything off at the ceiling, so the card is only ever seen
-   inside the garage. */
-.dp .well { position: absolute; inset: 0; transform: translateZ(calc(var(--bd) * -.42)); clip-path: polygon(-40% 0, 140% 0, 140% 140%, -40% 140%); pointer-events: none; }
-.dp .showcase { position: absolute; left: 50%; bottom: 7.5%; width: 33%; margin-left: -16.5%; transform-origin: 50% 100%; transition: transform 1.2s var(--ease-out); }
+   inside the garage. Its top edge is the ceiling; it reaches past the walls and the floor so nothing else is cut.
+   It clips with overflow, the one way every browser clips a box in a 3D scene (iPhone Safari included). */
+.dp .well { position: absolute; top: 0; left: -40%; right: -40%; bottom: -40%; transform: translateZ(calc(var(--bd) * -.42)); overflow: hidden; pointer-events: none; }
+.dp .showcase { position: absolute; left: 50%; bottom: calc(var(--bh) * .475); width: calc(var(--bw) * .33); margin-left: calc(var(--bw) * -.165); transform-origin: 50% 100%; transition: transform 1.2s var(--ease-out); }
 .dp.open .showcase { transform: translateY(-3%) rotateY(-9deg) scale(1.03); cursor: zoom-in; }
 .dp.open .showcase:focus-visible { outline: 2px solid var(--paint); outline-offset: 8px; }
 .dp.anim .showcase { opacity: 0; }
 .dp.anim .showcase.slam { opacity: 1; animation: slam .62s cubic-bezier(.3,0,.2,1) 1.35s both; }
 .dp.revealed .showcase { opacity: 1; }
-/* The card waits above the ceiling (out of sight, in the well) while the door goes up, then comes down onto the pedestal. */
-@keyframes slam { 0% { transform: translateY(calc(var(--bh) * -.95)); } 62% { transform: translateY(2%) scale(.97); } 100% { transform: none; } }
+/* The card waits above the ceiling while the door goes up, then comes down onto the pedestal. While it waits it is
+   hidden as well as cut off, so no browser can show it outside the garage. */
+@keyframes slam { 0% { transform: translateY(calc(var(--bh) * -.95)); visibility: hidden; } 1% { visibility: visible; } 62% { transform: translateY(2%) scale(.97); } 100% { transform: none; visibility: visible; } }
 .dp .pedestal { position: absolute; left: 50%; bottom: 0; width: 40%; height: 7.5%; margin-left: -20%; transform: translateZ(calc(var(--bd) * -.42)); border-radius: 5px 5px 0 0;
   background: linear-gradient(90deg, #2b313c, #cfd6e1 14%, #6b7486 38%, #f3f6fb 54%, #5d6678 76%, #2b313c); box-shadow: 0 -2px 0 rgba(255,255,255,.45), inset 0 -8px 12px rgba(0,0,0,.5); }
 .dp .pedestal::after { content: ""; position: absolute; left: 6%; right: 6%; top: 42%; height: 3px; background: var(--paint); opacity: 0; box-shadow: 0 0 12px var(--paint); transition: opacity .6s; }
