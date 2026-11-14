@@ -4,6 +4,8 @@ import { buildWheelGeometry } from './carGeometry';
 import { WORLD_PER_M } from '../../world/units';
 import { gltfLoader, type Loader } from '../../world/strip/park';
 import { getAssetBase } from '../../world/strip/district';
+import { CAR_MODELS, rowByGameName } from '../../carModels';
+import { modelIdOf } from '../../carCatalog';
 
 // Car models drawn from their own 3D model (a mesh body) instead of the lofted body of their style.
 //
@@ -14,19 +16,14 @@ import { getAssetBase } from '../../world/strip/district';
 // A model is fetched the first time a car of it is built, once, and cached; until it arrives (and if it never does)
 // the car shows its lofted body.
 
-/** The models that have a file in public/cars (the pilot). */
-export const MESH_MODELS: ReadonlySet<string> = new Set([
-    'toyota-camry', 'honda-civic', 'ford-mustang', 'chevrolet-camaro', 'bmw-4-series',
-    'honda-fit', 'toyota-rav4', 'chevrolet-tahoe', 'honda-odyssey', 'ford-f-150',
-]);
-const MAKE_IDS: Record<string, string> = { chevy: 'chevrolet' };
-const slug = (s: string) => s.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-/** The model file id of a car (e.g. Chevy Tahoe → chevrolet-tahoe), or null when it has no model file. */
+/** The models that have a file in public/cars (the finished ones: carModels.json). */
+export const MESH_MODELS: ReadonlySet<string> = new Set(CAR_MODELS.map(r => r.id));
+/** The model file id of a car, by its real name (Chevy Tahoe → chevrolet-tahoe) or its game name (Akura ABX →
+ *  acura-adx), or null when it has no model file. */
 export function carMeshId(make?: string | null, model?: string | null): string | null {
     if (!make || !model) return null;
-    const m = slug(make);
-    const id = (MAKE_IDS[m] ?? m) + '-' + slug(model);
-    return MESH_MODELS.has(id) ? id : null;
+    const id = modelIdOf(make.trim().toLowerCase() === 'chevy' ? 'Chevy' : make, model);
+    return MESH_MODELS.has(id) ? id : rowByGameName(make, model)?.id ?? null;
 }
 export const carMeshUrl = (id: string, base: string) => base + 'cars/' + id + '.glb';
 

@@ -1,3 +1,4 @@
+import { CAR_CATALOG } from '../carCatalog';
 import { describe, it, expect } from 'vitest';
 import { KEY_FIELD_MAX, NAME_MAX, TESTER_MONEY, TESTER_REP, TEST_CARS, clipTyped, grantTester, heldTestCar, makeTestCar, returnTestCar, setTestCar, splitTesterName, testCarDef, topUp } from './tester';
 import { STAGE_REP, stageOf } from './data';
@@ -53,7 +54,7 @@ describe('what a tester is given', () => {
 describe('test cars', () => {
   it('offers the rental fleet and every model in the world catalogue, each once', () => {
     expect(TEST_CARS.filter(c => c.fleet).map(c => `${c.make} ${c.model}`)).toEqual(RENTAL_FLEET.map(f => `${f.make} ${f.model}`));
-    expect(TEST_CARS.length).toBe(RENTAL_FLEET.length + 36);
+    expect(TEST_CARS.length).toBe(RENTAL_FLEET.length + Object.values(CAR_CATALOG).flat().length); // the 36 original models and the finished ones added by game name
     expect(new Set(TEST_CARS.map(c => `${c.make}|${c.model}`)).size).toBe(TEST_CARS.length);
     expect(testCarDef('Chevy', 'Corvette')).toMatchObject({ bodyStyle: 'sports' });
     expect(testCarDef('Chevy', 'Nope')).toBeUndefined();

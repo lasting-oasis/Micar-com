@@ -7,8 +7,8 @@ import {
     MESH_MODELS, carMeshId, carMeshUrl, parseMicar, meshGeometryFrom, makeCarMeshCache, type MicarExtras,
 } from './carMeshes';
 
-const PILOT = ['toyota-camry', 'honda-civic', 'ford-mustang', 'chevrolet-camaro', 'bmw-4-series',
-    'honda-fit', 'toyota-rav4', 'chevrolet-tahoe', 'honda-odyssey', 'ford-f-150'];
+// a sample of finished models (every one is checked below): the pilot's that stayed finished
+const SAMPLE = ['toyota-camry', 'honda-civic', 'chevrolet-camaro', 'bmw-4-series', 'honda-fit', 'chevrolet-tahoe', 'honda-odyssey', 'ford-f-150'];
 const publicDir = fileURLToPath(new URL('../../../public/', import.meta.url));
 
 /** The JSON chunk of a .glb file. */
@@ -43,8 +43,9 @@ const fakeGltf = (extras: unknown = EXTRAS) => {
 };
 
 describe('which cars have their own model', () => {
-    it('the pilot is the 10 models the brief names', () => {
-        expect([...MESH_MODELS].sort()).toEqual([...PILOT].sort());
+    it('the finished models include the pilot ones, but not the two since marked flawed (back in Blender)', () => {
+        for (const id of SAMPLE) expect(MESH_MODELS.has(id)).toBe(true);
+        expect(MESH_MODELS.has('ford-mustang')).toBe(false); expect(MESH_MODELS.has('toyota-rav4')).toBe(false);
     });
     it('names a car by make and model the way the model files are named', () => {
         expect(carMeshId('Toyota', 'Camry')).toBe('toyota-camry');
@@ -61,7 +62,7 @@ describe('which cars have their own model', () => {
     });
     it('every pilot model is a car of the world\'s catalog', () => {
         const ids = Object.entries(CAR_CATALOG).flatMap(([make, ms]) => ms.map(m => carMeshId(make, m.model))).filter(Boolean);
-        for (const id of PILOT) expect(ids).toContain(id);
+        for (const id of SAMPLE) expect(ids).toContain(id);
     });
     it('serves the files from the sim\'s static assets', () => {
         expect(carMeshUrl('toyota-camry', '/')).toBe('/cars/toyota-camry.glb');
@@ -69,8 +70,8 @@ describe('which cars have their own model', () => {
     });
 });
 
-describe('the pilot model files', () => {
-    for (const id of PILOT) it(id + ': a body and a far version, each in paint, glass and dark, with wheels in its extras', () => {
+describe('the model files', () => {
+    for (const id of MESH_MODELS) it(id + ': a body and a far version, each in paint, glass and dark, with wheels in its extras', () => {
         const path = publicDir + 'cars/' + id + '.glb';
         expect(existsSync(path)).toBe(true);
         const j = glbJson(path);
@@ -86,7 +87,7 @@ describe('the pilot model files', () => {
         }
         const ex = parseMicar(j.nodes.find((n: { name: string }) => n.name === 'body').extras.micar);
         expect(ex.id).toBe(id);
-        expect(ex.length).toBeGreaterThan(3.5); expect(ex.length).toBeLessThan(6.5);
+        expect(ex.length).toBeGreaterThan(2.4); expect(ex.length).toBeLessThan(6.5); // (a Smart Fortwo is 2.7 m)
         expect(ex.wheels.front.z).toBeLessThan(0); expect(ex.wheels.rear.z).toBeGreaterThan(0); // nose toward -Z
     });
 });
