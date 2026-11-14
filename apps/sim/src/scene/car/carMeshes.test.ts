@@ -136,6 +136,13 @@ describe('the geometry set built from a model', () => {
         expect(mg.wheelScale).toEqual([1, 1, 0.42 / 0.35, 0.42 / 0.35].map(v => expect.closeTo(v, 6)));
         expect(mg.wheelBlur.getAttribute('position').count).toBeGreaterThan(0);
     });
+    it('gives the glass UVs (the models have none), so the cracked glass of a wreck shows; the paint and trim need none', () => {
+        const uv = mg.glass.getAttribute('uv');
+        expect(uv).toBeTruthy(); expect(uv.count).toBe(mg.glass.getAttribute('position').count);
+        let lo = Infinity, hi = -Infinity; for (let i = 0; i < uv.count; i++) { lo = Math.min(lo, uv.getX(i)); hi = Math.max(hi, uv.getX(i)); }
+        expect(hi - lo).toBeGreaterThan(0.5); // spread over the glass, not one texel
+        expect(mg.paint.getAttribute('uv')).toBeUndefined();
+    });
     it('puts the engine smoke over the front axle and has no lamp glows yet', () => {
         expect(mg.smokePos.z).toBeLessThan(-2.8);
         expect(mg.smokePos.y).toBeCloseTo(2);

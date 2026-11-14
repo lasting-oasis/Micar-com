@@ -19,7 +19,7 @@ const ctx = new Proxy({}, { get: (_t, k) => k === 'createImageData' ? (w: number
     : k === 'createRadialGradient' ? () => ({ addColorStop() {} }) : () => {} });
 vi.stubGlobal('document', { createElement: () => ({ getContext: () => ctx, width: 0, height: 0 }) });
 
-import { CAR_BODY_CHANGE, applyCarPaint, buildCarModel, disposeCarModel, setCarLights, syncCarWheels, updateCars } from './carModel';
+import { CAR_BODY_CHANGE, applyCarPaint, buildCarModel, disposeCarModel, setCarLights, syncCarWheels, updateCarLights, updateCars } from './carModel';
 import { makeCarMeshCache, setCarMeshCache, type MicarExtras } from './car/carMeshes';
 
 const EXTRAS: MicarExtras = {
@@ -122,10 +122,27 @@ describe('a car with its own model', () => {
         disposeCarModel(group);
     });
 
+    it('lays the headlight beam on the road ahead of its own nose when driven at night', () => {
+        const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'toyota-camry');
+        const c = partsOf(group) as Parts & { tilt: THREE.Group };
+        updateCarLights(1);
+        updateCars(new THREE.Vector3(0, 5, 10), true, group);
+        const beam = c.tilt.children.find(o => (o as THREE.Mesh).geometry instanceof THREE.PlaneGeometry) as THREE.Mesh;
+        expect(beam).toBeTruthy(); expect(beam.visible).toBe(true);
+        expect(beam.position.z).toBeCloseTo(-4.8 - 16.4, 4); // the model's nose (-4.8), not the lofted sedan's (-4.5)
+        updateCarLights(1); // (the next frame's: the beam is made on the first night frame)
+        expect((beam.material as THREE.MeshBasicMaterial).opacity).toBeGreaterThan(0);
+        updateCarLights(0); updateCars(new THREE.Vector3(0, 5, 10), true, group);
+        expect(beam.parent).toBeNull();
+        disposeCarModel(group);
+    });
+
     it('switches to its far version away from the camera', () => {
         const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'toyota-camry');
         const c = partsOf(group);
+        const now = vi.spyOn(performance, 'now').mockReturnValue(performance.now() + 1e6); // past the 4-a-second LOD check
         updateCars(new THREE.Vector3(500, 0, 0), true, null);
+        now.mockRestore();
         expect(c.body.visible).toBe(false); expect(c.wheelMesh.visible).toBe(false);
         expect(c.farBody.visible).toBe(true); expect(c.farTrim.visible).toBe(true);
         disposeCarModel(group);

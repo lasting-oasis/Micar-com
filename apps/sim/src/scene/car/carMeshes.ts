@@ -78,7 +78,7 @@ function partsUnder(root: THREE.Object3D, node: THREE.Object3D, needGlass: boole
         const key = Object.keys(out).find(k => name === k || name.startsWith(k + '.'));
         if (!key) return;
         const g = m.geometry.clone();
-        for (const a of Object.keys(g.attributes)) if (a !== 'position' && a !== 'normal') g.deleteAttribute(a);
+        for (const a of Object.keys(g.attributes)) if (a !== 'position' && a !== 'normal') g.deleteAttribute(a); // (glass gets UVs below)
         if (!g.getAttribute('normal')) g.computeVertexNormals();
         g.applyMatrix4(new THREE.Matrix4().multiplyMatrices(scale, new THREE.Matrix4().multiplyMatrices(inv, m.matrixWorld)));
         out[key].push(g);
@@ -88,6 +88,17 @@ function partsUnder(root: THREE.Object3D, node: THREE.Object3D, needGlass: boole
         return mergeAll(out[k]);
     };
     return { paint: one('paint', true)!, glass: one('glass', needGlass), dark: one('dark', true)! };
+}
+/** The models have no UVs: give the glass a projected set (seen from its side, front or top, whichever it faces most),
+ *  so a wreck's cracked-glass texture shows on it. About 0.3 of the crack picture per world unit. */
+function glassUVs(g: THREE.BufferGeometry) {
+    const p = g.getAttribute('position'), n = g.getAttribute('normal'), uv = new Float32Array(p.count * 2), K = 0.3;
+    for (let i = 0; i < p.count; i++) {
+        const ax = Math.abs(n.getX(i)), ay = Math.abs(n.getY(i)), az = Math.abs(n.getZ(i));
+        const [u, v] = ax >= ay && ax >= az ? [p.getZ(i), p.getY(i)] : az >= ay ? [p.getX(i), p.getY(i)] : [p.getX(i), p.getZ(i)];
+        uv[i * 2] = u * K; uv[i * 2 + 1] = v * K;
+    }
+    g.setAttribute('uv', new THREE.BufferAttribute(uv, 2));
 }
 /** Geometries as one (indexed ones made plain when they are mixed), with its bounds. */
 function mergeAll(gs: THREE.BufferGeometry[]): THREE.BufferGeometry {
@@ -108,6 +119,7 @@ export function meshGeometryFrom(root: THREE.Object3D): MeshGeometry {
     if (!farNode) throw new Error('car model: no far node');
     const ex = parseMicar(bodyNode.userData.micar);
     const near = partsUnder(root, bodyNode, true), far = partsUnder(root, farNode, false);
+    glassUVs(near.glass!); // (the far glass is drawn dark: it needs none)
     const { front, rear } = ex.wheels;
     const tw = ex.tyre_width * S, R = front.r * S;
     const wheelPos = ([[-1, front], [1, front], [-1, rear], [1, rear]] as const)
