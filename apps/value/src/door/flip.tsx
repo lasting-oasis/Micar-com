@@ -17,6 +17,8 @@ export function useFlip(flipped: boolean, onFlip: (() => void) | undefined, turn
   return {
     isFlipped: held ? flipped : own,
     toggle: onFlip ?? (() => setOwn((f) => !f)),
+    /** Settles a card that keeps its own state on one face (a page that holds the state is left alone). */
+    set: (back: boolean) => { if (!held) setOwn(back); },
     /** The whole card is the button. */
     tap: turn === 'tap',
   };

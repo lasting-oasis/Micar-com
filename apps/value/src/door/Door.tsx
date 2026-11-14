@@ -66,6 +66,8 @@ export default function Door() {
   const [readoutSmall, setReadoutSmall] = useState('');
   const [stampHit, setStampHit] = useState(false);
   const [showcaseClass, setShowcaseClass] = useState('');
+  // The showcase card inspects itself once it has landed and the stamp has come and gone.
+  const [touring, setTouring] = useState(false);
   const [inspecting, setInspecting] = useState(false);
   const [error, setError] = useState('');
   const timers = useRef<number[]>([]);
@@ -83,7 +85,7 @@ export default function Door() {
   const set = (k: keyof DoorInput) => (e: { target: { value: string } }) => setInput((d) => settle({ ...d, [k]: e.target.value }, k));
 
   const runSequence = (c: Card) => {
-    setCard(c); setG(c.g); setStampHit(false); setShowcaseClass('');
+    setCard(c); setG(c.g); setStampHit(false); setShowcaseClass(''); setTouring(false);
     chirp(2); setReadout(t('Valuing…')); setReadoutSmall(carName(c.r));
     later(() => { setReadout(`${c.r.year} ${c.r.model || c.r.modelText} ✓`); }, 650);
     later(() => { setUnbolted(true); thud(); }, 1050);
@@ -106,10 +108,13 @@ export default function Door() {
   };
 
   const settled = useCallback((isOpen: boolean) => {
-    if (isOpen) { setStampHit(true); setReadout(t('Value on the card')); setReadoutSmall(t('tap it to inspect')); setBusy(false); }
+    if (!isOpen) return;
+    setStampHit(true); setReadout(t('Value on the card')); setReadoutSmall(t('tap it to inspect')); setBusy(false);
+    // The stamp comes and goes in about two seconds; then the card starts turning itself over (door.css).
+    timers.current.push(window.setTimeout(() => setTouring(true), 2000));
   }, []);
 
-  const closeDoor = () => { if (!open || busy) return; clearSeq(); chirp(1); setOpen(false); setReadout(t('Closing…')); later(() => { setUnbolted(false); thud(); setReadout(t('Locked · Bay 01')); setReadoutSmall(t('type a car to open it')); }, 1900); };
+  const closeDoor = () => { if (!open || busy) return; clearSeq(); chirp(1); setOpen(false); setReadout(t('Closing…')); later(() => { setUnbolted(false); thud(); setTouring(false); setReadout(t('Locked · Bay 01')); setReadoutSmall(t('type a car to open it')); }, 1900); };
 
   const rootClass = ['dp', reduce() ? '' : 'anim', 'revealed', lit ? 'lit' : '', open ? 'open' : '', unbolted ? 'unbolted' : '', inspecting ? 'inspecting' : ''].join(' ');
   const sticker = stickerFor(input.make, input.model, Number(input.year));
@@ -125,7 +130,7 @@ export default function Door() {
       <header className="hero gutter" id="top">
         <div className="inner">
           <Bay open={open} onSettled={settled} onInspect={card ? () => setInspecting(true) : undefined}
-            showcase={card ? <Slab card={card} g={g ?? undefined} turn="corner" /> : null} showcaseClass={showcaseClass}
+            showcase={card ? <Slab key={card.code} card={card} g={g ?? undefined} turn="corner" inspect={touring} /> : null} showcaseClass={showcaseClass}
             readout={readout} readoutSmall={readoutSmall} stamp={t('Valued')} stampHit={stampHit}
             paint={lang === 'es' ? <>¿Qué hay<br />en su<br />garaje?</> : <>What's in<br />your<br />garage?</>}>
           <form className="console" ref={formRef} onSubmit={submit} aria-label={t("What's in your garage?")}>

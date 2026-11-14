@@ -298,6 +298,43 @@
 .dp .mini .lab-g b { font-size: 22px; } .dp .mini .stats { font-size: 7px; } .dp .mini .stats b { font-size: 15px; } .dp .mini .lab-g small { font-size: 6px; } .dp .mini .lab-g em { font-size: 7px; }
 @media (hover: none) { .dp .live .foil { animation: sheen 6s ease-in-out infinite alternate; } }
 @keyframes sheen { from { background-position: 20% 30%; } to { background-position: 80% 70%; } }
+/* A card that inspects itself (door/Slab.tsx, `inspect`; the bay's showcase): it tilts to the light, turns over to show
+   its back, sways there, and turns back the same way round, then rests a while: sixteen seconds a loop, until the
+   visitor touches it. One loop turns the card and two say which face shows, switched as the card passes edge-on (at
+   17% and at 50%, where the turn is pinned to 90 and 270 degrees), exactly as a tapped turn swaps its faces (see
+   .sl-face above). The light (--mx, --my, read by the glare on both faces) moves with the card. Off screen it pauses;
+   with reduced motion it never starts (.anim). */
+@property --mx { syntax: '<number>'; inherits: true; initial-value: 50; }
+@property --my { syntax: '<number>'; inherits: true; initial-value: 50; }
+.dp.anim .slab.auto { animation: inspect-light 16s ease-in-out infinite; }
+.dp.anim .slab.auto .slab-in { transition: none; animation: inspect-turn 16s linear infinite; }
+.dp.anim .slab.auto .sl-face.front { animation: inspect-front 16s step-end infinite; }
+.dp.anim .slab.auto .sl-face.back { animation: inspect-back 16s step-end infinite; }
+.dp.anim .slab.auto.away, .dp.anim .slab.auto.away .slab-in, .dp.anim .slab.auto.away .sl-face { animation-play-state: paused; }
+@keyframes inspect-turn {
+  0% { transform: rotateY(0deg) rotateX(0deg); animation-timing-function: ease-in-out; }
+  12% { transform: rotateY(-16deg) rotateX(5deg); animation-timing-function: ease-in; }
+  17% { transform: rotateY(90deg) rotateX(6deg); animation-timing-function: ease-out; }
+  22% { transform: rotateY(196deg) rotateX(4deg); animation-timing-function: ease-in-out; }
+  34% { transform: rotateY(166deg) rotateX(-3deg); animation-timing-function: ease-in-out; }
+  45% { transform: rotateY(176deg) rotateX(3deg); animation-timing-function: ease-in; }
+  50% { transform: rotateY(270deg) rotateX(5deg); animation-timing-function: ease-out; }
+  55% { transform: rotateY(364deg) rotateX(4deg); animation-timing-function: ease-in-out; }
+  72% { transform: rotateY(346deg) rotateX(-3deg); animation-timing-function: ease-in-out; }
+  86%, 100% { transform: rotateY(360deg) rotateX(0deg); }
+}
+@keyframes inspect-front { 0% { visibility: visible; } 17% { visibility: hidden; } 50%, 100% { visibility: visible; } }
+@keyframes inspect-back { 0% { visibility: hidden; } 17% { visibility: visible; } 50%, 100% { visibility: hidden; } }
+@keyframes inspect-light {
+  0% { --mx: 50; --my: 50; }
+  12% { --mx: 20; --my: 22; }
+  22% { --mx: 76; --my: 36; }
+  34% { --mx: 28; --my: 68; }
+  45% { --mx: 64; --my: 28; }
+  55% { --mx: 24; --my: 32; }
+  72% { --mx: 74; --my: 64; }
+  86%, 100% { --mx: 50; --my: 50; }
+}
 /* the mark on a card's corner that says it turns over; a button where the card's own tap is taken (door/flip.tsx) */
 .dp .flip-cue { position: absolute; right: -7px; top: -7px; z-index: 8; width: clamp(22px, 12%, 34px); aspect-ratio: 1; display: grid; place-items: center; padding: 0; border-radius: 50%; border: 1px solid rgba(255,255,255,.5); background: var(--paint); color: #0b0d12; box-shadow: 0 4px 12px rgba(0,0,0,.6); pointer-events: none; transition: transform .35s var(--ease-out); }
 .dp .flip-cue svg { width: 62%; height: 62%; }
