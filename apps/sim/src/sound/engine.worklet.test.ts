@@ -66,4 +66,23 @@ describe('the micar-engine processor', () => {
     expect(p.port.sent.length).toBeGreaterThanOrEqual(2);
     expect(p.port.sent.length).toBeLessThanOrEqual(3);
   });
+  // A throw out of process() ends the processor for good (WebKit and Chromium), with nothing on the page listening.
+  // No car the game builds makes the model throw; these facts do.
+  it('a model that throws while rendering goes out silent, the processor lives on, and the page is told', () => {
+    const p = new Proc({ processorOptions: { facts: { ...TURBO_V8, engine: { ...TURBO_V8.engine, cylinders: 0 } } } });
+    let out: Float32Array = new Float32Array(0);
+    expect(() => { out = run(p, 400); }).not.toThrow();
+    expect(finite(out)).toBe(true);
+    expect(rms(out)).toBe(0);
+    expect(p.port.sent.length).toBeGreaterThanOrEqual(1);
+  });
+  it('facts the model cannot be built from leave the engine silent and the processor alive, and a good car still plays after', () => {
+    const bad = { ...TURBO_V8, engine: { ...TURBO_V8.engine, cylinders: Infinity } };
+    let p: Processor | null = null;
+    expect(() => { p = new Proc({ processorOptions: { facts: bad } }); }).not.toThrow();
+    expect(rms(run(p!, 10))).toBe(0);
+    expect(() => p!.port.onmessage?.({ data: { facts: bad } })).not.toThrow();
+    p!.port.onmessage?.({ data: { facts: TURBO_V8 } });
+    expect(rms(run(p!, 400).subarray(200 * 128))).toBeGreaterThan(0.01);
+  });
 });

@@ -45,6 +45,8 @@ export class Audio {
   private seenTime = -1; private stuckSince = -1; private rebuilt = 0;
   /** How often the engine processor has started the model afresh after a sample that was not a number. */
   private modelResets = 0;
+  /** ms: the longest the output's clock has stood still while 'running' (kept across rebuilds), and the freeze now under way. */
+  private longestFreeze = 0; private frozeSince = -1; private started = false;
   /** ?audiodebug only: analysers on the engine model's output and on the whole output, made on the first readout. */
   private probe: { AC: Ctx; out: AnalyserNode; eng: AnalyserNode | null; engOf: AudioNode | null; buf: Float32Array<ArrayBuffer> } | null = null;
 
@@ -63,7 +65,7 @@ export class Audio {
     if (!p || p.AC !== AC) { const out = AC.createAnalyser(); out.fftSize = 2048; A.master.connect(out); p = this.probe = { AC, out, eng: null, engOf: null, buf: new Float32Array(2048) }; }
     if (this.node && p.engOf !== this.node) { const eng = AC.createAnalyser(); eng.fftSize = 2048; this.node.connect(eng); p.eng = eng; p.engOf = this.node; }
     const gain = (g: GainNode | null) => g ? g.gain.value.toFixed(2) : '-';
-    return `audio: ${AC.state} t=${AC.currentTime.toFixed(1)} ${AC.sampleRate}Hz ${this.health()} model=${this.modelActive ? 'on' : 'off'} rebuilt=${this.rebuilt}`
+    return `audio: ${AC.state} t=${AC.currentTime.toFixed(1)} ${AC.sampleRate}Hz ${this.health()} model=${this.modelActive ? 'on' : 'off'} rebuilt=${this.rebuilt} froze ${(this.longestFreeze / 1000).toFixed(1)}s`
       + ` | engine ${this.level(p.eng)} x${gain(this.nodeGain)} resets=${this.modelResets} | out ${this.level(p.out)} x${gain(A.master)}`;
   }
   /** The peak an analyser sees, in dB; "NaN" if any sample is not a number. */
@@ -76,8 +78,14 @@ export class Audio {
   }
   private watch(): void {
     const AC = this.AC; if (!AC) return;
-    const moving = AC.state === 'running' && AC.currentTime !== this.seenTime;
+    const running = AC.state === 'running', moving = running && AC.currentTime !== this.seenTime;
     if (moving) this.stuckSince = -1; else if (this.stuckSince < 0) this.stuckSince = this.clock();
+    // The longest freeze while 'running', once the clock has first moved (startup is not one), for ?audiodebug.
+    if (moving) {
+      if (this.frozeSince >= 0 && this.started) this.longestFreeze = Math.max(this.longestFreeze, this.clock() - this.frozeSince);
+      this.frozeSince = -1; if (this.seenTime >= 0) this.started = true;
+    } else if (!running) this.frozeSince = -1;
+    else if (this.frozeSince < 0) this.frozeSince = this.clock();
     this.seenTime = AC.currentTime;
   }
 
@@ -204,7 +212,7 @@ export class Audio {
       try { this.A?.master.disconnect(); } catch { /* not connected */ }
       if (shared && shared.AC === AC && --shared.refs <= 0) { shared = null; void AC.close().catch(() => {}); }
     }
-    this.sources = []; this.AC = null; this.A = null; this.node = null; this.nodeGain = null; this.probe = null; this.quiet = true; this.stuckSince = -1; this.seenTime = -1;
+    this.sources = []; this.AC = null; this.A = null; this.node = null; this.nodeGain = null; this.probe = null; this.quiet = true; this.stuckSince = -1; this.seenTime = -1; this.frozeSince = -1; this.started = false;
   }
 
   private ctx(): Ctx | null {

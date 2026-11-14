@@ -21,6 +21,7 @@ const JITTER_LOAD = 0.05;     // cycle-to-cycle variation at speed
 const JITTER_IDLE = 0.14;     // extra variation near idle
 const TURBINE_GAIN = 0.55;    // class estimate: what a turbine leaves of a pulse
 const CHAMBER_AREA = 9;       // chambered muffler: chamber area over pipe area
+const RPM_CEILING = 10;       // highest rpm taken, in redlines: a guard, not physics (the game reaches about 4.7 on a downshift)
 const RING = 16384, MASK = RING - 1;
 
 class Seg {
@@ -170,7 +171,8 @@ export class EngineSound {
     const two = lines.length === 2, nSeg = segs.length, src0 = this.src[0], src1 = this.src.length > 1 ? this.src[1] : null;
     const sA = 0.5 * (1 + this.spread), sB = 0.5 * (1 - this.spread), kSlow = 1 / sr;
     // An AudioParam carries any float. Past either end of its range an input counts as that end; NaN counts as the low end.
-    const w = EngineSound.within, rpmIn = w(this.rpm, 0, Infinity), thrIn = w(this.throttle, 0, 1), loadIn = w(this.load, -1, 1), boostIn = w(this.boost, 0, 1);
+    // rpm stops at ten times the redline, far past anything the game sends: the crank clock's work grows with it.
+    const w = EngineSound.within, rpmIn = w(this.rpm, 0, RPM_CEILING * this.redline), thrIn = w(this.throttle, 0, 1), loadIn = w(this.load, -1, 1), boostIn = w(this.boost, 0, 1);
     for (let s = 0; s < n; s++) {
       // inputs, smoothed
       const rpm = this.rpmS += kS * (rpmIn - this.rpmS);

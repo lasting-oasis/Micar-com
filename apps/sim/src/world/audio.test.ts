@@ -177,6 +177,27 @@ describe('one audio output, and waking it', () => {
       expect(a.debugLine()).toMatch(/engine silent.*out silent/);
     } finally { a.dispose(); }
   });
+  // On an iPhone a freeze of the output's clock of about 2 s, while it says 'running', can leave every sound silent for good
+  // after the clock moves again (WebKit's hand-over to its GPU process falls behind and never catches up). The health watch
+  // forgets a freeze once the clock moves; the debug line keeps the longest one.
+  it('the debug line keeps the longest freeze of the output\'s clock while running, once the clock has started', () => {
+    withFake(); const clock = { t: 0 }, a = new Audio(false, 'classic'); (a as unknown as { clock: () => number }).clock = () => clock.t;
+    a.resume();
+    const V = makeVehicle(carParams(ARCHETYPES.sedan, STOCK_CFG.perf, TUNE_DEF));
+    const frames = (n: number, moving: boolean) => { for (let i = 0; i < n; i++) { clock.t += 100; if (moving) made[0].currentTime += 0.1; a.engine(V, 10, true); } };
+    try {
+      frames(15, false);                         // starting up: 1.5 s before the clock first moves, not a freeze
+      frames(10, true);
+      expect(a.debugLine()).toContain('froze 0.0s');
+      frames(24, false);                         // 2.4 s standing still while 'running'
+      frames(10, true);                          // and moving again: the watch says ok
+      expect(a.health()).toBe('ok');
+      frames(5, false); frames(10, true);        // a shorter one later does not replace it
+      expect(a.debugLine()).toContain('froze 2.4s');
+      made[0].state = 'suspended'; frames(40, false); made[0].state = 'running'; frames(10, true);   // suspended is not a freeze
+      expect(a.debugLine()).toContain('froze 2.4s');
+    } finally { a.dispose(); }
+  });
   it('after everything is closed, the next Audio starts a fresh output', () => {
     withFake(); const a = new Audio(false, 'classic'); a.resume(); a.dispose();
     const b = new Audio(false, 'classic'); b.resume();

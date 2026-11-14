@@ -147,6 +147,8 @@ describe('EngineSound: safety and cost', () => {
     ['throttle above 1', { throttle: 1.5 }, { throttle: 1 }],
     ['load above 1', { load: 2 }, { load: 1 }],
     ['rpm below 0', { rpm: -500 }, { rpm: 0 }],
+    // Far past anything the game sends (about 4.7 x redline at most, on a downshift), so the crank clock's cost stays bounded: millions of rpm once hung the audio thread.
+    ['rpm above ten times the redline', { rpm: 3e6 }, { rpm: 70000 }],
     ['boost NaN', { boost: NaN }, { boost: 0 }],
     ['rpm NaN', { rpm: NaN }, { rpm: 0 }],
   ] as [string, Drive, Drive][])('a turbo engine told %s stays finite and sounds as at the end of the range', (_, past, end) => {
