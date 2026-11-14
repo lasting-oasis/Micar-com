@@ -99,6 +99,9 @@ export type Room = {
   hostName: string; from: string;
   /** a quick room (Part 2): found by circuit, its race and car fixed, started by itself at `startsAt` (null: not waiting) */
   quick: boolean; startsAt: number | null;
+  /** when its last race ended with a result (close); null from the next start. A quick room whose race ended less than
+   *  QUICK_WAIT_MS ago keeps its racers (mergeQuick). */
+  endedAt: number | null;
   /** how many people it holds (roomMaxFrom) */
   max: number;
 };
@@ -142,7 +145,7 @@ export function createRoom(rooms: Map<string, Room>, host: { id: string; name: s
   const room: Room = {
     code, eventId: choice.eventId, car: choice.car, hostId: first.id, phase: 'open', raceNo: 0, members: [first],
     startedAt: null, goAt: null, closesAt: null, gone: [], last: null, note: null, emptySince: null, emptyFor: EMPTY_TTL_MS,
-    hostName: first.name, from, max, quick, startsAt: null,
+    hostName: first.name, from, max, quick, startsAt: null, endedAt: null,
   };
   rooms.set(code, room);
   return { ok: true, room };
@@ -198,7 +201,7 @@ export function startRace(room: Room, id: string, now: number): Ok | Denied {
   if (room.phase !== 'open') return no('state');
   const n = room.members.length;
   if (n < RACE_MIN) return no('few');
-  room.raceNo++; room.startsAt = null;
+  room.raceNo++; room.startsAt = null; room.endedAt = null;
   room.members.forEach((m, i) => { toWaiting(m); m.state = 'loading'; m.slot = (i + room.raceNo) % n; });
   room.phase = 'loading'; room.startedAt = now; room.goAt = room.closesAt = null; room.gone = []; room.note = null;
   return OK;
@@ -325,7 +328,7 @@ function close(room: Room, now: number): void {
   const home = rows.filter(timed).sort((p, q) => (drift ? q.score - p.score : 0) || p.time! - q.time!);
   const ranked = [...home, ...rows.filter(r => !timed(r))];
   ranked.forEach((r, i) => { r.pos = i + 1; });
-  room.last = { raceNo: room.raceNo, eventId: room.eventId, rows: ranked };
+  room.last = { raceNo: room.raceNo, eventId: room.eventId, rows: ranked }; room.endedAt = now;
   room.members.forEach(toWaiting);
   room.phase = 'open'; room.startedAt = room.goAt = room.closesAt = null; room.gone = [];
   waitQuick(room, now);
@@ -351,28 +354,32 @@ export function missedLoad(room: Room, now: number): string[] {
   return room.members.filter(m => m.state === 'loading').map(m => m.id);
 }
 
-/** One quick room filling per circuit, the owner's way (2026-11-14): when a quick room's race has ended, the circuit's
- *  other open quick rooms that have not just raced move into it, up to its size. Its racers keep their room, their result
- *  and their wait; nobody is ever moved out of a room whose race has just ended, so two rooms whose races have both just
- *  ended stay apart until one of them starts. A move is no join: it does not end the room's wait (joinRoom). Returns who
- *  moved where; the server moves their sockets. */
+/** One quick room filling per circuit, the owner's rules (2026-11-14). A room whose race ended less than QUICK_WAIT_MS
+ *  ago is resting: its racers keep their room, their result and their wait, and the circuit's other open quick rooms move
+ *  into it, up to its size; two resting rooms stay apart. Any other open quick room counts like a fresh one: the fuller
+ *  takes the emptier, so a racer left alone after a race joins the other room once its wait is over. A move is no join:
+ *  it does not end the room's wait (joinRoom). Returns who moved where; the server moves their sockets. */
 export function mergeQuick(rooms: Map<string, Room>, now: number): { id: string; from: string; to: string }[] {
   const moves: { id: string; from: string; to: string }[] = [];
-  const open = (r: Room) => r.quick && r.phase === 'open' && r.members.length > 0;
-  const raced = (r: Room) => r.last !== null && r.last.raceNo === r.raceNo; // its latest race has ended, with a result
-  for (const to of rooms.values()) {
-    if (!open(to) || !raced(to) || to.members.length >= to.max) continue;
-    for (const from of rooms.values()) {
-      if (from === to || !open(from) || raced(from) || from.eventId !== to.eventId) continue;
+  const resting = (r: Room) => r.endedAt !== null && now - r.endedAt < QUICK_WAIT_MS;
+  const byEvent = new Map<string, Room[]>();
+  for (const r of rooms.values())
+    if (r.quick && r.phase === 'open' && r.members.length > 0) byEvent.set(r.eventId, [...(byEvent.get(r.eventId) ?? []), r]);
+  for (const list of byEvent.values()) {
+    for (;;) {
+      const live = list.filter(r => r.members.length > 0);
+      // into: a resting room first, else the fullest, with space; out of: the emptiest room that is not resting
+      const to = live.filter(r => r.members.length < r.max).sort((p, q) => Number(resting(q)) - Number(resting(p)) || q.members.length - p.members.length)[0];
+      const from = to && live.filter(r => r !== to && !resting(r)).sort((p, q) => p.members.length - q.members.length)[0];
+      if (!to || !from || (!resting(to) && from.members.length > to.members.length)) break;
       while (from.members.length > 0 && to.members.length < to.max) {
         const m = from.members[0];
         leaveRoom(from, m.id, now);
         joinRoom(to, { id: m.id, name: m.name });
         moves.push({ id: m.id, from: from.code, to: to.code });
       }
-      if (to.members.length >= to.max) break;
+      waitQuick(to, now);
     }
-    waitQuick(to, now);
   }
   return moves;
 }
