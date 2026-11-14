@@ -379,10 +379,13 @@ describe('the Car models setting (Garage, Options)', () => {
         expect((c as unknown as { meshWheel: unknown }).meshWheel).toBeNull(); // the kit sizes its wheels from the lofted body again
         expect(c.wheelMesh.boundingSphere!.center).toEqual(L.wheelMesh.boundingSphere!.center); // culled by the lofted wheels
         expect(c.wheelMesh.boundingSphere!.radius).toBeCloseTo(L.wheelMesh.boundingSphere!.radius, 6);
+        expect(c.lampPatch.visible).toBe(false); expect(c.lampPatch.geometry.getIndex()).toBeNull(); // no model lenses on the lofted body
+        expect(L.lampPatch.visible).toBe(false); // (as on a car built lofted)
         urls = [];
         setCarModels(true);
         expect(c.mesh).toBe('toyota-camry'); expect(changed).toBe(2); expect(urls).toEqual([]);
         expect((c.body.material as THREE.Material).side).toBe(THREE.DoubleSide);
+        expect(c.lampPatch.visible).toBe(true); expect(c.lampPatch.geometry.getIndex()!.count).toBeGreaterThan(0); // its lenses back
         disposeCarModel(group); disposeCarModel(lofted);
     });
     it('a model that arrives after the setting went off is not put in, and turning it on again puts it in once', async () => {

@@ -57,8 +57,11 @@ describe('lamps fitted to a model from its own shape', () => {
     });
     it('follows a sloped nose: the head lenses sit on it, not in the air in front of it', () => {
         const sloped = meshLamps(box(4.8, 1.9, 1.45, 0.3), empty(), 'sedan', 1.0 * S);
+        expect(sloped.head).not.toBeNull(); // (the head lamp did fit: the checks below are not vacuous)
         const p = sloped.lamps!.getAttribute('position');
-        for (let i = 0; i < p.count; i++) if (p.getZ(i) < 0) expect(p.getZ(i)).toBeCloseTo(-2.4 * S + 0.3 * p.getY(i) - 0.06, 1);
+        let front = 0;
+        for (let i = 0; i < p.count; i++) if (p.getZ(i) < 0) { front++; expect(p.getZ(i)).toBeCloseTo(-2.4 * S + 0.3 * p.getY(i) - 0.06, 1); }
+        expect(front).toBeGreaterThan(0);
     });
     it('a body with no surface where a tail lamp goes gets head lamps only, and never throws', () => {
         // an open tail: the box without its back face (BoxGeometry's group 4, +Z); its sides and top are edge-on from behind
@@ -68,6 +71,9 @@ describe('lamps fitted to a model from its own shape', () => {
         expect(r.head).not.toBeNull(); expect(r.tail).toBeNull();
         expect(r.halos.getAttribute('position').count).toBe(2);
         expect(() => meshLamps(empty(), empty(), 'nonsense', 2)).not.toThrow();
+        // a style the table does not know fits as a sedan (on a real body, not only on an empty one)
+        const odd = meshLamps(box(), empty(), 'nonsense', 1.0 * S), sedan = meshLamps(box(), empty(), 'sedan', 1.0 * S);
+        expect(odd.head).not.toBeNull(); expect(odd.head).toEqual(sedan.head); expect(odd.tail).toEqual(sedan.tail);
         expect(meshLamps(empty(), empty(), 'nonsense', 2).lamps).toBeNull();
     });
     it('fits a body whose ends have no vertex near the middle (a plain box: corners only)', () => {
