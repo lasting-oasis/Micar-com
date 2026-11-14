@@ -719,7 +719,7 @@ export function VanillaThreeScene() {
             styleRating: () => localDrivingCarId ? visualRating(buildOf(localDrivingCarId).cfg) : 0,
             renderer,
             // a challenge race is its room's (the race_* messages): it is never entered, finished or quit as a paid event
-            onEventStart: (ev, PV) => { chase.reset(PV); resultsShown = false; paused = false; if (challenge) raceEmit('race_ready'); else socketEmit('enter_event', { eventId: ev.id }); },
+            onEventStart: (ev, PV) => { chase.reset(PV); resultsShown = false; paused = false; if (challenge) raceEmit('race_ready', { batch: true }); else socketEmit('enter_event', { eventId: ev.id }); },
             onZone: (_z, PV) => chase.reset(PV),
             // at the line: where the car is, then this driver's own time (the server decides whether it stands)
             onPlayerFinish: a => { if (!challenge || !a.net) return; sendPose(a, false); raceEmit('race_finish', { time: a.pFt, score: Math.round(a.drift.score), failed: !!a.fail }); },

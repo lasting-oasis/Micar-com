@@ -163,6 +163,27 @@ describe('a server whose ceiling is sixteen (RACE_ROOM_MAX=16)', () => {
     expect(await heard).toEqual([a.id, goAt - 4000, 16098.62, 8154.86, 0.412, 17.65, 158.23, 0]);
   }, 30_000);
 
+  it('a page that asks for its poses a tick at a time gets them so, and no single ones; one that does not, as before', async () => {
+    const [batched, plain, mover] = [await r.guest('Batched'), await r.guest('Plain'), await r.guest('Mover')];
+    const made = r.roomSeen(batched.s); batched.s.emit('race_create', { eventId: 'harbour_drift', car: 'ronin', size: 4 });
+    const room = await made;
+    const three = r.roomSeen(batched.s, v => v.members.length === 3);
+    for (const p of [plain, mover]) p.s.emit('race_join', { code: room.code });
+    await three;
+    const racing = r.roomSeen(batched.s, v => v.phase === 'racing'); batched.s.emit('race_start');
+    await r.roomSeen(batched.s, v => v.phase === 'loading' || v.phase === 'racing');
+    batched.s.emit('race_ready', { batch: true }); plain.s.emit('race_ready'); mover.s.emit('race_ready');
+    const go = await racing, goAt = go.goAt!, moverSlot = go.members.find(m => m.id === mover.id)!.slot;
+    const singles: unknown[] = []; batched.s.on('race_pose', p => { singles.push(p); });
+    const batch = r.next<number[][]>(batched.s, 'race_poses'), single = r.next<any[]>(plain.s, 'race_pose', p => p[0] === mover.id);
+    // (the green is five seconds off: a pose stamped four seconds before it is on time, as the server's clock goes)
+    mover.s.emit('race_pose', [goAt - 4000.4, 16098.616765074097, 8154.86, 0.41, 17.6, 158.2, 0]);
+    expect(await batch).toEqual([[moverSlot, -4000, 16098.62, 8154.86, 0.41, 17.6, 158.2, 0]]); // its place, its time from the green
+    expect(await single).toEqual([mover.id, goAt - 4000, 16098.62, 8154.86, 0.41, 17.6, 158.2, 0]);
+    await new Promise(res => setTimeout(res, 300)); // two or three ticks: the same pose is not sent again, and never singly
+    expect(singles).toEqual([]);
+  }, 30_000);
+
   it('a room asked for with no size: a circuit gets the ceiling, a drag its four lanes', async () => {
     // what a page from before this work sends, and what lane A's load test sends (it races harbour_gp in the Ronin)
     const circuit = await r.guest('No size'), drag = await r.guest('No size drag');
