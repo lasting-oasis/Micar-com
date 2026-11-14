@@ -5,7 +5,12 @@ services:
   - type: web
     name: micar-sim
     runtime: node
-    plan: free
+    plan: 0.5c-512mb
+    healthCheckPath: /healthz
+    disk:
+      name: micar-data
+      mountPath: /opt/render/project/src/apps/sim/data
+      sizeGB: 1
     # the value tests gate the deploy too: the valuation API (/api/v1/value) runs the value app's engine
     buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm --filter @micar/value test && pnpm --filter @micar/sim test && pnpm --filter @micar/sim build
     startCommand: pnpm --filter @micar/sim start
@@ -19,3 +24,19 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
+  # The public site, built the same way as GitHub Pages builds it, for one purpose: a link per pull request
+  # that opens on a phone. Production stays on GitHub Pages.
+  - type: web
+    name: micar-site-preview
+    runtime: static
+    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm site
+    staticPublishPath: ./site
+    previews:
+      generation: automatic
+    buildFilter:
+      paths:
+        - apps/value/**
+        - packages/**
+        - tools/**
+        - pnpm-lock.yaml
+        - render.yaml

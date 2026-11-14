@@ -15,9 +15,9 @@ Production: `npm run build`, then `npm start` with `NODE_ENV=production`, which 
 
 ## Deploy (Render) and accounts
 
-`render.yaml` deploys the server on Render's free plan, which has an ephemeral filesystem. The save file `data/gameState.json` holds the Strip's accounts.
+`render.yaml` deploys the server on Render's smallest paid instance (`0.5c-512mb`: 512 MB, $7 a month) with a 1 GB persistent disk mounted at `apps/sim/data`, the folder the save file `data/gameState.json` is written to. The save holds the World's state and the Strip's accounts. Render snapshots the disk once a day and keeps each snapshot for seven days. Because of the disk, a deploy takes the World offline for a few seconds: Render stops the old instance before it starts the new one.
 
-**Gate: leave `GOOGLE_CLIENT_ID`, `MAGIC_SECRET`, `RESEND_API_KEY` and `MAGIC_FROM` unset until the service has a persistent disk (a Render paid plan, with a disk mounted at `apps/sim/data/`) or accounts move to a hosted store.** On the free plan `data/gameState.json` is wiped on every deploy and spin-down, and accounts with it. With them unset, the Strip offers guest play only and no sign-in buttons.
+**Gate: set `GOOGLE_CLIENT_ID`, `MAGIC_SECRET`, `RESEND_API_KEY` and `MAGIC_FROM` only after a deploy has given `/healthz` a new `bootId` with `saveAtBoot` reading `loaded`.** `bootId` changes on every boot, and `saveAtBoot` is what that boot found on the disk (`src/world/health.ts`): `loaded`, `missing` on an empty disk, or `quarantined` when the file did not parse. `loaded` after a deploy means the save outlived it, and accounts will too. Until then, with the four unset, the Strip offers guest play only and no sign-in buttons.
 
 - `MAGIC_SECRET` signs the emailed sign-in links **and** the session tokens that keep a player signed in. Without it Google sign-ins don't survive a reload (no session token is issued).
 - `GOOGLE_CLIENT_ID` turns on Google sign-in; `RESEND_API_KEY` and `MAGIC_FROM` (with `MAGIC_SECRET`) turn on "Email me a link". Secrets come only from the environment.
