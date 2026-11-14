@@ -167,7 +167,17 @@ If the owner wants prizes for big races later, it needs, first: accounts on, one
 - **Messages**, per 16-person room: 16 racers × 15 poses a second in, 3,600 relayed poses a second out (16 × 15 × 15). Each phone receives 225 a second and sends 15.
 - **Data, today's format** (estimate from the measured size): each phone downloads about 35 KB/s (about 125 MB an hour) and uploads about 2 KB/s; the server sends about 560 KB/s per 16-person race, **about 2 GB per race-hour**. On Render's Hobby workspace, past its free 5 GB a month, that is about $0.30 per race-hour.
 - **Data, rounded** (Task 5; the pose measured, the rest arithmetic): about 21 KB/s per phone (about 75 MB an hour) and about 335 KB/s from the server, **about 1.2 GB per race-hour**, about $0.18 past the free 5 GB.
-- **Server CPU and memory:** lane A's rough measurement (platform design, Capacity) ran one 16-person room at 4.6% of a core and four at 11.5%, memory under 210 MB. That fits the $7 instance by the spec's own limit (25% of one PC core).
+- **Server CPU and memory, measured with lane A's load test** (`apps/sim/e2e/load.ts` from `lane-a/platform` bc7c374, merged with this lane's Task 5; a server on this PC with `RACE_ROOM_MAX=16`; 30-second races at 15 poses a second; 2026-11-14 02:39–02:50, while this worker was only editing files and running single test files):
+
+  | Players | Rooms × size | Delay p50/p95/p99 | Lost | Server CPU | Loop p99 | Memory | Verdict |
+  | --- | --- | --- | --- | --- | --- | --- | --- |
+  | 4 | 1 × 4 | 0 / 1 / 1 ms | 0% | 3% | 15.5 ms | 220 MB | pass, fits $7 |
+  | 8 | 1 × 8 | 1 / 1 / 2 ms | 0% | 2% | 14.4 ms | 113 MB | pass, fits $7 |
+  | 16 | 1 × 16 | 1 / 2 / 3 ms | 0% | 4.1% | 13.8 ms | 117 MB | pass, fits $7 |
+  | 32 | 2 × 16 | 2 / 4 / 4 ms | 0% | 7.8% | 14.2 ms | 130 MB | pass, fits $7 |
+  | 48 | 3 × 16 | 3 / 6 / 6 ms | 0% | 9.4% | 14.4 ms | 147 MB | pass, fits $7 |
+
+  Three rooms of sixteen use under a tenth of one PC core and under 150 MB; the spec's limit for "fits the $7 instance" on this PC is 25% of one core. (Lane A's own earlier rough measurement, in the platform design, agrees: one 16-person room at 4.6%, four at 11.5%.) Not measured: the paid server itself (the owner's step), real phones, the town's own traffic beside the races.
 - **Computer drivers (Part 3)** add server work: about 17 route look-ups per car per step, 15 steps a second (estimate: well under 1% of a core for fifteen cars). Their poses cost the same bandwidth as a person's going out, and nothing coming in.
 - **How it gets measured:** lane A's load test (`apps/sim/e2e/load.ts`, Task 5 of its plan) races fake players in rooms of 4, 8 and 16 on this PC and reads the server's CPU, lag and memory from `/healthz`. When it exists, run `STEPS=16x1,16x2,16x3` against this branch and put the table in Part 1's pull request; until then that pull request says it is not measured. On the paid server the owner decides when (its runbook, Task 5 step 4).
 - **Data, batched** (Task 6; estimate): about 50 bytes a pose instead of 94, so about 11 KB/s per phone and about 0.65 GB per race-hour, about $0.10 past the free 5 GB.
