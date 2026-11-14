@@ -8,6 +8,7 @@
 #                    and AI readers see real text. Crawlers read robots.txt only at the host's root, which a project site does not
 #                    own, so its Sitemap line waits for a domain of our own; until then submit sitemap.xml to search engines
 #                    by hand (each page's <link rel="sitemap"> is only a hint, which the major engines do not read)
+# /Micar-com/api/v1/ the static JSON data API: index.json, cars.json, cars/<id>.json, openapi.json
 set -euo pipefail
 cd "$(dirname "$0")/.."
 rm -rf site && mkdir -p site/value site/tuner site/strip site/garage
@@ -22,4 +23,4 @@ grep -q '<footer class="mc-foot"' site/garage/index.html
 touch site/.nojekyll
 # the plain-HTML layer for search engines and AI readers: /cars/ pages, sitemap.xml, robots.txt, llms.txt (tools/build-seo.ts)
 pnpm --filter @micar/value exec tsx ../../tools/build-seo.ts
-grep -q '<h1>' site/cars/index.html && grep -q 'Sitemap:' site/robots.txt
+grep -q '<h1>' site/cars/index.html && grep -q 'Sitemap:' site/robots.txt && grep -q '"openapi"' site/api/v1/openapi.json

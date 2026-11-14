@@ -74,6 +74,14 @@ describe('seo pages', () => {
     for (const p of pages) expect(modelPageHtml(p, env)).toContain(tag);
   });
 
+  it('promises EPA configurations only where the EPA lists them (a few models, like the Ram 2500, have none)', () => {
+    const pages = buildModelPages(stickers as unknown as Sticker[]);
+    const civic = modelPageHtml(pages.find((p) => p.slug === 'honda-civic')!, env);
+    expect(civic).toContain("with the EPA's engine and drivetrain configurations where the EPA lists them");
+    expect(civic).not.toMatch(/with the EPA's engine and drivetrain configurations, is/);
+    expect(llmsTxt(pages)).toMatch(/the EPA's engine, transmission, drive and fuel configurations where the EPA lists them/);
+  });
+
   it('writes a single model year once, never as a range of one', () => {
     expect(yearSpan(2024, 2024)).toBe('2024');
     expect(yearSpan(2010, 2026)).toBe('2010–2026');

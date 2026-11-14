@@ -109,7 +109,7 @@ export function valueLink(base: string, p: ModelPage, row?: YearRow): string {
   return `${base}?${q.toString()}#/value`;
 }
 
-function shell(opts: { title: string; description: string; canonical: string; css: string; footer: string; jsonld: unknown[]; body: string }): string {
+function shell(opts: { title: string; description: string; canonical: string; css: string; footer: string; jsonld: unknown[]; body: string; json?: string }): string {
   const ld = opts.jsonld.map((x) => `<script type="application/ld+json">${jsonLd(x)}</script>`).join('\n');
   return `<!doctype html>
 <html lang="en">
@@ -119,7 +119,7 @@ function shell(opts: { title: string; description: string; canonical: string; cs
 <title>${escapeHtml(opts.title)}</title>
 <meta name="description" content="${escapeHtml(opts.description)}" />
 <link rel="canonical" href="${escapeHtml(opts.canonical)}" />
-<link rel="sitemap" type="application/xml" href="${SITE_URL}sitemap.xml" />
+${opts.json ? `<link rel="alternate" type="application/json" href="${escapeHtml(opts.json)}" />\n` : ''}<link rel="sitemap" type="application/xml" href="${SITE_URL}sitemap.xml" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="MiCar" />
 <meta property="og:title" content="${escapeHtml(opts.title)}" />
@@ -181,7 +181,7 @@ export function modelPageHtml(p: ModelPage, env: PageEnv): string {
 ${rows}
 </tbody>
 </table>
-<p class="muted">Sticker prices come from manufacturer and pricing sources gathered for MiCar; today's values are estimates computed in the app from the sticker price, age, mileage, condition and region.</p>`;
+<p class="muted">Every trim and its MSRP, with the EPA's engine and drivetrain configurations where the EPA lists them, is also available as <a href="${SITE_URL}api/v1/cars/${p.slug}.json">JSON</a>. Sticker prices come from manufacturer and pricing sources gathered for MiCar; today's values are estimates computed in the app from the sticker price, age, mileage, condition and region.</p>`;
   // A Car, not a Product with offers: MiCar sells no cars, and the MSRPs are past sticker prices across many model
   // years, not prices anyone is asking. They stay in the page's table, where they read as what they are.
   const jsonld = [
@@ -204,7 +204,7 @@ ${rows}
       ],
     },
   ];
-  return shell({ title: `${name} values and original MSRP (${span}) | MiCar`, description, canonical, css: env.css, footer: env.footer, jsonld, body });
+  return shell({ title: `${name} values and original MSRP (${span}) | MiCar`, description, canonical, css: env.css, footer: env.footer, jsonld, body, json: `${SITE_URL}api/v1/cars/${p.slug}.json` });
 }
 
 export function indexPageHtml(pages: ModelPage[], env: PageEnv): string {
@@ -230,6 +230,7 @@ ${sections}`;
     title: 'Every car MiCar can value: used-car values and original MSRP by model | MiCar',
     description: `Browse ${pages.length} car models from ${byMake.size} makes with original sticker prices by year and a free trade-in, private-party and dealer retail value calculator.`,
     canonical: `${SITE_URL}cars/`,
+    json: `${SITE_URL}api/v1/cars.json`,
     css: env.css,
     footer: env.footer,
     jsonld,
@@ -267,6 +268,19 @@ The app at ${SITE_URL} runs in the browser (JavaScript, hash routes). For plain-
 - [All cars](${SITE_URL}cars/): ${pages.length} models from ${makes.length} makes, with links to every model page
 - [Value calculator](${SITE_URL}#/value): the app; accepts query parameters make, model, trim, body, msrp, year, mileage, condition, title, accident, region, e.g. ${SITE_URL}?make=Honda&model=Civic&year=2019&msrp=20250#/value (MSRP in whole dollars, excluding destination)
 - [Sitemap](${SITE_URL}sitemap.xml)
+
+## Data API (JSON)
+
+Free, read-only, no key. Static files rebuilt with every deploy, plus one live valuation endpoint; the format is in the OpenAPI file.
+
+- [API index](${SITE_URL}api/v1/index.json): counts, sources and links
+- [All models](${SITE_URL}api/v1/cars.json): id, make, model, body, years covered and MSRP range for each
+- One model: ${SITE_URL}api/v1/cars/{id}.json, e.g. ${SITE_URL}api/v1/cars/honda-civic.json: every model year, every trim with its MSRP, destination charge, the EPA's engine, transmission, drive and fuel configurations where the EPA lists them, the price source, and a calculator link per year
+- [OpenAPI 3.1 description](${SITE_URL}api/v1/openapi.json)
+
+## Valuation API (live)
+
+- GET https://micar-sim.onrender.com/api/v1/value?id=honda-civic&year=2019&mileage=60000 returns today's trade-in, private-party and dealer retail value, a range, confidence, the line-by-line build-up and a five-year forecast. Same engine and parameters as the calculator; make and model work in place of id. MSRP and mileage are filled in when left out and listed under "assumed". Free hosting: the first call after a quiet spell can take up to a minute.
 
 ## Makes covered
 

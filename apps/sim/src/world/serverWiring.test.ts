@@ -792,3 +792,46 @@ describe('server wiring', () => {
     expect(out.split('--- HANDLER ERROR ---').length - 1).toBe(errs.length);
   });
 });
+
+// The valuation API as the server mounts it (server.ts, GET /api/v1/value): the same child process, over HTTP. The
+// pure function is tested in apps/value; this checks the mount itself: the route, the whole query reaching it, the
+// headers on every outcome, and that the answer is valueQuery's.
+describe('the valuation API on the server', () => {
+  const get = async (q: string) => {
+    const r = await fetch(`${url}/api/v1/value?${q}`);
+    return { status: r.status, cors: r.headers.get('access-control-allow-origin'), cache: r.headers.get('cache-control'), type: r.headers.get('content-type') ?? '', body: await r.json() as Record<string, any> };
+  };
+
+  it('answers with valueQuery\'s valuation, CORS open and cacheable for an hour', async () => {
+    const { valueQuery } = await import('../../../value/src/api/valueApi.ts');
+    const q = 'id=honda-civic&year=2019&mileage=60000&market=tight&urgency=this week&comps=15000, 17500&annual=20000';
+    const r = await get(q);
+    expect(r.status).toBe(200);
+    expect(r.type).toMatch(/^application\/json/);
+    expect(r.cors).toBe('*');
+    expect(r.cache).toBe('public, max-age=3600');
+    const want = valueQuery(new URLSearchParams(q)).body as Record<string, any>;
+    expect(r.body.valueUsd).toEqual(want.valueUsd);
+    expect(r.body.forecastUsd).toEqual(want.forecastUsd);
+    expect(r.body.inputs).toEqual(want.inputs);
+    expect(r.body.links).toEqual(want.links);
+  });
+
+  it('hands the whole query to the API, a literal "?" in a value included', async () => {
+    const r = await get('make=Honda&model=Civic&trim=Si?&year=2019&mileage=60000&msrp=25200');
+    expect(r.status).toBe(200);
+    expect(r.body.car).toMatchObject({ trim: 'Si?', year: 2019 });
+    expect(r.body.inputs.mileage).toBe(60000);
+  });
+
+  it('refuses with field messages, CORS open, and the same caching for a refusal', async () => {
+    for (const [q, status, field] of [['year=2019', 400, 'make'], ['id=nope&year=2019', 404, 'id'], ['id=honda-civic&year=2019&trim=Bogus', 400, 'trim'], ['id=honda-civic&year=2019&annual=0', 400, 'annual']] as const) {
+      const r = await get(q);
+      expect(r.status, q).toBe(status);
+      expect(r.cors, q).toBe('*');
+      expect(r.cache, q).toBe('public, max-age=3600');
+      expect(r.body.ok, q).toBe(false);
+      expect(typeof r.body.errors[field], q).toBe('string');
+    }
+  });
+});

@@ -24,6 +24,7 @@ import { grantTester, heldTestCar, returnTestCar, setTestCar, splitTesterName, t
 import { checkTesterKey, configuredTesterKey, isKeyAttempt, newAttemptLog, refusalText } from './src/world/testerKey.js';
 import { TRACKS } from './src/world/strip/district.js';
 import { readTrackSync, setTrackDir } from './src/world/strip/districtNode.js';
+import { valueRoute } from './src/valueRoute.ts';
 
 const app = express();
 const httpServer = createServer(app);
@@ -2521,6 +2522,10 @@ async function startServer() {
         if (!room) { res.status(404).json({ ok: false }); return; }
         res.json({ ok: true, ...invitation(room) });
     });
+
+    // The valuation API: the MiCar calculator's engine as JSON (src/valueRoute.ts; tested over HTTP in valueRoute.test.ts
+    // and serverWiring.test.ts). Read-only and keyless; documented at https://lasting-oasis.github.io/Micar-com/api/v1/openapi.json
+    app.get('/api/v1/value', valueRoute());
 
     if (process.env.NODE_ENV !== 'production') {
         const { createServer: createViteServer } = await import('vite');

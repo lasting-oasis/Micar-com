@@ -6,11 +6,13 @@ services:
     name: micar-sim
     runtime: node
     plan: free
-    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm --filter @micar/sim test && pnpm --filter @micar/sim build
+    # the value tests gate the deploy too: the valuation API (/api/v1/value) runs the value app's engine
+    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm --filter @micar/value test && pnpm --filter @micar/sim test && pnpm --filter @micar/sim build
     startCommand: pnpm --filter @micar/sim start
     buildFilter:
       paths:
         - apps/sim/**
+        - apps/value/src/**   # the valuation API (/api/v1/value) runs the value app's engine
         - packages/**
         - pnpm-lock.yaml
         - render.yaml
