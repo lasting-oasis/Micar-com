@@ -5,9 +5,9 @@
 import { ACCIDENTS, CONDITIONS, MAKES, REGIONS, TITLES } from '../engine/data';
 import { MODELS } from '../engine/models';
 import { prefillMsrp } from '../engine/prefill';
-import { STICKERS, stickerFor, stickerTrim } from '../engine/stickers';
+import { STICKERS, findStickerTrim, stickerFor, stickerTrim } from '../engine/stickers';
 import { expectedMilesFor, forecast, valuate } from '../engine/valuation';
-import { URL_KEYS, defaults, parse, type FormState } from '../urlState';
+import { MARKET_OPTIONS, URGENCY_OPTIONS, URL_KEYS, defaults, parse, type FormState } from '../urlState';
 
 export const APP_URL = 'https://lasting-oasis.github.io/Micar-com/';
 
@@ -102,9 +102,7 @@ export function valueQuery(params: URLSearchParams, now: Date = new Date()): Api
     // (the calculator's prefill does), and this API never prices a guess; with the caller's own msrp a trim is a label
     const onFile = stickerFor(form.make, form.model, yr);
     if (onFile && form.trim) {
-      const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '');
-      const want = norm(form.trim);
-      if (!onFile.year.trims.some((t) => norm(t.trim) === want || (want && norm(t.trim).startsWith(want)))) {
+      if (!findStickerTrim(onFile.year, form.trim)) {                       // the calculator's own matching, minus its fallback
         errors.trim = `No ${yr} ${form.make} ${form.model} trim called "${form.trim}". Trims on file for that year: ${onFile.year.trims.map((t) => t.trim).join(', ')}; or give msrp (original MSRP in dollars, excluding destination) to value it at your own sticker price.`;
       }
     }
@@ -127,13 +125,27 @@ export function valueQuery(params: URLSearchParams, now: Date = new Date()): Api
   form.title = pick(get('title'), TITLES.map((o) => o.name), 'title', errors) ?? form.title;
   form.accident = pick(get('accident'), ACCIDENTS.map((o) => o.name), 'accident', errors) ?? form.accident;
   form.region = pick(get('region'), REGIONS, 'region', errors) ?? form.region;
-  for (const k of ['listings', 'comps', 'zip', 'urgency', 'market', 'annual'] as const) {
+  // market and urgency by the calculator's own option names, in any case; anything else is refused (the calculator
+  // would quietly fall back to Auto and No rush). listings is checked by parse(), as in the calculator.
+  form.market = pick(get('market'), MARKET_OPTIONS.map((o) => o.name), 'market', errors) ?? form.market;
+  form.urgency = pick(get('urgency'), URGENCY_OPTIONS.map((o) => o.name), 'urgency', errors) ?? form.urgency;
+  for (const k of ['listings', 'comps', 'zip'] as const) {
     const v = get(k);
     if (v !== null) form[k] = v;
   }
-  // miles a year for the forecast, clamped as the calculator clamps it (App.tsx)
-  const annual = Math.min(30000, Math.max(3000, Number(form.annual) || 12000));
-  const defaulted = (['condition', 'title', 'accident', 'region'] as const).filter((k) => !get(k)).map((k) => `${k} ${form[k]}`);
+  // miles a year for the forecast, clamped as the calculator clamps it (App.tsx); a figure that is not a number is refused
+  let annual = 12000;
+  const annualGiven = get('annual');
+  if (annualGiven !== null) {
+    const n = Number(annualGiven);
+    if (annualGiven.trim() === '' || !Number.isFinite(n)) errors.annual = 'Give the miles a year driven as a number, e.g. annual=12000 (3,000 to 30,000).';
+    else {
+      form.annual = annualGiven;
+      annual = Math.min(30000, Math.max(3000, n));
+      if (annual !== n) assumed.push(`Miles a year ${n.toLocaleString('en-US')} taken as ${annual.toLocaleString('en-US')}, the calculator's limit (3,000 to 30,000).`);
+    }
+  }
+  const defaulted = (['condition', 'title', 'accident', 'region', 'market', 'urgency'] as const).filter((k) => !get(k)).map((k) => `${k} ${form[k]}`);
   if (defaulted.length) assumed.push(`Defaults used where not given: ${defaulted.join(', ')}.`);
 
   const parsed = parse(form, now);
@@ -142,6 +154,11 @@ export function valueQuery(params: URLSearchParams, now: Date = new Date()): Api
 
   const inputs = parsed.inputs;
   const v = valuate(inputs, now);
+  if (get('comps') !== null) {
+    assumed.push(inputs.comps.length
+      ? `Asking prices read from comps: ${inputs.comps.map((c) => '$' + c.toLocaleString('en-US')).join(', ')}${v.compsIgnored ? ` (${v.compsIgnored} too far from the estimate, ignored)` : ''}.`
+      : `No asking prices could be read from comps "${get('comps')}"; give them separated by a comma and a space, e.g. comps=21500, 22900.`);
+  }
   // the calculator link carries every input this valuation used (market, listings, urgency and comps move the numbers
   // too, annual the forecast), in the calculator's own key order, so opening it shows the same figures; radius only
   // widens the calculator's own listings search and is not read here
@@ -157,7 +174,7 @@ export function valueQuery(params: URLSearchParams, now: Date = new Date()): Api
       ok: true,
       asOf: now.toISOString().slice(0, 10),
       car: { make: inputs.make, model: inputs.model, trim: inputs.trim || null, body: inputs.body, year: inputs.year },
-      inputs: { msrpUsd: inputs.msrp, mileage: inputs.mileage, condition: inputs.condition, title: inputs.title, accident: inputs.accident, region: inputs.region, market: inputs.market, listings: inputs.listings, comps: inputs.comps },
+      inputs: { msrpUsd: inputs.msrp, mileage: inputs.mileage, condition: inputs.condition, title: inputs.title, accident: inputs.accident, region: inputs.region, marketChoice: form.market, market: inputs.market, listings: inputs.listings, urgency: form.urgency, comps: inputs.comps, annualMiles: annual },
       assumed,
       valueUsd: { tradeIn: Math.round(v.tradeIn), privateParty: Math.round(v.privateParty), dealerRetail: Math.round(v.dealerRetail), range: { low: Math.round(v.range.low), high: Math.round(v.range.high) } },
       confidence: { level: v.confidence, reasons: v.confidenceReasons },

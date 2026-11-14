@@ -34,9 +34,16 @@ export function trimChoices(y: StickerYear): StickerTrim[] {
 
 /** The row for a trim name (case-insensitive, hyphen/space-insensitive); falls back to the base trim. */
 export function stickerTrim(y: StickerYear, trim: string): StickerTrim {
+  return findStickerTrim(y, trim) ?? y.trims[0];
+}
+
+/** The sticker row for a trim, matched as stickerTrim matches it (case and punctuation ignored: an exact name first,
+ *  then the first name it begins), or undefined when the trim is not on file; stickerTrim falls back to the base trim. */
+export function findStickerTrim(y: StickerYear, trim: string): StickerTrim | undefined {
   const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '');
   const want = norm(trim);
-  return (want && y.trims.find((t) => norm(t.trim) === want)) || y.trims.find((t) => want && norm(t.trim).startsWith(want)) || y.trims[0];
+  if (!want) return undefined;
+  return y.trims.find((t) => norm(t.trim) === want) || y.trims.find((t) => norm(t.trim).startsWith(want));
 }
 
 /** Pick the sticker row for a used listing: the listing's own trim if it is on

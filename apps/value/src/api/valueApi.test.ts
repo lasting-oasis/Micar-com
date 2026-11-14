@@ -20,7 +20,7 @@ describe('value api', () => {
     const r0 = Math.round;
     expect(b.valueUsd).toEqual({ tradeIn: r0(v.tradeIn), privateParty: r0(v.privateParty), dealerRetail: r0(v.dealerRetail), range: { low: r0(v.range.low), high: r0(v.range.high) } });
     expect(Number.isInteger(b.valueUsd.privateParty)).toBe(true);
-    expect(b.assumed).toEqual([]);
+    expect(b.assumed).toEqual(['Defaults used where not given: market Auto, urgency No rush.']);   // every other input was given
     expect(b.forecastUsd).toHaveLength(6);
     expect(new URL(b.links.app).hash).toBe('#/value');
   });
@@ -57,7 +57,12 @@ describe('value api', () => {
     expect(b.forecastUsd[5].mileage).toBe(60000 + 5 * 25000);
     // the calculator clamps: 99,000 a year forecasts at 30,000, and a missing or bad figure at 12,000
     expect((call('id=honda-civic&year=2019&mileage=60000&annual=99000').body as Body).forecastUsd[5].mileage).toBe(60000 + 5 * 30000);
-    expect((call('id=honda-civic&year=2019&mileage=60000&annual=lots').body as Body).forecastUsd[5].mileage).toBe(60000 + 5 * 12000);
+    const clamped = call('id=honda-civic&year=2019&mileage=60000&annual=99000').body as Body;
+    expect(clamped.assumed.join(' ')).toMatch(/Miles a year 99,000 taken as 30,000/);
+    expect(clamped.inputs.annualMiles).toBe(30000);
+    const lots = call('id=honda-civic&year=2019&mileage=60000&annual=lots');                     // not a number: refused, not guessed
+    expect(lots.status).toBe(400);
+    expect((lots.body as Body).errors.annual).toMatch(/miles a year/i);
     expect((call('id=honda-civic&year=2019&mileage=60000').body as Body).forecastUsd[5].mileage).toBe(60000 + 5 * 12000);
   });
 
@@ -73,6 +78,80 @@ describe('value api', () => {
     expect(gt.inputs.msrpUsd).toBe(160545);
     expect(gt.assumed[0]).toMatch(/^MSRP \$160,545: Sticker/);
   }, 120_000);
+
+  it('reads market and urgency as the calculator names them (any case), and refuses anything else instead of a default', () => {
+    const base = 'id=honda-civic&year=2019&mileage=60000';
+    const tight = call(`${base}&market=Tight`).body as Body, lower = call(`${base}&market=tight`).body as Body;
+    expect(lower.valueUsd).toEqual(tight.valueUsd);                              // "tight" is Tight, not a silent Auto
+    expect(new URL(lower.links.app).searchParams.get('market')).toBe('Tight');  // and the link spells it as the calculator does
+    expect(lower.inputs.marketChoice).toBe('Tight');
+    const week = call(`${base}&urgency=this week`).body as Body;
+    expect(week.inputs.urgency).toBe('This week');
+    expect(week.valueUsd).toEqual((call(`${base}&urgency=This week`).body as Body).valueUsd);
+    expect(week.valueUsd.tradeIn).toBeLessThan((call(base).body as Body).valueUsd.tradeIn);
+    for (const [q, field, msg] of [['market=Hot', 'market', /Auto, Soft, Normal, Tight/], ['urgency=asap', 'urgency', /No rush, Within a month, This week/],
+      ['listings=many', 'listings', /whole number/], ['listings=-3', 'listings', /whole number/], ['listings=5000', 'listings', /whole number/]] as const) {
+      const r = call(`${base}&${q}`);
+      expect(r.status, q).toBe(400);
+      expect((r.body as Body).errors[field], q).toMatch(msg);
+    }
+    expect((call(`${base}&listings=12`).body as Body).inputs.listings).toBe(12);
+  });
+
+  it('says which asking prices it read from comps, or that it could read none', () => {
+    const base = 'id=honda-civic&year=2019&mileage=60000';
+    const spaced = call(`${base}&comps=15000, 17500`).body as Body;
+    expect(spaced.inputs.comps).toEqual([15000, 17500]);
+    expect(spaced.assumed.join(' ')).toMatch(/Asking prices read from comps: \$15,000, \$17,500/);
+    const joined = call(`${base}&comps=15000,17500`).body as Body;                  // the calculator reads this as one number
+    expect(joined.ok).toBe(true);
+    expect(joined.inputs.comps).toEqual([]);
+    expect(joined.assumed.join(' ')).toMatch(/No asking prices could be read from comps "15000,17500"/);
+    expect(joined.valueUsd).toEqual((call(base).body as Body).valueUsd);
+  });
+
+  it('answers in the shape openapi.json publishes: every 200 checked against the Value schema, every refusal against Error', () => {
+    const doc = openApiJson();
+    // the small part of JSON Schema the document uses: $ref, type (incl. integer and null), enum, const, required,
+    // properties, items, minimum and maximum
+    const check = (v: unknown, s: Body, at: string, out: string[]): void => {
+      if (s.$ref) return check(v, s.$ref.split('/').slice(1).reduce((o: Body, k: string) => o[k], doc), at, out);
+      const types: string[] = s.type ? [].concat(s.type) : [];
+      const is = (t: string) => t === 'null' ? v === null : t === 'integer' ? Number.isInteger(v) : t === 'number' ? typeof v === 'number' && Number.isFinite(v)
+        : t === 'array' ? Array.isArray(v) : t === 'object' ? typeof v === 'object' && v !== null && !Array.isArray(v) : typeof v === t;
+      if (types.length && !types.some(is)) return void out.push(`${at}: ${JSON.stringify(v)} is not ${types.join('|')}`);
+      if (s.enum && !s.enum.includes(v)) out.push(`${at}: ${JSON.stringify(v)} not in ${JSON.stringify(s.enum)}`);
+      if ('const' in s && v !== s.const) out.push(`${at}: ${JSON.stringify(v)} is not ${JSON.stringify(s.const)}`);
+      if (typeof v === 'number' && s.minimum !== undefined && v < s.minimum) out.push(`${at}: ${v} < ${s.minimum}`);
+      if (typeof v === 'number' && s.maximum !== undefined && v > s.maximum) out.push(`${at}: ${v} > ${s.maximum}`);
+      if (v && typeof v === 'object' && !Array.isArray(v)) {
+        for (const k of s.required ?? []) if (!(k in (v as Body))) out.push(`${at}.${k}: missing`);
+        for (const [k, sub] of Object.entries(s.properties ?? {})) if (k in (v as Body)) check((v as Body)[k], sub as Body, `${at}.${k}`, out);
+      }
+      if (Array.isArray(v) && s.items) v.forEach((x, i) => check(x, s.items, `${at}[${i}]`, out));
+    };
+    const value = doc.paths['/value'].get.responses as Body;
+    const out: string[] = [];
+    for (const q of ['id=honda-civic&year=2019&mileage=60000', 'make=toyota&model=camry&year=2021', 'id=tesla-model-3&year=2020&mileage=40000.7',
+      'id=honda-civic&year=2019&mileage=60000&market=soft&listings=12&urgency=within a month&comps=15000, 17500&annual=99000',
+      'make=Zork&model=Blaster&year=2019&msrp=30000&mileage=50000&body=Sedan', 'id=ford-f-150&year=2018&mileage=90000&condition=Fair&region=West&accident=Minor']) {
+      const r = call(q);
+      expect(r.status, q).toBe(200);
+      check(r.body, value['200'].content['application/json'].schema, q, out);
+    }
+    for (const [q, status] of [['year=2019', 400], ['id=nope&year=2019', 404], ['id=honda-civic&year=2019&market=Hot', 400], ['make=Honda&model=Civic&trim=Si?&year=2019', 400]] as const) {
+      const r = call(q);
+      expect(r.status, q).toBe(status);
+      check(r.body, value[String(status)].content['application/json'].schema, q, out);
+    }
+    expect(out).toEqual([]);
+    // and the checker does catch a response that breaks the schema
+    const good = call('id=honda-civic&year=2019&mileage=60000').body as Body, bad: string[] = [];
+    const broken = { ...good, valueUsd: { ...good.valueUsd, tradeIn: 12825.5 }, inputs: { ...good.inputs, condition: 'Shiny' }, links: undefined };
+    delete (broken as Body).links;
+    check(broken, value['200'].content['application/json'].schema, 'broken', bad);
+    expect(bad).toEqual(expect.arrayContaining(['broken.links: missing', 'broken.inputs.condition: "Shiny" not in ["Excellent","Good","Fair","Poor"]', 'broken.valueUsd.tradeIn: 12825.5 is not integer']));
+  });
 
   it('documents msrp and mileage as numbers, since a decimal is accepted (and echoed) like the calculator accepts it', () => {
     const b = call('id=tesla-model-3&year=2020&mileage=40000.7').body as Body;
@@ -94,7 +173,11 @@ describe('value api', () => {
     expect(e).toMatch(/or give msrp/);
     // a trim on file, in any case or spelling the calculator's own matching accepts, is priced as that trim
     expect((call('make=Honda&model=Civic&trim=sport&year=2020&mileage=40000').body as Body).car.trim).toBe('Sport');
-    expect((call('make=Honda&model=Civic&trim=ex-l&year=2019&mileage=40000').body as Body).ok).toBe(true);
+    const exl = call('make=Honda&model=Civic&trim=ex-l&year=2019&mileage=40000').body as Body;
+    expect(exl.car.trim).toBe('EX-L');                                          // EX-L, not EX: the exact name wins
+    expect(exl.assumed[0]).toMatch(/Civic EX-L/);
+    expect((call('make=Honda&model=Civic&trim=ex&year=2019&mileage=40000').body as Body).car.trim).toBe('EX');
+    expect((call('make=Honda&model=Civic&trim=tour&year=2019&mileage=40000').body as Body).car.trim).toBe('Touring');   // a prefix, as the calculator reads it
     // with the caller's own MSRP the trim is only a label, as in the calculator
     const own = call('make=Honda&model=Civic&trim=Si?&year=2019&mileage=60000&msrp=25200').body as Body;
     expect(own.ok).toBe(true);
