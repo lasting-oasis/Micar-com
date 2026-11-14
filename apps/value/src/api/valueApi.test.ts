@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { forecast, valuate } from '../engine/valuation';
 import { parse, defaults, URL_KEYS } from '../urlState';
-import { BRANDED_WITHHELD, SELF_DECLARED_NOTE, cacheControlFor, queryOf, resolveCar, valueQuery } from './valueApi';
+import { SELF_DECLARED_NOTE, cacheControlFor, queryOf, resolveCar, valueQuery } from './valueApi';
+import { BRANDED_NOTES } from '../engine/data';
 import stickers from '../data/stickers.json';
 import epaFile from '../data/epa-configs.json';
 import { buildCarRecords, openApiJson, type ApiSticker, type EpaFile } from '../seo/api';
@@ -25,27 +26,36 @@ describe('value api', () => {
     expect(new URL(b.links.app).hash).toBe('#/value');
   });
 
-  it('gives no number for a branded title, whatever the spelling', () => {
-    for (const title of ['Rebuilt', 'salvage', 'REBUILT']) {
+  it('prices a branded title as the calculator does, by the dealer rule of thumb, with the same warning, whatever the spelling', () => {
+    const clean = (call('id=honda-civic&year=2019&mileage=60000').body as Body).valueUsd.privateParty;
+    for (const [title, name, mult] of [['Rebuilt', 'Rebuilt', 0.675], ['salvage', 'Salvage', 0.6], ['REBUILT', 'Rebuilt', 0.675]] as const) {
       const r = call(`id=honda-civic&year=2019&mileage=60000&title=${title}`);
-      expect(r.status).toBe(200);
+      expect(r.status, title).toBe(200);
       const b = r.body as Body;
-      expect(b.ok).toBe(true);
-      expect(b.valueUsd).toBeNull();
-      expect(b.confidence).toBeNull();
-      expect([b.steps, b.forecastUsd, b.drivers]).toEqual([[], [], []]);
-      expect(b.withheld).toEqual({ reason: 'branded-title', message: BRANDED_WITHHELD });
-      expect(b.evidence).toEqual({ tier: 'self-declared', titleFrom: 'caller', note: SELF_DECLARED_NOTE });
-      expect(['Rebuilt', 'Salvage']).toContain(b.inputs.title);
-      expect('note' in b || 'modelKnown' in b).toBe(false);
-      expect(JSON.stringify(b)).not.toMatch(/"(tradeIn|privateParty|dealerRetail|low|high)":\s*\d/);
+      expect(b.inputs.title, title).toBe(name);
+      expect(b.warning, title).toEqual({ reason: 'branded-title', message: BRANDED_NOTES[name] });
+      expect(b.evidence, title).toEqual({ tier: 'self-declared', titleFrom: 'caller', note: SELF_DECLARED_NOTE });
+      expect(b.withheld, title).toBeUndefined();
+      // the calculator's own figure for the same car and title
+      const form = { ...defaults(now), make: 'Honda', model: 'Civic', year: '2019', msrp: '20250', mileage: '60000', title: name };
+      expect(b.valueUsd.privateParty, title).toBe(Math.round(valuate(parse(form, now).inputs!, now).privateParty));
+      expect(b.valueUsd.privateParty / clean, title).toBeCloseTo(mult, 2);
+    }
+  });
+
+  it('refuses a title it does not know, instead of pricing it as clean', () => {
+    for (const title of ['Flood', 'Rebuilt title', 'Salvaged', 'clean title', 'Junk']) {
+      const r = call(`id=honda-civic&year=2019&mileage=60000&title=${encodeURIComponent(title)}`);
+      expect(r.status, title).toBe(400);
+      expect((r.body as Body).errors.title, title).toMatch(/Clean, Rebuilt, Salvage/);
+      expect('valueUsd' in (r.body as Body), title).toBe(false);
     }
   });
 
   it('a clean title keeps its numbers, says nothing was checked, and never carries a grade', () => {
     const b = call('id=honda-civic&year=2019&mileage=60000').body as Body;
     expect(b.valueUsd.privateParty).toBeGreaterThan(0);
-    expect(b.withheld).toBeUndefined();
+    expect(b.warning).toBeUndefined();
     expect(b.evidence).toEqual({ tier: 'self-declared', titleFrom: 'default', note: SELF_DECLARED_NOTE });
     expect((call('id=honda-civic&year=2019&title=clean').body as Body).evidence.titleFrom).toBe('caller');
     expect('grade' in b).toBe(false);

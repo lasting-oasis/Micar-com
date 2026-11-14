@@ -65,12 +65,13 @@ describe('json api', () => {
     for (const c of cars) expect(spec.components.schemas.Body.enum).toContain(c.body);
   });
 
-  it('the Value schema allows a withheld value and requires the evidence', () => {
+  it('the Value schema always has figures, requires the evidence and describes the branded-title warning', () => {
     const v = (openApiJson() as any).components.schemas.Value;
-    expect(v.properties.valueUsd.type).toEqual(['object', 'null']);
-    expect(v.properties.confidence.type).toEqual(['object', 'null']);
+    expect(v.properties.valueUsd.type).toBe('object');
+    expect(v.properties.confidence.type).toBe('object');
     expect(v.required).toContain('evidence');
-    expect(v.properties.withheld.properties.reason.enum).toEqual(['branded-title']);
+    expect(v.properties.warning.properties.reason.enum).toEqual(['branded-title']);
+    expect(v.properties.withheld).toBeUndefined();
   });
 });
 

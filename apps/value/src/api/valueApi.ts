@@ -2,7 +2,7 @@
 // value tests check it; the sim server (apps/sim/server.ts) mounts it at GET /api/v1/value, because GitHub Pages
 // can't run code. It reads the same parameters as the app's links (urlState.ts KEYS), so a link that opens the
 // calculator and a call to this API with the same query get the same numbers.
-import { ACCIDENTS, CONDITIONS, MAKES, REGIONS, TITLES } from '../engine/data';
+import { ACCIDENTS, BRANDED_NOTES, CONDITIONS, MAKES, REGIONS, TITLES } from '../engine/data';
 import { MODELS } from '../engine/models';
 import { prefillMsrp } from '../engine/prefill';
 import { STICKERS, findStickerTrim, stickerFor, stickerTrim } from '../engine/stickers';
@@ -13,8 +13,6 @@ export const APP_URL = 'https://lasting-oasis.github.io/Micar-com/';
 
 /** Every answer says how MiCar knows what it was told: today, only from the caller. */
 export const SELF_DECLARED_NOTE = 'Title, accident history, condition and mileage are as the caller stated them or as MiCar assumed them. MiCar has checked no record and inspected nothing.';
-/** Why a rebuilt or salvage title gets no figures. */
-export const BRANDED_WITHHELD = 'MiCar does not give a value for a rebuilt or salvage title yet: its figures for these cars have not been tested against sale prices. Have the car appraised independently.';
 
 export type ApiResponse = { status: number; body: Record<string, unknown> };
 
@@ -165,12 +163,10 @@ export function valueQuery(params: URLSearchParams, now: Date = new Date()): Api
   if (Object.keys(errors).length || !parsed.inputs) return { status: 400, body: { ok: false, errors } };
 
   const inputs = parsed.inputs;
-  // a rebuilt or salvage title gets no figures at all: the engine's flat title multipliers have not been tested
-  // against sale prices, so the engine is not run for one
-  const v = inputs.title === 'Clean' ? valuate(inputs, now) : null;
+  const v = valuate(inputs, now);
   if (get('comps') !== null) {
     assumed.push(inputs.comps.length
-      ? `Asking prices read from comps: ${inputs.comps.map((c) => '$' + c.toLocaleString('en-US')).join(', ')}${v?.compsIgnored ? ` (${v.compsIgnored} too far from the estimate, ignored)` : ''}.`
+      ? `Asking prices read from comps: ${inputs.comps.map((c) => '$' + c.toLocaleString('en-US')).join(', ')}${v.compsIgnored ? ` (${v.compsIgnored} too far from the estimate, ignored)` : ''}.`
       : `No asking prices could be read from comps "${get('comps')}"; give them separated by a comma and a space, e.g. comps=21500, 22900.`);
   }
   // the calculator link carries every input this valuation used (market, listings, urgency and comps move the numbers
@@ -190,24 +186,21 @@ export function valueQuery(params: URLSearchParams, now: Date = new Date()): Api
     assumed,
     evidence: { tier: 'self-declared', titleFrom: get('title') ? 'caller' : 'default', note: SELF_DECLARED_NOTE },
   };
-  const links = { app: `${APP_URL}?${q.toString()}#/value` };
-  if (!v) {
-    return {
-      status: 200,
-      body: { ...head, withheld: { reason: 'branded-title', message: BRANDED_WITHHELD }, valueUsd: null, confidence: null, drivers: [], steps: [], forecastUsd: [], links },
-    };
-  }
+  // a rebuilt or salvage figure rests on a dealer's rule of thumb: the answer carries the warning the calculator shows
+  // (hasOwnProperty, not Object.hasOwn: the World's server compiles this file with an older library)
+  const warning = Object.prototype.hasOwnProperty.call(BRANDED_NOTES, inputs.title) ? { reason: 'branded-title', message: BRANDED_NOTES[inputs.title] } : undefined;
   return {
     status: 200,
     body: {
       ...head,
+      ...(warning ? { warning } : {}),
       valueUsd: { tradeIn: Math.round(v.tradeIn), privateParty: Math.round(v.privateParty), dealerRetail: Math.round(v.dealerRetail), range: { low: Math.round(v.range.low), high: Math.round(v.range.high) } },
       confidence: { level: v.confidence, reasons: v.confidenceReasons },
       drivers: v.drivers,
       steps: v.steps.map((s) => ({ label: s.label, detail: s.detail, valueUsd: Math.round(s.value), deltaUsd: Math.round(s.delta) })),
       forecastUsd: forecast(inputs, 5, annual, now).map((f) => ({ year: Number(f.year), privateParty: f.value, low: f.low, high: f.high, mileage: f.mileage })),
       modelKnown: v.modelKnown,
-      links,
+      links: { app: `${APP_URL}?${q.toString()}#/value` },
       note: 'An estimate from public pricing data, not an offer or an appraisal. Same engine and inputs as the MiCar calculator.',
     },
   };
