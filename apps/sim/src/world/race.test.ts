@@ -4,7 +4,7 @@ import { TRACKS } from './strip/district';
 import { readTrackSync, setTrackDir } from './strip/districtNode';
 import {
   GO_LEAD_MS, GRID_SIZES, SLOT_COLORS, claimFinish, createRoom, holdsLoan, invitation, joinRoom, leaveRoom, makeCode, markReady, normalizeCode, quitRace, roomMaxFrom,
-  roomSizeFor, roomView, setRace, startRace, sweep, tick, type Room,
+  roomSizeFor, roomView, roundPose, setRace, startRace, sweep, tick, type Room,
 } from './race';
 
 // the floor of a race is its distance over the fastest average speed, so the route lengths must be on hand
@@ -514,3 +514,17 @@ function de00([L1, a1, b1]: number[], [L2, a2, b2]: number[]): number {
   const Sl = 1 + (0.015 * (Lm - 50) ** 2) / Math.sqrt(20 + (Lm - 50) ** 2), Sc = 1 + 0.045 * Cmp, Sh = 1 + 0.015 * Cmp * T, Rt = -Math.sin(2 * dTh * rad) * Rc;
   return Math.sqrt((dL / Sl) ** 2 + (dC / Sc) ** 2 + (dH / Sh) ** 2 + Rt * (dC / Sc) * (dH / Sh));
 }
+
+describe('a pose in fewer bytes', () => {
+  it('rounds a pose to the centimetre and the milliradian, keeping its shape', () => {
+    expect(roundPose([1700000000000.4, 123.456789, -98.765432, 1.23456789, 45.678901, 2345.678901, 1234.6]))
+      .toEqual([1700000000000, 123.46, -98.77, 1.235, 45.68, 2345.68, 1235]);
+    expect(roundPose([1, 2, 3, 0.5, 30, 100, 0])).toEqual([1, 2, 3, 0.5, 30, 100, 0]); // round numbers stay as they are
+  });
+  it('the relayed pose the spec measured (149 bytes) is 92 rounded', () => {
+    const id = '4tp2k6p2vigOE3cXAAAG', raw = [1794637215464.5, 16098.616765074097, 8154.863643704915, 0.412083833922235, 17.64717058905482, 158.2285872987045, 0];
+    const frame = (pose: number[]) => '42' + JSON.stringify(['race_pose', [id, ...pose]]); // socket.io's text frame
+    expect(frame(raw).length).toBe(149);
+    expect(frame(roundPose(raw)).length).toBe(92);
+  });
+});

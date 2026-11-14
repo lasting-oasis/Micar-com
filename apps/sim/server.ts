@@ -21,7 +21,7 @@ import { MAGIC_TTL_MS, allowSend, clientIp, newSendLog, pruneSendLog, applyRecor
 import { RENTAL_DENIED, STRIP_LIMIT, VISITOR_DENIED, VISITOR_EVENTS, closeEvent, guestPlayer, hostIsVacant, isUntouchedGuest, linkTarget, pickHost, quitEvent, sanitizePosition } from './src/world/stripFlow.js';
 import { coalescingSaver, loadOrQuarantine, writeAtomic } from './src/world/persistence.js';
 import { healthReport, startLoadSampler, type SaveAtBoot } from './src/world/health.js';
-import { RACE_MAX, roomMaxFrom, roomSizeFor } from './src/world/race.js';
+import { RACE_MAX, roomMaxFrom, roomSizeFor, roundPose } from './src/world/race.js';
 import { grantTester, heldTestCar, returnTestCar, setTestCar, splitTesterName, testCarDef, topUp } from './src/world/tester.js';
 import { checkTesterKey, configuredTesterKey, isKeyAttempt, newAttemptLog, refusalText } from './src/world/testerKey.js';
 import { TRACKS } from './src/world/strip/district.js';
@@ -1624,8 +1624,9 @@ io.on('connection', (socket) => {
       lastPoseAt.set(socket.id, now);
       const [t, x, z, h, v, s, sc] = msg as number[];
       const within = (n: number, lim: number) => Math.max(-lim, Math.min(lim, n));
+      // rounded as a page rounds it (race.ts roundPose), so an older page's long numbers cost the others no more
       socket.to(raceChannel(room.code)).volatile.emit('race_pose',
-          [socket.id, Math.abs(t - now) <= POSE_SKEW_MS ? t : now, within(x, STRIP_LIMIT), within(z, STRIP_LIMIT), within(h, 1000), within(v, 200), within(s, STRIP_LIMIT), Math.max(0, Math.min(9_999_999, sc))]);
+          [socket.id, ...roundPose([Math.abs(t - now) <= POSE_SKEW_MS ? t : now, within(x, STRIP_LIMIT), within(z, STRIP_LIMIT), within(h, 1000), within(v, 200), within(s, STRIP_LIMIT), Math.max(0, Math.min(9_999_999, sc))])]);
   });
 
   // The racer's own word on their finish: race.ts decides whether that time stands, or the server's own.

@@ -55,6 +55,15 @@ export const SLOT_COLORS: readonly string[] = [
   '#117744', '#9900dd', '#00ff55', '#886600', '#ff77cc', '#00cccc', '#88aa00', '#994466', '#ee8800', '#ffaa99', '#5566aa', '#aa99ff',
 ];
 const SCORE_MAX = 9_999_999;
+/** A racer's pose as it travels, [t, x, z, h, v, s, score]: the time to the whole millisecond, the distances to the
+ *  centimetre, the heading to the milliradian, the speed to the centimetre a second, the score whole. A full-precision
+ *  pose costs 15 to 18 bytes a number; rounded, the relayed message is about 60% of what it was (149 bytes to 92 for
+ *  the one the spec measured). The sender rounds, and the server rounds again as it relays (an older page). */
+export function roundPose(p: readonly number[]): number[] {
+  const r = (n: number, k: number) => Math.round(n * k) / k;
+  const [t, x, z, h, v, s, sc] = p;
+  return [Math.round(t), r(x, 100), r(z, 100), r(h, 1000), r(v, 100), r(s, 100), Math.round(sc)];
+}
 
 export type Phase = 'open' | 'loading' | 'racing';
 export type MemberState = 'waiting' | 'loading' | 'ready' | 'racing' | 'finished' | 'dnf';

@@ -162,16 +162,18 @@ If the owner wants prizes for big races later, it needs, first: accounts on, one
 
 ### What 16 cars cost (estimate; measured by lane A's load test)
 
-*Measured* on this PC (two socket clients through a real room; the websocket frames read raw; no compression is negotiated): a relayed pose is a **151-byte** message plus a 4-byte frame header (`42["race_pose",["<20-character id>",1794637215464.5,16098.616765074097,…]]`: every number travels with 15 to 18 digits); what a racer sends is 128 bytes plus its header. Rounded to the centimetre and the milliradian (Part 1, Task 5) the same relayed pose is about **92 bytes** plus a 2-byte header (estimate from the same example).
+*Measured* on this PC (two socket clients through a real room; the websocket frames read raw; no compression is negotiated): a relayed pose is a **151-byte** message plus a 4-byte frame header (`42["race_pose",["<20-character id>",1794637215464.5,16098.616765074097,…]]`: every number travels with 15 to 18 digits); what a racer sends is 128 bytes plus its header. **Rounded** (Part 1, Task 5), *measured* the same way: the relayed pose is **91 bytes** on average (88 to 92) plus a 2-byte header, the same whether the sender rounds (this page) or sends long numbers (an older page: the server rounds as it relays); what a page sends falls from 128 bytes to **68**. (`e2e/poses.measure.mjs`, `ROUND=1` and `ROUND=0`.)
 
 - **Messages**, per 16-person room: 16 racers × 15 poses a second in, 3,600 relayed poses a second out (16 × 15 × 15). Each phone receives 225 a second and sends 15.
 - **Data, today's format** (estimate from the measured size): each phone downloads about 35 KB/s (about 125 MB an hour) and uploads about 2 KB/s; the server sends about 560 KB/s per 16-person race, **about 2 GB per race-hour**. On Render's Hobby workspace, past its free 5 GB a month, that is about $0.30 per race-hour.
-- **Data, rounded** (Task 5; estimate): about 21 KB/s per phone (about 76 MB an hour) and about 340 KB/s from the server, **about 1.2 GB per race-hour**, about $0.18 past the free 5 GB.
+- **Data, rounded** (Task 5; the pose measured, the rest arithmetic): about 21 KB/s per phone (about 75 MB an hour) and about 335 KB/s from the server, **about 1.2 GB per race-hour**, about $0.18 past the free 5 GB.
 - **Server CPU and memory:** lane A's rough measurement (platform design, Capacity) ran one 16-person room at 4.6% of a core and four at 11.5%, memory under 210 MB. That fits the $7 instance by the spec's own limit (25% of one PC core).
 - **Computer drivers (Part 3)** add server work: about 17 route look-ups per car per step, 15 steps a second (estimate: well under 1% of a core for fifteen cars). Their poses cost the same bandwidth as a person's going out, and nothing coming in.
 - **How it gets measured:** lane A's load test (`apps/sim/e2e/load.ts`, Task 5 of its plan) races fake players in rooms of 4, 8 and 16 on this PC and reads the server's CPU, lag and memory from `/healthz`. When it exists, run `STEPS=16x1,16x2,16x3` against this branch and put the table in Part 1's pull request; until then that pull request says it is not measured. On the paid server the owner decides when (its runbook, Task 5 step 4).
 - **Data, batched** (Task 6; estimate): about 50 bytes a pose instead of 94, so about 11 KB/s per phone and about 0.65 GB per race-hour, about $0.10 past the free 5 GB.
 - **So the batched relay comes before the ceiling is raised.** Part 1 can be merged with the ceiling at 4 whatever these figures are; raising it is the owner's step, after Task 6 has landed and the paid server's load test has passed with rooms of 16.
+  - Call: build the batched relay (Task 6) before the ceiling goes up, rather than raise the trigger to fit the rounded figure.
+  - Cost if wrong: if a 16-person race-hour at 1.2 GB were acceptable to the owner, Task 6 is work done early: about a day's worth of usage, and a second message the page must understand. Cost if skipped: each race-hour of sixteen costs about twice what it needs to, about $0.18 against $0.10 past the free 5 GB.
 
 ### Quick race (Part 2)
 

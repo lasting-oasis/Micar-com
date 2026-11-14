@@ -137,6 +137,30 @@ describe('a server whose ceiling is sixteen (RACE_ROOM_MAX=16)', () => {
     }
   }, 90_000);
 
+  it('the host changes the grid while the room is open: 16 to 8 and back again', async () => {
+    const host = await r.guest('Resizer');
+    const made = r.roomSeen(host.s); host.s.emit('race_create', { eventId: 'harbour_gp', car: 'ronin' });
+    expect((await made).max).toBe(16);
+    const eight = r.roomSeen(host.s, v => v.max === 8); host.s.emit('race_set', { eventId: 'harbour_gp', car: 'ronin', size: 8 });
+    expect((await eight).max).toBe(8);
+    const sixteen = r.roomSeen(host.s, v => v.max === 16); host.s.emit('race_set', { eventId: 'harbour_gp', car: 'ronin', size: 16 });
+    expect((await sixteen).max).toBe(16);
+  }, 30_000);
+
+  it("a pose is relayed in fewer bytes: an older page's long numbers are rounded on the way", async () => {
+    const a = await r.guest('Long'), b = await r.guest('Short');
+    const made = r.roomSeen(a.s); a.s.emit('race_create', { eventId: 'harbour_drift', car: 'ronin', size: 4 });
+    const room = await made;
+    const two = r.roomSeen(a.s, v => v.members.length === 2); b.s.emit('race_join', { code: room.code }); await two;
+    const racing = r.roomSeen(a.s, v => v.phase === 'racing'); a.s.emit('race_start');
+    await r.roomSeen(a.s, v => v.phase === 'loading' || v.phase === 'racing');
+    for (const p of [a, b]) p.s.emit('race_ready');
+    const goAt = (await racing).goAt!;
+    const heard = r.next<any[]>(b.s, 'race_pose', pose => pose[0] === a.id);
+    a.s.emit('race_pose', [goAt + 0.4, 16098.616765074097, 8154.863643704915, 0.412083833922235, 17.64717058905482, 158.2285872987045, 0]);
+    expect(await heard).toEqual([a.id, goAt, 16098.62, 8154.86, 0.412, 17.65, 158.23, 0]);
+  }, 30_000);
+
   it('a room asked for with no size: a circuit gets the ceiling, a drag its four lanes', async () => {
     // what a page from before this work sends, and what lane A's load test sends (it races harbour_gp in the Ronin)
     const circuit = await r.guest('No size'), drag = await r.guest('No size drag');

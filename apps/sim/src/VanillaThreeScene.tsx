@@ -37,7 +37,7 @@ import { racesAllowed } from './world/raceMenu';
 import { DriveLayer } from './world/DriveLayer';
 import { RENTAL_BAY, RENTAL_FLEET, type RentalKey, canRent, heldRental, isVisitor } from './world/rental';
 import { heldTestCar, testCarDef } from './world/tester';
-import { SLOT_COLORS, type RoomView } from './world/race';
+import { SLOT_COLORS, roundPose, type RoomView } from './world/race';
 import { remotes, serverNow } from './world/raceNet';
 import { cardOf, newsOf, raceLabel } from './strip/challengeCopy';
 import { getLang, t } from './i18n';
@@ -752,7 +752,7 @@ export function VanillaThreeScene() {
         const sendPose = (a: ActiveEvent, lossy: boolean) => {
             const sk = useGameStore.getState().socket, V = driver?.V;
             if (!sk || !V) return;
-            const pose = [serverNow(), V.x, V.z, V.h, V.u, a.pS, Math.round(a.drift.score + a.drift.cur * a.drift.mult)];
+            const pose = roundPose([serverNow(), V.x, V.z, V.h, V.u, a.pS, a.drift.score + a.drift.cur * a.drift.mult]); // to the centimetre: fewer bytes for every other racer
             if (lossy) sk.volatile.emit('race_pose', pose); else sk.emit('race_pose', pose); // a pose lost on the way is replaced by the next
         };
         const endChallenge = () => { challenge = null; fieldRoom = cardRoom = null; poseAccum = 0; };
