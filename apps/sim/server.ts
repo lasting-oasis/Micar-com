@@ -140,8 +140,8 @@ function resetSocketState(socketId: string) {
 }
 
 // --- Challenge races -----------------------------------------------------------
-// A race between people, started from a link. The rules are in src/world/race.ts; this is the wiring. Rooms live in
-// memory, like players: a restart ends them all.
+// A race between people, in a room made from a link or, for a quick race, found by circuit. The rules are in
+// src/world/race.ts; this is the wiring. Rooms live in memory, like players: a restart ends them all.
 const raceRooms = new Map<string, Room>();
 /** The room each socket is in: one at a time. */
 const raceOf = new Map<string, string>();
@@ -182,8 +182,9 @@ function syncRoom(room: Room, changed = false) {
 }
 
 /** A socket leaves its room: its lent car goes back and the room is told. `left`: the player chose to (Leave, or into
- *  another room); otherwise the socket dropped, re-joined or changed its player, and a room it leaves empty keeps its link
- *  longer (race.ts: a phone that went to a messenger to send the link is asleep, not gone). */
+ *  another room) or a quick room took them out for not loading (race.ts missedLoad); otherwise the socket dropped,
+ *  re-joined or changed its player, and a room it leaves empty keeps its link longer (race.ts: a phone that went to a
+ *  messenger to send the link is asleep, not gone). */
 function leaveRace(socketId: string, left = false) {
     const code = raceOf.get(socketId);
     lastPoseAt.delete(socketId);
@@ -210,7 +211,8 @@ function moveSocket(id: string, from: string, to: string) {
 // Once a second: what only the clock decides in a room (the slow are left behind, the finish window closes, a race
 // nobody finishes ends), and the rooms nobody has been in for too long go (two minutes after a Leave, fifteen after a drop).
 // A quick room takes out whoever has not loaded when the load time is up, and tells them why; then a circuit's open quick
-// rooms are made one (race.ts missedLoad, mergeQuick).
+// rooms are merged as race.ts mergeQuick says (into a room whose race has just ended; else the fuller takes the emptier).
+// tick runs first, so a room whose start has come starts rather than being merged (mergeQuick also leaves it alone).
 setInterval(() => {
     const now = Date.now();
     for (const room of raceRooms.values()) {
@@ -1636,9 +1638,13 @@ io.on('connection', (socket) => {
   socket.on('race_join', (msg: unknown) => {
       const player = gameState.players[socket.id];
       if (!player) return;
+      const code = normalizeCode(fields(msg).code), found = code ? raceRooms.get(code) : undefined;
+      if (found && raceOf.get(socket.id) === found.code) { socket.emit('race_room', roomView(found)); return; } // already in it: to the asker alone
       if (handsFull(player)) { raceNo('holding'); return; }
-      const code = normalizeCode(fields(msg).code), room = code ? raceRooms.get(code) : undefined;
-      if (!room) { raceNo('gone'); return; }
+      if (!found) { raceNo('gone'); return; }
+      // a quick room's link after its racers were moved on (race.ts mergeQuick): to its circuit's quick room, if one is open
+      const track = EVENTS.find(e => e.id === found.eventId)?.track;
+      const room = found.quick && found.members.length === 0 && track ? findQuick(raceRooms, track) ?? found : found;
       const joined = joinRoom(room, { id: socket.id, name: player.name }, Date.now()); // a quick room starts its wait
       if (!joined.ok) { raceNo(joined.why); return; }
       enterRoom(room);
@@ -1728,8 +1734,7 @@ io.on('connection', (socket) => {
   socket.on('race_quit', () => {
       const room = myRoom();
       if (!room) return;
-      quitRace(room, socket.id, Date.now());
-      syncRoom(room);
+      if (quitRace(room, socket.id, Date.now())) syncRoom(room); // nothing to quit: nobody needs telling
   });
 
   socket.on('race_leave', () => leaveRace(socket.id, true));
