@@ -65,7 +65,12 @@ try {
     await page.goto(site.base + '?lang=en', { waitUntil: 'networkidle' });
     await page.getByRole('button', { name: 'Open the door' }).click();      // the form's own example car
     await page.locator('.showcase .slab').waitFor({ state: 'visible', timeout: 15000 }).catch(() => {});
-    await page.waitForTimeout(2500);                                        // the door rolls up and the card lands
+    // The door rolls up, then the card comes down onto the pedestal inside the garage: wait until it has landed.
+    await page.waitForFunction(() => {
+      const card = document.querySelector('.showcase');
+      return !!document.querySelector('.dp.open') && !!card && getComputedStyle(card).visibility === 'visible' && card.getAnimations().every((a) => a.playState === 'finished');
+    }, null, { timeout: 15000 }).catch(() => {});
+    await page.waitForTimeout(300);
 
     const hero = page.locator('.showcase .slab');
     if (await hero.count() && await hero.isVisible()) {
