@@ -9,10 +9,23 @@ import { raceCapS } from './strip/events';
 
 export { CODE_ALPHABET, CODE_LEN, makeCode, normalizeCode } from './raceCode';
 
-/** A room holds at most this many people (the grid has four places), and a race needs at least two. */
+/** A room holds this many unless the server allows more (RACE_ROOM_MAX) and its host asks for it; a drag always (it has
+ *  four lanes). A race needs at least two. */
 export const RACE_MAX = 4, RACE_MIN = 2;
-/** The most a room may be made to hold, and only for a load test (RACE_ROOM_MAX): the Strip's grid still shows four. */
+/** The most a room may be made to hold: the sixteen places of the grid (strip/grid.ts). */
 export const ROOM_MAX_LIMIT = 16;
+/** The grids a host picks from, up to the server's ceiling. */
+export const GRID_SIZES: readonly number[] = [4, 8, 12, 16];
+/**
+ * How many a room is made to hold, or null when that is refused: what the host asked for when it is one of GRID_SIZES
+ * and no more than the server's `ceiling` (roomMaxFrom). A page that asks for no size (one from before rooms grew, and
+ * lane A's load test) gets the ceiling, which is RACE_MAX unless RACE_ROOM_MAX says more. A drag is RACE_MAX, always.
+ */
+export function roomSizeFor(asked: unknown, ceiling: number, drag: boolean): number | null {
+  if (asked === undefined || asked === null) return drag ? RACE_MAX : ceiling;
+  if (drag) return asked === RACE_MAX ? RACE_MAX : null;
+  return typeof asked === 'number' && GRID_SIZES.includes(asked) && asked <= ceiling ? asked : null;
+}
 /** How many a room holds: RACE_MAX, unless `env` (RACE_ROOM_MAX), trimmed, is a whole number from RACE_MAX to ROOM_MAX_LIMIT. */
 export function roomMaxFrom(env: string | undefined): number {
   const s = (env ?? '').trim();
@@ -33,16 +46,21 @@ const NAME_MAX = 24;
 /** A browser's own time stands when it is at most this far under the server's figure (a slow connection), and at most
  *  CLAIM_LATE_S over it (two clocks never agree to the millisecond). */
 export const CLAIM_TOLERANCE_S = 0.5, CLAIM_LATE_S = 0.1;
-/** The lent car's colour, by grid place. */
-export const SLOT_COLORS: readonly string[] = ['#ffd23f', '#2a9df4', '#e8463c', '#f3f6fb'];
+/** The lent car's colour, by grid place: the first four as a race of four always had them, then twelve more chosen to be
+ *  as far as possible from those and from each other (race.test.ts holds every pair at least 20 apart in CIEDE2000), the
+ *  most distinct first so that a smaller room gets them; none too dark to read on the HUD's night panel. */
+export const SLOT_COLORS: readonly string[] = [
+  '#ffd23f', '#2a9df4', '#e8463c', '#f3f6fb',
+  '#117744', '#9900dd', '#00ff55', '#886600', '#ff77cc', '#00cccc', '#88aa00', '#994466', '#ee8800', '#ffaa99', '#5566aa', '#aa99ff',
+];
 const SCORE_MAX = 9_999_999;
 
 export type Phase = 'open' | 'loading' | 'racing';
 export type MemberState = 'waiting' | 'loading' | 'ready' | 'racing' | 'finished' | 'dnf';
 /** Why a racer has no time. */
 export type Why = 'quit' | 'failed' | 'left' | 'timeout';
-/** Why the server said no. */
-export type DenyWhy = 'gone' | 'full' | 'busy' | 'slow' | 'holding' | 'host' | 'few' | 'state' | 'pick';
+/** Why the server said no. 'size': a grid the server does not make, or smaller than the room. */
+export type DenyWhy = 'gone' | 'full' | 'busy' | 'slow' | 'holding' | 'host' | 'few' | 'state' | 'pick' | 'size';
 export type Member = { id: string; name: string; slot: number; state: MemberState; time: number | null; score: number; why: Why | null };
 export type ResultRow = { id: string; name: string; pos: number; time: number | null; score: number; why: Why | null };
 export type LastRace = { raceNo: number; eventId: string; rows: ResultRow[] };
@@ -63,7 +81,7 @@ export type Room = {
   max: number;
 };
 /** What the members are sent. */
-export type RoomView = Pick<Room, 'code' | 'eventId' | 'car' | 'hostId' | 'phase' | 'raceNo' | 'members' | 'goAt' | 'closesAt' | 'last' | 'note'>;
+export type RoomView = Pick<Room, 'code' | 'eventId' | 'car' | 'hostId' | 'phase' | 'raceNo' | 'members' | 'goAt' | 'closesAt' | 'last' | 'note' | 'max'>;
 /** What anyone holding the code may read before joining. */
 export type Invitation = { host: string; eventId: string; car: RentalKey; count: number; max: number; phase: Phase };
 type Ok = { ok: true };
@@ -131,12 +149,17 @@ export function leaveRoom(room: Room, id: string, now: number, dropped = false):
   settle(room, now);
 }
 
-export function setRace(room: Room, id: string, pick: Choice, stage: number): Ok | Denied {
+/** The host's next race, car and grid. No size keeps the room's own (a drag's is four); a size the server does not make
+ *  (`ceiling`: roomSizeFor), or one smaller than the room, is refused and changes nothing. */
+export function setRace(room: Room, id: string, pick: Choice & { size?: unknown }, stage: number, ceiling = RACE_MAX): Ok | Denied {
   if (id !== room.hostId) return no('host');
   if (room.phase !== 'open') return no('state');
   const choice = checkChoice(pick, stage);
   if (!choice.ok) return choice;
-  room.eventId = choice.eventId; room.car = choice.car;
+  const drag = EVENTS.find(e => e.id === choice.eventId)?.type === 'drag', asked = pick?.size;
+  const size = asked === undefined || asked === null ? (drag ? RACE_MAX : room.max) : roomSizeFor(asked, ceiling, drag);
+  if (size === null || size < room.members.length) return no('size');
+  room.eventId = choice.eventId; room.car = choice.car; room.max = size;
   return OK;
 }
 
@@ -226,8 +249,8 @@ export function holdsLoan(room: Room, id: string): boolean {
 }
 
 export function roomView(room: Room): RoomView {
-  const { code, eventId, car, hostId, phase, raceNo, members, goAt, closesAt, last, note } = room;
-  return { code, eventId, car, hostId, phase, raceNo, members, goAt, closesAt, last, note };
+  const { code, eventId, car, hostId, phase, raceNo, members, goAt, closesAt, last, note, max } = room;
+  return { code, eventId, car, hostId, phase, raceNo, members, goAt, closesAt, last, note, max };
 }
 
 export function invitation(room: Room): Invitation {

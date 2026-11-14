@@ -3,8 +3,8 @@ import { beforeAll, describe, expect, it } from 'vitest';
 import { TRACKS } from './strip/district';
 import { readTrackSync, setTrackDir } from './strip/districtNode';
 import {
-  GO_LEAD_MS, claimFinish, createRoom, holdsLoan, invitation, joinRoom, leaveRoom, makeCode, markReady, normalizeCode, quitRace, roomMaxFrom, roomView,
-  setRace, startRace, sweep, tick, type Room,
+  GO_LEAD_MS, GRID_SIZES, SLOT_COLORS, claimFinish, createRoom, holdsLoan, invitation, joinRoom, leaveRoom, makeCode, markReady, normalizeCode, quitRace, roomMaxFrom,
+  roomSizeFor, roomView, setRace, startRace, sweep, tick, type Room,
 } from './race';
 
 // the floor of a race is its distance over the fastest average speed, so the route lengths must be on hand
@@ -403,7 +403,7 @@ describe('what the server reads off a room', () => {
   });
   it('the view hides the bookkeeping; the invitation names the host', () => {
     const { room } = open3();
-    expect(Object.keys(roomView(room)).sort()).toEqual(['car', 'closesAt', 'code', 'eventId', 'goAt', 'hostId', 'last', 'members', 'note', 'phase', 'raceNo']);
+    expect(Object.keys(roomView(room)).sort()).toEqual(['car', 'closesAt', 'code', 'eventId', 'goAt', 'hostId', 'last', 'max', 'members', 'note', 'phase', 'raceNo']);
     expect(roomView(room)).toMatchObject({ code: room.code, eventId: 'royal_drag', car: 'ronin', hostId: 'a', phase: 'open', raceNo: 0 });
     expect(invitation(room)).toEqual({ host: 'A', eventId: 'royal_drag', car: 'ronin', count: 3, max: 4, phase: 'open' });
     for (const id of ['a', 'b', 'c']) leaveRoom(room, id, 0);
@@ -432,3 +432,85 @@ describe('room size for a load test', () => {
     expect(invitation(small.room).max).toBe(4);
   });
 });
+
+describe('rooms of 4 to 16', () => {
+  it('a room is 4, 8, 12 or 16, never over the ceiling; a page that sends no size gets the largest room the server makes', () => {
+    expect(GRID_SIZES).toEqual([4, 8, 12, 16]);
+    expect([roomSizeFor(8, 16, false), roomSizeFor(16, 16, false), roomSizeFor(12, 12, false), roomSizeFor(4, 4, false)]).toEqual([8, 16, 12, 4]);
+    // no size (a page from before this work, or lane A's load test): the server's ceiling, which is 4 unless RACE_ROOM_MAX says more
+    expect([roomSizeFor(undefined, 16, false), roomSizeFor(null, 4, false), roomSizeFor(undefined, 10, false)]).toEqual([16, 4, 10]);
+    const refused: [unknown, number][] = [[16, 8], [6, 16], ['8', 16], [12, 4], [8.5, 16], [0, 16], [-4, 16], [NaN, 16], [Infinity, 16], [{}, 16]];
+    for (const [asked, ceiling] of refused) expect(roomSizeFor(asked, ceiling, false)).toBeNull();
+  });
+  it('a drag stays four', () => {
+    expect([roomSizeFor(undefined, 16, true), roomSizeFor(4, 16, true), roomSizeFor(4, 4, true)]).toEqual([4, 4, 4]);
+    expect([roomSizeFor(8, 16, true), roomSizeFor(16, 16, true)]).toEqual([null, null]);
+  });
+  it('the host changes the size while the room is open, never below who is in it, never over the ceiling', () => {
+    const rooms = new Map<string, Room>();
+    const made = createRoom(rooms, who('h'), { eventId: 'harbour_gp', car: 'ronin' }, 1, Math.random, '', 16);
+    if (!made.ok) throw new Error(made.why);
+    const room = made.room;
+    for (let i = 1; i < 9; i++) joinRoom(room, who('p' + i)); // nine in all
+    const pick = (size: unknown, eventId = 'harbour_gp') => ({ eventId, car: 'ronin', size });
+    expect(setRace(room, 'h', pick(8), 1, 16)).toEqual({ ok: false, why: 'size' });
+    expect(room.max).toBe(16);
+    expect(setRace(room, 'h', pick(12), 1, 16)).toEqual({ ok: true });
+    expect(room.max).toBe(12);
+    expect(setRace(room, 'p1', pick(16), 1, 16)).toEqual({ ok: false, why: 'host' });
+    expect(setRace(room, 'h', pick(16), 1, 8)).toEqual({ ok: false, why: 'size' });
+    // no size: the room keeps its own; a drag is four, and nine are in
+    expect(setRace(room, 'h', { eventId: 'harbour_gp', car: 'tsubasa' }, 1, 16)).toEqual({ ok: true });
+    expect([room.max, room.car]).toEqual([12, 'tsubasa']);
+    expect(setRace(room, 'h', { eventId: 'royal_drag', car: 'ronin' }, 1, 16)).toEqual({ ok: false, why: 'size' });
+    expect([room.eventId, room.max]).toEqual(['harbour_gp', 12]);
+    // with three left, the drag is taken, and the room becomes a room of four
+    for (let i = 1; i < 7; i++) leaveRoom(room, 'p' + i, 0);
+    expect(setRace(room, 'h', { eventId: 'royal_drag', car: 'ronin' }, 1, 16)).toEqual({ ok: true });
+    expect([room.eventId, room.max]).toEqual(['royal_drag', 4]);
+  });
+  it("the room's size reaches its members", () => {
+    const rooms = new Map<string, Room>();
+    const made = createRoom(rooms, who('h'), { eventId: 'harbour_gp', car: 'ronin' }, 1, Math.random, '', 12);
+    if (!made.ok) throw new Error(made.why);
+    expect(roomView(made.room).max).toBe(12);
+  });
+  it('sixteen colours: the first four are as they were, and no two are alike', () => {
+    expect(SLOT_COLORS).toHaveLength(16);
+    expect(SLOT_COLORS.slice(0, 4)).toEqual(['#ffd23f', '#2a9df4', '#e8463c', '#f3f6fb']);
+    let closest = Infinity;
+    for (let i = 0; i < 16; i++) for (let j = i + 1; j < 16; j++) closest = Math.min(closest, ciede2000(SLOT_COLORS[i], SLOT_COLORS[j]));
+    expect(closest).toBeGreaterThanOrEqual(20);
+  });
+  it('the colour difference sum agrees with its published test pair', () => {
+    // Sharma, Wu and Dalal (2005), pair 1: 2.0425
+    expect(de00([50, 2.6772, -79.7751], [50, 0, -82.7485])).toBeCloseTo(2.0425, 4);
+  });
+});
+
+/** CIEDE2000 between two sRGB colours written '#rrggbb' (D65). */
+function ciede2000(p: string, q: string): number { return de00(lab(p), lab(q)); }
+function lab(hex: string): [number, number, number] {
+  const lin = (c: number) => (c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4);
+  const [r, g, b] = [1, 3, 5].map(i => lin(parseInt(hex.slice(i, i + 2), 16) / 255));
+  const x = (0.4124 * r + 0.3576 * g + 0.1805 * b) / 0.95047, y = 0.2126 * r + 0.7152 * g + 0.0722 * b, z = (0.0193 * r + 0.1192 * g + 0.9505 * b) / 1.08883;
+  const f = (t: number) => (t > 216 / 24389 ? Math.cbrt(t) : (24389 / 27 * t + 16) / 116);
+  return [116 * f(y) - 16, 500 * (f(x) - f(y)), 200 * (f(y) - f(z))];
+}
+function de00([L1, a1, b1]: number[], [L2, a2, b2]: number[]): number {
+  const rad = Math.PI / 180, C1 = Math.hypot(a1, b1), C2 = Math.hypot(a2, b2), Cm = (C1 + C2) / 2;
+  const G = 0.5 * (1 - Math.sqrt(Cm ** 7 / (Cm ** 7 + 25 ** 7)));
+  const a1p = (1 + G) * a1, a2p = (1 + G) * a2, C1p = Math.hypot(a1p, b1), C2p = Math.hypot(a2p, b2);
+  const hue = (b: number, a: number) => { const d = Math.atan2(b, a) / rad; return d < 0 ? d + 360 : d; };
+  const h1 = hue(b1, a1p), h2 = hue(b2, a2p);
+  let dh = 0;
+  if (C1p * C2p !== 0) { dh = h2 - h1; if (dh > 180) dh -= 360; else if (dh < -180) dh += 360; }
+  const dL = L2 - L1, dC = C2p - C1p, dH = 2 * Math.sqrt(C1p * C2p) * Math.sin((dh * rad) / 2);
+  const Lm = (L1 + L2) / 2, Cmp = (C1p + C2p) / 2;
+  let hm = h1 + h2;
+  if (C1p * C2p !== 0) { if (Math.abs(h1 - h2) > 180) hm += h1 + h2 < 360 ? 360 : -360; hm /= 2; }
+  const T = 1 - 0.17 * Math.cos((hm - 30) * rad) + 0.24 * Math.cos(2 * hm * rad) + 0.32 * Math.cos((3 * hm + 6) * rad) - 0.2 * Math.cos((4 * hm - 63) * rad);
+  const dTh = 30 * Math.exp(-(((hm - 275) / 25) ** 2)), Rc = 2 * Math.sqrt(Cmp ** 7 / (Cmp ** 7 + 25 ** 7));
+  const Sl = 1 + (0.015 * (Lm - 50) ** 2) / Math.sqrt(20 + (Lm - 50) ** 2), Sc = 1 + 0.045 * Cmp, Sh = 1 + 0.015 * Cmp * T, Rt = -Math.sin(2 * dTh * rad) * Rc;
+  return Math.sqrt((dL / Sl) ** 2 + (dC / Sc) ** 2 + (dH / Sh) ** 2 + Rt * (dC / Sc) * (dH / Sh));
+}
