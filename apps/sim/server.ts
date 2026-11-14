@@ -24,7 +24,7 @@ import { grantTester, heldTestCar, returnTestCar, setTestCar, splitTesterName, t
 import { checkTesterKey, configuredTesterKey, isKeyAttempt, newAttemptLog, refusalText } from './src/world/testerKey.js';
 import { TRACKS } from './src/world/strip/district.js';
 import { readTrackSync, setTrackDir } from './src/world/strip/districtNode.js';
-import { cacheControlFor, queryOf, valueQuery } from '../value/src/api/valueApi.ts';
+import { valueRoute } from './src/valueRoute.ts';
 
 const app = express();
 const httpServer = createServer(app);
@@ -2523,20 +2523,9 @@ async function startServer() {
         res.json({ ok: true, ...invitation(room) });
     });
 
-    // The valuation API: the MiCar calculator's engine as JSON, for agents and other sites (GitHub Pages can't run code).
-    // Read-only and keyless; documented at https://lasting-oasis.github.io/Micar-com/api/v1/openapi.json
-    app.get('/api/v1/value', (req, res) => {
-        res.set('Access-Control-Allow-Origin', '*');
-        try {
-            const out = valueQuery(queryOf(req.originalUrl));      // the whole query, a literal '?' in a value included
-            res.set('Cache-Control', cacheControlFor(out.status));
-            res.status(out.status).json(out.body);
-        } catch (e) {
-            console.error('value api', e);
-            res.set('Cache-Control', cacheControlFor(500));         // never cache a failure
-            res.status(500).json({ ok: false, errors: { server: 'The valuation failed. Try again, or open the calculator.' } });
-        }
-    });
+    // The valuation API: the MiCar calculator's engine as JSON (src/valueRoute.ts; tested over HTTP in valueRoute.test.ts
+    // and serverWiring.test.ts). Read-only and keyless; documented at https://lasting-oasis.github.io/Micar-com/api/v1/openapi.json
+    app.get('/api/v1/value', valueRoute());
 
     if (process.env.NODE_ENV !== 'production') {
         const { createServer: createViteServer } = await import('vite');
