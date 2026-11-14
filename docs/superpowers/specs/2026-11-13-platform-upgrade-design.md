@@ -89,7 +89,7 @@ Pay for the Render service that already runs the World, attach a disk, buy a dom
 
 ## Capacity: how many racers the $7 instance carries
 
-The owner asked on 2026-11-13 whether 8 to 16 person races could run on the $7 instance. Nobody knows yet; this is how it gets measured before anyone pays.
+The owner asked on 2026-11-13 whether 8 to 16 person races could run on the $7 instance. A rough first measurement, below, says yes with room to spare; the planned test confirms it on the PC and then on Render itself.
 
 **What the code does today** (read from the repository):
 
