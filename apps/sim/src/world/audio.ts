@@ -44,6 +44,14 @@ export class Audio {
   // the output fine (its clock moving while 'running') or that started afresh.
   private clock = (): number => performance.now();
   private seenTime = -1; private seenState = ''; private lookedAt = -1; private fineAt = -1; private rebuilt = 0;
+  /** How often the engine processor has started the model afresh after a sample that was not a number. */
+  private modelResets = 0;
+  /** ms: the longest the output's clock has stood still while 'running' (kept across rebuilds); the last look that saw it
+   *  move and the last that saw it still (NaN: none since the last change of state); the context's changes of state. */
+  private longestFreeze = 0; private movedAt = NaN; private stillAt = NaN; private stateChanges = 0; private seenChanges = 0;
+  private offState: (() => void) | null = null;
+  /** ?audiodebug only: analysers on the engine model's output and on the whole output, made on the first readout. */
+  private probe: { AC: Ctx; out: AnalyserNode; eng: AnalyserNode | null; engOf: AudioNode | null; buf: Float32Array<ArrayBuffer> } | null = null;
 
   /** 'ok', 'stalled' (its clock has not moved for over a second), 'interrupted'/'suspended' (stuck so for over a second), 'closed', or 'none' before the first tap.
    *  Judged from the looks alone: a time with nothing looking (out of the car, a hidden tab) adds nothing. */
@@ -53,21 +61,44 @@ export class Audio {
     if (this.lookedAt - this.fineAt < 1000) return 'ok';
     return this.seenState === 'running' ? 'stalled' : (this.seenState as 'interrupted' | 'suspended');
   }
-  /** One line for the on-screen readout (?audiodebug). */
+  /** One line for the on-screen readout (?audiodebug): the context, then where the sound is lost, if it is.
+   *  "engine" is the model's own output before its gain, "out" everything on its way to the speakers. */
   debugLine(): string {
-    const AC = this.AC; if (!AC) return 'audio: not started (tap)';
-    return `audio: ${AC.state} t=${AC.currentTime.toFixed(1)} ${AC.sampleRate}Hz ${this.health()} model=${this.modelActive ? 'on' : 'off'} rebuilt=${this.rebuilt}`;
+    const AC = this.AC, A = this.A; if (!AC || !A) return 'audio: not started (tap)';
+    let p = this.probe;
+    if (!p || p.AC !== AC) { const out = AC.createAnalyser(); out.fftSize = 2048; A.master.connect(out); p = this.probe = { AC, out, eng: null, engOf: null, buf: new Float32Array(2048) }; }
+    if (this.node && p.engOf !== this.node) { const eng = AC.createAnalyser(); eng.fftSize = 2048; this.node.connect(eng); p.eng = eng; p.engOf = this.node; }
+    const gain = (g: GainNode | null) => g ? g.gain.value.toFixed(2) : '-';
+    return `audio: ${AC.state} t=${AC.currentTime.toFixed(1)} ${AC.sampleRate}Hz ${this.health()} model=${this.modelActive ? 'on' : 'off'} rebuilt=${this.rebuilt} froze ${(this.longestFreeze / 1000).toFixed(1)}s`
+      + ` | engine ${this.level(p.eng)} x${gain(this.nodeGain)} resets=${this.modelResets} | out ${this.level(p.out)} x${gain(A.master)}`;
+  }
+  /** The peak an analyser sees, in dB; "NaN" if any sample is not a number. */
+  private level(an: AnalyserNode | null): string {
+    const b = this.probe?.buf; if (!an || !b) return '-';
+    an.getFloatTimeDomainData(b);
+    let peak = 0;
+    for (let i = 0; i < b.length; i++) { const v = b[i]; if (v - v !== 0) return 'NaN'; const m = v < 0 ? -v : v; if (m > peak) peak = m; }
+    return peak < 1e-5 ? 'silent' : `${Math.round(20 * Math.log10(peak))}dB`;
   }
   // One look. currentTime never runs backwards, so a clock that reads the same as at the last look, still 'running', stood
   // still all the time between, however long nothing looked; one that has moved was fine. A change of state starts afresh.
   private watch(): void {
     const AC = this.AC; if (!AC) return;
     const now = this.clock(), state = AC.state as string, t = AC.currentTime;
-    if (state !== this.seenState || (state === 'running' && t !== this.seenTime)) this.fineAt = now;
+    const changed = this.stateChanges !== this.seenChanges; this.seenChanges = this.stateChanges;
+    if (changed || state !== this.seenState || (state === 'running' && t !== this.seenTime)) this.fineAt = now;
+    // ?audiodebug 'froze': a freeze runs from the last look that saw the clock move, while 'running', to the last look that saw
+    // it still. A look between two steps of the clock followed by a long task is no freeze. A change of state (a suspend, an
+    // interruption) ends a freeze, and the next one counts only once the clock has moved again: starting up is not one.
+    const running = state === 'running', moved = running && t !== this.seenTime && this.seenTime >= 0;
+    if (moved || !running || changed) {
+      if (this.stillAt > this.movedAt) this.longestFreeze = Math.max(this.longestFreeze, this.stillAt - this.movedAt);
+      this.stillAt = NaN; this.movedAt = moved ? now : NaN;
+    } else this.stillAt = now;
     this.seenTime = t; this.seenState = state; this.lookedAt = now;
   }
   /** Forget what the looks saw: the output was changed on purpose (a tab shown again), so the next look starts afresh. */
-  private forget(): void { this.seenTime = -1; this.seenState = ''; this.lookedAt = this.fineAt = -1; }
+  private forget(): void { this.seenTime = -1; this.seenState = ''; this.lookedAt = this.fineAt = -1; this.movedAt = this.stillAt = NaN; }
 
   constructor(private muted = false, private mode: SoundMode = 'classic') {}
 
@@ -95,6 +126,9 @@ export class Audio {
         if (this.AC !== AC) return; // disposed while loading
         const node = new AudioWorkletNode(AC, 'micar-engine', { numberOfInputs: 0, outputChannelCount: [2], processorOptions: { facts: this.facts } });
         const g = AC.createGain(); g.gain.value = 0; node.connect(g).connect(master);
+        // A processor counts its own fresh starts; the readout keeps counting across rebuilds and ignores a processor gone since.
+        const before = this.modelResets;
+        node.port.onmessage = (e: MessageEvent<{ resets?: number }>) => { if (this.node === node && typeof e.data?.resets === 'number') this.modelResets = before + e.data.resets; };
         this.node = node; this.nodeGain = g; this.send(this.sentTurbo);
       })
       .catch(() => { /* the classic engine keeps playing */ });
@@ -203,9 +237,11 @@ export class Audio {
     if (this.AC) {
       for (const src of this.sources) { try { src.stop(); } catch { /* never started */ } }
       try { this.node?.disconnect(); } catch { /* not connected */ }
+      if (this.node) this.node.port.onmessage = null;
       try { this.A?.master.disconnect(); } catch { /* not connected */ }
     }
-    this.sources = []; this.AC = null; this.A = null; this.node = null; this.nodeGain = null; this.quiet = true; this.forget();
+    this.sources = []; this.AC = null; this.A = null; this.node = null; this.nodeGain = null; this.probe = null; this.quiet = true; this.forget();
+    this.offState?.(); this.offState = null;
   }
 
   private ctx(): Ctx | null {
@@ -218,6 +254,8 @@ export class Audio {
     let AC: Ctx;
     if (shared && shared.AC.state !== 'closed' && shared.AC instanceof Ctor) { AC = shared.AC; shared.users.add(this); }
     else { try { AC = new Ctor(); } catch { return null; } shared = { AC, users: new Set([this]) }; } // the browser can refuse (it throws): the next tap tries again
+    const onState = () => { this.stateChanges++; };
+    AC.addEventListener('statechange', onState); this.offState = () => AC.removeEventListener('statechange', onState);
     const master = AC.createGain(); master.gain.value = this.muted ? 0 : .55; master.connect(AC.destination);
     const nb = AC.createBuffer(1, AC.sampleRate * 2, AC.sampleRate), d = nb.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
     const noiseSrc = () => { const s = AC.createBufferSource(); s.buffer = nb; s.loop = true; s.start(); return s; };

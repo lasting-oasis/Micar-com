@@ -1,5 +1,5 @@
 // The AudioWorklet shell around the engine sound model. It runs on the audio thread: the model is built
-// when a car arrives by message, and process() only copies six numbers in and renders.
+// when a car arrives by message, and process() copies the inputs in, renders, and checks what came out.
 import { EngineSound } from './engineSound';
 import type { SoundFacts } from './facts';
 
@@ -15,18 +15,35 @@ class EngineProcessor extends AudioWorkletProcessor {
     return PARAMS.map(name => ({ name, defaultValue: name === 'exhaust' ? 1 : name === 'intake' ? 0.5 : name === 'bay' ? 0.3 : 0, automationRate: 'k-rate' }));
   }
   private model: EngineSound | null = null;
+  private facts: SoundFacts | null = null;
+  private resets = 0; private frames = 0; private resetAt = -Infinity;
   constructor(options?: { processorOptions?: { facts?: SoundFacts | null } }) {
     super();
     this.setCar(options?.processorOptions?.facts ?? null);
     this.port.onmessage = (e: MessageEvent<{ facts: SoundFacts | null }>) => this.setCar(e.data.facts);
   }
-  private setCar(facts: SoundFacts | null): void { this.model = facts ? new EngineSound(facts, sampleRate) : null; }
+  /** A car whose facts the model cannot be built from leaves the engine silent; a throw here would end the processor. */
+  private setCar(facts: SoundFacts | null): void {
+    this.facts = facts;
+    try { this.model = facts ? new EngineSound(facts, sampleRate) : null; } catch { this.model = null; }
+  }
   process(_inputs: Float32Array[][], outputs: Float32Array[][], p: Record<string, Float32Array>): boolean {
     const m = this.model, out = outputs[0];
     if (!m || !out || !out[0]) return true;
     m.rpm = p.rpm[0]; m.throttle = p.throttle[0]; m.load = p.load[0]; m.boost = p.boost[0]; m.cut = p.cut[0];
     m.exhaustGain = p.exhaust[0]; m.intakeGain = p.intake[0]; m.bayGain = p.bay[0];
-    m.render(out[0], out[1] || out[0], out[0].length);
+    const L = out[0], R = out[1] || L;
+    this.frames += L.length;
+    // A sample that is not a number stays in the model's filters for good, and in the shared output it can
+    // silence every sound on the page; a throw out of process() ends this processor for good. Either way send
+    // silence instead, and start the engine afresh: at most once a second, because a new model allocates on this thread.
+    let ok = true;
+    try { m.render(L, R, L.length); } catch { ok = false; }
+    for (let i = 0; ok && i < L.length; i++) if (L[i] - L[i] !== 0 || R[i] - R[i] !== 0) ok = false;
+    if (!ok) {
+      L.fill(0); R.fill(0);
+      if (this.frames - this.resetAt >= sampleRate) { this.resetAt = this.frames; this.setCar(this.facts); this.port.postMessage({ resets: ++this.resets }); }
+    }
     return true;
   }
 }

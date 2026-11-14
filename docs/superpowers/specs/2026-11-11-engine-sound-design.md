@@ -44,6 +44,8 @@ All of it is in `apps/sim/src/sound/`. It has no dependencies and does not touch
 
 `rpm`, `throttle` (0 to 1), `load` (−1 to 1, negative is engine braking), `boost` (0 to 1), `cut` (0 or 1). `engineDrive()` in `world/audio.ts` reads these from today's driving model. The planned physics core should supply them directly; its Telemetry list does not yet include throttle, engine load or the cut flag.
 
+An AudioParam carries any float, so the model takes an input past either end of its range as that end, and NaN as the low end. rpm stops at ten times the redline (`RPM_CEILING`). That is a guard, not physics: the game reaches about 4.7 times on a downshift at speed, and a few million rpm once hung the audio thread in the crank clock. Before 2026-11-14 a boost below zero on a turbo engine made the whistle's phase NaN for good, and every sample with it.
+
 ### Constants
 
 These are the same for every car and are not tuned per car.
@@ -85,6 +87,8 @@ A Garage turbo on a naturally aspirated engine switches its induction to turbo.
 - `Audio` in `world/audio.ts` takes a mode. In `model` mode it loads the processor, sends it the car's facts and feeds it the frame inputs. Until the processor is running, and for cars with no facts, the old oscillators play.
 - `VanillaThreeScene.tsx` sends new facts whenever the driven car changes.
 - Every `Audio` on the page (the game's and the Garage menu's) shares one AudioContext, which closes with its last user. A health watch rebuilds it on a tap when a phone has left it dead: see "The health watch" below.
+- The processor checks every block it renders. A sample that is not a number stays in the model's filters for good, and in the page's one shared output it can silence every sound on the page (WebKit passes it on to the speakers unchanged; Chromium and Firefox turn it into silence). A throw out of `process()` ends the processor for good. Either way that block goes out silent and the model is built afresh from the same facts, at most once a second, because a new model allocates on the audio thread. The processor tells the page each time. Facts the model cannot be built from leave the engine silent rather than ending the processor.
+- `?audiodebug` shows, bottom left: the context's state, clock, rate and health; whether the model is on; how often the page rebuilt the sound (`rebuilt`); `froze`, the longest time the output's clock stood still while the context said 'running': from the last look that saw it move to the last that saw it still. The clock never runs backwards, so one that reads the same across a pause in frames stood still through it; a change of state (a suspend, an interruption) ends a freeze, and starting up is not one. Then `engine`, the model's own level before its gain and that gain, with `resets`, the processor's fresh starts counted across rebuilds; and `out`, the level of everything on its way to the speakers and the master gain. A level reads `NaN` if any sample is not a number, `silent` if all are below -100 dB. The two analysers behind the levels are made only when `?audiodebug` asks for them.
 - Only the player's car is voiced.
 
 ## Tests
@@ -92,8 +96,10 @@ A Garage turbo on a naturally aspirated engine switches its induction to turbo.
 - `firing.test.ts`: spacing per layout and crank, the firing order check.
 - `engineSound.test.ts`: what the physics should give, measured from the rendered sound by engine order. Inline-four: second order leads. Cross-plane V8 on one bank's pipe: half orders stand within 10 dB of fourth order. Merged into equal pipes: they drop more than 20 dB. Unequal branches: they come back. Flat-plane: none. Flat-four with unequal runners: half orders rise more than 10 dB. Also load, cut, the two mufflers, intake, supercharger, turbo, pops, staying in range under random driving, silence when stopped, and speed.
 - `carSound.test.ts`: reading the catalog string and the class defaults.
-- `world/audio.test.ts`: the switch, the frame inputs, the shared output and the health watch, against a stand-in AudioContext.
-- `e2e/sound.smoke.mjs`: renders one second through the built processor in Chromium and fails if it is silent or out of range. It runs in CI beside the Strip smoke test.
+- `engineSound.test.ts` also checks that each input past its range sounds the same as the end of the range, and stays finite, on a turbo engine.
+- `engine.worklet.test.ts`: the real processor, with the audio thread's globals stood in. A block with a sample that is not a number goes out silent and the engine comes back; the page is told; a fault that stays is silent throughout and rebuilt at most once a second; a model that throws, or cannot be built, leaves the processor alive.
+- `world/audio.test.ts`: the switch, the frame inputs, the shared output, the health watch and the `?audiodebug` line.
+- `e2e/sound.smoke.mjs`: renders one second through the built processor in Chromium and fails if it is silent or out of range: a V8, and a turbo V8 told a boost of -0.5 (all 48,000 samples were NaN before the fix). It runs in CI beside the Strip smoke test.
 
 ## Measured from the clips
 
@@ -120,6 +126,25 @@ The owner heard every car make the same hum at the start of an acceleration and 
 Still alike after this: cars of the same body type with the same cylinder count. The driving model gives them one shape of torque curve, so they pull away at nearly the same revs, and the catalog has no exhaust data to tell them apart. That needs per-car data, which the physics core is planned to carry.
 
 A car that is not in the catalog (`carSpecs.ts` has 48 models; no Subaru or Porsche among them) gets its body style's stand-in engine, for example "2.4L I4" for any sedan and "3.8L V6" for any sports car, and sounds like that engine. No flat engine is in the catalog today.
+
+## Silence on an iPhone with turbo cars (2026-11-14)
+
+The owner's iPhone lost every game sound with maxed (turbo) cars, after Garage upgrades or on entering a race. Desktop Chromium never did. PR #24's rebuild-on-tap did not help, because the context stayed 'running' with its clock moving.
+
+The most likely cause, from WebKit's source and an emulation of it; **not yet confirmed on the phone**:
+
+1. The game calls `setTargetAtTime(boost, currentTime, 0.01)` each frame, and `boost` is exactly 0 while the car is at rest.
+2. WebKit works out a k-rate param's first value of a SetTarget as `target + (value - target) * exp(-(currentFrame * (1 / sampleRate) - startTime) / timeConstant)` (`AudioParamTimeline.cpp`, `processSetTarget`). `startTime` is the `currentTime` the page read, `currentFrame / sampleRate`. At 48 kHz the two times round differently on about one 128-frame block in five. The exponent is then a hair above 0, and from a value of exactly 0 the result is a hair below 0 (about -1e-17).
+3. That happens on the first block of every spool-up from rest: a launch, the start of a race, driving off after the Garage. An emulation of WebKit's k-rate path with the real driving model gave a negative boost on about 15% of launches at 48 kHz (about 60% if the build fuses the multiply and subtract).
+4. The model smoothed boost toward it. After about 0.7 s at rest the smoothed value is small enough to go below 0, and `Math.sqrt` of it made the turbo whistle's phase NaN for good. Only turbo engines have the whistle; a Garage turbo makes any engine one.
+5. WebKit passes NaN from a worklet to the speakers unchanged (Chromium and Firefox turn it into silence), and a NaN in the page's one shared mix takes every other sound with it. The context stays 'running' and its clock moves, so the health watch sees nothing wrong.
+
+What was done: the model takes a boost below 0 as 0 (and every other input past its range as that end); the processor sends silence for any block with a sample that is not a number and starts the model afresh; `?audiodebug` shows the engine's level, the level going to the speakers, the processor's fresh starts and the longest freeze of the clock. A test renders a turbo engine told a boost of -1.4e-17: it gave NaN before the change.
+
+Still open:
+- The owner to confirm on the iPhone that the silence is gone. If it is not, an `?audiodebug` screenshot taken while it is silent shows where the sound stops.
+- A second WebKit-only way to lose every sound with the context 'running': if the page's audio thread stalls for about 2 s, WebKit's hand-over to its GPU process falls behind for good and plays nothing, even after the clock moves again (`RemoteAudioDestinationProxy`, `CARingBuffer`, a 2 s ring). Nothing in the game is known to stall it that long. `froze` in `?audiodebug` would show it. If it shows, the health watch should also rebuild on the next tap after such a freeze.
+- An iPhone in silent mode mutes Web Audio while the context runs, because the page never sets `navigator.audioSession.type`.
 
 ## The health watch (PR #24; three faults fixed 2026-11-14)
 
