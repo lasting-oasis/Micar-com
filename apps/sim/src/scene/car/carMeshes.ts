@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { buildWheelGeometry } from './carGeometry';
+import { meshLamps } from './meshLamps';
 import { WORLD_PER_M } from '../../world/units';
 import { gltfLoader, type Loader } from '../../world/strip/park';
 import { getAssetBase } from '../../world/strip/district';
@@ -54,7 +55,8 @@ export type MeshGeometry = {
     wheelPos: THREE.Vector3[];      // FL, FR, RL, RR wheel centres
     wheelScale: number[];           // per wheel: its radius over the wheel geometry's (front and rear tyres differ)
     wheelR: number; tyreW: number;  // the wheel geometry's radius (the front tyre's) and width
-    halos: THREE.BufferGeometry;    // empty: mesh bodies have no lamp glows yet
+    halos: THREE.BufferGeometry;    // the night glow in front of each lamp (meshLamps), as the lofted bodies' halos
+    lamps: THREE.BufferGeometry | null; // the lamp lenses fitted to the model (meshLamps; null: none could be fitted)
     smokePos: THREE.Vector3; beamZ: number;
     length: number; width: number; height: number;
 };
@@ -121,14 +123,13 @@ export function meshGeometryFrom(root: THREE.Object3D): MeshGeometry {
     const wheelPos = ([[-1, front], [1, front], [-1, rear], [1, rear]] as const)
         .map(([sx, w]) => new THREE.Vector3(sx * (w.x_out * S - tw / 2), w.y * S, w.z * S));
     const rs = rear.r / front.r;
-    const halos = new THREE.BufferGeometry();
-    for (const [a, n] of [['position', 3], ['color', 3], ['lampDir', 1]] as const) halos.setAttribute(a, new THREE.Float32BufferAttribute([], n));
+    const { lamps, halos } = meshLamps(near.paint, near.dark, ex.category, ex.belt_height * S);
     const bb = near.paint.boundingBox!;
     return {
         id: ex.id, paint: near.paint, glass: near.glass!, dark: near.dark, farPaint: far.paint,
         farDark: far.glass ? mergeAll([far.glass, far.dark]) : far.dark,
         wheel: buildWheelGeometry(R, tw, R * 0.66), wheelBlur: buildWheelGeometry(R, tw, R * 0.66, true),
-        wheelPos, wheelScale: [1, 1, rs, rs], wheelR: R, tyreW: tw, halos,
+        wheelPos, wheelScale: [1, 1, rs, rs], wheelR: R, tyreW: tw, halos, lamps,
         smokePos: new THREE.Vector3(0, ex.belt_height * S, front.z * S - 0.6), beamZ: bb.min.z,
         length: ex.length * S, width: ex.width * S, height: ex.height * S,
     };
@@ -161,7 +162,7 @@ export function makeCarMeshCache(load: Loader, base: () => string): CarMeshCache
         request: id => { if (ready.has(id)) return ready.get(id)!; void when(id); return null; },
         when,
         dispose: () => {
-            for (const mg of ready.values()) if (mg) for (const g of [mg.paint, mg.glass, mg.dark, mg.farPaint, mg.farDark, mg.wheel, mg.wheelBlur]) g.dispose();
+            for (const mg of ready.values()) if (mg) for (const g of [mg.paint, mg.glass, mg.dark, mg.farPaint, mg.farDark, mg.wheel, mg.wheelBlur, mg.lamps]) g?.dispose();
         },
     };
 }

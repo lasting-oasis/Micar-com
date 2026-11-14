@@ -7,7 +7,7 @@ import { carMeshes, disposeMeshDarkMaterial, meshDarkMaterial, type MeshGeometry
 // Car models and paint (colour names, rust, mud, smoke), lamps and the per-frame car
 // upkeep (far versions, contact shadows, headlight beam).
 //
-// Near the camera a car is 4 draw calls: its painted body (the only per-car material),
+// Near the camera a car is 4 draw calls (a mesh body 5: its lamp lenses): its painted body (the only per-car material),
 // the trim (lamps, grille, plates, black plastic, chrome, interior — one material shared
 // by every car), the glass (shared) and the four wheels (one instanced mesh). Far away
 // it is 2: a ~400-triangle version with the same paint and the shared trim material.
@@ -282,6 +282,7 @@ type CarParts = {
     tilt: THREE.Group; // carries everything but the wheels; the driving code pitches/rolls it
     body: THREE.Mesh; trim: THREE.Mesh; glass: THREE.Mesh; wheelMesh: THREE.InstancedMesh;
     farBody: THREE.Mesh; farTrim: THREE.Mesh; halos: THREE.Points;
+    lampPatch: THREE.Mesh; // a mesh body's lamp lenses (a child of the trim, so the far switch hides it); hidden on a lofted body
     pivots: THREE.Object3D[]; wheels: THREE.Object3D[]; smoke: THREE.Points;
     lamps: LampMode; far: boolean;
     blur: boolean; lastRoll: THREE.Quaternion; syncFrame: number; // blurred rims while the wheels spin fast
@@ -289,6 +290,7 @@ type CarParts = {
     sx: number; sz: number; sqy: number; sqw: number; ss: number; sv: boolean;
 };
 const CAR_LIFT = 0.03; // the paving's top, above y = 0
+const NO_LAMPS = new THREE.BufferGeometry(); // the lamp lenses of a car without any (shared, empty)
 const cars: THREE.Object3D[] = []; // every car built and not yet disposed (also CPU racers)
 const partsOf = (g: THREE.Object3D) => g.userData.car as CarParts | undefined;
 const tmpM = new THREE.Matrix4(), tmpQ = new THREE.Quaternion(), ONE = new THREE.Vector3(1, 1, 1);
@@ -335,6 +337,10 @@ export const buildCarModel = (style: string, rawColor: string, bodyCond: number 
     // (a few points) so braking and reversing can tint the tail glow
     const halos = new THREE.Points(geo.halos.clone(), S.halo);
     halos.visible = false;
+    // a mesh body's lamp lenses, drawn with the trim's lamp materials (no shader of their own); none on a lofted body
+    const lampPatch = new THREE.Mesh(NO_LAMPS, S.trim);
+    lampPatch.visible = false; lampPatch.receiveShadow = true;
+    trim.add(lampPatch);
     // the tilt node (at the car's origin) holds the body so it can pitch and roll; the wheels
     // stay on the group, placed from the pivots' world matrices
     const tilt = new THREE.Group();
@@ -360,7 +366,7 @@ export const buildCarModel = (style: string, rawColor: string, bodyCond: number 
     for (const o of [...tilt.children, wheelMesh]) o.position.y += CAR_LIFT;
 
     const parts: CarParts = {
-        style, length: geo.length, width: geo.width, mesh: null, loft: geo, want: meshId ?? null, hold: afterPrecompile, meshWheel: null, wheelGeo: geo, wheelScale: geo.wheelPos.map(() => ONE.clone()), beamZ: geo.beamZ, tilt, body, trim, glass, wheelMesh, farBody, farTrim, halos, pivots, wheels, smoke: smokeParticles,
+        style, length: geo.length, width: geo.width, mesh: null, loft: geo, want: meshId ?? null, hold: afterPrecompile, meshWheel: null, wheelGeo: geo, wheelScale: geo.wheelPos.map(() => ONE.clone()), beamZ: geo.beamZ, tilt, body, trim, glass, wheelMesh, farBody, farTrim, halos, lampPatch, pivots, wheels, smoke: smokeParticles,
         lamps: 'off', far: false, blur: false, lastRoll: new THREE.Quaternion(), syncFrame: 0,
         sx: NaN, sz: NaN, sqy: NaN, sqw: NaN, ss: NaN, sv: false,
     };
@@ -416,6 +422,7 @@ const setBody = (group: THREE.Object3D, mg: MeshGeometry | null) => {
     const paint = c.body.material as THREE.Material, side = mg ? THREE.DoubleSide : THREE.FrontSide;
     if (paint.side !== side) { paint.side = side; paint.needsUpdate = true; }
     c.halos.geometry.dispose(); c.halos.geometry = b.halos.clone();
+    c.lampPatch.geometry = mg?.lamps ?? NO_LAMPS; c.lampPatch.visible = !!mg?.lamps;
     showLamps(c);
     c.smoke.position.set(b.smokePos.x, b.smokePos.y + CAR_LIFT, b.smokePos.z);
     c.wheelGeo = b; c.wheelMesh.geometry = c.blur ? b.wheelBlur : b.wheel;
@@ -473,12 +480,11 @@ export const setCarLights = (group: THREE.Object3D, mode: LampMode | boolean) =>
     c.lamps = m;
     showLamps(c);
 };
-/** The lamps as the car's mode says: the lit trim and the night glow (mesh bodies: no lamps yet, their trim is black). */
+/** The lamps as the car's mode says: the lit trim (a mesh body: its lamp lenses; its trim stays black) and the night glow. */
 const showLamps = (c: CarParts) => {
     const m = c.lamps;
-    if (c.mesh) { c.halos.visible = false; return; }
     const mat = trimFor(m);
-    if (mat) { c.trim.material = mat; c.farTrim.material = mat; }
+    if (mat) { if (c.mesh) c.lampPatch.material = mat; else { c.trim.material = mat; c.farTrim.material = mat; } }
     c.halos.visible = m !== 'off' && nightOn;
     // tail glow: dim red when on, bright red when braking, whitish when reversing
     const col = c.halos.geometry.getAttribute('color') as THREE.BufferAttribute, dir = c.halos.geometry.getAttribute('lampDir') as THREE.BufferAttribute;
@@ -515,7 +521,7 @@ export const updateCarLights = (nightFactor: number) => {
     const on = nightFactor > 0.05;
     shared.halo.opacity = 0.75 * nightFactor;
     if (beam) (beam.material as THREE.MeshBasicMaterial).opacity = 0.5 * nightFactor;
-    if (on !== nightOn) { nightOn = on; for (const g of cars) { const c = partsOf(g)!; c.halos.visible = !c.mesh && c.lamps !== 'off' && on; } }
+    if (on !== nightOn) { nightOn = on; for (const g of cars) { const c = partsOf(g)!; c.halos.visible = c.lamps !== 'off' && on; } }
 };
 
 // ---------------------------------------------------------------------------------
@@ -630,7 +636,7 @@ const giveUpPrecompile = (err: unknown) => {
     if (pre.state === 'done') return;
     console.warn('car shader precompile failed; the car models go in without it', err);
     const g = pre.probe;
-    if (g) { pre.broken?.removeFromParent(); getBeam().removeFromParent(); disposeCarModel(g); }
+    if (g) { ((pre.broken?.children[1] as THREE.Mesh | undefined)?.material as THREE.Material | undefined)?.dispose(); pre.broken?.removeFromParent(); disposeCarModel(g); }
     pre.state = 'done'; pre.probe = pre.broken = undefined;
     releaseHeldCarBodies();
 };

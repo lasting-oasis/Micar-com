@@ -37,7 +37,7 @@ const fakeGltf = () => {
     return root;
 };
 
-type Parts = { body: THREE.Mesh; trim: THREE.Mesh; glass: THREE.Mesh; wheelMesh: THREE.InstancedMesh; farBody: THREE.Mesh; farTrim: THREE.Mesh; halos: THREE.Points; length: number; width: number; mesh: string | null };
+type Parts = { body: THREE.Mesh; trim: THREE.Mesh; glass: THREE.Mesh; wheelMesh: THREE.InstancedMesh; farBody: THREE.Mesh; farTrim: THREE.Mesh; halos: THREE.Points; lampPatch: THREE.Mesh; length: number; width: number; mesh: string | null };
 const partsOf = (g: THREE.Object3D) => g.userData.car as Parts;
 const zLen = (g: THREE.BufferGeometry) => { g.computeBoundingBox(); return g.boundingBox!.max.z - g.boundingBox!.min.z; };
 const wheelAt = (p: Parts, i: number) => { const m = new THREE.Matrix4(); p.wheelMesh.getMatrixAt(i, m); const pos = new THREE.Vector3(), q = new THREE.Quaternion(), s = new THREE.Vector3(); m.decompose(pos, q, s); return { pos, q, s }; };
@@ -115,13 +115,52 @@ describe('a car with its own model', () => {
         disposeCarModel(group);
     });
 
-    it('has no lamp glows yet: lights on leave the dark trim black and the glow hidden', () => {
+    it('lights its own lamp lenses as a lofted car lights its trim, in every mode; its black trim stays black', () => {
+        const lofted = buildCarModel('sedan', '#00ff00', 100, 100).group, L = partsOf(lofted);
         const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'toyota-camry');
         const c = partsOf(group), dark = c.trim.material;
-        setCarLights(group, 'brake');
-        expect(c.trim.material).toBe(dark); expect(c.farTrim.material).toBe(dark);
-        expect(c.halos.visible).toBe(false);
+        expect(c.lampPatch.visible).toBe(true); expect(c.lampPatch.parent).toBe(c.trim); // (the far switch hides it with the trim)
+        expect(c.lampPatch.geometry.getIndex()!.count).toBeGreaterThan(0);
+        for (const m of ['on', 'brake', 'reverse', 'off'] as const) {
+            setCarLights(lofted, m); setCarLights(group, m);
+            expect(c.lampPatch.material).toBe(L.trim.material); // the same lamp material (and shader) as the lofted trim
+            expect(c.trim.material).toBe(dark); expect(c.farTrim.material).toBe(dark);
+        }
+        expect((c.lampPatch.material as THREE.Material).customProgramCacheKey()).toBe((L.trim.material as THREE.Material).customProgramCacheKey());
+        disposeCarModel(group); disposeCarModel(lofted);
+    });
+
+    it('glows at night in front of its own lamps: tail red, brighter when braking, whitish reversing; none by day or parked', async () => {
+        const { updateCarLights } = await import('./carModel');
+        const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'toyota-camry');
+        const c = partsOf(group), p = c.halos.geometry.getAttribute('position'), dir = c.halos.geometry.getAttribute('lampDir');
+        expect(p.count).toBe(4);
+        for (let i = 0; i < 4; i++) expect(Math.sign(p.getZ(i))).toBe(dir.getX(i) < 0 ? -1 : 1); // head lamps at the nose, tail lamps at the tail
+        setCarLights(group, 'on');
+        expect(c.halos.visible).toBe(false); // by day
+        updateCarLights(1);
+        expect(c.halos.visible).toBe(true);
+        const tail = () => { const col = c.halos.geometry.getAttribute('color'); for (let i = 0; i < 4; i++) if (dir.getX(i) > 0) return [col.getX(i), col.getY(i), col.getZ(i)]; return []; };
+        const on = tail(); setCarLights(group, 'brake'); const brake = tail(); setCarLights(group, 'reverse'); const rev = tail();
+        expect(brake[0]).toBeGreaterThan(on[0]); expect(rev[1]).toBeGreaterThan(.5); // brighter red; whitish
+        setCarLights(group, 'off'); expect(c.halos.visible).toBe(false); // parked
+        updateCarLights(0);
         disposeCarModel(group);
+    });
+
+    it('lamps set before its model arrives are lit on the model once it does (the Garage and the town order)', async () => {
+        const { updateCarLights } = await import('./carModel');
+        setCarMeshCache(deferred());
+        const lofted = buildCarModel('sedan', '#00ff00', 100, 100).group;
+        const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'toyota-camry');
+        const c = partsOf(group);
+        setCarLights(group, 'on'); setCarLights(lofted, 'on'); updateCarLights(1);
+        release(); await new Promise(r => setTimeout(r, 0));
+        expect(c.mesh).toBe('toyota-camry');
+        expect(c.lampPatch.material).toBe(partsOf(lofted).trim.material);
+        expect(c.halos.visible).toBe(true); expect(c.halos.geometry.getAttribute('position').count).toBe(4);
+        updateCarLights(0);
+        disposeCarModel(group); disposeCarModel(lofted);
     });
 
     it('lays the headlight beam on the road ahead of its own nose when driven at night', () => {
