@@ -19,7 +19,7 @@ const ctx = new Proxy({}, { get: (_t, k) => k === 'createImageData' ? (w: number
     : k === 'createRadialGradient' ? () => ({ addColorStop() {} }) : () => {} });
 vi.stubGlobal('document', { createElement: () => ({ getContext: () => ctx, width: 0, height: 0 }) });
 
-import { CAR_BODY_CHANGE, applyCarPaint, buildCarModel, disposeCarModel, setCarLights, syncCarWheels, updateCarLights, updateCars } from './carModel';
+import { CAR_BODY_CHANGE, applyCarPaint, buildCarModel, carFrameTick, disposeCarModel, precompileCarsTick, setCarLights, syncCarWheels, updateCarLights, updateCars } from './carModel';
 import { makeCarMeshCache, setCarMeshCache, type MicarExtras } from './car/carMeshes';
 
 const EXTRAS: MicarExtras = {
@@ -169,5 +169,25 @@ describe('a car without its own model', () => {
         expect(c.trim.material).not.toBe(c.farBody.material);
         expect(urls).toEqual([]);
         disposeCarModel(group);
+    });
+});
+
+describe('in a world that precompiles the car shaders', () => {
+    it('a car with its own model keeps the lofted body until the precompile is done, so its first draw compiles nothing', async () => {
+        setCarMeshCache(makeCarMeshCache(async () => fakeGltf(), () => '/'));
+        const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'toyota-camry', true);
+        await new Promise(r => setTimeout(r, 0)); // the model has loaded
+        expect(partsOf(group).mesh).toBeNull();
+        // a stand-in renderer: the precompile builds its probe, compiles, then draws it once
+        const renderer = { compile() {}, render() {}, getScissorTest: () => false, getScissor: (v: THREE.Vector4) => v, setScissor() {}, setScissorTest() {}, shadowMap: { enabled: true, needsUpdate: false } } as unknown as THREE.WebGLRenderer;
+        const scene = new THREE.Scene(), cam = new THREE.PerspectiveCamera();
+        carFrameTick(); precompileCarsTick(renderer, scene, cam); // build + compile
+        expect(partsOf(group).mesh).toBeNull();
+        carFrameTick(); precompileCarsTick(renderer, scene, cam); // draw: done
+        expect(partsOf(group).mesh).toBe('toyota-camry');
+        // and once it is done, the next car gets its model at once
+        const next = buildCarModel('sedan', '#0000ff', 100, 100, 'toyota-camry', true).group;
+        expect(partsOf(next).mesh).toBe('toyota-camry');
+        disposeCarModel(group); disposeCarModel(next);
     });
 });

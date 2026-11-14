@@ -297,8 +297,10 @@ const FLIP = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0),
  * after changing them. Dispose with disposeCarModel (shared parts stay alive).
  * `meshId` (carMeshId of the car's make and model): the car's own 3D model, shown once
  * loaded (at once if it already is); the lofted body of `style` until then, or if it fails.
+ * `afterPrecompile`: for a world that runs precompileCarsTick, put the model in only once
+ * that is done, so its first draw compiles no shader (a frame of ~200 ms otherwise).
  */
-export const buildCarModel = (style: string, rawColor: string, bodyCond: number = 100, mechCond: number = 100, meshId?: string | null) => {
+export const buildCarModel = (style: string, rawColor: string, bodyCond: number = 100, mechCond: number = 100, meshId?: string | null, afterPrecompile = false) => {
     const S = getShared();
     const geo = getStyleGeometry(style);
     const group = new THREE.Group();
@@ -365,9 +367,10 @@ export const buildCarModel = (style: string, rawColor: string, bodyCond: number 
     cars.push(group);
     shadowsDirtyFrom = Math.min(shadowsDirtyFrom, cars.length - 1);
     if (meshId) {
+        const fit = (m: MeshGeometry) => { if (afterPrecompile && pre.state !== 'done') heldFits.push([group, m]); else fitMeshBody(group, m); };
         const mg = carMeshes().request(meshId);
-        if (mg) fitMeshBody(group, mg);
-        else void carMeshes().when(meshId).then(m => { if (m && cars.includes(group)) fitMeshBody(group, m); });
+        if (mg) fit(mg);
+        else void carMeshes().when(meshId).then(m => { if (m && cars.includes(group)) fit(m); });
     }
     return { group, tilt, wheels, body, frontPivots: pivots.slice(0, 2), smokeParticles };
 };
@@ -583,8 +586,11 @@ export const precompileCarsTick = (renderer: THREE.WebGLRenderer, scene: THREE.S
         g.position.set(FAR_AWAY, -500, FAR_AWAY);
         const broken = new THREE.Mesh(c.glass.geometry, shared!.glassBroken);
         // the mesh bodies' black trim and their double-sided paint
+        // (both cast shadows, as on a mesh body, so their shadow-map variants are compiled too)
         const dsPaint = makePaintMaterial(); dsPaint.side = THREE.DoubleSide;
-        broken.add(new THREE.Mesh(c.glass.geometry, meshDarkMaterial()), new THREE.Mesh(c.glass.geometry, dsPaint));
+        const darkProbe = new THREE.Mesh(c.glass.geometry, meshDarkMaterial()), paintProbe = new THREE.Mesh(c.glass.geometry, dsPaint);
+        darkProbe.castShadow = paintProbe.castShadow = true;
+        broken.add(darkProbe, paintProbe);
         const b = getBeam();
         c.farBody.visible = c.farTrim.visible = c.halos.visible = c.smoke.visible = true;
         g.add(broken, b); b.visible = true;
@@ -617,7 +623,10 @@ export const precompileCarsTick = (renderer: THREE.WebGLRenderer, scene: THREE.S
     keptPaintDouble?.dispose(); keptPaintDouble = (pre.broken!.children[1] as THREE.Mesh).material as THREE.Material;
     c.smoke.geometry.dispose(); c.halos.geometry.dispose(); c.wheelMesh.dispose();
     pre.state = 'done'; pre.probe = pre.broken = undefined;
+    for (const [car, mg] of heldFits.splice(0)) if (cars.includes(car)) fitMeshBody(car, mg);
 };
+/** Mesh bodies waiting for the precompile (buildCarModel's afterPrecompile). */
+const heldFits: [THREE.Object3D, MeshGeometry][] = [];
 
 /** Remove a car and free what belongs to it alone (shared geometry/materials stay). */
 export const disposeCarModel = (group: THREE.Object3D) => {
@@ -647,7 +656,7 @@ export const disposeSharedCarAssets = () => {
     }
     disposeCarAtlas();
     keptPaint?.dispose(); keptPaint = null; keptPaintDouble?.dispose(); keptPaintDouble = null;
-    pre.state = 'build'; pre.probe = pre.broken = undefined;
+    pre.state = 'build'; pre.probe = pre.broken = undefined; heldFits.length = 0;
     cars.length = 0;
     nightOn = false; frameNo = 0; stepsThisFrame = 0;
 };
