@@ -25,6 +25,9 @@ import { checkTesterKey, configuredTesterKey, isKeyAttempt, newAttemptLog, refus
 import { TRACKS } from './src/world/strip/district.js';
 import { readTrackSync, setTrackDir } from './src/world/strip/districtNode.js';
 import { valueRoute } from './src/valueRoute.ts';
+import { PositionRelay, relayed, type NetPos } from './src/world/netPositions.js';
+import { StateSync, othersView, ownView, viewFor } from './src/world/stateSync.js';
+import { AsyncLocalStorage } from 'node:async_hooks';
 
 const app = express();
 const httpServer = createServer(app);
@@ -215,14 +218,12 @@ let googleForcedAt = 0;
 const redact = (s: string) => s.slice(0, 3) + '…';
 const accountView = (a: Account) => ({ id: a.id, identity: a.identities[0], allowanceToday: a.lastAllowance === utcDay(Date.now()) });
 const issueSession = (accountId: string) => process.env.MAGIC_SECRET ? signSession(accountId, Date.now(), process.env.MAGIC_SECRET) : null;
-/** Another player as a viewer sees them: no work orders, and nothing of what they spent on a car. */
-const othersView = (p: Player): Player => ({ ...p, accountId: undefined, tester: undefined, orders: [], inventory: (p.inventory ?? []).map(c => ({ ...c, recon: 0 })) });
-// The state a client may see: never the accounts (identities are private), nor other players' account ids or tester flag.
-const publicState = (viewerId: string) => {
-    const { accounts: _accounts, ...rest } = gameState;
-    const players: Record<string, Player> = {};
-    for (const [pid, p] of Object.entries(gameState.players)) players[pid] = pid === viewerId ? p : othersView(p);
-    return { ...rest, players };
+/** A page's whole state at its join: what it may see (src/world/stateSync.ts: never the accounts, nor another player's
+ *  private fields) and the recent chat. A proto: 2 page's patches start from this copy. */
+const initState = (viewerId: string) => {
+    sync.refresh(gameState);
+    const view = proto2.has(viewerId) ? sync.full(viewerId) : viewFor(gameState, viewerId, id => netIds.get(id));
+    return { ...view, chatLog: gameState.chatLog ?? [] };
 };
 
 /** Copy an account holder's live progress into their account record. flush: write the save file now. */
@@ -319,35 +320,35 @@ setInterval(() => {
     if (changed) broadcastState(io, gameState);
 }, 60_000);
 
+// --- The data diet (docs/superpowers/specs/2026-11-14-world-data-diet-design.md) -------------------------------
+// A page that joins with proto: 2 is sent `pos`, only the positions due for it (src/world/netPositions.ts), and
+// `patch`, only what changed for it since its last copy or patch (src/world/stateSync.ts). Any other page (a tab
+// opened before the deploy) is served as before. Every connection has a short number for `pos`, never reused, and
+// every player record a page is sent carries it as `n`.
+const netIds = new Map<string, number>();
+let nextNetId = 1;
+const proto2 = new Set<string>();
+const relay = new PositionRelay();
+const sync = new StateSync(id => netIds.get(id));
+/** The socket whose handler is running: its page gets its own record back after any change it causes, changed or not. */
+const acting = new AsyncLocalStorage<string>();
+
 function broadcastState(io: Server, state: GameState) {
+    sync.refresh(state);
+    const actor = acting.getStore();
     const sockets = io.sockets.sockets;
     for (const [id, socket] of sockets) {
-        // Build a per-recipient view WITHOUT deep-cloning the whole state. The
-        // recipient's own player and the shared market data are passed by
-        // reference (socket.io serializes a snapshot); only OTHER players are
-        // shallow-copied to strip private fields.
-        const players: Record<string, any> = {};
-        for (const pid in state.players) {
-            const p = state.players[pid] as any;
-            if (pid === id) {
-                players[pid] = p;
-            } else {
-                players[pid] = {
-                    ...p,
-                    money: 0,
-                    contracts: [],
-                    customers: [],
-                    balanceSheet: { totalIncome: 0, totalExpenses: 0, lastTickIncome: 0, lastTickExpense: 0 },
-                    floorPlanDebt: 0,
-                    gateCode: undefined,   // never reveal another player's gate code
-                    shareHoldings: {},     // portfolios are private
-                    accountId: undefined,  // account ids are private
-                    tester: undefined,     // and so is who is testing
-                    orders: [],            // work orders are private
-                    inventory: p.inventory ? p.inventory.map((c: any) => ({ ...c, buyPrice: 0, recon: 0 })) : []   // so is what was paid and spent
-                };
-            }
+        // A proto: 2 page: only what changed for it, and its own record back when the change was its own doing.
+        if (proto2.has(id)) {
+            const patch = sync.patch(id, id === actor);
+            if (patch) socket.emit('patch', patch);
+            continue;
         }
+        // Any other page: the whole state, as before. Built per recipient WITHOUT deep-cloning the whole state: the
+        // shared market data is passed by reference (socket.io serializes a snapshot); players are shallow-copied, the
+        // others with their private fields stripped (stateSync.ts othersView).
+        const players: Record<string, any> = {};
+        for (const pid in state.players) players[pid] = pid === id ? ownView(state.players[pid], netIds.get(pid)) : othersView(state.players[pid], netIds.get(pid));
         const myWalkIns = state.activeWalkIns?.[id];
         // The chat log is sent once on join ('init'); new messages arrive as 'chat'
         // events, so it's left out of every state update to keep them small.
@@ -1022,35 +1023,49 @@ setInterval(() => {
     }
 }, 1000);
 
-// Live player positions. Clients send theirs ~10x/sec (sync_player_pos); this
-// relays everyone's to everyone at the same rate so other players move smoothly
-// instead of only updating when some unrelated event triggers a full broadcast.
-// Only sent while someone's position is actually changing (clients keep resending
-// theirs while standing still). Volatile: a dropped packet is fine, the next one is
-// 100 ms away; 300 ms after movement stops, one final copy is sent reliably so a
-// client that dropped the last moving packets isn't left with stale positions.
+// Live player positions. Clients send theirs ~10x/sec (sync_player_pos); every 100 ms the server relays them.
+// A proto: 2 page hears only the players due for it (src/world/netPositions.ts): the 20 nearest in its district every
+// tick, the rest of its district less often, other districts rarely; first contact, a change of district and a player's
+// last position once it stops are sent reliably, moves as volatile.
+// Any other page gets everyone's to everyone, as before: only while someone's position is actually changing (clients
+// keep resending theirs while standing still). Volatile: a dropped packet is fine, the next one is 100 ms away; 300 ms
+// after movement stops, one final copy is sent reliably so a client that dropped the last moving packets isn't left
+// with stale positions.
 let positionsDirty = false;
 let quietTicks = 3; // relay ticks since a position last changed
 setInterval(() => {
+    const live = new Map<string, { n: number; pos: NetPos }>();
+    for (const pid in gameState.players) {
+        const n = netIds.get(pid), pos = relayed(gameState.players[pid].worldPosition, stripPositions.get(pid));
+        if (n !== undefined && pos) live.set(pid, { n, pos });
+    }
+    for (const [id, { moving, sure }] of relay.tick(Date.now(), live, [...proto2].filter(id => gameState.players[id]))) {
+        const socket = io.sockets.sockets.get(id);
+        if (moving.length) socket?.volatile.emit('pos', moving);
+        if (sure.length) socket?.emit('pos', sure);
+    }
+
     if (positionsDirty) quietTicks = 0;
     else if (++quietTicks !== 3) return;
+    const dirty = positionsDirty;
+    positionsDirty = false;
+    if (io.sockets.sockets.size <= proto2.size) return; // nobody on the old messages
     const positions: Record<string, any> = {};
     for (const pid in gameState.players) {
         const wp = (gameState.players[pid] as any).worldPosition, sp = stripPositions.get(pid);
         if (wp) positions[pid] = sp && wp.district === 'strip' ? { ...wp, stripPosition: sp } : wp;
     }
-    if (positionsDirty) {
-        positionsDirty = false;
-        io.volatile.emit('player_positions', positions);
-    } else {
-        io.emit('player_positions', positions);
-    }
+    const old = io.except([...proto2]);
+    if (dirty) old.volatile.emit('player_positions', positions);
+    else old.emit('player_positions', positions);
 }, 100);
 
 io.on('connection', (socket) => {
+    netIds.set(socket.id, nextNetId++); // its short number in `pos`
     // A handler that throws, or whose promise rejects, is logged and the server carries on. The error's message only: never the payload.
+    // Each runs as this socket's doing (acting), so a change it causes sends this page its own record back.
     const on = socket.on.bind(socket) as (event: string, fn: (...args: any[]) => unknown) => unknown;
-    (socket as any).on = (event: string, fn: (...args: any[]) => unknown) => on(event, guarded(event, fn, (ev, error) => console.log('--- HANDLER ERROR ---', handlerErrorLog(ev, error))));
+    (socket as any).on = (event: string, fn: (...args: any[]) => unknown) => on(event, guarded(event, (...args: any[]) => acting.run(socket.id, () => fn(...args)), (ev, error) => console.log('--- HANDLER ERROR ---', handlerErrorLog(ev, error))));
     // A Strip visitor (a guest or a Strip account holder) may send only the Strip's own events (VISITOR_EVENTS): no
     // dealer handler ever runs for one, so no money made there can be carried into an account.
     socket.use(([event], next) => {
@@ -1080,7 +1095,7 @@ io.on('connection', (socket) => {
       } else if (tester) grantTester(p);
       gameState.players[socket.id] = p;
       lastOutrunAt.set(socket.id, now); // they start in the Strip: the outrun clock starts now
-      socket.emit('init', { id: socket.id, state: publicState(socket.id), caps: CAPS, ...(account ? { account: accountView(account) } : {}) });
+      socket.emit('init', { id: socket.id, state: initState(socket.id), caps: CAPS, ...(account ? { account: accountView(account) } : {}) });
       broadcastState(io, gameState);
       return p;
     };
@@ -1106,6 +1121,10 @@ io.on('connection', (socket) => {
               }
           }
       }
+      // A page that says proto: 2 reads `pos` and `patch`; any other is sent the old messages. This join's init starts the
+      // page again: its patches start from that copy, and everyone's position comes again.
+      if (msg?.proto === 2) proto2.add(socket.id); else { proto2.delete(socket.id); sync.forget(socket.id); }
+      relay.forgetRecipient(socket.id);
       // a re-join on the same socket replaces its player: save an account holder's progress first
       const prior = gameState.players[socket.id];
       if (prior?.accountId) persistAccount(prior);
@@ -1198,7 +1217,7 @@ io.on('connection', (socket) => {
         shopSpecialty: isStandalone ? (shopSpecialty || 'dual') : undefined
       } as any;
       if (process.env.SMOKE === '1') grantStarterCar(gameState.players[socket.id]);
-      socket.emit('init', { id: socket.id, state: publicState(socket.id), caps: CAPS });
+      socket.emit('init', { id: socket.id, state: initState(socket.id), caps: CAPS });
       broadcastState(io, gameState);
       const joinedName = gameState.players[socket.id].name;
       pushChat(io, { id: `${Date.now()}-j`, playerId: '', name: 'System', text: `${joinedName} entered the world`, ts: Date.now(), system: true });
@@ -2497,6 +2516,7 @@ io.on('connection', (socket) => {
     resetSocketState(socket.id);
     const leaving = gameState.players[socket.id];
     delete gameState.players[socket.id];
+    relay.forget(socket.id); sync.forget(socket.id); proto2.delete(socket.id); netIds.delete(socket.id);
     if (gameState.hostId === socket.id) gameState.hostId = pickHost(gameState.players); // a dealer, never a visitor
     if (leaving) {
         pushChat(io, { id: `${Date.now()}-l`, playerId: '', name: 'System', text: `${leaving.name} left the world`, ts: Date.now(), system: true });

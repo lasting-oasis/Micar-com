@@ -11,6 +11,8 @@ import { isWorkOrder, type Door, type OrderLine, type WorkOrder } from './bay/or
 import { routeFromLocation, withRace } from './route';
 import type { DenyWhy, RoomView } from './world/race';
 import { dropRemotes, syncClock, takePose } from './world/raceNet';
+import { keepOnly, mergePositions } from './world/netPositions';
+import { applyPatch, type StatePatch } from './world/stateSync';
 
 // How a visitor joins: as a Strip guest, with a saved session token, or the original dealer/shop setup.
 export type ConnectOpts =
@@ -206,6 +208,10 @@ function editStripCar(rec: StripRecord | null, carId: string, f: (c: StripRecord
   f(carState(next, carId));
   return next;
 }
+/** Said in every join: this page reads `pos`, the positions due for it, and `patch`, only what changed for it
+ *  (docs/superpowers/specs/2026-11-14-world-data-diet-design.md). A join without it is sent the old messages. */
+const PROTO = 2;
+
 /** strip / octane from the local player in a server state, when it carries them. */
 function mirrorStrip(state: GameState | null | undefined, id: string | null): Partial<Pick<StoreState, 'strip' | 'octane'>> {
   const p = state && id ? (state.players[id] as unknown as { strip?: StripRecord; octane?: number } | undefined) : undefined;
@@ -483,13 +489,13 @@ export const useGameStore = create<StoreState>((set, get) => ({
     const emitJoin = () => {
         const saved = joins++ > 0 && get().account ? readSession() : null;
         viaSession = !!saved || opts.mode === 'session';
-        if (saved) socket.emit('join', { mode: 'session', session: saved });
-        else if (opts.mode === 'guest') socket.emit('join', { mode: 'guest', name: opts.name, ...(testerKey ? { testerKey } : {}) });
-        else if (opts.mode === 'session') socket.emit('join', { session: opts.session });
+        if (saved) socket.emit('join', { mode: 'session', session: saved, proto: PROTO });
+        else if (opts.mode === 'guest') socket.emit('join', { mode: 'guest', name: opts.name, ...(testerKey ? { testerKey } : {}), proto: PROTO });
+        else if (opts.mode === 'session') socket.emit('join', { session: opts.session, proto: PROTO });
         else {
             const { name, lotScale, careerFocus, shopSpecialty } = opts;
             console.log('CLIENT EMITTING JOIN:', { name, lotScale, careerFocus, shopSpecialty });
-            socket.emit('join', { name, lotScale, careerFocus, shopSpecialty });
+            socket.emit('join', { name, lotScale, careerFocus, shopSpecialty, proto: PROTO });
         }
     };
 
@@ -508,7 +514,7 @@ export const useGameStore = create<StoreState>((set, get) => ({
         // another account's bay state never carries over, even from a bay_result that arrived after a sign-out; a reconnect keeps it
         if (accountChanged(get().account, data.account)) set({ bayTab: 'custom', orderPending: false, lastOrder: null });
         set({ caps: data.caps ? { ...NO_CAPS, ...data.caps } : get().caps, account: data.account || null, linkPrompt: null, pendingLink: null });
-        set({ gameState: data.state, playerId: data.id, timeOfDay: data.state.timeOfDay, chatMessages: data.state.chatLog || [], unreadChat: 0, ...mirrorStrip(data.state, data.id) });
+        set({ gameState: data.state, playerId: data.id, timeOfDay: data.state.timeOfDay, chatMessages: data.state.chatLog || [], unreadChat: 0, ...mirrorStrip(data.state, data.id), playerPositions: {} });
         race.onInit(); // the server made this socket's player anew: back into the challenge room this page was in, if any
     });
     socket.on('race_room', race.race_room);
@@ -539,8 +545,25 @@ export const useGameStore = create<StoreState>((set, get) => ({
     // the link is held (pendingLink) until this tab picks: "Sign in that tab" or "Sign in here"
     socket.on('link_choice', (d: { email?: string }) => set({ linkChoice: { email: typeof d?.email === 'string' ? d.email : '' }, holdCard: true, driveNotice: null }));
     socket.on('link_sent', () => set({ linkSent: true }));
-    socket.on('update', (state) => set({ gameState: state, timeOfDay: state.timeOfDay, ...mirrorStrip(state, get().playerId) }));
+    socket.on('update', (state) => set({ gameState: state, timeOfDay: state.timeOfDay, ...mirrorStrip(state, get().playerId), playerPositions: keepOnly(get().playerPositions, state.players) }));
     socket.on('player_positions', (positions) => set({ playerPositions: positions || {} }));
+    // only what changed for this page since its last copy or patch; the Strip record mirrored only when its own record came
+    socket.on('patch', (patch: StatePatch) => {
+        const s = get();
+        if (!s.gameState || !patch || typeof patch !== 'object') return;
+        const gameState = applyPatch(s.gameState, patch), time = patch.shared?.timeOfDay;
+        set({
+            gameState,
+            ...(typeof time === 'number' ? { timeOfDay: time } : {}),
+            ...(s.playerId && patch.players?.[s.playerId] ? mirrorStrip(gameState, s.playerId) : {}),
+            ...(patch.gone?.length ? { playerPositions: keepOnly(s.playerPositions, gameState.players) } : {}),
+        });
+    });
+    // only the positions due for this page, by each player's short number (`n` on its record): merged into the ones kept
+    socket.on('pos', (flat: unknown) => {
+        const s = get(), next = mergePositions(s.playerPositions, flat, s.gameState?.players);
+        if (next !== s.playerPositions) set({ playerPositions: next });
+    });
     socket.on('time_update', (timeOfDay) => set({ timeOfDay }));
     socket.on('refuel_denied', () => set({ driveNotice: 'Not enough cash to refuel.' }));
     socket.on('strip_denied', (d: { reason?: string }) => set({ driveNotice: d?.reason || 'The Strip refused that.', orderPending: false }));
@@ -580,7 +603,7 @@ export const useGameStore = create<StoreState>((set, get) => ({
       set({ linkedElsewhere: null, holdCard: false });
       if (!s || !session) return; // nothing to sign in with: carry on as this tab's guest
       writeSession(session);
-      s.emit('join', { mode: 'session', session });
+      s.emit('join', { mode: 'session', session, proto: PROTO });
   },
   signOut: () => {
       set({ bayTab: 'custom', orderPending: false, lastOrder: null });

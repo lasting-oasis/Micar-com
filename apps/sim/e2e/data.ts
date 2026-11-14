@@ -5,7 +5,7 @@
 // a second as the real page does. It counts every byte each fake player receives:
 //   wire     what its TCP socket read: WebSocket frames and headers included (not TCP/IP or TLS overhead)
 //   payload  the socket.io messages, by name, without framing
-// and, for smoothness, the time between position updates of each other player: the ten nearest in the same district
+// and, for smoothness, the time between position updates of each other player: the twenty nearest in the same district
 // that are within 200 m (the design's full-rate players), the rest of the district, and other districts.
 //
 //   cd apps/sim
@@ -28,6 +28,7 @@ import path from 'node:path';
 import { monitorEventLoopDelay } from 'node:perf_hooks';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { io as connect, type Socket } from 'socket.io-client';
+import { decodePositions } from '../src/world/netPositions';
 import { HUB, TRACKS } from '../src/world/strip/district';
 import { WORLD_PER_M as W } from '../src/world/units';
 
@@ -46,7 +47,7 @@ const OUT = arg('out', '');
 const JOIN_GAP_MS = 50, SETTLE_MS = 2000, WARMUP_MS = 2000, SEND_MS = 100;
 const SPEED_MPS = 20; // a car at 72 km/h
 const GATHER_M = 150; // `spread`: circle centres within this of the district's meeting point
-const NEAR_M = 200, NEAR_RANK = 10; // the smoothness bucket: the ten nearest that are within 200 m
+const NEAR_M = 200, NEAR_RANK = 20; // the smoothness bucket: the twenty nearest within 200 m, the players the design keeps at full rate
 const FUEL_MS = 1500, FUEL_PER_S = 0.09, ACT_MS = 30_000; // play: as the page streams fuel (driver.ts, full throttle); one action each 30 s
 const TUNE = { turbo: 0, nitrous: 0, aero: 1, bias: 0, ride: 0, stiff: 0, steer: 0, gears: 0 };
 
@@ -181,10 +182,12 @@ function quantile(h: Uint32Array, q: number): number | null {
 }
 
 // Positions as each protocol sends them, decoded to (player id, x, z): the old `player_positions` object, keyed by
-// socket id, with the Strip pose in `stripPosition`.
+// socket id, with the Strip pose in `stripPosition`; and `pos` (proto 2), short numbers for the players.
 type Fix = { id: string; x: number; z: number };
-const decoders: Record<string, (args: unknown[]) => Fix[]> = {
+type Decoder = (args: unknown[], idOf: (n: number) => string | undefined) => Fix[];
+const decoders: Record<string, Decoder> = {
   player_positions: ([positions]) => Object.entries((positions ?? {}) as Record<string, any>).map(([id, p]) => ({ id, x: p?.stripPosition?.x ?? p?.x, z: p?.stripPosition?.z ?? p?.z })),
+  pos: ([flat], idOf) => Object.entries(decodePositions(flat, idOf)).map(([id, p]) => ({ id, x: p.stripPosition?.x ?? p.x, z: p.stripPosition?.z ?? p.z })),
 };
 
 // ---- one row
@@ -202,6 +205,7 @@ async function runRow(mode: Mode, layout: Layout, online: number): Promise<Row> 
   const paths = pathsFor(layout, online);
   const players: Player[] = [];
   const indexOf = new Map<string, number>();
+  const idOfN = new Map<number, string>(); // each fake player's short number (proto 2), from its own init
   let moving = false, t0 = 0, measuring = false;
   const gaps = hist();
   // per (receiver, sender): when the sender's position last changed for the receiver, and to what
@@ -257,15 +261,17 @@ async function runRow(mode: Mode, layout: Layout, online: number): Promise<Row> 
     // play: the rental's id, from the player's own record in whichever state message brings it
     const mine = (d: any) => { const car = d?.players?.[p.id]?.inventory?.find((c: any) => c?.rental); if (car) p.carId = car.id; };
     sock.on('update', mine); sock.on('patch', mine);
-    for (const [event, decode] of Object.entries(decoders)) sock.on(event, (...args: unknown[]) => onFixes(i, decode(args)));
+    for (const [event, decode] of Object.entries(decoders)) sock.on(event, (...args: unknown[]) => onFixes(i, decode(args, n => idOfN.get(n))));
     const init = await new Promise<any>((resolve, reject) => {
       const timer = setTimeout(() => reject(new Error(`player ${i} got no init`)), 20_000);
       sock.once('init', (d: any) => { clearTimeout(timer); resolve(d); });
       sock.once('connect_error', (e: Error) => { clearTimeout(timer); reject(e); });
-      sock.emit('join', { mode: 'guest', name: `Fake ${i}` });
+      sock.emit('join', { mode: 'guest', name: `Fake ${i}`, proto: 2 }); // as the page joins (an older World ignores proto)
     });
     p.id = init.id;
     indexOf.set(p.id, i);
+    const n = init.state?.players?.[init.id]?.n;
+    if (typeof n === 'number') idOfN.set(n, p.id);
     const send = () => {
       const at = poseAt(p.path, moving ? tNow() : 0);
       sock.emit('sync_player_pos', { x: at.x * W, y: 0, z: at.z * W, rotation: at.h, district: 'strip' });
@@ -343,7 +349,7 @@ const f1 = (n: number | null | undefined) => (n === null || n === undefined || !
 const POS = new Set(Object.keys(decoders));
 function table(rows: Row[]): string {
   const lines = [
-    '| Mode | Layout | Online | Each player downloads, KB/s (mean / most) | of which positions | of which state | Server sends, MB/s | Joins: MB in all | Update gap, ms: ten nearest within 200 m (median / p95) | rest of district | other districts | Server CPU | Server memory, MB |',
+    '| Mode | Layout | Online | Each player downloads, KB/s (mean / most) | of which positions | of which state | Server sends, MB/s | Joins: MB in all | Update gap, ms: twenty nearest within 200 m (median / p95) | rest of district | other districts | Server CPU | Server memory, MB |',
     '| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |',
   ];
   for (const r of rows) {
