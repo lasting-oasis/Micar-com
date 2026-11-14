@@ -216,7 +216,7 @@ describe('a server whose ceiling is sixteen (RACE_ROOM_MAX=16)', () => {
     expect(batches).toEqual([]);
   }, 30_000);
 
-  it("two quick racers on one circuit share a room of the ceiling's size, and its wait begins; a stage-1 guest cannot open the Ardennes", async () => {
+  it("two quick racers on one circuit share a room of the ceiling's size, and its wait begins; a stage-1 guest opens the Ardennes too", async () => {
     const [a, b, c] = [await r.guest('Quick A'), await r.guest('Quick B'), await r.guest('Quick C')];
     const opened = r.roomSeen(a.s); a.s.emit('race_quick', { track: 'monaco' });
     const room = await opened;
@@ -227,8 +227,10 @@ describe('a server whose ceiling is sixteen (RACE_ROOM_MAX=16)', () => {
     // thirty seconds from the second arrival, on the server's clock (this PC's)
     expect(joined.startsAt! - Date.now()).toBeGreaterThan(25_000);
     expect(joined.startsAt! - Date.now()).toBeLessThanOrEqual(30_000);
-    const no = r.denied(c.s); c.s.emit('race_quick', { track: 'spa' });
-    expect(await no).toEqual({ why: 'pick' }); // the Ardennes GP opens at stage 5; a guest is at stage 1
+    // every circuit is open to every stage in a quick race (the owner's call: races between people pay nothing), so a
+    // guest, at stage 1, opens the Ardennes GP, a stage-5 race
+    const ardennes = r.roomSeen(c.s); c.s.emit('race_quick', { track: 'spa' });
+    expect(await ardennes).toMatchObject({ quick: true, eventId: 'ardennes_gp', car: 'ronin' });
     const junk = r.denied(c.s); c.s.emit('race_quick', { track: 'nowhere' });
     expect(await junk).toEqual({ why: 'pick' });
   }, 30_000);

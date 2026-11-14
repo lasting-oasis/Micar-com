@@ -1645,12 +1645,13 @@ io.on('connection', (socket) => {
   });
 
   // Quick race (Part 2): into the quick room filling on a circuit, or a new one at the ceiling's size. The circuit's one
-  // quick event (race.ts quickEventOf) and the Ronin GT, both fixed; the stage is checked whether joining or opening.
+  // quick event (race.ts quickEventOf) and the Ronin GT, both fixed. Open to every stage, by the list or by a link (the
+  // owner's call, 2026-11-14): races between people pay nothing, so a stage lock only kept people from racing each other.
   socket.on('race_quick', (msg: unknown) => {
       const player = gameState.players[socket.id];
       if (!player) return;
       const track = fields(msg).track, ev = typeof track === 'string' ? quickEventOf(track) : undefined;
-      if (!ev || ev.stage > stageOf(stripOf(player).rep)) { raceNo('pick'); return; }
+      if (!ev) { raceNo('pick'); return; }
       const mine = myRoom();
       if (mine?.quick && mine.eventId === ev.id) { syncRoom(mine); return; } // already in it
       if (handsFull(player)) { raceNo('holding'); return; }
@@ -1663,7 +1664,7 @@ io.on('connection', (socket) => {
       }
       const last = lastRoomAt.get(socket.id);
       if (last !== undefined && now - last < ROOM_GAP_MS) { raceNo('slow'); return; }
-      const made = createRoom(raceRooms, { id: socket.id, name: player.name }, { eventId: ev.id, car: QUICK_CAR }, stageOf(stripOf(player).rep), Math.random,
+      const made = createRoom(raceRooms, { id: socket.id, name: player.name }, { eventId: ev.id, car: QUICK_CAR }, ev.stage, Math.random, // its own stage: open to all
           clientIp(socket.handshake.headers as any, socket.handshake.address), ROOM_MAX, true);
       if (!made.ok) { raceNo(made.why); return; }
       lastRoomAt.set(socket.id, now);
