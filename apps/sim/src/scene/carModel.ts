@@ -274,6 +274,7 @@ type CarParts = {
     style: string; length: number; width: number;
     mesh: string | null;  // the mesh body shown (its model id), or null: the lofted body of the style
     wheelGeo: { wheel: THREE.BufferGeometry; wheelBlur: THREE.BufferGeometry }; wheelScale: THREE.Vector3[];
+    meshWheel: { r: number; w: number } | null; // a mesh body's front tyre (radius, width); the rear ones are scaled by wheelScale
     beamZ: number;
     tilt: THREE.Group; // carries everything but the wheels; the driving code pitches/rolls it
     body: THREE.Mesh; trim: THREE.Mesh; glass: THREE.Mesh; wheelMesh: THREE.InstancedMesh;
@@ -354,7 +355,7 @@ export const buildCarModel = (style: string, rawColor: string, bodyCond: number 
     for (const o of [...tilt.children, wheelMesh]) o.position.y += CAR_LIFT;
 
     const parts: CarParts = {
-        style, length: geo.length, width: geo.width, mesh: null, wheelGeo: geo, wheelScale: geo.wheelPos.map(() => ONE.clone()), beamZ: geo.beamZ, tilt, body, trim, glass, wheelMesh, farBody, farTrim, halos, pivots, wheels, smoke: smokeParticles,
+        style, length: geo.length, width: geo.width, mesh: null, meshWheel: null, wheelGeo: geo, wheelScale: geo.wheelPos.map(() => ONE.clone()), beamZ: geo.beamZ, tilt, body, trim, glass, wheelMesh, farBody, farTrim, halos, pivots, wheels, smoke: smokeParticles,
         lamps: 'off', far: false, blur: false, lastRoll: new THREE.Quaternion(), syncFrame: 0,
         sx: NaN, sz: NaN, sqy: NaN, sqw: NaN, ss: NaN, sv: false,
     };
@@ -386,12 +387,17 @@ const fitMeshBody = (group: THREE.Object3D, mg: MeshGeometry) => {
     c.smoke.position.set(mg.smokePos.x, mg.smokePos.y + CAR_LIFT, mg.smokePos.z);
     c.wheelGeo = mg; c.wheelMesh.geometry = c.blur ? mg.wheelBlur : mg.wheel;
     mg.wheelPos.forEach((p, i) => { c.pivots[i].position.copy(p); c.wheelScale[i].setScalar(mg.wheelScale[i]); });
-    c.wheelMesh.computeBoundingSphere();
+    c.meshWheel = { r: mg.wheelR, w: mg.tyreW };
     c.length = mg.length; c.width = mg.width; c.beamZ = mg.beamZ;
     if (beam && beam.parent === c.tilt) beam.position.z = c.beamZ - 16.4;
     syncCarWheels(group);
+    c.wheelMesh.computeBoundingSphere(); // from the new wheel matrices
     shadowsDirtyFrom = 0; // the contact shadow takes the model's size
+    // whoever fitted a kit (Garage, the driven car) fits it again to the new body
+    group.dispatchEvent({ type: CAR_BODY_CHANGE } as never);
 };
+/** Dispatched on a car's group when its own model replaces the lofted body (refit anything placed on the old body). */
+export const CAR_BODY_CHANGE = 'carbodychange';
 
 const setBlur = (c: CarParts, blur: boolean) => {
     if (blur === c.blur) return;

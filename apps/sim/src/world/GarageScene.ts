@@ -5,7 +5,7 @@
    yellow, the floor night. The lofted bodies face -Z; the car is turned to face +Z as Night Tuner's.
    It owns its renderer (a second canvas over the world); dispose() frees everything it made. */
 import * as THREE from 'three';
-import { buildCarModel, disposeCarModel, setCarLights } from '../scene/carModel';
+import { CAR_BODY_CHANGE, buildCarModel, disposeCarModel, setCarLights } from '../scene/carModel';
 import { attachParts, disposeParts, syncKitLod, type PartsKit } from './parts';
 import { clamp } from './physics';
 import type { BodyStyle, CarCfg } from './data';
@@ -34,6 +34,7 @@ export class GarageScene {
   private cur = { az: .7, pol: 1.22, r: 8.6 * W, t: new THREE.Vector3(0, .65 * W, 0) };
   private tgt: Cam = { ...CAMS.orbit };
   private autoRot = true;
+  private shown: [BodyStyle, CarCfg, Tune, string | null] | null = null; // the last setCar
   private drag: { x: number; y: number } | null = null;
   private owned: { dispose(): void }[] = [];
   private car: THREE.Group | null = null;
@@ -104,12 +105,15 @@ export class GarageScene {
   /** Show `cfg` / `tune` on a `style` body (the car's own model with `meshId`, once loaded). Rebuilds the body when the
    *  style, model or paint changes; otherwise re-fits the kit. */
   setCar(style: BodyStyle, cfg: CarCfg, tune: Tune, meshId: string | null = null): void {
+    this.shown = [style, cfg, tune, meshId];
     const key = JSON.stringify([cfg, style, meshId]), bodyKey = style + cfg.color + (meshId ?? '');
     if (key === this.shownKey && this.car) { this.car.position.y = rideYOf(tune); return; }
     if (!this.car || this.car.userData.garageBody !== bodyKey) {
       this.clearCar();
       const car = buildCarModel(style, cfg.color, 100, 100, meshId).group;
       car.userData.garageBody = bodyKey; car.rotation.y = Math.PI; setCarLights(car, 'on');
+      // its own model arrived: fit the kit again, to the new body
+      car.addEventListener(CAR_BODY_CHANGE as never, () => { if (this.car === car && this.shown) { this.shownKey = ''; this.setCar(...this.shown); } });
       this.scene.add(car); this.car = car;
     } else if (this.kit) { disposeParts(this.kit); this.kit = null; }
     this.kit = attachParts(this.car, cfg, style, cfg.perf.brakes);

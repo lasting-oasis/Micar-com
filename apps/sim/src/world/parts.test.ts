@@ -54,3 +54,31 @@ describe('the kit lamp glows', () => {
   });
 });
 
+describe('the kit on a car drawn from its own model (a mesh body)', () => {
+  const meshCar = () => {
+    const car = new THREE.Group(), tilt = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.BoxGeometry(4, 3, 9.6), new THREE.MeshPhysicalMaterial());
+    const wheelMesh = new THREE.InstancedMesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshBasicMaterial(), 4);
+    const halos = new THREE.Points(new THREE.BufferGeometry().setAttribute('position', new THREE.Float32BufferAttribute([], 3)).setAttribute('lampDir', new THREE.Float32BufferAttribute([], 1)));
+    const pivots = [[-1.74, -2.8], [1.74, -2.8], [-1.7, 2.6], [1.7, 2.6]].map(([x, z]) => { const p = new THREE.Object3D(); p.position.set(x, 0.7, z); return p; });
+    const wheels = pivots.map(p => { const w = new THREE.Object3D(); p.add(w); return w; });
+    tilt.add(body, halos); car.add(tilt, wheelMesh);
+    const wheelScale = [1, 1, 1.2, 1.2].map(v => new THREE.Vector3(v, v, v));
+    car.userData.car = { body, tilt, wheelMesh, pivots, wheels, halos, far: false, mesh: 'toyota-camry', meshWheel: { r: 0.7, w: 0.44 }, wheelScale };
+    return { car, wheels };
+  };
+  it('has no lamp glows (the model has no lamps yet), rather than glows where the lofted lamps would be', () => {
+    const { car } = meshCar();
+    const r = attachParts(car, STOCK_CFG, 'sedan', 0);
+    expect(r.glows.length).toBe(0);
+    disposeParts(r);
+  });
+  it("sizes Night Tuner's wheels to the model's own tyres, front and rear", () => {
+    const { car, wheels } = meshCar();
+    const r = attachParts(car, STOCK_CFG, 'sedan', 0);
+    const radius = (i: number) => new THREE.Box3().setFromObject(wheels[i].getObjectByName('ntWheel')!).getSize(new THREE.Vector3()).y / 2;
+    expect(radius(0)).toBeCloseTo(0.7, 2);
+    expect(radius(2)).toBeCloseTo(0.84, 2);
+    disposeParts(r);
+  });
+});

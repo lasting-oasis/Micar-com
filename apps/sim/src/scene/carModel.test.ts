@@ -19,7 +19,7 @@ const ctx = new Proxy({}, { get: (_t, k) => k === 'createImageData' ? (w: number
     : k === 'createRadialGradient' ? () => ({ addColorStop() {} }) : () => {} });
 vi.stubGlobal('document', { createElement: () => ({ getContext: () => ctx, width: 0, height: 0 }) });
 
-import { applyCarPaint, buildCarModel, disposeCarModel, setCarLights, syncCarWheels, updateCars } from './carModel';
+import { CAR_BODY_CHANGE, applyCarPaint, buildCarModel, disposeCarModel, setCarLights, syncCarWheels, updateCars } from './carModel';
 import { makeCarMeshCache, setCarMeshCache, type MicarExtras } from './car/carMeshes';
 
 const EXTRAS: MicarExtras = {
@@ -54,11 +54,13 @@ describe('a car with its own model', () => {
     it('shows the lofted body while its model loads, then its own body, glass, dark trim, wheels and far version', async () => {
         const { group } = buildCarModel('sedan', '#ff0000', 100, 100, 'toyota-camry');
         const c = partsOf(group);
+        let changed = 0; group.addEventListener(CAR_BODY_CHANGE as never, () => { changed++; });
         expect(c.mesh).toBeNull();
         expect(zLen(c.body.geometry)).toBeCloseTo(1); // the stand-in lofted sedan
         expect(urls).toEqual(['/cars/toyota-camry.glb']);
         release(); await new Promise(r => setTimeout(r, 0));
         expect(c.mesh).toBe('toyota-camry');
+        expect(changed).toBe(1); // so the Garage and the driven car fit their kit again
         expect(zLen(c.body.geometry)).toBeCloseTo(9.6, 4);
         expect(zLen(c.glass.geometry)).toBeCloseTo(9.6, 4);
         expect(zLen(c.trim.geometry)).toBeCloseTo(9.6, 4);
@@ -101,6 +103,9 @@ describe('a car with its own model', () => {
         expect(fr.x).toBeCloseTo(0.98 * 2 - 0.22); expect(fr.z).toBeCloseTo(-2.8); expect(fr.y).toBeCloseTo(0.7);
         expect(rl.pos.x).toBeCloseTo(-(0.96 * 2 - 0.22)); expect(rl.pos.y).toBeCloseTo(0.84);
         expect(rl.s.x).toBeCloseTo(0.42 / 0.35); // the bigger rear tyres
+        // the culling sphere is built from the placed wheels: it holds all four
+        const sphere = c.wheelMesh.boundingSphere!;
+        for (const i of [0, 1, 2, 3]) expect(sphere.containsPoint(wheelAt(c, i).pos)).toBe(true);
         frontPivots[0].rotation.y = 0.4; wheels[0].rotateX(0.3); syncCarWheels(group);
         const fl = wheelAt(c, 0);
         expect(fl.q.angleTo(new THREE.Quaternion())).toBeGreaterThan(0.3);

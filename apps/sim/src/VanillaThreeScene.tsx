@@ -6,7 +6,7 @@ import { batchStatic } from './scene/staticBatcher';
 import { damp, groundLastOpaqueSort } from './scene/utils';
 import { Atmosphere } from './scene/atmosphere';
 import { carMeshId } from './scene/car/carMeshes';
-import { applyCarPaint, attachCarShadows, buildCarModel, carColorHex, carFrameTick, carStyleReady, deriveStyle, precompileCarsTick, disposeCarModel, disposeSharedCarAssets, setCarLights, syncCarWheels, updateCarLights, updateCars } from './scene/carModel';
+import { CAR_BODY_CHANGE, applyCarPaint, attachCarShadows, buildCarModel, carColorHex, carFrameTick, carStyleReady, deriveStyle, precompileCarsTick, disposeCarModel, disposeSharedCarAssets, setCarLights, syncCarWheels, updateCarLights, updateCars } from './scene/carModel';
 import { BlobShadows, Character, customerLook, dealerLook, disposeCharacterAssets } from './scene/characterModel';
 import { createGroundHeight } from './scene/groundHeight';
 import { createWorldContext } from './scene/world/context';
@@ -1494,6 +1494,8 @@ export function VanillaThreeScene() {
                         const assets = buildCarModel(carStyle, carColorHex(car.color), car.bodyCondition, car.mechanicCondition, carMeshId(car.make, car.model));
                         
                         const mesh = assets.group;
+                        // its own model arrived: the driven car's kit is fitted again, to the new body
+                        mesh.addEventListener(CAR_BODY_CHANGE as never, () => { if (car.id === localDrivingCarId && kit) fitKit(mesh, car); });
                         if (car.lotPosition) {
                              mesh.position.set(car.lotPosition.x, 0, car.lotPosition.z);
                              mesh.rotation.y = car.lotPosition.r;

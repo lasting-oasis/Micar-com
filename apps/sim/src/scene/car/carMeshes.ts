@@ -57,6 +57,7 @@ export type MeshGeometry = {
     wheel: THREE.BufferGeometry; wheelBlur: THREE.BufferGeometry;
     wheelPos: THREE.Vector3[];      // FL, FR, RL, RR wheel centres
     wheelScale: number[];           // per wheel: its radius over the wheel geometry's (front and rear tyres differ)
+    wheelR: number; tyreW: number;  // the wheel geometry's radius (the front tyre's) and width
     halos: THREE.BufferGeometry;    // empty: mesh bodies have no lamp glows yet
     smokePos: THREE.Vector3; beamZ: number;
     length: number; width: number; height: number;
@@ -119,7 +120,7 @@ export function meshGeometryFrom(root: THREE.Object3D): MeshGeometry {
         id: ex.id, paint: near.paint, glass: near.glass!, dark: near.dark, farPaint: far.paint,
         farDark: far.glass ? mergeAll([far.glass, far.dark]) : far.dark,
         wheel: buildWheelGeometry(R, tw, R * 0.66), wheelBlur: buildWheelGeometry(R, tw, R * 0.66, true),
-        wheelPos, wheelScale: [1, 1, rs, rs], halos,
+        wheelPos, wheelScale: [1, 1, rs, rs], wheelR: R, tyreW: tw, halos,
         smokePos: new THREE.Vector3(0, ex.belt_height * S, front.z * S - 0.6), beamZ: bb.min.z,
         length: ex.length * S, width: ex.width * S, height: ex.height * S,
     };

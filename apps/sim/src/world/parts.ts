@@ -244,6 +244,8 @@ export type PartsKit = {
 };
 type ModelParts = {
   tilt?: THREE.Group; body: THREE.Mesh; wheelMesh: THREE.InstancedMesh; pivots: THREE.Object3D[]; wheels: THREE.Object3D[]; halos: THREE.Points; far: boolean; glass?: THREE.Mesh;
+  /** a car drawn from its own 3D model (carModel's mesh body): its front tyre, and each wheel's scale to it */
+  mesh?: string | null; meshWheel?: { r: number; w: number } | null; wheelScale?: THREE.Vector3[];
 };
 const modelOf = (car: THREE.Object3D) => car.userData.car as ModelParts | undefined;
 
@@ -438,7 +440,8 @@ export function attachParts(car: THREE.Group, cfg: VisualCfg, style: BodyStyle, 
     const pos = model.halos.geometry.getAttribute('position'), dir = model.halos.geometry.getAttribute('lampDir');
     for (let i = 0; i < pos.count; i++) lampPts.push({ kind: dir.getX(i) < 0 ? 'head' : 'tail', p: new THREE.Vector3(pos.getX(i), pos.getY(i), pos.getZ(i)) });
   }
-  if (!lampPts.length) both(sd => {
+  // (a mesh body has no lamps yet: no glows, rather than glows where the lofted body's lamps would be)
+  if (!lampPts.length && !model?.mesh) both(sd => {
     const xh = sd * .6 * kx, yh = F.yF + (.66 - NT_SILL) / (NT_HOOD - NT_SILL) * (topY(s, s.noseZ + .3) - F.yF);
     const yt = F.yR + (.74 - NT_SILL) / (NT_DECK - NT_SILL) * (topY(s, s.tailZ - .3) - F.yR);
     lampPts.push({ kind: 'head', p: new THREE.Vector3(xh, yh, fz(s, Math.abs(xh), yh) - .12) }, { kind: 'tail', p: new THREE.Vector3(xh, yt, rz(s, Math.abs(xh), yt) + .12) });
@@ -526,13 +529,17 @@ export function replaceWheels(car: THREE.Group, cfg: VisualCfg, anchors: Anchors
   const cal = M(new THREE.MeshStandardMaterial({ color: CALIPER[perfBrakes] ?? CALIPER[0], roughness: .4, metalness: .3 }));
   const dark = M(new THREE.MeshStandardMaterial({ color: 0x09090b, roughness: .7, metalness: .2 }));
   // Night Tuner builds a 0.34 m x 0.26 m wheel; scale it to this body's tyre (radius on y/z, width on x)
-  const kr = anchors.wheelR / NT_TIRE_R, kw = (wheelWidth(anchors) / NT_TIRE_W);
+  // (a mesh body's tyres: its own size, front and rear)
+  const mw = model?.meshWheel;
+  const kw = (mw ? mw.w : wheelWidth(anchors)) / NT_TIRE_W;
+  const krOf = (i: number) => mw ? mw.r * (model!.wheelScale?.[i].x ?? 1) / NT_TIRE_R : anchors.wheelR / NT_TIRE_R;
 
   pivots.forEach((pivot, i) => {
     const side = Math.sign(pivot.position.x) || 1;
     const add = (geo: THREE.BufferGeometry, mat: THREE.Material, p: THREE.Object3D, x = 0, y = 0, z = 0, rx = 0, ry = 0, rz = 0) => {
       const o = new THREE.Mesh(geo, mat); o.position.set(x, y, z); o.rotation.set(rx, ry, rz); o.castShadow = true; p.add(o); return o;
     };
+    const kr = krOf(i);
     const wheel = new THREE.Group(); wheel.name = 'ntWheel'; wheel.scale.set(kw, kr, kr); spins[i].add(wheel); st.added.push(wheel);
     const fixed = new THREE.Group(); fixed.name = 'ntBrake'; fixed.scale.set(kw, kr, kr); pivot.add(fixed); st.added.push(fixed);
     add(cyl(NT_TIRE_R, NT_TIRE_W, 32, true), tire, wheel, 0, 0, 0, 0, 0, Math.PI / 2);
