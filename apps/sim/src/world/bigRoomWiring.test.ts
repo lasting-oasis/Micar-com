@@ -311,6 +311,18 @@ describe('a server without RACE_ROOM_MAX', () => {
     expect((await back).code).toBe(left.code);
   }, 70_000);
 
+  it('asking again for the quick room one is in answers only the one who asked', async () => {
+    const [a, b] = [await r.guest('Again A'), await r.guest('Again B')];
+    const opened = r.roomSeen(a.s); a.s.emit('race_quick', { track: 'laguna' }); const room = await opened;
+    const two = r.roomSeen(b.s, v => v.members.length === 2 && v.code === room.code); b.s.emit('race_quick', { track: 'laguna' }); await two;
+    let heardByB = 0; const on = () => { heardByB++; }; b.s.on('race_room', on);
+    const answer = r.roomSeen(a.s); for (let i = 0; i < 3; i++) a.s.emit('race_quick', { track: 'laguna' }); // a taps its circuit again, three times
+    expect((await answer).code).toBe(room.code);
+    await new Promise(res => setTimeout(res, 500));
+    b.s.off('race_room', on);
+    expect(heardByB).toBe(0); // the room is not sent to everyone in it for each tap
+  }, 30_000);
+
   it("when a quick room's race ends, the circuit's other open quick room moves into it", async () => {
     const [a, b, c] = [await r.guest('Merge A'), await r.guest('Merge B'), await r.guest('Merge C')];
     const opened = r.roomSeen(a.s); a.s.emit('race_quick', { track: 'interlagos' }); const first = await opened;

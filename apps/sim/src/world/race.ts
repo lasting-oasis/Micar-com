@@ -351,28 +351,28 @@ export function missedLoad(room: Room, now: number): string[] {
   return room.members.filter(m => m.state === 'loading').map(m => m.id);
 }
 
-/** One quick room filling per circuit. A circuit has two open quick rooms with space when a newcomer opened the second
- *  while the first was racing, and the first race has ended: the emptier then moves into the fuller (on a tie, into the
- *  one that has raced), up to its size. A move is no join: it does not end the room's wait (joinRoom), so a result still
- *  shows for its whole wait. Returns who moved where; the server moves their sockets. */
+/** One quick room filling per circuit, the owner's way (2026-11-14): when a quick room's race has ended, the circuit's
+ *  other open quick rooms that have not just raced move into it, up to its size. Its racers keep their room, their result
+ *  and their wait; nobody is ever moved out of a room whose race has just ended, so two rooms whose races have both just
+ *  ended stay apart until one of them starts. A move is no join: it does not end the room's wait (joinRoom). Returns who
+ *  moved where; the server moves their sockets. */
 export function mergeQuick(rooms: Map<string, Room>, now: number): { id: string; from: string; to: string }[] {
   const moves: { id: string; from: string; to: string }[] = [];
-  const byEvent = new Map<string, Room[]>();
-  for (const r of rooms.values())
-    if (r.quick && r.phase === 'open' && r.members.length > 0 && r.members.length < r.max) byEvent.set(r.eventId, [...(byEvent.get(r.eventId) ?? []), r]);
-  for (const list of byEvent.values()) {
-    while (list.length > 1) {
-      list.sort((p, q) => q.members.length - p.members.length || Number(q.last !== null) - Number(p.last !== null));
-      const to = list[0], from = list[list.length - 1];
+  const open = (r: Room) => r.quick && r.phase === 'open' && r.members.length > 0;
+  const raced = (r: Room) => r.last !== null && r.last.raceNo === r.raceNo; // its latest race has ended, with a result
+  for (const to of rooms.values()) {
+    if (!open(to) || !raced(to) || to.members.length >= to.max) continue;
+    for (const from of rooms.values()) {
+      if (from === to || !open(from) || raced(from) || from.eventId !== to.eventId) continue;
       while (from.members.length > 0 && to.members.length < to.max) {
         const m = from.members[0];
         leaveRoom(from, m.id, now);
         joinRoom(to, { id: m.id, name: m.name });
         moves.push({ id: m.id, from: from.code, to: to.code });
       }
-      waitQuick(to, now);
-      for (let i = list.length - 1; i >= 0; i--) if (list[i].members.length === 0 || list[i].members.length >= list[i].max) list.splice(i, 1);
+      if (to.members.length >= to.max) break;
     }
+    waitQuick(to, now);
   }
   return moves;
 }

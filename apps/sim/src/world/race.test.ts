@@ -661,7 +661,7 @@ describe('quick rooms: one filling per circuit, starting by themselves', () => {
     expect(mergeQuick(rooms, 11_000)).toEqual([]); // a full room takes nobody
     expect(other.members).toHaveLength(1); // another circuit's room never mixes
   });
-  it('merging: when the other room fits, it empties into the fuller one; on a tie, into the room that has raced', () => {
+  it('merging: when the other room fits, it empties into the room whose race ended, whichever is fuller', () => {
     const rooms = new Map<string, Room>();
     const a = quick(rooms, 'monaco', 'a', 4); joinRoom(a, who('a2'), 0);
     startRace(a, 'a', 1_000); for (const id of ['a', 'a2']) markReady(a, id, 1_100);
@@ -671,8 +671,28 @@ describe('quick rooms: one filling per circuit, starting by themselves', () => {
     expect([a.members.length, b.members.length, b.emptySince]).toEqual([4, 0, 10_500]);
     const c = quick(rooms, 'interlagos', 'c', 16), d = quick(rooms, 'interlagos', 'd', 16);
     for (const id of ['d2', 'd3']) joinRoom(d, who(id), 0);
-    expect(mergeQuick(rooms, 20_000)).toEqual([{ id: 'c', from: c.code, to: d.code }]); // the emptier goes to the fuller
-    expect([d.members.length, d.startsAt]).toEqual([4, 30_000]); // d's wait began with its second arrival, and keeps
+    expect(mergeQuick(rooms, 20_000)).toEqual([]); // no race has ended on Lagoons: two rooms waiting for their first are left as they are
+    expect([c.members.length, d.members.length]).toEqual([1, 3]);
+  });
+  it('the racers whose race just ended are never moved out, even when their room is the emptier: the other room moves into it', () => {
+    const rooms = new Map<string, Room>();
+    const a = quick(rooms, 'monaco', 'a', 4); joinRoom(a, who('a2'), 0);
+    startRace(a, 'a', 1_000); for (const id of ['a', 'a2']) markReady(a, id, 1_100);
+    const b = quick(rooms, 'monaco', 'b', 4); for (const id of ['b2', 'b3']) joinRoom(b, who(id), 2_000); // three wait, counting down
+    quitRace(a, 'a2', 9_000); leaveRoom(a, 'a2', 9_500); quitRace(a, 'a', 10_000); // a's race ends with one racer left in it
+    expect([a.phase, a.members.length, a.last?.raceNo]).toEqual(['open', 1, a.raceNo]);
+    expect(mergeQuick(rooms, 10_500)).toEqual(['b', 'b2', 'b3'].map(id => ({ id, from: b.code, to: a.code })));
+    expect([a.members.map(x => x.id), a.last?.rows.length, a.startsAt]).toEqual([['a', 'b', 'b2', 'b3'], 2, 10_500 + QUICK_WAIT_MS]);
+  });
+  it('two rooms whose races have both just ended stay apart until one of them starts', () => {
+    const rooms = new Map<string, Room>();
+    const a = quick(rooms, 'monaco', 'a', 4), b = quick(rooms, 'monaco', 'b', 4);
+    for (const [r, x] of [[a, 'a2'], [b, 'b2']] as const) {
+      joinRoom(r, who(x), 0); startRace(r, r.hostId, 1_000); for (const m of r.members) markReady(r, m.id, 1_100);
+      for (const m of r.members) quitRace(r, m.id, 10_000);
+    }
+    expect([a.phase, b.phase]).toEqual(['open', 'open']);
+    expect(mergeQuick(rooms, 10_500)).toEqual([]); // each keeps its racers and its result
   });
   it('quickWaiting counts who is in each open quick room, by circuit, and nothing else', () => {
     const rooms = new Map<string, Room>();

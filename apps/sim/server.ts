@@ -1653,7 +1653,7 @@ io.on('connection', (socket) => {
       const track = fields(msg).track, ev = typeof track === 'string' ? quickEventOf(track) : undefined;
       if (!ev) { raceNo('pick'); return; }
       const mine = myRoom();
-      if (mine?.quick && mine.eventId === ev.id) { syncRoom(mine); return; } // already in it
+      if (mine?.quick && mine.eventId === ev.id) { socket.emit('race_room', roomView(mine)); return; } // already in it: the room again, to the asker alone
       if (handsFull(player)) { raceNo('holding'); return; }
       const now = Date.now(), open = findQuick(raceRooms, ev.track);
       if (open) {
