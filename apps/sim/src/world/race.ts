@@ -11,6 +11,14 @@ export { CODE_ALPHABET, CODE_LEN, makeCode, normalizeCode } from './raceCode';
 
 /** A room holds at most this many people (the grid has four places), and a race needs at least two. */
 export const RACE_MAX = 4, RACE_MIN = 2;
+/** The most a room may be made to hold, and only for a load test (RACE_ROOM_MAX): the Strip's grid still shows four. */
+export const ROOM_MAX_LIMIT = 16;
+/** How many a room holds: RACE_MAX, unless `env` (RACE_ROOM_MAX), trimmed, is a whole number from RACE_MAX to ROOM_MAX_LIMIT. */
+export function roomMaxFrom(env: string | undefined): number {
+  const s = (env ?? '').trim();
+  const n = /^\d+$/.test(s) ? Number(s) : NaN;
+  return n >= RACE_MAX && n <= ROOM_MAX_LIMIT ? n : RACE_MAX;
+}
 export const ROOMS_MAX = 100;
 /** The rooms one address may hold at a time: a fifth of them all, so that no one script can take every room. */
 export const ROOMS_PER_ADDRESS = 20;
@@ -51,6 +59,8 @@ export type Room = {
   emptySince: number | null; emptyFor: number;
   /** the name of the last member to host it (the link names them while the room waits empty); the address it was made from */
   hostName: string; from: string;
+  /** how many people it holds (roomMaxFrom) */
+  max: number;
 };
 /** What the members are sent. */
 export type RoomView = Pick<Room, 'code' | 'eventId' | 'car' | 'hostId' | 'phase' | 'raceNo' | 'members' | 'goAt' | 'closesAt' | 'last' | 'note'>;
@@ -78,8 +88,8 @@ function checkChoice(pick: Choice, stage: number): { ok: true; eventId: string; 
   return { ok: true, eventId: ev.id, car: car.key };
 }
 
-/** A new room, `host` in it. `from`: the address asking (none: no ration by address). */
-export function createRoom(rooms: Map<string, Room>, host: { id: string; name: string }, pick: Choice, stage: number, rand: () => number, from = ''): { ok: true; room: Room } | Denied {
+/** A new room, `host` in it. `from`: the address asking (none: no ration by address). `max`: how many it holds. */
+export function createRoom(rooms: Map<string, Room>, host: { id: string; name: string }, pick: Choice, stage: number, rand: () => number, from = '', max = RACE_MAX): { ok: true; room: Room } | Denied {
   if (rooms.size >= ROOMS_MAX) return no('busy');
   if (from && [...rooms.values()].filter(r => r.from === from).length >= ROOMS_PER_ADDRESS) return no('busy');
   const choice = checkChoice(pick, stage);
@@ -91,7 +101,7 @@ export function createRoom(rooms: Map<string, Room>, host: { id: string; name: s
   const room: Room = {
     code, eventId: choice.eventId, car: choice.car, hostId: first.id, phase: 'open', raceNo: 0, members: [first],
     startedAt: null, goAt: null, closesAt: null, gone: [], last: null, note: null, emptySince: null, emptyFor: EMPTY_TTL_MS,
-    hostName: first.name, from,
+    hostName: first.name, from, max,
   };
   rooms.set(code, room);
   return { ok: true, room };
@@ -100,7 +110,7 @@ export function createRoom(rooms: Map<string, Room>, host: { id: string; name: s
 /** Into the room, in any phase: someone who arrives while a race is on is in the next one. */
 export function joinRoom(room: Room, who: { id: string; name: string }): Ok | Denied {
   if (find(room, who.id)) return OK;
-  if (room.members.length >= RACE_MAX) return no('full');
+  if (room.members.length >= room.max) return no('full');
   const m = member(who);
   room.members.push(m);
   if (!room.hostId) setHost(room, m); // the room had emptied out: whoever comes back to it hosts
@@ -221,7 +231,7 @@ export function roomView(room: Room): RoomView {
 }
 
 export function invitation(room: Room): Invitation {
-  return { host: room.hostName, eventId: room.eventId, car: room.car, count: room.members.length, max: RACE_MAX, phase: room.phase };
+  return { host: room.hostName, eventId: room.eventId, car: room.car, count: room.members.length, max: room.max, phase: room.phase };
 }
 
 // ---- the phases

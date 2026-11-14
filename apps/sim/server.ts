@@ -20,6 +20,7 @@ import { SLOT_COLORS, claimFinish, createRoom, holdsLoan, invitation, joinRoom, 
 import { MAGIC_TTL_MS, allowSend, clientIp, newSendLog, pruneSendLog, applyRecord, attachAccount, liveHolder, bootState, claimAllowance, findAccount, linkGuest, saveRecord, signMagic, signSession, utcDay, verifyGoogle, verifyMagic, verifySession, type Account, type Identity, type Jwk } from './src/world/accounts.js';
 import { RENTAL_DENIED, STRIP_LIMIT, VISITOR_DENIED, VISITOR_EVENTS, closeEvent, guestPlayer, hostIsVacant, isUntouchedGuest, linkTarget, pickHost, quitEvent, sanitizePosition } from './src/world/stripFlow.js';
 import { coalescingSaver, loadOrQuarantine, writeAtomic } from './src/world/persistence.js';
+import { RACE_MAX, roomMaxFrom } from './src/world/race.js';
 import { grantTester, heldTestCar, returnTestCar, setTestCar, splitTesterName, testCarDef, topUp } from './src/world/tester.js';
 import { checkTesterKey, configuredTesterKey, isKeyAttempt, newAttemptLog, refusalText } from './src/world/testerKey.js';
 import { TRACKS } from './src/world/strip/district.js';
@@ -137,6 +138,9 @@ const raceOf = new Map<string, string>();
 const lastRoomAt = new Map<string, number>();
 const lastPoseAt = new Map<string, number>();
 const ROOM_GAP_MS = 3000, POSE_GAP_MS = 40;
+/** How many a challenge room holds: four, unless RACE_ROOM_MAX asks for more, which only a load test does (race.ts). */
+const ROOM_MAX = roomMaxFrom(process.env.RACE_ROOM_MAX);
+if (ROOM_MAX !== RACE_MAX) console.log(`RACE_ROOM_MAX: challenge rooms hold ${ROOM_MAX} (load tests only: the Strip's grid shows ${RACE_MAX})`);
 /** A pose's time is the sender's reading of this server's clock: one further off than this is replaced by the server's own. */
 const POSE_SKEW_MS = 5000;
 const raceChannel = (code: string) => 'race:' + code;
@@ -1554,7 +1558,7 @@ io.on('connection', (socket) => {
       const { eventId, car } = fields(msg);
       // rationed by address too (race.ts): the gap above is per socket, and a script makes a new socket for every room
       const made = createRoom(raceRooms, { id: socket.id, name: player.name }, { eventId, car }, stageOf(stripOf(player).rep), Math.random,
-          clientIp(socket.handshake.headers as any, socket.handshake.address));
+          clientIp(socket.handshake.headers as any, socket.handshake.address), ROOM_MAX);
       if (!made.ok) { raceNo(made.why); return; }
       lastRoomAt.set(socket.id, now);
       enterRoom(made.room);

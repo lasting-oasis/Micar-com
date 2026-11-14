@@ -3,8 +3,8 @@ import { beforeAll, describe, expect, it } from 'vitest';
 import { TRACKS } from './strip/district';
 import { readTrackSync, setTrackDir } from './strip/districtNode';
 import {
-  GO_LEAD_MS, claimFinish, createRoom, holdsLoan, invitation, joinRoom, leaveRoom, makeCode, markReady, normalizeCode, quitRace, roomView, setRace,
-  startRace, sweep, tick, type Room,
+  GO_LEAD_MS, claimFinish, createRoom, holdsLoan, invitation, joinRoom, leaveRoom, makeCode, markReady, normalizeCode, quitRace, roomMaxFrom, roomView,
+  setRace, startRace, sweep, tick, type Room,
 } from './race';
 
 // the floor of a race is its distance over the fastest average speed, so the route lengths must be on hand
@@ -409,5 +409,26 @@ describe('what the server reads off a room', () => {
     for (const id of ['a', 'b', 'c']) leaveRoom(room, id, 0);
     // nobody is in it: the link still names the last to host it
     expect(invitation(room)).toEqual({ host: 'C', eventId: 'royal_drag', car: 'ronin', count: 0, max: 4, phase: 'open' });
+  });
+});
+
+describe('room size for a load test', () => {
+  it('reads RACE_ROOM_MAX only as a whole number from 4 to 16', () => {
+    expect([undefined, '', '3', '17', '8.5', 'x', '-4'].map(roomMaxFrom)).toEqual([4, 4, 4, 4, 4, 4, 4]);
+    expect(['4', '8', ' 16 '].map(roomMaxFrom)).toEqual([4, 8, 16]);
+  });
+  it('a room made for sixteen takes sixteen and refuses the seventeenth; a default room still stops at four', () => {
+    const rooms = new Map<string, Room>();
+    const pick = { eventId: 'royal_drag', car: 'ronin' };
+    const big = createRoom(rooms, { id: 'h', name: 'Host' }, pick, 1, Math.random, '', 16);
+    if (!big.ok) throw new Error(big.why);
+    for (let i = 1; i < 16; i++) expect(joinRoom(big.room, { id: `p${i}`, name: `P${i}` }).ok).toBe(true);
+    expect(joinRoom(big.room, { id: 'p16', name: 'P16' })).toEqual({ ok: false, why: 'full' });
+    expect(invitation(big.room).max).toBe(16);
+    const small = createRoom(rooms, { id: 'h2', name: 'Host' }, pick, 1, Math.random);
+    if (!small.ok) throw new Error(small.why);
+    for (let i = 1; i < 4; i++) joinRoom(small.room, { id: `q${i}`, name: `Q${i}` });
+    expect(joinRoom(small.room, { id: 'q4', name: 'Q4' })).toEqual({ ok: false, why: 'full' });
+    expect(invitation(small.room).max).toBe(4);
   });
 });
