@@ -11,6 +11,11 @@ import { MARKET_OPTIONS, URGENCY_OPTIONS, URL_KEYS, defaults, parse, type FormSt
 
 export const APP_URL = 'https://lasting-oasis.github.io/Micar-com/';
 
+/** Every answer says how MiCar knows what it was told: today, only from the caller. */
+export const SELF_DECLARED_NOTE = 'Title, accident history, condition and mileage are as the caller stated them or as MiCar assumed them. MiCar has checked no record and inspected nothing.';
+/** Why a rebuilt or salvage title gets no figures. */
+export const BRANDED_WITHHELD = 'MiCar does not give a value for a rebuilt or salvage title yet: its figures for these cars have not been tested against sale prices. Have the car appraised independently.';
+
 export type ApiResponse = { status: number; body: Record<string, unknown> };
 
 const plain = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '');
@@ -160,10 +165,12 @@ export function valueQuery(params: URLSearchParams, now: Date = new Date()): Api
   if (Object.keys(errors).length || !parsed.inputs) return { status: 400, body: { ok: false, errors } };
 
   const inputs = parsed.inputs;
-  const v = valuate(inputs, now);
+  // a rebuilt or salvage title gets no figures at all: the engine's flat title multipliers have not been tested
+  // against sale prices, so the engine is not run for one
+  const v = inputs.title === 'Clean' ? valuate(inputs, now) : null;
   if (get('comps') !== null) {
     assumed.push(inputs.comps.length
-      ? `Asking prices read from comps: ${inputs.comps.map((c) => '$' + c.toLocaleString('en-US')).join(', ')}${v.compsIgnored ? ` (${v.compsIgnored} too far from the estimate, ignored)` : ''}.`
+      ? `Asking prices read from comps: ${inputs.comps.map((c) => '$' + c.toLocaleString('en-US')).join(', ')}${v?.compsIgnored ? ` (${v.compsIgnored} too far from the estimate, ignored)` : ''}.`
       : `No asking prices could be read from comps "${get('comps')}"; give them separated by a comma and a space, e.g. comps=21500, 22900.`);
   }
   // the calculator link carries every input this valuation used (market, listings, urgency and comps move the numbers
@@ -175,21 +182,32 @@ export function valueQuery(params: URLSearchParams, now: Date = new Date()): Api
     const core = ['make', 'model', 'trim', 'body', 'msrp', 'year', 'mileage', 'condition', 'title', 'accident', 'region'].includes(k);
     if ((core || extra.has(k)) && form[k]) q.set(k, form[k]);
   }
+  const head = {
+    ok: true,
+    asOf: now.toISOString().slice(0, 10),
+    car: { make: inputs.make, model: inputs.model, trim: inputs.trim || null, body: inputs.body, year: inputs.year },
+    inputs: { msrpUsd: inputs.msrp, mileage: inputs.mileage, condition: inputs.condition, title: inputs.title, accident: inputs.accident, region: inputs.region, marketChoice: form.market, market: inputs.market, listings: inputs.listings, urgency: form.urgency, comps: inputs.comps, annualMiles: annual },
+    assumed,
+    evidence: { tier: 'self-declared', titleFrom: get('title') ? 'caller' : 'default', note: SELF_DECLARED_NOTE },
+  };
+  const links = { app: `${APP_URL}?${q.toString()}#/value` };
+  if (!v) {
+    return {
+      status: 200,
+      body: { ...head, withheld: { reason: 'branded-title', message: BRANDED_WITHHELD }, valueUsd: null, confidence: null, drivers: [], steps: [], forecastUsd: [], links },
+    };
+  }
   return {
     status: 200,
     body: {
-      ok: true,
-      asOf: now.toISOString().slice(0, 10),
-      car: { make: inputs.make, model: inputs.model, trim: inputs.trim || null, body: inputs.body, year: inputs.year },
-      inputs: { msrpUsd: inputs.msrp, mileage: inputs.mileage, condition: inputs.condition, title: inputs.title, accident: inputs.accident, region: inputs.region, marketChoice: form.market, market: inputs.market, listings: inputs.listings, urgency: form.urgency, comps: inputs.comps, annualMiles: annual },
-      assumed,
+      ...head,
       valueUsd: { tradeIn: Math.round(v.tradeIn), privateParty: Math.round(v.privateParty), dealerRetail: Math.round(v.dealerRetail), range: { low: Math.round(v.range.low), high: Math.round(v.range.high) } },
       confidence: { level: v.confidence, reasons: v.confidenceReasons },
       drivers: v.drivers,
       steps: v.steps.map((s) => ({ label: s.label, detail: s.detail, valueUsd: Math.round(s.value), deltaUsd: Math.round(s.delta) })),
       forecastUsd: forecast(inputs, 5, annual, now).map((f) => ({ year: Number(f.year), privateParty: f.value, low: f.low, high: f.high, mileage: f.mileage })),
       modelKnown: v.modelKnown,
-      links: { app: `${APP_URL}?${q.toString()}#/value` },
+      links,
       note: 'An estimate from public pricing data, not an offer or an appraisal. Same engine and inputs as the MiCar calculator.',
     },
   };

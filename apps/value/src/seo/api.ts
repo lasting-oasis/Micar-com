@@ -171,8 +171,8 @@ export function openApiJson() {
         servers: [{ url: VALUE_API_URL.replace(/\/value$/, ''), description: 'Live endpoint on the MiCar World server. Free hosting: the first call after a quiet spell can take up to a minute.' }],
         get: {
           operationId: 'getValue',
-          summary: "Today's value for one car: trade-in, private-party and dealer retail, range, confidence, the line-by-line build-up and a five-year forecast",
-          description: 'Same engine and parameters as the calculator links. Give id, or make and model; and year. MSRP and mileage are filled in when left out and listed in "assumed". Errors are 400 with a message per field.',
+          summary: "Today's value for one car with a clean title: trade-in, private-party and dealer retail, range, confidence, the line-by-line build-up and a five-year forecast. A rebuilt or salvage title gets no figures.",
+          description: 'Same engine and parameters as the calculator links. Give id, or make and model; and year. MSRP and mileage are filled in when left out and listed in "assumed". Errors are 400 with a message per field. A rebuilt or salvage title returns 200 with no figures: valueUsd and confidence are null, steps, drivers and forecastUsd are empty, and withheld says why. Every answer carries evidence: the title, accident history, condition and mileage are as the caller stated them, and MiCar has checked no record.',
           parameters: [
             { name: 'id', in: 'query', description: 'Model id from /cars.json, e.g. honda-civic. Or give make and model.', schema: { type: 'string' } },
             { name: 'make', in: 'query', schema: { type: 'string' } },
@@ -183,7 +183,7 @@ export function openApiJson() {
             { name: 'mileage', in: 'query', schema: { type: 'number' } },
             { name: 'body', in: 'query', schema: { $ref: '#/components/schemas/Body' } },
             { name: 'condition', in: 'query', schema: { enum: ['Excellent', 'Good', 'Fair', 'Poor'] } },
-            { name: 'title', in: 'query', schema: { enum: ['Clean', 'Rebuilt', 'Salvage'] } },
+            { name: 'title', in: 'query', description: 'Clean (the default) is valued. Rebuilt or Salvage gets no figures; withheld says why.', schema: { enum: ['Clean', 'Rebuilt', 'Salvage'] } },
             { name: 'accident', in: 'query', schema: { enum: ['None', 'Minor', 'Major'] } },
             { name: 'region', in: 'query', schema: { enum: ['Northeast', 'Southeast', 'Midwest', 'Southwest', 'West'] } },
             { name: 'market', in: 'query', description: 'Used-car market: Auto (the weekly index, default), Soft, Normal or Tight, in any case; any other value is refused with 400.', schema: { enum: ['Auto', 'Soft', 'Normal', 'Tight'] } },
@@ -270,7 +270,7 @@ export function openApiJson() {
         },
         Value: {
           type: 'object',
-          required: ['ok', 'asOf', 'car', 'inputs', 'assumed', 'valueUsd', 'confidence', 'steps', 'forecastUsd', 'links'],
+          required: ['ok', 'asOf', 'car', 'inputs', 'assumed', 'evidence', 'valueUsd', 'confidence', 'steps', 'forecastUsd', 'links'],
           properties: {
             ok: { const: true },
             asOf: { type: 'string', format: 'date' },
@@ -292,8 +292,23 @@ export function openApiJson() {
               },
             },
             assumed: { type: 'array', items: { type: 'string' }, description: 'What was filled in because the query left it out' },
-            valueUsd: { type: 'object', properties: { tradeIn: { type: 'integer' }, privateParty: { type: 'integer' }, dealerRetail: { type: 'integer' }, range: usdRange } },
-            confidence: { type: 'object', properties: { level: { enum: ['High', 'Medium', 'Low'] }, reasons: { type: 'array', items: { type: 'string' } } } },
+            evidence: {
+              type: 'object',
+              required: ['tier', 'titleFrom', 'note'],
+              properties: {
+                tier: { type: 'string', description: 'How MiCar knows the title, accident history, condition and mileage. Today always self-declared. Other values may be added: treat one you do not know as unverified.' },
+                titleFrom: { enum: ['caller', 'default'], description: "caller: the query gave the title. default: it did not, and MiCar took Clean." },
+                note: { type: 'string' },
+              },
+            },
+            withheld: {
+              type: 'object',
+              description: 'Present when MiCar gives no figures. valueUsd and confidence are then null, and steps, drivers and forecastUsd are empty.',
+              required: ['reason', 'message'],
+              properties: { reason: { enum: ['branded-title'] }, message: { type: 'string' } },
+            },
+            valueUsd: { type: ['object', 'null'], properties: { tradeIn: { type: 'integer' }, privateParty: { type: 'integer' }, dealerRetail: { type: 'integer' }, range: usdRange } },
+            confidence: { type: ['object', 'null'], properties: { level: { enum: ['High', 'Medium', 'Low'] }, reasons: { type: 'array', items: { type: 'string' } } } },
             drivers: { type: 'array', items: { type: 'string' } },
             steps: { type: 'array', description: 'The line-by-line build-up shown in the app', items: { type: 'object', properties: { label: { type: 'string' }, detail: { type: 'string' }, valueUsd: { type: 'integer' }, deltaUsd: { type: 'integer' } } } },
             forecastUsd: { type: 'array', items: { type: 'object', properties: { year: { type: 'integer' }, privateParty: { type: 'integer' }, low: { type: 'integer' }, high: { type: 'integer' }, mileage: { type: 'number' } } } },

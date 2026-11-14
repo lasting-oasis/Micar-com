@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { forecast, valuate } from '../engine/valuation';
 import { parse, defaults, URL_KEYS } from '../urlState';
-import { cacheControlFor, queryOf, resolveCar, valueQuery } from './valueApi';
+import { BRANDED_WITHHELD, SELF_DECLARED_NOTE, cacheControlFor, queryOf, resolveCar, valueQuery } from './valueApi';
 import stickers from '../data/stickers.json';
 import epaFile from '../data/epa-configs.json';
 import { buildCarRecords, openApiJson, type ApiSticker, type EpaFile } from '../seo/api';
@@ -23,6 +23,32 @@ describe('value api', () => {
     expect(b.assumed).toEqual(['Defaults used where not given: market Auto, urgency No rush, annual 12,000 miles a year.']);   // every other input was given
     expect(b.forecastUsd).toHaveLength(6);
     expect(new URL(b.links.app).hash).toBe('#/value');
+  });
+
+  it('gives no number for a branded title, whatever the spelling', () => {
+    for (const title of ['Rebuilt', 'salvage', 'REBUILT']) {
+      const r = call(`id=honda-civic&year=2019&mileage=60000&title=${title}`);
+      expect(r.status).toBe(200);
+      const b = r.body as Body;
+      expect(b.ok).toBe(true);
+      expect(b.valueUsd).toBeNull();
+      expect(b.confidence).toBeNull();
+      expect([b.steps, b.forecastUsd, b.drivers]).toEqual([[], [], []]);
+      expect(b.withheld).toEqual({ reason: 'branded-title', message: BRANDED_WITHHELD });
+      expect(b.evidence).toEqual({ tier: 'self-declared', titleFrom: 'caller', note: SELF_DECLARED_NOTE });
+      expect(['Rebuilt', 'Salvage']).toContain(b.inputs.title);
+      expect('note' in b || 'modelKnown' in b).toBe(false);
+      expect(JSON.stringify(b)).not.toMatch(/"(tradeIn|privateParty|dealerRetail|low|high)":\s*\d/);
+    }
+  });
+
+  it('a clean title keeps its numbers, says nothing was checked, and never carries a grade', () => {
+    const b = call('id=honda-civic&year=2019&mileage=60000').body as Body;
+    expect(b.valueUsd.privateParty).toBeGreaterThan(0);
+    expect(b.withheld).toBeUndefined();
+    expect(b.evidence).toEqual({ tier: 'self-declared', titleFrom: 'default', note: SELF_DECLARED_NOTE });
+    expect((call('id=honda-civic&year=2019&title=clean').body as Body).evidence.titleFrom).toBe('caller');
+    expect('grade' in b).toBe(false);
   });
 
   it('its calculator link carries every input it used, so the link opens on the same numbers', () => {
@@ -160,7 +186,8 @@ describe('value api', () => {
     const out: string[] = [];
     for (const q of ['id=honda-civic&year=2019&mileage=60000', 'make=toyota&model=camry&year=2021', 'id=tesla-model-3&year=2020&mileage=40000.7',
       'id=honda-civic&year=2019&mileage=60000&market=soft&listings=12&urgency=within a month&comps=15000, 17500&annual=99000',
-      'make=Zork&model=Blaster&year=2019&msrp=30000&mileage=50000&body=Sedan', 'id=ford-f-150&year=2018&mileage=90000&condition=Fair&region=West&accident=Minor']) {
+      'make=Zork&model=Blaster&year=2019&msrp=30000&mileage=50000&body=Sedan', 'id=ford-f-150&year=2018&mileage=90000&condition=Fair&region=West&accident=Minor',
+      'id=honda-civic&year=2019&mileage=60000&title=Rebuilt', 'id=honda-civic&year=2019&mileage=60000&title=salvage']) {
       const r = call(q);
       expect(r.status, q).toBe(200);
       check(r.body, value['200'].content['application/json'].schema, q, out);
