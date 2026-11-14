@@ -22,6 +22,14 @@ describe('the root page without JavaScript', () => {
     expect(noscript).toMatch(/<h1\b/);
     expect(noscript).toContain('/Micar-com/cars/');
     expect(noscript).toContain('/Micar-com/llms.txt');
+    expect(noscript).toContain('/Micar-com/about/');
+    expect(noscript).toContain('/Micar-com/method/');
+  });
+
+  it('says what the whole of MiCar is, and that nothing is verified', () => {
+    for (const word of ['Garage', 'MiCar ID', 'passport', 'grade', 'MiCar World']) expect(noscript).toContain(word);
+    expect(noscript).toMatch(/checked no record/);
+    expect(noscript).toMatch(/nothing is independently verified yet/);
   });
 
   it('gives the summary its own text and background colours, readable at 7:1 or more', () => {

@@ -7,7 +7,12 @@
 // effect only if the site moves to a domain of its own. Every page links the sitemap from its <head>, but that is a hint
 // major search engines do not read: until then the sitemap reaches them only by being submitted to them directly.
 
+import type { CarRecord, CarSpec, CarYear } from './api';
+
 export const SITE_URL = 'https://lasting-oasis.github.io/Micar-com/';
+/** The two plain-HTML pages that say what MiCar is and how a value is worked out (about.ts writes them). */
+export const ABOUT_URL = `${SITE_URL}about/`;
+export const METHOD_URL = `${SITE_URL}method/`;
 
 export type StickerTrim = { trim: string; msrp: number };
 export type StickerYear = { year: number; trims: StickerTrim[] };
@@ -61,7 +66,7 @@ export function buildModelPages(stickers: Sticker[]): ModelPage[] {
   return pages.sort((a, b) => a.make.localeCompare(b.make) || a.model.localeCompare(b.model));
 }
 
-const usd = (n: number) => '$' + Math.round(n).toLocaleString('en-US');
+export const usd = (n: number) => '$' + Math.round(n).toLocaleString('en-US');
 const range = (lo: number, hi: number) => (lo === hi ? usd(lo) : `${usd(lo)}–${usd(hi)}`);
 
 /** A span of model years: one year once ("2024"), more as a range ("2010–2026"). */
@@ -109,7 +114,7 @@ export function valueLink(base: string, p: ModelPage, row?: YearRow): string {
   return `${base}?${q.toString()}#/value`;
 }
 
-function shell(opts: { title: string; description: string; canonical: string; css: string; footer: string; jsonld: unknown[]; body: string; json?: string }): string {
+export function shell(opts: { title: string; description: string; canonical: string; css: string; footer: string; jsonld: unknown[]; body: string; json?: string }): string {
   const ld = opts.jsonld.map((x) => `<script type="application/ld+json">${jsonLd(x)}</script>`).join('\n');
   return `<!doctype html>
 <html lang="en">
@@ -138,6 +143,8 @@ main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
 a{color:var(--mc-paint)}
 h1,h2{font-family:var(--mc-cond);letter-spacing:.01em;line-height:1.1}
 h1{font-size:2.2rem;margin:.4em 0 .2em}
+h3{font-family:var(--mc-cond);font-size:1.25rem;margin:1.4em 0 .2em}
+li{margin:.2em 0}
 .crumbs,.muted{color:var(--mc-haze);font-size:.9rem}
 .cta{display:inline-block;background:var(--mc-paint);color:var(--mc-night);font-weight:600;padding:10px 16px;border-radius:8px;text-decoration:none;margin:12px 0}
 table{width:100%;border-collapse:collapse;margin:12px 0}
@@ -158,7 +165,45 @@ ${opts.footer}
 
 export type PageEnv = { css: string; footer: string };
 
-export function modelPageHtml(p: ModelPage, env: PageEnv): string {
+/** One EPA configuration as words: "1.5 L 4-cyl, Automatic (AV-S7), Front-Wheel Drive, Premium Gasoline". */
+export function specPhrase(s: CarSpec): string {
+  const engine = [s.displacementL ? `${s.displacementL} L` : '', s.cylinders ? `${s.cylinders}-cyl` : ''].filter(Boolean).join(' ');
+  return [engine, s.type, s.transmission, s.drive, s.fuel].filter(Boolean).join(', ');
+}
+
+function hostOf(url: string): string {
+  try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return url; }
+}
+
+/** Where a model year's prices came from, in words, with the link when there is one. */
+export function sourcePhrase(src: CarYear['source']): string {
+  const kind = src.kind === 'manufacturer' ? "the manufacturer's own pricing" : src.kind === 'secondary' ? 'a secondary pricing site' : 'a source MiCar did not classify';
+  return src.url ? `${kind} (<a href="${escapeHtml(src.url)}" rel="nofollow noopener">${escapeHtml(hostOf(src.url))}</a>)` : kind;
+}
+
+/**
+ * One model year in full, as HTML a reader without JavaScript gets: every trim and its MSRP, the destination charge,
+ * the EPA's configurations and where the prices came from. The same record as api/v1/cars/<id>.json, so the page
+ * and the JSON cannot disagree.
+ */
+function yearDetailHtml(name: string, y: CarYear): string {
+  const withConfig = y.trims.some((t) => t.config);
+  const rows = y.trims.map((t) => `<tr><td>${escapeHtml(t.name)}</td>${withConfig ? `<td>${escapeHtml(t.config ?? '')}</td>` : ''}<td>${usd(t.msrpUsd)}</td></tr>`).join('\n');
+  const specs = y.specs.length
+    ? `<p>How the EPA lists the ${y.year} ${escapeHtml(name)} (engine, transmission, drive, fuel):</p>\n<ul>\n${y.specs.map((s) => `<li>${escapeHtml(specPhrase(s))}</li>`).join('\n')}\n</ul>`
+    : `<p class="muted">The EPA's vehicle file lists no configuration for the ${y.year} ${escapeHtml(name)}.</p>`;
+  return `<h3 id="y${y.year}">${y.year} ${escapeHtml(name)}</h3>
+<p class="muted">${y.destinationUsd ? `Destination charge ${usd(y.destinationUsd)}, not included in the prices below. ` : ''}Prices from ${sourcePhrase(y.source)}.</p>
+<table>
+<thead><tr><th>Trim</th>${withConfig ? '<th>Configuration</th>' : ''}<th>Original MSRP</th></tr></thead>
+<tbody>
+${rows}
+</tbody>
+</table>
+${specs}`;
+}
+
+export function modelPageHtml(p: ModelPage, env: PageEnv, car?: CarRecord): string {
   const name = `${p.make} ${p.model}`;
   const newest = p.years[0];
   const span = yearRuns(p.years.map((y) => y.year));
@@ -181,7 +226,7 @@ export function modelPageHtml(p: ModelPage, env: PageEnv): string {
 ${rows}
 </tbody>
 </table>
-<p class="muted">Every trim and its MSRP, with the EPA's engine and drivetrain configurations where the EPA lists them, is also available as <a href="${SITE_URL}api/v1/cars/${p.slug}.json">JSON</a>. Sticker prices come from manufacturer and pricing sources gathered for MiCar; today's values are estimates computed in the app from the sticker price, age, mileage, condition and region.</p>`;
+${car ? `<h2>Every trim, engine and price source</h2>\n${car.years.map((y) => yearDetailHtml(name, y)).join('\n')}\n` : ''}<p class="muted">${car ? 'The same figures are' : "Every trim and its MSRP, with the EPA's engine and drivetrain configurations where the EPA lists them, is"} also available as <a href="${SITE_URL}api/v1/cars/${p.slug}.json">JSON</a>. Sticker prices come from manufacturer and pricing sources gathered for MiCar, named for each model year. Today's values are estimates, not offers: the calculator works them out from the sticker price, age, mileage, condition, title, reported accidents, region and the used-car market, and from local supply and asking prices when you give them. MiCar checks no record of any car. <a href="${app}method/">How a value is worked out, and how far off it can be</a>.</p>`;
   // A Car, not a Product with offers: MiCar sells no cars, and the MSRPs are past sticker prices across many model
   // years, not prices anyone is asking. They stay in the page's table, where they read as what they are.
   const jsonld = [
@@ -239,7 +284,7 @@ ${sections}`;
 }
 
 export function sitemapXml(pages: ModelPage[], lastmod: string): string {
-  const urls = [SITE_URL, `${SITE_URL}cars/`, ...pages.map((p) => `${SITE_URL}cars/${p.slug}/`)];
+  const urls = [SITE_URL, ABOUT_URL, METHOD_URL, `${SITE_URL}cars/`, ...pages.map((p) => `${SITE_URL}cars/${p.slug}/`)];
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map((u) => `<url><loc>${escapeHtml(u)}</loc><lastmod>${lastmod}</lastmod></url>`).join('\n')}
@@ -259,14 +304,18 @@ export function llmsTxt(pages: ModelPage[]): string {
   const makes = [...new Set(pages.map((p) => p.make))];
   return `# MiCar
 
-> MiCar (said MEE-car) is a free used-car value site. Type a car and it shows what it's worth today: trade-in, private-party and dealer retail, with a price range and a five-year forecast, worked out line by line from the original sticker price (MSRP), age, mileage, condition, title, accident history and region. No account. Dealers can print a window sheet with a QR code that opens the car's page.
+> MiCar (said MEE-car) treats a car as an asset with a record. It does three things on one site. It values a used car, free: trade-in, private-party and dealer retail, with a price range and a five-year forecast, worked out line by line from the original sticker price (MSRP), age, mileage, condition, title, accident history and region. It keeps a car in a Garage as a card with a MiCar ID, a passport of its history, a five-part grade and a collectible card. And it has MiCar World, a 3D town where the card's car is driven, tuned and raced. No account is needed. Everything about a single car is what its owner states: MiCar has checked no record and no verifier is connected yet.
 
-The app at ${SITE_URL} runs in the browser (JavaScript, hash routes). For plain-HTML reading, use the pages below; each model page lists original MSRP by model year and links into the calculator.
+The app at ${SITE_URL} runs in the browser (JavaScript, hash routes). For plain-HTML reading, use the pages below.
 
 ## Key pages
 
-- [All cars](${SITE_URL}cars/): ${pages.length} models from ${makes.length} makes, with links to every model page
+- [What MiCar is](${ABOUT_URL}): the calculator, the Garage (MiCar ID, passport, grade, card), the World, the pages for dealers and shops, and what is and is not checked today
+- [How a value is worked out](${METHOD_URL}): every input and step, the accuracy measured against real listings model by model, and what the estimate does not know
+- [All cars](${SITE_URL}cars/): ${pages.length} models from ${makes.length} makes; each model page lists every model year, every trim with its original MSRP, the EPA's engine and drivetrain configurations and the price source
 - [Value calculator](${SITE_URL}#/value): the app; accepts query parameters make, model, trim, body, msrp, year, mileage, condition, title, accident, region, e.g. ${SITE_URL}?make=Honda&model=Civic&year=2019&msrp=20250#/value (MSRP in whole dollars, excluding destination)
+- [The Garage](${SITE_URL}#/garage): the app; cars parked there are kept in the visitor's own browser and nowhere else
+- [MiCar World](https://micar-sim.onrender.com/): the 3D town (JavaScript and WebGL)
 - [Sitemap](${SITE_URL}sitemap.xml)
 
 ## Data API (JSON)
@@ -277,6 +326,8 @@ Free, read-only, no key. Static files rebuilt with every deploy, plus one live v
 - [All models](${SITE_URL}api/v1/cars.json): id, make, model, body, years covered and MSRP range for each
 - One model: ${SITE_URL}api/v1/cars/{id}.json, e.g. ${SITE_URL}api/v1/cars/honda-civic.json: every model year, every trim with its MSRP, destination charge, the EPA's engine, transmission, drive and fuel configurations where the EPA lists them, the price source, and a calculator link per year
 - [OpenAPI 3.1 description](${SITE_URL}api/v1/openapi.json)
+- [Valuation method as data](${SITE_URL}api/v1/method.json): the multipliers the engine applies and the measured error for each model fitted to listings
+- [Vehicle record format](${SITE_URL}api/v1/passport.schema.json): JSON Schema of the public view of one car's passport (MiCar ID, identity, history entries, grades, card editions). No endpoint serves passports: they are kept on the owner's device until accounts open, so there is no lookup by VIN or by MiCar ID
 
 ## Valuation API (live)
 
@@ -288,7 +339,8 @@ ${makes.join(', ')}
 
 ## Notes
 
-- Values are estimates computed in the browser; sticker prices exclude destination charges.
+- Values are estimates, not offers and not appraisals; sticker prices exclude destination charges.
+- A grade, a certification level and a card describe the record an owner has built, not an inspection. Nothing on MiCar is independently verified today.
 - The site lives under ${SITE_URL}, so this file and the sitemap are there rather than at the host's root.
 - Source code: https://github.com/lasting-oasis/Micar-com
 `;

@@ -177,10 +177,10 @@ export function supplyAdjustment(listings: number, supplySensitivity: number): n
   return clamp(-supplySensitivity * Math.log(ratio), -0.18, 0.08);
 }
 
-const MARKET_SWING: Record<MarketCondition, number> = { soft: -0.07, normal: 0, tight: 0.07 };
-const URGENCY_DISCOUNT: Record<Urgency, number> = { none: 0, month: -0.03, week: -0.07 };
+export const MARKET_SWING: Record<MarketCondition, number> = { soft: -0.07, normal: 0, tight: 0.07 };
+export const URGENCY_DISCOUNT: Record<Urgency, number> = { none: 0, month: -0.03, week: -0.07 };
 /** Buyers typically pay a little under asking. */
-const ASKING_TO_SALE = 0.96;
+export const ASKING_TO_SALE = 0.96;
 
 export function valuate(input: Inputs, asOf: Date = new Date()): Valuation {
   const make = MAKES.find((m) => m.name === input.make) ?? MAKES[MAKES.length - 1];

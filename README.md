@@ -9,7 +9,7 @@ Type a car at the door and it comes back as a card with today's value on it. Thr
 | Door | What it is | Where |
 | --- | --- | --- |
 | **The door** | The home page. Type a car; the garage door opens on its value, on a card. | [lasting-oasis.github.io/Micar-com](https://lasting-oasis.github.io/Micar-com/) |
-| **Value a car** | The free calculator behind the door, line by line, with original sticker prices for 578 models. | `…/#/value` |
+| **Value a car** | The free calculator behind the door, line by line, with original sticker prices for 526 models. | `…/#/value` |
 | **Garage** | Park a car and it becomes a card: a MiCar ID, seven attributes scored from its specification, a Power Rating, a five-part grade, and a passport that stays with the car. Add photographs and records, fit modifications, race the card. *Kept on your device until accounts open (phase 1).* | `…/#/garage` |
 | **World** | MiCar World: a 3D town. The Garage (your cards as cars), the Dealership (learn the car business without paying for your mistakes), the Strip (race the car you tuned: six kinds of race, prizes in dollars, Octane and stamps; or send a friend a link and race each other live). | [micar-sim.onrender.com](https://micar-sim.onrender.com/) |
 | **For dealers** | Window sheets with the value, the forecast and a QR code that opens the car's page. | `…/#/sticker` |
