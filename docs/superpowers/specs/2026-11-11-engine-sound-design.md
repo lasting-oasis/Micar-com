@@ -126,6 +126,25 @@ Still alike after this: cars of the same body type with the same cylinder count.
 
 A car that is not in the catalog (`carSpecs.ts` has 48 models; no Subaru or Porsche among them) gets its body style's stand-in engine, for example "2.4L I4" for any sedan and "3.8L V6" for any sports car, and sounds like that engine. No flat engine is in the catalog today.
 
+## Silence on an iPhone with turbo cars (2026-11-14)
+
+The owner's iPhone lost every game sound with maxed (turbo) cars, after Garage upgrades or on entering a race. Desktop Chromium never did. PR #24's rebuild-on-tap did not help, because the context stayed 'running' with its clock moving.
+
+The most likely cause, from WebKit's source and an emulation of it; **not yet confirmed on the phone**:
+
+1. The game calls `setTargetAtTime(boost, currentTime, 0.01)` each frame, and `boost` is exactly 0 while the car is at rest.
+2. WebKit works out a k-rate param's first value of a SetTarget as `target + (value - target) * exp(-(currentFrame * (1 / sampleRate) - startTime) / timeConstant)` (`AudioParamTimeline.cpp`, `processSetTarget`). `startTime` is the `currentTime` the page read, `currentFrame / sampleRate`. At 48 kHz the two times round differently on about one 128-frame block in five. The exponent is then a hair above 0, and from a value of exactly 0 the result is a hair below 0 (about -1e-17).
+3. That happens on the first block of every spool-up from rest: a launch, the start of a race, driving off after the Garage. An emulation of WebKit's k-rate path with the real driving model gave a negative boost on about 15% of launches at 48 kHz (about 60% if the build fuses the multiply and subtract).
+4. The model smoothed boost toward it. After about 0.7 s at rest the smoothed value is small enough to go below 0, and `Math.sqrt` of it made the turbo whistle's phase NaN for good. Only turbo engines have the whistle; a Garage turbo makes any engine one.
+5. WebKit passes NaN from a worklet to the speakers unchanged (Chromium and Firefox turn it into silence), and a NaN in the page's one shared mix takes every other sound with it. The context stays 'running' and its clock moves, so the health watch sees nothing wrong.
+
+What was done: the model takes a boost below 0 as 0 (and every other input past its range as that end); the processor sends silence for any block with a sample that is not a number and starts the model afresh; `?audiodebug` shows the engine's level, the level going to the speakers, the processor's fresh starts and the longest freeze of the clock. A test renders a turbo engine told a boost of -1.4e-17: it gave NaN before the change.
+
+Still open:
+- The owner to confirm on the iPhone that the silence is gone. If it is not, an `?audiodebug` screenshot taken while it is silent shows where the sound stops.
+- A second WebKit-only way to lose every sound with the context 'running': if the page's audio thread stalls for about 2 s, WebKit's hand-over to its GPU process falls behind for good and plays nothing, even after the clock moves again (`RemoteAudioDestinationProxy`, `CARingBuffer`, a 2 s ring). Nothing in the game is known to stall it that long. `froze` in `?audiodebug` would show it. If it shows, the health watch should also rebuild on the next tap after such a freeze.
+- An iPhone in silent mode mutes Web Audio while the context runs, because the page never sets `navigator.audioSession.type`.
+
 ## Cost
 
 Measured in Node on a desktop Xeon: ten seconds of a dual-pipe V8 renders in about 0.15 to 0.2 seconds, so about 2% of one core. Chromium rendered one second offline in about 0.12 seconds. **Not measured on a phone.** It still needs timing on a mid-range phone; if it crackles there, `?sound=classic` is the way back.

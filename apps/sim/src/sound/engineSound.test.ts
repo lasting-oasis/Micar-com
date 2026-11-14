@@ -142,6 +142,9 @@ describe('EngineSound: safety and cost', () => {
   // The audio thread hands the model whatever floats it is given. Past either end of its range an input counts as that end.
   it.each([
     ['boost below 0', { boost: -0.2 }, { boost: 0 }],
+    // What WebKit hands a k-rate param on the first block of a setTargetAtTime that leaves 0: currentFrame * (1 / sampleRate)
+    // can round below currentTime = currentFrame / sampleRate, and the result comes out a hair under 0 (iPhone, 48 kHz).
+    ['boost a hair below 0, as WebKit gives on a spool-up from rest', { boost: -1.4e-17 }, { boost: 0 }],
     ['boost above 1', { boost: 1.7 }, { boost: 1 }],
     ['throttle below 0', { throttle: -0.5 }, { throttle: 0 }],
     ['throttle above 1', { throttle: 1.5 }, { throttle: 1 }],
