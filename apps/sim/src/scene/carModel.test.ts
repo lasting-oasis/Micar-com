@@ -178,11 +178,11 @@ describe('a car with its own model', () => {
         disposeCarModel(group);
     });
 
-    it('keeps its lamps lit on its far version (the same lenses under the far trim, lit by the same mode)', () => {
+    it('keeps its lamps lit on its far version (the lenses seated on the far body, under the far trim, lit by the same mode)', async () => {
         const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'toyota-camry');
-        const c = partsOf(group);
+        const c = partsOf(group), mg = (await loaded.when('toyota-camry'))!;
         expect(c.farLampPatch.parent).toBe(c.farTrim); expect(c.farLampPatch.visible).toBe(true);
-        expect(c.farLampPatch.geometry).toBe(c.lampPatch.geometry);
+        expect(c.lampPatch.geometry).toBe(mg.lamps); expect(c.farLampPatch.geometry).toBe(mg.farLamps);
         for (const m of ['on', 'brake', 'reverse', 'off'] as const) { setCarLights(group, m); expect(c.farLampPatch.material).toBe(c.lampPatch.material); }
         setCarLights(group, 'brake');
         const now = vi.spyOn(performance, 'now').mockReturnValue(performance.now() + 5e5); // (below the next test's +1e6: the LOD check runs 4x a second)

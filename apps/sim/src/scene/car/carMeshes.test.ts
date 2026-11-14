@@ -149,6 +149,8 @@ describe('the geometry set built from a model', () => {
         expect(mg.smokePos.y).toBeCloseTo(2);
         expect(mg.halos.getAttribute('position').count).toBe(4); // head and tail lamps, both sides (meshLamps)
         expect(mg.lamps!.getIndex()!.count).toBeGreaterThan(0);
+        // the far version's lenses: the same ones, seated on the far body (a geometry of their own)
+        expect(mg.farLamps).not.toBe(mg.lamps); expect(mg.farLamps!.getIndex()!.count).toBe(mg.lamps!.getIndex()!.count);
     });
     it('copes with a node transform the loader left on the meshes', () => {
         const root = fakeGltf(); root.getObjectByName('body')!.position.set(0, 0, 0.5);
@@ -206,9 +208,9 @@ describe('loading on demand, once', () => {
     it('frees the GPU copies when the world closes but keeps the parsed models for the next one', async () => {
         const cache = makeCarMeshCache(async () => fakeGltf(), () => '/');
         const mg = (await cache.when('toyota-rav4'))!;
-        let freed = 0; mg.paint.addEventListener('dispose', () => freed++);
+        let freed = 0; for (const g of [mg.paint, mg.lamps!, mg.farLamps!]) g.addEventListener('dispose', () => freed++);
         cache.dispose();
-        expect(freed).toBe(1);
+        expect(freed).toBe(3);
         expect(cache.request('toyota-rav4')).toBe(mg);
     });
 });

@@ -283,7 +283,7 @@ type CarParts = {
     body: THREE.Mesh; trim: THREE.Mesh; glass: THREE.Mesh; wheelMesh: THREE.InstancedMesh;
     farBody: THREE.Mesh; farTrim: THREE.Mesh; halos: THREE.Points;
     lampPatch: THREE.Mesh; // a mesh body's lamp lenses (a child of the trim, so the far switch hides it); hidden on a lofted body
-    farLampPatch: THREE.Mesh; // the same lenses on the far version (a child of the far trim), so the lamps do not pop at the switch
+    farLampPatch: THREE.Mesh; // the same lenses seated on the far body (a child of the far trim), so the lamps do not pop at the switch
     pivots: THREE.Object3D[]; wheels: THREE.Object3D[]; smoke: THREE.Points;
     lamps: LampMode; far: boolean;
     blur: boolean; lastRoll: THREE.Quaternion; syncFrame: number; // blurred rims while the wheels spin fast
@@ -426,7 +426,8 @@ const setBody = (group: THREE.Object3D, mg: MeshGeometry | null) => {
     const paint = c.body.material as THREE.Material, side = mg ? THREE.DoubleSide : THREE.FrontSide;
     if (paint.side !== side) { paint.side = side; paint.needsUpdate = true; }
     c.halos.geometry.dispose(); c.halos.geometry = b.halos.clone();
-    for (const p of [c.lampPatch, c.farLampPatch]) { p.geometry = mg?.lamps ?? NO_LAMPS; p.visible = !!mg?.lamps; }
+    c.lampPatch.geometry = mg?.lamps ?? NO_LAMPS; c.farLampPatch.geometry = mg?.farLamps ?? mg?.lamps ?? NO_LAMPS;
+    c.lampPatch.visible = c.farLampPatch.visible = !!mg?.lamps;
     showLamps(c);
     c.smoke.position.set(b.smokePos.x, b.smokePos.y + CAR_LIFT, b.smokePos.z);
     c.wheelGeo = b; c.wheelMesh.geometry = c.blur ? b.wheelBlur : b.wheel;

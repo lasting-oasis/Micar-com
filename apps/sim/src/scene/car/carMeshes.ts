@@ -57,6 +57,7 @@ export type MeshGeometry = {
     wheelR: number; tyreW: number;  // the wheel geometry's radius (the front tyre's) and width
     halos: THREE.BufferGeometry;    // the night glow in front of each lamp (meshLamps), as the lofted bodies' halos
     lamps: THREE.BufferGeometry | null; // the lamp lenses fitted to the model (meshLamps; null: none could be fitted)
+    farLamps: THREE.BufferGeometry | null; // the same lenses seated on the far version's body
     smokePos: THREE.Vector3; beamZ: number;
     length: number; width: number; height: number;
 };
@@ -123,13 +124,13 @@ export function meshGeometryFrom(root: THREE.Object3D): MeshGeometry {
     const wheelPos = ([[-1, front], [1, front], [-1, rear], [1, rear]] as const)
         .map(([sx, w]) => new THREE.Vector3(sx * (w.x_out * S - tw / 2), w.y * S, w.z * S));
     const rs = rear.r / front.r;
-    const { lamps, halos } = meshLamps(near.paint, near.dark, ex.category, ex.belt_height * S);
+    const farDark = far.glass ? mergeAll([far.glass, far.dark]) : far.dark;
+    const { lamps, farLamps, halos } = meshLamps(near.paint, near.dark, ex.category, ex.belt_height * S, { paint: far.paint, dark: farDark });
     const bb = near.paint.boundingBox!;
     return {
-        id: ex.id, paint: near.paint, glass: near.glass!, dark: near.dark, farPaint: far.paint,
-        farDark: far.glass ? mergeAll([far.glass, far.dark]) : far.dark,
+        id: ex.id, paint: near.paint, glass: near.glass!, dark: near.dark, farPaint: far.paint, farDark,
         wheel: buildWheelGeometry(R, tw, R * 0.66), wheelBlur: buildWheelGeometry(R, tw, R * 0.66, true),
-        wheelPos, wheelScale: [1, 1, rs, rs], wheelR: R, tyreW: tw, halos, lamps,
+        wheelPos, wheelScale: [1, 1, rs, rs], wheelR: R, tyreW: tw, halos, lamps, farLamps,
         smokePos: new THREE.Vector3(0, ex.belt_height * S, front.z * S - 0.6), beamZ: bb.min.z,
         length: ex.length * S, width: ex.width * S, height: ex.height * S,
     };
@@ -162,7 +163,7 @@ export function makeCarMeshCache(load: Loader, base: () => string): CarMeshCache
         request: id => { if (ready.has(id)) return ready.get(id)!; void when(id); return null; },
         when,
         dispose: () => {
-            for (const mg of ready.values()) if (mg) for (const g of [mg.paint, mg.glass, mg.dark, mg.farPaint, mg.farDark, mg.wheel, mg.wheelBlur, mg.lamps]) g?.dispose();
+            for (const mg of ready.values()) if (mg) for (const g of [mg.paint, mg.glass, mg.dark, mg.farPaint, mg.farDark, mg.wheel, mg.wheelBlur, mg.lamps, mg.farLamps]) g?.dispose();
         },
     };
 }
