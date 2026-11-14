@@ -12,7 +12,8 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 rm -rf site && mkdir -p site/value site/tuner site/strip site/garage
-BASE_PATH=/Micar-com/ pnpm --filter @micar/value build
+# a relative base: the same folder works at /Micar-com/, at a pull request's preview address and at a domain's root
+BASE_PATH="${BASE_PATH:-./}" pnpm --filter @micar/value build
 cp -r apps/value/dist/. site/
 cp tools/value-alias.html site/value/index.html
 # the tuner now lives in the world's Garage; the old link forwards there (no hash carried over)
