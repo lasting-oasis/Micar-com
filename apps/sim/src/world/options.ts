@@ -11,6 +11,9 @@ export type TouchControls = 'sticks' | 'buttons';
 export type DriveOptions = { manual: boolean; units: 'mph' | 'kmh'; cam: CamMode; mute: boolean; controls: TouchControls; models: boolean | null };
 
 export const OPTIONS_KEY = 'micar.driveOptions';
+/** Saved with the options since Car models follows Graphics: before it, every save wrote models: true (the default then),
+ *  so a stored true without it was not necessarily the player's choice. */
+const OPTIONS_VER = 2;
 export const OPTION_DEFAULTS: Readonly<DriveOptions> = { manual: false, units: 'mph', cam: 0, mute: false, controls: 'sticks', models: null };
 /** Whether the cars show their own 3D models: the player's choice, else on unless Graphics is Low. */
 export const carModelsOn = (o: Pick<DriveOptions, 'models'>, graphics: 'high' | 'low') => o.models ?? graphics !== 'low';
@@ -32,7 +35,8 @@ export function parseOptions(raw: string | null | undefined): DriveOptions {
   if (s.cam === 0 || s.cam === 1 || s.cam === 2) o.cam = s.cam;
   if (typeof s.mute === 'boolean') o.mute = s.mute;
   if (s.controls === 'sticks' || s.controls === 'buttons') o.controls = s.controls;
-  if (typeof s.models === 'boolean') o.models = s.models;
+  // (saved before the Graphics rule: false was a choice; true may be the old default, so it follows Graphics)
+  if (typeof s.models === 'boolean' && (s.ver === OPTIONS_VER || s.models === false)) o.models = s.models;
   return o;
 }
 
@@ -47,10 +51,10 @@ export function getOption(k: string): unknown { return (getOptions() as Record<s
 
 /** Set one option (ignored when the key or value is not one of the options) and save them all. */
 export function setOption(k: string, v: unknown): void {
-  const next = parseOptions(JSON.stringify({ ...getOptions(), [k]: v }));
+  const next = parseOptions(JSON.stringify({ ...getOptions(), [k]: v, ver: OPTIONS_VER }));
   if (!(k in next) || (next as Record<string, unknown>)[k] !== v) return;
   cur = next;
-  try { storage()?.setItem(OPTIONS_KEY, JSON.stringify(next)); } catch { /* storage blocked: kept for this page */ }
+  try { storage()?.setItem(OPTIONS_KEY, JSON.stringify({ ...next, ver: OPTIONS_VER })); } catch { /* storage blocked: kept for this page */ }
 }
 
 /** Tests: forget the cached copy so the next read goes to storage. */

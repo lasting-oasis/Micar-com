@@ -16,7 +16,7 @@ describe('drive options', () => {
     const s = memStore(); g.localStorage = s;
     setOption('manual', true); setOption('units', 'kmh'); setOption('cam', 2); setOption('mute', true); setOption('controls', 'buttons');
     setOption('models', false);
-    expect(JSON.parse(s.m.get(OPTIONS_KEY)!)).toEqual({ manual: true, units: 'kmh', cam: 2, mute: true, controls: 'buttons', models: false });
+    expect(JSON.parse(s.m.get(OPTIONS_KEY)!)).toEqual({ manual: true, units: 'kmh', cam: 2, mute: true, controls: 'buttons', models: false, ver: 2 });
     resetOptionsCache();
     expect(getOptions()).toEqual({ manual: true, units: 'kmh', cam: 2, mute: true, controls: 'buttons', models: false });
   });
@@ -30,7 +30,21 @@ describe('drive options', () => {
     expect(parseOptions(JSON.stringify({ manual: true, units: 'kmh', cam: 1, mute: false, controls: 'sticks' })).models).toBeNull();
     expect(parseOptions(JSON.stringify({ models: 'off' })).models).toBeNull();
     expect(parseOptions(JSON.stringify({ models: false })).models).toBe(false);
-    expect(parseOptions(JSON.stringify({ models: true })).models).toBe(true);
+    expect(parseOptions(JSON.stringify({ ver: 2, models: true })).models).toBe(true);
+  });
+  it('options saved before the Graphics rule (no version): Simple was a choice and stays one; Detailed may be the old default, so it follows Graphics', () => {
+    expect(parseOptions(JSON.stringify({ manual: false, units: 'mph', cam: 0, mute: false, controls: 'sticks', models: true })).models).toBeNull();
+    expect(parseOptions(JSON.stringify({ manual: false, units: 'mph', cam: 0, mute: false, controls: 'sticks', models: false })).models).toBe(false);
+    expect(parseOptions(JSON.stringify({ ver: 2, models: true })).models).toBe(true); // saved since: a choice
+    expect(parseOptions(JSON.stringify({ ver: 2, models: null })).models).toBeNull();
+  });
+  it('a save of any other option keeps "no choice" as no choice, and a choice as a choice', () => {
+    const s = memStore(); g.localStorage = s;
+    setOption('units', 'kmh');
+    resetOptionsCache(); expect(getOptions().models).toBeNull();
+    setOption('models', true); setOption('cam', 1);
+    resetOptionsCache(); expect(getOptions().models).toBe(true);
+    expect(JSON.parse(s.m.get(OPTIONS_KEY)!).ver).toBe(2);
   });
   it('car models are on unless Graphics is Low; a choice in the Garage wins either way', () => {
     expect(carModelsOn({ models: null }, 'high')).toBe(true);
