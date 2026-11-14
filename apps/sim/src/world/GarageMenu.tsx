@@ -9,7 +9,7 @@ import { GarageModel, drawDyno, type Row, type RowTone } from './garage';
 import { GarageScene } from './GarageScene';
 import { Audio } from './audio';
 import { useDriveUi } from './driveUi';
-import { carModelsOn, getOption, getOptions, setOption } from './options';
+import { carModelsOn, getOption, getOptions, modelsHint, setOption } from './options';
 import { getCarSpec } from '../carSpecs';
 import { STAGE_REP, STOCK_CFG, STYLES, TUNE_DEF, specFor, stageOf, visualRating, type BodyStyle, type PartValue, type StripRecord } from './data';
 
@@ -57,8 +57,8 @@ export function GarageMenu({ onQuickRace }: { onQuickRace?: (eventId: string) =>
       best: () => rec()?.best ?? {},
       // the options are saved (world/options.ts) and read by the driving: transmission, units, camera, sound
       getOpt: (k) => getOption(k),
-      // Car models on Auto: what it comes to with the Graphics quality setting, shown beside "Auto"
-      optHint: (k) => k === 'models' && getOptions().models === null ? (carModelsOn(getOptions(), useGameStore.getState().graphicsQuality) ? 'Detailed' : 'Simple') : undefined,
+      // Car models on Auto: what Auto comes to now (options.ts, modelsHint), shown beside "Auto"
+      optHint: (k) => k === 'models' ? modelsHint(getOptions(), useGameStore.getState().graphicsQuality) : undefined,
       setOpt: (k, v) => { setOption(k, v); if (k === 'mute') audio.current?.setMute(!!getOptions().mute); if (k === 'models') setCarModels(carModelsOn(getOptions(), useGameStore.getState().graphicsQuality)); },
     });
   }

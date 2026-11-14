@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { GarageModel, MODELS_SHORT, lenOf, modelsDesc } from './garage';
-import { AUTO_DETAILED_ON_HIGH } from './options';
+import { AUTO_DETAILED_ON_HIGH, modelsHint } from './options';
 import { ARCHETYPES, EVENTS, STOCK_CFG, TUNE_DEF, withV, okey, type CarCfg, type PartValue } from './data';
 import type { Tune } from './physics';
 
@@ -72,21 +72,23 @@ describe('the Garage camera between cars', () => {
 });
 
 describe('the Car models row: Auto, Detailed or Simple', () => {
-  /** A Garage over options storage: the stored choice (null: Auto) and what Auto comes to with the Graphics quality. */
-  const garage = (graphicsLow: boolean) => {
+  /** A Garage over options storage: the stored choice (null: Auto), and the hint the game gives it (modelsHint, as
+   *  GarageMenu does) for the Graphics quality and, `autoOnHigh`, AUTO_DETAILED_ON_HIGH. */
+  const garage = (graphicsLow: boolean, autoOnHigh = AUTO_DETAILED_ON_HIGH) => {
     let stored: unknown = null; const set: [string, unknown][] = [];
     const g = model({});
     const ctx = (g as unknown as { ctx: { getOpt: (k: string) => unknown; setOpt: (k: string, v: unknown) => void; optHint: (k: string) => string | undefined } }).ctx;
     ctx.getOpt = (k) => k === 'models' ? stored : undefined;
     ctx.setOpt = (k, v) => { set.push([k, v]); if (k === 'models') stored = v; };
-    ctx.optHint = (k) => k === 'models' && stored === null ? (graphicsLow ? 'Simple' : 'Detailed') : undefined;
+    ctx.optHint = (k) => k === 'models' ? modelsHint({ models: stored as boolean | null }, graphicsLow ? 'low' : 'high', autoOnHigh) : undefined;
     g.enterPath(['options']);
     return { g, set, i: g.rowIds().indexOf('models') };
   };
-  it('is Auto by default and says what Auto comes to: Simple on Low graphics, Detailed on High', () => {
+  it('is Auto by default and says what Auto comes to: Simple on Low and, for now, on High too (flipped back: Detailed on High)', () => {
     const low = garage(true), high = garage(false);
     expect(low.g.rows()[low.i].status).toEqual({ text: 'Auto · Simple', tone: 'muted' });
-    expect(high.g.rows()[high.i].status!.text).toBe('Auto · Detailed');
+    expect(high.g.rows()[high.i].status!.text).toBe('Auto · Simple');
+    expect(garage(false, true).g.rows()[high.i].status!.text).toBe('Auto · Detailed');
     low.g.select(low.i); expect(low.g.desc()).toBe(modelsDesc(AUTO_DETAILED_ON_HIGH));
   });
   it('says what Auto does now: Simple on every Graphics setting for now; flipped back, it follows the Graphics quality setting', () => {

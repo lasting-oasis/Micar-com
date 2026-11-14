@@ -24,6 +24,9 @@ export const AUTO_DETAILED_ON_HIGH = false;
  *  `autoOnHigh` (AUTO_DETAILED_ON_HIGH; the tests pass both). */
 export const carModelsOn = (o: Pick<DriveOptions, 'models'>, graphics: 'high' | 'low', autoOnHigh = AUTO_DETAILED_ON_HIGH) =>
   o.models ?? (autoOnHigh && graphics !== 'low');
+/** The Garage's Car models row on Auto shows what Auto comes to now beside it ("Auto · Simple"); no hint for a choice. */
+export const modelsHint = (o: Pick<DriveOptions, 'models'>, graphics: 'high' | 'low', autoOnHigh = AUTO_DETAILED_ON_HIGH): string | undefined =>
+  o.models === null ? (carModelsOn(o, graphics, autoOnHigh) ? 'Detailed' : 'Simple') : undefined;
 
 const storage = (): Storage | null => {
   try { return (globalThis as { localStorage?: Storage }).localStorage ?? null; } catch { return null; }
@@ -42,7 +45,7 @@ export function parseOptions(raw: string | null | undefined): DriveOptions {
   if (s.cam === 0 || s.cam === 1 || s.cam === 2) o.cam = s.cam;
   if (typeof s.mute === 'boolean') o.mute = s.mute;
   if (s.controls === 'sticks' || s.controls === 'buttons') o.controls = s.controls;
-  // (saved before the Graphics rule: false was a choice; true may be the old default, so it follows Graphics)
+  // (saved before the Graphics rule: false was a choice; true may be the old default, so it is Auto)
   if (typeof s.models === 'boolean' && (s.ver === OPTIONS_VER || s.models === false)) o.models = s.models;
   return o;
 }

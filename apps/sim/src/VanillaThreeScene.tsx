@@ -182,7 +182,8 @@ export function VanillaThreeScene() {
         const carSteering: Record<string, THREE.Object3D[]> = {}; // front steering pivots: rotation.y
         attachCarShadows(scene); // a soft shadow under every car (one draw for all of them)
         let carPrecompileAt = 0, carPrecompileFrames = 0; // car shader programs are prepared in the background after joining
-        // the Garage's Options: Car models (off: every car on its lofted body); with no choice made, Low graphics turns them off
+        // the Garage's Options: Car models (off: every car on its lofted body); with no choice made, Auto decides (carModelsOn:
+        // for now off on every Graphics setting, AUTO_DETAILED_ON_HIGH)
         setCarModels(carModelsOn(getOptions(), useGameStore.getState().graphicsQuality));
         // --- People (scene/characterModel.ts) ----------------------------------------------
         // Customers at a car, by car ID: walk-ins negotiating for that car (`agentId`) and the
