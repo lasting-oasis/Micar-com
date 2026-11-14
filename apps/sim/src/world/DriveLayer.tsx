@@ -14,7 +14,7 @@ import { TEST_CARS } from './tester';
 import { useLang, t } from '../i18n';
 import { TouchSticks } from './TouchSticks';
 import { getOptions } from './options';
-import { ChallengeButton, ChallengeSetup, StagingLine, WaitingRoom } from '../strip/Challenge';
+import { ChallengeButton, ChallengeSetup, QuickCountdown, StagingLine, WaitingRoom } from '../strip/Challenge';
 import { QuickRace } from '../strip/QuickRace';
 import { RaceMenu } from './RaceMenuScreen';
 
@@ -241,6 +241,7 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
                   </div>
                 )}
                 {returned !== null && <div className="font-cond text-lg mb-3 text-white/80">Rental returned — {money(returned)} on hand</div>}
+                {netRace && <QuickCountdown />}
                 {results.pending
                   ? <div role="status" className="w-full min-h-[44px] rounded-lg border border-market/40 py-2 text-center font-cond font-extrabold uppercase italic text-market">{t(lang, 'strip.ch.waitOthers')}</div>
                   : <div className="flex gap-2">

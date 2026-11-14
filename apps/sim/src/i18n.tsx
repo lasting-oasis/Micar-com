@@ -147,6 +147,7 @@ const DICT: Record<string, Entry> = {
   'strip.ch.inProgress': { en: 'Race in progress. You are in the next one.', es: 'Carrera en curso. Estás en la siguiente.' },
   'strip.ch.missed': { en: 'You missed the start. You are in the next one.', es: 'Te perdiste la salida. Estás en la siguiente.' },
   'strip.ch.calledOff': { en: 'Not enough racers were ready. Try again.', es: 'No había suficientes corredores listos. Inténtalo de nuevo.' },
+  'strip.ch.calledOffQuick': { en: 'Not enough racers were ready: the room starts again by itself.', es: 'No había suficientes corredores listos: la sala vuelve a empezar sola.' },
   'strip.ch.last': { en: 'Last race', es: 'Última carrera' },
   'strip.ch.dnf': { en: 'DNF', es: 'No terminó' },
   // the results card and the race pause (race UI stage 1a)

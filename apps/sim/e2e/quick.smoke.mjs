@@ -104,6 +104,7 @@ try {
   await host.p.waitForFunction(() => !!document.querySelector('[role="timer"]'));
   ok(!(await host.p.getByRole('button', { name: 'Change the race' }).count()) && await host.p.getByRole('button', { name: 'Start race' }).isEnabled(),
     'the host, its first member, may start it early, but not change it');
+  ok(!/Waiting for/.test(await text(cam)), 'the camera, not its first member, is told of no host to wait for: the room starts by itself');
   await photograph(cam, 'room', WORDS[LANG].room);
   await cam.p.getByRole('button', { name: 'Leave', exact: true }).click();
   await cam.p.waitForSelector('[aria-label="Rental counter"]');
@@ -136,6 +137,8 @@ try {
     await quit(host);
     await host.p.waitForFunction(() => document.body.textContent.includes('Continue [Enter]'), null, { timeout: 60000 });
     ok(/Did not finish/i.test(await text(host)), 'the host quit last: the card says how the race ended');
+    await host.p.waitForFunction(() => /^Starts in \d+ s$/.test(document.querySelector('[role="timer"]')?.textContent ?? ''), null, { timeout: 10000 });
+    ok(true, 'the results card counts down to the next race, so nobody is put on its grid without warning');
     await host.p.keyboard.press('Enter');
     await host.p.waitForSelector('[aria-label="Waiting room"]', { timeout: 60000 });
     // 5. the room carries on: both on its Last race, nothing won or lost, and it counts down to the next race

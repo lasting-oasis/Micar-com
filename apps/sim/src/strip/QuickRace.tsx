@@ -9,8 +9,8 @@ import { TRACK_NAMES } from '../world/data';
 import { ALERT, CARD, GHOST, PICK, TITLE } from './Challenge';
 import { denyKey, quickRows, raceLabel, waitingText } from './challengeCopy';
 
-/** How often the counts are asked for while the card is open. */
-const POLL_MS = 5000;
+/** How often the counts are asked for while the card is open; how long a tap waits for its room or a refusal. */
+const POLL_MS = 5000, ASK_MS = 10_000;
 /** The ten circuits, in the Races menu's order. */
 const ROWS = quickRows();
 
@@ -24,6 +24,10 @@ export function QuickRace() {
   // in a room now (the server found or opened it): the waiting room takes over
   useEffect(() => { if (room) close(); }, [room]);
   useEffect(() => { if (denied) setAsked(null); }, [denied]);
+  // no answer (the connection was remade between): the rows open again after a while, and on a new connection at once
+  const player = useGameStore(s => s.playerId);
+  useEffect(() => { setAsked(null); }, [player]);
+  useEffect(() => { if (!asked) return; const id = setTimeout(() => setAsked(null), ASK_MS); return () => clearTimeout(id); }, [asked]);
   // who is waiting where, while the card is open (GET /api/race/quick); offline, the counts stay as they were
   useEffect(() => {
     let live = true;

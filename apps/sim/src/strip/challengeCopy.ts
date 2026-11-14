@@ -13,7 +13,7 @@ export const CH_KEYS: readonly string[] = [
   'strip.ch.button', 'strip.ch.title', 'strip.ch.pickRace', 'strip.ch.pickCar', 'strip.ch.getLink', 'strip.ch.back',
   'strip.ch.room', 'strip.ch.link', 'strip.ch.share', 'strip.ch.copy', 'strip.ch.copied', 'strip.ch.shareText',
   'strip.ch.host', 'strip.ch.you', 'strip.ch.start', 'strip.ch.needTwo', 'strip.ch.waitingHost', 'strip.ch.change', 'strip.ch.save', 'strip.ch.leave',
-  'strip.ch.loading', 'strip.ch.getReady', 'strip.ch.inProgress', 'strip.ch.missed', 'strip.ch.calledOff',
+  'strip.ch.loading', 'strip.ch.getReady', 'strip.ch.inProgress', 'strip.ch.missed', 'strip.ch.calledOff', 'strip.ch.calledOffQuick',
   'strip.ch.last', 'strip.ch.dnf', 'strip.ch.racing', 'strip.ch.waitOthers', 'strip.ch.won', 'strip.ch.place', 'strip.ch.out',
   'strip.ch.invited', 'strip.ch.invitedPlain', 'strip.ch.join',
   'strip.ch.gone', 'strip.ch.full', 'strip.ch.onlyHost', 'strip.ch.busy', 'strip.ch.holding', 'strip.ch.pick', 'strip.ch.notNow',

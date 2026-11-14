@@ -99,6 +99,19 @@ export function ChallengeSetup() {
   );
 }
 
+/** A quick room's countdown to its next race, on the server's clock, drawn again a few times a second: in the waiting
+ *  room, and on the results card after a race, so nobody is put on the next grid without warning. Nothing when the room
+ *  is not counting. */
+export function QuickCountdown() {
+  const lang = useLang();
+  const room = useGameStore(s => s.race);
+  const counting = !!room?.quick && room.phase === 'open' && room.startsAt !== null;
+  const [, setTick] = useState(0);
+  useEffect(() => { if (!counting) return; const id = setInterval(() => setTick(n => n + 1), 250); return () => clearInterval(id); }, [counting]);
+  if (!counting) return null;
+  return <p role="timer" className="font-cond italic font-extrabold uppercase text-2xl text-market">{fill(t(lang, 'strip.ch.startsIn'), '{s}', String(startsInSeconds(room!.startsAt!, serverNow())))}</p>;
+}
+
 /** The room: its race and car, the link to send, who is here, and (for the host) the start. */
 export function WaitingRoom() {
   const lang = useLang();
@@ -108,10 +121,6 @@ export function WaitingRoom() {
   const note = useGameStore(s => s.raceNote);
   const [copied, setCopied] = useState(false);
   useEffect(() => { if (!copied) return; const id = setTimeout(() => setCopied(false), 2000); return () => clearTimeout(id); }, [copied]);
-  // a quick room counting down: draw again a few times a second, so the seconds tick on the server's clock
-  const counting = !!room?.quick && room.phase === 'open' && room.startsAt !== null;
-  const [, setTick] = useState(0);
-  useEffect(() => { if (!counting) return; const id = setInterval(() => setTick(n => n + 1), 250); return () => clearInterval(id); }, [counting]);
   if (!room) return null;
 
   const url = shareUrl(window.location.origin, room.code);
@@ -164,11 +173,11 @@ export function WaitingRoom() {
       </ul>
 
       <div className="flex flex-col gap-2" aria-live="polite">
-        {counting && <p role="timer" className="font-cond italic font-extrabold uppercase text-2xl text-market">{fill(t(lang, 'strip.ch.startsIn'), '{s}', String(startsInSeconds(room.startsAt!, serverNow())))}</p>}
+        <QuickCountdown />
         {room.phase === 'loading' && <p className="font-cond text-lg text-white/90">{fill(fill(t(lang, 'strip.ch.loading'), '{n}', String(racers.filter(m => m.state !== 'loading').length)), '{of}', String(racers.length))}</p>}
         {room.phase === 'racing' && <p className="font-cond text-lg text-white/90">{t(lang, 'strip.ch.inProgress')}</p>}
         {note === 'missed' && <p role="status" className={ALERT}>{t(lang, 'strip.ch.missed')}</p>}
-        {room.note === 'called-off' && room.phase === 'open' && <p role="status" className={ALERT}>{t(lang, 'strip.ch.calledOff')}</p>}
+        {room.note === 'called-off' && room.phase === 'open' && <p role="status" className={ALERT}>{t(lang, room.quick ? 'strip.ch.calledOffQuick' : 'strip.ch.calledOff')}</p>}
         {denied && <p role="alert" className={ALERT}>{t(lang, denyKey(denied))}</p>}
         {room.phase === 'open' && iHost && (
           <>

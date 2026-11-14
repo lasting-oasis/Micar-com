@@ -7,7 +7,10 @@ const holes = (text: string) => [...text.matchAll(/\{(\w+)\}/g)].map(m => m[1]).
 
 describe('quick race: its words and its countdown', () => {
   it('the quick race lines are among the challenge lines, so each is in English and in Spanish', () => {
-    for (const key of ['strip.ch.quick', 'strip.ch.quickTitle', 'strip.ch.waiting', 'strip.ch.startsIn', 'strip.ch.quickNote']) expect(CH_KEYS).toContain(key);
+    for (const key of ['strip.ch.quick', 'strip.ch.quickTitle', 'strip.ch.waiting', 'strip.ch.startsIn', 'strip.ch.quickNote', 'strip.ch.calledOffQuick']) expect(CH_KEYS).toContain(key);
+    // a quick room starts again by itself after a call-off: it does not ask anyone to try again
+    expect(t('en', 'strip.ch.calledOffQuick')).toBe('Not enough racers were ready: the room starts again by itself.');
+    expect(t('es', 'strip.ch.calledOffQuick')).toBe('No había suficientes corredores listos: la sala vuelve a empezar sola.');
     expect(t('en', 'strip.ch.quick')).toBe('Quick race');
     expect(t('es', 'strip.ch.quickTitle')).toBe('Elija un circuito'); // usted
   });
