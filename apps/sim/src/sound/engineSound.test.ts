@@ -154,11 +154,14 @@ describe('EngineSound: safety and cost', () => {
     ['rpm above ten times the redline', { rpm: 3e6 }, { rpm: 70000 }],
     ['boost NaN', { boost: NaN }, { boost: 0 }],
     ['rpm NaN', { rpm: NaN }, { rpm: 0 }],
+    ['throttle NaN', { throttle: NaN }, { throttle: 0 }],
+    ['load NaN', { load: NaN }, { load: -1 }],
+    ['cut NaN', { cut: NaN }, { cut: 0 }],
   ] as [string, Drive, Drive][])('a turbo engine told %s stays finite and sounds as at the end of the range', (_, past, end) => {
     const f = facts({ induction: 'turbo' }), all: Mix = { exhaustGain: 1, intakeGain: 1, bayGain: 1 };
-    const [L] = render(f, past, 1, 1, all), [E] = render(f, end, 1, 1, all);
-    expect(L.every(Number.isFinite)).toBe(true);
-    let most = 0; for (let i = 0; i < L.length; i++) most = Math.max(most, Math.abs(L[i] - E[i]));
+    const [L, R] = render(f, past, 1, 0.5, all), [E, F] = render(f, end, 1, 0.5, all);
+    expect(L.every(Number.isFinite) && R.every(Number.isFinite)).toBe(true);
+    let most = 0; for (let i = 0; i < L.length; i++) most = Math.max(most, Math.abs(L[i] - E[i]), Math.abs(R[i] - F[i]));
     expect(most).toBe(0);
   });
   it('falls silent when the engine stops', () => {

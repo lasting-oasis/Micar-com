@@ -1,4 +1,5 @@
-import { beforeAll, describe, expect, it } from 'vitest';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
+import { EngineSound } from './engineSound';
 import type { SoundFacts } from './facts';
 
 // The audio thread's globals, as an AudioWorklet module is given them, so the real processor runs here.
@@ -23,18 +24,23 @@ const params = (o: Record<string, number> = {}): Record<string, Float32Array> =>
   const v: Record<string, number> = { rpm: 4000, throttle: 1, load: 1, boost: 0.6, cut: 0, exhaust: 1, intake: 0.5, bay: 0.3, ...o };
   return Object.fromEntries(Object.entries(v).map(([k, x]) => [k, new Float32Array([x])]));
 };
-/** Run `blocks` blocks of 128 frames; returns every sample of the left channel. */
-function run(p: Processor, blocks: number, o: Record<string, number> = {}): Float32Array {
-  const all = new Float32Array(blocks * 128);
+type Out = { L: Float32Array; R: Float32Array };
+/** Run `blocks` blocks of 128 frames; returns every sample of both channels. */
+function run(p: Processor, blocks: number, o: Record<string, number> = {}): Out {
+  const L = new Float32Array(blocks * 128), R = new Float32Array(blocks * 128);
   for (let b = 0; b < blocks; b++) {
     const out = [[new Float32Array(128), new Float32Array(128)]];
     p.process([], out, params(o));
-    all.set(out[0][0], b * 128);
+    L.set(out[0][0], b * 128); R.set(out[0][1], b * 128);
   }
-  return all;
+  return { L, R };
 }
-const finite = (a: Float32Array) => a.every(Number.isFinite);
-const rms = (a: Float32Array) => Math.sqrt(a.reduce((s, x) => s + x * x, 0) / a.length);
+const finite = (o: Out) => o.L.every(Number.isFinite) && o.R.every(Number.isFinite);
+const rmsOf = (a: Float32Array) => Math.sqrt(a.reduce((s, x) => s + x * x, 0) / a.length);
+/** The louder channel's level from frame `from` on: 0 only when both are silent. */
+const loudest = (o: Out, from = 0) => Math.max(rmsOf(o.L.subarray(from)), rmsOf(o.R.subarray(from)));
+/** The quieter channel's level from frame `from` on: both carry the engine. */
+const quietest = (o: Out, from = 0) => Math.min(rmsOf(o.L.subarray(from)), rmsOf(o.R.subarray(from)));
 
 describe('the micar-engine processor', () => {
   it('a block with a sample that is not a number goes out silent, and the engine comes back on the next blocks', () => {
@@ -42,10 +48,21 @@ describe('the micar-engine processor', () => {
     run(p, 200);                                   // running
     const bad = run(p, 1, { exhaust: NaN });       // something feeds a NaN in for one block
     expect(finite(bad)).toBe(true);
-    expect(rms(bad)).toBe(0);
+    expect(loudest(bad)).toBe(0);
     const after = run(p, 400);                     // a second of normal driving
     expect(finite(after)).toBe(true);
-    expect(rms(after.subarray(200 * 128))).toBeGreaterThan(0.01);
+    expect(quietest(after, 200 * 128)).toBeGreaterThan(0.01);
+  });
+  it('a sample that is not a number on the right channel alone sends both out silent', () => {
+    const p = new Proc({ processorOptions: { facts: TURBO_V8 } });
+    run(p, 200);
+    const once = vi.spyOn(EngineSound.prototype, 'render').mockImplementationOnce((L: Float32Array, R: Float32Array) => { L.fill(0.1); R.fill(0.1); R[5] = NaN; });
+    try {
+      const bad = run(p, 1);
+      expect(finite(bad)).toBe(true);
+      expect(loudest(bad)).toBe(0);
+      expect(p.port.sent).toEqual([{ resets: 1 }]);
+    } finally { once.mockRestore(); }
   });
   it('tells the page each time it starts the engine afresh, so ?audiodebug can show it', () => {
     const p = new Proc({ processorOptions: { facts: TURBO_V8 } });
@@ -62,7 +79,7 @@ describe('the micar-engine processor', () => {
     run(p, 200);
     const bad = run(p, 750, { exhaust: NaN });     // two seconds of it
     expect(finite(bad)).toBe(true);
-    expect(rms(bad)).toBe(0);
+    expect(loudest(bad)).toBe(0);
     expect(p.port.sent.length).toBeGreaterThanOrEqual(2);
     expect(p.port.sent.length).toBeLessThanOrEqual(3);
   });
@@ -70,19 +87,19 @@ describe('the micar-engine processor', () => {
   // No car the game builds makes the model throw; these facts do.
   it('a model that throws while rendering goes out silent, the processor lives on, and the page is told', () => {
     const p = new Proc({ processorOptions: { facts: { ...TURBO_V8, engine: { ...TURBO_V8.engine, cylinders: 0 } } } });
-    let out: Float32Array = new Float32Array(0);
+    let out: Out = { L: new Float32Array(0), R: new Float32Array(0) };
     expect(() => { out = run(p, 400); }).not.toThrow();
     expect(finite(out)).toBe(true);
-    expect(rms(out)).toBe(0);
+    expect(loudest(out)).toBe(0);
     expect(p.port.sent.length).toBeGreaterThanOrEqual(1);
   });
   it('facts the model cannot be built from leave the engine silent and the processor alive, and a good car still plays after', () => {
     const bad = { ...TURBO_V8, engine: { ...TURBO_V8.engine, cylinders: Infinity } };
     let p: Processor | null = null;
     expect(() => { p = new Proc({ processorOptions: { facts: bad } }); }).not.toThrow();
-    expect(rms(run(p!, 10))).toBe(0);
+    expect(loudest(run(p!, 10))).toBe(0);
     expect(() => p!.port.onmessage?.({ data: { facts: bad } })).not.toThrow();
     p!.port.onmessage?.({ data: { facts: TURBO_V8 } });
-    expect(rms(run(p!, 400).subarray(200 * 128))).toBeGreaterThan(0.01);
+    expect(quietest(run(p!, 400), 200 * 128)).toBeGreaterThan(0.01);
   });
 });
