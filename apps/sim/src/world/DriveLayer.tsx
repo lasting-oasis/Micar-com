@@ -241,7 +241,7 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
                   </div>
                 )}
                 {returned !== null && <div className="font-cond text-lg mb-3 text-white/80">Rental returned — {money(returned)} on hand</div>}
-                {netRace && <QuickCountdown />}
+                <QuickCountdown />{/* only in a quick room counting down: the card is that room's race (no solo event while in a room) */}
                 {results.pending
                   ? <div role="status" className="w-full min-h-[44px] rounded-lg border border-market/40 py-2 text-center font-cond font-extrabold uppercase italic text-market">{t(lang, 'strip.ch.waitOthers')}</div>
                   : <div className="flex gap-2">

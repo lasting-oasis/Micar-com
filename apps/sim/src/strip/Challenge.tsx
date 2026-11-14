@@ -125,6 +125,8 @@ export function WaitingRoom() {
 
   const url = shareUrl(window.location.origin, room.code);
   const host = room.members.find(m => m.id === room.hostId), iHost = room.hostId === me;
+  // the wait after a quick room's race or call-off holds: no Start until it ends, when the room starts by itself (the owner's call)
+  const resting = !!room.quick && room.restUntil != null && serverNow() < room.restUntil;
   const racers = room.members.filter(m => m.state !== 'waiting');
   const drift = EVENTS.find(e => e.id === room.eventId)?.type === 'drift';
   const words = { dnf: t(lang, 'strip.ch.dnf'), racing: t(lang, 'strip.ch.racing') };
@@ -179,7 +181,7 @@ export function WaitingRoom() {
         {note === 'missed' && <p role="status" className={ALERT}>{t(lang, 'strip.ch.missed')}</p>}
         {room.note === 'called-off' && room.phase === 'open' && <p role="status" className={ALERT}>{t(lang, room.quick ? 'strip.ch.calledOffQuick' : 'strip.ch.calledOff')}</p>}
         {denied && <p role="alert" className={ALERT}>{t(lang, denyKey(denied))}</p>}
-        {room.phase === 'open' && iHost && (
+        {room.phase === 'open' && iHost && !resting && (
           <>
             <button type="button" disabled={room.members.length < RACE_MIN} onClick={() => useGameStore.getState().startRace()} className={`${SOLID} text-lg`}>{t(lang, 'strip.ch.start')}</button>
             {room.members.length < RACE_MIN && <p className="font-sans text-[13px] text-haze">{t(lang, 'strip.ch.needTwo')}</p>}

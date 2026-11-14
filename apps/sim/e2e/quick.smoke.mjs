@@ -149,6 +149,7 @@ try {
       ok((await state(d)).money === 500, `${d.who}: nothing won or lost`);
       await d.p.waitForFunction(() => !!document.querySelector('[role="timer"]'));
       ok(true, `${d.who}: the room counts down to its next race`);
+      ok(!(await d.p.getByRole('button', { name: 'Start race' }).count()), `${d.who}: no Start during the wait after the race: the room starts by itself`);
     }
     await friend.p.getByRole('button', { name: 'Leave', exact: true }).click();
     await friend.p.waitForSelector('[aria-label="Rental counter"]');
