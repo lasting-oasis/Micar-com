@@ -20,7 +20,7 @@ describe('value api', () => {
     const r0 = Math.round;
     expect(b.valueUsd).toEqual({ tradeIn: r0(v.tradeIn), privateParty: r0(v.privateParty), dealerRetail: r0(v.dealerRetail), range: { low: r0(v.range.low), high: r0(v.range.high) } });
     expect(Number.isInteger(b.valueUsd.privateParty)).toBe(true);
-    expect(b.assumed).toEqual(['Defaults used where not given: market Auto, urgency No rush.']);   // every other input was given
+    expect(b.assumed).toEqual(['Defaults used where not given: market Auto, urgency No rush, annual 12,000 miles a year.']);   // every other input was given
     expect(b.forecastUsd).toHaveLength(6);
     expect(new URL(b.links.app).hash).toBe('#/value');
   });
@@ -60,10 +60,36 @@ describe('value api', () => {
     const clamped = call('id=honda-civic&year=2019&mileage=60000&annual=99000').body as Body;
     expect(clamped.assumed.join(' ')).toMatch(/Miles a year 99,000 taken as 30,000/);
     expect(clamped.inputs.annualMiles).toBe(30000);
-    const lots = call('id=honda-civic&year=2019&mileage=60000&annual=lots');                     // not a number: refused, not guessed
-    expect(lots.status).toBe(400);
-    expect((lots.body as Body).errors.annual).toMatch(/miles a year/i);
-    expect((call('id=honda-civic&year=2019&mileage=60000').body as Body).forecastUsd[5].mileage).toBe(60000 + 5 * 12000);
+    // not a number, zero or below: refused, not guessed (the calculator reads 0 as "not given", the API would not)
+    for (const a of ['lots', '0', '0.0', '-0', '-5', '']) {
+      const r = call(`id=honda-civic&year=2019&mileage=60000&annual=${a}`);
+      expect(r.status, a).toBe(400);
+      expect((r.body as Body).errors.annual, a).toMatch(/miles a year/i);
+    }
+    const plain = call('id=honda-civic&year=2019&mileage=60000').body as Body;
+    expect(plain.forecastUsd[5].mileage).toBe(60000 + 5 * 12000);
+    expect(plain.assumed.join(' ')).toMatch(/annual 12,000 miles a year/);
+    // every accepted figure, clamped or not, forecasts as the calculator does when it opens the link
+    for (const a of ['1000', '2999.5', '3000', '25000', '30000', '99000']) {
+      const r = call(`id=honda-civic&year=2019&mileage=60000&annual=${a}`).body as Body;
+      expect(r.ok, a).toBe(true);
+      const f = defaults(now);
+      for (const [k, v] of new URL(r.links.app).searchParams) if ((URL_KEYS as string[]).includes(k)) (f as Record<string, string>)[k] = v;
+      const calc = Math.min(30000, Math.max(3000, Number(f.annual) || 12000));
+      expect(r.inputs.annualMiles, a).toBe(calc);
+      expect(r.forecastUsd, a).toEqual(forecast(parse(f, now).inputs!, 5, calc, now).map((x) => ({ year: Number(x.year), privateParty: x.value, low: x.low, high: x.high, mileage: x.mileage })));
+    }
+  });
+
+  it('does not read zip: it moves no number (it only seeds the calculator\'s own listings search)', () => {
+    const base = 'id=honda-civic&year=2019&mileage=60000';
+    for (const z of ['28202', '2820', 'abc']) {
+      const r = call(`${base}&zip=${z}`);
+      expect(r.status, z).toBe(200);
+      expect((r.body as Body).valueUsd).toEqual((call(base).body as Body).valueUsd);
+      expect(new URL((r.body as Body).links.app).searchParams.has('zip')).toBe(false);
+    }
+    expect(openApiJson().paths['/value'].get.parameters.map((p: Body) => p.name)).not.toContain('zip');
   });
 
   it('fills the same MSRP as the data API for every model year it lists (case-only duplicate spellings included)', () => {
@@ -178,6 +204,15 @@ describe('value api', () => {
     expect(exl.assumed[0]).toMatch(/Civic EX-L/);
     expect((call('make=Honda&model=Civic&trim=ex&year=2019&mileage=40000').body as Body).car.trim).toBe('EX');
     expect((call('make=Honda&model=Civic&trim=tour&year=2019&mileage=40000').body as Body).car.trim).toBe('Touring');   // a prefix, as the calculator reads it
+    // a year with no trims on file at all (Civic stickers start in 2010): a named trim cannot be checked, so it is
+    // refused too, unless the caller gives msrp; with no trim the typical sticker is used, as before, and says so
+    const old = call('id=honda-civic&year=2005&mileage=150000&trim=Bogus');
+    expect(old.status).toBe(400);
+    expect((old.body as Body).errors.trim).toMatch(/No trims on file for the 2005 Honda Civic/);
+    expect((call('id=honda-civic&year=2005&mileage=150000&trim=Bogus&msrp=15000').body as Body).car.trim).toBe('Bogus');
+    const typical = call('id=honda-civic&year=2005&mileage=150000').body as Body;
+    expect(typical.ok).toBe(true);
+    expect(typical.assumed[0]).toMatch(/Rough typical sticker/);
     // with the caller's own MSRP the trim is only a label, as in the calculator
     const own = call('make=Honda&model=Civic&trim=Si?&year=2019&mileage=60000&msrp=25200').body as Body;
     expect(own.ok).toBe(true);

@@ -178,7 +178,7 @@ export function openApiJson() {
             { name: 'make', in: 'query', schema: { type: 'string' } },
             { name: 'model', in: 'query', schema: { type: 'string' } },
             { name: 'year', in: 'query', required: true, schema: { type: 'integer' } },
-            { name: 'trim', in: 'query', description: "A trim on file for that year (listed in /cars/{id}.json). Left out, the cheapest trim's sticker is used and named under \"assumed\"; a trim not on file is refused with 400 unless msrp is given, when it is only a label.", schema: { type: 'string' } },
+            { name: 'trim', in: 'query', description: "A trim on file for that year (listed in /cars/{id}.json), matched ignoring case and punctuation, or by the start of its name. Left out, the cheapest trim's sticker is used (or, for a year with no trims on file, a typical sticker for the model and year) and named under \"assumed\". A trim not on file, or any trim for a year with no trims on file, is refused with 400 unless msrp is given, when it is only a label.", schema: { type: 'string' } },
             { name: 'msrp', in: 'query', description: 'Original MSRP in dollars, excluding destination. Required for a car not in the data.', schema: { type: 'number' } },
             { name: 'mileage', in: 'query', schema: { type: 'number' } },
             { name: 'body', in: 'query', schema: { $ref: '#/components/schemas/Body' } },
@@ -190,7 +190,7 @@ export function openApiJson() {
             { name: 'listings', in: 'query', description: 'How many similar cars are for sale nearby: a whole number, 0-999, or refused with 400.', schema: { type: 'integer', minimum: 0, maximum: 999 } },
             { name: 'urgency', in: 'query', description: 'How fast it needs to sell: No rush (default), Within a month or This week, in any case; any other value is refused with 400.', schema: { enum: ['No rush', 'Within a month', 'This week'] } },
             { name: 'comps', in: 'query', description: 'Up to 8 asking prices for similar cars, separated by a comma and a space or by spaces, e.g. "21500, 22900" or "$21.5k 22900" (as the calculator reads them; "21500,22900" without a space reads as one number and is dropped); ones far from the estimate are ignored. The prices used are echoed in inputs.comps.', schema: { type: 'string' } },
-            { name: 'annual', in: 'query', description: 'Miles driven a year, for the forecast; clamped to 3,000-30,000, default 12,000.', schema: { type: 'number' } },
+            { name: 'annual', in: 'query', description: 'Miles driven a year, for the forecast: a number above 0, clamped to 3,000-30,000 (a clamp is named under "assumed"); 0, below 0 or not a number is refused with 400. Left out: 12,000, named under "assumed".', schema: { type: 'number', exclusiveMinimum: 0 } },
           ],
           responses: {
             '200': { description: 'The valuation', content: { 'application/json': { schema: { $ref: '#/components/schemas/Value' } } } },

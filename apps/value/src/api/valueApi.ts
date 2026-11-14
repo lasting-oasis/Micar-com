@@ -105,6 +105,9 @@ export function valueQuery(params: URLSearchParams, now: Date = new Date()): Api
       if (!findStickerTrim(onFile.year, form.trim)) {                       // the calculator's own matching, minus its fallback
         errors.trim = `No ${yr} ${form.make} ${form.model} trim called "${form.trim}". Trims on file for that year: ${onFile.year.trims.map((t) => t.trim).join(', ')}; or give msrp (original MSRP in dollars, excluding destination) to value it at your own sticker price.`;
       }
+    } else if (form.trim) {
+      // no trims on file for that year at all: the typical sticker ignores trim, so a named trim cannot be priced
+      errors.trim = `No trims on file for the ${yr} ${form.make} ${form.model}, so "${form.trim}" can't be priced. Leave trim out for a typical sticker for the model and year, or give msrp to value it at your own sticker price.`;
     }
     const pre = errors.trim ? null : prefillMsrp(form.make, form.model, yr, form.trim);
     if (pre) {
@@ -129,16 +132,19 @@ export function valueQuery(params: URLSearchParams, now: Date = new Date()): Api
   // would quietly fall back to Auto and No rush). listings is checked by parse(), as in the calculator.
   form.market = pick(get('market'), MARKET_OPTIONS.map((o) => o.name), 'market', errors) ?? form.market;
   form.urgency = pick(get('urgency'), URGENCY_OPTIONS.map((o) => o.name), 'urgency', errors) ?? form.urgency;
-  for (const k of ['listings', 'comps', 'zip'] as const) {
+  // zip is not read: it only seeds the calculator's own search for nearby listings and moves no number
+  for (const k of ['listings', 'comps'] as const) {
     const v = get(k);
     if (v !== null) form[k] = v;
   }
-  // miles a year for the forecast, clamped as the calculator clamps it (App.tsx); a figure that is not a number is refused
+  // miles a year for the forecast, clamped to 3,000-30,000 as the calculator clamps it (App.tsx). Not a number, zero or
+  // below is refused: the calculator reads 0 as "not given" (12,000), so accepting it would forecast one way here and
+  // another in the calculator.
   let annual = 12000;
   const annualGiven = get('annual');
   if (annualGiven !== null) {
     const n = Number(annualGiven);
-    if (annualGiven.trim() === '' || !Number.isFinite(n)) errors.annual = 'Give the miles a year driven as a number, e.g. annual=12000 (3,000 to 30,000).';
+    if (annualGiven.trim() === '' || !Number.isFinite(n) || n <= 0) errors.annual = 'Give the miles a year driven as a number above 0, e.g. annual=12000 (3,000 to 30,000).';
     else {
       form.annual = annualGiven;
       annual = Math.min(30000, Math.max(3000, n));
@@ -146,6 +152,7 @@ export function valueQuery(params: URLSearchParams, now: Date = new Date()): Api
     }
   }
   const defaulted = (['condition', 'title', 'accident', 'region', 'market', 'urgency'] as const).filter((k) => !get(k)).map((k) => `${k} ${form[k]}`);
+  if (annualGiven === null) defaulted.push(`annual ${annual.toLocaleString('en-US')} miles a year`);
   if (defaulted.length) assumed.push(`Defaults used where not given: ${defaulted.join(', ')}.`);
 
   const parsed = parse(form, now);
@@ -160,10 +167,10 @@ export function valueQuery(params: URLSearchParams, now: Date = new Date()): Api
       : `No asking prices could be read from comps "${get('comps')}"; give them separated by a comma and a space, e.g. comps=21500, 22900.`);
   }
   // the calculator link carries every input this valuation used (market, listings, urgency and comps move the numbers
-  // too, annual the forecast), in the calculator's own key order, so opening it shows the same figures; radius only
-  // widens the calculator's own listings search and is not read here
+  // too, annual the forecast), in the calculator's own key order, so opening it shows the same figures; zip and radius
+  // only drive the calculator's own listings search and are not read here
   const q = new URLSearchParams();
-  const extra = new Set<string>(['listings', 'comps', 'zip', 'urgency', 'market', 'annual'].filter((k) => get(k) !== null));
+  const extra = new Set<string>(['listings', 'comps', 'urgency', 'market', 'annual'].filter((k) => get(k) !== null));
   for (const k of URL_KEYS) {
     const core = ['make', 'model', 'trim', 'body', 'msrp', 'year', 'mileage', 'condition', 'title', 'accident', 'region'].includes(k);
     if ((core || extra.has(k)) && form[k]) q.set(k, form[k]);
