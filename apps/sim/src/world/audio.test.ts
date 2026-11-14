@@ -55,11 +55,16 @@ describe('one audio output, and waking it', () => {
     audioWorklet = { addModule: () => Promise.resolve() };
     /** Every analyser made, with the sample value it reads back. */
     analysers: { fill: number; fftSize: number; connect: () => void; disconnect: () => void; getFloatTimeDomainData: (b: Float32Array) => void }[] = [];
+    /** 'statechange' listeners: a real context fires the event on every change of state. */
+    private onState: (() => void)[] = [];
+    addEventListener(type: string, f: () => void) { if (type === 'statechange') this.onState.push(f); }
+    removeEventListener(type: string, f: () => void) { if (type === 'statechange') this.onState = this.onState.filter(g => g !== f); }
+    setState(s: string) { this.state = s; for (const f of this.onState) f(); }
     constructor() { made.push(this); }
     createAnalyser() { const a = { fill: 0, fftSize: 2048, connect() {}, disconnect() {}, getFloatTimeDomainData(b: Float32Array) { b.fill(a.fill); } }; this.analysers.push(a); return a; }
-    resume() { this.resumed++; this.state = 'running'; return Promise.resolve(); }
-    suspend() { this.state = 'suspended'; return Promise.resolve(); }
-    close() { this.closed++; this.state = 'closed'; return Promise.resolve(); }
+    resume() { this.resumed++; this.setState('running'); return Promise.resolve(); }
+    suspend() { this.setState('suspended'); return Promise.resolve(); }
+    close() { this.closed++; this.setState('closed'); return Promise.resolve(); }
     createBuffer() { return { getChannelData: () => new Float32Array(8) }; }
     createGain() { const g = node() as { disconnect: () => void; cut: number }; const m = { cut: 0, gain: { value: 0, setTargetAtTime() {}, setValueAtTime() {}, cancelScheduledValues() {}, linearRampToValueAtTime() {}, exponentialRampToValueAtTime() {} }, connect: (d: unknown) => d, disconnect: () => { m.cut++; } }; this.masters.push(m); void g; return m; }
     createOscillator() { return node(); } createBiquadFilter() { return node(); } createBufferSource() { return node(); }
@@ -155,6 +160,21 @@ describe('one audio output, and waking it', () => {
       expect(a.debugLine()).toContain('resets=2');
     } finally { a.dispose(); }
   });
+  it('the debug line keeps counting fresh starts across a rebuild of the sound, and ignores the old processor', async () => {
+    withFake(); withWorklet();
+    const a = new Audio(false, 'model'); a.setCar(soundFactsFor({ engine: '2.0L I4 Turbo', bodyStyle: 'coupe', redline: 7000 })); a.resume();
+    try {
+      await modelStarted();
+      ports[0].onmessage?.({ data: { resets: 3 } });
+      made[0].state = 'closed'; a.resume();      // something closed the output: the next tap builds the sound again
+      await modelStarted();
+      expect(ports.length).toBe(2);
+      ports[1].onmessage?.({ data: { resets: 1 } });
+      expect(a.debugLine()).toContain('resets=4');
+      ports[0].onmessage?.({ data: { resets: 5 } });   // a late word from the old processor
+      expect(a.debugLine()).toContain('resets=4');
+    } finally { a.dispose(); }
+  });
   it('the debug line says NaN when what reaches the speakers is not a number', () => {
     withFake(); const a = new Audio(false, 'classic'); a.resume();
     try {
@@ -210,6 +230,48 @@ describe('one audio output, and waking it', () => {
       frames(30, true);
       expect(a.debugLine()).toContain('froze 0.0s');
     } finally { a.dispose(); }
+  });
+  // A freeze runs from the last look that saw the clock move to the last look that saw it still: currentTime never runs
+  // backwards, so a clock that reads the same across a pause in frames stood still through it. A change of state ends it.
+  describe('how long a freeze lasted', () => {
+    const setup = () => {
+      withFake(); const clock = { t: 0 }, a = new Audio(false, 'classic'); (a as unknown as { clock: () => number }).clock = () => clock.t;
+      a.resume();
+      const V = makeVehicle(carParams(ARCHETYPES.sedan, STOCK_CFG.perf, TUNE_DEF));
+      const frames = (n: number, moving: boolean, ms = 16) => { for (let i = 0; i < n; i++) { clock.t += ms; if (moving) made[0].currentTime += ms / 1000; a.engine(V, 10, true); } };
+      frames(30, true);
+      return { a, clock, frames };
+    };
+    it('counts the whole freeze when the frames also pause in the middle of it, the clock still where it was', () => {
+      const { a, clock, frames } = setup();
+      try {
+        frames(40, false); clock.t += 600; frames(45, false); frames(5, true);   // 1.96 s standing still, 0.6 s of it with no frames
+        expect(a.debugLine()).toContain('froze 2.0s');
+      } finally { a.dispose(); }
+    });
+    it('does not count a long task on the page while the sound plays on', () => {
+      const { a, clock, frames } = setup();
+      try {
+        frames(1, false); clock.t += 450; made[0].currentTime += 0.45; frames(5, true);   // one look between clock steps, then 450 ms of work
+        expect(a.debugLine()).toContain('froze 0.0s');
+      } finally { a.dispose(); }
+    });
+    it('does not count a hidden tab: suspended, then running again with the clock where it stopped', () => {
+      const { a, clock, frames } = setup();
+      try {
+        frames(1, false);                                                       // the last look before hiding sees the clock between steps
+        made[0].setState('suspended'); clock.t += 30000; made[0].setState('running');
+        frames(10, false); frames(5, true);                                    // 160 ms to get going again
+        expect(a.debugLine()).toContain('froze 0.0s');
+      } finally { a.dispose(); }
+    });
+    it('counts a freeze that ends with the phone interrupting the sound, up to the last look', () => {
+      const { a, frames } = setup();
+      try {
+        frames(125, false); made[0].setState('interrupted'); frames(5, false);   // 2 s standing still while 'running'
+        expect(a.debugLine()).toContain('froze 2.0s');
+      } finally { a.dispose(); }
+    });
   });
   it('after everything is closed, the next Audio starts a fresh output', () => {
     withFake(); const a = new Audio(false, 'classic'); a.resume(); a.dispose();

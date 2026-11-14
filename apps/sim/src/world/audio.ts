@@ -26,9 +26,6 @@ type Nodes = {
 
 export const SFX_NAMES = ['tick', 'buy', 'ok', 'no', 'beep', 'go', 'cp', 'finish', 'perfect', 'crash', 'horn', 'shift', 'bov', 'nosfire'] as const;
 
-/** ms between two looks at the clock past which nothing is known about the time between them. */
-const WATCH_GAP_MS = 500;
-
 /** The page's one audio context and how many Audio instances are using it. */
 let shared: { AC: Ctx; refs: number } | null = null;
 const workletLoaded = new WeakMap<object, Promise<void>>();
@@ -48,8 +45,10 @@ export class Audio {
   private seenTime = -1; private stuckSince = -1; private rebuilt = 0;
   /** How often the engine processor has started the model afresh after a sample that was not a number. */
   private modelResets = 0;
-  /** ms: the longest the output's clock has stood still while 'running' (kept across rebuilds), and the freeze now under way. */
-  private longestFreeze = 0; private frozeSince = -1; private started = false; private lastWatch = -Infinity;
+  /** ms: the longest the output's clock has stood still while 'running' (kept across rebuilds); the last look that saw it
+   *  move and the last that saw it still (NaN: none since the last change of state); the context's changes of state. */
+  private longestFreeze = 0; private movedAt = NaN; private stillAt = NaN; private stateChanges = 0; private seenChanges = 0;
+  private offState: (() => void) | null = null;
   /** ?audiodebug only: analysers on the engine model's output and on the whole output, made on the first readout. */
   private probe: { AC: Ctx; out: AnalyserNode; eng: AnalyserNode | null; engOf: AudioNode | null; buf: Float32Array<ArrayBuffer> } | null = null;
 
@@ -83,16 +82,16 @@ export class Audio {
     const AC = this.AC; if (!AC) return;
     const running = AC.state === 'running', moving = running && AC.currentTime !== this.seenTime;
     if (moving) this.stuckSince = -1; else if (this.stuckSince < 0) this.stuckSince = this.clock();
-    // The longest freeze while 'running', once the clock has first moved (startup is not one), for ?audiodebug.
-    // A gap with nothing watching (on foot, a hidden tab, a long task) says nothing about the clock: it ends the freeze under way.
-    const now = this.clock();
-    if (now - this.lastWatch > WATCH_GAP_MS) this.frozeSince = -1;
-    this.lastWatch = now;
-    if (moving) {
-      if (this.frozeSince >= 0 && this.started) this.longestFreeze = Math.max(this.longestFreeze, now - this.frozeSince);
-      this.frozeSince = -1; if (this.seenTime >= 0) this.started = true;
-    } else if (!running) this.frozeSince = -1;
-    else if (this.frozeSince < 0) this.frozeSince = now;
+    // ?audiodebug 'froze': a freeze runs from the last look that saw the clock move, while 'running', to the last look that saw
+    // it still. currentTime never runs backwards, so a clock that reads the same across a pause in frames stood still through
+    // it, and a look between two steps of the clock followed by a long task is no freeze. A change of state (a suspend, an
+    // interruption) ends a freeze, and the next one counts only once the clock has moved again: starting up is not one.
+    const now = this.clock(), changed = this.stateChanges !== this.seenChanges, moved = moving && this.seenTime >= 0;
+    this.seenChanges = this.stateChanges;
+    if (moved || !running || changed) {
+      if (this.stillAt > this.movedAt) this.longestFreeze = Math.max(this.longestFreeze, this.stillAt - this.movedAt);
+      this.stillAt = NaN; this.movedAt = moved ? now : NaN;
+    } else this.stillAt = now;
     this.seenTime = AC.currentTime;
   }
 
@@ -122,7 +121,9 @@ export class Audio {
         if (this.AC !== AC) return; // disposed while loading
         const node = new AudioWorkletNode(AC, 'micar-engine', { numberOfInputs: 0, outputChannelCount: [2], processorOptions: { facts: this.facts } });
         const g = AC.createGain(); g.gain.value = 0; node.connect(g).connect(master);
-        node.port.onmessage = (e: MessageEvent<{ resets?: number }>) => { if (typeof e.data?.resets === 'number') this.modelResets = e.data.resets; };
+        // A processor counts its own fresh starts; the readout keeps counting across rebuilds and ignores a processor gone since.
+        const before = this.modelResets;
+        node.port.onmessage = (e: MessageEvent<{ resets?: number }>) => { if (this.node === node && typeof e.data?.resets === 'number') this.modelResets = before + e.data.resets; };
         this.node = node; this.nodeGain = g; this.send(this.sentTurbo);
       })
       .catch(() => { /* the classic engine keeps playing */ });
@@ -216,10 +217,12 @@ export class Audio {
       // Take this instance's sounds off the shared output; the context itself closes only with its last user.
       for (const src of this.sources) { try { src.stop(); } catch { /* never started */ } }
       try { this.node?.disconnect(); } catch { /* not connected */ }
+      if (this.node) this.node.port.onmessage = null;
       try { this.A?.master.disconnect(); } catch { /* not connected */ }
       if (shared && shared.AC === AC && --shared.refs <= 0) { shared = null; void AC.close().catch(() => {}); }
     }
-    this.sources = []; this.AC = null; this.A = null; this.node = null; this.nodeGain = null; this.probe = null; this.quiet = true; this.stuckSince = -1; this.seenTime = -1; this.frozeSince = -1; this.started = false;
+    this.sources = []; this.AC = null; this.A = null; this.node = null; this.nodeGain = null; this.probe = null; this.quiet = true; this.stuckSince = -1; this.seenTime = -1; this.movedAt = this.stillAt = NaN;
+    this.offState?.(); this.offState = null;
   }
 
   private ctx(): Ctx | null {
@@ -232,6 +235,8 @@ export class Audio {
     let AC: Ctx;
     if (shared && shared.AC.state !== 'closed' && shared.AC instanceof Ctor) { AC = shared.AC; shared.refs++; }
     else { try { AC = new Ctor(); } catch { this.failed = true; return null; } shared = { AC, refs: 1 }; }
+    const onState = () => { this.stateChanges++; };
+    AC.addEventListener('statechange', onState); this.offState = () => AC.removeEventListener('statechange', onState);
     const master = AC.createGain(); master.gain.value = this.muted ? 0 : .55; master.connect(AC.destination);
     const nb = AC.createBuffer(1, AC.sampleRate * 2, AC.sampleRate), d = nb.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
     const noiseSrc = () => { const s = AC.createBufferSource(); s.buffer = nb; s.loop = true; s.start(); return s; };
