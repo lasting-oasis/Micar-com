@@ -1,4 +1,4 @@
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { Audio, engineDrive, soundMode } from './audio';
 import { soundFactsFor } from '../sound/carSound';
 import type { SoundFacts } from '../sound/facts';
@@ -110,7 +110,9 @@ describe('one audio output, and waking it', () => {
       connect(d: unknown) { if (d && typeof d === 'object' && 'fill' in d) (d as unknown as { from: unknown }).from = this; return d; } disconnect() {}
     };
   };
-  const modelStarted = () => new Promise(r => setTimeout(r, 0));
+  /** Wait until the next engine model's node is made. Loading its module takes as long as it takes: in a production build
+   *  (NODE_ENV=production, as Render's build runs the tests) it is a dynamic import, longer than one tick the first time. */
+  const modelStarted = (n = ports.length + 1) => vi.waitFor(() => { if (ports.length < n) throw new Error(`engine model ${n} not started yet`); });
 
   it('wakes a context the phone has interrupted, not only one it suspended itself', () => {
     withFake(); const a = new Audio(false, 'classic'); a.resume();
