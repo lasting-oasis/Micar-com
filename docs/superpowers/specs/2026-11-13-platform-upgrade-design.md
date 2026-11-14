@@ -99,6 +99,21 @@ The owner asked on 2026-11-13 whether 8 to 16 person races could run on the $7 i
 
 **Estimate, not measured:** one 16-person race passes about 3,600 position messages a second (16 racers × 15 a second × 15 others). Half a CPU should carry that for a few races at once. The full copies of the game state grow with the square of the number of people online, and may cost more than the races themselves.
 
+**A first rough measurement** (2026-11-13; a throwaway script, not the planned test). Fake racers on a 2-core cloud machine (Intel Xeon, 2.3 GHz), a fresh World for each row, 30-second races at 15 positions a second. Rooms of 16 were allowed by a temporary edit, undone afterwards. Server CPU is the share of one core the World used during the race.
+
+| Players | Rooms × size | Server CPU | Memory | Positions lost | Delay added by the server |
+| --- | --- | --- | --- | --- | --- |
+| 4 | 1 × 4 | 2.8% | 161 MB | 0% | about 1 ms |
+| 16 | 4 × 4 | 3.8% | 165 MB | 0% | about 1 ms |
+| 32 | 8 × 4 | 4.9% | 197 MB | 0% | about 1 ms |
+| 64 | 16 × 4 | 7.5% | 209 MB | 0% | about 1 ms |
+| 16 | 1 × 16 | 4.6% | 168 MB | 0% | about 1 ms |
+| 32 | 2 × 16 | 9.3% | 169 MB | 0% | about 1 ms |
+| 48 | 3 × 16 | 12.2% | 194 MB | 0% | about 1 ms |
+| 64 | 4 × 16 | 11.5% | 196 MB | 0% | about 1 ms |
+
+The idle World used 0.5 to 2% of a core. On these figures, four 16-person races at once use about a quarter of the $7 instance's half core, and memory stays under 210 of its 512 MB. Not covered: real browsers (which also send town positions and car state), the network between players and the server, Render's own CPU, and races longer than 30 seconds. The planned test below covers what it can of those.
+
 **How it gets measured** (lane A, Part 1, Tasks 4 and 5):
 
 1. **Free, on the PC, before paying.** A test program joins fake players and races them in rooms of 4, 8 and 16, more and more rooms at once. It measures how late positions arrive and how many are lost, and reads the server's own CPU, lag and memory from `/healthz`. Rooms bigger than four exist only when `RACE_ROOM_MAX` is set, which only the test does: the page still shows four cars.
