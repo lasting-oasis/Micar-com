@@ -1,9 +1,37 @@
 import { describe, expect, it } from 'vitest';
 import { t } from '../i18n';
 import type { DenyWhy, RoomView } from '../world/race';
-import { CH_KEYS, cardOf, carLabel, denyKey, newsOf, raceLabel, rowsOf, shareUrl } from './challengeCopy';
+import { CH_KEYS, cardOf, carLabel, denyKey, newsOf, quickRows, raceLabel, rowsOf, shareUrl, startsInSeconds, waitingText } from './challengeCopy';
 
 const holes = (text: string) => [...text.matchAll(/\{(\w+)\}/g)].map(m => m[1]).sort();
+
+describe('quick race: its words and its countdown', () => {
+  it('the quick race lines are among the challenge lines, so each is in English and in Spanish', () => {
+    for (const key of ['strip.ch.quick', 'strip.ch.quickTitle', 'strip.ch.waiting', 'strip.ch.startsIn', 'strip.ch.quickNote']) expect(CH_KEYS).toContain(key);
+    expect(t('en', 'strip.ch.quick')).toBe('Quick race');
+    expect(t('es', 'strip.ch.quickTitle')).toBe('Elija un circuito'); // usted
+  });
+  it('the countdown is in whole seconds, rounded up, and never below zero', () => {
+    expect(startsInSeconds(31_000, 1_000)).toBe(30);
+    expect(startsInSeconds(31_000, 1_001)).toBe(30); // 29.999 s left reads 30
+    expect(startsInSeconds(31_000, 30_001)).toBe(1);
+    expect(startsInSeconds(31_000, 31_000)).toBe(0);
+    expect(startsInSeconds(31_000, 45_000)).toBe(0); // the server's tick is a second: it can be late, never negative
+  });
+  it('the circuits: the open ones first, in the Races menu order, then the locked ones by the stage that opens them', () => {
+    const atOne = quickRows(1);
+    expect(atOne.map(r => r.track)).toEqual(['monaco', 'interlagos', 'laguna', 'monza', 'silverstone', 'suzuka', 'nurburgring', 'bathurst', 'cota', 'spa']);
+    expect(atOne.filter(r => !r.locked).map(r => r.eventId)).toEqual(['harbour_gp', 'lagoons_sprint', 'drylagoon_x']);
+    expect(atOne.find(r => r.track === 'spa')).toEqual({ track: 'spa', eventId: 'ardennes_gp', stage: 5, locked: true });
+    // all open: the Races menu's own order
+    expect(quickRows(5).map(r => r.track)).toEqual(['spa', 'monza', 'silverstone', 'suzuka', 'nurburgring', 'monaco', 'interlagos', 'cota', 'laguna', 'bathurst']);
+    expect(quickRows(5).every(r => !r.locked)).toBe(true);
+  });
+  it('"{n} waiting" says how many, in either language', () => {
+    expect(waitingText('en', 3)).toBe('3 waiting');
+    expect(waitingText('es', 0)).toBe('0 esperando');
+  });
+});
 
 describe('the challenge screens: their words', () => {
   it('every line is written in English and in Spanish, with the same blanks to fill', () => {

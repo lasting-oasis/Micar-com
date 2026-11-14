@@ -63,6 +63,8 @@ type DriveUi = {
   returned: number | null;
   /** the challenge card is open in the lobby: making a room, or (in one) the host changing its race */
   challenge: boolean;
+  /** the Quick race card is open in the lobby (strip/QuickRace.tsx): the circuits, and who is waiting on each */
+  quickRace: boolean;
   /** the live event is a challenge race (the other cars are people): no restart */
   netRace: boolean;
   /** on the grid of a challenge, the count not begun: the others are still loading, or the green light is seconds off */
@@ -77,7 +79,7 @@ type DriveUi = {
 };
 
 export const useDriveUi = create<DriveUi>(set => ({
-  district: 'town', driving: false, session: null, prompt: '', banner: null, results: null, reward: null, paused: false, eventLive: false, gears: false, mapOpen: false, topInset: 0, topPanelL: 0, topPanelR: 0, help: 0, nos: false, tap: null, quick: null, driveCar: null, lobby: false, counter: false, account: false, returned: null, challenge: false, netRace: false, staging: false, racesOpen: false, racesBlocked: false, lastEvent: null,
+  district: 'town', driving: false, session: null, prompt: '', banner: null, results: null, reward: null, paused: false, eventLive: false, gears: false, mapOpen: false, topInset: 0, topPanelL: 0, topPanelR: 0, help: 0, nos: false, tap: null, quick: null, driveCar: null, lobby: false, counter: false, account: false, returned: null, challenge: false, quickRace: false, netRace: false, staging: false, racesOpen: false, racesBlocked: false, lastEvent: null,
   set: p => set(p),
 }));
 

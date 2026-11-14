@@ -221,7 +221,7 @@ function Stat({ value, label, accent, short }: { value: string; label: string; a
 function Key({ children }: { children: ReactNode }) {
   return <span className="inline-block min-w-[26px] text-center px-1.5 py-0.5 mr-1 rounded border border-line bg-night text-ink/90 tracking-normal">{children}</span>;
 }
-function Lock() {
+export function Lock() {
   return <svg viewBox="0 0 12 14" className="w-2.5 h-3 inline-block shrink-0" aria-hidden><path d="M3 6V4a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" strokeWidth="1.6" /><rect x="1.5" y="6" width="9" height="7" rx="1.2" fill="currentColor" /></svg>;
 }
 function Legend({ lang }: { lang: Lang }) {

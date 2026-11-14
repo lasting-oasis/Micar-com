@@ -195,6 +195,8 @@ interface StoreState {
   /** 'missed': a race went without this page (it was still loading at the start) */
   raceNote: 'missed' | null;
   createRace: (eventId: string, car: string) => void;
+  /** into the quick room filling on a circuit (Part 2), or a new one: the server picks the race and the car */
+  quickRace: (track: string) => void;
   joinRace: (code: string) => void;
   setRace: (eventId: string, car: string) => void;
   startRace: () => void;
@@ -425,6 +427,7 @@ export const useGameStore = create<StoreState>((set, get) => ({
   raceDenied: null,
   raceNote: null,
   createRace: (eventId, car) => { set({ raceDenied: null }); get().socket?.emit('race_create', { eventId, car }); },
+  quickRace: (track) => { set({ raceDenied: null }); get().socket?.emit('race_quick', { track }); },
   // before the player is in (a link just opened) this only remembers the room: the 'init' that follows joins it
   joinRace: (code) => { set({ raceCode: code, raceDenied: null }); const s = get(); if (s.socket && s.playerId) s.socket.emit('race_join', { code }); },
   setRace: (eventId, car) => { set({ raceDenied: null }); get().socket?.emit('race_set', { eventId, car }); },

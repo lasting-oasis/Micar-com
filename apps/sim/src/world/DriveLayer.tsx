@@ -15,6 +15,7 @@ import { useLang, t } from '../i18n';
 import { TouchSticks } from './TouchSticks';
 import { getOptions } from './options';
 import { ChallengeButton, ChallengeSetup, StagingLine, WaitingRoom } from '../strip/Challenge';
+import { QuickRace } from '../strip/QuickRace';
 import { RaceMenu } from './RaceMenuScreen';
 
 const tap = (t: DriveTap) => useDriveUi.setState({ tap: t });
@@ -136,6 +137,7 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
   const returned = useDriveUi(s => s.returned);
   // a challenge race: its card in the lobby (making a room, or the host changing the race), the room, no restart
   const challenge = useDriveUi(s => s.challenge);
+  const quickRace = useDriveUi(s => s.quickRace);
   const netRace = useDriveUi(s => s.netRace);
   const inRoom = useGameStore(s => !!s.race);
   const lang = useLang();
@@ -280,7 +282,7 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
             </div>
           )}
 
-          {lobby && counter && !results && !paused && (challenge ? <ChallengeSetup /> : inRoom ? <WaitingRoom /> : <Counter />)}
+          {lobby && counter && !results && !paused && (challenge ? <ChallengeSetup /> : quickRace ? <QuickRace /> : inRoom ? <WaitingRoom /> : <Counter />)}
           {/* the lobby's pause button (Esc on a keyboard) */}
           <div className="absolute right-3 top-[38%]" style={{ display: touch && lobby && !results && !paused ? undefined : 'none' }}>
             <TapBtn t="pause" label="II" aria="Pause" />

@@ -197,6 +197,13 @@ describe('a challenge room', () => {
     expect(s.sent()).toEqual([['race_create', { eventId: 'royal_drag', car: 'ronin' }], ['race_join', { code: 'K7M2QX' }], ['race_set', { eventId: 'harbour_gp', car: 'civet' }], ['race_start']]);
     expect(useGameStore.getState()).toMatchObject({ raceCode: 'K7M2QX', raceDenied: null });
   });
+  it('quickRace sends the circuit the server reads, and clears a refusal', () => {
+    const s = stub();
+    useGameStore.setState({ socket: s as never, raceDenied: 'pick' });
+    useGameStore.getState().quickRace('monaco');
+    expect(s.sent()).toEqual([['race_quick', { track: 'monaco' }]]);
+    expect(useGameStore.getState().raceDenied).toBeNull();
+  });
   it('joinRace before the player is in only remembers the room: init joins it', () => {
     const s = stub();
     useGameStore.setState({ socket: s as never, playerId: null });
