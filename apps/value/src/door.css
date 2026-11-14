@@ -103,15 +103,18 @@
 .dp.lit .tube { animation: tubeOn 1.4s var(--dl, 0s) linear forwards, hum 7s calc(var(--dl, 0s) + 1.4s) infinite; }
 @keyframes tubeOn { 0% { opacity: .05; } 8% { opacity: 1; } 13% { opacity: .08; } 27% { opacity: 1; } 31% { opacity: .2; } 46% { opacity: .9; } 50% { opacity: .3; } 60%, 100% { opacity: 1; } }
 @keyframes hum { 0%, 93%, 100% { opacity: 1; } 94% { opacity: .45; } 96% { opacity: 1; } 97% { opacity: .6; } }
-/* The showcase: a chrome pedestal mid-bay under a light shaft; the slab stands on it at a third of the bay */
-.dp .showcase { position: absolute; left: 50%; bottom: 7.5%; width: 33%; margin-left: -16.5%; transform-origin: 50% 100%; transform: translateZ(calc(var(--bd) * -.42)); transition: transform 1.2s var(--ease-out); }
-.dp.open .showcase { transform: translateZ(calc(var(--bd) * -.42)) translateY(-3%) rotateY(-9deg) scale(1.03); cursor: zoom-in; }
-.dp.open .showcase.lift { transform: translateZ(calc(var(--bd) * -.42 + 140px)) translateY(-10%) scale(1.06); }
+/* The showcase: a chrome pedestal mid-bay under a light shaft; the slab stands on it at a third of the bay.
+   The well holds it at the pedestal's depth and cuts everything off at the ceiling, so the card is only ever seen
+   inside the garage. */
+.dp .well { position: absolute; inset: 0; transform: translateZ(calc(var(--bd) * -.42)); clip-path: polygon(-40% 0, 140% 0, 140% 140%, -40% 140%); pointer-events: none; }
+.dp .showcase { position: absolute; left: 50%; bottom: 7.5%; width: 33%; margin-left: -16.5%; transform-origin: 50% 100%; transition: transform 1.2s var(--ease-out); }
+.dp.open .showcase { transform: translateY(-3%) rotateY(-9deg) scale(1.03); cursor: zoom-in; }
 .dp.open .showcase:focus-visible { outline: 2px solid var(--paint); outline-offset: 8px; }
 .dp.anim .showcase { opacity: 0; }
-.dp.anim .showcase.slam { opacity: 1; animation: slam .62s cubic-bezier(.3,0,.2,1) both; }
+.dp.anim .showcase.slam { opacity: 1; animation: slam .62s cubic-bezier(.3,0,.2,1) 1.35s both; }
 .dp.revealed .showcase { opacity: 1; }
-@keyframes slam { 0% { transform: translateZ(calc(var(--bd) * -.42)) translateY(-120vh) scale(1.5); } 62% { transform: translateZ(calc(var(--bd) * -.42)) translateY(2%) scale(.97); } 100% { transform: translateZ(calc(var(--bd) * -.42)); } }
+/* The card waits above the ceiling (out of sight, in the well) while the door goes up, then comes down onto the pedestal. */
+@keyframes slam { 0% { transform: translateY(calc(var(--bh) * -.95)); } 62% { transform: translateY(2%) scale(.97); } 100% { transform: none; } }
 .dp .pedestal { position: absolute; left: 50%; bottom: 0; width: 40%; height: 7.5%; margin-left: -20%; transform: translateZ(calc(var(--bd) * -.42)); border-radius: 5px 5px 0 0;
   background: linear-gradient(90deg, #2b313c, #cfd6e1 14%, #6b7486 38%, #f3f6fb 54%, #5d6678 76%, #2b313c); box-shadow: 0 -2px 0 rgba(255,255,255,.45), inset 0 -8px 12px rgba(0,0,0,.5); }
 .dp .pedestal::after { content: ""; position: absolute; left: 6%; right: 6%; top: 42%; height: 3px; background: var(--paint); opacity: 0; box-shadow: 0 0 12px var(--paint); transition: opacity .6s; }

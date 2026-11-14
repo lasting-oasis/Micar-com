@@ -112,10 +112,14 @@ export function Bay({ open, onSettled, showcase, showcaseClass = '', onInspect, 
         <div className="shaft" />
         <canvas className="motes" ref={motes} />
         <div className="pedestal" />
-        <div className={`showcase ${showcaseClass}`} role={showcase && onInspect ? 'button' : undefined} tabIndex={showcase && onInspect ? 0 : undefined}
-          aria-label={showcase ? t('Your card. Press Enter to inspect it.') : undefined}
-          onClick={showcase ? onInspect : undefined} onKeyDown={showcase && onInspect ? (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onInspect(); } } : undefined}>
-          {showcase}
+        {/* The well is the bay's opening at the pedestal's depth, cut off at the ceiling: the card is lowered from the
+            ceiling inside the garage, and no part of it is ever drawn outside. */}
+        <div className="well">
+          <div className={`showcase ${showcaseClass}`} role={showcase && onInspect ? 'button' : undefined} tabIndex={showcase && onInspect ? 0 : undefined}
+            aria-label={showcase ? t('Your card. Press Enter to inspect it.') : undefined}
+            onClick={showcase ? onInspect : undefined} onKeyDown={showcase && onInspect ? (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onInspect(); } } : undefined}>
+            {showcase}
+          </div>
         </div>
         <div className="bolts l"><i /><i /><i /></div><div className="bolts r"><i /><i /><i /></div>
         <div className="frame"><span className="sign">{t('Bay 01 · MiCar')}</span></div>
