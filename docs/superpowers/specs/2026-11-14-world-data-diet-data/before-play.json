@@ -1,0 +1,246 @@
+[
+  {
+    "mode": "play",
+    "layout": "one",
+    "online": 10,
+    "seconds": 20.0141273,
+    "join": {
+      "wireMB": 1.2881622314453125,
+      "payloadMB": 1.2859020233154297,
+      "byEventMB": {
+        "open": 0.0010204315185546875,
+        "connect": 0.00030517578125,
+        "init": 0.18114185333251953,
+        "update": 1.0190916061401367,
+        "chat": 0.006923675537109375,
+        "player_positions": 0.076751708984375,
+        "time_update": 0.000667572021484375
+      },
+      "seconds": 2.6548064000000005
+    },
+    "steady": {
+      "wireKBps": {
+        "mean": 26.711683559455025,
+        "max": 26.712722864388898
+      },
+      "payloadKBps": 26.672092384650217,
+      "byEventKBps": {
+        "open": 0,
+        "connect": 0,
+        "init": 0,
+        "update": 8.64028352487795,
+        "chat": 0,
+        "player_positions": 17.995345358500845,
+        "time_update": 0.03405797388927371,
+        "strip_denied": 0.002356733723283553,
+        "ping": 0.0000487936588671543
+      },
+      "serverMBps": 0.260856284760303
+    },
+    "gapsMs": {
+      "near": {
+        "median": 105,
+        "p95": 125,
+        "samples": 7461
+      },
+      "district": {
+        "median": 105,
+        "p95": 125,
+        "samples": 9081
+      },
+      "away": {
+        "median": null,
+        "p95": null,
+        "samples": 0
+      }
+    },
+    "server": {
+      "cpuPct": 1.1857252041429887,
+      "memMB": 131.0625
+    },
+    "testLagP99Ms": 34.963455
+  },
+  {
+    "mode": "play",
+    "layout": "one",
+    "online": 25,
+    "seconds": 20.007944400000007,
+    "join": {
+      "wireMB": 9.81143856048584,
+      "payloadMB": 9.803583145141602,
+      "byEventMB": {
+        "open": 0.0025510787963867188,
+        "connect": 0.000762939453125,
+        "init": 0.591120719909668,
+        "update": 8.099688529968262,
+        "chat": 0.04117012023925781,
+        "player_positions": 1.0650053024291992,
+        "time_update": 0.003284454345703125
+      },
+      "seconds": 6.869135099999999
+    },
+    "steady": {
+      "wireKBps": {
+        "mean": 78.48929513843507,
+        "max": 78.49040407294412
+      },
+      "payloadKBps": 78.44813180183566,
+      "byEventKBps": {
+        "open": 0,
+        "connect": 0,
+        "init": 0,
+        "update": 34.153035293820565,
+        "chat": 0,
+        "player_positions": 44.25878671224215,
+        "time_update": 0.03397088108661478,
+        "strip_denied": 0.002290105949114892,
+        "ping": 0.00004880873719341199
+      },
+      "serverMBps": 1.9162425570907002
+    },
+    "gapsMs": {
+      "near": {
+        "median": 105,
+        "p95": 115,
+        "samples": 43424
+      },
+      "district": {
+        "median": 105,
+        "p95": 115,
+        "samples": 66376
+      },
+      "away": {
+        "median": null,
+        "p95": null,
+        "samples": 0
+      }
+    },
+    "server": {
+      "cpuPct": 2.387044005786426,
+      "memMB": 139.79296875
+    },
+    "testLagP99Ms": 17.055743
+  },
+  {
+    "mode": "play",
+    "layout": "one",
+    "online": 50,
+    "seconds": 20.006161999999996,
+    "join": {
+      "wireMB": 54.85176753997803,
+      "payloadMB": 54.830477714538574,
+      "byEventMB": {
+        "open": 0.0051021575927734375,
+        "connect": 0.00152587890625,
+        "init": 1.7252626419067383,
+        "update": 47.45064926147461,
+        "chat": 0.1616668701171875,
+        "player_positions": 5.480456352233887,
+        "time_update": 0.005814552307128906
+      },
+      "seconds": 5.120592999999993
+    },
+    "steady": {
+      "wireKBps": {
+        "mean": 205.40025524385936,
+        "max": 205.40136427716624
+      },
+      "payloadKBps": 205.3450300712351,
+      "byEventKBps": {
+        "open": 0,
+        "connect": 0,
+        "init": 0,
+        "update": 115.06161982743131,
+        "chat": 0,
+        "player_positions": 90.24709721309867,
+        "time_update": 0.033973907639056417,
+        "strip_denied": 0.0022903099804950093,
+        "ping": 0.00004881308568829943
+      },
+      "serverMBps": 10.029309338079072
+    },
+    "gapsMs": {
+      "near": {
+        "median": 105,
+        "p95": 115,
+        "samples": 92786
+      },
+      "district": {
+        "median": 105,
+        "p95": 115,
+        "samples": 361787
+      },
+      "away": {
+        "median": null,
+        "p95": null,
+        "samples": 0
+      }
+    },
+    "server": {
+      "cpuPct": 4.161847001211293,
+      "memMB": 139.82421875
+    },
+    "testLagP99Ms": 24.313855
+  },
+  {
+    "mode": "play",
+    "layout": "one",
+    "online": 100,
+    "seconds": 20.003273399999976,
+    "join": {
+      "wireMB": 346.6696310043335,
+      "payloadMB": 346.5885076522827,
+      "byEventMB": {
+        "open": 0.010204315185546875,
+        "connect": 0.0030517578125,
+        "init": 5.327937126159668,
+        "update": 304.43479442596436,
+        "chat": 0.6404829025268555,
+        "player_positions": 36.15871238708496,
+        "time_update": 0.013324737548828125
+      },
+      "seconds": 7.738773400000006
+    },
+    "steady": {
+      "wireKBps": {
+        "mean": 585.5802947919027,
+        "max": 585.5814039853605
+      },
+      "payloadKBps": 585.5098297624135,
+      "byEventKBps": {
+        "open": 0,
+        "connect": 0,
+        "init": 0,
+        "update": 411.9114398765117,
+        "chat": 0,
+        "player_positions": 173.56212043149907,
+        "time_update": 0.033929993552955166,
+        "strip_denied": 0.0022906407158340423,
+        "ping": 0.00004882013460856861
+      },
+      "serverMBps": 57.18557566327169
+    },
+    "gapsMs": {
+      "near": {
+        "median": 105,
+        "p95": 185,
+        "samples": 173378
+      },
+      "district": {
+        "median": 105,
+        "p95": 185,
+        "samples": 1542688
+      },
+      "away": {
+        "median": null,
+        "p95": null,
+        "samples": 0
+      }
+    },
+    "server": {
+      "cpuPct": 31.86942301377543,
+      "memMB": 413.69921875
+    },
+    "testLagP99Ms": 24.395775
+  }
+]
