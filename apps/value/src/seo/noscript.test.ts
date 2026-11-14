@@ -32,6 +32,12 @@ describe('the root page without JavaScript', () => {
     expect(noscript).toMatch(/nothing is independently verified yet/);
   });
 
+  it('has a Spanish summary with links to the Spanish pages', () => {
+    const es = noscript.match(/<p lang="es">([\s\S]*?)<\/p>/)?.[1] ?? '';
+    for (const path of ['/Micar-com/es/about/', '/Micar-com/es/method/', '/Micar-com/es/cars/']) expect(es).toContain(path);
+    expect(es).toMatch(/no ha revisado ningún registro/);
+  });
+
   it('gives the summary its own text and background colours, readable at 7:1 or more', () => {
     const box = styleOf('div');
     const fg = hex(prop(box, 'color')), bg = hex(prop(box, 'background(?:-color)?'));

@@ -9,6 +9,7 @@ import { fileURLToPath } from 'node:url';
 import { footerHtml } from '../packages/brand/src/footer.ts';
 import { aboutPageHtml, methodJson, methodPageHtml, passportSchemaJson, type Calibration, type SiteCounts } from '../apps/value/src/seo/about.ts';
 import { apiIndexJson, buildCarRecords, carsListJson, openApiJson, type ApiSticker, type EpaFile } from '../apps/value/src/seo/api.ts';
+import { LANGS, langDir } from '../apps/value/src/seo/lang.ts';
 import { buildModelPages, indexPageHtml, llmsTxt, modelPageHtml, robotsTxt, sitemapXml, type Sticker } from '../apps/value/src/seo/pages.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -20,10 +21,7 @@ const write = (p: string, text: string) => {
 };
 
 const now = new Date();
-const env = {
-  css: read('packages/brand/src/tokens.css') + '\n' + read('packages/brand/src/footer.css'),
-  footer: footerHtml('en', now.getFullYear()),
-};
+const css = read('packages/brand/src/tokens.css') + '\n' + read('packages/brand/src/footer.css');
 const stickers = JSON.parse(read('apps/value/src/data/stickers.json'));
 const epa = JSON.parse(read('apps/value/src/data/epa-configs.json')) as EpaFile;
 const pages = buildModelPages(stickers as Sticker[]);
@@ -42,13 +40,17 @@ const counts: SiteCounts = {
   manufacturerYears: years.filter((y) => y.source.kind === 'manufacturer').length,
 };
 
-// each model page carries its JSON record's trims, EPA configurations and sources as HTML
-for (const p of pages) write(`cars/${p.slug}/index.html`, modelPageHtml(p, env, byId.get(p.slug)));
-write('about/index.html', aboutPageHtml(counts, calibration, env));
-write('method/index.html', methodPageHtml(counts, calibration, env));
+// every plain page in English at the root and in Spanish under es/; each model page carries its JSON record's trims,
+// EPA configurations and sources as HTML
+for (const lang of LANGS) {
+  const env = { css, footer: footerHtml(lang, now.getFullYear()) }, dir = langDir(lang);
+  for (const p of pages) write(`${dir}cars/${p.slug}/index.html`, modelPageHtml(p, env, byId.get(p.slug), lang));
+  write(`${dir}cars/index.html`, indexPageHtml(pages, env, lang));
+  write(`${dir}about/index.html`, aboutPageHtml(counts, calibration, env, lang));
+  write(`${dir}method/index.html`, methodPageHtml(counts, calibration, env, lang));
+}
 write('api/v1/method.json', json(methodJson(counts, calibration, stamp)));
 write('api/v1/passport.schema.json', JSON.stringify(passportSchemaJson(), null, 2) + '\n');
-write('cars/index.html', indexPageHtml(pages, env));
 write('sitemap.xml', sitemapXml(pages, now.toISOString().slice(0, 10)));
 write('robots.txt', robotsTxt());
 write('llms.txt', llmsTxt(pages));
@@ -56,4 +58,4 @@ for (const c of cars) write(`api/v1/cars/${c.id}.json`, json(c));
 write('api/v1/cars.json', json(carsListJson(cars, stamp)));
 write('api/v1/index.json', json(apiIndexJson(cars, epa, stamp)));
 write('api/v1/openapi.json', JSON.stringify(openApiJson(), null, 2) + '\n');
-console.log(`wrote ${pages.length} model pages, about/, method/, cars/index.html, sitemap.xml, robots.txt, llms.txt, ${cars.length} JSON records under api/v1/`);
+console.log(`wrote ${pages.length} model pages, about/, method/ and cars/index.html in English and Spanish, sitemap.xml, robots.txt, llms.txt, ${cars.length} JSON records under api/v1/`);

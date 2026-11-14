@@ -172,3 +172,64 @@ describe('the passport schema', () => {
     expect(passportSchemaJson().description).toMatch(/No MiCar endpoint serves these today/);
   });
 });
+
+describe('the Spanish pages', () => {
+  // imported here so the English tests above run without the table in play
+  it('every text a Spanish page asks for has Spanish, with the same placeholders and markup', async () => {
+    const { missed, tr } = await import('./lang');
+    const { SEO_ES } = await import('./es');
+    const { default: stickers } = await import('../data/stickers.json');
+    const { default: epa } = await import('../data/epa-configs.json');
+    const { buildCarRecords } = await import('./api');
+    const { buildModelPages, indexPageHtml, modelPageHtml } = await import('./pages');
+    missed.clear();
+    const pages = buildModelPages(stickers as never), recs = new Map(buildCarRecords(stickers as never, epa as never).map((c) => [c.id, c]));
+    const out = [aboutPageHtml(counts, cal, env, 'es'), methodPageHtml(counts, cal, env, 'es'), indexPageHtml(pages, env, 'es')];
+    for (const p of pages) { out.push(modelPageHtml(p, env, recs.get(p.slug), 'es')); modelPageHtml(p, env, undefined, 'es'); }
+    expect([...missed]).toEqual([]);
+    for (const html of out) {
+      expect(html).toContain('<html lang="es">');
+      expect(html).not.toMatch(/\{\w+\}|NaN|undefined/);                       // no placeholder left unfilled
+      expect(html).toMatch(/<link rel="alternate" hreflang="en" href="[^"]+" \/>\n<link rel="alternate" hreflang="es" href="[^"]+\/es\/[^"]+" \/>/);
+      for (const m of html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/g)) expect(() => JSON.parse(m[1])).not.toThrow();
+    }
+    const marks = (s: string) => [(s.match(/\{\w+\}/g) ?? []).sort(), (s.match(/<\/?\w+/g) ?? []).sort()];
+    for (const [en, es] of Object.entries(SEO_ES)) expect(marks(es), en.slice(0, 40)).toEqual(marks(en));
+    expect(tr('en')('{a} of 100', { a: 3 })).toBe('3 of 100');
+  });
+
+  it('say in Spanish that nothing is checked, link each other and open the app in Spanish', () => {
+    const about = aboutPageHtml(counts, cal, env, 'es'), method = methodPageHtml(counts, cal, env, 'es');
+    expect(about).toContain('<h1>Qué es MiCar</h1>');
+    expect(about).toContain('<strong>Qué se ha comprobado hoy: nada.</strong>');
+    expect(about).toContain('ningún auto en MiCar está Verificado ni Certificado');
+    expect(about).toContain('<td>Verificado</td>');
+    expect(about).toContain('href="../../?lang=es#/garage"');
+    expect(about).toContain('href="../../es/method/"');
+    expect(about).toContain(`<link rel="canonical" href="${ABOUT_URL.replace('about/', 'es/about/')}" />`);
+    expect(about).toMatch(/hreflang="en" lang="en">English<\/a>/);
+    expect(aboutPageHtml(counts, cal, env)).toMatch(/hreflang="es" lang="es">Español<\/a>/);
+    expect(method).toContain('<h1>Cómo calcula MiCar un valor</h1>');
+    expect(method).toContain('precios pedidos, no precios de venta');
+    expect(method).toContain('<td>Reconstruido</td><td>−32.5%</td>');
+    expect(method).toContain('<td>Limpio</td><td>sin cambio</td>');
+    expect(text(about)).not.toMatch(/Keyholder|\$39/);
+  });
+
+  it('a Spanish model page carries the same figures as the English one', async () => {
+    const { default: stickers } = await import('../data/stickers.json');
+    const { default: epa } = await import('../data/epa-configs.json');
+    const { buildCarRecords } = await import('./api');
+    const { buildModelPages, modelPageHtml } = await import('./pages');
+    const p = buildModelPages(stickers as never).find((x) => x.slug === 'honda-civic')!;
+    const car = buildCarRecords(stickers as never, epa as never).find((c) => c.id === 'honda-civic');
+    const en = modelPageHtml(p, env, car), es = modelPageHtml(p, env, car, 'es');
+    const figures = (h: string) => (h.match(/<main>[\s\S]*<\/main>/)![0].match(/\$[\d,]+|<td>[^<]*<\/td>|<li>[^<]*<\/li>/g) ?? []).filter((x) => !/^<td>(Value a|Valorar un)/.test(x));
+    expect(figures(es)).toEqual(figures(en));
+    expect(es).toContain('<h1>Valores del Honda Civic</h1>');
+    expect(es).toContain('El Honda Civic es un sedán.');
+    expect(es).toContain('lang=es');
+    expect(es).toContain('href="../../../es/method/"');
+    expect(es).toContain('MiCar no revisa ningún registro de ningún auto.');
+  });
+});

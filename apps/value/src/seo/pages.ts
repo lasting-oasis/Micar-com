@@ -8,11 +8,14 @@
 // major search engines do not read: until then the sitemap reaches them only by being submitted to them directly.
 
 import type { CarRecord, CarSpec, CarYear } from './api';
+import { appLang, langDir, tr, type Lang } from './lang';
 
 export const SITE_URL = 'https://lasting-oasis.github.io/Micar-com/';
 /** The two plain-HTML pages that say what MiCar is and how a value is worked out (about.ts writes them). */
 export const ABOUT_URL = `${SITE_URL}about/`;
 export const METHOD_URL = `${SITE_URL}method/`;
+/** A plain page's address in a language: English at the root, Spanish under es/. */
+export const pageUrl = (lang: Lang, path: string): string => `${SITE_URL}${langDir(lang)}${path}`;
 
 export type StickerTrim = { trim: string; msrp: number };
 export type StickerYear = { year: number; trims: StickerTrim[] };
@@ -96,16 +99,26 @@ const BODY_WORDS: Record<string, string> = {
   'Pickup Truck': 'a pickup truck',
   'Minivan': 'a minivan',
 };
-export function bodyPhrase(body: string): string {
-  const known = BODY_WORDS[body];
+const BODY_WORDS_ES: Record<string, string> = {
+  'Sedan': 'un sedán',
+  'SUV / Crossover': 'un SUV o crossover',
+  'Coupe / Sports': 'un cupé o deportivo',
+  'Hatchback / Wagon': 'un hatchback o familiar',
+  'Pickup Truck': 'una pickup',
+  'Minivan': 'una minivan',
+};
+export function bodyPhrase(body: string, lang: Lang = 'en'): string {
+  const known = (lang === 'es' ? BODY_WORDS_ES : BODY_WORDS)[body];
   if (known) return known;
-  const words = body.toLowerCase().replace(/\s*\/\s*/g, ' or ');
+  const words = body.toLowerCase().replace(/\s*\/\s*/g, lang === 'es' ? ' o ' : ' or ');
+  if (lang === 'es') return `un vehículo ${words}`;
   return (/^[aeiou]/.test(words) ? 'an ' : 'a ') + words;
 }
 
 /** The calculator link the app already understands (urlState.ts): query params, then the #/value route. */
-export function valueLink(base: string, p: ModelPage, row?: YearRow): string {
+export function valueLink(base: string, p: ModelPage, row?: YearRow, lang: Lang = 'en'): string {
   const q = new URLSearchParams({ make: p.make, model: p.model, body: p.body });
+  if (lang === 'es') q.set('lang', 'es');
   if (row) {
     q.set('trim', row.baseTrim);
     q.set('year', String(row.year));
@@ -114,17 +127,18 @@ export function valueLink(base: string, p: ModelPage, row?: YearRow): string {
   return `${base}?${q.toString()}#/value`;
 }
 
-export function shell(opts: { title: string; description: string; canonical: string; css: string; footer: string; jsonld: unknown[]; body: string; json?: string }): string {
+export function shell(opts: { title: string; description: string; canonical: string; css: string; footer: string; jsonld: unknown[]; body: string; json?: string; lang?: Lang; alternates?: Record<Lang, string> }): string {
+  const alt = opts.alternates ? `<link rel="alternate" hreflang="en" href="${escapeHtml(opts.alternates.en)}" />\n<link rel="alternate" hreflang="es" href="${escapeHtml(opts.alternates.es)}" />\n<link rel="alternate" hreflang="x-default" href="${escapeHtml(opts.alternates.en)}" />\n` : '';
   const ld = opts.jsonld.map((x) => `<script type="application/ld+json">${jsonLd(x)}</script>`).join('\n');
   return `<!doctype html>
-<html lang="en">
+<html lang="${opts.lang ?? 'en'}">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>${escapeHtml(opts.title)}</title>
 <meta name="description" content="${escapeHtml(opts.description)}" />
 <link rel="canonical" href="${escapeHtml(opts.canonical)}" />
-${opts.json ? `<link rel="alternate" type="application/json" href="${escapeHtml(opts.json)}" />\n` : ''}<link rel="sitemap" type="application/xml" href="${SITE_URL}sitemap.xml" />
+${alt}${opts.json ? `<link rel="alternate" type="application/json" href="${escapeHtml(opts.json)}" />\n` : ''}<link rel="sitemap" type="application/xml" href="${SITE_URL}sitemap.xml" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="MiCar" />
 <meta property="og:title" content="${escapeHtml(opts.title)}" />
@@ -150,6 +164,7 @@ li{margin:.2em 0}
 table{width:100%;border-collapse:collapse;margin:12px 0}
 th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--mc-line)}
 th{color:var(--mc-haze);font-weight:500}
+@media(max-width:480px){th,td{padding:6px 4px;font-size:.9rem}}
 ul.models{columns:2 220px;padding-left:1.1em}
 </style>
 </head>
@@ -165,7 +180,7 @@ ${opts.footer}
 
 export type PageEnv = { css: string; footer: string };
 
-/** One EPA configuration as words: "1.5 L 4-cyl, Automatic (AV-S7), Front-Wheel Drive, Premium Gasoline". */
+/** One EPA configuration as words: "1.5 L 4-cyl, Automatic (AV-S7), Front-Wheel Drive, Premium Gasoline". The EPA's own wording, in any language. */
 export function specPhrase(s: CarSpec): string {
   const engine = [s.displacementL ? `${s.displacementL} L` : '', s.cylinders ? `${s.cylinders}-cyl` : ''].filter(Boolean).join(' ');
   return [engine, s.type, s.transmission, s.drive, s.fuel].filter(Boolean).join(', ');
@@ -176,9 +191,15 @@ function hostOf(url: string): string {
 }
 
 /** Where a model year's prices came from, in words, with the link when there is one. */
-export function sourcePhrase(src: CarYear['source']): string {
-  const kind = src.kind === 'manufacturer' ? "the manufacturer's own pricing" : src.kind === 'secondary' ? 'a secondary pricing site' : 'a source MiCar did not classify';
+export function sourcePhrase(src: CarYear['source'], lang: Lang = 'en'): string {
+  const t = tr(lang);
+  const kind = src.kind === 'manufacturer' ? t("the manufacturer's own pricing") : src.kind === 'secondary' ? t('a secondary pricing site') : t('a source MiCar did not classify');
   return src.url ? `${kind} (<a href="${escapeHtml(src.url)}" rel="nofollow noopener">${escapeHtml(hostOf(src.url))}</a>)` : kind;
+}
+
+/** The link to the same page in the other language, for the end of the breadcrumb line. */
+export function otherLanguage(lang: Lang, href: string): string {
+  return lang === 'es' ? `<a href="${escapeHtml(href)}" hreflang="en" lang="en">English</a>` : `<a href="${escapeHtml(href)}" hreflang="es" lang="es">Español</a>`;
 }
 
 /**
@@ -186,16 +207,18 @@ export function sourcePhrase(src: CarYear['source']): string {
  * the EPA's configurations and where the prices came from. The same record as api/v1/cars/<id>.json, so the page
  * and the JSON cannot disagree.
  */
-function yearDetailHtml(name: string, y: CarYear): string {
-  const withConfig = y.trims.some((t) => t.config);
-  const rows = y.trims.map((t) => `<tr><td>${escapeHtml(t.name)}</td>${withConfig ? `<td>${escapeHtml(t.config ?? '')}</td>` : ''}<td>${usd(t.msrpUsd)}</td></tr>`).join('\n');
+function yearDetailHtml(name: string, y: CarYear, lang: Lang): string {
+  const t = tr(lang);
+  const withConfig = y.trims.some((x) => x.config);
+  const rows = y.trims.map((x) => `<tr><td>${escapeHtml(x.name)}</td>${withConfig ? `<td>${escapeHtml(x.config ?? '')}</td>` : ''}<td>${usd(x.msrpUsd)}</td></tr>`).join('\n');
+  const car = `${y.year} ${escapeHtml(name)}`;
   const specs = y.specs.length
-    ? `<p>How the EPA lists the ${y.year} ${escapeHtml(name)} (engine, transmission, drive, fuel):</p>\n<ul>\n${y.specs.map((s) => `<li>${escapeHtml(specPhrase(s))}</li>`).join('\n')}\n</ul>`
-    : `<p class="muted">The EPA's vehicle file lists no configuration for the ${y.year} ${escapeHtml(name)}.</p>`;
-  return `<h3 id="y${y.year}">${y.year} ${escapeHtml(name)}</h3>
-<p class="muted">${y.destinationUsd ? `Destination charge ${usd(y.destinationUsd)}, not included in the prices below. ` : ''}Prices from ${sourcePhrase(y.source)}.</p>
+    ? `<p>${t('How the EPA lists the {car} (engine, transmission, drive, fuel):', { car })}</p>\n<ul>\n${y.specs.map((s) => `<li>${escapeHtml(specPhrase(s))}</li>`).join('\n')}\n</ul>`
+    : `<p class="muted">${t("The EPA's vehicle file lists no configuration for the {car}.", { car })}</p>`;
+  return `<h3 id="y${y.year}">${car}</h3>
+<p class="muted">${y.destinationUsd ? `${t('Destination charge {usd}, not included in the prices below.', { usd: usd(y.destinationUsd) })} ` : ''}${t('Prices from {source}.', { source: sourcePhrase(y.source, lang) })}</p>
 <table>
-<thead><tr><th>Trim</th>${withConfig ? '<th>Configuration</th>' : ''}<th>Original MSRP</th></tr></thead>
+<thead><tr><th>${t('Trim')}</th>${withConfig ? `<th>${t('Configuration')}</th>` : ''}<th>${t('Original MSRP')}</th></tr></thead>
 <tbody>
 ${rows}
 </tbody>
@@ -203,30 +226,38 @@ ${rows}
 ${specs}`;
 }
 
-export function modelPageHtml(p: ModelPage, env: PageEnv, car?: CarRecord): string {
-  const name = `${p.make} ${p.model}`;
+export function modelPageHtml(p: ModelPage, env: PageEnv, car?: CarRecord, lang: Lang = 'en'): string {
+  const t = tr(lang);
+  const name = `${p.make} ${p.model}`, ename = escapeHtml(name);
   const newest = p.years[0];
   const span = yearRuns(p.years.map((y) => y.year));
   const allLow = Math.min(...p.years.map((y) => y.low));
   const allHigh = Math.max(...p.years.map((y) => y.high));
-  const canonical = `${SITE_URL}cars/${p.slug}/`;
-  const app = '../../';
-  const description = `${name} (${p.body}) used values on MiCar: original sticker prices (MSRP) for the ${span} model year${p.years.length === 1 ? '' : 's'}, ${range(allLow, allHigh)} new, and a free calculator for trade-in, private-party and dealer retail value.`;
+  const one = p.years.length === 1;
+  const canonical = pageUrl(lang, `cars/${p.slug}/`);
+  const home = lang === 'es' ? '../../../' : '../../';
+  const app = `${home}${appLang(lang)}`;
+  const body$ = lang === 'es' ? t(p.body) : p.body;
+  const description = t(one
+    ? '{name} ({body}) used values on MiCar: original sticker prices (MSRP) for the {span} model year, {range} new, and a free calculator for trade-in, private-party and dealer retail value.'
+    : '{name} ({body}) used values on MiCar: original sticker prices (MSRP) for the {span} model years, {range} new, and a free calculator for trade-in, private-party and dealer retail value.', { name, body: body$, span, range: range(allLow, allHigh) });
   const rows = p.years
-    .map((y) => `<tr><td>${y.year}</td><td>${y.trims}</td><td>${range(y.low, y.high)}</td><td><a href="${escapeHtml(valueLink(app, p, y))}">Value a ${y.year}</a></td></tr>`)
+    .map((y) => `<tr><td>${y.year}</td><td>${y.trims}</td><td>${range(y.low, y.high)}</td><td><a href="${escapeHtml(valueLink(home, p, y, lang))}">${t('Value a {year}', { year: y.year })}</a></td></tr>`)
     .join('\n');
-  const body = `<p class="crumbs"><a href="${app}">MiCar</a> › <a href="../">All cars</a> › ${escapeHtml(p.make)}</p>
-<h1>${escapeHtml(name)} values</h1>
-<p>The ${escapeHtml(name)} is ${escapeHtml(bodyPhrase(p.body))}. MiCar has original window-sticker prices for ${p.years.length} model year${p.years.length === 1 ? '' : 's'} (${span}), ${allLow === allHigh ? `at ${usd(allLow)}` : `from ${usd(allLow)} to ${usd(allHigh)}`} before destination. Pick a year to see what one is worth today: trade-in, private-party and dealer retail, with a price range and a five-year forecast. Free, no account.</p>
-<a class="cta" href="${escapeHtml(valueLink(app, p, newest))}">Value my ${escapeHtml(name)}</a>
-<h2>Original MSRP by model year</h2>
+  const price = allLow === allHigh ? t('at {low}', { low: usd(allLow) }) : t('from {low} to {high}', { low: usd(allLow), high: usd(allHigh) });
+  const json = `${SITE_URL}api/v1/cars/${p.slug}.json`;
+  const body = `<p class="crumbs"><a href="${app || home}">MiCar</a> › <a href="../">${t('All cars')}</a> › ${escapeHtml(p.make)} · ${otherLanguage(lang, pageUrl(lang === 'es' ? 'en' : 'es', `cars/${p.slug}/`))}</p>
+<h1>${t('{name} values', { name: ename })}</h1>
+<p>${t('The {name} is {body}.', { name: ename, body: escapeHtml(bodyPhrase(p.body, lang)) })} ${t(one ? 'MiCar has original window-sticker prices for {n} model year ({span}), {price} before destination.' : 'MiCar has original window-sticker prices for {n} model years ({span}), {price} before destination.', { n: p.years.length, span, price })} ${t('Pick a year to see what one is worth today: trade-in, private-party and dealer retail, with a price range and a five-year forecast. Free, no account.')}</p>
+<a class="cta" href="${escapeHtml(valueLink(home, p, newest, lang))}">${t('Value my {name}', { name: ename })}</a>
+<h2>${t('Original MSRP by model year')}</h2>
 <table>
-<thead><tr><th>Year</th><th>Trims</th><th>MSRP range (excl. destination)</th><th></th></tr></thead>
+<thead><tr><th>${t('Year')}</th><th>${t('Trims')}</th><th>${t('MSRP range (excl. destination)')}</th><th></th></tr></thead>
 <tbody>
 ${rows}
 </tbody>
 </table>
-${car ? `<h2>Every trim, engine and price source</h2>\n${car.years.map((y) => yearDetailHtml(name, y)).join('\n')}\n` : ''}<p class="muted">${car ? 'The same figures are' : "Every trim and its MSRP, with the EPA's engine and drivetrain configurations where the EPA lists them, is"} also available as <a href="${SITE_URL}api/v1/cars/${p.slug}.json">JSON</a>. Sticker prices come from manufacturer and pricing sources gathered for MiCar, named for each model year. Today's values are estimates, not offers: the calculator works them out from the sticker price, age, mileage, condition, title, reported accidents, region and the used-car market, and from local supply and asking prices when you give them. MiCar checks no record of any car. <a href="${app}method/">How a value is worked out, and how far off it can be</a>.</p>`;
+${car ? `<h2>${t('Every trim, engine and price source')}</h2>\n${car.years.map((y) => yearDetailHtml(name, y, lang)).join('\n')}\n` : ''}<p class="muted">${car ? t('The same figures are also available as <a href="{json}">JSON</a>.', { json }) : t('Every trim and its MSRP, with the EPA\'s engine and drivetrain configurations where the EPA lists them, is also available as <a href="{json}">JSON</a>.', { json })} ${t("Sticker prices come from manufacturer and pricing sources gathered for MiCar, named for each model year. Today's values are estimates, not offers: the calculator works them out from the sticker price, age, mileage, condition, title, reported accidents, region and the used-car market, and from local supply and asking prices when you give them. MiCar checks no record of any car.")} <a href="${home}${langDir(lang)}method/">${t('How a value is worked out, and how far off it can be')}</a>.</p>`;
   // A Car, not a Product with offers: MiCar sells no cars, and the MSRPs are past sticker prices across many model
   // years, not prices anyone is asking. They stay in the page's table, where they read as what they are.
   const jsonld = [
@@ -244,47 +275,53 @@ ${car ? `<h2>Every trim, engine and price source</h2>\n${car.years.map((y) => ye
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'MiCar', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'All cars', item: `${SITE_URL}cars/` },
+        { '@type': 'ListItem', position: 2, name: t('All cars'), item: pageUrl(lang, 'cars/') },
         { '@type': 'ListItem', position: 3, name, item: canonical },
       ],
     },
   ];
-  return shell({ title: `${name} values and original MSRP (${span}) | MiCar`, description, canonical, css: env.css, footer: env.footer, jsonld, body, json: `${SITE_URL}api/v1/cars/${p.slug}.json` });
+  return shell({ title: t('{name} values and original MSRP ({span}) | MiCar', { name, span }), description, canonical, css: env.css, footer: env.footer, jsonld, body, json, lang, alternates: { en: pageUrl('en', `cars/${p.slug}/`), es: pageUrl('es', `cars/${p.slug}/`) } });
 }
 
-export function indexPageHtml(pages: ModelPage[], env: PageEnv): string {
+export function indexPageHtml(pages: ModelPage[], env: PageEnv, lang: Lang = 'en'): string {
+  const t = tr(lang);
   const byMake = new Map<string, ModelPage[]>();
   for (const p of pages) byMake.set(p.make, [...(byMake.get(p.make) ?? []), p]);
   const sections = [...byMake]
     .map(([make, ps]) => `<h2 id="${slugify(make)}">${escapeHtml(make)}</h2>\n<ul class="models">\n${ps.map((p) => `<li><a href="${p.slug}/">${escapeHtml(p.model)}</a> <span class="muted">${yearRuns(p.years.map((y) => y.year))}</span></li>`).join('\n')}\n</ul>`)
     .join('\n');
-  const body = `<p class="crumbs"><a href="../">MiCar</a> › All cars</p>
-<h1>Every car MiCar can value</h1>
-<p>${pages.length} models from ${byMake.size} makes, each with original sticker prices by model year and a free used-car value calculator. <a href="../#/value">Open the calculator</a>.</p>
+  const home = lang === 'es' ? '../../' : '../';
+  const app = `${home}${appLang(lang)}`;
+  const body = `<p class="crumbs"><a href="${app || home}">MiCar</a> › ${t('All cars')} · ${otherLanguage(lang, pageUrl(lang === 'es' ? 'en' : 'es', 'cars/'))}</p>
+<h1>${t('Every car MiCar can value')}</h1>
+<p>${t('{models} models from {makes} makes, each with original sticker prices by model year and a free used-car value calculator.', { models: pages.length, makes: byMake.size })} <a href="${app}#/value">${t('Open the calculator')}</a>.</p>
 ${sections}`;
   const jsonld = [
     {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
-      name: 'Cars MiCar can value',
+      name: t('Cars MiCar can value'),
       numberOfItems: pages.length,
-      itemListElement: pages.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: `${p.make} ${p.model}`, url: `${SITE_URL}cars/${p.slug}/` })),
+      itemListElement: pages.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: `${p.make} ${p.model}`, url: pageUrl(lang, `cars/${p.slug}/`) })),
     },
   ];
   return shell({
-    title: 'Every car MiCar can value: used-car values and original MSRP by model | MiCar',
-    description: `Browse ${pages.length} car models from ${byMake.size} makes with original sticker prices by year and a free trade-in, private-party and dealer retail value calculator.`,
-    canonical: `${SITE_URL}cars/`,
+    title: t('Every car MiCar can value: used-car values and original MSRP by model | MiCar'),
+    description: t('Browse {models} car models from {makes} makes with original sticker prices by year and a free trade-in, private-party and dealer retail value calculator.', { models: pages.length, makes: byMake.size }),
+    canonical: pageUrl(lang, 'cars/'),
     json: `${SITE_URL}api/v1/cars.json`,
     css: env.css,
     footer: env.footer,
     jsonld,
     body,
+    lang,
+    alternates: { en: pageUrl('en', 'cars/'), es: pageUrl('es', 'cars/') },
   });
 }
 
 export function sitemapXml(pages: ModelPage[], lastmod: string): string {
-  const urls = [SITE_URL, ABOUT_URL, METHOD_URL, `${SITE_URL}cars/`, ...pages.map((p) => `${SITE_URL}cars/${p.slug}/`)];
+  const paths = ['about/', 'method/', 'cars/', ...pages.map((p) => `cars/${p.slug}/`)];
+  const urls = [SITE_URL, ...paths.map((x) => pageUrl('en', x)), ...paths.map((x) => pageUrl('es', x))];
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map((u) => `<url><loc>${escapeHtml(u)}</loc><lastmod>${lastmod}</lastmod></url>`).join('\n')}
@@ -317,6 +354,7 @@ The app at ${SITE_URL} runs in the browser (JavaScript, hash routes). For plain-
 - [The Garage](${SITE_URL}#/garage): the app; cars parked there are kept in the visitor's own browser and nowhere else
 - [MiCar World](https://micar-sim.onrender.com/): the 3D town (JavaScript and WebGL)
 - [Sitemap](${SITE_URL}sitemap.xml)
+- En español: the same plain pages in Spanish are under ${SITE_URL}es/ ([Qué es MiCar](${SITE_URL}es/about/), [cómo se calcula un valor](${SITE_URL}es/method/), [todos los autos](${SITE_URL}es/cars/)); the app itself switches language with ?lang=es
 
 ## Data API (JSON)
 

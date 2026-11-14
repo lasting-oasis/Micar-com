@@ -194,8 +194,8 @@ describe('seo pages', () => {
       expect(index).toContain(`href="${p.slug}/"`);
       expect(sitemap).toContain(`<loc>${SITE_URL}cars/${p.slug}/</loc>`);
     }
-    expect(sitemap.match(/<url>/g)).toHaveLength(pages.length + 4);
-    for (const u of [ABOUT_URL, METHOD_URL]) expect(sitemap).toContain(`<loc>${u}</loc>`);
+    expect(sitemap.match(/<url>/g)).toHaveLength(2 * (pages.length + 3) + 1);          // every plain page in two languages, and the home page
+    for (const u of [ABOUT_URL, METHOD_URL, `${SITE_URL}es/about/`, `${SITE_URL}es/method/`, `${SITE_URL}es/cars/`, `${SITE_URL}es/cars/honda-civic/`]) expect(sitemap).toContain(`<loc>${u}</loc>`);
     expect(robotsTxt()).toContain(`Sitemap: ${SITE_URL}sitemap.xml`);
     expect(llmsTxt(pages)).toMatch(/^# MiCar\n\n> /);
     expect(llmsTxt(pages)).toContain(`${SITE_URL}cars/`);
