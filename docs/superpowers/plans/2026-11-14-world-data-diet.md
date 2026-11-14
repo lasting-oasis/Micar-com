@@ -149,7 +149,7 @@
 **Files:**
 - Modify: `docs/superpowers/specs/2026-11-14-world-data-diet-design.md` (the measured result); `docs/superpowers/specs/2026-11-14-world-data-diet-data/` (the "after" measurements)
 
-- [ ] **Step 1:** Run `data.ts` with the same rows, both modes, on the branch; copy the final `data.ts` (and `netPositions.ts`, which it imports) into the `origin/main` worktree and run the "before" rows again there, so both sides use the same program. Expected (estimates): driving, about 7 to 8 KB/s each at 100 in the hub, about 2 KB/s spread, joins about 10 MB at 100; the ten nearest within 200 m still updating every ~105 ms (median); in play, the state column near zero beside today's full copies.
+- [ ] **Step 1:** Run `data.ts` with the same rows, both modes, on the branch; copy the final `data.ts` (and `netPositions.ts`, which it imports) into the `origin/main` worktree and run the "before" rows again there, so both sides use the same program. Expected (estimates): driving, about 7 to 8 KB/s each at 100 in the hub, about 2 KB/s spread, joins about 10 MB at 100; the twenty nearest within 200 m still updating every ~105 ms (median); in play, the state column near zero beside today's full copies.
 - [ ] **Step 2:** Put the before-and-after table in the spec, with what was not measured, on `lane-d/data-diet-plan`.
 - [ ] **Step 3:** Commit; boss review of the documents branch.
 - [ ] **Step 4:** Push both branches and open two pull requests, with the trial's headings: "Plan: World data diet — design, plan and measurements (documents only)" from `lane-d/data-diet-plan`, and "World data diet: each player hears what is near it, and gets patches instead of full copies" from `lane-d/data-diet`, with the before-and-after table. Do not merge.
