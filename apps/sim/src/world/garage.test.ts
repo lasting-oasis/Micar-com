@@ -70,3 +70,19 @@ describe('the Garage camera between cars', () => {
   });
 });
 
+describe('the Options menu', () => {
+  it('has a Car models row: Detailed by default, Simple after one press, which it hands to the options storage', () => {
+    const set: [string, unknown][] = [];
+    const g = model({});
+    (g as unknown as { ctx: { setOpt: (k: string, v: unknown) => void } }).ctx.setOpt = (k, v) => { set.push([k, v]); };
+    g.enterPath(['options']);
+    const i = g.rowIds().indexOf('models');
+    expect(i).toBeGreaterThanOrEqual(0);
+    expect(g.rows()[i].status).toEqual({ text: 'Detailed', tone: 'muted' });
+    g.select(i); expect(g.desc()).toMatch(/built-in body/i);
+    g.activate();
+    expect(set).toEqual([['models', false]]);
+    expect(g.rows()[i].status!.text).toBe('Simple');
+  });
+});
+

@@ -57,6 +57,8 @@ export class CarFeelAdapter {
   clearSkids(district: 'town' | 'strip'): void { this.skids[district]?.dispose(); delete this.skids[district]; this.last = null; }
 
   /** Out of the car: the body levels, smoke and marks go. */
+  /** The car's body changed (its own model, or the lofted one back): the tyre smoke moves to the new wheels next frame. */
+  resetSmoke(): void { this.smoke?.dispose(); this.smoke = this.smokeFor = null; }
   release(mesh: THREE.Group | undefined): void {
     const rig = mesh?.userData.car as Rig | undefined;
     if (rig) { rig.tilt.rotation.set(0, 0, 0); rig.tilt.position.y = 0; }

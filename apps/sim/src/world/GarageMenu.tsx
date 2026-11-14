@@ -3,7 +3,7 @@
 // Open with useGameStore.openGarage(carId) (one of the player's inventory cars); "Drive" closes it.
 import React, { useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import { useGameStore } from '../store';
-import { deriveStyle } from '../scene/carModel';
+import { deriveStyle, setCarModels } from '../scene/carModel';
 import { carMeshId } from '../scene/car/carMeshes';
 import { GarageModel, drawDyno, type Row, type RowTone } from './garage';
 import { GarageScene } from './GarageScene';
@@ -57,7 +57,7 @@ export function GarageMenu({ onQuickRace }: { onQuickRace?: (eventId: string) =>
       best: () => rec()?.best ?? {},
       // the options are saved (world/options.ts) and read by the driving: transmission, units, camera, sound
       getOpt: (k) => getOption(k),
-      setOpt: (k, v) => { setOption(k, v); if (k === 'mute') audio.current?.setMute(!!getOptions().mute); },
+      setOpt: (k, v) => { setOption(k, v); if (k === 'mute') audio.current?.setMute(!!getOptions().mute); if (k === 'models') setCarModels(getOptions().models); },
     });
   }
   const g = model.current;

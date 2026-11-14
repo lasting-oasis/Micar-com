@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { disposeCarAtlas, getCarAtlas, stepCarAtlas } from './car/carAtlas';
 import { disposeStyleGeometries, getStyleGeometry, isStyleBuilt, stepStyle } from './car/carStyles';
-import { HALO_HEAD, HALO_TAIL } from './car/carGeometry';
+import { HALO_HEAD, HALO_TAIL, type StyleGeometry } from './car/carGeometry';
 import { carMeshes, disposeMeshDarkMaterial, meshDarkMaterial, type MeshGeometry } from './car/carMeshes';
 
 // Car models and paint (colour names, rust, mud, smoke), lamps and the per-frame car
@@ -273,6 +273,9 @@ export type LampMode = 'off' | 'on' | 'brake' | 'reverse';
 type CarParts = {
     style: string; length: number; width: number;
     mesh: string | null;  // the mesh body shown (its model id), or null: the lofted body of the style
+    loft: StyleGeometry;  // the lofted body of the style (shown until the model arrives, and with the Car models setting off)
+    want: string | null;  // the model asked for (buildCarModel's meshId)
+    hold: boolean | (() => boolean); // buildCarModel's afterPrecompile
     wheelGeo: { wheel: THREE.BufferGeometry; wheelBlur: THREE.BufferGeometry }; wheelScale: THREE.Vector3[];
     meshWheel: { r: number; w: number } | null; // a mesh body's front tyre (radius, width); the rear ones are scaled by wheelScale
     beamZ: number;
@@ -357,7 +360,7 @@ export const buildCarModel = (style: string, rawColor: string, bodyCond: number 
     for (const o of [...tilt.children, wheelMesh]) o.position.y += CAR_LIFT;
 
     const parts: CarParts = {
-        style, length: geo.length, width: geo.width, mesh: null, meshWheel: null, wheelGeo: geo, wheelScale: geo.wheelPos.map(() => ONE.clone()), beamZ: geo.beamZ, tilt, body, trim, glass, wheelMesh, farBody, farTrim, halos, pivots, wheels, smoke: smokeParticles,
+        style, length: geo.length, width: geo.width, mesh: null, loft: geo, want: meshId ?? null, hold: afterPrecompile, meshWheel: null, wheelGeo: geo, wheelScale: geo.wheelPos.map(() => ONE.clone()), beamZ: geo.beamZ, tilt, body, trim, glass, wheelMesh, farBody, farTrim, halos, pivots, wheels, smoke: smokeParticles,
         lamps: 'off', far: false, blur: false, lastRoll: new THREE.Quaternion(), syncFrame: 0,
         sx: NaN, sz: NaN, sqy: NaN, sqw: NaN, ss: NaN, sv: false,
     };
@@ -366,36 +369,59 @@ export const buildCarModel = (style: string, rawColor: string, bodyCond: number 
     wheelMesh.computeBoundingSphere();
     cars.push(group);
     shadowsDirtyFrom = Math.min(shadowsDirtyFrom, cars.length - 1);
-    if (meshId) {
-        const fit = (m: MeshGeometry) => {
-            const hold = typeof afterPrecompile === 'function' ? afterPrecompile() : afterPrecompile;
-            if (!hold || pre.state === 'done') return fitMeshBody(group, m);
-            heldFits.push([group, m]);
-        };
-        const mg = carMeshes().request(meshId);
-        if (mg) fit(mg);
-        else void carMeshes().when(meshId).then(m => { if (m && cars.includes(group)) fit(m); });
-    }
+    wantMeshBody(group);
     return { group, tilt, wheels, body, frontPivots: pivots.slice(0, 2), smokeParticles };
 };
 
-/** Put a car's own model in place of its lofted body (same nodes, so the game's references to them stay good). */
-const fitMeshBody = (group: THREE.Object3D, mg: MeshGeometry) => {
-    const c = partsOf(group)!;
-    const dark = meshDarkMaterial();
-    c.mesh = mg.id;
-    c.body.geometry = mg.paint; c.glass.geometry = mg.glass;
-    c.trim.geometry = mg.dark; c.trim.material = dark; c.trim.castShadow = true;
-    c.farBody.geometry = mg.farPaint; c.farTrim.geometry = mg.farDark; c.farTrim.material = dark;
+// The Car models setting (Garage, Options; the world sets it from the saved options at start): off, every car keeps or
+// goes back to its lofted body and no model file is asked for.
+let meshBodiesOn = true;
+/** Turn the cars' own 3D models on or off, for the cars built from now on and, in place, for those already built. */
+export const setCarModels = (on: boolean) => {
+    if (on === meshBodiesOn) return;
+    meshBodiesOn = on;
+    if (!on) {
+        heldFits.length = 0;
+        for (const g of cars) if (partsOf(g)!.mesh) setBody(g, null);
+        carMeshes().dispose(); // their GPU copies (the parsed models stay, for turning them on again)
+    } else for (const g of cars) wantMeshBody(g);
+};
+/** Ask for the car's own model (buildCarModel's meshId) and put it in when it is there, held for the precompile if asked. */
+const wantMeshBody = (group: THREE.Object3D) => {
+    const c = partsOf(group)!, id = c.want;
+    if (!id || !meshBodiesOn || c.mesh) return;
+    const fit = (m: MeshGeometry) => {
+        // (not after the setting went off, nor twice, nor for a car disposed or given another model meanwhile)
+        if (!meshBodiesOn || c.mesh || c.want !== id || !cars.includes(group)) return;
+        const hold = typeof c.hold === 'function' ? c.hold() : c.hold;
+        if (!hold || pre.state === 'done') return setBody(group, m);
+        if (!heldFits.some(([g]) => g === group)) heldFits.push([group, m]);
+    };
+    const mg = carMeshes().request(id);
+    if (mg) fit(mg);
+    else void carMeshes().when(id).then(m => { if (m) fit(m); });
+};
+
+/** Put a car's own model (`mg`), or its lofted body (null), in place of the one shown: the same nodes, so the game's
+ *  references to them stay good. One function both ways, so neither direction can miss a part. */
+const setBody = (group: THREE.Object3D, mg: MeshGeometry | null) => {
+    const c = partsOf(group)!, b = mg ?? c.loft;
+    c.mesh = mg ? mg.id : null;
+    c.body.geometry = b.paint; c.glass.geometry = b.glass;
+    c.trim.geometry = mg ? mg.dark : c.loft.trim; c.farBody.geometry = b.farPaint; c.farTrim.geometry = mg ? mg.farDark : c.loft.farTrim;
+    // a model's trim is plain black (no UVs for the atlas) and casts shadows; the lofted trim follows the lamps
+    c.trim.castShadow = !!mg;
+    if (mg) c.trim.material = c.farTrim.material = meshDarkMaterial();
     // the remixed shells are open in places: paint both faces (as the models' own materials do)
-    const paint = c.body.material as THREE.Material;
-    if (paint.side !== THREE.DoubleSide) { paint.side = THREE.DoubleSide; paint.needsUpdate = true; }
-    c.halos.geometry.dispose(); c.halos.geometry = mg.halos.clone(); c.halos.visible = false;
-    c.smoke.position.set(mg.smokePos.x, mg.smokePos.y + CAR_LIFT, mg.smokePos.z);
-    c.wheelGeo = mg; c.wheelMesh.geometry = c.blur ? mg.wheelBlur : mg.wheel;
-    mg.wheelPos.forEach((p, i) => { c.pivots[i].position.copy(p); c.wheelScale[i].setScalar(mg.wheelScale[i]); });
-    c.meshWheel = { r: mg.wheelR, w: mg.tyreW };
-    c.length = mg.length; c.width = mg.width; c.beamZ = mg.beamZ;
+    const paint = c.body.material as THREE.Material, side = mg ? THREE.DoubleSide : THREE.FrontSide;
+    if (paint.side !== side) { paint.side = side; paint.needsUpdate = true; }
+    c.halos.geometry.dispose(); c.halos.geometry = b.halos.clone();
+    showLamps(c);
+    c.smoke.position.set(b.smokePos.x, b.smokePos.y + CAR_LIFT, b.smokePos.z);
+    c.wheelGeo = b; c.wheelMesh.geometry = c.blur ? b.wheelBlur : b.wheel;
+    b.wheelPos.forEach((p, i) => { c.pivots[i].position.copy(p); c.wheelScale[i].setScalar(mg ? mg.wheelScale[i] : 1); });
+    c.meshWheel = mg ? { r: mg.wheelR, w: mg.tyreW } : null;
+    c.length = b.length; c.width = b.width; c.beamZ = b.beamZ;
     if (beam && beam.parent === c.tilt) beam.position.z = c.beamZ - 16.4;
     syncCarWheels(group);
     // the culling sphere from the new wheel matrices, all four (a kit may have set the count to 0: replaceWheels)
@@ -404,7 +430,8 @@ const fitMeshBody = (group: THREE.Object3D, mg: MeshGeometry) => {
     // whoever fitted a kit (Garage, the driven car) fits it again to the new body
     group.dispatchEvent({ type: CAR_BODY_CHANGE } as never);
 };
-/** Dispatched on a car's group when its own model replaces the lofted body (refit anything placed on the old body). */
+/** Dispatched on a car's group when its own model replaces the lofted body, or the lofted body comes back (refit
+ *  anything placed on the old body). */
 export const CAR_BODY_CHANGE = 'carbodychange';
 
 const setBlur = (c: CarParts, blur: boolean) => {
@@ -444,9 +471,14 @@ export const setCarLights = (group: THREE.Object3D, mode: LampMode | boolean) =>
     const m: LampMode = mode === true ? 'on' : mode === false ? 'off' : mode;
     if (!c || c.lamps === m) return;
     c.lamps = m;
-    if (c.mesh) return; // mesh bodies: no lamp glows yet (their trim is plain black)
-    const mat = trimFor(m)!;
-    c.trim.material = mat; c.farTrim.material = mat;
+    showLamps(c);
+};
+/** The lamps as the car's mode says: the lit trim and the night glow (mesh bodies: no lamps yet, their trim is black). */
+const showLamps = (c: CarParts) => {
+    const m = c.lamps;
+    if (c.mesh) { c.halos.visible = false; return; }
+    const mat = trimFor(m);
+    if (mat) { c.trim.material = mat; c.farTrim.material = mat; }
     c.halos.visible = m !== 'off' && nightOn;
     // tail glow: dim red when on, bright red when braking, whitish when reversing
     const col = c.halos.geometry.getAttribute('color') as THREE.BufferAttribute, dir = c.halos.geometry.getAttribute('lampDir') as THREE.BufferAttribute;
@@ -645,7 +677,7 @@ const precompileStep = (renderer: THREE.WebGLRenderer, scene: THREE.Scene, camer
 const heldFits: [THREE.Object3D, MeshGeometry][] = [];
 /** Put the held models in now: when the precompile is done, and when the player leaves the town before it (the
  *  precompile runs in the town only, so it would not come). */
-export const releaseHeldCarBodies = () => { for (const [car, mg] of heldFits.splice(0)) if (cars.includes(car)) fitMeshBody(car, mg); };
+export const releaseHeldCarBodies = () => { for (const [car, mg] of heldFits.splice(0)) if (meshBodiesOn && cars.includes(car) && !partsOf(car)!.mesh) setBody(car, mg); };
 
 /** Remove a car and free what belongs to it alone (shared geometry/materials stay). */
 export const disposeCarModel = (group: THREE.Object3D) => {

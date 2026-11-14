@@ -1,4 +1,4 @@
-import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import * as THREE from 'three';
 
 // carModel draws its shared textures on canvases and builds the lofted bodies from the atlas: stand-ins for both, so
@@ -255,6 +255,71 @@ describe('when the precompile fails', () => {
         carFrameTick(); precompileCarsTick(broken, scene, new THREE.PerspectiveCamera()); // done: no second try, no second warning
         expect(warn).toHaveBeenCalledTimes(1);
         warn.mockRestore();
+        disposeCarModel(group);
+    });
+});
+
+describe('the Car models setting (Garage, Options)', () => {
+    afterEach(async () => { (await import('./carModel')).setCarModels(true); });
+    it('off: a car is built on its lofted body and no model file is asked for', async () => {
+        const { setCarModels } = await import('./carModel');
+        setCarModels(false);
+        setCarMeshCache(deferred());
+        const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'toyota-camry');
+        expect(urls).toEqual([]);
+        expect(partsOf(group).mesh).toBeNull();
+        disposeCarModel(group);
+    });
+    it('turned off, a car on its model goes back to its lofted body, whole; turned on, its model comes back without a second fetch', async () => {
+        const { setCarModels } = await import('./carModel');
+        const lofted = buildCarModel('sedan', '#00ff00', 100, 100).group, L = partsOf(lofted) as Parts & { pivots: THREE.Object3D[]; beamZ: number };
+        setCarLights(lofted, 'on');
+        const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'toyota-camry');
+        const c = partsOf(group) as Parts & { pivots: THREE.Object3D[]; beamZ: number };
+        setCarLights(group, 'on');
+        expect(c.mesh).toBe('toyota-camry');
+        let changed = 0; group.addEventListener(CAR_BODY_CHANGE as never, () => { changed++; });
+        setCarModels(false);
+        expect(c.mesh).toBeNull(); expect(changed).toBe(1); // the kit and the Garage camera fit again
+        // every part as on a car built lofted: geometry, trim material (lit), shadows, paint side, wheels, sizes
+        for (const k of ['body', 'trim', 'glass', 'farBody', 'farTrim'] as const) expect(c[k].geometry).toBe(L[k].geometry);
+        expect(c.trim.material).toBe(L.trim.material); expect(c.farTrim.material).toBe(L.farTrim.material);
+        expect(c.trim.castShadow).toBe(false);
+        expect((c.body.material as THREE.Material).side).toBe(THREE.FrontSide);
+        expect(c.wheelMesh.geometry).toBe(L.wheelMesh.geometry);
+        for (const i of [0, 1, 2, 3]) { expect(c.pivots[i].position).toEqual(L.pivots[i].position); expect(wheelAt(c, i).s.x).toBeCloseTo(1); }
+        expect(c.length).toBe(L.length); expect(c.width).toBe(L.width); expect(c.beamZ).toBe(L.beamZ);
+        expect(c.halos.geometry.getAttribute('position').count).toBe(L.halos.geometry.getAttribute('position').count);
+        expect(c.wheelMesh.boundingSphere!.radius).toBeGreaterThan(2);
+        urls = [];
+        setCarModels(true);
+        expect(c.mesh).toBe('toyota-camry'); expect(changed).toBe(2); expect(urls).toEqual([]);
+        expect((c.body.material as THREE.Material).side).toBe(THREE.DoubleSide);
+        disposeCarModel(group); disposeCarModel(lofted);
+    });
+    it('a model that arrives after the setting went off is not put in, and turning it on again puts it in once', async () => {
+        const { setCarModels } = await import('./carModel');
+        setCarMeshCache(deferred());
+        const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'honda-civic');
+        let changed = 0; group.addEventListener(CAR_BODY_CHANGE as never, () => { changed++; });
+        setCarModels(false); setCarModels(true); setCarModels(false); setCarModels(true); // flipped while the file loads
+        release(); await new Promise(r => setTimeout(r, 0));
+        expect(partsOf(group).mesh).not.toBeNull(); expect(changed).toBe(1); // put in once, not once per flip
+        setCarMeshCache(deferred());
+        const late = buildCarModel('sedan', '#00ff00', 100, 100, 'honda-fit').group;
+        setCarModels(false);
+        release(); await new Promise(r => setTimeout(r, 0));
+        expect(partsOf(late).mesh).toBeNull();
+        disposeCarModel(group); disposeCarModel(late);
+    });
+    it('a model held for the precompile is dropped when the setting goes off', async () => {
+        const { disposeSharedCarAssets, setCarModels, releaseHeldCarBodies } = await import('./carModel');
+        disposeSharedCarAssets();
+        const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'toyota-camry', true);
+        expect(partsOf(group).mesh).toBeNull(); // held
+        setCarModels(false);
+        releaseHeldCarBodies();
+        expect(partsOf(group).mesh).toBeNull();
         disposeCarModel(group);
     });
 });

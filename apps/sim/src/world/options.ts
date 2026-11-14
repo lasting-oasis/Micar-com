@@ -1,15 +1,15 @@
-// The driving options the Garage's Options menu sets (Night Tuner's SAVE.opts): transmission, speed
-// units, chase camera and sound. One localStorage key; every read and write is in a try/catch, so a
+// The options the Garage's Options menu sets (Night Tuner's SAVE.opts): transmission, speed
+// units, chase camera, sound, touch controls and the cars' own 3D models (off: every car on its lofted body). One localStorage key; every read and write is in a try/catch, so a
 // blocked or missing storage leaves the defaults (and the choices for this page only). The 3D view
 // reads getOptions() each frame; the Garage reads and writes through getOption / setOption.
 
 export type CamMode = 0 | 1 | 2;
 /** touch controls on a phone: the steering and gas sticks, or the old buttons */
 export type TouchControls = 'sticks' | 'buttons';
-export type DriveOptions = { manual: boolean; units: 'mph' | 'kmh'; cam: CamMode; mute: boolean; controls: TouchControls };
+export type DriveOptions = { manual: boolean; units: 'mph' | 'kmh'; cam: CamMode; mute: boolean; controls: TouchControls; models: boolean };
 
 export const OPTIONS_KEY = 'micar.driveOptions';
-export const OPTION_DEFAULTS: Readonly<DriveOptions> = { manual: false, units: 'mph', cam: 0, mute: false, controls: 'sticks' };
+export const OPTION_DEFAULTS: Readonly<DriveOptions> = { manual: false, units: 'mph', cam: 0, mute: false, controls: 'sticks', models: true };
 
 const storage = (): Storage | null => {
   try { return (globalThis as { localStorage?: Storage }).localStorage ?? null; } catch { return null; }
@@ -28,6 +28,7 @@ export function parseOptions(raw: string | null | undefined): DriveOptions {
   if (s.cam === 0 || s.cam === 1 || s.cam === 2) o.cam = s.cam;
   if (typeof s.mute === 'boolean') o.mute = s.mute;
   if (s.controls === 'sticks' || s.controls === 'buttons') o.controls = s.controls;
+  if (typeof s.models === 'boolean') o.models = s.models;
   return o;
 }
 

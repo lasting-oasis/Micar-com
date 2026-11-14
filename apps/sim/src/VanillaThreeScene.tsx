@@ -6,7 +6,7 @@ import { batchStatic } from './scene/staticBatcher';
 import { damp, groundLastOpaqueSort } from './scene/utils';
 import { Atmosphere } from './scene/atmosphere';
 import { carMeshId } from './scene/car/carMeshes';
-import { CAR_BODY_CHANGE, releaseHeldCarBodies, applyCarPaint, attachCarShadows, buildCarModel, carColorHex, carFrameTick, carStyleReady, deriveStyle, precompileCarsTick, disposeCarModel, disposeSharedCarAssets, setCarLights, syncCarWheels, updateCarLights, updateCars } from './scene/carModel';
+import { CAR_BODY_CHANGE, releaseHeldCarBodies, setCarModels, applyCarPaint, attachCarShadows, buildCarModel, carColorHex, carFrameTick, carStyleReady, deriveStyle, precompileCarsTick, disposeCarModel, disposeSharedCarAssets, setCarLights, syncCarWheels, updateCarLights, updateCars } from './scene/carModel';
 import { BlobShadows, Character, customerLook, dealerLook, disposeCharacterAssets } from './scene/characterModel';
 import { createGroundHeight } from './scene/groundHeight';
 import { createWorldContext } from './scene/world/context';
@@ -182,6 +182,7 @@ export function VanillaThreeScene() {
         const carSteering: Record<string, THREE.Object3D[]> = {}; // front steering pivots: rotation.y
         attachCarShadows(scene); // a soft shadow under every car (one draw for all of them)
         let carPrecompileAt = 0, carPrecompileFrames = 0; // car shader programs are prepared in the background after joining
+        setCarModels(getOptions().models); // the Garage's Options: Car models (off: every car on its lofted body)
         // --- People (scene/characterModel.ts) ----------------------------------------------
         // Customers at a car, by car ID: walk-ins negotiating for that car (`agentId`) and the
         // older offer customers. `mesh` places and turns them, `person` is their body; they
@@ -1512,7 +1513,7 @@ export function VanillaThreeScene() {
                         
                         const mesh = assets.group;
                         // its own model arrived: the driven car's kit is fitted again, to the new body
-                        mesh.addEventListener(CAR_BODY_CHANGE as never, () => { if (car.id === localDrivingCarId && kit) fitKit(mesh, car); });
+                        mesh.addEventListener(CAR_BODY_CHANGE as never, () => { if (car.id === localDrivingCarId) { carFeel.resetSmoke(); if (kit) fitKit(mesh, car); } });
                         if (car.lotPosition) {
                              mesh.position.set(car.lotPosition.x, 0, car.lotPosition.z);
                              mesh.rotation.y = car.lotPosition.r;
