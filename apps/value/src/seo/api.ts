@@ -138,7 +138,7 @@ export function apiIndexJson(cars: CarRecord[], epa: EpaFile | null, generatedAt
     description:
       'Free, read-only, static JSON. Original window-sticker prices (MSRP, US dollars, excluding destination) for every trim of every model year MiCar covers, with the EPA configurations for each year. No key, no rate limit beyond the host. Values (trade-in, private-party, dealer retail, range, five-year forecast) come from the live valuation endpoint (links.value), the same engine as the calculator.',
     counts: { models: cars.length, modelYears: cars.reduce((n, c) => n + c.years.length, 0), trims: cars.reduce((n, c) => n + c.years.reduce((m, y) => m + y.trims.length, 0), 0) },
-    links: { value: `${VALUE_API_URL}?id={id}&year={year}&mileage={miles}`, cars: `${API_URL}cars.json`, car: `${API_URL}cars/{id}.json`, openapi: `${API_URL}openapi.json`, html: `${SITE_URL}cars/`, llms: `${SITE_URL}llms.txt` },
+    links: { value: `${VALUE_API_URL}?id={id}&year={year}&mileage={miles}`, cars: `${API_URL}cars.json`, car: `${API_URL}cars/{id}.json`, openapi: `${API_URL}openapi.json`, html: `${SITE_URL}cars/`, llms: `${SITE_URL}llms.txt`, about: `${SITE_URL}about/`, method: `${SITE_URL}method/`, methodData: `${API_URL}method.json`, passportSchema: `${API_URL}passport.schema.json` },
     sources: {
       msrp: 'Manufacturer pricing where available, otherwise secondary pricing sites; each model year names its own source.',
       specs: epa ? { name: epa.source, url: epa.url, asOf: epa.asOf } : null,

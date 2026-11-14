@@ -1,6 +1,6 @@
 # MiCar Value
 
-**Live site:** https://lasting-oasis.github.io/queen_city_mycarvalue/
+**Live site:** https://lasting-oasis.github.io/Micar-com/
 
 A used-car value estimator. Enter a vehicle's make, body style, original sticker price, model year, mileage, condition, title, accident history and region, and it shows:
 

@@ -13,6 +13,7 @@ import { valuate, type Inputs } from './engine/valuation';
 import { DEFAULT_WARRANTY, FEATURES, FEATURE_GROUPS } from './car/record';
 import { MARKET_OPTIONS, URGENCY_OPTIONS, defaults, parse } from './urlState';
 import { ES, ES_ENGINE } from './i18n-es';
+import { SEO_ES } from './seo/es';
 
 const sources = import.meta.glob(['./**/*.ts', './**/*.tsx', '!./**/*.test.ts', '!./i18n*'], { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
 const placeholders = (s: string) => [...s.matchAll(/\{(\w+)\}/g)].map((m) => m[1]).sort().join(',');
@@ -26,7 +27,8 @@ describe('Spanish table', () => {
       for (const m of src.matchAll(pat)) {
         const key = (m[1] ?? m[2] ?? m[3]).replace(/\\(['"\\])/g, '$1');
         found++;
-        if (!(key in ES)) missing.push(`${file}: ${key}`);
+        // the plain-HTML pages (seo/) keep their own table and fall back on the site's (seo/lang.ts)
+        if (!(key in ES) && !(file.startsWith('./seo/') && key in SEO_ES)) missing.push(`${file}: ${key}`);
       }
     }
     expect(found).toBeGreaterThan(250);

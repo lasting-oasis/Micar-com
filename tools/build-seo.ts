@@ -1,12 +1,15 @@
 // Writes the plain-HTML layer that search engines and AI readers can see without running JavaScript:
-// site/cars/<make-model>/index.html for every model, site/cars/index.html, site/sitemap.xml, site/robots.txt, site/llms.txt,
-// and the static JSON data API under site/api/v1/ (index.json, cars.json, cars/<id>.json, openapi.json).
+// site/cars/<make-model>/index.html for every model, site/cars/index.html, site/about/ and site/method/ (what MiCar is, how a value is
+// worked out; apps/value/src/seo/about.ts), site/sitemap.xml, site/robots.txt, site/llms.txt,
+// and the static JSON data API under site/api/v1/ (index.json, cars.json, cars/<id>.json, openapi.json, method.json, passport.schema.json).
 // Run by build-site.sh from apps/value (pnpm --filter ... exec), so every path is resolved from this file, never from the cwd.
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { footerHtml } from '../packages/brand/src/footer.ts';
+import { aboutPageHtml, methodJson, methodPageHtml, passportSchemaJson, type Calibration, type SiteCounts } from '../apps/value/src/seo/about.ts';
 import { apiIndexJson, buildCarRecords, carsListJson, openApiJson, type ApiSticker, type EpaFile } from '../apps/value/src/seo/api.ts';
+import { LANGS, langDir } from '../apps/value/src/seo/lang.ts';
 import { buildModelPages, indexPageHtml, llmsTxt, modelPageHtml, robotsTxt, sitemapXml, type Sticker } from '../apps/value/src/seo/pages.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -18,10 +21,7 @@ const write = (p: string, text: string) => {
 };
 
 const now = new Date();
-const env = {
-  css: read('packages/brand/src/tokens.css') + '\n' + read('packages/brand/src/footer.css'),
-  footer: footerHtml('en', now.getFullYear()),
-};
+const css = read('packages/brand/src/tokens.css') + '\n' + read('packages/brand/src/footer.css');
 const stickers = JSON.parse(read('apps/value/src/data/stickers.json'));
 const epa = JSON.parse(read('apps/value/src/data/epa-configs.json')) as EpaFile;
 const pages = buildModelPages(stickers as Sticker[]);
@@ -29,8 +29,28 @@ const cars = buildCarRecords(stickers as ApiSticker[], epa);
 const stamp = now.toISOString();
 const json = (v: unknown) => JSON.stringify(v) + '\n';
 
-for (const p of pages) write(`cars/${p.slug}/index.html`, modelPageHtml(p, env));
-write('cars/index.html', indexPageHtml(pages, env));
+const byId = new Map(cars.map((c) => [c.id, c]));
+const calibration = JSON.parse(read('apps/value/src/data/calibration.json')) as Calibration;
+const years = cars.flatMap((c) => c.years);
+const counts: SiteCounts = {
+  models: cars.length,
+  makes: new Set(cars.map((c) => c.make)).size,
+  modelYears: years.length,
+  trims: years.reduce((n, y) => n + y.trims.length, 0),
+  manufacturerYears: years.filter((y) => y.source.kind === 'manufacturer').length,
+};
+
+// every plain page in English at the root and in Spanish under es/; each model page carries its JSON record's trims,
+// EPA configurations and sources as HTML
+for (const lang of LANGS) {
+  const env = { css, footer: footerHtml(lang, now.getFullYear()) }, dir = langDir(lang);
+  for (const p of pages) write(`${dir}cars/${p.slug}/index.html`, modelPageHtml(p, env, byId.get(p.slug), lang));
+  write(`${dir}cars/index.html`, indexPageHtml(pages, env, lang));
+  write(`${dir}about/index.html`, aboutPageHtml(counts, calibration, env, lang));
+  write(`${dir}method/index.html`, methodPageHtml(counts, calibration, env, lang));
+}
+write('api/v1/method.json', json(methodJson(counts, calibration, stamp)));
+write('api/v1/passport.schema.json', JSON.stringify(passportSchemaJson(), null, 2) + '\n');
 write('sitemap.xml', sitemapXml(pages, now.toISOString().slice(0, 10)));
 write('robots.txt', robotsTxt());
 write('llms.txt', llmsTxt(pages));
@@ -38,4 +58,4 @@ for (const c of cars) write(`api/v1/cars/${c.id}.json`, json(c));
 write('api/v1/cars.json', json(carsListJson(cars, stamp)));
 write('api/v1/index.json', json(apiIndexJson(cars, epa, stamp)));
 write('api/v1/openapi.json', JSON.stringify(openApiJson(), null, 2) + '\n');
-console.log(`wrote ${pages.length} model pages, cars/index.html, sitemap.xml, robots.txt, llms.txt, ${cars.length} JSON records under api/v1/`);
+console.log(`wrote ${pages.length} model pages, about/, method/ and cars/index.html in English and Spanish, sitemap.xml, robots.txt, llms.txt, ${cars.length} JSON records under api/v1/`);
