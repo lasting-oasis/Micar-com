@@ -13,7 +13,9 @@ import { carLabel, denyKey, raceLabel, rowsOf, shareUrl, startsInSeconds } from 
 
 // the rental counter's card and rows (DriveLayer.tsx), so the lobby's three cards sit in the same place on any screen;
 // on a phone these are tall, so they stop short of the right edge, where the lobby's pause button sits
-export const CARD = 'pointer-events-auto absolute left-4 right-16 bottom-6 md:left-auto md:right-20 md:bottom-auto md:top-24 md:w-[340px] max-h-[calc(100dvh-6rem)] overflow-y-auto overscroll-contain rounded-xl border border-market/40 bg-night/95 p-5 text-white shadow-2xl';
+/** A card's frame. CARD scrolls as a whole; the Quick race card scrolls only its list inside the frame, Back below it. */
+export const CARD_FRAME = 'pointer-events-auto absolute left-4 right-16 bottom-6 md:left-auto md:right-20 md:bottom-auto md:top-24 md:w-[340px] max-h-[calc(100dvh-6rem)] rounded-xl border border-market/40 bg-night/95 p-5 text-white shadow-2xl';
+export const CARD = `${CARD_FRAME} overflow-y-auto overscroll-contain`;
 export const ROW = 'w-full min-h-[44px] rounded-lg px-4 py-2 font-cond uppercase italic';
 export const TITLE = 'font-cond italic font-black uppercase text-2xl md:text-3xl leading-none text-market';
 export const LABEL = 'font-cond font-semibold uppercase tracking-[0.14em] text-xs text-haze';
@@ -102,14 +104,14 @@ export function ChallengeSetup() {
 /** A quick room's countdown to its next race, on the server's clock, drawn again a few times a second: in the waiting
  *  room, and on the results card after a race, so nobody is put on the next grid without warning. Nothing when the room
  *  is not counting. */
-export function QuickCountdown() {
+export function QuickCountdown({ className = '' }: { className?: string }) {
   const lang = useLang();
   const room = useGameStore(s => s.race);
   const counting = !!room?.quick && room.phase === 'open' && room.startsAt !== null;
   const [, setTick] = useState(0);
   useEffect(() => { if (!counting) return; const id = setInterval(() => setTick(n => n + 1), 250); return () => clearInterval(id); }, [counting]);
   if (!counting) return null;
-  return <p role="timer" className="font-cond italic font-extrabold uppercase text-2xl text-market">{fill(t(lang, 'strip.ch.startsIn'), '{s}', String(startsInSeconds(room!.startsAt!, serverNow())))}</p>;
+  return <p role="timer" className={`font-cond italic font-extrabold uppercase text-2xl text-market ${className}`}>{fill(t(lang, 'strip.ch.startsIn'), '{s}', String(startsInSeconds(room!.startsAt!, serverNow())))}</p>;
 }
 
 /** The room: its race and car, the link to send, who is here, and (for the host) the start. */
@@ -121,6 +123,17 @@ export function WaitingRoom() {
   const note = useGameStore(s => s.raceNote);
   const [copied, setCopied] = useState(false);
   useEffect(() => { if (!copied) return; const id = setTimeout(() => setCopied(false), 2000); return () => clearTimeout(id); }, [copied]);
+  // a quick room's wait after a race or a call-off ends at restUntil: drawn again then, so its first member has Start
+  // back while a later wait still counts down (a newcomer began it while the room was down to one)
+  const [, redraw] = useState(0);
+  const restUntil = room?.quick ? room.restUntil : null;
+  useEffect(() => {
+    if (restUntil == null) return;
+    const ms = restUntil - serverNow();
+    if (ms <= 0) return;
+    const id = setTimeout(() => redraw(n => n + 1), ms + 50);
+    return () => clearTimeout(id);
+  }, [restUntil]);
   if (!room) return null;
 
   const url = shareUrl(window.location.origin, room.code);

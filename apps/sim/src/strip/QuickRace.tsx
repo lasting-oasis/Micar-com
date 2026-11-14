@@ -6,7 +6,7 @@ import { apiBase, useGameStore } from '../store';
 import { t, useLang } from '../i18n';
 import { useDriveUi } from '../world/driveUi';
 import { TRACK_NAMES } from '../world/data';
-import { ALERT, CARD, GHOST, PICK, TITLE } from './Challenge';
+import { ALERT, CARD_FRAME, GHOST, PICK, TITLE } from './Challenge';
 import { denyKey, quickRows, raceLabel, waitingText } from './challengeCopy';
 
 /** How often the counts are asked for while the card is open; how long a tap waits for its room or a refusal. */
@@ -46,9 +46,11 @@ export function QuickRace() {
   const pick = (track: string) => { if (asked) return; setAsked(track); useGameStore.getState().quickRace(track); };
 
   return (
-    <div className={CARD} role="dialog" aria-label={t(lang, 'strip.ch.quickTitle')}>
-      <div className={`${TITLE} mb-3`}>{t(lang, 'strip.ch.quickTitle')}</div>
-      <div className="flex flex-col gap-1.5 mb-3">
+    <div className={`${CARD_FRAME} flex flex-col`} role="dialog" aria-label={t(lang, 'strip.ch.quickTitle')}>
+      <div className={`${TITLE} mb-3 flex-none`}>{t(lang, 'strip.ch.quickTitle')}</div>
+      {/* the list scrolls, not the card, so Back stays in view below it with no sticky footer (headless screenshots
+          drew the sticky one as a dark box above the card) */}
+      <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain space-y-1.5">
         {ROWS.map(r => {
           const n = Number(waiting[r.track]) || 0;
           return (
@@ -63,7 +65,7 @@ export function QuickRace() {
           );
         })}
       </div>
-      <div className="sticky -bottom-5 -mx-5 -mb-5 px-5 pb-5 pt-3 bg-night border-t border-market/20">
+      <div className="flex-none -mx-5 px-5 mt-3 pt-3 border-t border-market/20">
         {denied && <p role="alert" className={`${ALERT} mb-2`}>{t(lang, denyKey(denied))}</p>}
         <button type="button" onClick={close} className={GHOST}>{t(lang, 'strip.ch.back')}</button>
       </div>

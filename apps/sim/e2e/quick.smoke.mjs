@@ -6,7 +6,10 @@
 // picks it and lands in the same room, whose countdown begins (photographed); it leaves, and the countdown stops. The
 // friend picks Harbour: the countdown begins again, and the race starts by itself, nobody pressing Start. Both are on
 // the grid of the Harbour GP in the lent car and race; each quits from the pause menu; both see the race on the room's
-// Last race with both names, and the room counts down to its next race. With RACE=0 it stops after the photographs.
+// Last race with both names, and the room counts down to its next race. The friend leaves and comes back while the
+// result still shows: once the result wait is over, the host has Start again while the room counts down. With RACE=0
+// it stops after the photographs (the counter, the card and the room; with the race, the results card too, taken in
+// the host's browser made the camera's size).
 // VIEW: desktop (1280 x 800) or phone (375 x 812, touch); SHOT_LANG: en or es, for the camera's photographs (it reads and
 // clicks in English, and switches only to photograph). Photographs go to SHOTS (default e2e/out/).
 // Software GL (swiftshader), so it runs headless with no display; every step waits on the page's own state.
@@ -24,7 +27,7 @@ const VIEWS = {
   phone: { viewport: { width: 375, height: 812 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true },
 };
 // the camera's two screens, in the language photographed (i18n.tsx)
-const WORDS = { en: { card: 'Pick a circuit', room: 'Starts in' }, es: { card: 'Elija un circuito', room: 'Empieza en' } };
+const WORDS = { en: { counter: 'Quick race', card: 'Pick a circuit', room: 'Starts in' }, es: { counter: 'Carrera rápida', card: 'Elija un circuito', room: 'Empieza en' } };
 const errs = [];
 const fail = (m) => { throw new Error(m); };
 const ok = (c, m) => { if (!c) fail('ASSERT: ' + m); console.log('ok  ' + m); };
@@ -60,6 +63,7 @@ const speak = (d, lang) => d.p.evaluate((l) => { localStorage.setItem('cds_lang'
 async function photograph(d, name, words) {
   await speak(d, LANG);
   await d.p.waitForFunction((w) => document.body.textContent.includes(w), words);
+  await d.p.mouse.move(1, 1); // off the cards: the place of the last tap keeps a row in its hover colour
   await d.p.waitForTimeout(400); // a frame or two of the scene behind the card
   mkdirSync(SHOTS, { recursive: true });
   const path = `${SHOTS}quick-${name}-${VIEW}-${LANG}.png`;
@@ -84,6 +88,7 @@ try {
 
   // 2. the camera: Quick race lists the ten circuits, every one open, Harbour with one waiting; photographed
   await enter(cam, 'Cam');
+  await photograph(cam, 'counter', WORDS[LANG].counter);
   await cam.p.getByRole('button', { name: 'Quick race' }).click();
   await cam.p.waitForSelector('[aria-label="Pick a circuit"]');
   await cam.p.waitForFunction(() => /1 waiting/.test(document.querySelector('[data-track="monaco"]')?.textContent ?? ''), null, { timeout: 20000 });
@@ -139,6 +144,12 @@ try {
     ok(/Did not finish/i.test(await text(host)), 'the host quit last: the card says how the race ended');
     await host.p.waitForFunction(() => /^Starts in \d+ s$/.test(document.querySelector('[role="timer"]')?.textContent ?? ''), null, { timeout: 10000 });
     ok(true, 'the results card counts down to the next race, so nobody is put on its grid without warning');
+    ok(!(await host.p.getByRole('button', { name: 'Race again' }).count()), 'the results card of a race of people offers no Race again: the room races again by itself');
+    // a room of two counts down to the end of its result wait: when that is, as near as whole seconds tell
+    const restEnds = Date.now() + +(await countdown(host)).match(/\d+/)[0] * 1000;
+    await host.p.setViewportSize(VIEWS[VIEW].viewport); // photographed at the camera's size, then put back
+    await photograph(host, 'results', WORDS[LANG].room);
+    await host.p.setViewportSize({ width: 480, height: 400 });
     await host.p.keyboard.press('Enter');
     await host.p.waitForSelector('[aria-label="Waiting room"]', { timeout: 60000 });
     // 5. the room carries on: both on its Last race, nothing won or lost, and it counts down to the next race
@@ -155,6 +166,20 @@ try {
     await friend.p.waitForSelector('[aria-label="Rental counter"]');
     await host.p.waitForFunction(() => window.__micar.race()?.members === 1 && !document.querySelector('[role="timer"]'));
     ok(true, 'the friend left: the host is alone, and the countdown stopped');
+
+    // 6. the friend comes back while the result still shows: a new wait of 30 s begins, which ends after the result
+    //    wait; once the result wait is over, the host, its first member, may start early again (spec)
+    await quickRace(friend, 'monaco');
+    await host.p.waitForFunction(() => window.__micar.race()?.members === 2 && !!document.querySelector('[role="timer"]'));
+    const left = Math.round((restEnds - Date.now()) / 1000);
+    ok(left >= 3, `the friend came back while the result still shows (about ${left} s of its wait left): the room counts down again`);
+    ok(!(await host.p.getByRole('button', { name: 'Start race' }).count()), 'host: no Start while the result wait lasts');
+    await host.p.getByRole('button', { name: 'Start race' }).waitFor({ timeout: 40000 });
+    ok(Date.now() >= restEnds - 1500 && await countdown(host) !== null, 'host: Start comes back once the result wait is over, while the room still counts down');
+    await friend.p.getByRole('button', { name: 'Leave', exact: true }).click();
+    await friend.p.waitForSelector('[aria-label="Rental counter"]');
+    await host.p.waitForFunction(() => window.__micar.race()?.members === 1 && !document.querySelector('[role="timer"]'));
+    ok(true, 'the friend left again before the room started: the host is alone');
   }
 
   ok(errs.length === 0, 'no page errors');

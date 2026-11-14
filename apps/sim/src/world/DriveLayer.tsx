@@ -241,11 +241,12 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
                   </div>
                 )}
                 {returned !== null && <div className="font-cond text-lg mb-3 text-white/80">Rental returned — {money(returned)} on hand</div>}
-                <QuickCountdown />{/* only in a quick room counting down: the card is that room's race (no solo event while in a room) */}
+                <QuickCountdown className="mb-3" />{/* only in a quick room counting down: the card is that room's race (no solo event while in a room) */}
                 {results.pending
                   ? <div role="status" className="w-full min-h-[44px] rounded-lg border border-market/40 py-2 text-center font-cond font-extrabold uppercase italic text-market">{t(lang, 'strip.ch.waitOthers')}</div>
                   : <div className="flex gap-2">
-                      {district === 'strip' && !netRace && returned === null && <button onClick={() => tap('again')} className="flex-1 min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">{t(lang, 'res.again')}</button>}
+                      {/* not in a room: the room races again by itself, and Race again would do nothing there */}
+                      {district === 'strip' && !netRace && !inRoom && returned === null && <button onClick={() => tap('again')} className="flex-1 min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">{t(lang, 'res.again')}</button>}
                       <button onClick={() => tap('continue')} className="flex-1 min-h-[44px] rounded-lg bg-market py-2 font-cond font-extrabold uppercase italic text-night">{t(lang, 'res.continue')} [Enter]</button>
                     </div>}
               </div>
