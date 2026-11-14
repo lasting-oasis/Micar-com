@@ -54,19 +54,19 @@ describe('one audio output, and waking it', () => {
     state = 'running'; currentTime = 0; sampleRate = 48000; destination = node(); resumed = 0; closed = 0; masters: { disconnect: () => void; cut: number }[] = [];
     audioWorklet = { addModule: () => Promise.resolve() };
     /** Every analyser made, with the sample value it reads back. */
-    analysers: { fill: number; fftSize: number; connect: () => void; disconnect: () => void; getFloatTimeDomainData: (b: Float32Array) => void }[] = [];
+    analysers: { fill: number; fftSize: number; from: unknown; connect: () => void; disconnect: () => void; getFloatTimeDomainData: (b: Float32Array) => void }[] = [];
     /** 'statechange' listeners: a real context fires the event on every change of state. */
     private onState: (() => void)[] = [];
     addEventListener(type: string, f: () => void) { if (type === 'statechange') this.onState.push(f); }
     removeEventListener(type: string, f: () => void) { if (type === 'statechange') this.onState = this.onState.filter(g => g !== f); }
     setState(s: string) { this.state = s; for (const f of this.onState) f(); }
     constructor() { made.push(this); }
-    createAnalyser() { const a = { fill: 0, fftSize: 2048, connect() {}, disconnect() {}, getFloatTimeDomainData(b: Float32Array) { b.fill(a.fill); } }; this.analysers.push(a); return a; }
+    createAnalyser() { const a = { fill: 0, fftSize: 2048, from: null as unknown, connect() {}, disconnect() {}, getFloatTimeDomainData(b: Float32Array) { b.fill(a.fill); } }; this.analysers.push(a); return a; }
     resume() { this.resumed++; this.setState('running'); return Promise.resolve(); }
     suspend() { this.setState('suspended'); return Promise.resolve(); }
     close() { this.closed++; this.setState('closed'); return Promise.resolve(); }
     createBuffer() { return { getChannelData: () => new Float32Array(8) }; }
-    createGain() { const g = node() as { disconnect: () => void; cut: number }; const m = { cut: 0, gain: { value: 0, setTargetAtTime() {}, setValueAtTime() {}, cancelScheduledValues() {}, linearRampToValueAtTime() {}, exponentialRampToValueAtTime() {} }, connect: (d: unknown) => d, disconnect: () => { m.cut++; } }; this.masters.push(m); void g; return m; }
+    createGain() { const g = node() as { disconnect: () => void; cut: number }; const m = { cut: 0, gain: { value: 0, setTargetAtTime() {}, setValueAtTime() {}, cancelScheduledValues() {}, linearRampToValueAtTime() {}, exponentialRampToValueAtTime() {} }, connect: (d: unknown) => { if (this.analysers.includes(d as never)) (d as { from: unknown }).from = m; return d; }, disconnect: () => { m.cut++; } }; this.masters.push(m); void g; return m; }
     createOscillator() { return node(); } createBiquadFilter() { return node(); } createBufferSource() { return node(); }
   }
   const G = globalThis as unknown as { AudioContext?: unknown; AudioWorkletNode?: unknown };
@@ -74,9 +74,11 @@ describe('one audio output, and waking it', () => {
   afterEach(() => { delete G.AudioContext; delete G.AudioWorkletNode; });
   /** The engine model's node: its port is what the processor talks to the page through. */
   const ports: { onmessage: ((e: { data: unknown }) => void) | null }[] = [];
+  const nodes: unknown[] = [];
   const withWorklet = () => {
     ports.length = 0;
-    G.AudioWorkletNode = class { port = { onmessage: null, postMessage() {} }; parameters = new Map(); constructor() { ports.push(this.port); } connect(d: unknown) { return d; } disconnect() {} };
+    nodes.length = 0;
+    G.AudioWorkletNode = class { port = { onmessage: null, postMessage() {} }; parameters = new Map(); constructor() { ports.push(this.port); nodes.push(this); } connect(d: unknown) { if (d && typeof d === 'object' && 'fill' in d) (d as unknown as { from: unknown }).from = this; return d; } disconnect() {} };
   };
   const modelStarted = () => new Promise(r => setTimeout(r, 0));
 
@@ -183,17 +185,30 @@ describe('one audio output, and waking it', () => {
       expect(a.debugLine()).toMatch(/out NaN/);
     } finally { a.dispose(); }
   });
+  it('makes no analyser until the debug line is asked for: without ?audiodebug the graph is as before', () => {
+    withFake(); const a = new Audio(false, 'classic'); a.resume();
+    const V = makeVehicle(carParams(ARCHETYPES.sedan, STOCK_CFG.perf, TUNE_DEF));
+    try {
+      for (let i = 0; i < 30; i++) a.engine(V, 10, true);
+      expect(made[0].analysers.length).toBe(0);
+      a.debugLine();
+      expect(made[0].analysers.length).toBe(1);
+    } finally { a.dispose(); }
+  });
   it('the debug line gives the engine\'s level and the whole output\'s level', async () => {
     withFake(); withWorklet();
     const a = new Audio(false, 'model'); a.setCar(soundFactsFor({ engine: '2.0L I4 Turbo', bodyStyle: 'coupe', redline: 7000 })); a.resume();
     try {
       await modelStarted();
       a.debugLine();
-      for (const an of made[0].analysers) an.fill = 0.125;   // -18 dB
+      // 'engine' listens to the model's own node, before its gain; 'out' to the master, after everything
+      const eng = made[0].analysers.find(an => an.from === nodes.at(0)), out = made[0].analysers.find(an => an.from === made[0].masters.at(0));
+      expect(eng).toBeDefined(); expect(out).toBeDefined();
+      eng!.fill = 0.5; out!.fill = 0.125;                  // -6 dB and -18 dB
       const line = a.debugLine();
-      expect(line).toMatch(/engine -18dB/);
+      expect(line).toMatch(/engine -6dB/);
       expect(line).toMatch(/out -18dB/);
-      for (const an of made[0].analysers) an.fill = 0;
+      eng!.fill = 0; out!.fill = 0;
       expect(a.debugLine()).toMatch(/engine silent.*out silent/);
     } finally { a.dispose(); }
   });

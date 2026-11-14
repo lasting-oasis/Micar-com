@@ -96,8 +96,8 @@ A Garage turbo on a naturally aspirated engine switches its induction to turbo.
 - `engineSound.test.ts`: what the physics should give, measured from the rendered sound by engine order. Inline-four: second order leads. Cross-plane V8 on one bank's pipe: half orders stand within 10 dB of fourth order. Merged into equal pipes: they drop more than 20 dB. Unequal branches: they come back. Flat-plane: none. Flat-four with unequal runners: half orders rise more than 10 dB. Also load, cut, the two mufflers, intake, supercharger, turbo, pops, staying in range under random driving, silence when stopped, and speed.
 - `carSound.test.ts`: reading the catalog string and the class defaults.
 - `engineSound.test.ts` also checks that each input past its range sounds the same as the end of the range, and stays finite, on a turbo engine.
-- `engine.worklet.test.ts`: the real processor, with the audio thread's globals stood in. A block with a sample that is not a number goes out silent and the engine comes back; the page is told; a fault that stays is silent throughout and rebuilt at most once a second; a model that throws, or cannot be built, leaves the processor alive.
-- `world/audio.test.ts`: the switch, the frame inputs, the shared output, the health watch and the `?audiodebug` line.
+- `engine.worklet.test.ts`: the real processor, with the audio thread's globals stood in. A block with a sample that is not a number, on either channel, goes out silent and the engine comes back; the page is told; a fault that stays is silent throughout and rebuilt at most once a second; a model that throws, or cannot be built, leaves the processor alive.
+- `world/audio.test.ts`: the switch, the frame inputs, the shared output, the health watch and the `?audiodebug` line: which analyser is the engine's and which the output's, and that none exists without `?audiodebug`.
 - `e2e/sound.smoke.mjs`: renders one second through the built processor in Chromium and fails if it is silent or out of range: a V8, and a turbo V8 told a boost of -0.5 (all 48,000 samples were NaN before the fix). It runs in CI beside the Strip smoke test.
 
 ## Measured from the clips

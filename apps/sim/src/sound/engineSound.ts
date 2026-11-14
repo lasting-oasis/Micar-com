@@ -64,7 +64,7 @@ export class EngineSound {
   private readonly aTail: number; private tailLp0 = 0; private tailLp1 = 0;
   // smoothed inputs and slow states
   private rpmS = 0; private thrS = 0; private loadS = 0; private boostS = 0; private readonly kS: number;
-  private heat = 0; private bov = 0; private lastThr = 0;
+  private heat = 0; private bov = 0; private lastThr = 0; private cutIn = 0;
   // noise, tones, small filters
   private seed: number; private nLp = 0; private flow = 0;
   private inZ1 = 0; private inZ2 = 0; private readonly inB: number; private readonly inA1: number; private readonly inA2: number;
@@ -143,7 +143,7 @@ export class EngineSound {
     const rpm = this.rpmS, load = Math.max(0, this.loadS);
     // Fuel: on with the pedal down; with the pedal off it is cut on the overrun and comes back as the revs near idle, as an engine computer does.
     const pedal = Math.min(1, this.thrS / 0.06), nearIdle = Math.min(1, Math.max(0, (FUEL_BACK_RPM - rpm) / FUEL_BACK_BAND));
-    const fuel = this.cut < 0.5 ? Math.max(pedal, nearIdle) : 0, firing = fuel > 0.5;
+    const fuel = this.cutIn < 0.5 ? Math.max(pedal, nearIdle) : 0, firing = fuel > 0.5;
     const idle = Math.max(0, 1 - rpm / (0.45 * this.redline));
     const fired = this.a0 * (0.22 + 0.78 * load) * (1 + 0.6 * this.boostS) * (1 + (JITTER_LOAD + JITTER_IDLE * idle * idle) * this.gauss());
     const motored = this.a0 * MOTORED * (0.6 + 0.4 * this.thrS);
@@ -160,7 +160,7 @@ export class EngineSound {
     if (open > 0.001) this.pulse(this.intake, 0, -this.a0 * 0.5 * open * (1 + 0.6 * this.boostS), 0.0016, half * 0.6);
     this.bayClick += amp * 0.6;
     // Unburnt fuel lighting in a hot pipe after lift-off.
-    if (this.pops && !firing && this.cut < 0.5 && rpm > 0.4 * this.redline && this.rand() < 0.3 * this.heat) {
+    if (this.pops && !firing && this.cutIn < 0.5 && rpm > 0.4 * this.redline && this.rand() < 0.3 * this.heat) {
       this.pulse(ring, at + this.rand() * 0.006 * this.sr, this.a0 * (1.2 + 1.6 * this.rand()), 0.00016, 0);
     }
   }
@@ -174,6 +174,7 @@ export class EngineSound {
     // WebKit hands a k-rate param a hair below 0 on the first block of a setTargetAtTime that leaves 0 (iPhone, 48 kHz).
     // rpm stops at ten times the redline, far past anything the game sends: the crank clock's work grows with it.
     const w = EngineSound.within, rpmIn = w(this.rpm, 0, RPM_CEILING * this.redline), thrIn = w(this.throttle, 0, 1), loadIn = w(this.load, -1, 1), boostIn = w(this.boost, 0, 1);
+    this.cutIn = w(this.cut, 0, 1);
     for (let s = 0; s < n; s++) {
       // inputs, smoothed
       const rpm = this.rpmS += kS * (rpmIn - this.rpmS);
