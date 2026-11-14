@@ -31,11 +31,11 @@ export const denyKey = (why: DenyWhy): string => DENY[why] ?? DENY.state;
 
 /** A quick room's countdown: whole seconds until `startsAt` (the server's clock), rounded up, never below zero. */
 export const startsInSeconds = (startsAt: number, now: number): number => Math.max(0, Math.ceil((startsAt - now) / 1000));
-/** The Quick race card's circuits: the open ones first, in the Races menu's order, then the locked ones by the stage
- *  that opens them. The order never follows the counts, so a row does not move under a finger. */
-export function quickRows(stage: number): { track: string; eventId: string; stage: number; locked: boolean }[] {
-  const rows = CIRCUITS.flatMap(c => { const ev = quickEventOf(c.id); return ev ? [{ track: c.id as string, eventId: ev.id, stage: ev.stage, locked: ev.stage > stage }] : []; });
-  return [...rows.filter(r => !r.locked), ...rows.filter(r => r.locked).sort((a, b) => a.stage - b.stage)];
+/** The Quick race card's circuits: all ten, in the Races menu's order, each with its one quick event. Every one is open
+ *  to every stage (the owner's call, 2026-11-14: races between people pay nothing). The order never follows the counts,
+ *  so a row does not move under a finger. */
+export function quickRows(): { track: string; eventId: string }[] {
+  return CIRCUITS.flatMap(c => { const ev = quickEventOf(c.id); return ev ? [{ track: c.id as string, eventId: ev.id }] : []; });
 }
 /** How many are waiting in a circuit's quick room, as the Quick race list says it. */
 export const waitingText = (lang: Lang, n: number): string => t(lang, 'strip.ch.waiting').replace('{n}', String(n));

@@ -1,24 +1,23 @@
 // The counter's Quick race (Part 2): the ten circuits, each with its one quick event and how many are in its quick room
-// now; a tap goes into that room, which the server finds or opens (world/race.ts quickEventOf, findQuick). A circuit
-// above the player's stage is locked, as in the Races menu. The waiting room (Challenge.tsx) takes over once in.
-import { useEffect, useMemo, useState } from 'react';
+// now; a tap goes into that room, which the server finds or opens (world/race.ts quickEventOf, findQuick). Every circuit
+// is open to every stage (the owner's call). The waiting room (Challenge.tsx) takes over once in.
+import { useEffect, useState } from 'react';
 import { apiBase, useGameStore } from '../store';
 import { t, useLang } from '../i18n';
 import { useDriveUi } from '../world/driveUi';
-import { TRACK_NAMES, stageOf } from '../world/data';
-import { Lock } from '../world/RaceMenuScreen';
+import { TRACK_NAMES } from '../world/data';
 import { ALERT, CARD, GHOST, PICK, TITLE } from './Challenge';
 import { denyKey, quickRows, raceLabel, waitingText } from './challengeCopy';
 
 /** How often the counts are asked for while the card is open. */
 const POLL_MS = 5000;
+/** The ten circuits, in the Races menu's order. */
+const ROWS = quickRows();
 
 export function QuickRace() {
   const lang = useLang();
-  const rep = useGameStore(s => s.strip?.rep ?? 0);
   const room = useGameStore(s => s.race);
   const denied = useGameStore(s => s.raceDenied);
-  const rows = useMemo(() => quickRows(stageOf(rep)), [rep]);
   const [waiting, setWaiting] = useState<Record<string, number>>({});
   const [asked, setAsked] = useState<string | null>(null); // the circuit tapped: wait for the room, or for a refusal
   const close = () => useDriveUi.setState({ quickRace: false });
@@ -46,18 +45,16 @@ export function QuickRace() {
     <div className={CARD} role="dialog" aria-label={t(lang, 'strip.ch.quickTitle')}>
       <div className={`${TITLE} mb-3`}>{t(lang, 'strip.ch.quickTitle')}</div>
       <div className="flex flex-col gap-1.5 mb-3">
-        {rows.map(r => {
+        {ROWS.map(r => {
           const n = Number(waiting[r.track]) || 0;
           return (
-            <button key={r.track} type="button" data-track={r.track} disabled={r.locked || !!asked} aria-pressed={asked === r.track} onClick={() => pick(r.track)}
-              className={`${PICK} flex items-center gap-3 disabled:cursor-not-allowed ${r.locked ? 'opacity-55' : ''}`}>
+            <button key={r.track} type="button" data-track={r.track} disabled={!!asked} aria-pressed={asked === r.track} onClick={() => pick(r.track)}
+              className={`${PICK} flex items-center gap-3 disabled:cursor-not-allowed`}>
               <span className="flex-1 min-w-0">
                 <span className="block font-extrabold text-lg leading-tight truncate">{TRACK_NAMES[r.track as keyof typeof TRACK_NAMES]?.[lang] ?? r.track}</span>
                 <span className="block not-italic normal-case font-sans text-[13px] opacity-80 truncate">{raceLabel(r.eventId)}</span>
               </span>
-              <span className="flex-none not-italic normal-case font-sans text-[13px] tabular-nums flex items-center gap-1">
-                {r.locked ? <><Lock />{t(lang, 'races.stage').replace('{n}', String(r.stage))}</> : waitingText(lang, n)}
-              </span>
+              <span className="flex-none not-italic normal-case font-sans text-[13px] tabular-nums">{waitingText(lang, n)}</span>
             </button>
           );
         })}

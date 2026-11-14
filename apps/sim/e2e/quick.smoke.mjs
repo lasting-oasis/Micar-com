@@ -82,15 +82,15 @@ try {
   ok(/Anyone racing here joins this room/.test(t), 'the waiting room says that anyone racing here joins it');
   ok(await countdown(host) === null && !/Change the race/i.test(t), 'alone in it: no countdown, and no way to change its race');
 
-  // 2. the camera: Quick race lists the circuits, the open ones first, Harbour with one waiting; photographed
+  // 2. the camera: Quick race lists the ten circuits, every one open, Harbour with one waiting; photographed
   await enter(cam, 'Cam');
   await cam.p.getByRole('button', { name: 'Quick race' }).click();
   await cam.p.waitForSelector('[aria-label="Pick a circuit"]');
   await cam.p.waitForFunction(() => /1 waiting/.test(document.querySelector('[data-track="monaco"]')?.textContent ?? ''), null, { timeout: 20000 });
   const order = await cam.p.evaluate(() => [...document.querySelectorAll('[data-track]')].map(b => b.getAttribute('data-track') + (b.disabled ? ':locked' : '')));
-  ok(order.slice(0, 3).join() === 'monaco,interlagos,laguna' && order.slice(3).every(x => x.endsWith(':locked')) && order.length === 10,
-    `ten circuits, the three a guest may race first, the rest locked (${order.join(' ')})`);
-  ok(/Stage 5/.test(await cam.p.evaluate(() => document.querySelector('[data-track="spa"]')?.textContent ?? '')), 'the Ardennes is locked until stage 5, as in the Races menu');
+  ok(order.join() === 'spa,monza,silverstone,suzuka,nurburgring,monaco,interlagos,cota,laguna,bathurst',
+    `ten circuits in the Races menu's order, every one open to a guest at stage 1 (${order.join(' ')})`);
+  ok(!/Stage/.test(await cam.p.evaluate(() => document.querySelector('[aria-label="Pick a circuit"]')?.textContent ?? '')), 'no stage lock anywhere on the card');
   await photograph(cam, 'card', WORDS[LANG].card);
 
   // 3. the camera picks Harbour: the same room, and its countdown begins; photographed; it leaves and the count stops

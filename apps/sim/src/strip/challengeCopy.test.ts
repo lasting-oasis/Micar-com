@@ -18,14 +18,11 @@ describe('quick race: its words and its countdown', () => {
     expect(startsInSeconds(31_000, 31_000)).toBe(0);
     expect(startsInSeconds(31_000, 45_000)).toBe(0); // the server's tick is a second: it can be late, never negative
   });
-  it('the circuits: the open ones first, in the Races menu order, then the locked ones by the stage that opens them', () => {
-    const atOne = quickRows(1);
-    expect(atOne.map(r => r.track)).toEqual(['monaco', 'interlagos', 'laguna', 'monza', 'silverstone', 'suzuka', 'nurburgring', 'bathurst', 'cota', 'spa']);
-    expect(atOne.filter(r => !r.locked).map(r => r.eventId)).toEqual(['harbour_gp', 'lagoons_sprint', 'drylagoon_x']);
-    expect(atOne.find(r => r.track === 'spa')).toEqual({ track: 'spa', eventId: 'ardennes_gp', stage: 5, locked: true });
-    // all open: the Races menu's own order
-    expect(quickRows(5).map(r => r.track)).toEqual(['spa', 'monza', 'silverstone', 'suzuka', 'nurburgring', 'monaco', 'interlagos', 'cota', 'laguna', 'bathurst']);
-    expect(quickRows(5).every(r => !r.locked)).toBe(true);
+  it("the Quick race card lists all ten circuits in the Races menu's order, every one open to every stage", () => {
+    const rows = quickRows();
+    expect(rows.map(r => r.track)).toEqual(['spa', 'monza', 'silverstone', 'suzuka', 'nurburgring', 'monaco', 'interlagos', 'cota', 'laguna', 'bathurst']);
+    // the Ardennes GP, a stage-5 race, is a row like any other: nothing on a row is about stages (the owner's call)
+    expect(rows.find(r => r.track === 'spa')).toEqual({ track: 'spa', eventId: 'ardennes_gp' });
   });
   it('"{n} waiting" says how many, in either language', () => {
     expect(waitingText('en', 3)).toBe('3 waiting');
