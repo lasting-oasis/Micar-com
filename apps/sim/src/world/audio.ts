@@ -26,42 +26,48 @@ type Nodes = {
 
 export const SFX_NAMES = ['tick', 'buy', 'ok', 'no', 'beep', 'go', 'cp', 'finish', 'perfect', 'crash', 'horn', 'shift', 'bov', 'nosfire'] as const;
 
-/** The page's one audio context and how many Audio instances are using it. */
-let shared: { AC: Ctx; refs: number } | null = null;
+/** The page's one audio context and the Audio instances using it. */
+let shared: { AC: Ctx; users: Set<Audio> } | null = null;
 const workletLoaded = new WeakMap<object, Promise<void>>();
 
 export class Audio {
   private AC: Ctx | null = null;
   private A: Nodes | null = null;
-  private failed = false;
   private quiet = true;
   private facts: SoundFacts | null = null;
   private node: AudioWorkletNode | null = null;
   private nodeGain: GainNode | null = null;
   private sentTurbo = false;
   private sources: AudioScheduledSourceNode[] = [];
-  // Health: an iPhone can leave the output interrupted, or 'running' with its clock stopped. Watched each frame.
+  // Health: an iPhone can leave the output interrupted, or 'running' with its clock stopped. Looked at each frame in the car
+  // and at each tap. Only what the looks saw counts: the last look's clock, state and time (ms), and the last look that saw
+  // the output fine (its clock moving while 'running') or that started afresh.
   private clock = (): number => performance.now();
-  private seenTime = -1; private stuckSince = -1; private rebuilt = 0;
+  private seenTime = -1; private seenState = ''; private lookedAt = -1; private fineAt = -1; private rebuilt = 0;
 
-  /** 'ok', 'stalled' (its clock has not moved for over a second), 'interrupted'/'suspended' (stuck so for over a second), 'closed', or 'none' before the first tap. */
+  /** 'ok', 'stalled' (its clock has not moved for over a second), 'interrupted'/'suspended' (stuck so for over a second), 'closed', or 'none' before the first tap.
+   *  Judged from the looks alone: a time with nothing looking (out of the car, a hidden tab) adds nothing. */
   health(): 'ok' | 'stalled' | 'interrupted' | 'suspended' | 'closed' | 'none' {
     const AC = this.AC; if (!AC) return 'none';
     if (AC.state === 'closed') return 'closed'; // closed by something else: never coming back
-    if (this.stuckSince < 0 || this.clock() - this.stuckSince < 1000) return 'ok';
-    return AC.state === 'running' ? 'stalled' : (AC.state as 'interrupted' | 'suspended');
+    if (this.lookedAt - this.fineAt < 1000) return 'ok';
+    return this.seenState === 'running' ? 'stalled' : (this.seenState as 'interrupted' | 'suspended');
   }
   /** One line for the on-screen readout (?audiodebug). */
   debugLine(): string {
     const AC = this.AC; if (!AC) return 'audio: not started (tap)';
     return `audio: ${AC.state} t=${AC.currentTime.toFixed(1)} ${AC.sampleRate}Hz ${this.health()} model=${this.modelActive ? 'on' : 'off'} rebuilt=${this.rebuilt}`;
   }
+  // One look. currentTime never runs backwards, so a clock that reads the same as at the last look, still 'running', stood
+  // still all the time between, however long nothing looked; one that has moved was fine. A change of state starts afresh.
   private watch(): void {
     const AC = this.AC; if (!AC) return;
-    const moving = AC.state === 'running' && AC.currentTime !== this.seenTime;
-    if (moving) this.stuckSince = -1; else if (this.stuckSince < 0) this.stuckSince = this.clock();
-    this.seenTime = AC.currentTime;
+    const now = this.clock(), state = AC.state as string, t = AC.currentTime;
+    if (state !== this.seenState || (state === 'running' && t !== this.seenTime)) this.fineAt = now;
+    this.seenTime = t; this.seenState = state; this.lookedAt = now;
   }
+  /** Forget what the looks saw: the output was changed on purpose (a tab shown again), so the next look starts afresh. */
+  private forget(): void { this.seenTime = -1; this.seenState = ''; this.lookedAt = this.fineAt = -1; }
 
   constructor(private muted = false, private mode: SoundMode = 'classic') {}
 
@@ -99,12 +105,15 @@ export class Audio {
   /** Make (first call) and resume the context. Call from a pointerdown/keydown handler. */
   resume(): void {
     // Dead for over a second (frozen, or a phone that will not give it back): build the sound again, now, inside this tap.
+    // The tap looks for itself first, so the time since the last frame in the car is judged by the clock, not guessed.
+    this.watch();
     const h = this.health();
     if (h !== 'ok' && h !== 'none') this.rebuild();
     const AC = this.ctx();
     // A phone can also leave the context 'interrupted' (a call, another app, another context closing): wake that too.
-    if (AC && AC.state !== 'running' && AC.state !== 'closed') void AC.resume().catch(() => {});
+    if (AC) this.wakeUp(AC);
   }
+  private wakeUp(AC: Ctx): void { if (AC.state !== 'running' && AC.state !== 'closed') void AC.resume().catch(() => {}); }
 
   setMute(m: boolean): void { this.muted = m; if (this.A) this.A.master.gain.value = m ? 0 : .55; }
 
@@ -165,39 +174,50 @@ export class Audio {
 
   /** Suspend the context (the tab is hidden); wake() picks it up again. */
   suspend(): void { const AC = this.AC; if (AC && AC.state === 'running') void AC.suspend().catch(() => {}); }
-  /** Resume a context that exists (the tab is shown again); makes none. */
-  wake(): void { if (this.AC) this.resume(); }
+  /** Resume a context that exists (the tab is shown again); makes none and rebuilds none: this is no tap, and on an iPhone a
+   *  new output made here could not start. The time hidden tells the watch nothing, so it starts afresh. */
+  wake(): void { const AC = this.AC; if (!AC) return; this.forget(); this.wakeUp(AC); }
 
-  /** Close the context (leaving the world). */
+  /** Build the sound again on a new output, inside this tap, and close the old one. Every Audio on the old output moves
+   *  with it at once (the Garage menu's too): left there, its sounds would play into a closed output. Each keeps its car,
+   *  turbo and mute. The new output is made now, not once the old one's close() settles: that would be outside the tap,
+   *  and on an iPhone an output made outside a tap does not start. */
   private rebuild(): void {
-    const old = this.AC, facts = this.facts, turbo = this.sentTurbo, n = this.rebuilt + 1;
-    this.dispose();
-    if (old && shared?.AC === old) { shared = null; void old.close().catch(() => {}); } // the others on it are dead too
-    this.facts = facts; this.sentTurbo = turbo; this.rebuilt = n;
+    const old = this.AC, movers = old && shared?.AC === old ? [...shared.users] : [this];
+    if (old && shared?.AC === old) shared = null;
+    for (const a of movers) a.drop();
+    if (old) void old.close().catch(() => {});
+    this.rebuilt++;
+    for (const a of movers) a.ctx();   // this one first
   }
 
+  /** Close the context (leaving the world): it closes only with its last user. */
   dispose(): void {
     const AC = this.AC;
-    if (AC) {
-      // Take this instance's sounds off the shared output; the context itself closes only with its last user.
+    this.drop();
+    if (AC && shared?.AC === AC) { shared.users.delete(this); if (!shared.users.size) { shared = null; void AC.close().catch(() => {}); } }
+  }
+
+  /** Take this instance's sounds off its output and let go of it. */
+  private drop(): void {
+    if (this.AC) {
       for (const src of this.sources) { try { src.stop(); } catch { /* never started */ } }
       try { this.node?.disconnect(); } catch { /* not connected */ }
       try { this.A?.master.disconnect(); } catch { /* not connected */ }
-      if (shared && shared.AC === AC && --shared.refs <= 0) { shared = null; void AC.close().catch(() => {}); }
     }
-    this.sources = []; this.AC = null; this.A = null; this.node = null; this.nodeGain = null; this.quiet = true; this.stuckSince = -1; this.seenTime = -1;
+    this.sources = []; this.AC = null; this.A = null; this.node = null; this.nodeGain = null; this.quiet = true; this.forget();
   }
 
   private ctx(): Ctx | null {
-    if (this.AC) return this.AC; if (this.failed) return null;
+    if (this.AC) return this.AC;
     const g = globalThis as unknown as { AudioContext?: typeof AudioContext; webkitAudioContext?: typeof AudioContext };
     const Ctor = g.AudioContext || g.webkitAudioContext;
-    if (!Ctor) { this.failed = true; return null; }
+    if (!Ctor) return null;
     // One context for the whole page. The Garage menu has its own Audio, and on an iPhone a second context
     // closing interrupts the first: the game's sound then stayed off after a visit to the Garage.
     let AC: Ctx;
-    if (shared && shared.AC.state !== 'closed' && shared.AC instanceof Ctor) { AC = shared.AC; shared.refs++; }
-    else { try { AC = new Ctor(); } catch { this.failed = true; return null; } shared = { AC, refs: 1 }; }
+    if (shared && shared.AC.state !== 'closed' && shared.AC instanceof Ctor) { AC = shared.AC; shared.users.add(this); }
+    else { try { AC = new Ctor(); } catch { return null; } shared = { AC, users: new Set([this]) }; } // the browser can refuse (it throws): the next tap tries again
     const master = AC.createGain(); master.gain.value = this.muted ? 0 : .55; master.connect(AC.destination);
     const nb = AC.createBuffer(1, AC.sampleRate * 2, AC.sampleRate), d = nb.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
     const noiseSrc = () => { const s = AC.createBufferSource(); s.buffer = nb; s.loop = true; s.start(); return s; };

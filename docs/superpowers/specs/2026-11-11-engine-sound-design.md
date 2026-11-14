@@ -84,6 +84,7 @@ A Garage turbo on a naturally aspirated engine switches its induction to turbo.
 - `engine.worklet.ts` runs the model in the audio thread as the `micar-engine` processor.
 - `Audio` in `world/audio.ts` takes a mode. In `model` mode it loads the processor, sends it the car's facts and feeds it the frame inputs. Until the processor is running, and for cars with no facts, the old oscillators play.
 - `VanillaThreeScene.tsx` sends new facts whenever the driven car changes.
+- Every `Audio` on the page (the game's and the Garage menu's) shares one AudioContext, which closes with its last user. A health watch rebuilds it on a tap when a phone has left it dead: see "The health watch" below.
 - Only the player's car is voiced.
 
 ## Tests
@@ -91,7 +92,7 @@ A Garage turbo on a naturally aspirated engine switches its induction to turbo.
 - `firing.test.ts`: spacing per layout and crank, the firing order check.
 - `engineSound.test.ts`: what the physics should give, measured from the rendered sound by engine order. Inline-four: second order leads. Cross-plane V8 on one bank's pipe: half orders stand within 10 dB of fourth order. Merged into equal pipes: they drop more than 20 dB. Unequal branches: they come back. Flat-plane: none. Flat-four with unequal runners: half orders rise more than 10 dB. Also load, cut, the two mufflers, intake, supercharger, turbo, pops, staying in range under random driving, silence when stopped, and speed.
 - `carSound.test.ts`: reading the catalog string and the class defaults.
-- `world/audio.test.ts`: the switch and the frame inputs.
+- `world/audio.test.ts`: the switch, the frame inputs, the shared output and the health watch, against a stand-in AudioContext.
 - `e2e/sound.smoke.mjs`: renders one second through the built processor in Chromium and fails if it is silent or out of range. It runs in CI beside the Strip smoke test.
 
 ## Measured from the clips
@@ -119,6 +120,34 @@ The owner heard every car make the same hum at the start of an acceleration and 
 Still alike after this: cars of the same body type with the same cylinder count. The driving model gives them one shape of torque curve, so they pull away at nearly the same revs, and the catalog has no exhaust data to tell them apart. That needs per-car data, which the physics core is planned to carry.
 
 A car that is not in the catalog (`carSpecs.ts` has 48 models; no Subaru or Porsche among them) gets its body style's stand-in engine, for example "2.4L I4" for any sedan and "3.8L V6" for any sports car, and sounds like that engine. No flat engine is in the catalog today.
+
+## The health watch (PR #24; three faults fixed 2026-11-14)
+
+An iPhone can leave the output 'interrupted', or 'running' with its clock stopped, and not give it back. `Audio` watches for that and, on the next tap, closes the output and builds the sound again on a new one, inside the tap. A tap is the only place a new output can start on an iPhone.
+
+How it judges, as it stands:
+
+- It looks at the output each frame in the car (from `engine()`) and at each tap (`resume()` looks first, then judges). Nothing else looks: not on foot, in the lobby, at the rental counter or in a hidden tab.
+- Only what the looks saw counts. The output is 'stalled' when looks over at least a second saw its clock not move while 'running'; 'interrupted' or 'suspended' when looks over at least a second saw it in that state. The second runs from the last look that saw it fine to the last look, never to "now".
+- `currentTime` never runs backwards. A clock that reads the same at a tap as at the last frame in the car, still 'running', stood still all the time between, however long nothing looked, so a tap on foot still catches a frozen output. One that has moved was fine.
+- A change of state between two looks starts afresh, and so does a fresh output.
+- Showing a hidden tab (`wake()`) resumes the output but never rebuilds it: that is no tap, so on an iPhone a new output made there would not start. The time hidden tells the watch nothing, so it starts afresh.
+- A rebuild moves every `Audio` on the old output (the Garage menu's too) to the new one at once, each with its car, turbo and mute. Then the old one is closed.
+- If the browser refuses to make a context (the constructor throws), the next tap tries again.
+
+The three faults (found 2026-11-14 on branch `claude/engine-sound-nan-silence-83dgpw`):
+
+1. **A stale reading rebuilt a working output.** The watch kept the time of the first look that saw the clock not move, and judged it against the time of the tap. The clock moves in steps, so the last frame in the car often sees it not move. One second later any tap called the output 'stalled' and rebuilt it: after getting out of the car, after a rental race ended, after a hidden tab came back (inside `visibilitychange`, where an iPhone would not start the new output), or after a task of a second or more on the page. Now only what the looks saw counts, and a tap looks for itself.
+   That branch first used a gap rule for its own `froze` readout: a pause of over 500 ms between two looks ended the freeze under way. Its review then found that the rule cuts a real freeze short when the frames pause in the middle of it. The branch replaced it with the clock rule above, and the watch uses the clock rule too. A gap rule would also never catch a frozen output on foot, where every tap comes more than half a second after the last look.
+2. **A rebuild left the Garage on a closed output.** The Garage menu's `Audio` shares the output. A rebuild closed it and made a new one for the game alone, so the Garage's sounds went into the closed one until its next tap. Now everything on the old output moves to the new one in the same tap.
+   The other way, making the new output only once the old one's `close()` settles, was not taken. That would make it outside the tap, where an iPhone does not let it start.
+3. **One refusal turned the sound off for good.** A throwing `new AudioContext()` set a flag that nothing cleared, not even `dispose()`. The flag is gone.
+
+Checked in Chromium with the real AudioContext, whose suspend, resume and close all take effect later: a 2 s pause with nothing looking and a 2 s hidden tab leave the output alone. An output that a cause outside the page held 'suspended' for 1.2 s is rebuilt on the next tap, with the Garage's `Audio` on the new output. Before the fix, Chromium showed fault 2 (the Garage's sounds were built on the closed output). It did not show fault 1: its clock moves between every two frames, so only the stand-in in the tests shows it.
+
+Still open, and **not confirmed on an iPhone**:
+- PR #22 found that on the owner's iPhone closing one context interrupts the others. A rebuild makes the new output and closes the old one in the same tap, so the close may interrupt the new output. The next tap wakes it (a change of state starts the watch afresh). But if the looks see it interrupted for over a second before that tap, the tap rebuilds again, and the next close may interrupt that output too.
+- A context made in a `pointerdown` may not start on an iPhone, which counts only `touchend` and `click`. The `touchend` of the same touch wakes it. A fresh output starts the watch afresh, so it is not rebuilt again.
 
 ## Cost
 
