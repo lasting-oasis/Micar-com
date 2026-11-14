@@ -21,6 +21,7 @@ const JITTER_LOAD = 0.05;     // cycle-to-cycle variation at speed
 const JITTER_IDLE = 0.14;     // extra variation near idle
 const TURBINE_GAIN = 0.55;    // class estimate: what a turbine leaves of a pulse
 const CHAMBER_AREA = 9;       // chambered muffler: chamber area over pipe area
+const RPM_CEILING = 10;       // highest rpm taken, in redlines: a guard, not physics (the game reaches about 4.7 on a downshift)
 const RING = 16384, MASK = RING - 1;
 
 class Seg {
@@ -122,6 +123,9 @@ export class EngineSound {
     this.inB = 1 - r; this.inA1 = 2 * r * Math.cos(w); this.inA2 = -r * r;
   }
 
+  /** `v` inside lo..hi; NaN counts as lo. */
+  private static within(v: number, lo: number, hi: number): number { return v >= lo ? (v <= hi ? v : hi) : lo; }
+
   private rand(): number { let s = this.seed; s ^= s << 13; s ^= s >>> 17; s ^= s << 5; this.seed = s; return (s >>> 0) / 4294967296; }
   private gauss(): number { return (this.rand() + this.rand() + this.rand() - 1.5) * 1.155; }
 
@@ -166,12 +170,16 @@ export class EngineSound {
     const sr = this.sr, kS = this.kS, lines = this.lines, segs = this.segs, br = this.branches, x = this.crossover;
     const two = lines.length === 2, nSeg = segs.length, src0 = this.src[0], src1 = this.src.length > 1 ? this.src[1] : null;
     const sA = 0.5 * (1 + this.spread), sB = 0.5 * (1 - this.spread), kSlow = 1 / sr;
+    // An AudioParam carries any float. Past either end of its range an input counts as that end; NaN counts as the low end.
+    // WebKit hands a k-rate param a hair below 0 on the first block of a setTargetAtTime that leaves 0 (iPhone, 48 kHz).
+    // rpm stops at ten times the redline, far past anything the game sends: the crank clock's work grows with it.
+    const w = EngineSound.within, rpmIn = w(this.rpm, 0, RPM_CEILING * this.redline), thrIn = w(this.throttle, 0, 1), loadIn = w(this.load, -1, 1), boostIn = w(this.boost, 0, 1);
     for (let s = 0; s < n; s++) {
       // inputs, smoothed
-      const rpm = this.rpmS += kS * (this.rpm - this.rpmS);
-      const thr = this.thrS += kS * (this.throttle - this.thrS);
-      this.loadS += kS * (this.load - this.loadS);
-      const boost = this.boostS += kS * (this.boost - this.boostS);
+      const rpm = this.rpmS += kS * (rpmIn - this.rpmS);
+      const thr = this.thrS += kS * (thrIn - this.thrS);
+      this.loadS += kS * (loadIn - this.loadS);
+      const boost = this.boostS += kS * (boostIn - this.boostS);
       const loadP = this.loadS > 0 ? this.loadS : 0;
       this.heat += kSlow * (loadP > 0.4 ? (1 - this.heat) / 2 : -this.heat / 1.5);
 
