@@ -2,7 +2,7 @@
 
 **Said MEE-car.** Your car is the second-biggest thing you own and the only one you never check. MiCar treats it like the asset it is: valued, tracked, graded, and provable.
 
-Type a car at the door and it comes back as a card with today's value on it. Three entries later the card goes in a case with a grade from 1 to 10 that follows the car for life. The grade is free, for everyone, forever: you pay for the work, never for the number. The card lives in a garage, and the garage is a real place: a 3D town you can drive in.
+Type a car at the door and it comes back as a card with today's value on it. Three entries later the card goes in a case with a grade from 1 to 10, worked out from the car's own record: when the record changes, so does the grade. The grade is free, for everyone, forever: you pay for the work, never for the number. The card lives in a garage, and the garage is a real place: a 3D town you can drive in.
 
 ## The doors
 

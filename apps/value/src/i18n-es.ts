@@ -429,7 +429,7 @@ export const ES: Record<string, string> = {
   'Park it.': 'Estaciónelo.',
   'Grade it.': 'Califíquelo.',
   'your car is an asset': 'su auto es un activo',
-  "Type the car. The door opens on what it's worth today, on a card. Three entries later the card goes in a case with a grade that follows the car for life. The number is free, for everyone, forever. Nobody here wants to buy your car.": 'Escriba el auto. La puerta se abre sobre lo que vale hoy, en una tarjeta. Tres entradas después, la tarjeta entra en su estuche con una calificación que acompaña al auto toda su vida. El número es gratis, para todos, para siempre. Aquí nadie quiere comprarle el auto.',
+  "Type the car. The door opens on what it's worth today, on a card. Three entries later the card goes in a case with a grade worked out from the car's own record. The number is free, for everyone, forever. Nobody here wants to buy your car.": 'Escriba el auto. La puerta se abre sobre lo que vale hoy, en una tarjeta. Tres entradas después, la tarjeta entra en su estuche con una calificación calculada a partir del historial del propio auto. El número es gratis, para todos, para siempre. Aquí nadie quiere comprarle el auto.',
   'See a graded card': 'Ver una tarjeta calificada',
   'Enter MiCar World': 'Entrar a MiCar World',
   'graded': 'calificado',
