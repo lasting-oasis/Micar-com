@@ -716,6 +716,19 @@ describe('quick rooms: one filling per circuit, starting by themselves', () => {
     expect(room.startsAt).toBe(10_000 + QUICK_WAIT_MS);
     expect(tick(room, 21_000)).toBe(false); expect(tick(room, 10_000 + QUICK_WAIT_MS)).toBe(true);
   });
+  it('a quick room down to one racer after its race, then filled again during its result wait, starts when that wait ends', () => {
+    const rooms = new Map<string, Room>(), room = quick(rooms, 'monaco', 'h', 4);
+    for (const id of ['b', 'c', 'd']) joinRoom(room, who(id), 1_000); // full: starts at once
+    tick(room, 1_000); for (const id of ['h', 'b', 'c', 'd']) markReady(room, id, 1_100);
+    for (const id of ['h', 'b', 'c', 'd']) quitRace(room, id, 10_000); // the race closes: the result shows until 40 s
+    for (const id of ['b', 'c', 'd']) leaveRoom(room, id, 12_000); // three go: h is alone, with no wait
+    expect([room.startsAt, room.restUntil]).toEqual([null, 10_000 + QUICK_WAIT_MS]);
+    joinRoom(room, who('e'), 35_000); // a second arrival: its own wait, to 65 s
+    expect(room.startsAt).toBe(35_000 + QUICK_WAIT_MS);
+    for (const id of ['f', 'g']) joinRoom(room, who(id), 38_000); // full during the result wait
+    expect(room.startsAt).toBe(10_000 + QUICK_WAIT_MS); // it starts when the result wait ends, not 25 s after it
+    expect(tick(room, 10_000 + QUICK_WAIT_MS - 1)).toBe(false); expect(tick(room, 10_000 + QUICK_WAIT_MS)).toBe(true);
+  });
   it('a join that refills a quick room during the wait after a call-off does not cut it either, and clears the call-off note', () => {
     const rooms = new Map<string, Room>(), room = quick(rooms, 'monaco', 'h', 4);
     for (const id of ['b', 'c', 'd']) joinRoom(room, who(id), 1_000);

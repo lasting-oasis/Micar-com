@@ -156,7 +156,8 @@ export function createRoom(rooms: Map<string, Room>, host: { id: string; name: s
 }
 
 /** Into the room, in any phase: someone who arrives while a race is on is in the next one. In an open quick room the
- *  second to arrive starts its wait (`now`), and the one who fills it ends the wait: it starts at the next tick. */
+ *  second to arrive starts its wait (`now`), and the one who fills it ends the wait: it starts at the next tick, or,
+ *  in the wait after a race or a call-off, when that wait ends. */
 export function joinRoom(room: Room, who: { id: string; name: string }, now?: number): Ok | Denied {
   if (find(room, who.id)) return OK;
   if (room.members.length >= room.max) return no('full');
@@ -166,7 +167,8 @@ export function joinRoom(room: Room, who: { id: string; name: string }, now?: nu
   if (now !== undefined) {
     waitQuick(room, now);
     const resting = room.restUntil !== null && now < room.restUntil; // a race's end or a call-off began this wait: it holds
-    if (room.quick && room.phase === 'open' && room.members.length >= room.max && room.members.length >= RACE_MIN && !resting) room.startsAt = now;
+    // full: it starts at once, or when that wait ends, never at a later wait that a newcomer began while it was down to one
+    if (room.quick && room.phase === 'open' && room.members.length >= room.max && room.members.length >= RACE_MIN) room.startsAt = resting ? room.restUntil : now;
   }
   if (!room.hostId) setHost(room, m); // the room had emptied out: whoever comes back to it hosts
   room.emptySince = null;
