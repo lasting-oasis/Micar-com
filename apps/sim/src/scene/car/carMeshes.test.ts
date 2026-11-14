@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import * as THREE from 'three';
@@ -144,10 +144,13 @@ describe('the geometry set built from a model', () => {
         expect(hi - lo).toBeGreaterThan(0.5); // spread over the glass, not one texel
         expect(mg.paint.getAttribute('uv')).toBeUndefined();
     });
-    it('puts the engine smoke over the front axle and has no lamp glows yet', () => {
+    it('puts the engine smoke over the front axle, and fits head and tail lamps to the model', () => {
         expect(mg.smokePos.z).toBeLessThan(-2.8);
         expect(mg.smokePos.y).toBeCloseTo(2);
-        expect(mg.halos.getAttribute('position').count).toBe(0);
+        expect(mg.halos.getAttribute('position').count).toBe(4); // head and tail lamps, both sides (meshLamps)
+        expect(mg.lamps!.getIndex()!.count).toBeGreaterThan(0);
+        // the far version's lenses: the same ones, seated on the far body (a geometry of their own)
+        expect(mg.farLamps).not.toBe(mg.lamps); expect(mg.farLamps!.getIndex()!.count).toBe(mg.lamps!.getIndex()!.count);
     });
     it('copes with a node transform the loader left on the meshes', () => {
         const root = fakeGltf(); root.getObjectByName('body')!.position.set(0, 0, 0.5);
@@ -185,23 +188,29 @@ describe('loading on demand, once', () => {
         expect(urls).toEqual(['/cars/toyota-camry.glb', '/cars/honda-fit.glb']);
     });
     it('a model that fails to load leaves the car lofted and is not fetched again', async () => {
+        const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
         let n = 0;
         const cache = makeCarMeshCache(async () => { n++; throw new Error('404'); }, () => '/');
         expect(await cache.when('honda-fit')).toBeNull();
         expect(cache.request('honda-fit')).toBeNull();
         await flush();
         expect(n).toBe(1);
+        expect(warn).toHaveBeenCalledTimes(1); expect(String(warn.mock.calls[0])).toMatch(/404/);
+        warn.mockRestore();
     });
     it('a model whose file is malformed fails the same way', async () => {
+        const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
         const cache = makeCarMeshCache(async () => new THREE.Group(), () => '/');
         expect(await cache.when('honda-fit')).toBeNull();
+        expect(warn).toHaveBeenCalledTimes(1); expect(String(warn.mock.calls[0])).toMatch(/no body node/);
+        warn.mockRestore();
     });
     it('frees the GPU copies when the world closes but keeps the parsed models for the next one', async () => {
         const cache = makeCarMeshCache(async () => fakeGltf(), () => '/');
         const mg = (await cache.when('toyota-rav4'))!;
-        let freed = 0; mg.paint.addEventListener('dispose', () => freed++);
+        let freed = 0; for (const g of [mg.paint, mg.lamps!, mg.farLamps!]) g.addEventListener('dispose', () => freed++);
         cache.dispose();
-        expect(freed).toBe(1);
+        expect(freed).toBe(3);
         expect(cache.request('toyota-rav4')).toBe(mg);
     });
 });

@@ -67,10 +67,19 @@ describe('the kit on a car drawn from its own model (a mesh body)', () => {
     car.userData.car = { body, tilt, wheelMesh, pivots, wheels, halos, far: false, mesh: 'toyota-camry', meshWheel: { r: 0.7, w: 0.44 }, wheelScale };
     return { car, wheels };
   };
-  it('has no lamp glows (the model has no lamps yet), rather than glows where the lofted lamps would be', () => {
+  it('without lamps (none could be fitted) has no lamp glows, rather than glows where the lofted lamps would be', () => {
     const { car } = meshCar();
     const r = attachParts(car, STOCK_CFG, 'sedan', 0);
     expect(r.glows.length).toBe(0);
+    disposeParts(r);
+  });
+  it("puts the kit's lamp glows on the model's own lamps", () => {
+    const { car } = meshCar(), halos = (car.userData.car as { halos: THREE.Points }).halos;
+    const at = [[-1.2, 1.4, -4.9, -1], [1.2, 1.4, -4.9, -1], [-1.1, 1.7, 4.9, 1], [1.1, 1.7, 4.9, 1]];
+    halos.geometry.setAttribute('position', new THREE.Float32BufferAttribute(at.flatMap(a => a.slice(0, 3)), 3));
+    halos.geometry.setAttribute('lampDir', new THREE.Float32BufferAttribute(at.map(a => a[3]), 1));
+    const r = attachParts(car, STOCK_CFG, 'sedan', 0);
+    expect(r.glows.map(g => [g.position.x, g.position.y, g.position.z, g.userData.lamp])).toEqual(at.map(a => [expect.closeTo(a[0], 5), expect.closeTo(a[1], 5), expect.closeTo(a[2], 5), a[3] < 0 ? 'head' : 'tail']));
     disposeParts(r);
   });
   it("sizes Night Tuner's wheels to the model's own tyres, front and rear", () => {

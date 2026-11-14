@@ -19,7 +19,7 @@ const ctx = new Proxy({}, { get: (_t, k) => k === 'createImageData' ? (w: number
     : k === 'createRadialGradient' ? () => ({ addColorStop() {} }) : () => {} });
 vi.stubGlobal('document', { createElement: () => ({ getContext: () => ctx, width: 0, height: 0 }) });
 
-import { CAR_BODY_CHANGE, applyCarPaint, buildCarModel, carFrameTick, disposeCarModel, precompileCarsTick, setCarLights, syncCarWheels, updateCarLights, updateCars } from './carModel';
+import { CAR_BODY_CHANGE, LAMP_BRAKE, TAIL_LENS_NIGHT, applyCarPaint, buildCarModel, carFrameTick, disposeCarModel, precompileCarsTick, setCarLights, syncCarWheels, updateCarLights, updateCars } from './carModel';
 import { makeCarMeshCache, setCarMeshCache, type MicarExtras } from './car/carMeshes';
 
 const EXTRAS: MicarExtras = {
@@ -37,7 +37,7 @@ const fakeGltf = () => {
     return root;
 };
 
-type Parts = { body: THREE.Mesh; trim: THREE.Mesh; glass: THREE.Mesh; wheelMesh: THREE.InstancedMesh; farBody: THREE.Mesh; farTrim: THREE.Mesh; halos: THREE.Points; length: number; width: number; mesh: string | null };
+type Parts = { body: THREE.Mesh; trim: THREE.Mesh; glass: THREE.Mesh; wheelMesh: THREE.InstancedMesh; farBody: THREE.Mesh; farTrim: THREE.Mesh; halos: THREE.Points; lampPatch: THREE.Mesh; farLampPatch: THREE.Mesh; length: number; width: number; mesh: string | null };
 const partsOf = (g: THREE.Object3D) => g.userData.car as Parts;
 const zLen = (g: THREE.BufferGeometry) => { g.computeBoundingBox(); return g.boundingBox!.max.z - g.boundingBox!.min.z; };
 const wheelAt = (p: Parts, i: number) => { const m = new THREE.Matrix4(); p.wheelMesh.getMatrixAt(i, m); const pos = new THREE.Vector3(), q = new THREE.Quaternion(), s = new THREE.Vector3(); m.decompose(pos, q, s); return { pos, q, s }; };
@@ -115,13 +115,94 @@ describe('a car with its own model', () => {
         disposeCarModel(group);
     });
 
-    it('has no lamp glows yet: lights on leave the dark trim black and the glow hidden', () => {
+    it('lights its own lamp lenses as a lofted car lights its trim, in every mode (the tail ones with their own glow); its black trim stays black', () => {
+        const lofted = buildCarModel('sedan', '#00ff00', 100, 100).group, L = partsOf(lofted);
         const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'toyota-camry');
         const c = partsOf(group), dark = c.trim.material;
-        setCarLights(group, 'brake');
-        expect(c.trim.material).toBe(dark); expect(c.farTrim.material).toBe(dark);
-        expect(c.halos.visible).toBe(false);
+        expect(c.lampPatch.visible).toBe(true); expect(c.lampPatch.parent).toBe(c.trim); // (the far switch hides it with the trim)
+        expect(c.lampPatch.geometry.getIndex()!.count).toBeGreaterThan(0);
+        const key = (L.trim.material as THREE.Material).customProgramCacheKey();
+        for (const m of ['on', 'brake', 'reverse', 'off'] as const) {
+            setCarLights(lofted, m); setCarLights(group, m);
+            if (m === 'off') { // unlit (every parked car): the plain trim, one material, so the lenses are one draw (three draws a
+                expect(c.lampPatch.material).toBe(L.trim.material); // single material over the whole geometry, groups or not)
+                expect(Array.isArray(c.farLampPatch.material)).toBe(false); expect(c.farLampPatch.material).toBe(L.trim.material);
+                continue;
+            }
+            const [head, tail] = c.lampPatch.material as THREE.Material[]; // meshLamps' two groups: head lenses, tail lenses
+            expect(head).toBe(L.trim.material); // the same lamp material (and shader) as the lofted trim
+            {
+                expect(tail).not.toBe(head); expect(tail.customProgramCacheKey()).toBe(key); // its own glow...
+                // ...on the same shader program: everything three builds the program from is the head material's, all but the glow
+                const program = (x: THREE.Material) => { const j = x.toJSON() as Record<string, unknown>; delete j.uuid; delete j.emissiveIntensity; return j; };
+                expect(program(tail)).toEqual(program(head));
+                // and the same lamp uniforms for the mode: braking brightens the tail lamps, reversing lights the reverse lamps
+                const uniforms = (x: THREE.Material) => { const sh = { uniforms: {} as Record<string, { value: number }>, fragmentShader: '#include <common> #include <emissivemap_fragment>' };
+                    x.onBeforeCompile(sh as never, null as never); return [sh.uniforms.lampBrake.value, sh.uniforms.lampReverse.value]; };
+                expect(uniforms(tail)).toEqual(uniforms(head));
+                expect(uniforms(tail)).toEqual(m === 'brake' ? [LAMP_BRAKE, 0] : m === 'reverse' ? [1, 3] : [1, 0]);
+            }
+            expect(c.trim.material).toBe(dark); expect(c.farTrim.material).toBe(dark);
+        }
+        disposeCarModel(group); disposeCarModel(lofted);
+    });
+
+    it("reads red at night: its tail lenses' glow does not rise with the head lamps' (it falls to TAIL_LENS_NIGHT), so braking does not tone-map to white", () => {
+        const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'toyota-camry');
+        const c = partsOf(group), glow = (m: 'on' | 'brake') => { setCarLights(group, m); return (c.lampPatch.material as THREE.MeshStandardMaterial[]).map(x => x.emissiveIntensity); };
+        updateCarLights(0); // by day: as before, head and tail alike
+        expect(glow('on')).toEqual([0.7, 0.7]); expect(glow('brake')).toEqual([0.7, 0.7]);
+        updateCarLights(1); // at night the head lamps brighten; the tail lenses do not
+        const [head, tail] = glow('brake');
+        expect(head).toBeCloseTo(3); expect(tail).toBeCloseTo(TAIL_LENS_NIGHT);
+        // what the screen shows (three's ACES filmic, at the night sky's exposure, atmosphere.ts: 1.55) for the tail lamp
+        // swatch's glow (#ff2020, linear), braking (LAMP_BRAKE) and not: the tail lenses' glow reads red; the head lamps' would not
+        const shown = (k: number, brake: number) => {
+            const lin = (s: number) => ((s / 255 + 0.055) / 1.055) ** 2.4, x = [1, lin(0x20), lin(0x20)].map(v => v * k * brake * 1.55 / 0.6);
+            const a = [0.59719 * x[0] + 0.35458 * x[1] + 0.04823 * x[2], 0.076 * x[0] + 0.90834 * x[1] + 0.01566 * x[2], 0.0284 * x[0] + 0.13383 * x[1] + 0.83777 * x[2]]
+                .map(v => (v * (v + 0.0245786) - 0.000090537) / (v * (0.983729 * v + 0.432951) + 0.238081));
+            return [1.60475 * a[0] - 0.53108 * a[1] - 0.07367 * a[2], -0.10208 * a[0] + 1.10813 * a[1] - 0.00605 * a[2], -0.00327 * a[0] - 0.07276 * a[1] + 1.07602 * a[2]]
+                .map(v => { const y = Math.min(1, Math.max(0, v)); return Math.round(255 * (y <= 0.0031308 ? 12.92 * y : 1.055 * y ** (1 / 2.4) - 0.055)); });
+        };
+        const red = shown(tail, LAMP_BRAKE), dim = shown(tail, 1), white = shown(head, LAMP_BRAKE);
+        expect(red[0]).toBe(255); expect(red[1]).toBeLessThan(100); expect(red[2]).toBeLessThan(80); // braking: bright red
+        expect(dim[0]).toBeGreaterThan(150); expect(dim[1]).toBeLessThan(40); // on: a deeper red
+        expect(white[1]).toBeGreaterThan(170); // (what they had: the head lamps' glow on a tail lens is near white)
+        updateCarLights(0);
         disposeCarModel(group);
+    });
+
+    it('glows at night in front of its own lamps: tail red, brighter when braking, whitish reversing; none by day or parked', async () => {
+        const { updateCarLights } = await import('./carModel');
+        const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'toyota-camry');
+        const c = partsOf(group), p = c.halos.geometry.getAttribute('position'), dir = c.halos.geometry.getAttribute('lampDir');
+        expect(p.count).toBe(4);
+        for (let i = 0; i < 4; i++) expect(Math.sign(p.getZ(i))).toBe(dir.getX(i) < 0 ? -1 : 1); // head lamps at the nose, tail lamps at the tail
+        setCarLights(group, 'on');
+        expect(c.halos.visible).toBe(false); // by day
+        updateCarLights(1);
+        expect(c.halos.visible).toBe(true);
+        const tail = () => { const col = c.halos.geometry.getAttribute('color'); for (let i = 0; i < 4; i++) if (dir.getX(i) > 0) return [col.getX(i), col.getY(i), col.getZ(i)]; return []; };
+        const on = tail(); setCarLights(group, 'brake'); const brake = tail(); setCarLights(group, 'reverse'); const rev = tail();
+        expect(brake[0]).toBeGreaterThan(on[0]); expect(rev[1]).toBeGreaterThan(.5); // brighter red; whitish
+        setCarLights(group, 'off'); expect(c.halos.visible).toBe(false); // parked
+        updateCarLights(0);
+        disposeCarModel(group);
+    });
+
+    it('lamps set before its model arrives are lit on the model once it does (the Garage and the town order)', async () => {
+        const { updateCarLights } = await import('./carModel');
+        setCarMeshCache(deferred());
+        const lofted = buildCarModel('sedan', '#00ff00', 100, 100).group;
+        const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'toyota-camry');
+        const c = partsOf(group);
+        setCarLights(group, 'on'); setCarLights(lofted, 'on'); updateCarLights(1);
+        release(); await new Promise(r => setTimeout(r, 0));
+        expect(c.mesh).toBe('toyota-camry');
+        expect((c.lampPatch.material as THREE.Material[])[0]).toBe(partsOf(lofted).trim.material);
+        expect(c.halos.visible).toBe(true); expect(c.halos.geometry.getAttribute('position').count).toBe(4);
+        updateCarLights(0);
+        disposeCarModel(group); disposeCarModel(lofted);
     });
 
     it('lays the headlight beam on the road ahead of its own nose when driven at night', () => {
@@ -136,6 +217,20 @@ describe('a car with its own model', () => {
         expect((beam.material as THREE.MeshBasicMaterial).opacity).toBeGreaterThan(0);
         updateCarLights(0); updateCars(new THREE.Vector3(0, 5, 10), true, group);
         expect(beam.parent).toBeNull();
+        disposeCarModel(group);
+    });
+
+    it('keeps its lamps lit on its far version (the lenses seated on the far body, under the far trim, lit by the same mode)', async () => {
+        const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'toyota-camry');
+        const c = partsOf(group), mg = (await loaded.when('toyota-camry'))!;
+        expect(c.farLampPatch.parent).toBe(c.farTrim); expect(c.farLampPatch.visible).toBe(true);
+        expect(c.lampPatch.geometry).toBe(mg.lamps); expect(c.farLampPatch.geometry).toBe(mg.farLamps);
+        for (const m of ['on', 'brake', 'reverse', 'off'] as const) { setCarLights(group, m); expect(c.farLampPatch.material).toBe(c.lampPatch.material); }
+        setCarLights(group, 'brake');
+        const now = vi.spyOn(performance, 'now').mockReturnValue(performance.now() + 5e5); // (below the next test's +1e6: the LOD check runs 4x a second)
+        updateCars(new THREE.Vector3(500, 0, 0), true, null); // far away
+        now.mockRestore();
+        expect(c.farTrim.visible).toBe(true); expect(c.trim.visible).toBe(false); // the far version, with its lit lenses
         disposeCarModel(group);
     });
 
@@ -340,10 +435,14 @@ describe('the Car models setting (Garage, Options)', () => {
         expect((c as unknown as { meshWheel: unknown }).meshWheel).toBeNull(); // the kit sizes its wheels from the lofted body again
         expect(c.wheelMesh.boundingSphere!.center).toEqual(L.wheelMesh.boundingSphere!.center); // culled by the lofted wheels
         expect(c.wheelMesh.boundingSphere!.radius).toBeCloseTo(L.wheelMesh.boundingSphere!.radius, 6);
+        expect(c.lampPatch.visible).toBe(false); expect(c.lampPatch.geometry.getIndex()).toBeNull(); // no model lenses on the lofted body
+        expect(c.farLampPatch.visible).toBe(false); expect(c.farLampPatch.geometry.getIndex()).toBeNull();
+        expect(L.lampPatch.visible).toBe(false); // (as on a car built lofted)
         urls = [];
         setCarModels(true);
         expect(c.mesh).toBe('toyota-camry'); expect(changed).toBe(2); expect(urls).toEqual([]);
         expect((c.body.material as THREE.Material).side).toBe(THREE.DoubleSide);
+        expect(c.lampPatch.visible).toBe(true); expect(c.lampPatch.geometry.getIndex()!.count).toBeGreaterThan(0); // its lenses back
         disposeCarModel(group); disposeCarModel(lofted);
     });
     it('a model that arrives after the setting went off is not put in, and turning it on again puts it in once', async () => {

@@ -181,7 +181,7 @@ export function GarageMenu({ onQuickRace }: { onQuickRace?: (eventId: string) =>
             onClick={(e) => onRowClick(i, e)}
             onNudge={(d) => act(() => { g.select(i); g.adjust(d); })} />)}
         </div>
-        <div className="min-h-[20px] text-sm text-haze max-w-[46ch] pl-2">{g.desc()}</div>
+        <div className="min-h-[20px] text-sm text-haze max-w-[46ch] ml-2 rounded-md bg-night/75 px-2 py-1 empty:bg-transparent">{g.desc()}</div>
         {g.state.stack.length > 1 && (
           <button type="button" onClick={() => act(() => g.back())} className="justify-self-start ml-2 font-cond font-semibold text-sm text-haze hover:text-ink">‹ Back</button>
         )}
