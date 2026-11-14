@@ -44,14 +44,16 @@ const wheelAt = (p: Parts, i: number) => { const m = new THREE.Matrix4(); p.whee
 
 let urls: string[] = [];
 let release: () => void = () => {};
-beforeAll(() => {
-    // a loader that waits until the test lets it finish, so the lofted fallback can be seen first
-    setCarMeshCache(makeCarMeshCache(url => { urls.push(url); return new Promise(res => { release = () => res(fakeGltf()); }); }, () => '/'));
-});
-beforeEach(() => { urls = []; });
+/** A loader that waits until the test lets it finish, so the lofted fallback can be seen first. */
+const deferred = () => makeCarMeshCache(url => { urls.push(url); return new Promise(res => { release = () => res(fakeGltf()); }); }, () => '/');
+// every test starts with the Camry already loaded (each one runs alone too); a test that needs a load installs its own cache
+let loaded: ReturnType<typeof makeCarMeshCache>;
+beforeAll(async () => { loaded = makeCarMeshCache(async () => fakeGltf(), () => '/'); await loaded.when('toyota-camry'); });
+beforeEach(() => { urls = []; setCarMeshCache(loaded); });
 
 describe('a car with its own model', () => {
     it('shows the lofted body while its model loads, then its own body, glass, dark trim, wheels and far version', async () => {
+        setCarMeshCache(deferred());
         const { group } = buildCarModel('sedan', '#ff0000', 100, 100, 'toyota-camry');
         const c = partsOf(group);
         let changed = 0; group.addEventListener(CAR_BODY_CHANGE as never, () => { changed++; });
@@ -148,6 +150,18 @@ describe('a car with its own model', () => {
         disposeCarModel(group);
     });
 
+    it('a model arriving under a kit (wheel count 0) still culls its wheels by all four', async () => {
+        setCarMeshCache(deferred());
+        const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'toyota-camry');
+        const c = partsOf(group);
+        c.wheelMesh.count = 0; // what the Night Tuner kit's replaceWheels does
+        release(); await new Promise(r => setTimeout(r, 0));
+        expect(c.wheelMesh.count).toBe(0); // left as the kit set it
+        c.wheelMesh.count = 4; // the kit comes off (removeWheels)
+        for (const i of [0, 1, 2, 3]) expect(c.wheelMesh.boundingSphere!.containsPoint(wheelAt(c, i).pos)).toBe(true);
+        disposeCarModel(group);
+    });
+
     it('a car disposed before its model arrives is left alone', async () => {
         let done: () => void = () => {};
         setCarMeshCache(makeCarMeshCache(() => new Promise(res => { done = () => res(fakeGltf()); }), () => '/'));
@@ -190,25 +204,32 @@ describe('in a world that precompiles the car shaders', () => {
         expect(partsOf(next).mesh).toBe('toyota-camry');
         disposeCarModel(group); disposeCarModel(next);
     });
-    it('without a precompile (the player left the town first), puts the model in after 8 s anyway', async () => {
-        const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'toyota-camry', true);
-        expect(partsOf(group).mesh).toBe('toyota-camry'); // (the precompile above is done: at once)
-        disposeCarModel(group);
-    });
 });
 
-describe('with no precompile coming', () => {
-    it('a held model goes in 8 s after it was held', async () => {
+describe('when the player leaves the town before the precompile', () => {
+    it('a model that arrives after the player left the town goes in at once (the hold is asked on arrival)', async () => {
         const { disposeSharedCarAssets } = await import('./carModel');
+        disposeSharedCarAssets(); // no precompile done
+        setCarMeshCache(deferred());
+        let inTown = true;
+        const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'honda-civic', () => inTown);
+        inTown = false; // into the Strip while the model still loads
+        release(); await new Promise(r => setTimeout(r, 0));
+        expect(partsOf(group).mesh).not.toBeNull();
+        disposeCarModel(group);
+    });
+    it('a held model waits for the precompile however long it takes, and goes in when the player leaves the town', async () => {
+        const { disposeSharedCarAssets, releaseHeldCarBodies } = await import('./carModel');
         disposeSharedCarAssets(); // the precompile starts over: not done
         setCarMeshCache(makeCarMeshCache(async () => fakeGltf(), () => '/'));
         const t0 = performance.now();
         const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'honda-civic', true);
         await new Promise(r => setTimeout(r, 0));
-        const at = (ms: number) => { const s = vi.spyOn(performance, 'now').mockReturnValue(t0 + ms); updateCars(new THREE.Vector3(), true, null); s.mockRestore(); };
-        at(4000); expect(partsOf(group).mesh).toBeNull();
-        at(9000); expect(partsOf(group).mesh).not.toBeNull(); // (the stand-in model's extras name it toyota-camry)
+        // a slow machine: a minute of frames and still no precompile done: no model yet (no shader stall)
+        const s = vi.spyOn(performance, 'now').mockReturnValue(t0 + 60000); updateCars(new THREE.Vector3(), true, null); s.mockRestore();
+        expect(partsOf(group).mesh).toBeNull();
+        releaseHeldCarBodies(); // into the Strip: the town's precompile will not come
+        expect(partsOf(group).mesh).not.toBeNull(); // (the stand-in model's extras name it toyota-camry)
         disposeCarModel(group);
     });
 });
-
