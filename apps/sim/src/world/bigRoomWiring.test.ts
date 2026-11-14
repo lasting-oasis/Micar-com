@@ -157,8 +157,10 @@ describe('a server whose ceiling is sixteen (RACE_ROOM_MAX=16)', () => {
     for (const p of [a, b]) p.s.emit('race_ready');
     const goAt = (await racing).goAt!;
     const heard = r.next<any[]>(b.s, 'race_pose', pose => pose[0] === a.id);
-    a.s.emit('race_pose', [goAt + 0.4, 16098.616765074097, 8154.863643704915, 0.412083833922235, 17.64717058905482, 158.2285872987045, 0]);
-    expect(await heard).toEqual([a.id, goAt, 16098.62, 8154.86, 0.412, 17.65, 158.23, 0]);
+    // (the green is five seconds off: a pose stamped four seconds before it is on time by the server's clock, well inside
+    // the five seconds of skew it allows; a pose stamped at the green would sit right on that edge)
+    a.s.emit('race_pose', [goAt - 4000.4, 16098.616765074097, 8154.863643704915, 0.412083833922235, 17.64717058905482, 158.2285872987045, 0]);
+    expect(await heard).toEqual([a.id, goAt - 4000, 16098.62, 8154.86, 0.412, 17.65, 158.23, 0]);
   }, 30_000);
 
   it('a room asked for with no size: a circuit gets the ceiling, a drag its four lanes', async () => {
