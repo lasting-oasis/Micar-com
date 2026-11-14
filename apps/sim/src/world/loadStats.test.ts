@@ -35,4 +35,9 @@ describe('load test arithmetic', () => {
   it('never passes a step in which no position was sent', () => {
     expect(verdict({ ...good, posesExpected: 0, posesReceived: 0 }, 'local').pass).toBe(false);
   });
+  it('does not judge the server when its only figures came after a race too short for a reading inside it', () => {
+    expect(verdict({ ...good, serverLate: true }, 'local')).toEqual({ pass: true, fits7: null, reasons: [] });
+    expect(verdict({ ...good, serverLate: true, server: { ...good.server!, cpuPercent: 90, loopDelayP99Ms: 400 } }, 'remote')).toEqual({ pass: true, fits7: null, reasons: [] });
+    expect(verdict({ ...good, serverLate: true, posesReceived: 900 }, 'local').pass).toBe(false); // positions are still judged
+  });
 });

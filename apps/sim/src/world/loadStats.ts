@@ -48,6 +48,8 @@ export type StepResult = {
   baselineRttMs: number;
   /** the highest of each figure /healthz gave during the race; null when none came */
   server: Load | null;
+  /** the race was too short for a reading inside it, so `server` was read once at its end: the server is then not judged */
+  serverLate?: boolean;
   /** this program's own event-loop delay, p99, in ms */
   harnessLoopP99Ms: number;
 };
@@ -68,6 +70,8 @@ export function verdict(r: StepResult, where: 'local' | 'remote'): { pass: boole
   if (lost > LIMITS.lostPercent) reasons.push(`${lost.toFixed(1)}% of positions lost (limit ${LIMITS.lostPercent}%)`);
   const added = r.delayMs.p95 - r.baselineRttMs;
   if (added > LIMITS.addedDelayP95Ms) reasons.push(`positions arrived ${Math.round(added)} ms later than the plain round trip at p95 (limit ${LIMITS.addedDelayP95Ms} ms)`);
+  // the one reading came after a short race, and its window may lie mostly before the green light: judge the positions only
+  if (r.serverLate) return { pass: reasons.length === 0, fits7: null, reasons };
   if (r.server.loopDelayP99Ms > LIMITS.loopDelayP99Ms) reasons.push(`the server's event loop was ${r.server.loopDelayP99Ms} ms late at p99 (limit ${LIMITS.loopDelayP99Ms} ms)`);
   const budget = where === 'local' ? LIMITS.cpuLocalPercent : LIMITS.cpuRemotePercent;
   const fits7 = r.server.cpuPercent <= budget;

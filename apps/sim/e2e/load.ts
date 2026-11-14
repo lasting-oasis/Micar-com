@@ -128,8 +128,9 @@ const cpuTimes = () => cpus().reduce((a, c) => {
   return { busy: a.busy + busy, all: a.all + busy + t.idle };
 }, { busy: 0, all: 0 });
 
-/** The highest of each figure /healthz gives from `from` to `to`, read every 5 s; once at `to` if the race was too short for any. */
-async function serverFigures(base: string, from: number, to: number): Promise<{ load: Load | null; reads: number }> {
+/** The highest of each figure /healthz gives from `from` to `to`, read every 5 s; once at `to` if the race was too short for
+ *  any, and then `late`: that one reading's 10 s window may lie mostly before the green light, so it is not judged. */
+async function serverFigures(base: string, from: number, to: number): Promise<{ load: Load | null; reads: number; late: boolean }> {
   let load: Load | null = null, reads = 0;
   const read = async () => {
     try {
@@ -143,8 +144,10 @@ async function serverFigures(base: string, from: number, to: number): Promise<{ 
     await sleep(from - Date.now());
     while (Date.now() <= to) { await read(); if (Date.now() + 5000 > to) break; await sleep(5000); }
   }
-  if (!reads) { await sleep(to - Date.now()); await read(); }
-  return { load, reads };
+  if (reads) return { load, reads, late: false };
+  await sleep(to - Date.now());
+  await read();
+  return { load, reads, late: true };
 }
 
 /** Each racer sends where it is HZ times a second from the green light for RACE_SECONDS, its timer started at a random
@@ -223,7 +226,7 @@ async function runStep(base: string, spec: StepSpec, seconds: number, hz: number
     await driving;
     loop.disable();
     const cpu1 = cpuTimes();
-    const { load, reads } = await figures;
+    const { load, reads, late } = await figures;
     await sleep(1000); // what is still on its way
     const delays = racers.flatMap((r) => r.delays);
     const result: StepResult = {
@@ -233,6 +236,7 @@ async function runStep(base: string, spec: StepSpec, seconds: number, hz: number
       delayMs: { p50: percentile(delays, 50) ?? 0, p95: percentile(delays, 95) ?? 0, p99: percentile(delays, 99) ?? 0 },
       baselineRttMs,
       server: load,
+      ...(late ? { serverLate: true } : {}),
       harnessLoopP99Ms: oneDecimal(Math.max(0, loop.percentile(99) - TICK_MS * 1e6) / 1e6),
     };
     const pcBusyPercent = oneDecimal((100 * (cpu1.busy - cpu0.busy)) / Math.max(1, cpu1.all - cpu0.all));
@@ -263,7 +267,9 @@ function line(s: Step): string {
   const head = `${String(s.spec.size * s.spec.rooms).padStart(3)} players, ${s.spec.rooms} × ${s.spec.size}`;
   if (s.skipped || !s.result || !s.verdict) return `${head}: skipped (${s.skipped})`;
   const r = s.result, v = s.verdict, lost = r.posesExpected ? (100 * (r.posesExpected - r.posesReceived)) / r.posesExpected : 0;
-  const srv = r.server ? `server CPU ${r.server.cpuPercent}%, loop p99 ${r.server.loopDelayP99Ms} ms, ${r.server.rssMb} MB` : 'server figures: none';
+  const srv = !r.server ? 'server figures: none'
+    : r.serverLate ? `server figures only from after the race, not judged (CPU ${r.server.cpuPercent}%, ${r.server.rssMb} MB)`
+    : `server CPU ${r.server.cpuPercent}%, loop p99 ${r.server.loopDelayP99Ms} ms, ${r.server.rssMb} MB`;
   return `${head}: delay p50/p95/p99 ${ms(r.delayMs.p50)}/${ms(r.delayMs.p95)}/${ms(r.delayMs.p99)} ms (round trip ${ms(r.baselineRttMs)} ms), `
     + `lost ${lost.toFixed(2)}%, ${srv}, this program's loop p99 ${r.harnessLoopP99Ms} ms, PC busy ${s.pcBusyPercent}% — `
     + `${v.pass ? 'PASS' : 'FAIL'}, fits $7: ${v.fits7 === null ? 'not judged' : v.fits7 ? 'yes' : 'no'}${v.reasons.length ? ` (${v.reasons.join('; ')})` : ''}`;
