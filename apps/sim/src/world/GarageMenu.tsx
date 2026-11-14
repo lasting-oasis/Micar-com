@@ -9,7 +9,7 @@ import { GarageModel, drawDyno, type Row, type RowTone } from './garage';
 import { GarageScene } from './GarageScene';
 import { Audio } from './audio';
 import { useDriveUi } from './driveUi';
-import { getOption, getOptions, setOption } from './options';
+import { carModelsOn, getOption, getOptions, modelsHint, setOption } from './options';
 import { getCarSpec } from '../carSpecs';
 import { STAGE_REP, STOCK_CFG, STYLES, TUNE_DEF, specFor, stageOf, visualRating, type BodyStyle, type PartValue, type StripRecord } from './data';
 
@@ -57,7 +57,9 @@ export function GarageMenu({ onQuickRace }: { onQuickRace?: (eventId: string) =>
       best: () => rec()?.best ?? {},
       // the options are saved (world/options.ts) and read by the driving: transmission, units, camera, sound
       getOpt: (k) => getOption(k),
-      setOpt: (k, v) => { setOption(k, v); if (k === 'mute') audio.current?.setMute(!!getOptions().mute); if (k === 'models') setCarModels(getOptions().models); },
+      // Car models on Auto: what Auto comes to now (options.ts, modelsHint), shown beside "Auto"
+      optHint: (k) => k === 'models' ? modelsHint(getOptions(), useGameStore.getState().graphicsQuality) : undefined,
+      setOpt: (k, v) => { setOption(k, v); if (k === 'mute') audio.current?.setMute(!!getOptions().mute); if (k === 'models') setCarModels(carModelsOn(getOptions(), useGameStore.getState().graphicsQuality)); },
     });
   }
   const g = model.current;
@@ -139,7 +141,7 @@ export function GarageMenu({ onQuickRace }: { onQuickRace?: (eventId: string) =>
     return <div className="fixed inset-0 z-[10000] bg-background grid place-items-center font-cond text-haze">Loading the garage…</div>;
   }
 
-  const rows = g.rows(), kind = g.kind();
+  const rows = g.rows(), kind = g.kind(), desc = g.desc(), descShort = g.desc(true);
   const rep = strip?.rep ?? 0, stage = stageOf(rep);
   const rating = visualRating((strip?.cars[car.id] ?? fallback).cfg);
   const onRowClick = (i: number, e: React.MouseEvent) => {
@@ -171,19 +173,22 @@ export function GarageMenu({ onQuickRace }: { onQuickRace?: (eventId: string) =>
         </div>
       </div>
 
-      {/* menu column */}
-      <div className="absolute left-4 md:left-6 top-[112px] w-[min(400px,calc(100vw-32px))] grid gap-2.5">
-        <div className="font-cond font-bold text-xs tracking-[.2em] text-market min-h-[14px]">{g.crumb()}</div>
-        <h2 className="m-0 font-cond italic font-black text-4xl md:text-5xl leading-[.9]">{g.title()}</h2>
-        <div ref={listRef} role="listbox" aria-label="Menu" className="grid gap-1 max-h-[calc(100dvh-470px)] md:max-h-[calc(100vh-360px)] overflow-y-auto overflow-x-hidden py-1 pl-2 pr-3.5">
+      {/* menu column. On a phone it stops above the stat panel (its top at 112 px, the panel ~161 px tall on a 12 px
+          margin, a gap): only the list gives way (it scrolls), so a long description and Back are never under the panel. */}
+      <div className="absolute left-4 md:left-6 top-[112px] w-[min(400px,calc(100vw-32px))] flex flex-col gap-2.5 max-h-[calc(100dvh-296px)] md:max-h-none">
+        <div className="shrink-0 font-cond font-bold text-xs tracking-[.2em] text-market min-h-[14px]">{g.crumb()}</div>
+        <h2 className="shrink-0 m-0 font-cond italic font-black text-4xl md:text-5xl leading-[.9]">{g.title()}</h2>
+        <div ref={listRef} role="listbox" aria-label="Menu" className="grid gap-1 min-h-0 md:max-h-[calc(100vh-360px)] overflow-y-auto overflow-x-hidden py-1 pl-2 pr-3.5">
           {rows.map((r, i) => <MenuRow key={r.id + i} r={r} sel={i === sel} dyno={kind === 'dyno'}
             onEnter={(e) => { if (e.pointerType === 'mouse' && g.sel() !== i) act(() => g.select(i)); }}
             onClick={(e) => onRowClick(i, e)}
             onNudge={(d) => act(() => { g.select(i); g.adjust(d); })} />)}
         </div>
-        <div className="min-h-[20px] text-sm text-haze max-w-[46ch] pl-2">{g.desc()}</div>
+        <div className="shrink-0 min-h-[20px] text-sm text-haze max-w-[46ch] ml-2 rounded-md bg-night/75 px-2 py-1 empty:bg-transparent">{desc && descShort !== desc
+          ? <><span className="md:hidden">{descShort}</span><span className="hidden md:inline">{desc}</span></> // a phone: one line
+          : desc}</div>
         {g.state.stack.length > 1 && (
-          <button type="button" onClick={() => act(() => g.back())} className="justify-self-start ml-2 font-cond font-semibold text-sm text-haze hover:text-ink">‹ Back</button>
+          <button type="button" onClick={() => act(() => g.back())} className="shrink-0 self-start ml-2 font-cond font-semibold text-sm text-haze hover:text-ink">‹ Back</button>
         )}
       </div>
 

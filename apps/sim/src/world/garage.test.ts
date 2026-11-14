@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { GarageModel, lenOf } from './garage';
+import { GarageModel, MODELS_SHORT, lenOf, modelsDesc } from './garage';
+import { AUTO_DETAILED_ON_HIGH, modelsHint } from './options';
 import { ARCHETYPES, EVENTS, STOCK_CFG, TUNE_DEF, withV, okey, type CarCfg, type PartValue } from './data';
 import type { Tune } from './physics';
 
@@ -70,19 +71,51 @@ describe('the Garage camera between cars', () => {
   });
 });
 
-describe('the Options menu', () => {
-  it('has a Car models row: Detailed by default, Simple after one press, which it hands to the options storage', () => {
-    const set: [string, unknown][] = [];
+describe('the Car models row: Auto, Detailed or Simple', () => {
+  /** A Garage over options storage: the stored choice (null: Auto), and the hint the game gives it (modelsHint, as
+   *  GarageMenu does) for the Graphics quality and, `autoOnHigh`, AUTO_DETAILED_ON_HIGH. */
+  const garage = (graphicsLow: boolean, autoOnHigh = AUTO_DETAILED_ON_HIGH) => {
+    let stored: unknown = null; const set: [string, unknown][] = [];
     const g = model({});
-    (g as unknown as { ctx: { setOpt: (k: string, v: unknown) => void } }).ctx.setOpt = (k, v) => { set.push([k, v]); };
+    const ctx = (g as unknown as { ctx: { getOpt: (k: string) => unknown; setOpt: (k: string, v: unknown) => void; optHint: (k: string) => string | undefined } }).ctx;
+    ctx.getOpt = (k) => k === 'models' ? stored : undefined;
+    ctx.setOpt = (k, v) => { set.push([k, v]); if (k === 'models') stored = v; };
+    ctx.optHint = (k) => k === 'models' ? modelsHint({ models: stored as boolean | null }, graphicsLow ? 'low' : 'high', autoOnHigh) : undefined;
     g.enterPath(['options']);
-    const i = g.rowIds().indexOf('models');
-    expect(i).toBeGreaterThanOrEqual(0);
-    expect(g.rows()[i].status).toEqual({ text: 'Detailed', tone: 'muted' });
-    g.select(i); expect(g.desc()).toMatch(/built-in body/i);
-    g.activate();
-    expect(set).toEqual([['models', false]]);
-    expect(g.rows()[i].status!.text).toBe('Simple');
+    return { g, set, i: g.rowIds().indexOf('models') };
+  };
+  it('is Auto by default and says what Auto comes to: Simple on Low and, for now, on High too (flipped back: Detailed on High)', () => {
+    const low = garage(true), high = garage(false);
+    expect(low.g.rows()[low.i].status).toEqual({ text: 'Auto · Simple', tone: 'muted' });
+    expect(high.g.rows()[high.i].status!.text).toBe('Auto · Simple');
+    expect(garage(false, true).g.rows()[high.i].status!.text).toBe('Auto · Detailed');
+    low.g.select(low.i); expect(low.g.desc()).toBe(modelsDesc(AUTO_DETAILED_ON_HIGH));
+  });
+  it('says what Auto does now: Simple on every Graphics setting for now; flipped back, it follows the Graphics quality setting', () => {
+    expect(modelsDesc(false)).toMatch(/^Auto is Simple for now, on every Graphics setting\./);
+    expect(modelsDesc(true)).toMatch(/^Auto follows the Graphics quality setting: Simple on Low, Detailed on High\./);
+    for (const d of [modelsDesc(false), modelsDesc(true)]) expect(d).toMatch(/Detailed: each car's own 3D model where it has one\. Simple: every car on its lighter built-in body, and no car model is downloaded\.$/);
+  });
+  it('on a phone the row has a one-line description; a row without a short one shows its full one there', () => {
+    const { g, i } = garage(true);
+    g.select(i);
+    expect(g.desc(true)).toBe(MODELS_SHORT);
+    expect(MODELS_SHORT.length).toBeLessThanOrEqual(36); // one line at 320 px wide (the 375, 360 and 320 shots measure it)
+    expect(g.desc()).toBe(modelsDesc(AUTO_DETAILED_ON_HIGH)); // the full text elsewhere
+    g.select(g.rowIds().indexOf('manual'));
+    expect(g.desc(true)).toBe(g.desc()); expect(g.desc()).toMatch(/^Manual:/);
+  });
+  it('a press goes Auto, Detailed, Simple and back to Auto, handing each to the options storage', () => {
+    const { g, set, i } = garage(true);
+    g.select(i);
+    g.activate(); expect(g.rows()[i].status!.text).toBe('Detailed');
+    g.activate(); expect(g.rows()[i].status!.text).toBe('Simple');
+    g.activate(); expect(g.rows()[i].status!.text).toBe('Auto · Simple');
+    expect(set).toEqual([['models', true], ['models', false], ['models', null]]);
+  });
+  it('without options storage (the model alone) it starts at Auto too', () => {
+    const g = model({}); g.enterPath(['options']);
+    expect(g.rows()[g.rowIds().indexOf('models')].status!.text).toBe('Auto');
   });
 });
 

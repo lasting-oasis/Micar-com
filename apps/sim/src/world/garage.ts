@@ -8,7 +8,7 @@
 import { CATS, EVENTS, EV_NAME, TRACK_NAMES, PERF, TUNES, getV, isOwned, withV, type CarCfg, type PartValue, type EventDef } from './data';
 import { carParams, clamp, dynoCurve, simStats, type Params, type PerfCfg, type Tune, type VehicleSpec } from './physics';
 import { routeFor, trackLoaded, TRACKS } from './strip/district';
-import { OPTION_DEFAULTS } from './options';
+import { AUTO_DETAILED_ON_HIGH, OPTION_DEFAULTS } from './options';
 
 const clone = <T>(o: T): T => JSON.parse(JSON.stringify(o)) as T;
 const money = (n: number): string => '$' + Math.round(n).toLocaleString('en-US');
@@ -32,6 +32,8 @@ export type GarageCtx = {
   best?: () => Record<string, number>;
   /** Options storage; without it the options live in the model. */
   getOpt?: (k: string) => unknown;
+  /** What an option's automatic value comes to now (Car models on Auto: Detailed or Simple), shown beside it. */
+  optHint?: (k: string) => string | undefined;
   setOpt?: (k: string, v: unknown) => void;
 };
 
@@ -74,13 +76,21 @@ export const MENU: Record<string, MenuDef> = {
   perf: { n: 'Performance', items: [...Object.keys(PERF).map(k => ({ cat: 'perf.' + k })), { n: 'Dyno tuning', to: 'dyno', d: 'Fine-tune the setup with sliders and read the dyno chart.' }] },
   dyno: { n: 'Dyno tuning', kind: 'dyno' }, cars: { n: 'Your cars', kind: 'cars' }, options: { n: 'Options', kind: 'options' }, quick: { n: 'Quick race', kind: 'quick' },
 };
-export const OPTS: { k: string; n: string; vals: unknown[]; lab: string[]; d?: string }[] = [
+/** The Car models row's description: what Auto does (with AUTO_DETAILED_ON_HIGH, options.ts), then Detailed and Simple. */
+export const modelsDesc = (autoOnHigh: boolean) => (autoOnHigh
+  ? 'Auto follows the Graphics quality setting: Simple on Low, Detailed on High.'
+  : 'Auto is Simple for now, on every Graphics setting.')
+  + " Detailed: each car's own 3D model where it has one. Simple: every car on its lighter built-in body, and no car model is downloaded.";
+/** The same on a phone, where the menu is narrow: one line (the row already says what Auto comes to). */
+export const MODELS_SHORT = "Detailed: each car's own 3D model.";
+/** The Options rows; `d`: the description, `ds`: a one-line one for a phone (else `d` there too). */
+export const OPTS: { k: string; n: string; vals: unknown[]; lab: string[]; d?: string; ds?: string }[] = [
   { k: 'manual', n: 'Transmission', vals: [false, true], lab: ['Automatic', 'Manual'], d: 'Manual: Shift to shift up, Ctrl to shift down. Drag races are always manual.' },
   { k: 'units', n: 'Speed units', vals: ['kmh', 'mph'], lab: ['km/h', 'mph'] },
   { k: 'cam', n: 'Camera', vals: [0, 1, 2], lab: ['Chase', 'Far chase', 'Hood'] },
   { k: 'mute', n: 'Sound', vals: [false, true], lab: ['On', 'Off'] },
   { k: 'controls', n: 'Touch controls', vals: ['sticks', 'buttons'], lab: ['Sticks', 'Buttons'], d: 'On a phone: a steering stick and a gas stick, or the old buttons.' },
-  { k: 'models', n: 'Car models', vals: [true, false], lab: ['Detailed', 'Simple'], d: "Detailed: each car's own 3D model where it has one. Simple: every car on its lighter built-in body, and no car model is downloaded." },
+  { k: 'models', n: 'Car models', vals: [null, true, false], lab: ['Auto', 'Detailed', 'Simple'], d: modelsDesc(AUTO_DETAILED_ON_HIGH), ds: MODELS_SHORT },
 ];
 const OPT_DEF: Record<string, unknown> = { ...OPTION_DEFAULTS };
 
@@ -177,7 +187,7 @@ export class GarageModel {
       return this.ctx.cars().map(r => ({ id: r.id, label: r.name, tag: r.drive, status: r.id === me ? { text: 'Current', tone: 'eq' } : { text: 'Owned', tone: 'owned' } }));
     }
     if (k === 'options') {
-      return OPTS.map(o => { const vi = Math.max(0, o.vals.indexOf(this.opt(o.k))); return { id: o.k, label: o.n, status: { text: o.lab[vi], tone: 'muted' }, chevron: true }; });
+      return OPTS.map(o => { const vi = Math.max(0, o.vals.indexOf(this.opt(o.k))), hint = this.ctx.optHint?.(o.k); return { id: o.k, label: o.n, status: { text: o.lab[vi] + (hint ? ' · ' + hint : ''), tone: 'muted' }, chevron: true }; });
     }
     if (k === 'quick') {
       return EVENTS.map(r => ({ id: r.id, label: TRACK_NAMES[r.track].en + ' · ' + EV_NAME[r.type] + ': ' + r.name, status: r.stage > stage ? { text: 'Stage ' + r.stage, tone: 'lock' } : { text: money(r.prize * (1 + .25 * (stage - 1))), tone: 'price' } }));
@@ -189,12 +199,13 @@ export class GarageModel {
     }));
   }
 
-  desc(): string {
+  /** The selected row's description; `short`: the one-line one a phone shows, where the row has one. */
+  desc(short = false): string {
     const t = this.top(), k = this.kind(), i = t.sel;
     if (k === 'cat') return CATS[t.cat!].items[i]?.d || '';
     if (k === 'dyno') return TUNES[i].d;
     if (k === 'cars') return '';
-    if (k === 'options') return OPTS[i].d || '';
+    if (k === 'options') return (short && OPTS[i].ds) || OPTS[i].d || '';
     if (k === 'quick') {
       const r = EVENTS[i], best = this.ctx.best?.()[r.id];
       return (r.loop ? r.laps + ' laps · ' : '') + Math.round(lenOf(r) * (r.laps || 1)) + ' m' + (best != null ? ' · best ' + (r.type === 'drift' ? best.toLocaleString('en-US') + ' pts' : fmtT(best)) : '');
