@@ -37,7 +37,7 @@ const fakeGltf = () => {
     return root;
 };
 
-type Parts = { body: THREE.Mesh; trim: THREE.Mesh; glass: THREE.Mesh; wheelMesh: THREE.InstancedMesh; farBody: THREE.Mesh; farTrim: THREE.Mesh; halos: THREE.Points; lampPatch: THREE.Mesh; length: number; width: number; mesh: string | null };
+type Parts = { body: THREE.Mesh; trim: THREE.Mesh; glass: THREE.Mesh; wheelMesh: THREE.InstancedMesh; farBody: THREE.Mesh; farTrim: THREE.Mesh; halos: THREE.Points; lampPatch: THREE.Mesh; farLampPatch: THREE.Mesh; length: number; width: number; mesh: string | null };
 const partsOf = (g: THREE.Object3D) => g.userData.car as Parts;
 const zLen = (g: THREE.BufferGeometry) => { g.computeBoundingBox(); return g.boundingBox!.max.z - g.boundingBox!.min.z; };
 const wheelAt = (p: Parts, i: number) => { const m = new THREE.Matrix4(); p.wheelMesh.getMatrixAt(i, m); const pos = new THREE.Vector3(), q = new THREE.Quaternion(), s = new THREE.Vector3(); m.decompose(pos, q, s); return { pos, q, s }; };
@@ -175,6 +175,20 @@ describe('a car with its own model', () => {
         expect((beam.material as THREE.MeshBasicMaterial).opacity).toBeGreaterThan(0);
         updateCarLights(0); updateCars(new THREE.Vector3(0, 5, 10), true, group);
         expect(beam.parent).toBeNull();
+        disposeCarModel(group);
+    });
+
+    it('keeps its lamps lit on its far version (the same lenses under the far trim, lit by the same mode)', () => {
+        const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'toyota-camry');
+        const c = partsOf(group);
+        expect(c.farLampPatch.parent).toBe(c.farTrim); expect(c.farLampPatch.visible).toBe(true);
+        expect(c.farLampPatch.geometry).toBe(c.lampPatch.geometry);
+        for (const m of ['on', 'brake', 'reverse', 'off'] as const) { setCarLights(group, m); expect(c.farLampPatch.material).toBe(c.lampPatch.material); }
+        setCarLights(group, 'brake');
+        const now = vi.spyOn(performance, 'now').mockReturnValue(performance.now() + 5e5); // (below the next test's +1e6: the LOD check runs 4x a second)
+        updateCars(new THREE.Vector3(500, 0, 0), true, null); // far away
+        now.mockRestore();
+        expect(c.farTrim.visible).toBe(true); expect(c.trim.visible).toBe(false); // the far version, with its lit lenses
         disposeCarModel(group);
     });
 
@@ -380,6 +394,7 @@ describe('the Car models setting (Garage, Options)', () => {
         expect(c.wheelMesh.boundingSphere!.center).toEqual(L.wheelMesh.boundingSphere!.center); // culled by the lofted wheels
         expect(c.wheelMesh.boundingSphere!.radius).toBeCloseTo(L.wheelMesh.boundingSphere!.radius, 6);
         expect(c.lampPatch.visible).toBe(false); expect(c.lampPatch.geometry.getIndex()).toBeNull(); // no model lenses on the lofted body
+        expect(c.farLampPatch.visible).toBe(false); expect(c.farLampPatch.geometry.getIndex()).toBeNull();
         expect(L.lampPatch.visible).toBe(false); // (as on a car built lofted)
         urls = [];
         setCarModels(true);

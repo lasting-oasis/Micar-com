@@ -283,6 +283,7 @@ type CarParts = {
     body: THREE.Mesh; trim: THREE.Mesh; glass: THREE.Mesh; wheelMesh: THREE.InstancedMesh;
     farBody: THREE.Mesh; farTrim: THREE.Mesh; halos: THREE.Points;
     lampPatch: THREE.Mesh; // a mesh body's lamp lenses (a child of the trim, so the far switch hides it); hidden on a lofted body
+    farLampPatch: THREE.Mesh; // the same lenses on the far version (a child of the far trim), so the lamps do not pop at the switch
     pivots: THREE.Object3D[]; wheels: THREE.Object3D[]; smoke: THREE.Points;
     lamps: LampMode; far: boolean;
     blur: boolean; lastRoll: THREE.Quaternion; syncFrame: number; // blurred rims while the wheels spin fast
@@ -341,6 +342,9 @@ export const buildCarModel = (style: string, rawColor: string, bodyCond: number 
     const lampPatch = new THREE.Mesh(NO_LAMPS, S.trim);
     lampPatch.visible = false; lampPatch.receiveShadow = true;
     trim.add(lampPatch);
+    const farLampPatch = new THREE.Mesh(NO_LAMPS, S.trim);
+    farLampPatch.visible = false;
+    farTrim.add(farLampPatch);
     // the tilt node (at the car's origin) holds the body so it can pitch and roll; the wheels
     // stay on the group, placed from the pivots' world matrices
     const tilt = new THREE.Group();
@@ -366,7 +370,7 @@ export const buildCarModel = (style: string, rawColor: string, bodyCond: number 
     for (const o of [...tilt.children, wheelMesh]) o.position.y += CAR_LIFT;
 
     const parts: CarParts = {
-        style, length: geo.length, width: geo.width, mesh: null, loft: geo, want: meshId ?? null, hold: afterPrecompile, meshWheel: null, wheelGeo: geo, wheelScale: geo.wheelPos.map(() => ONE.clone()), beamZ: geo.beamZ, tilt, body, trim, glass, wheelMesh, farBody, farTrim, halos, lampPatch, pivots, wheels, smoke: smokeParticles,
+        style, length: geo.length, width: geo.width, mesh: null, loft: geo, want: meshId ?? null, hold: afterPrecompile, meshWheel: null, wheelGeo: geo, wheelScale: geo.wheelPos.map(() => ONE.clone()), beamZ: geo.beamZ, tilt, body, trim, glass, wheelMesh, farBody, farTrim, halos, lampPatch, farLampPatch, pivots, wheels, smoke: smokeParticles,
         lamps: 'off', far: false, blur: false, lastRoll: new THREE.Quaternion(), syncFrame: 0,
         sx: NaN, sz: NaN, sqy: NaN, sqw: NaN, ss: NaN, sv: false,
     };
@@ -422,7 +426,7 @@ const setBody = (group: THREE.Object3D, mg: MeshGeometry | null) => {
     const paint = c.body.material as THREE.Material, side = mg ? THREE.DoubleSide : THREE.FrontSide;
     if (paint.side !== side) { paint.side = side; paint.needsUpdate = true; }
     c.halos.geometry.dispose(); c.halos.geometry = b.halos.clone();
-    c.lampPatch.geometry = mg?.lamps ?? NO_LAMPS; c.lampPatch.visible = !!mg?.lamps;
+    for (const p of [c.lampPatch, c.farLampPatch]) { p.geometry = mg?.lamps ?? NO_LAMPS; p.visible = !!mg?.lamps; }
     showLamps(c);
     c.smoke.position.set(b.smokePos.x, b.smokePos.y + CAR_LIFT, b.smokePos.z);
     c.wheelGeo = b; c.wheelMesh.geometry = c.blur ? b.wheelBlur : b.wheel;
@@ -484,7 +488,7 @@ export const setCarLights = (group: THREE.Object3D, mode: LampMode | boolean) =>
 const showLamps = (c: CarParts) => {
     const m = c.lamps;
     const mat = trimFor(m);
-    if (mat) { if (c.mesh) c.lampPatch.material = mat; else { c.trim.material = mat; c.farTrim.material = mat; } }
+    if (mat) { if (c.mesh) c.lampPatch.material = c.farLampPatch.material = mat; else { c.trim.material = mat; c.farTrim.material = mat; } }
     c.halos.visible = m !== 'off' && nightOn;
     // tail glow: dim red when on, bright red when braking, whitish when reversing
     const col = c.halos.geometry.getAttribute('color') as THREE.BufferAttribute, dir = c.halos.geometry.getAttribute('lampDir') as THREE.BufferAttribute;
