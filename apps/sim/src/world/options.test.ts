@@ -38,6 +38,11 @@ describe('drive options', () => {
     expect(parseOptions(JSON.stringify({ ver: 2, models: true })).models).toBe(true); // saved since: a choice
     expect(parseOptions(JSON.stringify({ ver: 2, models: null })).models).toBeNull();
   });
+  it('Auto (null) can be chosen again after a choice', () => {
+    const s = memStore(); g.localStorage = s;
+    setOption('models', false); setOption('models', null);
+    resetOptionsCache(); expect(getOptions().models).toBeNull();
+  });
   it('a save of any other option keeps "no choice" as no choice, and a choice as a choice', () => {
     const s = memStore(); g.localStorage = s;
     setOption('units', 'kmh');

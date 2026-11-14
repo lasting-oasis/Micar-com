@@ -56,8 +56,9 @@ export function GarageMenu({ onQuickRace }: { onQuickRace?: (eventId: string) =>
       switchCar: (id) => st().openGarage(id),
       best: () => rec()?.best ?? {},
       // the options are saved (world/options.ts) and read by the driving: transmission, units, camera, sound
-      // Car models: what the cars show (the choice, or Graphics while there is none); a press makes it the choice
-      getOpt: (k) => k === 'models' ? carModelsOn(getOptions(), useGameStore.getState().graphicsQuality) : getOption(k),
+      getOpt: (k) => getOption(k),
+      // Car models on Auto: what it comes to with the Graphics quality setting, shown beside "Auto"
+      optHint: (k) => k === 'models' && getOptions().models === null ? (carModelsOn(getOptions(), useGameStore.getState().graphicsQuality) ? 'Detailed' : 'Simple') : undefined,
       setOpt: (k, v) => { setOption(k, v); if (k === 'mute') audio.current?.setMute(!!getOptions().mute); if (k === 'models') setCarModels(carModelsOn(getOptions(), useGameStore.getState().graphicsQuality)); },
     });
   }

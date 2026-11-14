@@ -70,35 +70,35 @@ describe('the Garage camera between cars', () => {
   });
 });
 
-describe('the Options menu', () => {
-  it('has a Car models row: Detailed by default, Simple after one press, which it hands to the options storage', () => {
-    const set: [string, unknown][] = [];
-    const g = model({});
-    (g as unknown as { ctx: { setOpt: (k: string, v: unknown) => void } }).ctx.setOpt = (k, v) => { set.push([k, v]); };
-    g.enterPath(['options']);
-    const i = g.rowIds().indexOf('models');
-    expect(i).toBeGreaterThanOrEqual(0);
-    expect(g.rows()[i].status).toEqual({ text: 'Detailed', tone: 'muted' });
-    g.select(i); expect(g.desc()).toMatch(/built-in body/i);
-    g.activate();
-    expect(set).toEqual([['models', false]]);
-    expect(g.rows()[i].status!.text).toBe('Simple');
-  });
-});
-
-describe('the Car models row, following Graphics', () => {
-  it('shows what the cars show (Simple on Low graphics until chosen) and a press records the opposite as the choice', () => {
+describe('the Car models row: Auto, Detailed or Simple', () => {
+  /** A Garage over options storage: the stored choice (null: Auto) and what Auto comes to with the Graphics quality. */
+  const garage = (graphicsLow: boolean) => {
     let stored: unknown = null; const set: [string, unknown][] = [];
     const g = model({});
-    const ctx = (g as unknown as { ctx: { getOpt: (k: string) => unknown; setOpt: (k: string, v: unknown) => void } }).ctx;
-    ctx.getOpt = (k) => k === 'models' ? (stored ?? false) : undefined; // Low graphics, no choice yet: Simple
+    const ctx = (g as unknown as { ctx: { getOpt: (k: string) => unknown; setOpt: (k: string, v: unknown) => void; optHint: (k: string) => string | undefined } }).ctx;
+    ctx.getOpt = (k) => k === 'models' ? stored : undefined;
     ctx.setOpt = (k, v) => { set.push([k, v]); if (k === 'models') stored = v; };
+    ctx.optHint = (k) => k === 'models' && stored === null ? (graphicsLow ? 'Simple' : 'Detailed') : undefined;
     g.enterPath(['options']);
-    const i = g.rowIds().indexOf('models');
-    expect(g.rows()[i].status!.text).toBe('Simple');
-    g.select(i); expect(g.desc()).toMatch(/Graphics/);
-    g.activate();
-    expect(set).toEqual([['models', true]]); expect(g.rows()[i].status!.text).toBe('Detailed');
+    return { g, set, i: g.rowIds().indexOf('models') };
+  };
+  it('is Auto by default and says what Auto comes to: Simple on Low graphics, Detailed on High', () => {
+    const low = garage(true), high = garage(false);
+    expect(low.g.rows()[low.i].status).toEqual({ text: 'Auto · Simple', tone: 'muted' });
+    expect(high.g.rows()[high.i].status!.text).toBe('Auto · Detailed');
+    low.g.select(low.i); expect(low.g.desc()).toMatch(/Auto follows the Graphics quality setting/);
+  });
+  it('a press goes Auto, Detailed, Simple and back to Auto, handing each to the options storage', () => {
+    const { g, set, i } = garage(true);
+    g.select(i);
+    g.activate(); expect(g.rows()[i].status!.text).toBe('Detailed');
+    g.activate(); expect(g.rows()[i].status!.text).toBe('Simple');
+    g.activate(); expect(g.rows()[i].status!.text).toBe('Auto · Simple');
+    expect(set).toEqual([['models', true], ['models', false], ['models', null]]);
+  });
+  it('without options storage (the model alone) it starts at Auto too', () => {
+    const g = model({}); g.enterPath(['options']);
+    expect(g.rows()[g.rowIds().indexOf('models')].status!.text).toBe('Auto');
   });
 });
 

@@ -32,6 +32,8 @@ export type GarageCtx = {
   best?: () => Record<string, number>;
   /** Options storage; without it the options live in the model. */
   getOpt?: (k: string) => unknown;
+  /** What an option's automatic value comes to now (Car models on Auto: Detailed or Simple), shown beside it. */
+  optHint?: (k: string) => string | undefined;
   setOpt?: (k: string, v: unknown) => void;
 };
 
@@ -80,7 +82,7 @@ export const OPTS: { k: string; n: string; vals: unknown[]; lab: string[]; d?: s
   { k: 'cam', n: 'Camera', vals: [0, 1, 2], lab: ['Chase', 'Far chase', 'Hood'] },
   { k: 'mute', n: 'Sound', vals: [false, true], lab: ['On', 'Off'] },
   { k: 'controls', n: 'Touch controls', vals: ['sticks', 'buttons'], lab: ['Sticks', 'Buttons'], d: 'On a phone: a steering stick and a gas stick, or the old buttons.' },
-  { k: 'models', n: 'Car models', vals: [true, false], lab: ['Detailed', 'Simple'], d: "Detailed: each car's own 3D model where it has one. Simple: every car on its lighter built-in body, and no car model is downloaded. Until you choose, it follows Graphics: Simple on Low." },
+  { k: 'models', n: 'Car models', vals: [null, true, false], lab: ['Auto', 'Detailed', 'Simple'], d: "Auto follows the Graphics quality setting: Simple on Low, Detailed on High. Detailed: each car's own 3D model where it has one. Simple: every car on its lighter built-in body, and no car model is downloaded." },
 ];
 const OPT_DEF: Record<string, unknown> = { ...OPTION_DEFAULTS };
 
@@ -177,7 +179,7 @@ export class GarageModel {
       return this.ctx.cars().map(r => ({ id: r.id, label: r.name, tag: r.drive, status: r.id === me ? { text: 'Current', tone: 'eq' } : { text: 'Owned', tone: 'owned' } }));
     }
     if (k === 'options') {
-      return OPTS.map(o => { const vi = Math.max(0, o.vals.indexOf(this.opt(o.k))); return { id: o.k, label: o.n, status: { text: o.lab[vi], tone: 'muted' }, chevron: true }; });
+      return OPTS.map(o => { const vi = Math.max(0, o.vals.indexOf(this.opt(o.k))), hint = this.ctx.optHint?.(o.k); return { id: o.k, label: o.n, status: { text: o.lab[vi] + (hint ? ' · ' + hint : ''), tone: 'muted' }, chevron: true }; });
     }
     if (k === 'quick') {
       return EVENTS.map(r => ({ id: r.id, label: TRACK_NAMES[r.track].en + ' · ' + EV_NAME[r.type] + ': ' + r.name, status: r.stage > stage ? { text: 'Stage ' + r.stage, tone: 'lock' } : { text: money(r.prize * (1 + .25 * (stage - 1))), tone: 'price' } }));
