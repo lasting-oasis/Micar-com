@@ -656,8 +656,18 @@ export function VanillaThreeScene() {
         const chase = new ChaseCamera(driveCam);
         const audio = new NtAudio(getOptions().mute, soundMode(window.location.search)); // the Garage's Options: Sound; the physical engine model unless ?sound=classic
         const resumeAudio = () => audio.resume();
-        window.addEventListener('keydown', resumeAudio);
-        window.addEventListener('pointerdown', resumeAudio);
+        // An iPhone lets sound start only inside a tap it counts (touchend, click), so listen to those too. Capture: a
+        // control that stops the event (the sticks) still wakes the sound.
+        const WAKE_EVENTS = ['keydown', 'pointerdown', 'touchend', 'click'] as const;
+        for (const e of WAKE_EVENTS) window.addEventListener(e, resumeAudio, true);
+        // ?audiodebug: the sound's state on screen, for a phone with no console to read.
+        const audioDebug = /[?&]audiodebug(&|=|$)/.test(window.location.search) ? document.createElement('div') : null;
+        let audioDebugTimer = 0;
+        if (audioDebug) {
+            audioDebug.style.cssText = 'position:fixed;left:4px;bottom:4px;z-index:99999;font:11px monospace;color:#fff;background:rgba(0,0,0,.7);padding:2px 5px;pointer-events:none';
+            document.body.appendChild(audioDebug);
+            audioDebugTimer = window.setInterval(() => { audioDebug.textContent = audio.debugLine(); }, 500);
+        }
         const STOCK_BUILD = { cfg: STOCK_CFG, tune: TUNE_DEF };
         // A car's Garage build, read from the store's record without adding to it (carState would).
         const buildOf = (carId: string): { cfg: CarCfg; tune: Tune } => useGameStore.getState().strip?.cars[carId] ?? STOCK_BUILD;
@@ -2004,8 +2014,8 @@ export function VanillaThreeScene() {
             window.removeEventListener('blur', releaseAllKeys);
             document.removeEventListener('visibilitychange', handleVisibility);
             unsubscribeGraphics();
-            window.removeEventListener('keydown', resumeAudio);
-            window.removeEventListener('pointerdown', resumeAudio);
+            for (const e of WAKE_EVENTS) window.removeEventListener(e, resumeAudio, true);
+            if (audioDebug) { window.clearInterval(audioDebugTimer); audioDebug.remove(); }
             delete (window as unknown as { __micar?: unknown }).__micar;
             im.detach();
             audio.dispose();

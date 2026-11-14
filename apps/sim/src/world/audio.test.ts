@@ -88,6 +88,50 @@ describe('one audio output, and waking it', () => {
     expect(mine.cut).toBeGreaterThan(0);
     world.dispose();
   });
+  const drive = (a: Audio, clock: { t: number }, seconds: number) => {
+    const V = makeVehicle(carParams(ARCHETYPES.sedan, STOCK_CFG.perf, TUNE_DEF));
+    for (let i = 0; i < seconds * 10; i++) { clock.t += 100; a.engine(V, 10, true); }
+  };
+  it('rebuilds the sound on the next tap when the output has stopped moving (a phone can leave it frozen)', () => {
+    withFake(); const clock = { t: 0 }, a = new Audio(false, 'classic'); (a as unknown as { clock: () => number }).clock = () => clock.t;
+    a.resume(); drive(a, clock, 3);              // currentTime never moves: the output is dead
+    expect(a.health()).toBe('stalled');
+    a.resume();
+    expect(made.length).toBe(2); expect(made[0].closed).toBe(1);
+    expect(a.health()).toBe('ok');
+    a.dispose();
+  });
+  it('rebuilds on the next tap when the output stays interrupted', () => {
+    withFake(); const clock = { t: 0 }, a = new Audio(false, 'classic'); (a as unknown as { clock: () => number }).clock = () => clock.t;
+    a.resume(); made[0].resume = () => Promise.resolve();   // a phone that will not let it go
+    made[0].state = 'interrupted'; drive(a, clock, 3);
+    expect(a.health()).toBe('interrupted');
+    a.resume();
+    expect(made.length).toBe(2);
+    a.dispose();
+  });
+  it('rebuilds on the next tap when something else has closed the output', () => {
+    withFake(); const clock = { t: 0 }, a = new Audio(false, 'classic'); (a as unknown as { clock: () => number }).clock = () => clock.t;
+    a.resume(); made[0].state = 'closed'; drive(a, clock, 0.2);
+    expect(a.health()).toBe('closed');
+    a.resume();
+    expect(made.length).toBe(2); expect(a.health()).toBe('ok');
+    a.dispose();
+  });
+  it('leaves a healthy output alone, however many taps', () => {
+    withFake(); const clock = { t: 0 }, a = new Audio(false, 'classic'); (a as unknown as { clock: () => number }).clock = () => clock.t;
+    a.resume();
+    const V = makeVehicle(carParams(ARCHETYPES.sedan, STOCK_CFG.perf, TUNE_DEF));
+    for (let i = 0; i < 30; i++) { clock.t += 100; made[0].currentTime += 0.1; a.engine(V, 10, true); a.resume(); }
+    expect(a.health()).toBe('ok'); expect(made.length).toBe(1);
+    a.dispose();
+  });
+  it('does not call a briefly slow output dead', () => {
+    withFake(); const clock = { t: 0 }, a = new Audio(false, 'classic'); (a as unknown as { clock: () => number }).clock = () => clock.t;
+    a.resume(); drive(a, clock, 0.8);
+    expect(a.health()).toBe('ok');
+    a.dispose();
+  });
   it('after everything is closed, the next Audio starts a fresh output', () => {
     withFake(); const a = new Audio(false, 'classic'); a.resume(); a.dispose();
     const b = new Audio(false, 'classic'); b.resume();

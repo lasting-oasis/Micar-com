@@ -40,6 +40,28 @@ export class Audio {
   private nodeGain: GainNode | null = null;
   private sentTurbo = false;
   private sources: AudioScheduledSourceNode[] = [];
+  // Health: an iPhone can leave the output interrupted, or 'running' with its clock stopped. Watched each frame.
+  private clock = (): number => performance.now();
+  private seenTime = -1; private stuckSince = -1; private rebuilt = 0;
+
+  /** 'ok', 'stalled' (its clock has not moved for over a second), 'interrupted'/'suspended' (stuck so for over a second), 'closed', or 'none' before the first tap. */
+  health(): 'ok' | 'stalled' | 'interrupted' | 'suspended' | 'closed' | 'none' {
+    const AC = this.AC; if (!AC) return 'none';
+    if (AC.state === 'closed') return 'closed'; // closed by something else: never coming back
+    if (this.stuckSince < 0 || this.clock() - this.stuckSince < 1000) return 'ok';
+    return AC.state === 'running' ? 'stalled' : (AC.state as 'interrupted' | 'suspended');
+  }
+  /** One line for the on-screen readout (?audiodebug). */
+  debugLine(): string {
+    const AC = this.AC; if (!AC) return 'audio: not started (tap)';
+    return `audio: ${AC.state} t=${AC.currentTime.toFixed(1)} ${AC.sampleRate}Hz ${this.health()} model=${this.modelActive ? 'on' : 'off'} rebuilt=${this.rebuilt}`;
+  }
+  private watch(): void {
+    const AC = this.AC; if (!AC) return;
+    const moving = AC.state === 'running' && AC.currentTime !== this.seenTime;
+    if (moving) this.stuckSince = -1; else if (this.stuckSince < 0) this.stuckSince = this.clock();
+    this.seenTime = AC.currentTime;
+  }
 
   constructor(private muted = false, private mode: SoundMode = 'classic') {}
 
@@ -76,6 +98,9 @@ export class Audio {
 
   /** Make (first call) and resume the context. Call from a pointerdown/keydown handler. */
   resume(): void {
+    // Dead for over a second (frozen, or a phone that will not give it back): build the sound again, now, inside this tap.
+    const h = this.health();
+    if (h !== 'ok' && h !== 'none') this.rebuild();
     const AC = this.ctx();
     // A phone can also leave the context 'interrupted' (a call, another app, another context closing): wake that too.
     if (AC && AC.state !== 'running' && AC.state !== 'closed') void AC.resume().catch(() => {});
@@ -106,6 +131,7 @@ export class Audio {
   /** Night Tuner's engineAudio, once per frame: `speed` in m/s; `on` false fades every bed out. */
   engine(V: Vehicle, sp: number, on: boolean): void {
     const AC = this.AC, A = this.A; if (!AC || !A) return; const t = AC.currentTime;
+    this.watch();
     if (!on) { this.silence(); return; }
     this.quiet = false;
     const model = this.modelActive && this.node && this.nodeGain;
@@ -143,6 +169,13 @@ export class Audio {
   wake(): void { if (this.AC) this.resume(); }
 
   /** Close the context (leaving the world). */
+  private rebuild(): void {
+    const old = this.AC, facts = this.facts, turbo = this.sentTurbo, n = this.rebuilt + 1;
+    this.dispose();
+    if (old && shared?.AC === old) { shared = null; void old.close().catch(() => {}); } // the others on it are dead too
+    this.facts = facts; this.sentTurbo = turbo; this.rebuilt = n;
+  }
+
   dispose(): void {
     const AC = this.AC;
     if (AC) {
@@ -152,7 +185,7 @@ export class Audio {
       try { this.A?.master.disconnect(); } catch { /* not connected */ }
       if (shared && shared.AC === AC && --shared.refs <= 0) { shared = null; void AC.close().catch(() => {}); }
     }
-    this.sources = []; this.AC = null; this.A = null; this.node = null; this.nodeGain = null; this.quiet = true;
+    this.sources = []; this.AC = null; this.A = null; this.node = null; this.nodeGain = null; this.quiet = true; this.stuckSince = -1; this.seenTime = -1;
   }
 
   private ctx(): Ctx | null {
@@ -163,7 +196,7 @@ export class Audio {
     // One context for the whole page. The Garage menu has its own Audio, and on an iPhone a second context
     // closing interrupts the first: the game's sound then stayed off after a visit to the Garage.
     let AC: Ctx;
-    if (shared && shared.AC.state !== 'closed') { AC = shared.AC; shared.refs++; }
+    if (shared && shared.AC.state !== 'closed' && shared.AC instanceof Ctor) { AC = shared.AC; shared.refs++; }
     else { try { AC = new Ctor(); } catch { this.failed = true; return null; } shared = { AC, refs: 1 }; }
     const master = AC.createGain(); master.gain.value = this.muted ? 0 : .55; master.connect(AC.destination);
     const nb = AC.createBuffer(1, AC.sampleRate * 2, AC.sampleRate), d = nb.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
