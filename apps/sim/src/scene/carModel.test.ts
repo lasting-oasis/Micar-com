@@ -247,7 +247,7 @@ describe('when the precompile fails', () => {
         expect(partsOf(group).mesh).toBeNull(); // held for the precompile
         return group;
     };
-    const asyncRenderer = (compileAsync: () => Promise<unknown>) => ({ compileAsync, compile() {}, render() {}, getScissorTest: () => false, getScissor: (v: THREE.Vector4) => v, setScissor() {}, setScissorTest() {}, shadowMap: { enabled: false, needsUpdate: false } }) as unknown as THREE.WebGLRenderer;
+    const asyncRenderer = (compileAsync: () => Promise<unknown>, lost = () => false) => ({ compileAsync, getContext: () => ({ isContextLost: lost }), compile() {}, render() {}, getScissorTest: () => false, getScissor: (v: THREE.Vector4) => v, setScissor() {}, setScissorTest() {}, shadowMap: { enabled: false, needsUpdate: false } }) as unknown as THREE.WebGLRenderer;
     it('a compile that is rejected (a lost context) gives up the same way', async () => {
         const group = await heldCamry(), warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
         const scene = new THREE.Scene();
@@ -256,13 +256,29 @@ describe('when the precompile fails', () => {
         expect(partsOf(group).mesh).toBe('toyota-camry'); expect(warn).toHaveBeenCalledTimes(1); expect(scene.children.length).toBe(0);
         warn.mockRestore(); disposeCarModel(group);
     });
-    it('a compile that never finishes is given up after 20 s', async () => {
+    it('a slow compile is waited for however long it takes; a lost context (which never finishes it) is given up', async () => {
         const group = await heldCamry(), warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
-        const scene = new THREE.Scene(), r = asyncRenderer(() => new Promise(() => {})), cam = new THREE.PerspectiveCamera(), t0 = performance.now();
+        let lost = false;
+        const scene = new THREE.Scene(), r = asyncRenderer(() => new Promise(() => {}), () => lost), cam = new THREE.PerspectiveCamera(), t0 = performance.now();
         carFrameTick(); precompileCarsTick(r, scene, cam);
         const at = (ms: number) => { const s = vi.spyOn(performance, 'now').mockReturnValue(t0 + ms); carFrameTick(); precompileCarsTick(r, scene, cam); s.mockRestore(); };
-        at(10000); expect(partsOf(group).mesh).toBeNull(); expect(warn).not.toHaveBeenCalled(); // still compiling
-        at(21000); expect(partsOf(group).mesh).toBe('toyota-camry'); expect(warn).toHaveBeenCalledTimes(1); expect(scene.children.length).toBe(0);
+        at(60000); expect(partsOf(group).mesh).toBeNull(); expect(warn).not.toHaveBeenCalled(); // a minute in: still compiling, still held
+        lost = true; // the context goes
+        at(61000); expect(partsOf(group).mesh).toBe('toyota-camry'); expect(warn).toHaveBeenCalledTimes(1); expect(scene.children.length).toBe(0);
+        warn.mockRestore(); disposeCarModel(group);
+    });
+    it('a draw that throws still gives the renderer its whole view back, and gives up', async () => {
+        const group = await heldCamry(), warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+        const box0 = new THREE.Vector4(0, 0, 1280, 720), calls: string[] = [];
+        let scissorOn = false; const box = box0.clone();
+        const r = { compile() {}, render() { throw new Error('draw failed'); }, getScissorTest: () => scissorOn, getScissor: (v: THREE.Vector4) => v.copy(box),
+            setScissor: (v: THREE.Vector4 | number, y?: number, w?: number, h?: number) => { if (typeof v === 'number') box.set(v, y!, w!, h!); else box.copy(v); calls.push('box'); },
+            setScissorTest: (on: boolean) => { scissorOn = on; calls.push('test ' + on); }, shadowMap: { enabled: false, needsUpdate: false } } as unknown as THREE.WebGLRenderer;
+        const scene = new THREE.Scene(), cam = new THREE.PerspectiveCamera();
+        carFrameTick(); precompileCarsTick(r, scene, cam); // build + compile (no compileAsync): on to the draw
+        carFrameTick(); precompileCarsTick(r, scene, cam); // the draw throws
+        expect(scissorOn).toBe(false); expect(box.equals(box0)).toBe(true); expect(calls.at(-1)).toBe('test false');
+        expect(partsOf(group).mesh).toBe('toyota-camry'); expect(warn).toHaveBeenCalledTimes(1); expect(scene.children.length).toBe(0);
         warn.mockRestore(); disposeCarModel(group);
     });
     it('gives it up once, warns, and puts the held models in (the town is not left on lofted bodies)', async () => {

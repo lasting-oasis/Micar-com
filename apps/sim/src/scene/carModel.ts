@@ -611,16 +611,15 @@ export const updateCars = (camPos: THREE.Vector3, high: boolean, driven: THREE.O
  * in a later frame draws it once into a single pixel: some drivers, and software
  * rendering, only finish a shader (and upload textures) on its first draw.
  */
-type Precompile = { state: 'build' | 'compiling' | 'draw' | 'done'; probe?: THREE.Group; broken?: THREE.Mesh; idleFrames: number; since: number };
-const pre: Precompile = { state: 'build', idleFrames: 0, since: 0 };
-/** A compile still not finished after this long (a lost context never settles compileAsync) is given up. */
-const PRECOMPILE_GIVE_UP_MS = 20000;
+type Precompile = { state: 'build' | 'compiling' | 'draw' | 'done'; probe?: THREE.Group; broken?: THREE.Mesh; idleFrames: number };
+const pre: Precompile = { state: 'build', idleFrames: 0 };
 let keptPaint: THREE.Material | null = null, keptPaintDouble: THREE.Material | null = null;
 const FAR_AWAY = 1e5; // the probe waits out of sight (and its contact shadow with it)
 export const precompileCarsTick = (renderer: THREE.WebGLRenderer, scene: THREE.Scene, camera: THREE.Camera) => {
     if (pre.state === 'done') return;
     if (pre.state === 'compiling') {
-        if (performance.now() - pre.since > PRECOMPILE_GIVE_UP_MS) giveUpPrecompile(new Error('the compile did not finish'));
+        // a slow compile is waited for however long it takes; a lost context never finishes it (compileAsync never settles)
+        if (renderer.getContext?.()?.isContextLost?.()) giveUpPrecompile(new Error('the WebGL context was lost'));
         return;
     }
     try { precompileStep(renderer, scene, camera); } catch (err) { giveUpPrecompile(err); }
@@ -652,7 +651,7 @@ const precompileStep = (renderer: THREE.WebGLRenderer, scene: THREE.Scene, camer
         g.add(broken, b); b.visible = true;
         scene.add(g);
         ensureShadowMesh(1);
-        pre.probe = g as THREE.Group; pre.broken = broken; pre.state = 'compiling'; pre.since = performance.now();
+        pre.probe = g as THREE.Group; pre.broken = broken; pre.state = 'compiling';
         const r = renderer as THREE.WebGLRenderer & { compileAsync?: (o: THREE.Object3D, c: THREE.Camera, t?: THREE.Scene) => Promise<unknown> };
         const next = () => { if (pre.probe === g) { pre.state = 'draw'; pre.idleFrames = 0; } }; // (unless the world closed meanwhile)
         if (r.compileAsync) r.compileAsync(scene, camera).then(next, err => { if (pre.probe === g) giveUpPrecompile(err); });
@@ -667,10 +666,11 @@ const precompileStep = (renderer: THREE.WebGLRenderer, scene: THREE.Scene, camer
     g.position.y = 0;
     const sc = renderer.getScissorTest(), box = renderer.getScissor(new THREE.Vector4());
     renderer.setScissorTest(true); renderer.setScissor(0, 0, 1, 1);
-    if (renderer.shadowMap.enabled) renderer.shadowMap.needsUpdate = true; // the shadow-casting variants too
-    renderer.render(scene, camera);
-    if (renderer.shadowMap.enabled) renderer.shadowMap.needsUpdate = true; // and redraw the real shadows without the probe
-    renderer.setScissor(box); renderer.setScissorTest(sc);
+    try {
+        if (renderer.shadowMap.enabled) renderer.shadowMap.needsUpdate = true; // the shadow-casting variants too
+        renderer.render(scene, camera);
+        if (renderer.shadowMap.enabled) renderer.shadowMap.needsUpdate = true; // and redraw the real shadows without the probe
+    } finally { renderer.setScissor(box); renderer.setScissorTest(sc); } // (also when the draw throws: the world draws whole again)
     // Take the probe away again, but keep its paint material: disposing it would release the
     // shared paint program (and its shadow variant), which the next car would compile again.
     b.removeFromParent(); b.visible = false; pre.broken!.removeFromParent(); g.removeFromParent();
