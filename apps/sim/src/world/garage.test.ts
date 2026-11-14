@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { GarageModel, lenOf } from './garage';
+import { GarageModel, MODELS_SHORT, lenOf, modelsDesc } from './garage';
+import { AUTO_DETAILED_ON_HIGH } from './options';
 import { ARCHETYPES, EVENTS, STOCK_CFG, TUNE_DEF, withV, okey, type CarCfg, type PartValue } from './data';
 import type { Tune } from './physics';
 
@@ -86,7 +87,21 @@ describe('the Car models row: Auto, Detailed or Simple', () => {
     const low = garage(true), high = garage(false);
     expect(low.g.rows()[low.i].status).toEqual({ text: 'Auto · Simple', tone: 'muted' });
     expect(high.g.rows()[high.i].status!.text).toBe('Auto · Detailed');
-    low.g.select(low.i); expect(low.g.desc()).toMatch(/Auto follows the Graphics quality setting/);
+    low.g.select(low.i); expect(low.g.desc()).toBe(modelsDesc(AUTO_DETAILED_ON_HIGH));
+  });
+  it('says what Auto does now: Simple on every Graphics setting for now; flipped back, it follows the Graphics quality setting', () => {
+    expect(modelsDesc(false)).toMatch(/^Auto is Simple for now, on every Graphics setting\./);
+    expect(modelsDesc(true)).toMatch(/^Auto follows the Graphics quality setting: Simple on Low, Detailed on High\./);
+    for (const d of [modelsDesc(false), modelsDesc(true)]) expect(d).toMatch(/Detailed: each car's own 3D model where it has one\. Simple: every car on its lighter built-in body, and no car model is downloaded\.$/);
+  });
+  it('on a phone the row has a one-line description; a row without a short one shows its full one there', () => {
+    const { g, i } = garage(true);
+    g.select(i);
+    expect(g.desc(true)).toBe(MODELS_SHORT);
+    expect(MODELS_SHORT.length).toBeLessThanOrEqual(36); // one line at 320 px wide (the 375, 360 and 320 shots measure it)
+    expect(g.desc()).toBe(modelsDesc(AUTO_DETAILED_ON_HIGH)); // the full text elsewhere
+    g.select(g.rowIds().indexOf('manual'));
+    expect(g.desc(true)).toBe(g.desc()); expect(g.desc()).toMatch(/^Manual:/);
   });
   it('a press goes Auto, Detailed, Simple and back to Auto, handing each to the options storage', () => {
     const { g, set, i } = garage(true);

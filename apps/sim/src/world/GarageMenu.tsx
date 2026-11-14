@@ -141,7 +141,7 @@ export function GarageMenu({ onQuickRace }: { onQuickRace?: (eventId: string) =>
     return <div className="fixed inset-0 z-[10000] bg-background grid place-items-center font-cond text-haze">Loading the garage…</div>;
   }
 
-  const rows = g.rows(), kind = g.kind();
+  const rows = g.rows(), kind = g.kind(), desc = g.desc(), descShort = g.desc(true);
   const rep = strip?.rep ?? 0, stage = stageOf(rep);
   const rating = visualRating((strip?.cars[car.id] ?? fallback).cfg);
   const onRowClick = (i: number, e: React.MouseEvent) => {
@@ -184,7 +184,9 @@ export function GarageMenu({ onQuickRace }: { onQuickRace?: (eventId: string) =>
             onClick={(e) => onRowClick(i, e)}
             onNudge={(d) => act(() => { g.select(i); g.adjust(d); })} />)}
         </div>
-        <div className="shrink-0 min-h-[20px] text-sm text-haze max-w-[46ch] ml-2 rounded-md bg-night/75 px-2 py-1 empty:bg-transparent">{g.desc()}</div>
+        <div className="shrink-0 min-h-[20px] text-sm text-haze max-w-[46ch] ml-2 rounded-md bg-night/75 px-2 py-1 empty:bg-transparent">{desc && descShort !== desc
+          ? <><span className="md:hidden">{descShort}</span><span className="hidden md:inline">{desc}</span></> // a phone: one line
+          : desc}</div>
         {g.state.stack.length > 1 && (
           <button type="button" onClick={() => act(() => g.back())} className="shrink-0 self-start ml-2 font-cond font-semibold text-sm text-haze hover:text-ink">‹ Back</button>
         )}

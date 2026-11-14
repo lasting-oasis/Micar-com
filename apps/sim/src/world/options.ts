@@ -1,13 +1,13 @@
 // The options the Garage's Options menu sets (Night Tuner's SAVE.opts): transmission, speed
 // units, chase camera, sound, touch controls and the cars' own 3D models (off: every car on its lofted body; until the
-// player chooses, they follow Graphics: off on Low). One localStorage key; every read and write is in a try/catch, so a
+// player chooses, Auto: off for now, see AUTO_DETAILED_ON_HIGH). One localStorage key; every read and write is in a try/catch, so a
 // blocked or missing storage leaves the defaults (and the choices for this page only). The 3D view
 // reads getOptions() each frame; the Garage reads and writes through getOption / setOption.
 
 export type CamMode = 0 | 1 | 2;
 /** touch controls on a phone: the steering and gas sticks, or the old buttons */
 export type TouchControls = 'sticks' | 'buttons';
-/** `models`: the player's choice in the Garage, or null (no choice yet): follow Graphics (carModelsOn). */
+/** `models`: the player's choice in the Garage, or null (no choice yet: Auto, see carModelsOn). */
 export type DriveOptions = { manual: boolean; units: 'mph' | 'kmh'; cam: CamMode; mute: boolean; controls: TouchControls; models: boolean | null };
 
 export const OPTIONS_KEY = 'micar.driveOptions';
@@ -15,8 +15,15 @@ export const OPTIONS_KEY = 'micar.driveOptions';
  *  so a stored true without it was not necessarily the player's choice. */
 const OPTIONS_VER = 2;
 export const OPTION_DEFAULTS: Readonly<DriveOptions> = { manual: false, units: 'mph', cam: 0, mute: false, controls: 'sticks', models: null };
-/** Whether the cars show their own 3D models: the player's choice, else on unless Graphics is Low. */
-export const carModelsOn = (o: Pick<DriveOptions, 'models'>, graphics: 'high' | 'low') => o.models ?? graphics !== 'low';
+/** What Auto (no choice in the Garage) gives on High graphics. False for now (the owner's decision): until the fixed car
+ *  models are in, Auto gives every car its lighter built-in body on every Graphics setting, and a player who wants the
+ *  models picks Detailed. Set it back to true once they are in: Auto then follows the Graphics quality setting again
+ *  (the models on High, the built-in bodies on Low), and the Garage's description says so (garage.ts, modelsDesc). */
+export const AUTO_DETAILED_ON_HIGH = false;
+/** Whether the cars show their own 3D models: the player's choice; else (Auto) only on High graphics, and only while
+ *  `autoOnHigh` (AUTO_DETAILED_ON_HIGH; the tests pass both). */
+export const carModelsOn = (o: Pick<DriveOptions, 'models'>, graphics: 'high' | 'low', autoOnHigh = AUTO_DETAILED_ON_HIGH) =>
+  o.models ?? (autoOnHigh && graphics !== 'low');
 
 const storage = (): Storage | null => {
   try { return (globalThis as { localStorage?: Storage }).localStorage ?? null; } catch { return null; }
