@@ -1260,6 +1260,14 @@ export function VanillaThreeScene() {
             circuit: () => (district === 'strip' ? strip?.circuitModel() ?? null : null),
             /** what the last frame drew (the smoke's budget check): draw calls and triangles */
             drawn: () => ({ calls: renderer.info.render.calls, triangles: renderer.info.render.triangles }),
+            /** where another player called `name` is drawn, in world units of this district: its name tag in the Strip, its
+             *  dealer in the town; null when it is not drawn (the data-diet smoke) */
+            drawnAt: (name: string): { x: number; z: number } | null => {
+                const shown = district === 'strip'
+                    ? Object.values(stripTags).find(t => t.userData.name === name)
+                    : Object.values(otherPlayerMeshes).find(g => g.userData.name === name && g.visible);
+                return shown ? { x: shown.position.x, z: shown.position.z } : null;
+            },
             /** the challenge room this page is in: its code and phase, how many are in it, and this player's state there */
             race: () => { const st = useGameStore.getState(), r = st.race; return r ? { code: r.code, phase: r.phase, members: r.members.length, me: r.members.find(m => m.id === st.playerId)?.state ?? null } : null; },
             /** sign in with a magic-link token, as the link's page does (the smoke) */
