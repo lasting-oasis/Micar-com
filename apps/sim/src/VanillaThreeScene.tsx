@@ -1270,6 +1270,13 @@ export function VanillaThreeScene() {
             },
             /** the challenge room this page is in: its code and phase, how many are in it, and this player's state there */
             race: () => { const st = useGameStore.getState(), r = st.race; return r ? { code: r.code, phase: r.phase, members: r.members.length, me: r.members.find(m => m.id === st.playerId)?.state ?? null } : null; },
+            /** a challenge's other racers: the room's others, and those this page places from their poses (raceNet's remotes, as placePeople reads them) */
+            remotes: () => {
+                const st = useGameStore.getState(), a = district === 'strip' ? strip?.runner.active : null;
+                const others = (st.race?.members ?? []).filter(m => m.id !== st.playerId).map(m => m.id);
+                const drawn = a?.net ? a.racers.filter(R => R.remote && R.pid && remotes.get(R.pid)?.pose(serverNow(), a.route)).map(R => R.pid as string) : [];
+                return { others, drawn };
+            },
             /** sign in with a magic-link token, as the link's page does (the smoke) */
             linkMagic: (token: string) => { useGameStore.getState().linkAccount({ magic: token }); },
             /** open the Garage menu on `carId`, else your first car (the same call the lot's [Enter] GARAGE makes) */

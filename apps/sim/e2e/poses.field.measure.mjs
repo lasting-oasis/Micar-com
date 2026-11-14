@@ -2,15 +2,19 @@
 // running World whose ceiling is sixteen (RACE_ROOM_MAX=16): sixteen guests in one room of the Harbour GP, fifteen of
 // them sending a rounded pose every 66 ms (as the page does) down the circuit; the sixteenth, the listener, either asks
 // for its poses a tick at a time (BATCH=1: race_ready { batch: true }) or not (BATCH=0), and every websocket frame it
-// receives is read raw for SECONDS. Prints a JSON summary: the listener's bytes a second (payload and frame headers),
-// and per message.
+// receives is read raw for SECONDS. Prints a JSON summary: the poses each sender sent a second, the listener's messages
+// a second and poses in each, its bytes a second (payload and frame headers), and how old a pose is when it arrives.
+// The senders keep a fixed schedule, a pose due every 66 ms from the start: a timer that fires late is followed by one
+// that fires early (Windows' timers tick about every 15 ms; setInterval(66) sent 13.7 a second there, not 15.2). The
+// server's own tick, setInterval(66), is not corrected: on this PC it runs at about 13.8 a second, so for BATCH=1 the
+// summary also gives the download at the 15.2 ticks a second it is set for (arithmetic: bytes a message × 1000/66).
 //   BASE=http://localhost:3123/ BATCH=1 SECONDS=10 node e2e/poses.field.measure.mjs
 import { io } from 'socket.io-client';
 
 const BASE = (process.env.BASE || 'http://localhost:3123').replace(/\/$/, '');
 const SECONDS = Number(process.env.SECONDS || 10);
 const BATCH = process.env.BATCH === '1';
-const POSE_S = 0.066;
+const POSE_MS = 66, GAP_MS = 41; // the page's pose interval; the server drops a pose within 40 ms of the last (POSE_GAP_MS)
 const roundPose = ([t, x, z, h, v, s, sc]) => { const r = (n, k) => Math.round(n * k) / k; return [Math.round(t), r(x, 100), r(z, 100), r(h, 1000), r(v, 100), r(s, 100), Math.round(sc)]; }; // race.ts roundPose
 
 const client = () => io(BASE, { transports: ['websocket'], forceNew: true, reconnection: false });
@@ -44,27 +48,54 @@ const racing = next(host, 'race_room', r => r.phase === 'racing');
 host.emit('race_start');
 await next(host, 'race_room', r => r.phase === 'loading' || r.phase === 'racing');
 for (const s of all) s.emit('race_ready', s === listener && BATCH ? { batch: true } : undefined);
-await racing;
+const goAt = (await racing).goAt;
 
-// the listener's raw frames
-const ws = listener.io.engine.transport.ws, frames = [];
-ws.on('message', (data) => { const buf = Buffer.isBuffer(data) ? data : Buffer.from(data); frames.push({ bytes: buf.length, ev: (/^42\["([^"]+)"/.exec(buf.toString('utf8')) || [])[1] || 'other' }); });
-// fifteen senders (everyone but the listener), each a pose every 66 ms at its own pace
-const senders = all.filter(s => s !== listener), t0 = Date.now();
-const timers = senders.map((s, k) => { let d = 120 + k * 9, v = 0; return setInterval(() => { v = Math.min(55, v + 4 * POSE_S); d += v * POSE_S; const p = at(d); s.volatile.emit('race_pose', roundPose([Date.now(), p.x + k * 0.3, p.z, p.h, v, d, 0])); }, POSE_S * 1000); });
+// the listener's raw frames: bytes, event, how many poses each carries, and each pose's age on arrival (the senders
+// stamp a pose with this PC's clock as they send it; a batched pose's time counts from the green)
+const ws = listener.io.engine.transport.ws, frames = [], ages = [];
+ws.on('message', (data) => {
+  const now = Date.now(), buf = Buffer.isBuffer(data) ? data : Buffer.from(data), text = buf.toString('utf8');
+  const ev = (/^42\["([^"]+)"/.exec(text) || [])[1] || 'other';
+  let poses = 0;
+  if (ev === 'race_poses') { const batch = JSON.parse(text.slice(2))[1]; poses = batch.length; for (const e of batch) ages.push(now - (goAt + e[1])); }
+  else if (ev === 'race_pose') { poses = 1; ages.push(now - JSON.parse(text.slice(2))[1][1]); }
+  frames.push({ bytes: buf.length, ev, poses });
+});
+const pct = (xs, q) => { const s = [...xs].sort((a, b) => a - b); return s.length ? s[Math.min(s.length - 1, Math.floor(q * s.length))] : 0; };
+// fifteen senders (everyone but the listener), each a pose due every 66 ms from its start, never two within GAP_MS
+const senders = all.filter(s => s !== listener), t0 = Date.now(), sent = senders.map(() => 0);
+let running = true;
+senders.forEach((s, k) => {
+  let d = 120 + k * 9, v = 0, n = 0;
+  const start = t0 + k * 4; // staggered a little, as fifteen phones would be
+  const send = () => {
+    if (!running) return;
+    v = Math.min(55, v + 4 * POSE_MS / 1000); d += v * POSE_MS / 1000; const p = at(d);
+    s.volatile.emit('race_pose', roundPose([Date.now(), p.x + k * 0.3, p.z, p.h, v, d, 0])); sent[k]++;
+    n++; setTimeout(send, Math.max(GAP_MS, start + n * POSE_MS - Date.now()));
+  };
+  setTimeout(send, start - Date.now());
+});
 await new Promise(r => setTimeout(r, SECONDS * 1000));
-timers.forEach(clearInterval);
+running = false;
 const seconds = (Date.now() - t0) / 1000;
 const pick = (ev) => frames.filter(f => f.ev === ev);
 const sum = (fs) => fs.reduce((n, f) => n + f.bytes + wsHeader(f.bytes), 0);
 const poses = pick(BATCH ? 'race_poses' : 'race_pose');
+const bytesPerMessage = poses.length ? poses.reduce((n, f) => n + f.bytes, 0) / poses.length : 0;
 const out = {
   base: BASE, batched: BATCH, seconds: +seconds.toFixed(1), senders: senders.length,
+  posesSentPerSecondEach: +(sent.reduce((a, b) => a + b, 0) / senders.length / seconds).toFixed(2),
   messages: poses.length, messagesPerSecond: +(poses.length / seconds).toFixed(1),
-  bytesPerMessage: poses.length ? +(poses.reduce((n, f) => n + f.bytes, 0) / poses.length).toFixed(1) : 0,
+  posesPerMessage: poses.length ? +(poses.reduce((n, f) => n + f.poses, 0) / poses.length).toFixed(2) : 0,
+  posesReceivedPerSecond: +(poses.reduce((n, f) => n + f.poses, 0) / seconds).toFixed(1),
+  bytesPerMessage: +bytesPerMessage.toFixed(1),
   downloadBytesPerSecond: Math.round(sum(poses) / seconds), // payloads and their frame headers
   allFramesBytesPerSecond: Math.round(sum(frames) / seconds),
+  poseAgeMs: { median: pct(ages, 0.5), p95: pct(ages, 0.95), max: pct(ages, 1) }, // sent to received, on one PC: no network in it
 };
+// the server's tick is setInterval(66): at the 1000/66 ticks a second it is set for, each tick one message of this size
+if (BATCH) out.downloadAtSetTickBytesPerSecond = Math.round((bytesPerMessage + wsHeader(Math.round(bytesPerMessage))) * 1000 / POSE_MS);
 for (const s of all) { s.emit('race_leave'); s.close(); }
 console.log(JSON.stringify(out, null, 2));
 process.exit(0);

@@ -173,15 +173,21 @@ describe('a server whose ceiling is sixteen (RACE_ROOM_MAX=16)', () => {
     const racing = r.roomSeen(batched.s, v => v.phase === 'racing'); batched.s.emit('race_start');
     await r.roomSeen(batched.s, v => v.phase === 'loading' || v.phase === 'racing');
     batched.s.emit('race_ready', { batch: true }); plain.s.emit('race_ready'); mover.s.emit('race_ready');
-    const go = await racing, goAt = go.goAt!, moverSlot = go.members.find(m => m.id === mover.id)!.slot;
-    const singles: unknown[] = []; batched.s.on('race_pose', p => { singles.push(p); });
+    const go = await racing, goAt = go.goAt!, slotOf = (id: string) => go.members.find(m => m.id === id)!.slot;
+    const singles: unknown[] = [], batches: number[][][] = [];
+    batched.s.on('race_pose', p => { singles.push(p); }); batched.s.on('race_poses', b => { batches.push(b); });
     const batch = r.next<number[][]>(batched.s, 'race_poses'), single = r.next<any[]>(plain.s, 'race_pose', p => p[0] === mover.id);
+    const own = r.next<any[]>(plain.s, 'race_pose', p => p[0] === batched.id);
     // (the green is five seconds off: a pose stamped four seconds before it is on time, as the server's clock goes)
+    batched.s.emit('race_pose', [goAt - 4100, 1, 2, 0.3, 4, 5, 0]); // the batched page's own pose: the others get it, it does not
     mover.s.emit('race_pose', [goAt - 4000.4, 16098.616765074097, 8154.86, 0.41, 17.6, 158.2, 0]);
-    expect(await batch).toEqual([[moverSlot, -4000, 16098.62, 8154.86, 0.41, 17.6, 158.2, 0]]); // its place, its time from the green
+    expect(await own).toEqual([batched.id, goAt - 4100, 1, 2, 0.3, 4, 5, 0]); // the server took it and relayed it
+    expect(await batch).toEqual([[slotOf(mover.id), -4000, 16098.62, 8154.86, 0.41, 17.6, 158.2, 0]]); // its place, its time from the green
     expect(await single).toEqual([mover.id, goAt - 4000, 16098.62, 8154.86, 0.41, 17.6, 158.2, 0]);
-    await new Promise(res => setTimeout(res, 300)); // two or three ticks: the same pose is not sent again, and never singly
-    expect(singles).toEqual([]);
+    await new Promise(res => setTimeout(res, 300)); // about four ticks with nothing new in them
+    expect(batches).toHaveLength(1); // the mover's pose was sent once, not again on every tick
+    expect(batches.flat().some(e => e[0] === slotOf(batched.id))).toBe(false); // never this page's own place
+    expect(singles).toEqual([]); // and never a single pose
   }, 30_000);
 
   it('a room asked for with no size: a circuit gets the ceiling, a drag its four lanes', async () => {
