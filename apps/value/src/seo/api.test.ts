@@ -64,6 +64,15 @@ describe('json api', () => {
     expect(spec.paths['/value'].servers[0].url).toBe('https://micar-sim.onrender.com/api/v1');
     for (const c of cars) expect(spec.components.schemas.Body.enum).toContain(c.body);
   });
+
+  it('the Value schema always has figures, requires the evidence and describes the branded-title warning', () => {
+    const v = (openApiJson() as any).components.schemas.Value;
+    expect(v.properties.valueUsd.type).toBe('object');
+    expect(v.properties.confidence.type).toBe('object');
+    expect(v.required).toContain('evidence');
+    expect(v.properties.warning.properties.reason.enum).toEqual(['branded-title']);
+    expect(v.properties.withheld).toBeUndefined();
+  });
 });
 
 function t(trim: string, msrp: number) {

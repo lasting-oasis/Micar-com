@@ -7,7 +7,7 @@ import {
   publicPassport, standingOf, supportedHistory, timeline,
 } from '@micar/engine';
 import type { Attachment, OwnerEventType, Passport, PassportEvent, PhotoSubject, Standing, WearSystem } from '@micar/engine';
-import { ACCIDENTS, CONDITIONS, TITLES } from '../engine/data';
+import { ACCIDENTS, CONDITIONS, TITLES, optionLabel } from '../engine/data';
 import { locale, t } from '../i18n';
 import { attachmentKind, checkFile, sha256Hex, type FileStore } from './files';
 import { useEntryDate } from './dates';
@@ -222,7 +222,7 @@ function AddEntry({ files, onRecord, readings }: Pick<Props, 'files' | 'onRecord
         {type === 'document' && <label>{t('Document')}<select value={doc} onChange={(e) => setDoc(e.target.value as keyof typeof DOCUMENT_LABELS)}>{(Object.keys(DOCUMENT_LABELS) as (keyof typeof DOCUMENT_LABELS)[]).map((k) => <option key={k} value={k}>{t(DOCUMENT_LABELS[k])}</option>)}</select></label>}
         {type === 'declaration' && <>
           <label>{t('Condition')}<select value={condition} onChange={(e) => setCondition(e.target.value)}><option value="">{t('Not stated')}</option>{CONDITIONS.map((c) => <option key={c.name} value={c.name}>{t(c.name)}</option>)}</select></label>
-          <label>{t('Accident history')}<select value={accident} onChange={(e) => setAccident(e.target.value)}><option value="">{t('Not stated')}</option>{ACCIDENTS.map((c) => <option key={c.name} value={c.name}>{t(c.name)}</option>)}</select></label>
+          <label>{t('Accident history')}<select value={accident} onChange={(e) => setAccident(e.target.value)}><option value="">{t('Not stated')}</option>{ACCIDENTS.map((c) => <option key={c.name} value={c.name}>{t(optionLabel(ACCIDENTS, c.name))}</option>)}</select></label>
           <label>{t('Title')}<select value={titleStatus} onChange={(e) => setTitleStatus(e.target.value)}><option value="">{t('Not stated')}</option>{TITLES.map((c) => <option key={c.name} value={c.name}>{t(c.name)}</option>)}</select></label>
           <label>{t('Originality')}<select value={originality} onChange={(e) => setOriginality(e.target.value)}><option value="">{t('Not stated')}</option><option value="stock">{t('Factory stock')}</option><option value="modified">{t('Modified')}</option></select></label>
         </>}
