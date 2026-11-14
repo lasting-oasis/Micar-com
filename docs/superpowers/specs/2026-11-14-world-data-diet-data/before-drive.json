@@ -1,0 +1,480 @@
+[
+  {
+    "mode": "drive",
+    "layout": "one",
+    "online": 10,
+    "seconds": 20.0081162,
+    "join": {
+      "wireMB": 1.2880067825317383,
+      "payloadMB": 1.285780906677246,
+      "byEventMB": {
+        "open": 0.0010204315185546875,
+        "connect": 0.00030517578125,
+        "init": 0.18349742889404297,
+        "update": 1.0320472717285156,
+        "chat": 0.006923675537109375,
+        "player_positions": 0.06131935119628906,
+        "time_update": 0.000667572021484375
+      },
+      "seconds": 2.6086184
+    },
+    "steady": {
+      "wireKBps": {
+        "mean": 18.462722486337817,
+        "max": 18.46272248633782
+      },
+      "payloadKBps": 18.42387106513306,
+      "byEventKBps": {
+        "open": 0,
+        "connect": 0,
+        "init": 0,
+        "update": 0,
+        "chat": 0,
+        "player_positions": 18.390437367237002,
+        "time_update": 0.03343369789605681
+      },
+      "serverMBps": 0.18030002428064276
+    },
+    "gapsMs": {
+      "near": {
+        "median": 105,
+        "p95": 115,
+        "samples": 7610
+      },
+      "district": {
+        "median": 105,
+        "p95": 115,
+        "samples": 9346
+      },
+      "away": {
+        "median": null,
+        "p95": null,
+        "samples": 0
+      }
+    },
+    "server": {
+      "cpuPct": 1.6872977408587706,
+      "memMB": 102.08984375
+    },
+    "testLagP99Ms": 24.379391
+  },
+  {
+    "mode": "drive",
+    "layout": "one",
+    "online": 25,
+    "seconds": 20.0045242,
+    "join": {
+      "wireMB": 9.712635040283203,
+      "payloadMB": 9.705155372619629,
+      "byEventMB": {
+        "open": 0.0025510787963867188,
+        "connect": 0.000762939453125,
+        "init": 0.6052360534667969,
+        "update": 8.284063339233398,
+        "chat": 0.04117012023925781,
+        "player_positions": 0.769536018371582,
+        "time_update": 0.0018358230590820312
+      },
+      "seconds": 3.5788041999999987
+    },
+    "steady": {
+      "wireKBps": {
+        "mean": 45.06708467165142,
+        "max": 45.067149110199786
+      },
+      "payloadKBps": 45.028757404162604,
+      "byEventKBps": {
+        "open": 0,
+        "connect": 0,
+        "init": 0,
+        "update": 0,
+        "chat": 0,
+        "player_positions": 44.995339182448525,
+        "time_update": 0.033390884148096885,
+        "ping": 0.000027337565969202103
+      },
+      "serverMBps": 1.10027062186649
+    },
+    "gapsMs": {
+      "near": {
+        "median": 105,
+        "p95": 115,
+        "samples": 43882
+      },
+      "district": {
+        "median": 105,
+        "p95": 115,
+        "samples": 67046
+      },
+      "away": {
+        "median": null,
+        "p95": null,
+        "samples": 0
+      }
+    },
+    "server": {
+      "cpuPct": 2.7749087003239294,
+      "memMB": 128.72265625
+    },
+    "testLagP99Ms": 23.478271
+  },
+  {
+    "mode": "drive",
+    "layout": "one",
+    "online": 50,
+    "seconds": 20.0014654,
+    "join": {
+      "wireMB": 53.770371437072754,
+      "payloadMB": 53.74938678741455,
+      "byEventMB": {
+        "open": 0.0051021575927734375,
+        "connect": 0.00152587890625,
+        "init": 1.7012872695922852,
+        "update": 46.84049320220947,
+        "chat": 0.1616668701171875,
+        "player_positions": 5.034938812255859,
+        "time_update": 0.004372596740722656
+      },
+      "seconds": 4.920214899999999
+    },
+    "steady": {
+      "wireKBps": {
+        "mean": 91.7966080469034,
+        "max": 91.79664320057769
+      },
+      "payloadKBps": 91.75737654639545,
+      "byEventKBps": {
+        "open": 0,
+        "connect": 0,
+        "init": 0,
+        "update": 0,
+        "chat": 0,
+        "player_positions": 91.72155104632988,
+        "time_update": 0.0357883934094149,
+        "ping": 0.00003710665619530054
+      },
+      "serverMBps": 4.482256252290205
+    },
+    "gapsMs": {
+      "near": {
+        "median": 105,
+        "p95": 115,
+        "samples": 94358
+      },
+      "district": {
+        "median": 105,
+        "p95": 115,
+        "samples": 368055
+      },
+      "away": {
+        "median": null,
+        "p95": null,
+        "samples": 0
+      }
+    },
+    "server": {
+      "cpuPct": 1.6958241616379377,
+      "memMB": 133.59375
+    },
+    "testLagP99Ms": 24.608767
+  },
+  {
+    "mode": "drive",
+    "layout": "one",
+    "online": 100,
+    "seconds": 20.0025653,
+    "join": {
+      "wireMB": 343.3893585205078,
+      "payloadMB": 343.3084373474121,
+      "byEventMB": {
+        "open": 0.010204315185546875,
+        "connect": 0.0030517578125,
+        "init": 5.2851457595825195,
+        "update": 302.27380657196045,
+        "chat": 0.6404829025268555,
+        "player_positions": 35.0826416015625,
+        "time_update": 0.013104438781738281
+      },
+      "seconds": 7.871482199999998
+    },
+    "steady": {
+      "wireKBps": {
+        "mean": 182.32693951869626,
+        "max": 182.3269556299111
+      },
+      "payloadKBps": 182.2878927692152,
+      "byEventKBps": {
+        "open": 0,
+        "connect": 0,
+        "init": 0,
+        "update": 0,
+        "chat": 0,
+        "player_positions": 182.2521117141408,
+        "time_update": 0.035737603616272116,
+        "ping": 0.00004345145794874623
+      },
+      "serverMBps": 17.805365187372693
+    },
+    "gapsMs": {
+      "near": {
+        "median": 105,
+        "p95": 115,
+        "samples": 188699
+      },
+      "district": {
+        "median": 105,
+        "p95": 115,
+        "samples": 1679431
+      },
+      "away": {
+        "median": null,
+        "p95": null,
+        "samples": 0
+      }
+    },
+    "server": {
+      "cpuPct": 3.6176413646288554,
+      "memMB": 138.40234375
+    },
+    "testLagP99Ms": 24.608767
+  },
+  {
+    "mode": "drive",
+    "layout": "spread",
+    "online": 10,
+    "seconds": 20.00568119999999,
+    "join": {
+      "wireMB": 1.2394886016845703,
+      "payloadMB": 1.2372627258300781,
+      "byEventMB": {
+        "open": 0.0010204315185546875,
+        "connect": 0.00030517578125,
+        "init": 0.17600154876708984,
+        "update": 0.9908199310302734,
+        "chat": 0.006923675537109375,
+        "player_positions": 0.061524391174316406,
+        "time_update": 0.000667572021484375
+      },
+      "seconds": 2.5955274999999967
+    },
+    "steady": {
+      "wireKBps": {
+        "mean": 18.574557695516024,
+        "max": 18.57455769551602
+      },
+      "payloadKBps": 18.53550628845871,
+      "byEventKBps": {
+        "open": 0,
+        "connect": 0,
+        "init": 0,
+        "update": 0,
+        "chat": 0,
+        "player_positions": 18.502068521165885,
+        "time_update": 0.03343776729282281
+      },
+      "serverMBps": 0.18139216499527364
+    },
+    "gapsMs": {
+      "near": {
+        "median": null,
+        "p95": null,
+        "samples": 0
+      },
+      "district": {
+        "median": null,
+        "p95": null,
+        "samples": 0
+      },
+      "away": {
+        "median": 105,
+        "p95": 115,
+        "samples": 16920
+      }
+    },
+    "server": {
+      "cpuPct": 1.8449350672889153,
+      "memMB": 128.69921875
+    },
+    "testLagP99Ms": 24.657919
+  },
+  {
+    "mode": "drive",
+    "layout": "spread",
+    "online": 25,
+    "seconds": 20.00857620000001,
+    "join": {
+      "wireMB": 9.706844329833984,
+      "payloadMB": 9.699387550354004,
+      "byEventMB": {
+        "open": 0.0025510787963867188,
+        "connect": 0.000762939453125,
+        "init": 0.6072864532470703,
+        "update": 8.310718536376953,
+        "chat": 0.04117012023925781,
+        "player_positions": 0.7350625991821289,
+        "time_update": 0.0018358230590820312
+      },
+      "seconds": 3.577608099999983
+    },
+    "steady": {
+      "wireKBps": {
+        "mean": 45.92916644226288,
+        "max": 45.92923086776157
+      },
+      "payloadKBps": 45.890066021414334,
+      "byEventKBps": {
+        "open": 0,
+        "connect": 0,
+        "init": 0,
+        "update": 0,
+        "chat": 0,
+        "player_positions": 45.85665456732996,
+        "time_update": 0.03338412205462173,
+        "ping": 0.000027332029752321895
+      },
+      "serverMBps": 1.1213175400943083
+    },
+    "gapsMs": {
+      "near": {
+        "median": 105,
+        "p95": 115,
+        "samples": 4772
+      },
+      "district": {
+        "median": 105,
+        "p95": 115,
+        "samples": 1675
+      },
+      "away": {
+        "median": 105,
+        "p95": 115,
+        "samples": 107361
+      }
+    },
+    "server": {
+      "cpuPct": 2.0032061851235805,
+      "memMB": 129.53125
+    },
+    "testLagP99Ms": 24.428543
+  },
+  {
+    "mode": "drive",
+    "layout": "spread",
+    "online": 50,
+    "seconds": 20.009511100000005,
+    "join": {
+      "wireMB": 54.840054512023926,
+      "payloadMB": 54.81910419464111,
+      "byEventMB": {
+        "open": 0.0051021575927734375,
+        "connect": 0.00152587890625,
+        "init": 1.7447900772094727,
+        "update": 47.94968509674072,
+        "chat": 0.1616668701171875,
+        "player_positions": 4.952028274536133,
+        "time_update": 0.004305839538574219
+      },
+      "seconds": 4.908257100000017
+    },
+    "steady": {
+      "wireKBps": {
+        "mean": 91.57448547524733,
+        "max": 91.57451768649157
+      },
+      "payloadKBps": 91.53526779728514,
+      "byEventKBps": {
+        "open": 0,
+        "connect": 0,
+        "init": 0,
+        "update": 0,
+        "chat": 0,
+        "player_positions": 91.49945572633202,
+        "time_update": 0.03577400311894677,
+        "ping": 0.00003806783415113026
+      },
+      "serverMBps": 4.471410423596059
+    },
+    "gapsMs": {
+      "near": {
+        "median": 105,
+        "p95": 115,
+        "samples": 27352
+      },
+      "district": {
+        "median": 105,
+        "p95": 115,
+        "samples": 6844
+      },
+      "away": {
+        "median": 105,
+        "p95": 115,
+        "samples": 431255
+      }
+    },
+    "server": {
+      "cpuPct": 3.108870859511158,
+      "memMB": 133.1015625
+    },
+    "testLagP99Ms": 23.904255
+  },
+  {
+    "mode": "drive",
+    "layout": "spread",
+    "online": 100,
+    "seconds": 20.002829600000027,
+    "join": {
+      "wireMB": 347.24095249176025,
+      "payloadMB": 347.1595449447632,
+      "byEventMB": {
+        "open": 0.010204315185546875,
+        "connect": 0.0030517578125,
+        "init": 5.348088264465332,
+        "update": 305.4524030685425,
+        "chat": 0.6404829025268555,
+        "player_positions": 35.69214344024658,
+        "time_update": 0.013171195983886719
+      },
+      "seconds": 7.7556325999999824
+    },
+    "steady": {
+      "wireKBps": {
+        "mean": 178.041101760548,
+        "max": 178.04111933618609
+      },
+      "payloadKBps": 178.0029352853406,
+      "byEventKBps": {
+        "open": 0,
+        "connect": 0,
+        "init": 0,
+        "update": 0,
+        "chat": 0,
+        "player_positions": 177.96886393388053,
+        "time_update": 0.03402838878855421,
+        "ping": 0.000042962671641216174
+      },
+      "serverMBps": 17.386826343803484
+    },
+    "gapsMs": {
+      "near": {
+        "median": 105,
+        "p95": 115,
+        "samples": 118609
+      },
+      "district": {
+        "median": 105,
+        "p95": 115,
+        "samples": 30888
+      },
+      "away": {
+        "median": 105,
+        "p95": 115,
+        "samples": 1677647
+      }
+    },
+    "server": {
+      "cpuPct": 4.5412857319198885,
+      "memMB": 141.9140625
+    },
+    "testLagP99Ms": 24.133631
+  }
+]
