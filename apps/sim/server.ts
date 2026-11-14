@@ -218,10 +218,12 @@ let googleForcedAt = 0;
 const redact = (s: string) => s.slice(0, 3) + '…';
 const accountView = (a: Account) => ({ id: a.id, identity: a.identities[0], allowanceToday: a.lastAllowance === utcDay(Date.now()) });
 const issueSession = (accountId: string) => process.env.MAGIC_SECRET ? signSession(accountId, Date.now(), process.env.MAGIC_SECRET) : null;
-/** A page's whole state at its join: what it may see (src/world/stateSync.ts: never the accounts, nor another player's
- *  private fields) and the recent chat. A proto: 2 page's patches start from this copy. */
+/** A page's whole state for an `init` (at a join, and at a sign-out, which makes its player anew without one): what it
+ *  may see (src/world/stateSync.ts: never the accounts, nor another player's private fields) and the recent chat. The
+ *  page starts again from it: a proto: 2 page's patches start from this copy, and everyone's position comes again. */
 const initState = (viewerId: string) => {
     sync.refresh(gameState);
+    relay.forgetRecipient(viewerId);
     const view = proto2.has(viewerId) ? sync.full(viewerId) : viewFor(gameState, viewerId, id => netIds.get(id));
     return { ...view, chatLog: gameState.chatLog ?? [] };
 };
@@ -1121,10 +1123,8 @@ io.on('connection', (socket) => {
               }
           }
       }
-      // A page that says proto: 2 reads `pos` and `patch`; any other is sent the old messages. This join's init starts the
-      // page again: its patches start from that copy, and everyone's position comes again.
+      // A page that says proto: 2 reads `pos` and `patch`; any other is sent the old messages (initState starts it again).
       if (msg?.proto === 2) proto2.add(socket.id); else { proto2.delete(socket.id); sync.forget(socket.id); }
-      relay.forgetRecipient(socket.id);
       // a re-join on the same socket replaces its player: save an account holder's progress first
       const prior = gameState.players[socket.id];
       if (prior?.accountId) persistAccount(prior);

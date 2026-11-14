@@ -167,6 +167,51 @@ describe('positions by interest', () => {
     l.close(); nw.close(); g.close();
   });
 
+  it('decodes a town position to what an old page is sent', async () => {
+    const l = client(), nw = client(), d = client();
+    const dealer = async (s: Socket, name: string, old = false) => {
+      const init = next<any>(s, 'init');
+      s.emit('join', { name, lotScale: 'Small', ...(old ? {} : { proto: 2 }) });
+      const i = await init;
+      return { id: i.id as string, n: i.state.players[i.id].n as number };
+    };
+    await dealer(l, 'OldDealer', true);
+    await dealer(nw, 'NewDealer');
+    const dd = await dealer(d, 'Walker');
+    let fresh: any;
+    nw.on('pos', (flat: unknown) => { const got = decodePositions(flat, k => (k === dd.n ? dd.id : undefined)); if (got[dd.id]) fresh = got[dd.id]; });
+    const old = next<any>(l, 'player_positions', p => p?.[dd.id]?.district === 'town');
+    d.emit('sync_player_pos', { x: 123.456, y: 0.37, z: -456.789, rotation: 1.234, district: 'town' });
+    const o = (await old)[dd.id];
+    await until(() => !!fresh);
+    expect(fresh.district).toBe('town'); expect(o.district).toBe('town');
+    expect(Math.abs(fresh.x - o.x)).toBeLessThanOrEqual(0.05);
+    expect(Math.abs(fresh.z - o.z)).toBeLessThanOrEqual(0.05);
+    expect(Math.abs(fresh.y - o.y)).toBeLessThanOrEqual(0.005);
+    expect(Math.abs(fresh.rotation - o.rotation)).toBeLessThanOrEqual(0.005);
+    expect(fresh.stripPosition).toBeUndefined(); expect(o.stripPosition).toBeUndefined();
+    l.close(); nw.close(); d.close();
+  });
+
+  it('a page whose player is made anew without a join (a sign-out) is sent everyone again, still players included', async () => {
+    const s = client(), a = client();
+    const gs = await guest(s, 'Parked');
+    at(s, 4, 4); // and then still
+    const signedIn = next<any>(a, 'init');
+    a.emit('join', { mode: 'session', session: signSession(RICH, Date.now(), SECRET), proto: 2 });
+    expect((await signedIn).account?.id).toBe(RICH);
+    await sleep(800); // a has had s's last position by now
+    let after = false; const seen: string[] = [];
+    a.on('pos', (flat: unknown) => { if (after) seen.push(...Object.keys(decodePositions(flat, k => (k === gs.n ? gs.id : undefined)))); });
+    const again = next<any>(a, 'init');
+    a.emit('sign_out', {});
+    expect((await again).account).toBeUndefined(); // a guest again, from a fresh init and no join
+    after = true;
+    await sleep(500);
+    expect(seen).toContain(gs.id);
+    s.close(); a.close();
+  });
+
   it('hears a near player every tick and a player on another circuit rarely', async () => {
     const a = client(), b = client(), c = client();
     await guest(a, 'Here');
