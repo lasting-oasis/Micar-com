@@ -1,0 +1,15 @@
+after: lane-d/data-diet 19a90d3 data diet: the World and the page use positions by interest and patches
+drive one 10... 0.9 KB/s each, joins 0.2 MB, test lag p99 24.1 ms
+drive one 25... 2.5 KB/s each, joins 0.9 MB, test lag p99 24.4 ms
+drive one 50... 4.3 KB/s each, joins 2.9 MB, test lag p99 24.4 ms
+drive one 100... 6.1 KB/s each, joins 9.9 MB, test lag p99 25.1 ms
+drive spread 10... 0.1 KB/s each, joins 0.2 MB, test lag p99 23.3 ms
+drive spread 25... 0.4 KB/s each, joins 0.9 MB, test lag p99 24.0 ms
+drive spread 50... 0.9 KB/s each, joins 2.9 MB, test lag p99 23.9 ms
+drive spread 100... 1.9 KB/s each, joins 10.0 MB, test lag p99 24.2 ms
+drive exit=0
+play one 10... 1.0 KB/s each, joins 0.2 MB, test lag p99 23.6 ms
+play one 25... 2.6 KB/s each, joins 0.9 MB, test lag p99 24.0 ms
+play one 50... 4.4 KB/s each, joins 2.9 MB, test lag p99 23.7 ms
+play one 100... 6.2 KB/s each, joins 10.1 MB, test lag p99 23.8 ms
+play exit=0
