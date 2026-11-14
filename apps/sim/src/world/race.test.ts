@@ -3,8 +3,8 @@ import { beforeAll, describe, expect, it } from 'vitest';
 import { TRACKS } from './strip/district';
 import { readTrackSync, setTrackDir } from './strip/districtNode';
 import {
-  GO_LEAD_MS, GRID_SIZES, SLOT_COLORS, claimFinish, createRoom, holdsLoan, invitation, joinRoom, leaveRoom, makeCode, markReady, normalizeCode, quitRace, roomMaxFrom,
-  roomSizeFor, roomView, roundPose, setRace, startRace, sweep, tick, type Room,
+  GO_LEAD_MS, GRID_SIZES, QUICK_CAR, QUICK_WAIT_MS, SLOT_COLORS, claimFinish, createRoom, findQuick, holdsLoan, invitation, joinRoom, leaveRoom, makeCode, markReady,
+  normalizeCode, quickEventOf, quickWaiting, quitRace, roomMaxFrom, roomSizeFor, roomView, roundPose, setRace, startRace, sweep, tick, type Room,
 } from './race';
 
 // the floor of a race is its distance over the fastest average speed, so the route lengths must be on hand
@@ -403,7 +403,7 @@ describe('what the server reads off a room', () => {
   });
   it('the view hides the bookkeeping; the invitation names the host', () => {
     const { room } = open3();
-    expect(Object.keys(roomView(room)).sort()).toEqual(['car', 'closesAt', 'code', 'eventId', 'goAt', 'hostId', 'last', 'max', 'members', 'note', 'phase', 'raceNo']);
+    expect(Object.keys(roomView(room)).sort()).toEqual(['car', 'closesAt', 'code', 'eventId', 'goAt', 'hostId', 'last', 'max', 'members', 'note', 'phase', 'quick', 'raceNo', 'startsAt']);
     expect(roomView(room)).toMatchObject({ code: room.code, eventId: 'royal_drag', car: 'ronin', hostId: 'a', phase: 'open', raceNo: 0 });
     expect(invitation(room)).toEqual({ host: 'A', eventId: 'royal_drag', car: 'ronin', count: 3, max: 4, phase: 'open' });
     for (const id of ['a', 'b', 'c']) leaveRoom(room, id, 0);
@@ -526,5 +526,82 @@ describe('a pose in fewer bytes', () => {
     const frame = (pose: number[]) => '42' + JSON.stringify(['race_pose', [id, ...pose]]); // socket.io's text frame
     expect(frame(raw).length).toBe(149);
     expect(frame(roundPose(raw)).length).toBe(92);
+  });
+});
+
+describe('quick rooms: one filling per circuit, starting by themselves', () => {
+  /** a quick room on a circuit's quick event, `host` in it, made at `now` */
+  const quick = (rooms: Map<string, Room>, track: string, host = 'h', max = 16) => {
+    const made = createRoom(rooms, who(host), { eventId: quickEventOf(track)!.id, car: QUICK_CAR }, 9, Math.random, '', max, true);
+    if (!made.ok) throw new Error(made.why);
+    return made.room;
+  };
+  it("each circuit has one quick event: its lowest-stage lap race (a circuit race, then a street X, then a sprint)", () => {
+    expect(TRACKS.map(t => [t.id, quickEventOf(t.id)?.id])).toEqual([
+      ['spa', 'ardennes_gp'], ['monza', 'royal_gp'], ['silverstone', 'airfield_sprint'], ['suzuka', 'figure8_gp'], ['nurburgring', 'eifel_gp'],
+      ['monaco', 'harbour_gp'], ['interlagos', 'lagoons_sprint'], ['cota', 'lonestar_gp'], ['laguna', 'drylagoon_x'], ['bathurst', 'mountain_sprint'],
+    ]);
+    expect(QUICK_CAR).toBe('ronin'); expect(QUICK_WAIT_MS).toBe(30_000);
+    expect(quickEventOf('nowhere')).toBeUndefined();
+  });
+  it('a quick room waits thirty seconds after a second person arrives, then starts by itself', () => {
+    const rooms = new Map<string, Room>(), room = quick(rooms, 'monaco');
+    expect([room.quick, room.startsAt]).toEqual([true, null]);
+    expect(tick(room, 50_000)).toBe(false); // alone: nothing starts
+    joinRoom(room, who('b'), 1_000);
+    expect(room.startsAt).toBe(31_000);
+    expect(roomView(room)).toMatchObject({ quick: true, startsAt: 31_000 });
+    expect(tick(room, 30_999)).toBe(false); expect(room.phase).toBe('open');
+    expect(tick(room, 31_000)).toBe(true); expect(room.phase).toBe('loading');
+    expect(room.startsAt).toBeNull();
+  });
+  it('a quick room starts as soon as it is full', () => {
+    const rooms = new Map<string, Room>(), room = quick(rooms, 'monaco', 'h', 4);
+    for (const id of ['b', 'c', 'd']) joinRoom(room, who(id), 1_000);
+    expect(tick(room, 1_001)).toBe(true); expect(room.phase).toBe('loading');
+  });
+  it('leaving below two stops the wait; after a race the next one waits again', () => {
+    const rooms = new Map<string, Room>(), room = quick(rooms, 'monaco');
+    joinRoom(room, who('b'), 1_000);
+    leaveRoom(room, 'b', 2_000);
+    expect(room.startsAt).toBeNull();
+    expect(tick(room, 40_000)).toBe(false);
+    joinRoom(room, who('c'), 50_000); expect(room.startsAt).toBe(80_000);
+    tick(room, 80_000); // started
+    for (const id of ['h', 'c']) markReady(room, id, 80_100);
+    expect(room.phase).toBe('racing');
+    for (const id of ['h', 'c']) quitRace(room, id, 90_000); // both out: the race closes
+    expect(room.phase).toBe('open');
+    expect(room.startsAt).toBe(90_000 + QUICK_WAIT_MS);
+  });
+  it("a quick room's race and car are fixed", () => {
+    const rooms = new Map<string, Room>(), room = quick(rooms, 'monaco');
+    expect(setRace(room, 'h', { eventId: 'royal_drag', car: 'ronin' }, 9, 16)).toEqual({ ok: false, why: 'state' });
+    expect([room.eventId, room.car]).toEqual(['harbour_gp', 'ronin']);
+  });
+  it('findQuick takes the fullest open quick room of that circuit, and nothing else', () => {
+    const rooms = new Map<string, Room>();
+    const a = quick(rooms, 'monaco', 'a'), b = quick(rooms, 'monaco', 'b'), other = quick(rooms, 'spa', 's');
+    joinRoom(b, who('b2'), 0);
+    const plain = createRoom(rooms, who('p'), { eventId: 'harbour_gp', car: 'ronin' }, 9, Math.random, '', 16);
+    expect(plain.ok).toBe(true);
+    expect(findQuick(rooms, 'monaco')).toBe(b); // the fuller one; never the room made by link
+    for (const id of ['b3', 'b4']) joinRoom(b, who(id), 0);
+    b.max = 4; // full now
+    expect(findQuick(rooms, 'monaco')).toBe(a);
+    a.phase = 'loading';
+    expect(findQuick(rooms, 'monaco')).toBeUndefined(); // racing already: a new one is opened
+    expect(findQuick(rooms, 'spa')).toBe(other);
+    expect(findQuick(rooms, 'nowhere')).toBeUndefined();
+  });
+  it('quickWaiting counts who is in each open quick room, by circuit, and nothing else', () => {
+    const rooms = new Map<string, Room>();
+    const a = quick(rooms, 'monaco', 'a'); joinRoom(a, who('a2'), 0);
+    quick(rooms, 'spa', 's');
+    const off = quick(rooms, 'suzuka', 'r'); joinRoom(off, who('r2'), 0);
+    expect(startRace(off, 'r', 0).ok).toBe(true); // on its way to the grid: nobody waits there
+    expect(createRoom(rooms, who('p'), { eventId: 'harbour_gp', car: 'ronin' }, 9, Math.random, '', 16).ok).toBe(true); // a room by link
+    expect(quickWaiting(rooms)).toEqual({ monaco: 2, spa: 1 });
+    expect(quickWaiting(new Map())).toEqual({});
   });
 });

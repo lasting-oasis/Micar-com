@@ -1,7 +1,7 @@
 /* A challenge race between people: the rules of its room. Who is in and who hosts, the start, the one green light,
    whose time stands, the result. Pure: the clock (`now`, in ms) and the random source are passed in, and nothing here
    touches a socket, a player record or a car. server.ts does the wiring; the page reads a RoomView. */
-import { EVENTS, type EventDef } from './data';
+import { EVENTS, type EventDef, type EventType } from './data';
 import { eventDistance, raceFloor } from './payout';
 import { makeCode } from './raceCode';
 import { RENTAL_FLEET, type RentalKey } from './rental';
@@ -55,6 +55,16 @@ export const SLOT_COLORS: readonly string[] = [
   '#117744', '#9900dd', '#00ff55', '#886600', '#ff77cc', '#00cccc', '#88aa00', '#994466', '#ee8800', '#ffaa99', '#5566aa', '#aa99ff',
 ];
 const SCORE_MAX = 9_999_999;
+/** Quick race (Part 2): every quick room races the Ronin GT, so nobody has to agree on a car; a quick room starts by
+ *  itself this long after a second person is in it (or as soon as it is full). */
+export const QUICK_CAR: RentalKey = 'ronin', QUICK_WAIT_MS = 30_000;
+const QUICK_TYPES: readonly EventType[] = ['circuit', 'streetx', 'sprint'];
+/** A circuit's one quick event: its lowest-stage lap race, a circuit race before a street X before a sprint on a tie,
+ *  so that everyone who picks a circuit lands in the same room. Undefined for an id that is no circuit. */
+export function quickEventOf(track: string): EventDef | undefined {
+  const evs = EVENTS.filter(e => e.track === track && QUICK_TYPES.includes(e.type));
+  return evs.sort((p, q) => p.stage - q.stage || QUICK_TYPES.indexOf(p.type) - QUICK_TYPES.indexOf(q.type))[0];
+}
 /** A racer's pose as it travels, [t, x, z, h, v, s, score]: the time to the whole millisecond, the distances to the
  *  centimetre, the heading to the milliradian, the speed to the centimetre a second, the score whole. A full-precision
  *  pose costs 15 to 18 bytes a number; rounded, the relayed message is about 60% of what it was (149 bytes to 92 for
@@ -87,11 +97,13 @@ export type Room = {
   emptySince: number | null; emptyFor: number;
   /** the name of the last member to host it (the link names them while the room waits empty); the address it was made from */
   hostName: string; from: string;
+  /** a quick room (Part 2): found by circuit, its race and car fixed, started by itself at `startsAt` (null: not waiting) */
+  quick: boolean; startsAt: number | null;
   /** how many people it holds (roomMaxFrom) */
   max: number;
 };
 /** What the members are sent. */
-export type RoomView = Pick<Room, 'code' | 'eventId' | 'car' | 'hostId' | 'phase' | 'raceNo' | 'members' | 'goAt' | 'closesAt' | 'last' | 'note' | 'max'>;
+export type RoomView = Pick<Room, 'code' | 'eventId' | 'car' | 'hostId' | 'phase' | 'raceNo' | 'members' | 'goAt' | 'closesAt' | 'last' | 'note' | 'max' | 'quick' | 'startsAt'>;
 /** What anyone holding the code may read before joining. */
 export type Invitation = { host: string; eventId: string; car: RentalKey; count: number; max: number; phase: Phase };
 type Ok = { ok: true };
@@ -116,8 +128,9 @@ function checkChoice(pick: Choice, stage: number): { ok: true; eventId: string; 
   return { ok: true, eventId: ev.id, car: car.key };
 }
 
-/** A new room, `host` in it. `from`: the address asking (none: no ration by address). `max`: how many it holds. */
-export function createRoom(rooms: Map<string, Room>, host: { id: string; name: string }, pick: Choice, stage: number, rand: () => number, from = '', max = RACE_MAX): { ok: true; room: Room } | Denied {
+/** A new room, `host` in it. `from`: the address asking (none: no ration by address). `max`: how many it holds.
+ *  `quick`: a quick race's room (findQuick finds it; its race and car are fixed; it starts by itself). */
+export function createRoom(rooms: Map<string, Room>, host: { id: string; name: string }, pick: Choice, stage: number, rand: () => number, from = '', max = RACE_MAX, quick = false): { ok: true; room: Room } | Denied {
   if (rooms.size >= ROOMS_MAX) return no('busy');
   if (from && [...rooms.values()].filter(r => r.from === from).length >= ROOMS_PER_ADDRESS) return no('busy');
   const choice = checkChoice(pick, stage);
@@ -129,18 +142,20 @@ export function createRoom(rooms: Map<string, Room>, host: { id: string; name: s
   const room: Room = {
     code, eventId: choice.eventId, car: choice.car, hostId: first.id, phase: 'open', raceNo: 0, members: [first],
     startedAt: null, goAt: null, closesAt: null, gone: [], last: null, note: null, emptySince: null, emptyFor: EMPTY_TTL_MS,
-    hostName: first.name, from, max,
+    hostName: first.name, from, max, quick, startsAt: null,
   };
   rooms.set(code, room);
   return { ok: true, room };
 }
 
-/** Into the room, in any phase: someone who arrives while a race is on is in the next one. */
-export function joinRoom(room: Room, who: { id: string; name: string }): Ok | Denied {
+/** Into the room, in any phase: someone who arrives while a race is on is in the next one. In an open quick room the
+ *  second to arrive starts its wait (`now`). */
+export function joinRoom(room: Room, who: { id: string; name: string }, now?: number): Ok | Denied {
   if (find(room, who.id)) return OK;
   if (room.members.length >= room.max) return no('full');
   const m = member(who);
   room.members.push(m);
+  if (now !== undefined) waitQuick(room, now);
   if (!room.hostId) setHost(room, m); // the room had emptied out: whoever comes back to it hosts
   room.emptySince = null;
   return OK;
@@ -156,6 +171,7 @@ export function leaveRoom(room: Room, id: string, now: number, dropped = false):
     room.gone.push(m.state === 'finished' ? row(m) : { ...row(m), time: null, why: m.state === 'dnf' ? m.why : 'left' });
   if (room.hostId === id) setHost(room, room.members[0]);
   if (room.members.length === 0) { room.emptySince = now; room.emptyFor = dropped ? DROPPED_TTL_MS : EMPTY_TTL_MS; }
+  if (room.quick && room.members.length < RACE_MIN) room.startsAt = null; // alone again: no wait
   settle(room, now);
 }
 
@@ -163,7 +179,7 @@ export function leaveRoom(room: Room, id: string, now: number, dropped = false):
  *  (`ceiling`: roomSizeFor), or one smaller than the room, is refused and changes nothing. */
 export function setRace(room: Room, id: string, pick: Choice & { size?: unknown }, stage: number, ceiling = RACE_MAX): Ok | Denied {
   if (id !== room.hostId) return no('host');
-  if (room.phase !== 'open') return no('state');
+  if (room.phase !== 'open' || room.quick) return no('state'); // a quick room's race is its circuit's, fixed
   const choice = checkChoice(pick, stage);
   if (!choice.ok) return choice;
   const drag = EVENTS.find(e => e.id === choice.eventId)?.type === 'drag', asked = pick?.size;
@@ -179,7 +195,7 @@ export function startRace(room: Room, id: string, now: number): Ok | Denied {
   if (room.phase !== 'open') return no('state');
   const n = room.members.length;
   if (n < RACE_MIN) return no('few');
-  room.raceNo++;
+  room.raceNo++; room.startsAt = null;
   room.members.forEach((m, i) => { toWaiting(m); m.state = 'loading'; m.slot = (i + room.raceNo) % n; });
   room.phase = 'loading'; room.startedAt = now; room.goAt = room.closesAt = null; room.gone = []; room.note = null;
   return OK;
@@ -227,6 +243,9 @@ export function quitRace(room: Room, id: string, now: number): void {
 
 /** What only the clock decides: the slow are left behind, the finish window closes, a race nobody finishes ends. True when the room changed. */
 export function tick(room: Room, now: number): boolean {
+  // a quick room starts by itself: at the end of its wait, or as soon as it is full
+  if (room.quick && room.phase === 'open' && room.members.length >= RACE_MIN && ((room.startsAt !== null && now >= room.startsAt) || room.members.length >= room.max))
+    return startRace(room, room.hostId, now).ok;
   if (room.phase === 'loading' && room.startedAt !== null && now - room.startedAt >= LOAD_TIMEOUT_MS) {
     for (const m of room.members) if (m.state === 'loading') toWaiting(m);
     settle(room, now);
@@ -237,7 +256,7 @@ export function tick(room: Room, now: number): boolean {
     const cap = room.goAt + (ev ? raceCapS(eventDistance(ev)) * 1000 : 0) + CAP_SLACK_MS;
     if ((room.closesAt !== null && now >= room.closesAt) || now >= cap) {
       for (const m of room.members) if (m.state === 'racing') { m.state = 'dnf'; m.why = 'timeout'; }
-      close(room);
+      close(room, now);
       return true;
     }
   }
@@ -259,8 +278,8 @@ export function holdsLoan(room: Room, id: string): boolean {
 }
 
 export function roomView(room: Room): RoomView {
-  const { code, eventId, car, hostId, phase, raceNo, members, goAt, closesAt, last, note, max } = room;
-  return { code, eventId, car, hostId, phase, raceNo, members, goAt, closesAt, last, note, max };
+  const { code, eventId, car, hostId, phase, raceNo, members, goAt, closesAt, last, note, max, quick, startsAt } = room;
+  return { code, eventId, car, hostId, phase, raceNo, members, goAt, closesAt, last, note, max, quick, startsAt };
 }
 
 export function invitation(room: Room): Invitation {
@@ -273,9 +292,9 @@ export function invitation(room: Room): Invitation {
 function settle(room: Room, now: number): void {
   if (room.phase === 'loading') {
     const loading = count(room, 'loading'), ready = count(room, 'ready');
-    if (loading + ready < RACE_MIN) callOff(room);
+    if (loading + ready < RACE_MIN) callOff(room, now);
     else if (loading === 0) go(room, now);
-  } else if (room.phase === 'racing' && count(room, 'racing') === 0) close(room);
+  } else if (room.phase === 'racing' && count(room, 'racing') === 0) close(room, now);
 }
 
 function go(room: Room, now: number): void {
@@ -283,13 +302,19 @@ function go(room: Room, now: number): void {
   room.phase = 'racing'; room.goAt = now + GO_LEAD_MS;
 }
 
-function callOff(room: Room): void {
+function callOff(room: Room, now: number): void {
   room.members.forEach(toWaiting);
   room.phase = 'open'; room.note = 'called-off'; room.startedAt = room.goAt = room.closesAt = null; room.gone = [];
+  waitQuick(room, now);
+}
+
+/** An open quick room with two or more in it and no wait yet: its race starts QUICK_WAIT_MS from `now`. */
+function waitQuick(room: Room, now: number): void {
+  if (room.quick && room.phase === 'open' && room.startsAt === null && room.members.length >= RACE_MIN) room.startsAt = now + QUICK_WAIT_MS;
 }
 
 /** The result: finishers by time (a drift: by score, time breaking a tie), then everyone without a time. Back to the waiting room. */
-function close(room: Room): void {
+function close(room: Room, now: number): void {
   const drift = eventOf(room)?.type === 'drift';
   const rows = [...room.members.filter(m => m.state === 'finished' || m.state === 'dnf').map(row), ...room.gone];
   const timed = (r: ResultRow) => r.time !== null && r.why === null;
@@ -299,4 +324,27 @@ function close(room: Room): void {
   room.last = { raceNo: room.raceNo, eventId: room.eventId, rows: ranked };
   room.members.forEach(toWaiting);
   room.phase = 'open'; room.startedAt = room.goAt = room.closesAt = null; room.gone = [];
+  waitQuick(room, now);
+}
+
+/** How many are in an open quick room, by circuit (GET /api/race/quick; the counter's Quick race list). A circuit with
+ *  nobody waiting is left out. */
+export function quickWaiting(rooms: Map<string, Room>): Record<string, number> {
+  const out: Record<string, number> = {};
+  for (const r of rooms.values()) {
+    if (!r.quick || r.phase !== 'open') continue;
+    const track = EVENTS.find(e => e.id === r.eventId)?.track;
+    if (track) out[track] = (out[track] ?? 0) + r.members.length;
+  }
+  return out;
+}
+
+/** The quick room filling on `track`: open, with space, the fullest of them (undefined: none, open a new one). */
+export function findQuick(rooms: Map<string, Room>, track: string): Room | undefined {
+  const ev = quickEventOf(track);
+  if (!ev) return undefined;
+  let best: Room | undefined;
+  for (const r of rooms.values())
+    if (r.quick && r.eventId === ev.id && r.phase === 'open' && r.members.length < r.max && (!best || r.members.length > best.members.length)) best = r;
+  return best;
 }

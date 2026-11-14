@@ -195,9 +195,9 @@ If the owner wants prizes for big races later, it needs, first: accounts on, one
 
 - **Where:** at the rental counter, beside "Challenge a friend": **Quick race**. It lists the ten circuits, each with how many people are waiting there now. A circuit whose quick race the player's stage has not opened shows locked, as in the Races menu.
 - **Each circuit has one quick event**, fixed: its lowest-stage lap race (a circuit race, then a street X, then a sprint on a tie). Today that is Harbour GP, Lagoons Sprint, Dry Lagoon X (all stage 1), Royal Park GP, Airfield Sprint (stage 2), Figure Eight GP, Eifel GP, Mountain Sprint (stage 3), Lone Star GP (stage 4) and Ardennes GP (stage 5): one per circuit, computed from the event library, not typed. Call: a fixed event per circuit so that everyone who picks a circuit lands in the same room; and the car is always the Ronin GT, so nobody has to agree on one.
-- **Open rooms per circuit:** the server keeps at most one quick room per circuit that is open and has space. Picking a circuit joins it, or opens one at the size of the ceiling. A quick room has a link too, so a friend can be brought along.
+- **Open rooms per circuit:** picking a circuit joins its quick room that is open and has space, or opens one at the size of the ceiling, so a circuit normally has one quick room filling. A quick room whose race is on is not open: a newcomer opens a second one, and when the first race ends both are open for a while; a newcomer then joins the fuller (`race.ts` `findQuick`). A quick room has a link too, so a friend can be brought along; a friend who comes by the link is not stage-checked, as with any challenge link.
 - **It starts by itself:** 30 seconds after a second person arrives (the countdown shows in the waiting room), or as soon as it is full. Its first member can start it earlier, as a host can. After a race the room carries on; anyone may leave.
-- **The server checks the stage** of whoever asks, joining or opening.
+- **The server checks the stage** of whoever asks for a quick race, joining or opening (not of a friend who comes by the link, above).
 
 ### Computer drivers in the empty places (Part 3)
 

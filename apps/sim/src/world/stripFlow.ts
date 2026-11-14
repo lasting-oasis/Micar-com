@@ -55,7 +55,7 @@ export const VISITOR_EVENTS: ReadonlySet<string> = new Set([
   'strip_buy_part', 'strip_equip', 'strip_tune', 'bay_order',
   'rent_car', 'request_link', 'link_account', 'claim_allowance', 'sign_out',
   'test_car', 'test_car_return',
-  'race_time', 'race_create', 'race_join', 'race_set', 'race_start', 'race_ready', 'race_pose', 'race_finish', 'race_quit', 'race_leave',
+  'race_time', 'race_create', 'race_join', 'race_set', 'race_start', 'race_ready', 'race_pose', 'race_finish', 'race_quit', 'race_leave', 'race_quick',
 ]);
 export const VISITOR_DENIED = 'Not available in the Strip';
 

@@ -16,7 +16,7 @@ import { guarded, handlerErrorLog } from './src/world/safeHandler.js';
 import { REPAIR_JOBS, repairJobFor } from './src/bay/catalog.js';
 import { GATE_RETURN } from './src/scene/world/gateSpot.js';
 import { RENTAL_FLEET, canRent, heldLoan, heldRental, isRental, isVisitor, lend, rent, returnLoan, type RentalKey } from './src/world/rental.js';
-import { SLOT_COLORS, claimFinish, createRoom, holdsLoan, invitation, joinRoom, leaveRoom, markReady, normalizeCode, quitRace, roomView, setRace, startRace, sweep, tick, type DenyWhy, type Room } from './src/world/race.js';
+import { QUICK_CAR, SLOT_COLORS, claimFinish, createRoom, findQuick, holdsLoan, invitation, joinRoom, leaveRoom, markReady, normalizeCode, quickEventOf, quickWaiting, quitRace, roomView, setRace, startRace, sweep, tick, type DenyWhy, type Room } from './src/world/race.js';
 import { MAGIC_TTL_MS, allowSend, clientIp, newSendLog, pruneSendLog, applyRecord, attachAccount, liveHolder, bootState, claimAllowance, findAccount, linkGuest, saveRecord, signMagic, signSession, utcDay, verifyGoogle, verifyMagic, verifySession, type Account, type Identity, type Jwk } from './src/world/accounts.js';
 import { RENTAL_DENIED, STRIP_LIMIT, VISITOR_DENIED, VISITOR_EVENTS, closeEvent, guestPlayer, hostIsVacant, isUntouchedGuest, linkTarget, pickHost, quitEvent, sanitizePosition } from './src/world/stripFlow.js';
 import { coalescingSaver, loadOrQuarantine, writeAtomic } from './src/world/persistence.js';
@@ -160,7 +160,7 @@ const poseChannel = (code: string) => 'poses:' + code;
 // The batched relay (racePoses.ts): the pages that asked for their poses a tick at a time (race_ready { batch: true }),
 // each racer's newest pose by room (with a running number), and the number each such page last got from each racer.
 const batchedPoses = new Set<string>();
-const newestPose = new Map<string, Map<string, { pose: number[]; n: number }>>();
+const newestPose = new Map<string, Map<string, { pose: number[]; n: number; race: number }>>(); // race: the room's raceNo it was sent in
 const seenPose = new Map<string, Map<string, number>>();
 let poseNo = 0;
 /** How often a batching page is sent the poses that moved since the last: as often as a racer sends its own. */
@@ -219,7 +219,9 @@ setInterval(() => {
             if (!batchedPoses.has(m.id)) continue;
             const seen = seenPose.get(m.id) ?? new Map<string, number>(), out: { slot: number; pose: number[] }[] = [];
             for (const [from, p] of poses) {
-                if (from === m.id || (seen.get(from) ?? 0) >= p.n) continue;
+                // not this page's own; not one from a race before this one (a race can close and start again inside
+                // the one-second sweep below); not one this page has had
+                if (from === m.id || p.race !== room.raceNo || (seen.get(from) ?? 0) >= p.n) continue;
                 const sender = room.members.find(x => x.id === from);
                 if (!sender) continue;
                 out.push({ slot: sender.slot, pose: p.pose }); seen.set(from, p.n);
@@ -1621,9 +1623,35 @@ io.on('connection', (socket) => {
       if (handsFull(player)) { raceNo('holding'); return; }
       const code = normalizeCode(fields(msg).code), room = code ? raceRooms.get(code) : undefined;
       if (!room) { raceNo('gone'); return; }
-      const joined = joinRoom(room, { id: socket.id, name: player.name });
+      const joined = joinRoom(room, { id: socket.id, name: player.name }, Date.now()); // a quick room starts its wait
       if (!joined.ok) { raceNo(joined.why); return; }
       enterRoom(room);
+  });
+
+  // Quick race (Part 2): into the quick room filling on a circuit, or a new one at the ceiling's size. The circuit's one
+  // quick event (race.ts quickEventOf) and the Ronin GT, both fixed; the stage is checked whether joining or opening.
+  socket.on('race_quick', (msg: unknown) => {
+      const player = gameState.players[socket.id];
+      if (!player) return;
+      const track = fields(msg).track, ev = typeof track === 'string' ? quickEventOf(track) : undefined;
+      if (!ev || ev.stage > stageOf(stripOf(player).rep)) { raceNo('pick'); return; }
+      const mine = myRoom();
+      if (mine?.quick && mine.eventId === ev.id) { syncRoom(mine); return; } // already in it
+      if (handsFull(player)) { raceNo('holding'); return; }
+      const now = Date.now(), open = findQuick(raceRooms, ev.track);
+      if (open) {
+          const joined = joinRoom(open, { id: socket.id, name: player.name }, now);
+          if (!joined.ok) { raceNo(joined.why); return; }
+          enterRoom(open);
+          return;
+      }
+      const last = lastRoomAt.get(socket.id);
+      if (last !== undefined && now - last < ROOM_GAP_MS) { raceNo('slow'); return; }
+      const made = createRoom(raceRooms, { id: socket.id, name: player.name }, { eventId: ev.id, car: QUICK_CAR }, stageOf(stripOf(player).rep), Math.random,
+          clientIp(socket.handshake.headers as any, socket.handshake.address), ROOM_MAX, true);
+      if (!made.ok) { raceNo(made.why); return; }
+      lastRoomAt.set(socket.id, now);
+      enterRoom(made.room);
   });
 
   socket.on('race_set', (msg: unknown) => {
@@ -1667,7 +1695,7 @@ io.on('connection', (socket) => {
       const pose = roundPose([Math.abs(t - now) <= POSE_SKEW_MS ? t : now, within(x, STRIP_LIMIT), within(z, STRIP_LIMIT), within(h, 1000), within(v, 200), within(s, STRIP_LIMIT), Math.max(0, Math.min(9_999_999, sc))]);
       socket.to(poseChannel(room.code)).volatile.emit('race_pose', [socket.id, ...pose]);
       let poses = newestPose.get(room.code); if (!poses) newestPose.set(room.code, poses = new Map());
-      poses.set(socket.id, { pose, n: ++poseNo });
+      poses.set(socket.id, { pose, n: ++poseNo, race: room.raceNo });
   });
 
   // The racer's own word on their finish: race.ts decides whether that time stands, or the server's own.
@@ -2604,6 +2632,13 @@ async function startServer() {
     });
     // What the Strip entry card may offer before anyone has joined (init.caps arrives too late for it)
     app.get('/api/caps', (_req, res) => { res.set('Cache-Control', 'no-store'); res.json(CAPS); });
+    // How many are waiting in each circuit's quick room (the counter's Quick race list). Before /api/race/:code, which
+    // would take "quick" for a code.
+    app.get('/api/race/quick', (_req, res) => {
+        res.set('Cache-Control', 'no-store');
+        res.set('Access-Control-Allow-Origin', '*'); // the page under the Vite dev server asks from another port
+        res.json({ ok: true, waiting: quickWaiting(raceRooms) });
+    });
     // What a challenge link shows before its reader has joined: who is hosting, which race, which car. The code is the key.
     app.get('/api/race/:code', (req, res) => {
         res.set('Cache-Control', 'no-store');

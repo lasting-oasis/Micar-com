@@ -190,6 +190,59 @@ describe('a server whose ceiling is sixteen (RACE_ROOM_MAX=16)', () => {
     expect(singles).toEqual([]); // and never a single pose
   }, 30_000);
 
+  it("a race started again at once carries none of the last race's poses", async () => {
+    const [p, q] = [await r.guest('Again P'), await r.guest('Again Q')];
+    const made = r.roomSeen(p.s); p.s.emit('race_create', { eventId: 'harbour_drift', car: 'ronin', size: 4 });
+    const room = await made;
+    const both = r.roomSeen(p.s, v => v.members.length === 2); q.s.emit('race_join', { code: room.code });
+    await both;
+    const race = async (batch: boolean) => {
+      const racing = r.roomSeen(p.s, v => v.phase === 'racing'); p.s.emit('race_start');
+      await r.roomSeen(p.s, v => v.phase === 'loading' || v.phase === 'racing');
+      if (batch) p.s.emit('race_ready', { batch: true }); else p.s.emit('race_ready');
+      q.s.emit('race_ready');
+      return racing;
+    };
+    const first = await race(false);
+    const heard = r.next<any[]>(p.s, 'race_pose', x => x[0] === q.id);
+    q.s.emit('race_pose', [first.goAt! - 4000, 1, 2, 0.3, 4, 5, 0]);
+    await heard; // the server kept it as q's newest pose
+    const closed = r.roomSeen(p.s, v => v.phase === 'open');
+    p.s.emit('race_quit'); q.s.emit('race_quit'); // both out: the race closes
+    await closed;
+    const batches: unknown[] = []; p.s.on('race_poses', b => { batches.push(b); });
+    await race(true); // the next race at once, inside the server's one-second sweep; p asks for batches this time
+    await new Promise(res => setTimeout(res, 300)); // about four ticks, and nobody has sent a pose in this race
+    expect(batches).toEqual([]);
+  }, 30_000);
+
+  it("two quick racers on one circuit share a room of the ceiling's size, and its wait begins; a stage-1 guest cannot open the Ardennes", async () => {
+    const [a, b, c] = [await r.guest('Quick A'), await r.guest('Quick B'), await r.guest('Quick C')];
+    const opened = r.roomSeen(a.s); a.s.emit('race_quick', { track: 'monaco' });
+    const room = await opened;
+    expect(room).toMatchObject({ quick: true, eventId: 'harbour_gp', car: 'ronin', max: 16, startsAt: null });
+    const two = r.roomSeen(b.s, v => v.members.length === 2); b.s.emit('race_quick', { track: 'monaco' });
+    const joined = await two;
+    expect(joined.code).toBe(room.code);
+    // thirty seconds from the second arrival, on the server's clock (this PC's)
+    expect(joined.startsAt! - Date.now()).toBeGreaterThan(25_000);
+    expect(joined.startsAt! - Date.now()).toBeLessThanOrEqual(30_000);
+    const no = r.denied(c.s); c.s.emit('race_quick', { track: 'spa' });
+    expect(await no).toEqual({ why: 'pick' }); // the Ardennes GP opens at stage 5; a guest is at stage 1
+    const junk = r.denied(c.s); c.s.emit('race_quick', { track: 'nowhere' });
+    expect(await junk).toEqual({ why: 'pick' });
+  }, 30_000);
+
+  it('/api/race/quick counts who is waiting in each circuit\'s quick room', async () => {
+    const counts = async () => (await (await fetch(`${server.url}/api/race/quick`)).json()) as { ok: boolean; waiting: Record<string, number> };
+    const before = await counts();
+    expect(before.ok).toBe(true);
+    const d = await r.guest('Quick D');
+    const opened = r.roomSeen(d.s); d.s.emit('race_quick', { track: 'interlagos' });
+    expect(await opened).toMatchObject({ quick: true, eventId: 'lagoons_sprint' });
+    expect((await counts()).waiting.interlagos ?? 0).toBe((before.waiting.interlagos ?? 0) + 1);
+  }, 30_000);
+
   it('a room asked for with no size: a circuit gets the ceiling, a drag its four lanes', async () => {
     // what a page from before this work sends, and what lane A's load test sends (it races harbour_gp in the Ronin)
     const circuit = await r.guest('No size'), drag = await r.guest('No size drag');
