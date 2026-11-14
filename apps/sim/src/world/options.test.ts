@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it } from 'vitest';
-import { OPTIONS_KEY, OPTION_DEFAULTS, getOptions, parseOptions, resetOptionsCache, setOption } from './options';
+import { OPTIONS_KEY, OPTION_DEFAULTS, carModelsOn, getOptions, parseOptions, resetOptionsCache, setOption } from './options';
 
 const g = globalThis as { localStorage?: unknown };
 const memStore = () => { const m = new Map<string, string>(); return { getItem: (k: string) => m.get(k) ?? null, setItem: (k: string, v: string) => { m.set(k, v); }, m }; };
@@ -25,11 +25,18 @@ describe('drive options', () => {
     expect(parseOptions(JSON.stringify({ manual: true, units: 'kmh', cam: 1, mute: false })).controls).toBe('sticks');
     expect(parseOptions(JSON.stringify({ controls: 'joystick' })).controls).toBe('sticks');
   });
-  it('car models are on by default, also for options saved before the setting existed, and a bad value is on', () => {
-    expect(OPTION_DEFAULTS.models).toBe(true);
-    expect(parseOptions(JSON.stringify({ manual: true, units: 'kmh', cam: 1, mute: false, controls: 'sticks' })).models).toBe(true);
-    expect(parseOptions(JSON.stringify({ models: 'off' })).models).toBe(true);
+  it('car models follow Graphics until the player chooses (also for options saved before the setting existed, and a bad value)', () => {
+    expect(OPTION_DEFAULTS.models).toBeNull();
+    expect(parseOptions(JSON.stringify({ manual: true, units: 'kmh', cam: 1, mute: false, controls: 'sticks' })).models).toBeNull();
+    expect(parseOptions(JSON.stringify({ models: 'off' })).models).toBeNull();
     expect(parseOptions(JSON.stringify({ models: false })).models).toBe(false);
+    expect(parseOptions(JSON.stringify({ models: true })).models).toBe(true);
+  });
+  it('car models are on unless Graphics is Low; a choice in the Garage wins either way', () => {
+    expect(carModelsOn({ models: null }, 'high')).toBe(true);
+    expect(carModelsOn({ models: null }, 'low')).toBe(false);
+    expect(carModelsOn({ models: true }, 'low')).toBe(true);
+    expect(carModelsOn({ models: false }, 'high')).toBe(false);
   });
   it('ignores a bad value and keeps working when storage throws', () => {
     g.localStorage = { getItem: () => { throw new Error('blocked'); }, setItem: () => { throw new Error('blocked'); } };

@@ -86,3 +86,19 @@ describe('the Options menu', () => {
   });
 });
 
+describe('the Car models row, following Graphics', () => {
+  it('shows what the cars show (Simple on Low graphics until chosen) and a press records the opposite as the choice', () => {
+    let stored: unknown = null; const set: [string, unknown][] = [];
+    const g = model({});
+    const ctx = (g as unknown as { ctx: { getOpt: (k: string) => unknown; setOpt: (k: string, v: unknown) => void } }).ctx;
+    ctx.getOpt = (k) => k === 'models' ? (stored ?? false) : undefined; // Low graphics, no choice yet: Simple
+    ctx.setOpt = (k, v) => { set.push([k, v]); if (k === 'models') stored = v; };
+    g.enterPath(['options']);
+    const i = g.rowIds().indexOf('models');
+    expect(g.rows()[i].status!.text).toBe('Simple');
+    g.select(i); expect(g.desc()).toMatch(/Graphics/);
+    g.activate();
+    expect(set).toEqual([['models', true]]); expect(g.rows()[i].status!.text).toBe('Detailed');
+  });
+});
+

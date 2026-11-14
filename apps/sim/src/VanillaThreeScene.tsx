@@ -28,7 +28,7 @@ import { Hud, type HudState } from './world/hud';
 import { Audio as NtAudio, soundMode } from './world/audio';
 import { soundFactsFor } from './sound/carSound';
 import { getCarSpec } from './carSpecs';
-import { getOptions } from './world/options';
+import { carModelsOn, getOptions } from './world/options';
 import { InputMap } from './world/input';
 import { ChaseCamera } from './world/cameras';
 import { WORLD_PER_M } from './world/units';
@@ -182,7 +182,8 @@ export function VanillaThreeScene() {
         const carSteering: Record<string, THREE.Object3D[]> = {}; // front steering pivots: rotation.y
         attachCarShadows(scene); // a soft shadow under every car (one draw for all of them)
         let carPrecompileAt = 0, carPrecompileFrames = 0; // car shader programs are prepared in the background after joining
-        setCarModels(getOptions().models); // the Garage's Options: Car models (off: every car on its lofted body)
+        // the Garage's Options: Car models (off: every car on its lofted body); with no choice made, Low graphics turns them off
+        setCarModels(carModelsOn(getOptions(), useGameStore.getState().graphicsQuality));
         // --- People (scene/characterModel.ts) ----------------------------------------------
         // Customers at a car, by car ID: walk-ins negotiating for that car (`agentId`) and the
         // older offer customers. `mesh` places and turns them, `person` is their body; they
@@ -459,6 +460,7 @@ export function VanillaThreeScene() {
         const maxAnisotropy = renderer.capabilities.getMaxAnisotropy;
         const applyGraphics = (q: 'high' | 'low', recompile: boolean) => {
              quality = q;
+             setCarModels(carModelsOn(getOptions(), q)); // (no change when the player chose in the Garage)
              lightPool.setActiveCount(poolSizeFor(q));
              world.setLampLimit(q === 'low' ? 4 : 8); // lamps lighting the scene (a uniform count: no recompile)
              // Low: one texture read per ground pixel instead of three, and no anisotropic
