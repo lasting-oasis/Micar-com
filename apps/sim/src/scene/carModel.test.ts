@@ -190,4 +190,25 @@ describe('in a world that precompiles the car shaders', () => {
         expect(partsOf(next).mesh).toBe('toyota-camry');
         disposeCarModel(group); disposeCarModel(next);
     });
+    it('without a precompile (the player left the town first), puts the model in after 8 s anyway', async () => {
+        const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'toyota-camry', true);
+        expect(partsOf(group).mesh).toBe('toyota-camry'); // (the precompile above is done: at once)
+        disposeCarModel(group);
+    });
 });
+
+describe('with no precompile coming', () => {
+    it('a held model goes in 8 s after it was held', async () => {
+        const { disposeSharedCarAssets } = await import('./carModel');
+        disposeSharedCarAssets(); // the precompile starts over: not done
+        setCarMeshCache(makeCarMeshCache(async () => fakeGltf(), () => '/'));
+        const t0 = performance.now();
+        const { group } = buildCarModel('sedan', '#00ff00', 100, 100, 'honda-civic', true);
+        await new Promise(r => setTimeout(r, 0));
+        const at = (ms: number) => { const s = vi.spyOn(performance, 'now').mockReturnValue(t0 + ms); updateCars(new THREE.Vector3(), true, null); s.mockRestore(); };
+        at(4000); expect(partsOf(group).mesh).toBeNull();
+        at(9000); expect(partsOf(group).mesh).not.toBeNull(); // (the stand-in model's extras name it toyota-camry)
+        disposeCarModel(group);
+    });
+});
+

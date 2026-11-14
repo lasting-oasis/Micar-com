@@ -23,6 +23,8 @@ export const CAMS: Record<string, Cam> = Object.fromEntries(Object.entries({
   wheel: { az: 1.25, pol: 1.42, r: 3.4, t: [.75, .38, 1.1] }, front: { az: .32, pol: 1.36, r: 6.2, t: [0, .55, 1.4] }, rear: { az: 2.65, pol: 1.2, r: 6.6, t: [0, .8, -1.2] },
   side: { az: Math.PI / 2, pol: 1.36, r: 7.2, t: [0, .45, 0] }, side34: { az: 1.15, pol: 1.26, r: 6.8, t: [0, .95, 0] }, hood: { az: .42, pol: .88, r: 5.6, t: [0, .8, 1.2] }, low: { az: .95, pol: 1.5, r: 7, t: [0, .3, 0] },
 } satisfies Record<string, Cam>).map(([k, c]) => [k, m2(c)]));
+/** The orbit's distance for a car `len` world units long: as set for cars up to 4.9 m, further out for longer ones. */
+export const camFit = (len: number) => Math.max(1, len / (4.9 * W));
 const rideYOf = (tune: Tune) => -.07 * (tune.ride + 1) / 2 * W;
 
 type ModelParts = { body: THREE.Mesh; trim: THREE.Mesh; glass: THREE.Mesh; wheelMesh: THREE.Object3D; farBody: THREE.Mesh; farTrim: THREE.Mesh; far: boolean };
@@ -34,6 +36,7 @@ export class GarageScene {
   private cur = { az: .7, pol: 1.22, r: 8.6 * W, t: new THREE.Vector3(0, .65 * W, 0) };
   private tgt: Cam = { ...CAMS.orbit };
   private autoRot = true;
+  private camName = 'orbit';
   private shown: [BodyStyle, CarCfg, Tune, string | null] | null = null; // the last setCar
   private drag: { x: number; y: number } | null = null;
   private owned: { dispose(): void }[] = [];
@@ -117,6 +120,7 @@ export class GarageScene {
       this.scene.add(car); this.car = car;
     } else if (this.kit) { disposeParts(this.kit); this.kit = null; }
     this.kit = attachParts(this.car, cfg, style, cfg.perf.brakes);
+    this.tgt.r = (CAMS[this.camName] || CAMS.orbit).r * camFit((this.car.userData.car as { length: number }).length); // a long car fits the view
     this.car.position.y = rideYOf(tune);
     this.shownKey = key;
   }
@@ -128,7 +132,8 @@ export class GarageScene {
 
   /** Night Tuner's setCam: ease to a named camera, the short way round. */
   setCam(name: string): void {
-    const c = CAMS[name] || CAMS.orbit; this.tgt = { ...c }; this.autoRot = name === 'orbit';
+    const c = CAMS[name] || CAMS.orbit; this.camName = name;
+    this.tgt = { ...c, r: c.r * camFit((this.car?.userData.car as { length?: number } | undefined)?.length ?? 0) }; this.autoRot = name === 'orbit';
     let d = this.tgt.az - this.cur.az; d = ((d + Math.PI) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2) - Math.PI; this.tgt.az = this.cur.az + d;
   }
 

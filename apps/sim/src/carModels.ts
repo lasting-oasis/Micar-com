@@ -1,8 +1,8 @@
 import data from './carModels.json';
 
-// The finished car models: one row of carModels.json per model file in public/cars/<id>.glb, as real make | real model |
-// body style | game make | game model (the made-up name the world shows); the id comes from the real name. More are
-// added by adding a row and its file.
+// The finished car models, one per model file in public/cars/<id>.glb. carModels.json: "real make|game make" -> rows of
+// "real model|body style|game model" (the game names are what the world shows); the id comes from the real name. More
+// are added by adding a row and its file.
 
 export type CarModelRow = { id: string; make: string; model: string; style: string; gameMake: string; gameModel: string };
 
@@ -11,9 +11,9 @@ const slug = (s: string) => s.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').r
 /** The model-file id of a real make and model (Chevy Tahoe → chevrolet-tahoe), whether or not it has a file. */
 export const modelIdOf = (make: string, model: string) => (MAKE_IDS[make] ?? slug(make)) + '-' + slug(model);
 
-export const CAR_MODELS: readonly CarModelRow[] = data.rows.map(line => {
-    const [make, model, style, gameMake, gameModel] = line.split('|');
-    return { id: modelIdOf(make, model), make, model, style, gameMake, gameModel };
+export const CAR_MODELS: readonly CarModelRow[] = Object.entries(data as Record<string, string[]>).flatMap(([makes, rows]) => {
+    const [make, gameMake] = makes.split('|');
+    return rows.map(row => { const [model, style, gameModel] = row.split('|'); return { id: modelIdOf(make, model), make, model, style, gameMake, gameModel }; });
 });
 
 const k = (make: string, model: string) => make + '|' + model;

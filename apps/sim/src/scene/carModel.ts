@@ -367,7 +367,11 @@ export const buildCarModel = (style: string, rawColor: string, bodyCond: number 
     cars.push(group);
     shadowsDirtyFrom = Math.min(shadowsDirtyFrom, cars.length - 1);
     if (meshId) {
-        const fit = (m: MeshGeometry) => { if (afterPrecompile && pre.state !== 'done') heldFits.push([group, m]); else fitMeshBody(group, m); };
+        const fit = (m: MeshGeometry) => {
+            if (!afterPrecompile || pre.state === 'done') return fitMeshBody(group, m);
+            if (!heldFits.length) heldSince = performance.now();
+            heldFits.push([group, m]);
+        };
         const mg = carMeshes().request(meshId);
         if (mg) fit(mg);
         else void carMeshes().when(meshId).then(m => { if (m && cars.includes(group)) fit(m); });
@@ -547,6 +551,7 @@ export const updateCars = (camPos: THREE.Vector3, high: boolean, driven: THREE.O
         if (b.parent !== tiltNode) { b.removeFromParent(); tiltNode.add(b); b.position.set(0, 0.12, partsOf(driven)!.beamZ - 16.4); }
         b.visible = true;
     } else if (beam && beam.parent) { beam.removeFromParent(); beam.visible = false; }
+    if (heldFits.length && now - heldSince > HOLD_MS) for (const [car, mg] of heldFits.splice(0)) if (cars.includes(car)) fitMeshBody(car, mg);
     if (shared) shared.shadow.opacity = high ? 0.38 : 0.6;
     const sm = ensureShadowMesh(cars.length);
     if (!sm) return;
@@ -625,8 +630,11 @@ export const precompileCarsTick = (renderer: THREE.WebGLRenderer, scene: THREE.S
     pre.state = 'done'; pre.probe = pre.broken = undefined;
     for (const [car, mg] of heldFits.splice(0)) if (cars.includes(car)) fitMeshBody(car, mg);
 };
-/** Mesh bodies waiting for the precompile (buildCarModel's afterPrecompile). */
+/** Mesh bodies waiting for the precompile (buildCarModel's afterPrecompile); put in anyway after HOLD_MS (no precompile
+ *  coming, e.g. the player left the town first). */
 const heldFits: [THREE.Object3D, MeshGeometry][] = [];
+let heldSince = 0;
+const HOLD_MS = 8000;
 
 /** Remove a car and free what belongs to it alone (shared geometry/materials stay). */
 export const disposeCarModel = (group: THREE.Object3D) => {

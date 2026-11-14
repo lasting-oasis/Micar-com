@@ -49,3 +49,11 @@ describe('event lengths before the circuit loads', () => {
     expect(Math.round(lenOf(ev('harbour_drift')))).toBe(899);
   });
 });
+
+describe('the Garage camera', () => {
+  it('stands back further for a car longer than 4.9 m (a 6.1 m Tundra: 1.24x), as set for shorter ones', async () => {
+    const { camFit } = await import('./GarageScene');
+    expect(camFit(9.4)).toBe(1); expect(camFit(0)).toBe(1);
+    expect(camFit(6.085 * 2)).toBeCloseTo(1.24, 2);
+  });
+});
