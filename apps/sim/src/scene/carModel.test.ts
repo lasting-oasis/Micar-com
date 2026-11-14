@@ -254,6 +254,10 @@ describe('when the precompile fails', () => {
         expect(scene.children.length).toBe(0); // the probe car is gone again
         carFrameTick(); precompileCarsTick(broken, scene, new THREE.PerspectiveCamera()); // done: no second try, no second warning
         expect(warn).toHaveBeenCalledTimes(1);
+        // and it really is done (not stuck mid-way): the next town car gets its model at once
+        const next = buildCarModel('sedan', '#0000ff', 100, 100, 'toyota-camry', true).group;
+        expect(partsOf(next).mesh).toBe('toyota-camry');
+        disposeCarModel(next);
         warn.mockRestore();
         disposeCarModel(group);
     });
@@ -290,7 +294,9 @@ describe('the Car models setting (Garage, Options)', () => {
         for (const i of [0, 1, 2, 3]) { expect(c.pivots[i].position).toEqual(L.pivots[i].position); expect(wheelAt(c, i).s.x).toBeCloseTo(1); }
         expect(c.length).toBe(L.length); expect(c.width).toBe(L.width); expect(c.beamZ).toBe(L.beamZ);
         expect(c.halos.geometry.getAttribute('position').count).toBe(L.halos.geometry.getAttribute('position').count);
-        expect(c.wheelMesh.boundingSphere!.radius).toBeGreaterThan(2);
+        expect((c as unknown as { meshWheel: unknown }).meshWheel).toBeNull(); // the kit sizes its wheels from the lofted body again
+        expect(c.wheelMesh.boundingSphere!.center).toEqual(L.wheelMesh.boundingSphere!.center); // culled by the lofted wheels
+        expect(c.wheelMesh.boundingSphere!.radius).toBeCloseTo(L.wheelMesh.boundingSphere!.radius, 6);
         urls = [];
         setCarModels(true);
         expect(c.mesh).toBe('toyota-camry'); expect(changed).toBe(2); expect(urls).toEqual([]);

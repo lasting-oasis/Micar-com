@@ -64,6 +64,10 @@ export class TireSmoke {
     col.needsUpdate = grow.needsUpdate = true;
   }
 
+  /** Move the contact points (the car's wheels moved: another body), keeping the smoke in the air and its material
+   *  (disposing it would drop its shader, compiled again on the next frame). */
+  moveTo(points: THREE.Vector3[]): void { this.points.forEach((p, i) => { if (points[i]) p.copy(points[i]); }); }
+
   dispose(): void {
     this.parent.remove(this.pts);
     this.geo.dispose();
