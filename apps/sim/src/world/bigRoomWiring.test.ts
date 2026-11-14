@@ -67,7 +67,8 @@ function racers(url: () => string) {
   const guest = async (name: string) => {
     const s = connect(url(), { transports: ['websocket'], forceNew: true }); open.push(s);
     const init = next<any>(s, 'init'); s.emit('join', { mode: 'guest', name });
-    return { s, id: (await init).id as string };
+    const got = await init;
+    return { s, id: got.id as string, init: got };
   };
   const roomSeen = (s: Socket, pred: (r: RoomView) => boolean = () => true) => next<RoomView>(s, 'race_room', pred);
   const denied = (s: Socket) => next<{ why: string }>(s, 'race_denied');
@@ -84,9 +85,10 @@ describe('a server whose ceiling is sixteen (RACE_ROOM_MAX=16)', () => {
 
   it('a room of sixteen from start to result, and nothing won', async () => {
     expect((await r.caps()).raceMax).toBe(16);
-    const people: { s: Socket; id: string }[] = [];
+    const people: { s: Socket; id: string; init: any }[] = [];
     for (let i = 0; i < 17; i++) people.push(await r.guest(`Racer ${i + 1}`));
     const [host, ...rest] = people, fifteen = rest.slice(0, 15), late = rest[15];
+    expect(host.init.caps.raceMax).toBe(16); // the page learns the ceiling when it joins, too
     // the host asks for a grid of sixteen on the Harbour Drift (a short open route: its floor is under fourteen seconds)
     const made = r.roomSeen(host.s); host.s.emit('race_create', { eventId: 'harbour_drift', car: 'ronin', size: 16 });
     const room = await made;
@@ -145,6 +147,7 @@ describe('a server without RACE_ROOM_MAX', () => {
   it('makes rooms of four, and says so', async () => {
     expect((await r.caps()).raceMax).toBe(4);
     const a = await r.guest('Ana');
+    expect(a.init.caps.raceMax).toBe(4);
     const tooBig = r.denied(a.s); a.s.emit('race_create', { eventId: 'harbour_gp', car: 'ronin', size: 8 });
     expect((await tooBig).why).toBe('size');
     // a refused size costs no room: the next ask is not held back by the three seconds between rooms

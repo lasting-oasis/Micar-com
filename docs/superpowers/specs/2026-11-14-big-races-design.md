@@ -42,7 +42,7 @@ The aim is a race that feels full. Four cars on a Grand Prix circuit look like a
 ## What would make this a failure even if it worked
 
 - A 16-car race that drops a mid-range phone below a playable frame rate, or that only works on a desktop.
-- Today's four-person challenge looking or behaving differently in a way nobody asked for: links already sent must still work, four-car grids must stand where they stand today.
+- Today's four-person challenge looking or behaving differently in a way nobody asked for: links already sent must still work, and a four-car grid's front row must stand where it stands today (the second row moves a few centimetres on most circuits: see The grid).
 - Rooms bigger than four on the live server before the owner raises the ceiling.
 - A bandwidth bill that grows without anyone having said what it would be.
 
@@ -66,8 +66,10 @@ Call: approach 3. It is the only one whose cost does not grow with the number of
 
 ### Sending fifteen cars' poses
 
-1. **Keep today's relay; send fewer bytes per pose** (chosen for Part 1). The sender rounds what it sends (centimetres, milliradians, centimetres a second) and the server rounds again as it relays (an older page still sends long numbers). The message shape does not change, so lane A's load test keeps working unchanged.
-2. **The server batches** the newest pose of every racer into one message per player per tick, and sends far cars less often. It saves more, but it is a new message, lane A's load test counts the old one, and it is not needed unless the measurement says so. Written down as the next step if the load test's 16-person rooms fail or cost too much (see "What 16 cars cost").
+1. **Keep today's relay; send fewer bytes per pose** (Part 1, Task 5). The sender rounds what it sends (centimetres, milliradians, centimetres a second) and the server rounds again as it relays (an older page still sends long numbers). The message shape does not change, so lane A's load test keeps working unchanged.
+2. **The server batches** the newest pose of every racer into one message per player per tick, each racer named by its grid place instead of its 20-character id (Part 1, Task 6). It is a new message, and lane A's load test counts the old one, so a page asks for it and anything that does not ask keeps today's relay.
+
+Call: both. Rounding alone still leaves a sixteen-person race at about 1.2 GB an hour (see "What 16 cars cost"); batching halves that. Sending far cars less often would save more again, but the load test would count the poses not sent as lost; it is left until a measurement asks for it.
 
 ### Who drives the computer cars in a race of people
 
@@ -160,7 +162,8 @@ If the owner wants prizes for big races later, it needs, first: accounts on, one
 - **Server CPU and memory:** lane A's rough measurement (platform design, Capacity) ran one 16-person room at 4.6% of a core and four at 11.5%, memory under 210 MB. That fits the $7 instance by the spec's own limit (25% of one PC core).
 - **Computer drivers (Part 3)** add server work: about 17 route look-ups per car per step, 15 steps a second (estimate: well under 1% of a core for fifteen cars). Their poses cost the same bandwidth as a person's going out, and nothing coming in.
 - **How it gets measured:** lane A's load test (`apps/sim/e2e/load.ts`, Task 5 of its plan) races fake players in rooms of 4, 8 and 16 on this PC and reads the server's CPU, lag and memory from `/healthz`. When it exists, run `STEPS=16x1,16x2,16x3` against this branch and put the table in Part 1's pull request; until then that pull request says it is not measured. On the paid server the owner decides when (its runbook, Task 5 step 4).
-- **The trigger for the batched relay:** if a 16-person room fails the load test's limits, or the measured data comes to more than about 1 GB per race-hour, Part 1's follow-up is approach 2 above (batch and thin the poses) before the ceiling is raised.
+- **Data, batched** (Task 6; estimate): about 50 bytes a pose instead of 94, so about 11 KB/s per phone and about 0.65 GB per race-hour, about $0.10 past the free 5 GB.
+- **So the batched relay comes before the ceiling is raised.** Part 1 can be merged with the ceiling at 4 whatever these figures are; raising it is the owner's step, after Task 6 has landed and the paid server's load test has passed with rooms of 16.
 
 ### Quick race (Part 2)
 
@@ -186,7 +189,7 @@ If the owner wants prizes for big races later, it needs, first: accounts on, one
 
 ## Owner steps
 
-- **Raise the ceiling** (`RACE_ROOM_MAX=16` under Environment in Render) only after the paid server's load test has passed with rooms of 16. Until then the site behaves as today.
+- **Raise the ceiling** (`RACE_ROOM_MAX=16` under Environment in Render) only after Part 1's Task 6 (the batched relay) has landed and the paid server's load test has passed with rooms of 16. Until then the site behaves as today.
 - **Decide on prizes** for races of people, if ever (see Payouts).
 
 ## Risks and open items
