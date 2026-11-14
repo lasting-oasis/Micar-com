@@ -1,6 +1,32 @@
 import { describe, expect, it } from 'vitest';
 import { prefillMsrp } from './prefill';
-import { STICKERS, stickerFor, stickerMsrp } from './stickers';
+import { STICKERS, findStickerTrim, stickerFor, stickerMsrp, stickerTrim, type StickerYear } from './stickers';
+
+describe('stickerTrim after the findStickerTrim split', () => {
+  // the implementation before the split, verbatim: the calculator's behaviour must not change
+  const before = (y: StickerYear, trim: string) => {
+    const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '');
+    const want = norm(trim);
+    return (want && y.trims.find((t) => norm(t.trim) === want)) || y.trims.find((t) => want && norm(t.trim).startsWith(want)) || y.trims[0];
+  };
+  it('picks the same row as before for every year on file and every kind of trim input', () => {
+    let checked = 0;
+    for (const set of STICKERS) for (const y of set.years) {
+      const inputs = ['', ' ', '-', 'zz-not-a-trim', '?', ...y.trims.flatMap((t) => [t.trim, t.trim.toUpperCase(), t.trim.toLowerCase(), t.trim.replace(/[^A-Za-z0-9]/g, ''), t.trim.slice(0, 1), t.trim.slice(0, 3), ` ${t.trim} `])];
+      for (const s of inputs) { expect(stickerTrim(y, s), `${set.make} ${set.model} ${y.year} "${s}"`).toBe(before(y, s)); checked++; }
+    }
+    expect(checked).toBeGreaterThan(100_000);
+  });
+  it('findStickerTrim is stickerTrim without the base-trim fallback', () => {
+    for (const set of STICKERS) for (const y of set.years) {
+      for (const s of ['', 'zz-not-a-trim', ...y.trims.map((t) => t.trim)]) {
+        const f = findStickerTrim(y, s);
+        if (f) expect(f).toBe(stickerTrim(y, s));
+        else expect(stickerTrim(y, s)).toBe(y.trims[0]);
+      }
+    }
+  });
+});
 
 describe('stickers', () => {
   it('covers every Civic year from 2010 with the base trim first', () => {
