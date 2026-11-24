@@ -33,4 +33,24 @@ describe('deterministic arithmetic', () => {
     expect(hashNumber(HASH_START, 1.5)).not.toBe(hashNumber(HASH_START, 1.5000000000000002));
     expect(hashNumber(HASH_START, 0)).toBe(hashNumber(HASH_START, -0));
   });
+  it('the hash folds a number\'s bytes in one fixed order on every host, and every NaN alike', () => {
+    // FNV-1a over the IEEE 754 bytes, least significant first, written out by hand: no typed array of the host's
+    // byte order is involved, so this is the value a big-endian machine must give too.
+    const fnv = (bytes: number[]): number => { let h = HASH_START; for (const b of bytes) h = Math.imul(h ^ b, 0x01000193); return h >>> 0; };
+    expect(hashNumber(HASH_START, 1)).toBe(fnv([0, 0, 0, 0, 0, 0, 0xf0, 0x3f]));                   // 0x3ff0000000000000
+    expect(hashNumber(HASH_START, -2.5)).toBe(fnv([0, 0, 0, 0, 0, 0, 0x04, 0xc0]));                // 0xc004000000000000
+    expect(hashNumber(HASH_START, 0.1)).toBe(fnv([0x9a, 0x99, 0x99, 0x99, 0x99, 0x99, 0xb9, 0x3f])); // 0x3fb999999999999a
+    // A NaN made at run time carries whatever sign and payload the hardware gives it (x86 sets the sign bit, ARM
+    // does not): a diverged state must hash the same everywhere, as the quiet NaN 0x7ff8000000000000.
+    const zero = Number('0'), inf = Number('Infinity');
+    const canonical = fnv([0, 0, 0, 0, 0, 0, 0xf8, 0x7f]);
+    for (const nan of [NaN, zero / zero, inf - inf, -NaN, Math.sqrt(-1)]) expect(hashNumber(HASH_START, nan)).toBe(canonical);
+  });
+  it('the logarithm of infinity is infinity and of NaN is NaN, as the library\'s are, and returns at once', () => {
+    expect(dln(Infinity)).toBe(Infinity);
+    expect(dln(NaN)).toBeNaN();
+    expect(dln(Number.MAX_VALUE)).toBeCloseTo(Math.log(Number.MAX_VALUE), 9);
+    expect(dln(Number.MIN_VALUE)).toBeCloseTo(Math.log(Number.MIN_VALUE), 9);
+    expect(dpow(Infinity, 0.5)).toBe(Infinity);
+  });
 });

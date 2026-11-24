@@ -1,9 +1,14 @@
 // Allocates a vehicle's state: once per car, never inside the step.
 import type { Controls, SurfaceSample, Telemetry, VehicleModel, VehicleState, WorldQuery } from './types';
 import { AUTO_GEAR } from './types';
+import { prepareShiftPoints } from './systems';
 
-/** A zeroed state for a model, facing +X at the origin. vehicle.ts's createVehicle settles it at rest. */
+/**
+ * A zeroed state for a model, facing +X at the origin. vehicle.ts's createVehicle settles it at rest. It works out
+ * the model's shift points here, outside the step, so that the step never has to.
+ */
 export function createState(model: VehicleModel): VehicleState {
+  prepareShiftPoints(model);
   return {
     model, time: 0,
     x: 0, y: 0, hx: 1, hy: 0,
@@ -15,7 +20,7 @@ export function createState(model: VehicleModel): VehicleState {
     engineOmega: model.engine.idle, boost: 0, engineTorque: 0, clutchTorque: 0, clutchLocked: 0,
     gear: 1, gearNext: 1, shiftTimer: 0, ratio: model.driveline.gears[0],
     absActive: new Float64Array(4), tcsActive: 0, escActive: 0, limiterActive: 0,
-    absHold: new Float64Array([1, 1, 1, 1]), tcsCut: 1,
+    absHold: new Float64Array([1, 1, 1, 1]), tcsCut: 1, tcsBrake: new Float64Array(4),
     nitrousLeft: model.nitrous ? model.nitrous.bottleMass : 0,
     distance: 0, energyUsed: 0,
   };

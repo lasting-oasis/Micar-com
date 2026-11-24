@@ -348,6 +348,8 @@ export type VehicleState = {
   /** Controller memory for ABS (per wheel), TCS and ESC. */
   absHold: Float64Array;         // length 4
   tcsCut: number;
+  /** N m of brake traction control holds on each driven wheel that spins past its partner on the axle. */
+  tcsBrake: Float64Array;        // length 4
   /** kg of nitrous left. */
   nitrousLeft: number;
   /** m driven, kg of fuel (or J of battery energy for an electric car) used. */

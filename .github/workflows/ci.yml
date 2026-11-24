@@ -17,6 +17,9 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm --filter @micar/value test
       - run: pnpm --filter @micar/sim test
+      # the new physics core (not yet driving the game): both compilers, then its tests and whole-car proof
+      - run: pnpm --filter @micar/physics typecheck
+      - run: pnpm --filter @micar/physics test
       - run: pnpm -r --if-present build
       # the Strip smoke test: the production server with SMOKE=1 (a new player is given a starter car), a software-GL Chromium, no display
       - run: pnpm --filter @micar/sim exec playwright install --with-deps chromium

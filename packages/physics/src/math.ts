@@ -88,8 +88,10 @@ export function dexp(x: number): number {
   if (k > 0) for (let i = 0; i < k; i++) scale *= 2; else for (let i = 0; i < -k; i++) scale *= 0.5;
   return p * scale;
 }
-/** Natural logarithm of a positive number, good to about 1e-12. Zero or less gives -Infinity. */
+/** Natural logarithm of a positive number, good to about 1e-12. Zero or less gives -Infinity; Infinity and NaN give themselves. */
 export function dln(x: number): number {
+  // Infinity would never leave the halving loop below (Infinity / 2 is Infinity), so it is answered first.
+  if (x !== x || x === Infinity) return x;
   if (!(x > 0)) return -Infinity;
   let m = x, e = 0;
   while (m >= 2) { m *= 0.5; e++; }
@@ -138,13 +140,25 @@ export function rng(seed: number): () => number {
   };
 }
 
-const hashFloat = new Float64Array(1);
-const hashBytes = new Uint8Array(hashFloat.buffer);
+// A DataView, not a typed array over the same buffer: a typed array reads in the host's byte order, a DataView in the
+// order asked for, so the hash is the same on a big-endian machine.
+const hashView = new DataView(new ArrayBuffer(8));
 /** The starting value of a state hash. */
 export const HASH_START = 0x811c9dc5;
-/** Folds every bit of one number into a running hash (FNV-1a over its eight bytes). */
+/**
+ * Folds every bit of one number into a running hash (FNV-1a over its eight IEEE 754 bytes, least significant first,
+ * whatever the host's byte order). +0 and -0 are the same state; so is every NaN, which is folded as the quiet NaN
+ * 0x7ff8000000000000 (a NaN made at run time carries the hardware's sign and payload, and those differ between x86
+ * and ARM, and between engines when stored).
+ */
 export function hashNumber(h: number, x: number): number {
-  hashFloat[0] = x === 0 ? 0 : x; // +0 and -0 are the same state
-  for (let i = 0; i < 8; i++) h = Math.imul(h ^ hashBytes[i], 0x01000193);
+  if (x !== x) {
+    for (let i = 0; i < 6; i++) h = Math.imul(h, 0x01000193);   // six zero bytes: h ^ 0 is h
+    h = Math.imul(h ^ 0xf8, 0x01000193);
+    h = Math.imul(h ^ 0x7f, 0x01000193);
+    return h >>> 0;
+  }
+  hashView.setFloat64(0, x === 0 ? 0 : x, true);
+  for (let i = 0; i < 8; i++) h = Math.imul(h ^ hashView.getUint8(i), 0x01000193);
   return h >>> 0;
 }
