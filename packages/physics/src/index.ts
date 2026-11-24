@@ -29,3 +29,9 @@ export type { EngineSpec } from './engine';
 export { G, HALF_PI, PI, P_AMBIENT, RHO_AIR, TAU, T_AMBIENT } from './math';
 /** The bench in the card's units, for the card engine's simulated specification (DESIGN.md 12). */
 export * from './rating';
+/** A circuit's racing line from its centreline and width, finding a car on it, and the proof circuits (DESIGN.md 14). */
+export * from './line';
+/** A car's envelope measured on the bench, and its limit lap on a racing line (DESIGN.md 14). */
+export * from './lap';
+/** A seeded driver for a real car on a racing line: its skill, reaction time and precision (DESIGN.md 14). */
+export * from './pilot';

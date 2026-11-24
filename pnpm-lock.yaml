@@ -16,6 +16,9 @@ importers:
       '@micar/engine':
         specifier: workspace:*
         version: link:../../packages/engine
+      '@micar/physics':
+        specifier: workspace:*
+        version: link:../../packages/physics
       express:
         specifier: 4.22.1
         version: 4.22.1

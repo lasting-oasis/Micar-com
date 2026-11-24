@@ -16,7 +16,8 @@ import { createFurnitureKit } from './scene/world/furniture';
 import { buildCity } from './scene/world/city';
 import { buildGate, buildStripExit, GATE_RETURN } from './scene/world/gate';
 import { createDealership, type DealershipGate } from './scene/world/dealership';
-import { Driver, STEP, townCollider, type DriveOpts } from './world/driver';
+import { STEP, townCollider, type DriveOpts } from './world/driver';
+import { driverKind, drivingMode, isCoreDriver, makeDriver, matchDrivingMode, type CoreCar, type CoreDriveOpts, type DriverLike } from './world/core';
 import { EVENTS, STOCK_CFG, TUNE_DEF, specFor, stageOf, visualRating, type BodyStyle, type CarCfg, type StripRecord } from './world/data';
 import { NO_INPUT, type Input, type Tune, type VehicleSpec } from './world/physics';
 import { anchorsFor, attachParts, disposeParts, setKitGlow, syncKitLod, type PartsKit } from './world/parts';
@@ -620,7 +621,7 @@ export function VanillaThreeScene() {
         // driver.pose(). The Speedway is now the gate to the Strip (scene/world/gate.ts), a second
         // scene (world/strip/scene.ts) the car group is moved into.
         const W = WORLD_PER_M;
-        let driver: Driver | null = null;
+        let driver: DriverLike | null = null; // world/driver.ts's, or the physics core's (world/core) with the switch on
         let driveSpec: { key: string; spec: VehicleSpec } | null = null; // specFor takes ~20 ms: once per car
         let paramsKey = '', kitKey = '';
         let kit: PartsKit | null = null;
@@ -679,6 +680,7 @@ export function VanillaThreeScene() {
         const im = new InputMap({ manual: manualNow, hydraulics: () => !!(localDrivingCarId && buildOf(localDrivingCarId).cfg.hydraulics) });
         type InvCar = { id: string; make?: string; model: string; bodyStyle?: string; fuel?: number; rental?: boolean; testCar?: boolean; loan?: boolean };
         const styleOf = (car: InvCar) => (car.bodyStyle || deriveStyle(car.model)) as BodyStyle;
+        const coreCarOf = (car: InvCar): CoreCar => ({ make: car.make, model: car.model, bodyStyle: styleOf(car), rental: car.rental, testCar: car.testCar });
         const meNow = () => { const st = stateRef.current; return st.gameState?.players[st.playerId || '']; };
         const drivenCar = (): InvCar | undefined => meNow()?.inventory.find(c => c.id === localDrivingCarId);
         const specOf = (car: InvCar): VehicleSpec => {
@@ -834,6 +836,7 @@ export function VanillaThreeScene() {
             socketEmit('sync_car_pos', { carId: localDrivingCarId, position: { x: GATE_RETURN.x, z: GATE_RETURN.z, r: GATE_RETURN.rotY }, district: 'town' });
             driver.place(STRIP_SPAWN.x, STRIP_SPAWN.z, STRIP_SPAWN.h);
             S.enter(driver.V, mesh);
+            S.runner.coreCar = () => (driver && isCoreDriver(driver) ? driver.core.model : null); // core opponents drive the player's own build
             carFeel.clearSkids('town');
             district = 'strip'; paused = false; resultsShown = false; driftMode = false;
             releaseHeldCarBodies(); // (cars held for the town's precompile, which does not run in the Strip)
@@ -868,7 +871,7 @@ export function VanillaThreeScene() {
         };
         /** Night Tuner's respawn(): in a live event, back onto the route where you got to (a drag: nothing;
          *  the countdown and a finished run: nothing, so R never throws a race or a win away); else onto the nearest road. */
-        const respawn = (S: StripScene, D: Driver) => {
+        const respawn = (S: StripScene, D: DriverLike) => {
             const a = S.runner.active, V = D.V;
             if (a) {
                 if (a.type === 'drag' || a.state !== 'race' || a.results) return;
@@ -929,7 +932,7 @@ export function VanillaThreeScene() {
             localFuel = car.fuel ?? 100; refuelRequestedIn = null;
             const b = buildOf(carId);
             paramsKey = perfKey(b);
-            driver = new Driver(specOf(car), b, { x: mesh.position.x / W, z: mesh.position.z / W, h: headingOf(mesh) - Math.PI });
+            driver = makeDriver(coreCarOf(car), specOf(car), b, { x: mesh.position.x / W, z: mesh.position.z / W, h: headingOf(mesh) - Math.PI }, say);
             wheelR = anchorsFor(styleOf(car)).wheelR;
             fitKit(mesh, car);
             lastStripRec = useGameStore.getState().strip;
@@ -992,13 +995,14 @@ export function VanillaThreeScene() {
         const driveRental = (carId: string): boolean => {
             const S = strip, mesh = carMeshes[carId];
             if (!S || !mesh || driver || !beginDriving(carId)) return false;
-            const D = driver as Driver | null; if (!D) return false;
+            const D = driver as DriverLike | null; if (!D) return false;
             const held = meNow()?.inventory.find(c => c.id === carId);
             lobby = false; S.leaveLobby(); rentalId = carId; drivingTestCar = !!held?.testCar; drivingLoan = !!held?.loan;
             // the server's driven car: an event locks it, and closing the event hands it back
             socketEmit('sync_car_pos', { carId, district: 'strip' });
             D.place(RENTAL_BAY.x, RENTAL_BAY.z, RENTAL_BAY.h);
             S.enter(D.V, mesh);
+            S.runner.coreCar = () => (driver && isCoreDriver(driver) ? driver.core.model : null); // core opponents drive the player's own build
             driveCam.fov = 62; driveCam.updateProjectionMatrix(); // from the lobby's narrower view
             paused = false; resultsShown = false; driftMode = false;
             chase.reset(D.V);
@@ -1056,10 +1060,11 @@ export function VanillaThreeScene() {
         const fuelNow = () => localFuel ?? 100;
         const burnFuel = (f: number) => { localFuel = Math.max(0, (localFuel ?? 100) - f); };
         const townOpts: DriveOpts = { drift: false, fuel: fuelNow, burn: burnFuel, collide: townCollider(staticCollisionBoxes) };
-        const stripOpts: DriveOpts = {
+        const stripOpts: CoreDriveOpts = {
             drift: false, fuel: fuelNow, burn: burnFuel,
             collide: V => { const S = strip!; const i = S.collide(V); S.runner.postStep(STEP); return i; },
             map: (I, dt) => strip!.runner.input(I, dt),
+            held: () => strip?.runner.active?.state === 'count', // the core holds brakes and clutch on the line (the old model ignores it)
         };
         const NONE: never[] = [];
         const hudState: HudState = { PV: null as never, event: null, standings: NONE, outrun: null, gps: null, markers: NONE, roads: NONE, ais: NONE, money: 0, units: 'mph', manual: false, small: false, touch: touchUi, topInset: 0, district: 'town' };
@@ -1080,6 +1085,8 @@ export function VanillaThreeScene() {
             g.fillText((it ? it.n : '') + '   ·   ↑↓ choose · Enter set GPS · M close', w / 2, h - 16);
         };
         const driveFrame = (delta: number, me: { money: number; lotPosition?: Lot; inventory: InvCar[] }) => {
+            // the Garage's Options: Driving, flipped while in this car: the other model takes over the same Vehicle
+            if (driver && driverKind(driver) !== drivingMode()) { const c = drivenCar(); if (c) driver = matchDrivingMode(driver, coreCarOf(c), specOf(c), buildOf(c.id), say); }
             const id = localDrivingCarId!, mesh = carMeshes[id], D = driver!, V = D.V, opt = getOptions();
             if (opt.cam !== camOpt) chase.mode = camOpt = opt.cam;
             if (opt.mute !== audio.isMuted) audio.setMute(opt.mute);
@@ -1228,7 +1235,7 @@ export function VanillaThreeScene() {
             pose: () => {
                 const p = driver ? driver.pose() : { x: avatar.position.x, y: avatar.position.y, z: avatar.position.z, rotY: headingOf(avatar) };
                 const V = driver?.V;
-                return { x: p.x, y: p.y, z: p.z, rotY: p.rotY, district, driving: !!driver, speed: V ? V.u : 0, gear: V ? V.gear : 0, rpm: V ? Math.round(V.rpm) : 0, redline: V ? V.P.redline : 0 };
+                return { x: p.x, y: p.y, z: p.z, rotY: p.rotY, district, driving: !!driver, speed: V ? V.u : 0, gear: V ? V.gear : 0, rpm: V ? Math.round(V.rpm) : 0, redline: V ? V.P.redline : 0, physics: driverKind(driver) };
             },
             /** get into a car: `carId`, else the nearest of your cars */
             drive: (carId?: string): boolean => {

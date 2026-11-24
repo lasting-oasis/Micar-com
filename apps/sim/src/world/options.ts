@@ -3,6 +3,8 @@
 // blocked or missing storage leaves the defaults (and the choices for this page only). The 3D view
 // reads getOptions() each frame; the Garage reads and writes through getOption / setOption.
 
+import { DRIVING_OPTION, setStoredMode, storedMode } from './core/switch';
+
 export type CamMode = 0 | 1 | 2;
 /** touch controls on a phone: the steering and gas sticks, or the old buttons */
 export type TouchControls = 'sticks' | 'buttons';
@@ -39,10 +41,11 @@ export function getOptions(): Readonly<DriveOptions> {
   return cur;
 }
 
-export function getOption(k: string): unknown { return (getOptions() as Record<string, unknown>)[k]; }
+export function getOption(k: string): unknown { if (k === DRIVING_OPTION) return storedMode(); return (getOptions() as Record<string, unknown>)[k]; }
 
 /** Set one option (ignored when the key or value is not one of the options) and save them all. */
 export function setOption(k: string, v: unknown): void {
+  if (k === DRIVING_OPTION) { setStoredMode(v); return; } // "Driving": kept apart, under its own key (core/switch.ts)
   const next = parseOptions(JSON.stringify({ ...getOptions(), [k]: v }));
   if (!(k in next) || (next as Record<string, unknown>)[k] !== v) return;
   cur = next;

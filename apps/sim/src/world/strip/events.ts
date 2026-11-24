@@ -2,14 +2,17 @@
    A pure state machine in metres: no THREE, no DOM. Banners, sounds, racer meshes, the checkpoint mark,
    the career stage and the style rating come in through `EventFx`. Racer meshes are opaque handles;
    the renderer places them from the AI / drag-car state. Payout is not here (server side, later). */
+import type { VehicleModel } from '@micar/physics';
 import { clamp, makeVehicle, NO_INPUT, resetVehicle, simStats, stepVehicle, type Input, type Params, type Vehicle } from '../physics';
 import { CATS, PALETTE, STOCK_CFG, type CarCfg, type EventDef, type EventType, type VisualCfg } from '../data';
 import { cpPoint, routePoint, routeProgress, snapToRoad, type RoadData, type Route } from './routes';
-import { HUB, routeFor } from './district';
+import { HUB, routeFor, trackLoaded, trackOfEvent } from './district';
 import { hubPoint } from './roadGraph';
 import { makeAI, parkAI, separateAIs, setWander, stepAI, type AI } from './ai';
 import { LIGHTS, NET_HOLD_S, lightsLit, soloCountLen, soloHold, usesLights } from './lights';
 import { RaceTiming, withTiming } from './timing';
+import { coreChosen } from '../core/switch';
+import { CoreDragCar, CoreField, circuitLine, dragLine, modelFromParams, newSeed, seededRandom, type CoreRacer } from '../core/opponents';
 
 export type { EventType };
 
@@ -26,8 +29,9 @@ export type EventFx = {
 
 /** `key`: the car in the race's timing ('me', 'r0'.., 'p:<pid>'); `best`: its best lap (s); `gap`: seconds to the leader (null: the leader, or not known) */
 export type Standing = { name: string; me?: boolean; ft?: number | null; s?: number; score?: number; estimated?: boolean; key?: string; color?: string; best?: number | null; gap?: number | null };
-/** `remote`: a person in a challenge (`pid`), whose state comes from the network: never stepped, never estimated. */
-export type Racer = AI & { estimated?: boolean; remote?: boolean; pid?: string; key?: string; color?: string };
+/** `remote`: a person in a challenge (`pid`), whose state comes from the network: never stepped, never estimated.
+ *  `core`: with the physics switch on, the real car and pilot that drive this racer (core/opponents.ts). */
+export type Racer = AI & { estimated?: boolean; remote?: boolean; pid?: string; key?: string; color?: string; core?: CoreRacer };
 /** A challenge race: the field the room made, and the clock its racers share. */
 export type NetField = {
   /** my place on the grid, 0..3 (a drag: my lane) */
@@ -37,7 +41,8 @@ export type NetField = {
   goAt(): number | null;
   now(): number;
 };
-export type DragCar = { V: Vehicle; m: unknown; lane: number; s: number; ft: number | null; react: number; name: string; crash: boolean; estimated?: boolean };
+/** `core`: with the physics switch on, the real car and pilot that drive it (V is then only written, for the readers). */
+export type DragCar = { V: Vehicle; m: unknown; lane: number; s: number; ft: number | null; react: number; name: string; crash: boolean; estimated?: boolean; core?: CoreDragCar };
 export type DragTraffic = { A: AI; s: number; lane: number; v: number };
 export type ActiveEvent = {
   ev: EventDef; route: Route; laps: number; type: EventType; state: 'count' | 'race' | 'done'; t: number; time: number;
@@ -53,6 +58,9 @@ export type ActiveEvent = {
   lit: number | null; goIn: number; hold: number; countLen: number;
   /** lap, sector and gap timing for a lap race (null for drag and drift) */
   timing: RaceTiming | null;
+  /** with the physics switch on, a solo lap race's computer racers on the core (null otherwise), and the seed every
+   *  draw of a race with the switch on comes from (the same seed and the same driving give the same race) */
+  core?: CoreField | null; seed?: number;
 };
 export type Outrun = { A: AI; t: number; gap: number; state: 'run' | 'done'; t2?: number };
 export type EventResults = { pos: number; list: Standing[]; failed: string | null; type: EventType; ev: EventDef; time: number | null; score: number };
@@ -84,15 +92,26 @@ export function sortStandings<T extends Standing>(list: T[], type: EventType): T
 
 export class EventRunner {
   active: ActiveEvent | null = null;
+  /** The player's car as the physics core models it, when the player drives on the core (the page sets this): with the
+   *  switch on the computer racers drive this same car. Unset, they drive the player's drawn figures resolved stock. */
+  coreCar: (() => VehicleModel | null) | null = null;
   constructor(public PV: Vehicle, public ais: AI[], public fx: EventFx, public playerParams: () => Params, public roads: () => RoadData[] = () => HUB.roads) {}
 
-  start(ev: EventDef, opts: { quick?: boolean; net?: NetField } = {}): void {
+  /** `core`: the computer racers drive on the physics core (default: the switch, core/switch.ts); `seed`: that race's
+   *  draws (default: a fresh one). Neither changes anything with the switch off. */
+  start(ev: EventDef, opts: { quick?: boolean; net?: NetField; core?: boolean; seed?: number } = {}): void {
     const PV = this.PV, fx = this.fx;
     if (this.active) this.cleanup();
     const route = routeFor(ev.id);
     const a: ActiveEvent = this.active = { ev, route, laps: ev.laps || 1, type: ev.type, state: 'count', t: 3.6, time: 0, racers: [], pS: 0, pMax: 0, pLap: 0, pCp: 1, wrong: 0, pFt: null, results: null, quick: !!opts.quick, retT: 0, fail: null, target: 0,
       drift: { cur: 0, score: 0, mult: 1, dT: 0, idle: 0, lastBank: 0 }, drag: { lane: 1, trafficA: [], ai: [], dir: 0, fwd: [0, 1], right: [1, 0], p0: null }, net: opts.net ?? null, go: null, lit: null, goIn: 0, hold: 0, countLen: 0, timing: null };
     const net = a.net, gridOf = (slot: number) => clamp(Math.floor(slot) || 0, 0, 3);
+    // With the switch on, a solo race's computer racers are the player's car on the core with seeded pilots, and every
+    // draw that decides the race comes from the race's seed (a challenge's other cars are people: nothing to draw).
+    const core = !net && (opts.core ?? coreChosen());
+    if (core) a.seed = (opts.seed ?? newSeed()) >>> 0;
+    const rand = core ? seededRandom(a.seed!) : Math.random;
+    const coreModel = core ? (this.coreCar?.() ?? modelFromParams(this.playerParams())) : null;
     a.target = route.loop ? route.len * a.laps : route.len;
     a.timing = usesLights(ev.type) ? new RaceTiming(route.len, route.loop) : null;
     const p0 = routePoint(route, 0), fwd: [number, number] = [p0.tx, p0.tz], right: [number, number] = [-p0.tz, p0.tx]; const dir = Math.atan2(fwd[0], fwd[1]);
@@ -102,11 +121,20 @@ export class EventRunner {
     for (const A of this.ais) { if (A.kind === 'traffic' || A.kind === 'rival') { if (ev.noTraffic || ev.type === 'drag') parkAI(A); else A.hold = false; } }
     if (ev.type === 'drag') {
       a.drag.dir = dir; a.drag.fwd = fwd; a.drag.right = right; a.drag.p0 = p0;
-      const slots = [0, 1, 2, 3]; const my = net ? NET_LANES[gridOf(net.slot)] : Math.floor(Math.random() * 4); a.drag.lane = my;
+      const slots = [0, 1, 2, 3]; const my = net ? NET_LANES[gridOf(net.slot)] : Math.floor(rand() * 4); a.drag.lane = my;
       const pp = place(DRAG_LANES[my], 0); resetVehicle(PV, pp.x, pp.z, dir); PV.nos = PV.P.nos.cap;
       if (net) for (const o of net.others) this.addPerson(a, o, place(DRAG_LANES[NET_LANES[gridOf(o.slot)]], 0), dir);
       else for (const li of slots) {
         if (li === my) continue;
+        if (coreModel) {
+          // The player's car on the core in its own lane, a seeded pilot at the wheel; V is what the scene and the map draw.
+          const pp2 = place(DRAG_LANES[li], 0), AV = makeVehicle(this.playerParams()); resetVehicle(AV, pp2.x, pp2.z, dir);
+          const car = new CoreDragCar(coreModel, dragLine(route, p0, fwd, right, DRAG_LANES[li]), Math.floor(rand() * 4294967296), pp2.x, pp2.z, fwd[0], fwd[1]);
+          car.frame(AV, 0);
+          const m = fx.spawnRacerMesh(randomCfg());
+          a.drag.ai.push({ V: AV, m, lane: li, s: 0, ft: null, react: car.reaction, name: AI_NAMES[(li * 2 + rand() * 2) | 0], crash: false, core: car });
+          continue;
+        }
         const P = { ...this.playerParams() }; P.tqMul *= (.86 + .05 * st + Math.random() * .06); P.peakT *= P.tqMul; const AV = makeVehicle(P); const pp2 = place(DRAG_LANES[li], 0); resetVehicle(AV, pp2.x, pp2.z, dir);
         const m = fx.spawnRacerMesh(randomCfg());
         a.drag.ai.push({ V: AV, m, lane: li, s: 0, ft: null, react: .15 + Math.random() * .4, name: AI_NAMES[(li * 2 + Math.random() * 2) | 0], crash: false });
@@ -115,22 +143,28 @@ export class EventRunner {
       const tr = ev.noTraffic ? [] : this.ais.filter(A => A.kind === 'traffic').slice(0, 6); let s = 70;
       for (const A of tr) { A.parked = false; A.hold = true; a.drag.trafficA.push({ A, s, lane: Math.floor(Math.random() * 4), v: 10 + Math.random() * 3 }); s += 55 + Math.random() * 50; }
     } else {
-      const slots = [[-3, 0], [3, 0], [-3, -8], [3, -8]]; const my = net ? gridOf(net.slot) : Math.floor(Math.random() * 4);
+      const slots = [[-3, 0], [3, 0], [-3, -8], [3, -8]]; const my = net ? gridOf(net.slot) : Math.floor(rand() * 4);
       const pp = place(slots[my][0], slots[my][1]); resetVehicle(PV, pp.x, pp.z, dir); PV.nos = PV.P.nos.cap;
-      const top = playerTopMs(PV.P), acc = playerAccel(PV.P);
+      // The old AI's pace comes from two straight-line runs of the player's car on the old model; the core's racers need neither.
+      const top = coreModel ? 0 : playerTopMs(PV.P), acc = coreModel ? 0 : playerAccel(PV.P);
+      // On the core the racers drive the circuit's racing line (every route of a circuit follows its centreline).
+      const field = coreModel && !net ? new CoreField(coreModel, circuitLine(trackLoaded(trackOfEvent(ev.id))!), route, rand) : null;
+      a.core = field;
       if (net) for (const o of net.others) { const sl = slots[gridOf(o.slot)]; this.addPerson(a, o, place(sl[0], sl[1]), dir); }
       else slots.forEach((sl, i) => {
         if (i === my) return; const cfg = randomCfg(), m = fx.spawnRacerMesh(cfg);
-        const A: Racer = makeAI({ m, kind: 'racer', route, lane: sl[0] * .9, vmax: top * (.74 + .06 * st) * (.96 + Math.random() * .08), acc: acc * 1.1, brk: 10, name: AI_NAMES[(i * 2 + Math.random() * 2) | 0], hold: true });
+        const A: Racer = makeAI({ m, kind: 'racer', route, lane: sl[0] * .9, vmax: field ? 0 : top * (.74 + .06 * st) * (.96 + Math.random() * .08), acc: acc * 1.1, brk: 10, name: AI_NAMES[(i * 2 + rand() * 2) | 0], hold: true });
         A.key = 'r' + i; A.color = cfg.color;
-        const q = place(sl[0], sl[1]); A.x = q.x; A.z = q.z; A.h = dir; A.s = routeProgress(route, A.x, A.z, 0, 30).s; A.ft = null; A.laps = 0; A.done = false; a.racers.push(A); this.ais.push(A);
+        const q = place(sl[0], sl[1]); A.x = q.x; A.z = q.z; A.h = dir;
+        if (field) field.add(A, q.x, q.z, fwd[0], fwd[1]); // its car on the grid place, its pilot seeded; vmax from its plan
+        A.s = routeProgress(route, A.x, A.z, 0, 30).s; A.ft = null; A.laps = 0; A.done = false; a.racers.push(A); this.ais.push(A);
       });
     }
     a.pS = routeProgress(route, PV.x, PV.z, 0, 30).s; a.pMax = a.pS;
     this.placeCpMark();
     if (usesLights(ev.type)) {
       if (net) { a.hold = NET_HOLD_S; a.countLen = LIGHTS; } // lit stays null until the server has named the green
-      else { a.hold = soloHold(Math.random); a.countLen = soloCountLen(a.hold); a.goIn = a.countLen; a.lit = 0; }
+      else { a.hold = soloHold(rand); a.countLen = soloCountLen(a.hold); a.goIn = a.countLen; a.lit = 0; }
     } else if (!net) { fx.banner('3'); fx.sfx('beep'); } // a challenge counts only once the server has named the green light
   }
   /** A person in a challenge, on their grid place: a racer this browser never drives (the scene places it from the network). */
@@ -224,15 +258,19 @@ export class EventRunner {
       else { a.pCp++; fx.sfx('cp'); }
       this.placeCpMark();
     }
-    // racers
+    // racers: on the core the field steps them all together (they keep clear of each other and of the player), with
+    // no catch-up; else the old AI, one by one
+    const field = a.core ?? null;
+    if (field) field.frame(a.racers, dt, PV);
     for (const R of a.racers) {
       if (R.done) continue;
       if (R.remote) { if (R.key) a.timing?.step(R.key, R.s, a.time); continue; } // a person: placed from the network by the scene
-      stepAI(R, dt, a.pS, fx.stage()); const tot = R.s; if (R.key) a.timing?.step(R.key, tot, a.time);
+      if (!R.core) stepAI(R, dt, a.pS, fx.stage());
+      const tot = R.s; if (R.key) a.timing?.step(R.key, tot, a.time);
       if (tot >= a.target - 1) { R.done = true; R.ft = a.time; R.v *= .5; if (R.key) a.timing?.step(R.key, Math.max(tot, a.target), a.time); } // home: its last lap ends on the line
-      if (drift) { R.score += dt * (90 + 55 * fx.stage()) * (.6 + .8 * Math.random()) * (R.v > 8 ? 1 : 0); }
+      if (drift) { R.score += dt * (90 + 55 * fx.stage()) * (.6 + .8 * (field ? field.rand() : Math.random())) * (R.v > 8 ? 1 : 0); }
     }
-    if (!a.net) separateAIs(a.racers);
+    if (!a.net && !field) separateAIs(a.racers);
     if (drift) this.updateDrift(dt);
     if (!a.net && a.type !== 'drift' && a.time > raceCapS(a.target)) this.playerFinish(); // a challenge is closed by its room, not by a cap here
   }
@@ -268,7 +306,10 @@ export class EventRunner {
       if (Math.abs(t.s - s) < 4.4 && Math.abs(DRAG_LANES[t.lane] - lat) < 2.3 && !a.fail) { a.fail = 'Crashed into traffic'; fx.banner('Crashed', true, true); fx.sfx('crash'); PV.u *= .2; PV.vx = d.fwd[0] * PV.u; PV.vz = d.fwd[1] * PV.u; return this.dragEnd(); }
     }
     for (const o of d.ai) {
-      if (o.ft != null) continue; const AV = o.V; o.react -= dt; const I: Input = Object.assign({}, NO_INPUT, { fwd: o.react <= 0 ? 1 : 0, manual: true, shiftUp: AV.rpm > AV.P.redline * .95 && AV.shift <= 0, nos: o.s > 60 && AV.gear >= 3 });
+      if (o.ft != null) continue;
+      // on the core: the car drives its own lane (no pins), its distance read off where it is
+      if (o.core) { o.core.frame(o.V, dt); o.s = this.dragS(o.V.x, o.V.z); if (o.s >= a.route.len) o.ft = a.time; continue; }
+      const AV = o.V; o.react -= dt; const I: Input = Object.assign({}, NO_INPUT, { fwd: o.react <= 0 ? 1 : 0, manual: true, shiftUp: AV.rpm > AV.P.redline * .95 && AV.shift <= 0, nos: o.s > 60 && AV.gear >= 3 });
       stepVehicle(AV, I, dt, false); AV.h = d.dir; AV.v = 0; AV.w = 0; AV.vx = d.fwd[0] * AV.u; AV.vz = d.fwd[1] * AV.u; o.s = this.dragS(AV.x, AV.z);
       AV.x = p0.x + d.fwd[0] * o.s + d.right[0] * DRAG_LANES[o.lane]; AV.z = p0.z + d.fwd[1] * o.s + d.right[1] * DRAG_LANES[o.lane];
       if (o.s >= a.route.len) o.ft = a.time;
