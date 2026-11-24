@@ -14,7 +14,9 @@
       "url": "https://carbuzz.com/cars/nissan/gt-r-nismo/2024/specs-and-trims",
       "sourceKind": "reference",
       "note": "CarBuzz's 2024 GT-R NISMO AWD spec page lists a 109.4 in wheelbase. TrueDelta gives 2,779 mm for the 2024 GT-R (trim not stated). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.truedelta.com/Nissan-GT-R/specs-820-2024&r=2"
+      "corroboratingUrl": "https://www.truedelta.com/Nissan-GT-R/specs-820-2024&r=2",
+      "check": "unconfirmed",
+      "checkNote": "Second reader's six searches did not cover body dimensions; no second result either way."
     },
     {
       "key": "trackFrontIn",
@@ -23,7 +25,9 @@
       "url": "https://carbuzz.com/cars/nissan/gt-r-nismo/2024/specs-and-trims",
       "sourceKind": "reference",
       "note": "CarBuzz's 2024 NISMO page lists a 63 in front track. auto-data.net's 2023 NISMO (600 hp) entry gives 1600 mm / 62.99 in front. Auto123's 2024 T-spec (not NISMO) shows 62.6 in; see conflicts. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.auto-data.net/en/nissan-gt-r-r35-facelift-2023-nismo-3.8-v6-600hp-awd-dct-47195"
+      "corroboratingUrl": "https://www.auto-data.net/en/nissan-gt-r-r35-facelift-2023-nismo-3.8-v6-600hp-awd-dct-47195",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's searches; the existing 63.0 vs 62.6 conflict stays open."
     },
     {
       "key": "trackRearIn",
@@ -32,7 +36,9 @@
       "url": "https://autoevolution.com/cars/nissan-gt-r-nismo-2023.html",
       "sourceKind": "reference",
       "note": "From a 2023-model-year NISMO listing (same body; no 2024 NISMO rear-track figure surfaced): autoevolution lists 63 in front and rear; auto-data.net gives rear track 1600 mm / 62.99 in. Auto123's 2024 T-spec also shows 63 in rear. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.auto-data.net/en/nissan-gt-r-r35-facelift-2023-nismo-3.8-v6-600hp-awd-dct-47195"
+      "corroboratingUrl": "https://www.auto-data.net/en/nissan-gt-r-r35-facelift-2023-nismo-3.8-v6-600hp-awd-dct-47195",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's searches; still rests on a 2023-model-year listing."
     },
     {
       "key": "lengthIn",
@@ -41,7 +47,9 @@
       "url": "https://www.edmunds.com/nissan/gt-r/2024/st-402012987/features-specs",
       "sourceKind": "reference",
       "note": "Edmunds' 2024 GT-R NISMO page: length 184.6 in; a 2024 NISMO lease listing agrees. Nissan Japan's NISMO sheet lists 4690 mm. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://infiniteautoleasing.com/products/2024-nissan-gt-r-nismo-2dr-coupe-awd-3-8l-6cyl-turbo-6am"
+      "corroboratingUrl": "https://infiniteautoleasing.com/products/2024-nissan-gt-r-nismo-2dr-coupe-awd-3-8l-6cyl-turbo-6am",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's searches; no second result either way."
     },
     {
       "key": "widthIn",
@@ -50,7 +58,9 @@
       "url": "https://www.edmunds.com/nissan/gt-r/2024/st-402012987/features-specs",
       "sourceKind": "reference",
       "note": "Edmunds' 2024 GT-R NISMO page: width 74.6 in without mirrors. Motor Matchup's NISMO page also lists 74.6 in; Nissan Japan's NISMO sheet lists 1895 mm. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.motormatchup.com/catalog/Nissan/GT_R/2024/NISMO-AWD"
+      "corroboratingUrl": "https://www.motormatchup.com/catalog/Nissan/GT_R/2024/NISMO-AWD",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's searches; no second result either way."
     },
     {
       "key": "heightIn",
@@ -59,7 +69,9 @@
       "url": "https://www.edmunds.com/nissan/gt-r/2024/st-402012987/features-specs",
       "sourceKind": "reference",
       "note": "Edmunds' 2024 GT-R NISMO page: height 53.9 in. Motor Matchup's NISMO page also lists 53.9 in; Nissan Japan's NISMO sheet lists 1370 mm. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.motormatchup.com/catalog/Nissan/GT_R/2024/NISMO-AWD"
+      "corroboratingUrl": "https://www.motormatchup.com/catalog/Nissan/GT_R/2024/NISMO-AWD",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's searches; no second result either way."
     },
     {
       "key": "curbWeightLb",
@@ -68,7 +80,9 @@
       "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
       "sourceKind": "manufacturer",
       "note": "Copied from the card research. NISMO table in the press kit: 2,119 lb front + 1,748 lb rear = 3,867 lb, GVWR 4,727 lb. Edmunds' NISMO page also lists 3,867 lb. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.edmunds.com/nissan/gt-r/2024/st-402012987/features-specs"
+      "corroboratingUrl": "https://www.edmunds.com/nissan/gt-r/2024/st-402012987/features-specs",
+      "check": "confirmed",
+      "checkNote": "A second-reader search summary quotes Edmunds listing the 2024 NISMO at 3,867 lb (Motor Matchup 3,865 lb); an Australian 2017 NISMO brochure's 1,739 kg and auto-data.net's 1,703 kg are other markets/years and were not used."
     },
     {
       "key": "weightDistFrontPct",
@@ -77,7 +91,9 @@
       "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
       "sourceKind": "manufacturer",
       "note": "Copied from the card research: the press kit's NISMO table gives a 54/46 front/rear split (2,119 lb front, 1,748 lb rear). An R35 specification table republished by australiancar.reviews also shows 54/46. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://australiancar.reviews/_pdfs/Nissan_GT-R_R35_Specifications_201701.pdf"
+      "corroboratingUrl": "https://australiancar.reviews/_pdfs/Nissan_GT-R_R35_Specifications_201701.pdf",
+      "check": "confirmed",
+      "checkNote": "Australian R35 NISMO brochure (australiancar.reviews, 2017) and the R35 spec sheet both give 54/46; note the record's own press-kit axle weights (2,119 / 3,867 lb) work out to 54.8% front, so 54 is Nissan's rounded quote, not the axle-weight ratio."
     },
     {
       "key": "engineDescription",
@@ -86,7 +102,9 @@
       "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
       "sourceKind": "manufacturer",
       "note": "Copied from the card research. Press kit lists bore x stroke 95.5 x 88.4 mm; the 'DOHC 24-valve' wording is from nissanusa.com's 2024 trim page. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.nissanusa.com/interactivebrochures/sportscars/gtr/gt-r-trim-levels/index.html?nav=top"
+      "corroboratingUrl": "https://www.nissanusa.com/interactivebrochures/sportscars/gtr/gt-r-trim-levels/index.html?nav=top",
+      "check": "unconfirmed",
+      "checkNote": "Search results named the VR38DETT 3.8 V6 for the NISMO, but none surfaced the 'NISMO GT3 twin-turbo' or 'DOHC 24-valve' wording."
     },
     {
       "key": "powertrain",
@@ -95,7 +113,9 @@
       "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
       "sourceKind": "manufacturer",
       "note": "Copied from the card research (fuelType): premium unleaded, 93 AKI recommended for the NISMO; EPA lists premium gasoline. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.fueleconomy.gov/feg/bymodel/2024_Nissan_GT-R.shtml"
+      "corroboratingUrl": "https://www.fueleconomy.gov/feg/bymodel/2024_Nissan_GT-R.shtml",
+      "check": "unconfirmed",
+      "checkNote": "No second-reader search addressed fuel type."
     },
     {
       "key": "induction",
@@ -103,7 +123,9 @@
       "publisher": "Nissan USA Newsroom (2024 GT-R press kit)",
       "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
       "sourceKind": "manufacturer",
-      "note": "Copied from the card research (aspiration): press kit describes a twin-turbo V6 with the NISMO GT3 twin-turbo system. Read from search-result summary; page not opened."
+      "note": "Copied from the card research (aspiration): press kit describes a twin-turbo V6 with the NISMO GT3 twin-turbo system. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "No second-reader search result stated twin-turbo in its summary."
     },
     {
       "key": "displacementL",
@@ -112,7 +134,9 @@
       "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
       "sourceKind": "manufacturer",
       "note": "Copied from the card research. Press kit: 3.8-liter; EPA lists 3.8 L. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.fueleconomy.gov/feg/bymodel/2024_Nissan_GT-R.shtml"
+      "corroboratingUrl": "https://www.fueleconomy.gov/feg/bymodel/2024_Nissan_GT-R.shtml",
+      "check": "confirmed",
+      "checkNote": "An auto-data.net NISMO listing surfaced in the second reader's search is titled '2016 NISMO 3.8 V6 600hp AWD DCT' (same 600 hp engine, earlier year)."
     },
     {
       "key": "cylinders",
@@ -121,7 +145,9 @@
       "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
       "sourceKind": "manufacturer",
       "note": "Copied from the card research. V6; EPA lists 6 cyl. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.fueleconomy.gov/feg/bymodel/2024_Nissan_GT-R.shtml"
+      "corroboratingUrl": "https://www.fueleconomy.gov/feg/bymodel/2024_Nissan_GT-R.shtml",
+      "check": "confirmed",
+      "checkNote": "auto-data.net's NISMO listing title gives '3.8 V6 600hp' and Nissan Japan's sheet names the VR38DETT V6 in a second-reader search summary."
     },
     {
       "key": "horsepower",
@@ -130,7 +156,9 @@
       "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
       "sourceKind": "manufacturer",
       "note": "Copied from the card research: 600 hp @ 6,800 rpm, NISMO only. Nissan Japan's NISMO sheet: 441 kW (600 PS) / 6800 rpm. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www3.nissan.co.jp/content/dam/Nissan/jp/vehicles/GT-R/pdf/gt-r_nismo_specification.pdf"
+      "corroboratingUrl": "https://www3.nissan.co.jp/content/dam/Nissan/jp/vehicles/GT-R/pdf/gt-r_nismo_specification.pdf",
+      "check": "confirmed",
+      "checkNote": "Second-reader searches: Nissan's 2024 US brochure gives the NISMO 600 hp, and Nissan Japan's sheet plus Nissan UK's 2017 NISMO release give 441 kW (600 PS)."
     },
     {
       "key": "horsepowerRpm",
@@ -139,7 +167,9 @@
       "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
       "sourceKind": "manufacturer",
       "note": "600 hp @ 6,800 rpm (press kit, per the card research); Nissan Japan's NISMO sheet gives 441 kW (600 PS) at 6800 rpm. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www3.nissan.co.jp/content/dam/Nissan/jp/vehicles/GT-R/pdf/gt-r_nismo_specification.pdf"
+      "corroboratingUrl": "https://www3.nissan.co.jp/content/dam/Nissan/jp/vehicles/GT-R/pdf/gt-r_nismo_specification.pdf",
+      "check": "confirmed",
+      "checkNote": "Nissan Japan's NISMO sheet and Nissan UK's NISMO release both give 441 kW (600 PS) at 6800 rpm in a second-reader search summary; no US 2024 rpm figure surfaced (TrueDelta's 6800 rpm is for the 565 hp trims)."
     },
     {
       "key": "torqueLbFt",
@@ -148,7 +178,9 @@
       "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
       "sourceKind": "manufacturer",
       "note": "Copied from the card research: 481 lb-ft @ 3,600-5,600 rpm, NISMO only. Nissan Japan's sheet: 652 N-m at 3600-5600 rpm. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www3.nissan.co.jp/content/dam/Nissan/jp/vehicles/GT-R/pdf/gt-r_nismo_specification.pdf"
+      "corroboratingUrl": "https://www3.nissan.co.jp/content/dam/Nissan/jp/vehicles/GT-R/pdf/gt-r_nismo_specification.pdf",
+      "check": "confirmed",
+      "checkNote": "Nissan's 2024 US brochure gives the NISMO 481 lb-ft (second-reader search summary); Nissan Japan's sheet gives 652 Nm."
     },
     {
       "key": "torqueRpmLow",
@@ -157,7 +189,9 @@
       "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
       "sourceKind": "manufacturer",
       "note": "481 lb-ft @ 3,600-5,600 rpm (press kit); Nissan Japan's NISMO sheet gives 652 N-m at 3600-5600 rpm. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www3.nissan.co.jp/content/dam/Nissan/jp/vehicles/GT-R/pdf/gt-r_nismo_specification.pdf"
+      "corroboratingUrl": "https://www3.nissan.co.jp/content/dam/Nissan/jp/vehicles/GT-R/pdf/gt-r_nismo_specification.pdf",
+      "check": "confirmed",
+      "checkNote": "Nissan Japan's NISMO sheet and Nissan UK's NISMO release give 652 Nm across 3600-5600 rpm (second-reader search summary)."
     },
     {
       "key": "torqueRpmHigh",
@@ -166,7 +200,9 @@
       "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
       "sourceKind": "manufacturer",
       "note": "481 lb-ft @ 3,600-5,600 rpm (press kit); Nissan Japan's NISMO sheet gives 652 N-m at 3600-5600 rpm. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www3.nissan.co.jp/content/dam/Nissan/jp/vehicles/GT-R/pdf/gt-r_nismo_specification.pdf"
+      "corroboratingUrl": "https://www3.nissan.co.jp/content/dam/Nissan/jp/vehicles/GT-R/pdf/gt-r_nismo_specification.pdf",
+      "check": "confirmed",
+      "checkNote": "Nissan Japan's NISMO sheet and Nissan UK's NISMO release give 652 Nm across 3600-5600 rpm (second-reader search summary)."
     },
     {
       "key": "redlineRpm",
@@ -174,7 +210,9 @@
       "publisher": "Encycarpedia",
       "url": "https://www.encycarpedia.com/us/nissan/20-gt-r-nismo-coupe",
       "sourceKind": "reference",
-      "note": "The search summary said 'one engine-database entry lists a maximum engine speed of 7,100 rpm and a compression ratio of 9.0:1 for the 600 hp NISMO' without naming which result; the Encycarpedia 2020 GT-R NISMO page was the matching engine-database result in the list, so the attribution to this URL is not certain. It is a maximum engine speed for the 2020-on 600 hp NISMO engine, not a tachometer redline quoted by Nissan. Read from search-result summary; page not opened."
+      "note": "The search summary said 'one engine-database entry lists a maximum engine speed of 7,100 rpm and a compression ratio of 9.0:1 for the 600 hp NISMO' without naming which result; the Encycarpedia 2020 GT-R NISMO page was the matching engine-database result in the list, so the attribution to this URL is not certain. It is a maximum engine speed for the 2020-on 600 hp NISMO engine, not a tachometer redline quoted by Nissan. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "A gear-ratio search found no stock redline (only an aftermarket claim quoting speeds at 7,000-8,000 rpm); the attribution to Encycarpedia stays uncertain, though 7,100 rpm is consistent with the 196 mph top speed (see topSpeedMph)."
     },
     {
       "key": "compressionRatio",
@@ -183,7 +221,9 @@
       "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
       "sourceKind": "manufacturer",
       "note": "From the card research: the press kit lists 9.0:1 compression. An engine-database result for the 600 hp NISMO also states 9.0:1. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.encycarpedia.com/us/nissan/20-gt-r-nismo-coupe"
+      "corroboratingUrl": "https://www.encycarpedia.com/us/nissan/20-gt-r-nismo-coupe",
+      "check": "unconfirmed",
+      "checkNote": "No second-reader search addressed compression ratio."
     },
     {
       "key": "drivetrain",
@@ -191,7 +231,9 @@
       "publisher": "Nissan USA Newsroom (2024 GT-R press kit)",
       "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
       "sourceKind": "manufacturer",
-      "note": "Copied from the card research: ATTESA E-TS all-wheel drive with rear-mounted transaxle. Read from search-result summary; page not opened."
+      "note": "Copied from the card research: ATTESA E-TS all-wheel drive with rear-mounted transaxle. Read from search-result summary; page not opened.",
+      "check": "confirmed",
+      "checkNote": "auto-data.net's NISMO listing title reads '600hp AWD DCT' and Nissan's GT-R page says the AWD system can send up to 50% of torque to the front (second-reader search summaries)."
     },
     {
       "key": "awdSystem",
@@ -200,7 +242,9 @@
       "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
       "sourceKind": "manufacturer",
       "note": "Press kit (via the card research) names ATTESA E-TS with a rear-mounted transaxle. A Nissan source in the results says the split is 'set at 0:100 during normal driving, but it can be adjusted up to 50:50'; nissanusa.com says up to 50% of torque can go to the front wheels. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.nissanusa.com/interactivebrochures/sportscars/gtr/nissan-gt-r/index"
+      "corroboratingUrl": "https://www.nissanusa.com/interactivebrochures/sportscars/gtr/nissan-gt-r/index",
+      "check": "confirmed",
+      "checkNote": "A second-reader search summary quotes Nissan: up to 50% of torque to the front wheels and a rear-mounted transaxle; the 0:100 normal-driving split was not re-checked."
     },
     {
       "key": "transmissionType",
@@ -209,7 +253,9 @@
       "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
       "sourceKind": "manufacturer",
       "note": "Copied from the card research: 6-speed dual-clutch sequential rear transaxle (GR6). EPA lists it as Automatic (AM-S6). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www3.nissan.co.jp/content/dam/Nissan/jp/vehicles/GT-R/pdf/gt-r_nismo_specification.pdf"
+      "corroboratingUrl": "https://www3.nissan.co.jp/content/dam/Nissan/jp/vehicles/GT-R/pdf/gt-r_nismo_specification.pdf",
+      "check": "confirmed",
+      "checkNote": "auto-data.net's NISMO listing title ends 'AWD DCT', and gear-ratio results describe the GR6 six-speed transaxle."
     },
     {
       "key": "gearCount",
@@ -218,7 +264,9 @@
       "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
       "sourceKind": "manufacturer",
       "note": "6-speed dual-clutch (press kit); Nissan Japan's NISMO sheet lists six forward ratios for the GR6. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www3.nissan.co.jp/content/dam/Nissan/jp/vehicles/GT-R/pdf/gt-r_nismo_specification.pdf"
+      "corroboratingUrl": "https://www3.nissan.co.jp/content/dam/Nissan/jp/vehicles/GT-R/pdf/gt-r_nismo_specification.pdf",
+      "check": "confirmed",
+      "checkNote": "goo-net-exchange's R35 listing gives six forward ratios (1st-6th) plus reverse, matching the six ratios recorded."
     },
     {
       "key": "gearRatios",
@@ -234,7 +282,9 @@
       "url": "https://www3.nissan.co.jp/content/dam/Nissan/jp/vehicles/GT-R/pdf/gt-r_nismo_specification.pdf",
       "sourceKind": "manufacturer",
       "note": "Nissan Japan's GT-R NISMO spec sheet lists the GR6 dual-clutch ratios 4.056 / 2.301 / 1.595 / 1.248 / 1.001 / 0.796, reverse 3.383. Japan-market document for the same NISMO powertrain; Motor Matchup's US 2024 NISMO page shows the same set rounded (4.06, 2.3, 1.59, 1.25, 1.0, 0.8). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.motormatchup.com/catalog/Nissan/GT_R/2024/NISMO-AWD"
+      "corroboratingUrl": "https://www.motormatchup.com/catalog/Nissan/GT_R/2024/NISMO-AWD",
+      "check": "confirmed",
+      "checkNote": "goo-net-exchange's R35 listing gives exactly 4.056 / 2.301 / 1.595 / 1.248 / 1.001 / 0.796, reverse 3.383, and Jack's Transmissions' GR6 chart shows the same 4.056 first gear; trim not stated in those results, but it matches the NISMO sheet."
     },
     {
       "key": "finalDriveRatio",
@@ -243,7 +293,9 @@
       "url": "https://www.auto123.com/en/specs/nissan/gt-r/nissan-gt-r-2024-nismo-coup-440973/",
       "sourceKind": "reference",
       "note": "Auto123's 2024 NISMO listing gives a 3.70 final drive axle ratio; Motor Matchup's 2024 NISMO page lists 3.7. This is the REAR final drive: a Nissan R35 specification table republished by australiancar.reviews lists final drive F: 2.937 and R: 3.700. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://australiancar.reviews/_pdfs/Nissan_GT-R_R35_Specifications_201701.pdf"
+      "corroboratingUrl": "https://australiancar.reviews/_pdfs/Nissan_GT-R_R35_Specifications_201701.pdf",
+      "check": "confirmed",
+      "checkNote": "goo-net-exchange's R35 listing gives a 3.700 final drive and Jack's Transmissions calls 3.7:1 the stock final drive."
     },
     {
       "key": "differential",
@@ -252,7 +304,9 @@
       "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
       "sourceKind": "manufacturer",
       "note": "Nissan's release: 'the 2024 GT-R NISMO benefits from a front limited-slip differential for the first time'. A 2023 NISMO spec listing shows a limited slip differential (type not stated). No result gave the mechanical type or lock-up figures. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://thetruthaboutcars.com/cars/news-blog/one-more-time-nissan-gt-r-updated-for-2024-44498758"
+      "corroboratingUrl": "https://thetruthaboutcars.com/cars/news-blog/one-more-time-nissan-gt-r-updated-for-2024-44498758",
+      "check": "unconfirmed",
+      "checkNote": "No second-reader search addressed the differential."
     },
     {
       "key": "tyreFront",
@@ -261,7 +315,9 @@
       "url": "https://www3.nissan.co.jp/content/dam/Nissan/jp/vehicles/GT-R/pdf/gt-r_nismo_specification.pdf",
       "sourceKind": "manufacturer",
       "note": "Nissan Japan's NISMO sheet and Tractionlife's 2024 NISMO spec article both give front 255/40ZRF20 (run-flat). Dunlop's release lists 255/40ZRF20 (101Y) XL. US retail fitment sites print it as 255/40R20 or P255/40ZR20. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://tractionlife.com/2024-nissan-gt-r-nismo-specs-and-changes/"
+      "corroboratingUrl": "https://tractionlife.com/2024-nissan-gt-r-nismo-specs-and-changes/",
+      "check": "confirmed",
+      "checkNote": "Big O Tires' 2023/2024 GT-R NISMO fitment shows 255/40ZR20 (101Y) XL front; the run-flat 'ZRF' marking itself was not confirmed by any result."
     },
     {
       "key": "tyreRear",
@@ -270,7 +326,9 @@
       "url": "https://www3.nissan.co.jp/content/dam/Nissan/jp/vehicles/GT-R/pdf/gt-r_nismo_specification.pdf",
       "sourceKind": "manufacturer",
       "note": "Nissan Japan's NISMO sheet and Tractionlife's 2024 NISMO spec article both give rear 285/35ZRF20 (run-flat). Dunlop's release lists 285/35ZRF20 (104Y) XL. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://tractionlife.com/2024-nissan-gt-r-nismo-specs-and-changes/"
+      "corroboratingUrl": "https://tractionlife.com/2024-nissan-gt-r-nismo-specs-and-changes/",
+      "check": "confirmed",
+      "checkNote": "Big O Tires' 2023/2024 GT-R NISMO fitment shows 285/35ZR20 (104Y) XL rear; the run-flat 'ZRF' marking itself was not confirmed by any result."
     },
     {
       "key": "tyreModel",
@@ -279,7 +337,9 @@
       "url": "https://tractionlife.com/2024-nissan-gt-r-nismo-specs-and-changes/",
       "sourceKind": "reference",
       "note": "Tractionlife's 2024 NISMO article: 'Dunlop SP Sport Maxx GT600 ultra-high performance run-flat tires, NISMO-specific compound'. Dunlop (Sumitomo Rubber) says the SP Sport Maxx GT600 DSST has been the factory tyre on every GT-R since the 2011 model; a UK retailer says the NR1 version is homologated for the GT-R and GT-R NISMO. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://sumitomorubber-usa.com/news/article:01-19-2022-12-00am"
+      "corroboratingUrl": "https://sumitomorubber-usa.com/news/article:01-19-2022-12-00am",
+      "check": "confirmed",
+      "checkNote": "Tire-size listings in a second-reader search show the Dunlop SP Sport Maxx GT 600 DSST CTT in 255/40R20 and 285/35R20; the 'NISMO-specific compound' claim was not re-confirmed."
     },
     {
       "key": "tyreCategory",
@@ -287,7 +347,9 @@
       "publisher": "Tractionlife",
       "url": "https://tractionlife.com/2024-nissan-gt-r-nismo-specs-and-changes/",
       "sourceKind": "reference",
-      "note": "Classification mapped from the source's wording 'ultra-high performance run-flat tires, NISMO-specific compound'; no result used the exact category label. Read from search-result summary; page not opened."
+      "note": "Classification mapped from the source's wording 'ultra-high performance run-flat tires, NISMO-specific compound'; no result used the exact category label. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "Category is a mapping from wording; no second-reader result labelled the tyre's category."
     },
     {
       "key": "dragCoefficient",
@@ -296,7 +358,9 @@
       "url": "https://www.nissanusa.com/interactivebrochures/sportscars/gtr/gt-r-aerodynamics/index.html",
       "sourceKind": "manufacturer",
       "note": "nissanusa.com aerodynamics page: 'an incredibly clean drag coefficient of just 0.26 Cd'; the 2024 press kit says the drag coefficient is unchanged at 0.26 despite more downforce. Stated for the 2024 GT-R range, not separately for the NISMO with its larger swan-neck wing; Motor Matchup's NISMO page also lists 0.26. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.motormatchup.com/catalog/Nissan/GT_R/2024/NISMO-AWD"
+      "corroboratingUrl": "https://www.motormatchup.com/catalog/Nissan/GT_R/2024/NISMO-AWD",
+      "check": "unconfirmed",
+      "checkNote": "A second-reader search aimed at the 0.26 Cd returned no result mentioning it."
     },
     {
       "key": "turningCircleFt",
@@ -305,7 +369,9 @@
       "url": "https://carbuzz.com/cars/nissan/gt-r-nismo/2024/specs-and-trims",
       "sourceKind": "reference",
       "note": "CarBuzz's 2024 NISMO page lists 37.4 ft; iSeeCars shows 37.4 ft for the NISMO coupe; autoevolution and auto-data.net give 11.4 m / 37.4 ft for the 2023 NISMO. KBB's 2024 table shows 36.6 ft for the other trims. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.iseecars.com/car/nissan-gt-r-specs"
+      "corroboratingUrl": "https://www.iseecars.com/car/nissan-gt-r-specs",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's searches."
     },
     {
       "key": "brakeFrontDiscIn",
@@ -314,7 +380,9 @@
       "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
       "sourceKind": "manufacturer",
       "note": "Copied from the card research (brakesFront): Brembo six-piston calipers, 16.14 x 1.50 in vented and drilled carbon-ceramic rotors; nissanusa.com gives the same 16.14 in. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.nissanusa.com/interactivebrochures/sportscars/gtr/gt-r-trim-levels/index.html?nav=top"
+      "corroboratingUrl": "https://www.nissanusa.com/interactivebrochures/sportscars/gtr/gt-r-trim-levels/index.html?nav=top",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's searches."
     },
     {
       "key": "brakeRearDiscIn",
@@ -323,7 +391,9 @@
       "url": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
       "sourceKind": "manufacturer",
       "note": "Copied from the card research (brakesRear): Brembo four-piston calipers, 15.35 x 1.26 in vented and drilled carbon-ceramic rotors; nissanusa.com gives the same 15.35 in. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.nissanusa.com/interactivebrochures/sportscars/gtr/gt-r-trim-levels/index.html?nav=top"
+      "corroboratingUrl": "https://www.nissanusa.com/interactivebrochures/sportscars/gtr/gt-r-trim-levels/index.html?nav=top",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's searches."
     },
     {
       "key": "topSpeedMph",
@@ -332,7 +402,9 @@
       "url": "https://www.evo.co.uk/nissan/gt-r/nismo",
       "sourceKind": "reference",
       "note": "Copied from the card research. Nissan USA publishes no top speed for the 2024 GT-R NISMO; 196 mph (315 km/h) is Nissan's European-market claim for the 600 PS NISMO shown in evo's spec panel, and mobile.de states Nissan gives 315 km/h. US outlets commonly quote 205 mph (see conflicts). Not a US or 2024-specific figure. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.mobile.de/auto/nissan/gt-r/2009/coupe/modell/daten-fakten/"
+      "corroboratingUrl": "https://www.mobile.de/auto/nissan/gt-r/2009/coupe/modell/daten-fakten/",
+      "check": "unconfirmed",
+      "checkNote": "No second-reader search addressed top speed; internally, 196 mph needs about 6,970 rpm in 6th (0.796 x 3.700, 285/35R20 rear), inside the 7,100 rpm limit, whereas the conflicting 205 mph would need about 7,290 rpm."
     },
     {
       "key": "epaCombinedMpg",
@@ -341,7 +413,9 @@
       "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Nissan_GT-R.shtml",
       "sourceKind": "agency",
       "note": "Copied from the card research. Single 2024 GT-R entry (6 cyl, 3.8 L, Automatic AM-S6), not split by trim; Nissan's press kit repeats 16/22/18 for the NISMO. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit"
+      "corroboratingUrl": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's searches."
     },
     {
       "key": "epaCityMpg",
@@ -350,7 +424,9 @@
       "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Nissan_GT-R.shtml",
       "sourceKind": "agency",
       "note": "Copied from the card research. Single 2024 GT-R entry, not split by trim; press kit repeats 16/22/18 for the NISMO. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit"
+      "corroboratingUrl": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's searches."
     },
     {
       "key": "epaHighwayMpg",
@@ -359,7 +435,9 @@
       "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Nissan_GT-R.shtml",
       "sourceKind": "agency",
       "note": "Copied from the card research. Single 2024 GT-R entry, not split by trim; press kit repeats 16/22/18 for the NISMO. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit"
+      "corroboratingUrl": "https://usa.nissannews.com/en-US/releases/2024-nissan-gt-r-press-kit",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's searches."
     },
     {
       "key": "test0to60Sec",
@@ -368,7 +446,9 @@
       "url": "https://motorweek.org/reviews/road_tests/2020-nissan-gt-r-nismo",
       "sourceKind": "test",
       "note": "MotorWeek's road test of a 2020 GT-R NISMO: '0-60 mph: 3.3 seconds'. NOT a 2024 car: same 600 hp engine, 6-speed dual-clutch and AWD, carbon-ceramic brakes, but before the 2024 front limited-slip differential and aero changes. Whether MotorWeek subtracts a one-foot rollout was not stated, so testRollout is left blank. No 2024 NISMO instrumented test was found. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.0-60specs.com/nissan/gt-r-0-60-times"
+      "corroboratingUrl": "https://www.0-60specs.com/nissan/gt-r-0-60-times",
+      "check": "confirmed",
+      "checkNote": "Checked first as doubtful: second-reader searches show MotorWeek's own 2020 GT-R NISMO page and 0-60specs (crediting MotorWeek) both give 3.3 s, and no instrumented sub-3 s result for a 2020-2024 NISMO surfaced (2.9 s figures were tied to other years/Track Edition); one database credits the same 3.3/11.4 to Car and Driver, which looks like a mis-attribution. Still a 2020 car with rollout practice unknown."
     },
     {
       "key": "testQuarterMileSec",
@@ -377,7 +457,9 @@
       "url": "https://motorweek.org/reviews/road_tests/2020-nissan-gt-r-nismo",
       "sourceKind": "test",
       "note": "MotorWeek 2020 GT-R NISMO road test: '1/4 Mile: 11.4 seconds @ 125 mph'. 2020 model year, same engine, transmission and drive as the 2024 NISMO. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.0-60specs.com/nissan/gt-r-0-60-times"
+      "corroboratingUrl": "https://www.0-60specs.com/nissan/gt-r-0-60-times",
+      "check": "confirmed",
+      "checkNote": "MotorWeek's 2020 GT-R NISMO page in a second-reader search says its best quarter-mile run was 11.4 s at 125 mph; 0-60specs lists the same run."
     },
     {
       "key": "testQuarterMileMph",
@@ -386,7 +468,9 @@
       "url": "https://motorweek.org/reviews/road_tests/2020-nissan-gt-r-nismo",
       "sourceKind": "test",
       "note": "MotorWeek 2020 GT-R NISMO road test: '1/4 Mile: 11.4 seconds @ 125 mph'. 2020 model year, same engine, transmission and drive as the 2024 NISMO. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.0-60specs.com/nissan/gt-r-0-60-times"
+      "corroboratingUrl": "https://www.0-60specs.com/nissan/gt-r-0-60-times",
+      "check": "confirmed",
+      "checkNote": "MotorWeek's 2020 GT-R NISMO page in a second-reader search says its best quarter-mile run was 11.4 s at 125 mph; 0-60specs lists the same run."
     },
     {
       "key": "testSkidpadG",
@@ -394,7 +478,9 @@
       "publisher": "MotorTrend (as quoted on the GT-R Life forum)",
       "url": "https://www.gtrlife.com/threads/motortrend-best-drivers-car-2017-gtr-nismo-11th-place.270865/",
       "sourceKind": "reference",
-      "note": "Copied from the card research (lateralGripG). NOT the 2024 car: MotorTrend's skidpad average for a 2017 GT-R NISMO (Best Driver's Car 2017), quoted second-hand on a forum. Same 600 hp engine, dual-clutch and AWD, but it predates the 2020 tyre, turbo and carbon-ceramic brake update and the 2024 front limited-slip differential. Use as a loose check only. Read from search-result summary; page not opened."
+      "note": "Copied from the card research (lateralGripG). NOT the 2024 car: MotorTrend's skidpad average for a 2017 GT-R NISMO (Best Driver's Car 2017), quoted second-hand on a forum. Same 600 hp engine, dual-clutch and AWD, but it predates the 2020 tyre, turbo and carbon-ceramic brake update and the 2024 front limited-slip differential. Use as a loose check only. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's searches; still a second-hand forum quote of a 2017 NISMO, so it does not meet the README's same-configuration rule for test figures."
     },
     {
       "key": "testBraking60to0Ft",
@@ -402,7 +488,9 @@
       "publisher": "MotorTrend (as quoted on the GT-R Life forum)",
       "url": "https://www.gtrlife.com/threads/motortrend-best-drivers-car-2017-gtr-nismo-11th-place.270865/",
       "sourceKind": "reference",
-      "note": "Copied from the card research (braking60to0Ft). NOT the 2024 car: MotorTrend's 60-0 mph stop for a 2017 GT-R NISMO with steel rotors, quoted second-hand on a forum; the 2024 NISMO has carbon-ceramic rotors. Same engine, transmission and drive. Use as a loose check only. Read from search-result summary; page not opened."
+      "note": "Copied from the card research (braking60to0Ft). NOT the 2024 car: MotorTrend's 60-0 mph stop for a 2017 GT-R NISMO with steel rotors, quoted second-hand on a forum; the 2024 NISMO has carbon-ceramic rotors. Same engine, transmission and drive. Use as a loose check only. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's searches; still a second-hand forum quote of a 2017 NISMO with different brakes, so it does not meet the README's same-configuration rule for test figures."
     }
   ],
   "notFound": [
@@ -439,7 +527,7 @@
         3.3,
         2.9
       ],
-      "note": "Kept 3.3 s, MotorWeek's own 2020 NISMO test, the only instrumented result found on the tester's page for a carbon-brake (2020-on) NISMO. 2.9 s appears for MotorTrend's 2015 and 2017 NISMO tests (forum reposts) and as a Car and Driver figure with 11.1 s @ 126 mph that one summary tied to a 2022 NISMO and another (0-60specs) to a 2018 Track Edition, so it was not recorded. Motor Matchup's 2.63-3.12 s values are simulations. Read from search-result summary; page not opened."
+      "note": "Kept 3.3 s, MotorWeek's own 2020 NISMO test, the only instrumented result found on the tester's page for a carbon-brake (2020-on) NISMO. 2.9 s appears for MotorTrend's 2015 and 2017 NISMO tests (forum reposts) and as a Car and Driver figure with 11.1 s @ 126 mph that one summary tied to a 2022 NISMO and another (0-60specs) to a 2018 Track Edition, so it was not recorded. Motor Matchup's 2.63-3.12 s values are simulations. Read from search-result summary; page not opened. Second reader: MotorWeek's 2020 NISMO page and 0-60specs again give 3.3 s / 11.4 s @ 125 mph; one database credits those same figures to Car and Driver, and no 2.9 s or quicker result was tied to a 2020-2024 NISMO in the second reader's searches."
     },
     {
       "key": "topSpeedMph",

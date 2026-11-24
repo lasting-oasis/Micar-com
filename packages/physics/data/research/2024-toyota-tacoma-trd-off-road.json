@@ -14,7 +14,9 @@
       "url": "https://www.tacoma4g.com/forum/attachments/2024_toyota_tacoma_product_information-pdf.12235",
       "sourceKind": "reference",
       "note": "Toyota's product information sheet gives the 4x4 Double Cab table as 'wheelbase of 145.1 in. and 131.9 in.'; 131.9 in is the 5-ft bed and 145.1 in the 6-ft bed. This record assumes the 5-ft bed (the bed of the Car and Driver test truck per 0-60specs, and of the Edmunds TRD Off-Road automatic listing). CarSpecs' 2024 TRD Off-Road Double Cab 5' Bed listing also gives '131.90 in. Wheelbase'. Toyota document re-hosted on a forum, so marked republished. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.carspecs.us/cars/2024/toyota/tacoma/99055"
+      "corroboratingUrl": "https://www.carspecs.us/cars/2024/toyota/tacoma/99055",
+      "check": "unconfirmed",
+      "checkNote": "None of the second reader's six searches surfaced a wheelbase figure, so 131.9 in stands on the first reader's Toyota sheet and CarSpecs summaries only."
     },
     {
       "key": "trackFrontIn",
@@ -22,7 +24,9 @@
       "publisher": "Toyota (2024 Tacoma product information sheet, copy hosted on Tacoma4G forum)",
       "url": "https://www.tacoma4g.com/forum/attachments/2024_toyota_tacoma_product_information-pdf.12235",
       "sourceKind": "reference",
-      "note": "The sheet lists front and rear tread of 65.6, 66.0 or 66.9 in depending on wheel and tire package, and its footnotes tie 66.0 in to the 265/70R17 tires on the Off-Road grade. The summary warned the table layout makes the row-to-value mapping hard to verify, so treat as probable rather than certain. Velocity Journal's generic 2024 Double Cab entry gives 65.6 in (see conflicts). Read from search-result summary; page not opened."
+      "note": "The sheet lists front and rear tread of 65.6, 66.0 or 66.9 in depending on wheel and tire package, and its footnotes tie 66.0 in to the 265/70R17 tires on the Off-Road grade. The summary warned the table layout makes the row-to-value mapping hard to verify, so treat as probable rather than certain. Velocity Journal's generic 2024 Double Cab entry gives 65.6 in (see conflicts). Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "No second-reader search result gave a front tread figure either way; the first reader's own warning about the sheet's row-to-value mapping still applies."
     },
     {
       "key": "trackRearIn",
@@ -30,7 +34,9 @@
       "publisher": "Toyota (2024 Tacoma product information sheet, copy hosted on Tacoma4G forum)",
       "url": "https://www.tacoma4g.com/forum/attachments/2024_toyota_tacoma_product_information-pdf.12235",
       "sourceKind": "reference",
-      "note": "Same sheet and footnote as trackFrontIn: front and rear tread both 66.0 in with the Off-Road grade's 265/70R17 tires; 65.6 in and 66.9 in belong to other wheel/tire packages. Row-to-value mapping flagged as hard to verify in the summary. Read from search-result summary; page not opened."
+      "note": "Same sheet and footnote as trackFrontIn: front and rear tread both 66.0 in with the Off-Road grade's 265/70R17 tires; 65.6 in and 66.9 in belong to other wheel/tire packages. Row-to-value mapping flagged as hard to verify in the summary. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "No second-reader search result gave a rear tread figure either way."
     },
     {
       "key": "lengthIn",
@@ -38,7 +44,9 @@
       "publisher": "CarSpecs.us",
       "url": "https://www.carspecs.us/cars/2024/toyota/tacoma/99055",
       "sourceKind": "reference",
-      "note": "CarSpecs' listing for the 2024 TRD Off-Road Double Cab 5' Bed (the manual-transmission listing; body is the same as the automatic) reads '213.00 in. Length, 77.90 Width, 74.50 in. Height, 131.90 in. Wheelbase'. The search returned two CarSpecs 2024 Tacoma pages (ids 99055 and 98704) and the summary did not say which one held these figures. No Toyota length figure surfaced. Read from search-result summary; page not opened."
+      "note": "CarSpecs' listing for the 2024 TRD Off-Road Double Cab 5' Bed (the manual-transmission listing; body is the same as the automatic) reads '213.00 in. Length, 77.90 Width, 74.50 in. Height, 131.90 in. Wheelbase'. The search returned two CarSpecs 2024 Tacoma pages (ids 99055 and 98704) and the summary did not say which one held these figures. No Toyota length figure surfaced. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "No second-reader search result gave an overall length either way."
     },
     {
       "key": "widthIn",
@@ -46,7 +54,9 @@
       "publisher": "CarSpecs.us",
       "url": "https://www.carspecs.us/cars/2024/toyota/tacoma/99055",
       "sourceKind": "reference",
-      "note": "CarSpecs' 2024 TRD Off-Road Double Cab 5' Bed listing: '77.90 Width'. Whether this excludes mirrors was not stated. Same page-id caveat as lengthIn (99055 or 98704). Read from search-result summary; page not opened."
+      "note": "CarSpecs' 2024 TRD Off-Road Double Cab 5' Bed listing: '77.90 Width'. Whether this excludes mirrors was not stated. Same page-id caveat as lengthIn (99055 or 98704). Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "No second-reader search result gave a width either way."
     },
     {
       "key": "heightIn",
@@ -54,7 +64,9 @@
       "publisher": "CarSpecs.us",
       "url": "https://www.carspecs.us/cars/2024/toyota/tacoma/99055",
       "sourceKind": "reference",
-      "note": "CarSpecs' 2024 TRD Off-Road Double Cab 5' Bed listing: '74.50 in. Height'. Edmunds' 2025 TRD Off-Road page gives 73.9 in (different model year; see conflicts). Same page-id caveat as lengthIn. Read from search-result summary; page not opened."
+      "note": "CarSpecs' 2024 TRD Off-Road Double Cab 5' Bed listing: '74.50 in. Height'. Edmunds' 2025 TRD Off-Road page gives 73.9 in (different model year; see conflicts). Same page-id caveat as lengthIn. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "No second-reader search result gave a height either way, so the 74.5 vs 73.9 in conflict is unresolved."
     },
     {
       "key": "groundClearanceIn",
@@ -63,7 +75,9 @@
       "url": "https://www.tacoma4g.com/forum/attachments/2024_toyota_tacoma_product_information-pdf.7063",
       "sourceKind": "reference",
       "note": "Carried over from the earlier trading-card research record (engine/data/research/batch-2-2026-11-11.json, checked 'confirmed' against a second forum-hosted copy of the same sheet, .12235): 11.0 in running clearance for the TRD Off-Road grade, with 32.5 deg approach, 24.7 deg breakover, 26.6 deg departure. Cab, bed and powertrain for that line not stated. Toyota's MY24 overview says 'max running ground clearance up to 10.9 in.' range-wide (see conflicts). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.tacoma4g.com/forum/threads/off-road-specs-per-trim-ground-clearance-approach-breakover-departure-angles.1406/latest"
+      "corroboratingUrl": "https://www.tacoma4g.com/forum/threads/off-road-specs-per-trim-ground-clearance-approach-breakover-departure-angles.1406/latest",
+      "check": "unconfirmed",
+      "checkNote": "No second-reader search result gave a ground clearance figure either way."
     },
     {
       "key": "engineDescription",
@@ -72,7 +86,9 @@
       "url": "https://engage.toyota.com/static/articles/3_11_2024_2024_toyota_tacoma_overview_pdf/2024_Toyota_Tacoma_Overview.pdf",
       "sourceKind": "manufacturer",
       "note": "Carried over from the earlier trading-card research record: Toyota's MY24 overview lists 'TRD Off-Road i-FORCE 2.4L Turbo L4 Standard'; the pressroom release calls it the 'turbocharged i-FORCE 2.4-liter engine'. The code T24A-FTS comes from auto-data.net's 2024 Tacoma Double Cab pages, not from Toyota. The i-FORCE MAX hybrid is a separate option on this grade and is not this record. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://pressroom.toyota.com/all-new-2024-toyota-tacoma-is-adventure-ready-out-of-the-box/"
+      "corroboratingUrl": "https://pressroom.toyota.com/all-new-2024-toyota-tacoma-is-adventure-ready-out-of-the-box/",
+      "check": "confirmed",
+      "checkNote": "Second-reader searches (Toyota's Tacoma features page, Toyota's MY24 overview, Torque News) agree the TRD Off-Road's standard engine is the i-FORCE 2.4-liter turbo four; the T24A-FTS code was not re-checked."
     },
     {
       "key": "powertrain",
@@ -81,7 +97,9 @@
       "url": "https://www.performanceplustire.com/Blog/tacoma-tire-size-by-trim",
       "sourceKind": "reference",
       "note": "The tire guide separates '2024-26 TRD Off-Road, i-FORCE gas' from the hybrid; BFGoodrich's fitment pages likewise label the trim 'trd-off-road-gas'. Toyota's overview lists the i-FORCE 2.4L Turbo as the standard engine and the i-FORCE MAX hybrid as the option. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://engage.toyota.com/static/articles/3_11_2024_2024_toyota_tacoma_overview_pdf/2024_Toyota_Tacoma_Overview.pdf"
+      "corroboratingUrl": "https://engage.toyota.com/static/articles/3_11_2024_2024_toyota_tacoma_overview_pdf/2024_Toyota_Tacoma_Overview.pdf",
+      "check": "confirmed",
+      "checkNote": "A second-reader search summary says Toyota's MY24 overview lists the TRD Off-Road with the standard (gasoline) i-FORCE engine, the i-FORCE MAX hybrid being a separate 326-hp option."
     },
     {
       "key": "induction",
@@ -90,7 +108,9 @@
       "url": "https://pressroom.toyota.com/all-new-2024-toyota-tacoma-is-adventure-ready-out-of-the-box/",
       "sourceKind": "manufacturer",
       "note": "Carried over from the earlier record's 'aspiration': the release describes 'the turbocharged i-FORCE 2.4-liter engine'; the EPA-derived row on mpgbuddy reads '2.4L, 4-cyl, turbo'. Single turbo. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://mpgbuddy.com/cars/toyota/tacoma-sr5-sport-off-road-limited-4wd/2024"
+      "corroboratingUrl": "https://mpgbuddy.com/cars/toyota/tacoma-sr5-sport-off-road-limited-4wd/2024",
+      "check": "confirmed",
+      "checkNote": "Toyota's Tacoma features page, per a second-reader search summary, describes the standard engine as the i-FORCE 2.4-liter turbo four-cylinder."
     },
     {
       "key": "displacementL",
@@ -99,7 +119,9 @@
       "url": "https://engage.toyota.com/static/articles/3_11_2024_2024_toyota_tacoma_overview_pdf/2024_Toyota_Tacoma_Overview.pdf",
       "sourceKind": "manufacturer",
       "note": "Carried over from the earlier research record: the overview lists the TRD Off-Road's standard engine as 'i-FORCE 2.4L Turbo L4'; the EPA-derived row for the SR5/Sport/Off-Road/Limited 4WD group reads '2.4L, 4-cyl, turbo, Automatic (S8)'. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://mpgbuddy.com/cars/toyota/tacoma-sr5-sport-off-road-limited-4wd/2024"
+      "corroboratingUrl": "https://mpgbuddy.com/cars/toyota/tacoma-sr5-sport-off-road-limited-4wd/2024",
+      "check": "confirmed",
+      "checkNote": "Second-reader search summaries of Toyota's Tacoma page and the MY24 overview give 2.4 liters."
     },
     {
       "key": "cylinders",
@@ -108,7 +130,9 @@
       "url": "https://engage.toyota.com/static/articles/3_11_2024_2024_toyota_tacoma_overview_pdf/2024_Toyota_Tacoma_Overview.pdf",
       "sourceKind": "manufacturer",
       "note": "Carried over from the earlier research record: 'i-FORCE 2.4L Turbo L4' (inline four); EPA-derived row reads '4-cyl'. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://mpgbuddy.com/cars/toyota/tacoma-sr5-sport-off-road-limited-4wd/2024"
+      "corroboratingUrl": "https://mpgbuddy.com/cars/toyota/tacoma-sr5-sport-off-road-limited-4wd/2024",
+      "check": "confirmed",
+      "checkNote": "Second-reader search summaries describe the i-FORCE as a 2.4-liter turbocharged four-cylinder."
     },
     {
       "key": "horsepower",
@@ -117,7 +141,9 @@
       "url": "https://pressroom.toyota.com/all-new-2024-toyota-tacoma-is-adventure-ready-out-of-the-box/",
       "sourceKind": "manufacturer",
       "note": "'The turbocharged i-FORCE 2.4-liter engine produces up to 278 horsepower and 317 lb.-ft. of torque'; the MY24 overview lists 278 hp for the TRD grades with the 8-speed automatic. The same trim with the 6-speed manual is rated 270 hp, so 278 hp is right only for this automatic configuration. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://engage.toyota.com/static/articles/3_11_2024_2024_toyota_tacoma_overview_pdf/2024_Toyota_Tacoma_Overview.pdf"
+      "corroboratingUrl": "https://engage.toyota.com/static/articles/3_11_2024_2024_toyota_tacoma_overview_pdf/2024_Toyota_Tacoma_Overview.pdf",
+      "check": "confirmed",
+      "checkNote": "Second-reader searches agree: Toyota's MY24 overview lists the TRD Off-Road with the i-FORCE and 8-speed automatic at 278 hp, and Torque News gives 278 hp automatic vs 270 hp manual."
     },
     {
       "key": "horsepowerRpm",
@@ -125,7 +151,9 @@
       "publisher": "Edmunds",
       "url": "https://www.edmunds.com/toyota/tacoma/2024/features-specs",
       "sourceKind": "reference",
-      "note": "Carried over from the earlier research record's check pass: 'Edmunds lists the TRD Off-Road Double Cab 4WD 5.0 ft bed with 8-speed automatic at 278 hp @ 6,000 rpm.' Two searches in this pass did not surface the rpm again; in them Toyota's overview states 6,000 rpm only for the 228-hp SR tune of the same engine. No Toyota rpm figure for the 278-hp rating was seen. Read from search-result summary; page not opened."
+      "note": "Carried over from the earlier research record's check pass: 'Edmunds lists the TRD Off-Road Double Cab 4WD 5.0 ft bed with 8-speed automatic at 278 hp @ 6,000 rpm.' Two searches in this pass did not surface the rpm again; in them Toyota's overview states 6,000 rpm only for the 228-hp SR tune of the same engine. No Toyota rpm figure for the 278-hp rating was seen. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "Two second-reader summaries disagree: one says Toyota's MY24 overview gives 278 hp at 6,000 rpm with the 8-speed automatic, the other says the only 6,000 rpm figure it found was the SR's 228-hp rating, so the rpm is not independently settled."
     },
     {
       "key": "torqueLbFt",
@@ -134,7 +162,9 @@
       "url": "https://pressroom.toyota.com/all-new-2024-toyota-tacoma-is-adventure-ready-out-of-the-box/",
       "sourceKind": "manufacturer",
       "note": "'up to 278 horsepower and 317 lb.-ft. of torque'; the MY24 overview gives '317 lb.-ft. (w/ std AT) 310 lb.-ft. (w/ avail MT)'. 317 lb-ft applies to this automatic configuration. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://engage.toyota.com/static/articles/3_11_2024_2024_toyota_tacoma_overview_pdf/2024_Toyota_Tacoma_Overview.pdf"
+      "corroboratingUrl": "https://engage.toyota.com/static/articles/3_11_2024_2024_toyota_tacoma_overview_pdf/2024_Toyota_Tacoma_Overview.pdf",
+      "check": "confirmed",
+      "checkNote": "Second-reader searches agree: Toyota's Tacoma page and MY24 overview give up to 317 lb-ft with the automatic, and Torque News gives 317 automatic vs 310 manual."
     },
     {
       "key": "drivetrain",
@@ -143,7 +173,9 @@
       "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_Tacoma.shtml",
       "sourceKind": "agency",
       "note": "EPA model group '2024 Toyota Tacoma SR5/Sport/Off-Road/Limited 4WD', 2.4L 4-cyl turbo, Automatic (S8); mpgbuddy's EPA-derived row describes it as part-time 4-wheel drive. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://mpgbuddy.com/cars/toyota/tacoma-sr5-sport-off-road-limited-4wd/2024"
+      "corroboratingUrl": "https://mpgbuddy.com/cars/toyota/tacoma-sr5-sport-off-road-limited-4wd/2024",
+      "check": "confirmed",
+      "checkNote": "Second-reader search results include reviews titled '2024 Toyota Tacoma TRD Off-Road 4x4 Double Cab' (WUWM, The Auto Channel), consistent with 4WD; part-time vs full-time is covered under awdSystem."
     },
     {
       "key": "awdSystem",
@@ -152,7 +184,9 @@
       "url": "https://www.tacoma4g.com/forum/attachments/2024_toyota_tacoma_product_information-pdf.12235",
       "sourceKind": "reference",
       "note": "The product information sheet 'notes the 4x4 layout uses part-time four-wheel drive'; the EPA-derived mpgbuddy row for the SR5/Sport/Off-Road/Limited 4WD automatic is labelled part-time 4WD. Transfer-case low-range ratio was not found. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://mpgbuddy.com/cars/toyota/tacoma-sr5-sport-off-road-limited-4wd/2024"
+      "corroboratingUrl": "https://mpgbuddy.com/cars/toyota/tacoma-sr5-sport-off-road-limited-4wd/2024",
+      "check": "unconfirmed",
+      "checkNote": "No second-reader search result described the 4WD system type either way."
     },
     {
       "key": "transmissionType",
@@ -161,7 +195,9 @@
       "url": "https://pressroom.toyota.com/all-new-2024-toyota-tacoma-is-adventure-ready-out-of-the-box/",
       "sourceKind": "manufacturer",
       "note": "8-speed automatic for the 278-hp i-FORCE grades including TRD Off-Road (a 6-speed manual is a separate option); EPA row reads 'Automatic (S8)'. Carried over from the earlier research record. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://mpgbuddy.com/cars/toyota/tacoma-sr5-sport-off-road-limited-4wd/2024"
+      "corroboratingUrl": "https://mpgbuddy.com/cars/toyota/tacoma-sr5-sport-off-road-limited-4wd/2024",
+      "check": "confirmed",
+      "checkNote": "A second-reader search summary says Toyota's MY24 overview lists the TRD Off-Road with the standard i-FORCE engine and an 8-speed automatic."
     },
     {
       "key": "gearCount",
@@ -170,7 +206,9 @@
       "url": "https://pressroom.toyota.com/all-new-2024-toyota-tacoma-is-adventure-ready-out-of-the-box/",
       "sourceKind": "manufacturer",
       "note": "8-speed automatic, per the Toyota materials summarized in the earlier research record; the EPA row's 'Automatic (S8)' and Auto123's eight listed forward ratios agree. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.auto123.com/en/specs/toyota/tacoma/toyota-tacoma-2024-4x4-double-cab-auto-448683/"
+      "corroboratingUrl": "https://www.auto123.com/en/specs/toyota/tacoma/toyota-tacoma-2024-4x4-double-cab-auto-448683/",
+      "check": "confirmed",
+      "checkNote": "A second-reader search summary of Toyota's MY24 overview pairs the 278-hp TRD Off-Road with an 8-speed automatic, matching the eight ratios listed."
     },
     {
       "key": "gearRatios",
@@ -179,7 +217,9 @@
       "url": "https://www.auto123.com/en/specs/toyota/tacoma/toyota-tacoma-2024-4x4-double-cab-auto-448683/",
       "sourceKind": "reference",
       "note": "Auto123's 2024 Tacoma '4x4 Double Cab auto' specs: 'First Gear Ratio (:1): 4.41 Second Gear Ratio (:1): 2.81', third 1.95, fourth 1.51, fifth 1.27, sixth 1.00, 'Seventh Gear Ratio (:1): 0.79', 'Eighth Gear Ratio (:1): 0.65', reverse 3.65. Seventh and eighth were read in one search, third to sixth in another. Toyota's product information sheet (forum-hosted) gives the first three as 4.413, 2.808, 1.950 for the i-FORCE 8-speed, agreeing to two decimals; its fourth to eighth ratios did not appear in any summary. Auto123 is a Canadian listing labelled by cab and drive, not by the TRD Off-Road name. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.tacoma4g.com/forum/attachments/2024_toyota_tacoma_product_information-pdf.7063"
+      "corroboratingUrl": "https://www.tacoma4g.com/forum/attachments/2024_toyota_tacoma_product_information-pdf.7063",
+      "check": "unconfirmed",
+      "checkNote": "A second-reader search summary of Toyota's product sheet confirms 1st-3rd (4.413, 2.808, 1.950) for the i-FORCE 8-speed and says they match the i-FORCE MAX column, but 4th-8th surfaced again only from the same Auto123 listing, which the summary tied to a 4x4 Double Cab automatic on P245/70R17 tires rather than the TRD Off-Road."
     },
     {
       "key": "finalDriveRatio",
@@ -187,7 +227,9 @@
       "publisher": "Auto123",
       "url": "https://www.auto123.com/en/specs/toyota/tacoma/toyota-tacoma-2024-4x4-double-cab-auto-448683/",
       "sourceKind": "reference",
-      "note": "Auto123's 2024 Tacoma '4x4 Double Cab auto' page lists 'Axle Ratio (:1) - Front: 3.58' and 3.58 for the rear. Not tied to the TRD Off-Road by name, and no Toyota axle ratio surfaced; the only other figure seen, 3.909, is from TacomaWorld forum posts about the 2016-2023 V6 automatic and does not apply. Read from search-result summary; page not opened."
+      "note": "Auto123's 2024 Tacoma '4x4 Double Cab auto' page lists 'Axle Ratio (:1) - Front: 3.58' and 3.58 for the rear. Not tied to the TRD Off-Road by name, and no Toyota axle ratio surfaced; the only other figure seen, 3.909, is from TacomaWorld forum posts about the 2016-2023 V6 automatic and does not apply. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "The only second-reader result was the same Auto123 listing, which a summary described as a 4x4 Double Cab automatic on P245/70R17 tires, not the TRD Off-Road's 265/70R17, and the summary found no TRD Off-Road axle ratio; 3.58 is not contradicted but is not tied to this trim."
     },
     {
       "key": "differential",
@@ -195,7 +237,9 @@
       "publisher": "Toyota (MY24 Tacoma Overview)",
       "url": "https://engage.toyota.com/static/articles/3_11_2024_2024_toyota_tacoma_overview_pdf/2024_Toyota_Tacoma_Overview.pdf",
       "sourceKind": "manufacturer",
-      "note": "Summary of Toyota's materials: 'The TRD Off-Road, TRD Pro and Trailhunter models get an electronic locking rear differential as standard.' The summary attributed this to Toyota's materials without naming which document; the overview PDF was the lead Toyota result. A separate Yahoo Autos review also says the TRD Off-Road has a locking rear differential. Front differential type not stated. Read from search-result summary; page not opened."
+      "note": "Summary of Toyota's materials: 'The TRD Off-Road, TRD Pro and Trailhunter models get an electronic locking rear differential as standard.' The summary attributed this to Toyota's materials without naming which document; the overview PDF was the lead Toyota result. A separate Yahoo Autos review also says the TRD Off-Road has a locking rear differential. Front differential type not stated. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "No second-reader search result addressed the rear locker either way."
     },
     {
       "key": "tyreFront",
@@ -204,7 +248,9 @@
       "url": "https://www.iseecars.com/car/2024-toyota-tacoma-tire-size",
       "sourceKind": "reference",
       "note": "iSeeCars lists 265/70R17 for the 2024 4x4 TRD Off-Road trims, Double Cab 5.0 ft and 6.1 ft bed. Performance Plus Tire: '2024-26 TRD Off-Road, i-FORCE gas 17 in 265/70R17 115 31.6 in'; Toyota's product sheet footnotes tie 265/70R17 to the Off-Road grade. Same size front and rear. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.performanceplustire.com/Blog/tacoma-tire-size-by-trim"
+      "corroboratingUrl": "https://www.performanceplustire.com/Blog/tacoma-tire-size-by-trim",
+      "check": "confirmed",
+      "checkNote": "A second-reader search found Mavis listing 265/70R17 as the 2024 TRD Off-Road's OEM size, with iSeeCars and Goodyear's fitment listings agreeing."
     },
     {
       "key": "tyreRear",
@@ -213,7 +259,9 @@
       "url": "https://www.iseecars.com/car/2024-toyota-tacoma-tire-size",
       "sourceKind": "reference",
       "note": "Same as tyreFront: one size all round, 265/70R17 (load index 115 per Performance Plus Tire). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.performanceplustire.com/Blog/tacoma-tire-size-by-trim"
+      "corroboratingUrl": "https://www.performanceplustire.com/Blog/tacoma-tire-size-by-trim",
+      "check": "confirmed",
+      "checkNote": "Same second-reader result as tyreFront: Mavis, iSeeCars and Goodyear list 265/70R17 for the 2024 TRD Off-Road, one size all round."
     },
     {
       "key": "turningCircleFt",
@@ -222,7 +270,9 @@
       "url": "https://www.iseecars.com/car/toyota-tacoma-specs",
       "sourceKind": "reference",
       "note": "An iSeeCars entry for the 4x4 TRD Off-Road 5.0 ft automatic lists a turning diameter of 44.4 ft; CarSpecs' 2024 TRD Off-Road Double Cab 5' Bed listing also gives 44.4 ft. Toyota's product sheet gives a turning radius of '21.1/22.2 ft' for the Double Cab with TRD Off-Road trim, without the summary saying which value goes with which bed or whether it is curb-to-curb (see conflicts). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.carspecs.us/cars/2024/toyota/tacoma/99055"
+      "corroboratingUrl": "https://www.carspecs.us/cars/2024/toyota/tacoma/99055",
+      "check": "unconfirmed",
+      "checkNote": "No second-reader search result gave a turning diameter either way."
     },
     {
       "key": "epaCombinedMpg",
@@ -231,7 +281,9 @@
       "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_Tacoma.shtml",
       "sourceKind": "agency",
       "note": "fueleconomy.gov row '2024 Toyota Tacoma SR5/Sport/Off-Road/Limited 4WD', 2.4L 4-cyl turbo, Automatic (S8): 'Combined MPG 21, City MPG 19, Highway MPG 23'. MPGBuddy gives 19/23/21 for the same part-time 4WD automatic row. The same EPA group holds other rows (other transmissions or 4WD types); a Toyota product sheet was summarized in the earlier research as 20 combined (see conflicts). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://mpgbuddy.com/cars/toyota/tacoma-sr5-sport-off-road-limited-4wd/2024"
+      "corroboratingUrl": "https://mpgbuddy.com/cars/toyota/tacoma-sr5-sport-off-road-limited-4wd/2024",
+      "check": "unconfirmed",
+      "checkNote": "No second-reader search result gave EPA figures either way, so the 21 vs 20 combined conflict is unresolved."
     },
     {
       "key": "epaCityMpg",
@@ -240,7 +292,9 @@
       "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_Tacoma.shtml",
       "sourceKind": "agency",
       "note": "fueleconomy.gov row for the SR5/Sport/Off-Road/Limited 4WD, 2.4L turbo, Automatic (S8): City MPG 19. Agrees with the earlier research record (Edmunds, CarMax for TRD Off-Road) and MPGBuddy. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://mpgbuddy.com/cars/toyota/tacoma-sr5-sport-off-road-limited-4wd/2024"
+      "corroboratingUrl": "https://mpgbuddy.com/cars/toyota/tacoma-sr5-sport-off-road-limited-4wd/2024",
+      "check": "unconfirmed",
+      "checkNote": "No second-reader search result gave EPA figures either way."
     },
     {
       "key": "epaHighwayMpg",
@@ -249,7 +303,9 @@
       "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_Tacoma.shtml",
       "sourceKind": "agency",
       "note": "fueleconomy.gov row for the SR5/Sport/Off-Road/Limited 4WD, 2.4L turbo, Automatic (S8): Highway MPG 23; MPGBuddy agrees. California DriveClean shows 24 highway for the same part-time 4WD group (see conflicts). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://mpgbuddy.com/cars/toyota/tacoma-sr5-sport-off-road-limited-4wd/2024"
+      "corroboratingUrl": "https://mpgbuddy.com/cars/toyota/tacoma-sr5-sport-off-road-limited-4wd/2024",
+      "check": "unconfirmed",
+      "checkNote": "No second-reader search result gave EPA figures either way, so the 23 vs 24 highway conflict is unresolved."
     },
     {
       "key": "test0to60Sec",
@@ -258,7 +314,9 @@
       "url": "https://autos.yahoo.com/tested-2024-toyota-tacoma-no-164500137.html",
       "sourceKind": "test",
       "note": "Car and Driver's standalone instrumented test of the 2024 TRD Off-Road, syndicated on Yahoo Autos as 'Tested: 2024 Toyota Tacoma Is No Longer a Dinosaur': 'In our testing, the 2024 Tacoma reached 60 mph in 7.0 seconds, roughly a half-second quicker than its predecessor.' 0-60specs.com credits the same figures to Car and Driver for a TRD Off-Road Double Cab, 4WD, 8-speed automatic. Car and Driver's comparison test vs the Colorado ZR2 gave 6.8 s; MotorTrend (via a dealer blog) and The Auto Channel gave 7.2 s (see conflicts). Options on the test truck were not stated. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.0-60specs.com/toyota/tacoma-0-60-times"
+      "corroboratingUrl": "https://www.0-60specs.com/toyota/tacoma-0-60-times",
+      "check": "confirmed",
+      "checkNote": "A second-reader search re-surfaced Car and Driver's 2024 Tacoma TRD Off-Road test (Yahoo syndication) at 7.0 s to 60 mph and kept it apart from the same magazine's 6.8 s ZR2 comparison and The Auto Channel's 7.2 s; note the query named the figures and the summary found only syndicated copies, not Car and Driver's own page."
     },
     {
       "key": "testRollout",
@@ -266,7 +324,9 @@
       "publisher": "Car and Driver",
       "url": "https://autos.yahoo.com/tested-2024-toyota-tacoma-no-164500137.html",
       "sourceKind": "test",
-      "note": "Car and Driver's 0-60 times subtract a one-foot rollout (the convention this task specifies for Car and Driver); the summary itself did not state it. Applies to the 7.0 s figure above. Read from search-result summary; page not opened."
+      "note": "Car and Driver's 0-60 times subtract a one-foot rollout (the convention this task specifies for Car and Driver); the summary itself did not state it. Applies to the 7.0 s figure above. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "No second-reader result stated the rollout; true rests on Car and Driver's published one-foot-rollout convention, which no summary repeated for this test."
     },
     {
       "key": "testQuarterMileSec",
@@ -275,7 +335,9 @@
       "url": "https://autos.yahoo.com/tested-2024-toyota-tacoma-no-164500137.html",
       "sourceKind": "test",
       "note": "Same Car and Driver test: 'the quarter-mile now takes 15.3 seconds at 91 mph'. A buyer's guide on Yahoo/AOL repeats '1/4 mile time of 15.3 seconds'. Car and Driver's ZR2 comparison gave 15.2 s; The Auto Channel 15.5 s (see conflicts). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.0-60specs.com/toyota/tacoma-0-60-times"
+      "corroboratingUrl": "https://www.0-60specs.com/toyota/tacoma-0-60-times",
+      "check": "confirmed",
+      "checkNote": "The same second-reader search gave 15.3 s for Car and Driver's standalone TRD Off-Road test, distinct from the 15.2 s comparison test and The Auto Channel's 15.5 s."
     },
     {
       "key": "testQuarterMileMph",
@@ -284,7 +346,9 @@
       "url": "https://autos.yahoo.com/tested-2024-toyota-tacoma-no-164500137.html",
       "sourceKind": "test",
       "note": "Same Car and Driver test: '15.3 seconds at 91 mph'. The ZR2 comparison test trapped 92 mph (see conflicts). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.0-60specs.com/toyota/tacoma-0-60-times"
+      "corroboratingUrl": "https://www.0-60specs.com/toyota/tacoma-0-60-times",
+      "check": "confirmed",
+      "checkNote": "The same second-reader search gave 91 mph for Car and Driver's standalone TRD Off-Road test, distinct from the comparison test's 92 mph."
     },
     {
       "key": "testSkidpadDiameterFt",
@@ -292,7 +356,9 @@
       "publisher": "Car and Driver",
       "url": "https://autos.yahoo.com/tested-2024-toyota-tacoma-no-164500137.html",
       "sourceKind": "test",
-      "note": "Car and Driver's skidpad is 300 ft in diameter (the convention this task specifies). Recorded because Car and Driver is the tester for this record's test figures; no skidpad g for this test appeared in any summary, so testSkidpadG is not recorded. Read from search-result summary; page not opened."
+      "note": "Car and Driver's skidpad is 300 ft in diameter (the convention this task specifies). Recorded because Car and Driver is the tester for this record's test figures; no skidpad g for this test appeared in any summary, so testSkidpadG is not recorded. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "No second-reader result stated a skidpad diameter or a skidpad g for this test; 300 ft rests on Car and Driver's convention, and without a recorded testSkidpadG the field has nothing to qualify."
     },
     {
       "key": "testWeightLb",
@@ -301,7 +367,9 @@
       "url": "https://autos.yahoo.com/2024-toyota-tacoma-better-tests-140000353.html",
       "sourceKind": "test",
       "note": "Car and Driver Testing Hub piece (Yahoo syndication) comparing the 2024 TRD Off-Road with a 2017 TRD Pro: 'Despite weighing an extra 133 pounds, the 4794-pound TRD Off-Road also outran the lighter TRD Pro in every other acceleration test.' Measured weight of an optioned test truck; it sits above Toyota's 4,485-4,720 lb curb-weight range for i-FORCE 4x4 Double Cabs. The piece is taken to describe the same test truck as the 7.0 s standalone test (both cite a roughly half-second gain over the predecessor), but no summary said so outright. WUWM's review also lists 4,794 lb for its TRD Off-Road Double Cab. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.wuwm.com/2024-07-08/2024-toyota-tacoma-trd-off-road-4x4-double-cab-review"
+      "corroboratingUrl": "https://www.wuwm.com/2024-07-08/2024-toyota-tacoma-trd-off-road-4x4-double-cab-review",
+      "check": "unconfirmed",
+      "checkNote": "No second-reader summary repeated the 4,794 lb figure; it is 74 lb above the top of Toyota's 4,485-4,720 lb i-FORCE 4x4 Double Cab curb-weight range (re-confirmed by a second-reader search), which fits an optioned, fuelled test truck, but WUWM listing the identical 4,794 lb leaves open whether it is a measured weight or a spec-sheet figure."
     }
   ],
   "notFound": [
@@ -337,7 +405,7 @@
     {
       "key": "curbWeightLb",
       "values": [4485, 4720, 4630, 4605, 4650, 4794],
-      "note": "Not recorded. Toyota's product sheet gives only a 4,485-4,720 lb range for all i-FORCE 4x4 Double Cabs. Cars.com's TRD Off Road page (448733) was summarized at 4,630 lb for a Double Cab 5' bed automatic (4x4 not confirmed) and elsewhere at 4,605 lb on a page not tied to a trim; GearJunkie and iSeeCars give 4,650 lb for the TRD Off-Road with the 6-speed manual (iSeeCars on a 2025 page); 4,794 lb is Car and Driver's measured test weight (recorded as testWeightLb); 5,030-5,045 lb is the i-FORCE MAX hybrid. No maker figure for this exact configuration. Read from search-result summary; page not opened."
+      "note": "Not recorded. Toyota's product sheet gives only a 4,485-4,720 lb range for all i-FORCE 4x4 Double Cabs. Cars.com's TRD Off Road page (448733) was summarized at 4,630 lb for a Double Cab 5' bed automatic (4x4 not confirmed) and elsewhere at 4,605 lb on a page not tied to a trim; GearJunkie and iSeeCars give 4,650 lb for the TRD Off-Road with the 6-speed manual (iSeeCars on a 2025 page); 4,794 lb is Car and Driver's measured test weight (recorded as testWeightLb); 5,030-5,045 lb is the i-FORCE MAX hybrid. No maker figure for this exact configuration. The second reader's search again found only Toyota's 4,485-4,720 lb i-FORCE 4x4 Double Cab range, placed Cars.com's 4,605 lb on its TRD Sport page (448723), and found the 4,650 lb manual figure only on iSeeCars' 2025 page. Read from search-result summary; page not opened."
     },
     {
       "key": "trackFrontIn",
@@ -411,8 +479,8 @@
     },
     {
       "key": "torqueRpmLow",
-      "values": [2800],
-      "note": "Not recorded. auto-data.net's torque-peak rpm of 2,800 belongs to its 270-hp (manual) variant page, not the 317 lb-ft automatic rating. The 1,700 rpm figure seen in results is the i-FORCE MAX hybrid's. No rpm for the 317 lb-ft peak was found. Read from search-result summary; page not opened."
+      "values": [2800, 1700],
+      "note": "Not recorded. auto-data.net's torque-peak rpm of 2,800 belongs to its 270-hp (manual) variant page, not the 317 lb-ft automatic rating. The first reader took the 1,700 rpm figure seen in results to be the i-FORCE MAX hybrid's. In the second reader's pass one summary said Toyota's MY24 overview gives 317 lb-ft at 1,700 rpm with the 8-speed automatic, but a follow-up search on the same overview said no result gave a peak-torque rpm for the TRD Off-Road, so 1,700 rpm stays unrecorded and no upper end of the torque plateau surfaced. Read from search-result summary; page not opened."
     },
     {
       "key": "brakeFrontDiscIn",
@@ -430,5 +498,5 @@
       "note": "Not recorded. Only owner forum posts mention factory tires: one 2024 TRD Off-Road i-FORCE MAX owner reports Falken Wildpeak A/T AT3W and says only the hybrid gets them; another TRD Off-Road owner mentions 'OEM Trail Terrains'. No Toyota or tyre-maker statement of the i-FORCE TRD Off-Road's OE tyre was found; BFGoodrich and Goodyear fitment pages list aftermarket options only. Read from search-result summary; page not opened."
     }
   ],
-  "searchesUsed": 22
+  "searchesUsed": 28
 }
