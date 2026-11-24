@@ -14,7 +14,9 @@
       "url": "https://www.carwhere.com/chevrolet/engines/lt2",
       "sourceKind": "reference",
       "note": "Carried over from the earlier card research (2026-11-11): a search summary described the LT2 in the 2024 Stingray as a 6.2-liter pushrod V8, and a second result said it uses direct fuel injection. The wording is the reference site's; no maker page surfaced. The card reviewer confirmed LT2 / 6.2 L / V8 but did not see 'pushrod' or 'direct injection' again. Same engine in every Stingray trim, Z51 included. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.corvsport.com/2024-corvette-overview/"
+      "corroboratingUrl": "https://www.corvsport.com/2024-corvette-overview/",
+      "check": "confirmed",
+      "checkNote": "A 2024 Stingray specification listing surfaced by the second reader describes the LT2 as a 6.2 L 90-degree pushrod OHV V8, and Chevrolet's 2020 preliminary specifications (Corvette Action Center) list direct injection."
     },
     {
       "key": "powertrain",
@@ -23,7 +25,9 @@
       "url": "https://www.gmoutletparts.com/v-2024-chevrolet-corvette--stingray--6-2l-v8-gas/brakes--front-brakes",
       "sourceKind": "reference",
       "note": "Carried over from the earlier card research: the parts-catalogue result names the vehicle '2024 Chevrolet Corvette Stingray 6.2L V8 gas'. The card reviewer saw fueleconomy.gov list the 6.2 L Corvette on premium gasoline (a 2021 listing, same LT2). The Stingray is not the E-Ray hybrid. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://fueleconomy.gov/feg/noframes/43425.shtml"
+      "corroboratingUrl": "https://fueleconomy.gov/feg/noframes/43425.shtml",
+      "check": "unconfirmed",
+      "checkNote": "No result in the second reader's searches named the fuel; they describe a direct-injected 6.2 L V8 with no hybrid system mentioned, which is consistent but is not a statement."
     },
     {
       "key": "induction",
@@ -32,7 +36,9 @@
       "url": "https://www.slashgear.com/1666975/2024-chevrolet-corvette-stingray-review-price-specs-performance",
       "sourceKind": "reference",
       "note": "Carried over from the earlier card research: a search summary of 2024 Stingray reviews quoted 'a naturally aspirated 6.2-liter V8 mounted midship rated at 495 and 470 with the optional Performance Exhaust', and another review saying it 'delivers 495 horsepower, which is naturally aspirated'. The summary did not say which result page carried each sentence; SlashGear and MotorWeek were the 2024 Stingray reviews in that list. The card reviewer separately saw the 2024 Stingray LT2 described as naturally aspirated (CorvSport result). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.corvsport.com/corvette-of-the-day-2024-chevrolet-corvette-stingray-coupe/"
+      "corroboratingUrl": "https://www.corvsport.com/corvette-of-the-day-2024-chevrolet-corvette-stingray-coupe/",
+      "check": "unconfirmed",
+      "checkNote": "No result in the second reader's searches used the words naturally aspirated, and none mentioned a turbocharger or supercharger on the LT2 either."
     },
     {
       "key": "engineLocation",
@@ -41,7 +47,9 @@
       "url": "https://direct.lapmeta.com/it/model/13/chevrolet-corvette-c8-stingray-z51",
       "sourceKind": "reference",
       "note": "Carried over from the earlier card research: a database entry for the Chevrolet Corvette C8 Stingray Z51 describes 'a two-door mid-engine rear-wheel-drive layout' (model year not stated). A review summary of the 2024 Stingray (see induction) describes the V8 as 'mounted midship'. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.slashgear.com/1666975/2024-chevrolet-corvette-stingray-review-price-specs-performance"
+      "corroboratingUrl": "https://www.slashgear.com/1666975/2024-chevrolet-corvette-stingray-review-price-specs-performance",
+      "check": "confirmed",
+      "checkNote": "Several results in the second reader's searches (Hagerty, WardsAuto and Yahoo Autos headlines) call the C8 the mid-engine Corvette."
     },
     {
       "key": "displacementL",
@@ -50,7 +58,9 @@
       "url": "https://www.truecar.com/overview/chevrolet/corvette/2024/",
       "sourceKind": "reference",
       "note": "Carried over from the earlier card research: a search summary said the 2024 Stingray uses a 6.2-liter V8, the same engine with or without the Z51 package. The card reviewer saw 6.2 L on a California DriveClean Corvette listing and a fueleconomy.gov listing. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://driveclean.ca.gov/node/1218814"
+      "corroboratingUrl": "https://driveclean.ca.gov/node/1218814",
+      "check": "confirmed",
+      "checkNote": "The second reader's results repeat 6.2 L for the LT2, in a 2024 Stingray specification listing and in Chevrolet's 2020 preliminary specifications."
     },
     {
       "key": "cylinders",
@@ -59,7 +69,9 @@
       "url": "https://www.truecar.com/overview/chevrolet/corvette/2024/",
       "sourceKind": "reference",
       "note": "Carried over from the earlier card research: a search summary said the 2024 Stingray uses a 6.2-liter V8, shared by the Z51 car. The card reviewer saw fueleconomy.gov list '8 cyl, 6.2 L' (2021 listing, same LT2). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://fueleconomy.gov/feg/noframes/43425.shtml"
+      "corroboratingUrl": "https://fueleconomy.gov/feg/noframes/43425.shtml",
+      "check": "confirmed",
+      "checkNote": "The second reader's results repeat that the LT2 is a V8 (a 2024 Stingray specification listing, StreetMuscleMag, WardsAuto)."
     },
     {
       "key": "horsepower",
@@ -68,7 +80,9 @@
       "url": "https://www.depaulachevrolet.com/wmp/new/2024-chevy-corvette-stingray/",
       "sourceKind": "reference",
       "note": "Carried over from the earlier card research: a search summary said the Z51 package raises the 2024 Stingray to 495 hp (base 490 hp), through its performance exhaust. This is a dealer page repeating the maker's rating; no maker page surfaced. The card reviewer saw 495 hp on another dealer's 2024 Stingray page, and TrueCar giving 490 hp base plus 5 with the performance exhaust. The performance exhaust can also be ordered without Z51. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.jimellischevrolet.com/wmp-2024-chevy-corvette-stingray/"
+      "corroboratingUrl": "https://www.jimellischevrolet.com/wmp-2024-chevy-corvette-stingray/",
+      "check": "confirmed",
+      "checkNote": "StreetMuscleMag's summary gives Chevrolet's rating as 495 hp at 6,450 rpm with the performance exhaust and CarWhere gives 490 hp with the standard exhaust; that the Z51 package bundles that exhaust was not seen again in these searches."
     },
     {
       "key": "torqueLbFt",
@@ -77,7 +91,9 @@
       "url": "https://www.depaulachevrolet.com/wmp/new/2024-chevy-corvette-stingray/",
       "sourceKind": "reference",
       "note": "Carried over from the earlier card research: a search summary said the Z51 package raises the 2024 Stingray to 470 lb-ft (base 465 lb-ft) through the performance exhaust. A second dealer page seen by the card reviewer lists 470 lb-ft beside 495 hp. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.jimellischevrolet.com/wmp-2024-chevy-corvette-stingray/"
+      "corroboratingUrl": "https://www.jimellischevrolet.com/wmp-2024-chevy-corvette-stingray/",
+      "check": "confirmed",
+      "checkNote": "StreetMuscleMag's summary gives Chevrolet's rating as 470 lb-ft at 5,150 rpm with the performance exhaust and CarWhere gives 465 lb-ft with the standard exhaust; that the Z51 package bundles that exhaust was not seen again in these searches."
     },
     {
       "key": "drivetrain",
@@ -86,7 +102,9 @@
       "url": "https://www.edmunds.com/chevrolet/corvette/2024/st-402000559/features-specs",
       "sourceKind": "reference",
       "note": "Carried over from the earlier card research's reviewer: the search summary of Edmunds' 2024 Corvette Stingray features-specs page gives 'Drive Type: rear wheel drive'. LapMeta's C8 Stingray Z51 entry describes a mid-engine rear-wheel-drive layout. Z51 does not change the driven wheels; only the E-Ray is AWD in the 2024 range. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://direct.lapmeta.com/it/model/13/chevrolet-corvette-c8-stingray-z51"
+      "corroboratingUrl": "https://direct.lapmeta.com/it/model/13/chevrolet-corvette-c8-stingray-z51",
+      "check": "unconfirmed",
+      "checkNote": "No result in the second reader's searches stated the driven wheels; not covered."
     },
     {
       "key": "transmissionType",
@@ -95,7 +113,9 @@
       "url": "https://www.corvsport.com/corvette-of-the-day-2024-chevrolet-corvette-stingray-coupe/",
       "sourceKind": "reference",
       "note": "Carried over from the earlier card research: a search summary said the transmission listed for the 2024 Stingray coupe is a Tremec 8-speed dual-clutch automatic, the only one offered, Z51 included. The card reviewer saw MotorBiscuit name it the Tremec TR-9080 8-speed dual-clutch with no manual option. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.motorbiscuit.com/c8-corvette-transmission-options-breakthrough-or-letdown"
+      "corroboratingUrl": "https://www.motorbiscuit.com/c8-corvette-transmission-options-breakthrough-or-letdown",
+      "check": "confirmed",
+      "checkNote": "Tremec's TR-9080 specification and the Corvette Magazine, autoevolution and SAE results all describe the C8 gearbox as an 8-speed dual-clutch transaxle."
     },
     {
       "key": "gearCount",
@@ -104,7 +124,9 @@
       "url": "https://www.corvsport.com/corvette-of-the-day-2024-chevrolet-corvette-stingray-coupe/",
       "sourceKind": "reference",
       "note": "Carried over from the earlier card research: the same summary gives 'Tremec 8-speed dual-clutch automatic' for the 2024 Stingray coupe, and MotorBiscuit (seen by the card reviewer) calls it the TR-9080 8-speed dual-clutch. The individual ratios were not found. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.motorbiscuit.com/c8-corvette-transmission-options-breakthrough-or-letdown"
+      "corroboratingUrl": "https://www.motorbiscuit.com/c8-corvette-transmission-options-breakthrough-or-letdown",
+      "check": "confirmed",
+      "checkNote": "Tremec's TR-9080 specification, as summarised, lists eight forward ratios, matching the eight values in gearRatios."
     },
     {
       "key": "groundClearanceIn",
@@ -113,7 +135,9 @@
       "url": "https://autoblog.com/buy/2024-Chevrolet-Corvette-Stingray_w_3LT__2dr_Coupe/specs/",
       "sourceKind": "reference",
       "note": "Carried over from the earlier card research: a search summary said Autoblog lists 5.3 in ground clearance for the 2024 Stingray w/3LT coupe; iSeeCars repeats 5.3 in for the 2024 coupe w/2LT. CAUTION: the card reviewer marked this unconfirmed. The listings are keyed to trim level, not the Z51 package (which has its own suspension tuning). They appear to share one data feed (iSeeCars shows 5.300000190734863), and other listings give 5 in and 100 mm (see conflicts). No maker figure surfaced. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.iseecars.com/car/2024-chevrolet-corvette-dimensions"
+      "corroboratingUrl": "https://www.iseecars.com/car/2024-chevrolet-corvette-dimensions",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's searches; the 5.3 / 5.0 / 3.9 in disagreement stays open and none of the figures is Z51-specific."
     },
     {
       "key": "epaCityMpg",
@@ -122,7 +146,9 @@
       "url": "https://gmauthority.com/blog/2023/10/2024-corvette-stingray-gets-revised-fuel-economy-ratings/amp",
       "sourceKind": "reference",
       "note": "Carried over from the earlier card research: a search summary said the 2024 Corvette Stingray is EPA-rated 16 mpg city / 25 highway / 19 combined, and that the 2024 Stingray ratings are calculated with the Z51 package equipped. Corvette Blogger, citing FuelEconomy.gov, gave the same figures. The 2024 fueleconomy.gov page itself never surfaced. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.corvetteblogger.com/2023/10/11/video-2024-corvette-stingray-sees-an-increase-in-official-fuel-economy-rating/"
+      "corroboratingUrl": "https://www.corvetteblogger.com/2023/10/11/video-2024-corvette-stingray-sees-an-increase-in-official-fuel-economy-rating/",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's seven searches; no second result either way."
     },
     {
       "key": "epaHighwayMpg",
@@ -131,7 +157,9 @@
       "url": "https://gmauthority.com/blog/2023/10/2024-corvette-stingray-gets-revised-fuel-economy-ratings/amp",
       "sourceKind": "reference",
       "note": "Carried over from the earlier card research: a search summary said the 2024 Stingray is EPA-rated 25 mpg highway (up from 24 for 2023), calculated with the Z51 package equipped; Corvette Blogger, citing FuelEconomy.gov, agreed. Ratings differ by model year (the card reviewer saw a 2021 listing at 15/27/19), so the year matters. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.corvetteblogger.com/2023/10/11/video-2024-corvette-stingray-sees-an-increase-in-official-fuel-economy-rating/"
+      "corroboratingUrl": "https://www.corvetteblogger.com/2023/10/11/video-2024-corvette-stingray-sees-an-increase-in-official-fuel-economy-rating/",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's seven searches; no second result either way."
     },
     {
       "key": "epaCombinedMpg",
@@ -140,7 +168,9 @@
       "url": "https://gmauthority.com/blog/2023/10/2024-corvette-stingray-gets-revised-fuel-economy-ratings/amp",
       "sourceKind": "reference",
       "note": "Carried over from the earlier card research: a search summary said the 2024 Stingray is EPA-rated 19 mpg combined, calculated with the Z51 package equipped; Edmunds' 2024 Corvette mpg page lists the same combined figure. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://edmunds.com/chevrolet/corvette/2024/mpg"
+      "corroboratingUrl": "https://edmunds.com/chevrolet/corvette/2024/mpg",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's seven searches; no second result either way."
     },
     {
       "key": "wheelbaseIn",
@@ -149,7 +179,9 @@
       "url": "https://autoblog.com/buy/2024-Chevrolet-Corvette-Stingray_w_2LT__2dr_Coupe/specs/",
       "sourceKind": "reference",
       "note": "A search summary said Autoblog's 2024 Stingray w/2LT coupe page gives a 107.2 in wheelbase, and another summary quoted Corvette Story's 2024 page as 'Wheelbase: 107.2 inches (2,722 mm)'. Motor Matchup rounds it to 107 in. Keyed to trim, not Z51; the package does not change the wheelbase as far as any result said. No maker page surfaced. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://corvettestory.com/specs/2024-Corvette-specs-options.php"
+      "corroboratingUrl": "https://corvettestory.com/specs/2024-Corvette-specs-options.php",
+      "check": "unconfirmed",
+      "checkNote": "The second reader's searches returned the same listing pages but their summaries gave no body dimensions; no second result either way."
     },
     {
       "key": "trackFrontIn",
@@ -158,7 +190,9 @@
       "url": "https://corvettestory.com/specs/2024-Corvette-specs-options.php",
       "sourceKind": "reference",
       "note": "A search summary quoted Corvette Story's 2024 Corvette page: 'Track: Front: 64.9 inches (1,648 mm)'. carsales.com.au gives 1,647 mm front for the 2024 Stingray 2LT (agrees within 1 mm); Autopadre's 3LT listing rounds to 64 in. CAUTION: the card reviewer noted that the Corvette Story 2024 page also carries Z06 data; this figure matches the Stingray-labelled listings, not the wider Z06. Z51 not stated. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.carsales.com.au/research/chevrolet/corvette/2024/stingray-2lt"
+      "corroboratingUrl": "https://www.carsales.com.au/research/chevrolet/corvette/2024/stingray-2lt",
+      "check": "unconfirmed",
+      "checkNote": "The second reader's searches returned the same listing pages but their summaries gave no body dimensions; no second result either way."
     },
     {
       "key": "trackRearIn",
@@ -166,7 +200,9 @@
       "publisher": "Corvette Story",
       "url": "https://corvettestory.com/specs/2024-Corvette-specs-options.php",
       "sourceKind": "reference",
-      "note": "A search summary quoted Corvette Story's 2024 Corvette page: 'Rear: 62.4 inches (1,586 mm)'. carsales.com.au gives 1,590 mm rear and Autopadre's 3LT listing 62 in (see conflicts). Same caution as trackFrontIn about the page mixing in Z06 data. Z51 not stated. Read from search-result summary; page not opened."
+      "note": "A search summary quoted Corvette Story's 2024 Corvette page: 'Rear: 62.4 inches (1,586 mm)'. carsales.com.au gives 1,590 mm rear and Autopadre's 3LT listing 62 in (see conflicts). Same caution as trackFrontIn about the page mixing in Z06 data. Z51 not stated. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "The second reader's searches gave no track figures; the 62.4 / 62.6 / 62 in disagreement stays open."
     },
     {
       "key": "lengthIn",
@@ -175,7 +211,9 @@
       "url": "https://www.edmunds.com/chevrolet/corvette/2024/st-402000559/features-specs",
       "sourceKind": "reference",
       "note": "A search summary said Edmunds' 2024 Corvette Stingray features-specs page lists the length at 182.3 in; Autoblog's 2024 Stingray w/2LT coupe page and Motor Matchup gave the same. Coupe, Z51 not stated (the Z51 front splitter is not mentioned). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://autoblog.com/buy/2024-Chevrolet-Corvette-Stingray_w_2LT__2dr_Coupe/specs/"
+      "corroboratingUrl": "https://autoblog.com/buy/2024-Chevrolet-Corvette-Stingray_w_2LT__2dr_Coupe/specs/",
+      "check": "unconfirmed",
+      "checkNote": "The second reader's searches returned the same listing pages but their summaries gave no body dimensions; no second result either way."
     },
     {
       "key": "widthIn",
@@ -184,7 +222,9 @@
       "url": "https://www.edmunds.com/chevrolet/corvette/2024/st-402000559/features-specs",
       "sourceKind": "reference",
       "note": "A search summary said Edmunds lists the 2024 Stingray width at 76.1 in 'without mirrors'; Autoblog's 2024 Stingray w/2LT coupe page gave the same. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://autoblog.com/buy/2024-Chevrolet-Corvette-Stingray_w_2LT__2dr_Coupe/specs/"
+      "corroboratingUrl": "https://autoblog.com/buy/2024-Chevrolet-Corvette-Stingray_w_2LT__2dr_Coupe/specs/",
+      "check": "unconfirmed",
+      "checkNote": "The second reader's searches returned the same listing pages but their summaries gave no body dimensions; no second result either way."
     },
     {
       "key": "heightIn",
@@ -193,7 +233,9 @@
       "url": "https://www.edmunds.com/chevrolet/corvette/2024/st-402000559/features-specs",
       "sourceKind": "reference",
       "note": "A search summary said Edmunds lists the 2024 Stingray height at 48.6 in; Autoblog's 2024 Stingray w/2LT coupe page gave the same. Coupe; Z51 (which has its own suspension tuning) not stated. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://autoblog.com/buy/2024-Chevrolet-Corvette-Stingray_w_2LT__2dr_Coupe/specs/"
+      "corroboratingUrl": "https://autoblog.com/buy/2024-Chevrolet-Corvette-Stingray_w_2LT__2dr_Coupe/specs/",
+      "check": "unconfirmed",
+      "checkNote": "The second reader's searches returned the same listing pages but their summaries gave no body dimensions; no second result either way."
     },
     {
       "key": "weightDistFrontPct",
@@ -202,7 +244,9 @@
       "url": "https://www.corvsport.com/2020-corvette-specifications/",
       "sourceKind": "reference",
       "note": "Search summaries said CorvSport's 2020 and 2023 Corvette specification pages list 'Weight Distribution: Front: 39.4% Rear: 60.6%'. No 2024 page surfaced, but the figure is unchanged across those model years. Car and Driver's scale measurement of a 2020 Z51 coupe gave the same 39.4/60.6 (see testWeightDistFrontPct). Not stated whether the spec-sheet figure is for the Z51 car. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.corvsport.com/?p=106221"
+      "corroboratingUrl": "https://www.corvsport.com/?p=106221",
+      "check": "unconfirmed",
+      "checkNote": "Only a rounded 40/60 front/rear from a pre-production document posted on CorvetteForum surfaced, consistent with 39.4/60.6 but not the same figure; the listing's number is identical to Car and Driver's scale measurement, so the two may not be independent."
     },
     {
       "key": "horsepowerRpm",
@@ -210,7 +254,9 @@
       "publisher": "Mobility Engineering Technology (SAE) (attribution uncertain)",
       "url": "https://www.mobilityengineeringtech.com/component/content/article/49025-more-sting-for-the-stingray",
       "sourceKind": "reference",
-      "note": "A search summary quoted: 'The SAE J1349-certified 490/495 hp peak (365/369 kW; a 30/35 hp gain over the LT1) arrives at 6450 rpm', the 495 figure being with the performance exhaust that Z51 includes. The summary did not say which result carried the sentence; the SAE Mobility Engineering 'More sting for the STINGRAY' article is the likely one (it was also summarised on the compression ratio). Written about the LT2 at launch (2020 model year); same engine and rating as the 2024 Z51 car. Read from search-result summary; page not opened."
+      "note": "A search summary quoted: 'The SAE J1349-certified 490/495 hp peak (365/369 kW; a 30/35 hp gain over the LT1) arrives at 6450 rpm', the 495 figure being with the performance exhaust that Z51 includes. The summary did not say which result carried the sentence; the SAE Mobility Engineering 'More sting for the STINGRAY' article is the likely one (it was also summarised on the compression ratio). Written about the LT2 at launch (2020 model year); same engine and rating as the 2024 Z51 car. Read from search-result summary; page not opened.",
+      "check": "confirmed",
+      "checkNote": "StreetMuscleMag's summary gives Chevrolet's figures as 495 hp at 6,450 rpm with the performance exhaust."
     },
     {
       "key": "torqueRpmLow",
@@ -218,7 +264,9 @@
       "publisher": "Mobility Engineering Technology (SAE) (attribution uncertain)",
       "url": "https://www.mobilityengineeringtech.com/component/content/article/49025-more-sting-for-the-stingray",
       "sourceKind": "reference",
-      "note": "Same summary: 'Claimed peak torque of 465/470 lb-ft (637 N-m, with/without the optional performance exhaust system) is attained at 5150 rpm.' The source gives a single peak rpm, so torqueRpmLow and torqueRpmHigh are both 5150; no plateau width was stated. Same attribution caveat as horsepowerRpm. Read from search-result summary; page not opened."
+      "note": "Same summary: 'Claimed peak torque of 465/470 lb-ft (637 N-m, with/without the optional performance exhaust system) is attained at 5150 rpm.' The source gives a single peak rpm, so torqueRpmLow and torqueRpmHigh are both 5150; no plateau width was stated. Same attribution caveat as horsepowerRpm. Read from search-result summary; page not opened.",
+      "check": "confirmed",
+      "checkNote": "StreetMuscleMag's summary gives Chevrolet's figures as 470 lb-ft at 5,150 rpm with the performance exhaust; a single peak, no plateau width stated."
     },
     {
       "key": "torqueRpmHigh",
@@ -226,7 +274,19 @@
       "publisher": "Mobility Engineering Technology (SAE) (attribution uncertain)",
       "url": "https://www.mobilityengineeringtech.com/component/content/article/49025-more-sting-for-the-stingray",
       "sourceKind": "reference",
-      "note": "Same summary: peak torque of 470 lb-ft with the performance exhaust 'is attained at 5150 rpm'. Single peak rpm, recorded as both ends of the band. Same attribution caveat as horsepowerRpm. Read from search-result summary; page not opened."
+      "note": "Same summary: peak torque of 470 lb-ft with the performance exhaust 'is attained at 5150 rpm'. Single peak rpm, recorded as both ends of the band. Same attribution caveat as horsepowerRpm. Read from search-result summary; page not opened.",
+      "check": "confirmed",
+      "checkNote": "StreetMuscleMag's summary gives Chevrolet's figures as 470 lb-ft at 5,150 rpm with the performance exhaust; a single peak, no plateau width stated."
+    },
+    {
+      "key": "redlineRpm",
+      "number": 6500,
+      "publisher": "Motor Matchup (specification listing)",
+      "url": "https://www.motormatchup.com/catalog/Chevrolet/Corvette/2024/Stingray-Cpe-with-2LT",
+      "sourceKind": "reference",
+      "note": "Added by the second reader (2026-11-24). A search summary said Motor Matchup lists a 6,500 rpm redline for the 2024 Stingray coupe with 2LT (an 8,600 rpm figure on another spec sheet sits in its Z06 section and does not apply). Keyed to trim, not to the Z51 package; the LT2 is the same engine either way. The first research saw 6,500 rpm on another result for the 2022 LT2 and 6,450 rpm on MotorBiscuit, which is the power peak (see conflicts). An aggregator listing, not a maker figure; no fuel-cutoff speed surfaced. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "One listing found by the second reader, matched by the 6,500 rpm the first research saw for the 2022 LT2 but contradicted by MotorBiscuit's 6,450 rpm; no maker figure, so treat it as provisional."
     },
     {
       "key": "compressionRatio",
@@ -234,7 +294,9 @@
       "publisher": "Ultimatespecs",
       "url": "https://ultimatespecs.com/car-specs/Chevrolet/140934/Chevrolet-Corvette-C8-Stingray-62-V8.html",
       "sourceKind": "reference",
-      "note": "A search summary said Ultimatespecs lists 'Compression Ratio : 11.5' for the Chevrolet Corvette C8 Stingray 6.2 V8 (model year not stated). The SAE Mobility Engineering article was summarised as saying the compression ratio is essentially carried over from the LT1, without a number. Single reference source; not confirmed by a maker page. Read from search-result summary; page not opened."
+      "note": "A search summary said Ultimatespecs lists 'Compression Ratio : 11.5' for the Chevrolet Corvette C8 Stingray 6.2 V8 (model year not stated). The SAE Mobility Engineering article was summarised as saying the compression ratio is essentially carried over from the LT1, without a number. Single reference source; not confirmed by a maker page. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "The second reader's search found the SAE and Engine Professional articles saying the ratio matches the LT1's, but no result gave 11.5:1."
     },
     {
       "key": "gearRatios",
@@ -252,7 +314,9 @@
       "url": "https://www.corvette-mag.com/issues/135/articles/two-clutches-no-waiting",
       "sourceKind": "reference",
       "note": "A search summary quoted Corvette Magazine's 'Two Clutches, No Waiting' article on the C8's Tremec 8-speed DCT: 'Gear ratios are 2.91, 1.76, 1.22, 0.88, 0.65, 0.51, 0.40, and 0.33:1, providing a total spread of 8.82:1 over the eight cogs', with reverse 2.63:1. Hagerty's piece on the Tremec TR-9080 names the same 0.33:1 eighth gear. An earlier summary listed the same first six ratios from 2020 Chevrolet material. Written for the 2020 launch; the 2024 Stingray uses the same 8-speed DCT (see transmissionType). The Z51 changes the final drive, not these ratios, as far as any result said. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.hagerty.com/media/?p=6968"
+      "corroboratingUrl": "https://www.hagerty.com/media/?p=6968",
+      "check": "confirmed",
+      "checkNote": "Tremec's TR-9080 specification, as summarised, lists 2.91, 1.76, 1.22, 0.88, 0.65, 0.51, 0.40 and 0.33 (reverse 2.63), the same set for the eLSD and mLSD versions."
     },
     {
       "key": "finalDriveRatio",
@@ -260,7 +324,9 @@
       "publisher": "Chevrolet (press release republished by National Corvette Museum)",
       "url": "https://corvettemuseum.org/?p=9722",
       "sourceKind": "reference",
-      "note": "A search summary quoted Chevrolet's 2020 material, republished by the National Corvette Museum: 'An electronic limited slip differential is offered on the Z51 Performance Package and has an effective final drive ratio of 5.2:1', with the table 'eLSD | 5.2:1 | 1.46 | 3.55:1' (effective final drive | transfer gear ratio | ring and pinion ratio); the base car's mechanical LSD is 4.9:1 (1.38 transfer gear, same 3.55:1 ring and pinion). This is the overall ratio after the transaxle's transfer gear, i.e. multiply each gear ratio by 5.2 (1.46 x 3.55). Owner-forum posts give the Z51 as 5.17 and the base car as 4.89 (see conflicts). 2020 model-year material; the 2024 Z51 package was described as still including a 'performance rear axle ratio'. Read from search-result summary; page not opened."
+      "note": "A search summary quoted Chevrolet's 2020 material, republished by the National Corvette Museum: 'An electronic limited slip differential is offered on the Z51 Performance Package and has an effective final drive ratio of 5.2:1', with the table 'eLSD | 5.2:1 | 1.46 | 3.55:1' (effective final drive | transfer gear ratio | ring and pinion ratio); the base car's mechanical LSD is 4.9:1 (1.38 transfer gear, same 3.55:1 ring and pinion). This is the overall ratio after the transaxle's transfer gear, i.e. multiply each gear ratio by 5.2 (1.46 x 3.55). Owner-forum posts give the Z51 as 5.17 and the base car as 4.89 (see conflicts). 2020 model-year material; the 2024 Z51 package was described as still including a 'performance rear axle ratio'. Read from search-result summary; page not opened.",
+      "check": "confirmed",
+      "checkNote": "The Chevrolet table republished by the National Corvette Museum pairs the eLSD with 5.2:1 (1.46 transfer gear, 3.55:1 ring and pinion), and forum posts quoting Chevrolet give 5.17 (one 5.18) for Z51 cars, the same gearing to more places."
     },
     {
       "key": "differential",
@@ -269,7 +335,9 @@
       "url": "https://corvettemuseum.org/?p=9722",
       "sourceKind": "reference",
       "note": "A search summary quoted Chevrolet's 2020 material: 'An electronic limited slip differential is offered on the Z51 Performance Package'. A Jalopnik summary of the Z51 package contents also lists an Electronic Limited-Slip Differential and a performance rear axle ratio; dealer listings for the base Stingray show a mechanical limited-slip differential instead. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://jalopnik.com/2172270/c8-corvette-z51-suspension-performance-package-included/"
+      "corroboratingUrl": "https://jalopnik.com/2172270/c8-corvette-z51-suspension-performance-package-included/",
+      "check": "confirmed",
+      "checkNote": "Tremec's specification lists a mechanical limited-slip differential as standard and an electronic one as optional, and the Chevrolet table ties the eLSD to the 5.2:1 ratio that forum posts give for Z51 cars."
     },
     {
       "key": "tyreFront",
@@ -278,7 +346,9 @@
       "url": "https://www.autopadre.com/tire-and-wheel-sizes/chevrolet-corvette/2024-stingray-w-2lt-65550",
       "sourceKind": "reference",
       "note": "A search summary said a 2024 Corvette Stingray w/2LT listing gives 'Front Tire Size 245/35ZR19' on 19-inch front wheels; Autopadre's 2024 Stingray convertible 3LT listing shows the same front size, and dealer listings were summarised as giving 245/35ZR19 front and 305/30ZR20 rear. Jalopnik describes the Z51 tyres on 19-inch front and 20-inch rear wheels. Listings are keyed to trim, not to the Z51 package. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.autopadre.com/tire-and-wheel-sizes/chevrolet-corvette/2024-stingray-conv-w-3lt-65548"
+      "corroboratingUrl": "https://www.autopadre.com/tire-and-wheel-sizes/chevrolet-corvette/2024-stingray-conv-w-3lt-65548",
+      "check": "confirmed",
+      "checkNote": "Mavis's 2024 'Stingray w/Z51 Performance Pkg' fitment page gives 245/35ZR19 as the standard front size and Goodyear's 2024 Z51 page shows the same, so the size is now tied to the Z51 package."
     },
     {
       "key": "tyreRear",
@@ -286,7 +356,9 @@
       "publisher": "Autopadre (tyre and wheel listing)",
       "url": "https://www.autopadre.com/tire-and-wheel-sizes/chevrolet-corvette/2024-stingray-w-2lt-65550",
       "sourceKind": "reference",
-      "note": "Same summary: 'Rear Tire Size 305/30ZR20' on 20-inch rear wheels for the 2024 Stingray w/2LT; dealer listings were summarised with the same size. Keyed to trim, not to the Z51 package. Read from search-result summary; page not opened."
+      "note": "Same summary: 'Rear Tire Size 305/30ZR20' on 20-inch rear wheels for the 2024 Stingray w/2LT; dealer listings were summarised with the same size. Keyed to trim, not to the Z51 package. Read from search-result summary; page not opened.",
+      "check": "confirmed",
+      "checkNote": "Mavis's 2024 'Stingray w/Z51 Performance Pkg' fitment page gives 305/30ZR20 as the standard rear size and Goodyear's 2024 Z51 page shows the same, so the size is now tied to the Z51 package."
     },
     {
       "key": "tyreModel",
@@ -294,7 +366,9 @@
       "publisher": "Jalopnik",
       "url": "https://jalopnik.com/2172270/c8-corvette-z51-suspension-performance-package-included/",
       "sourceKind": "reference",
-      "note": "A search summary said Jalopnik's article on what the C8 Corvette's Z51 package includes names 'grippier Michelin Pilot Sport 4S run-flat summer tires on 19-inch front or wider 20-inch rear wheels'. CAUTION: the summary described the article as written about the 2026 lineup, not the 2024 model year, and no 2024 listing named the brand. The 'run-flat' wording was not confirmed elsewhere. Read from search-result summary; page not opened."
+      "note": "A search summary said Jalopnik's article on what the C8 Corvette's Z51 package includes names 'grippier Michelin Pilot Sport 4S run-flat summer tires on 19-inch front or wider 20-inch rear wheels'. CAUTION: the summary described the article as written about the 2026 lineup, not the 2024 model year, and no 2024 listing named the brand. The 'run-flat' wording was not confirmed elsewhere. Read from search-result summary; page not opened.",
+      "check": "confirmed",
+      "checkNote": "SlashGear's article on the C8 Z51 package says it brings Michelin Pilot Sport 4S ZP summer tires in place of the base car's all-seasons; the article's model year was not stated, and no 2024 listing named the brand."
     },
     {
       "key": "tyreCategory",
@@ -302,7 +376,9 @@
       "publisher": "Jalopnik",
       "url": "https://jalopnik.com/2172270/c8-corvette-z51-suspension-performance-package-included/",
       "sourceKind": "reference",
-      "note": "Same Jalopnik summary: the Z51 package includes Michelin Pilot Sport 4S 'run-flat summer tires'. Same model-year caveat as tyreModel. Read from search-result summary; page not opened."
+      "note": "Same Jalopnik summary: the Z51 package includes Michelin Pilot Sport 4S 'run-flat summer tires'. Same model-year caveat as tyreModel. Read from search-result summary; page not opened.",
+      "check": "confirmed",
+      "checkNote": "SlashGear's article on the C8 Z51 package calls them summer tires replacing the base model's all-seasons; model year of the article not stated."
     },
     {
       "key": "dragCoefficient",
@@ -310,7 +386,9 @@
       "publisher": "CorvetteForum (quoting a Chevrolet aerodynamics engineer) (attribution uncertain)",
       "url": "https://www.corvetteforum.com/forums/c8-tech-performance/4338961-drag-coefficients.html",
       "sourceKind": "reference",
-      "note": "A search summary quoted a forum post: 'Because aerodynamic downforce is notably greater with the Z51 performance package, a C8 so configured has an 0.322 drag coefficient versus C7's 0.313 Cd', attributed to a Chevrolet aerodynamics engineer. A separate post gives 'Non Z51 Cd 0.32'. The summary did not say which forum thread carried each post; the C8 'drag coefficients' thread is the likely one (another candidate is the 'C8 aerodynamics downforce Cd' thread). No maker page surfaced. Model year of the statement not given (likely the 2020 launch). Read from search-result summary; page not opened."
+      "note": "A search summary quoted a forum post: 'Because aerodynamic downforce is notably greater with the Z51 performance package, a C8 so configured has an 0.322 drag coefficient versus C7's 0.313 Cd', attributed to a Chevrolet aerodynamics engineer. A separate post gives 'Non Z51 Cd 0.32'. The summary did not say which forum thread carried each post; the C8 'drag coefficients' thread is the likely one (another candidate is the 'C8 aerodynamics downforce Cd' thread). No maker page surfaced. Model year of the statement not given (likely the 2020 launch). Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "Only Hagerty's report of a leaked pre-production document giving 0.32 for the C8 (configuration not stated) surfaced, close to but not the Z51-specific 0.322; no maker page."
     },
     {
       "key": "frontalAreaSqFt",
@@ -318,7 +396,9 @@
       "publisher": "CorvetteForum (quoting a Chevrolet aerodynamics engineer) (attribution uncertain)",
       "url": "https://www.corvetteforum.com/forums/c8-tech-performance/4338961-drag-coefficients.html",
       "sourceKind": "reference",
-      "note": "Same forum post: the engineer 'acknowledges that the wider fenders and rear tires are responsible for a frontal area that's slightly greater in C8 (2.075 m2/22.3 ft2) than in C7 (2.023 m2/21.78 ft2)'. Not stated as Z51-specific. Same thread-attribution caveat as dragCoefficient. Read from search-result summary; page not opened."
+      "note": "Same forum post: the engineer 'acknowledges that the wider fenders and rear tires are responsible for a frontal area that's slightly greater in C8 (2.075 m2/22.3 ft2) than in C7 (2.023 m2/21.78 ft2)'. Not stated as Z51-specific. Same thread-attribution caveat as dragCoefficient. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's seven searches; no second result either way."
     },
     {
       "key": "steeringRatio",
@@ -326,7 +406,9 @@
       "publisher": "Corvette Story (attribution uncertain)",
       "url": "https://corvettestory.com/specs/2024-Corvette-specs-options.php",
       "sourceKind": "reference",
-      "note": "A search summary said 'one spec database' lists the 2024 Stingray's variable-ratio rack-and-pinion steering at 15.7:1 with a 38 ft (11.6 m) turning circle; Corvette Story's 2024 page was the first result and the likely source, but the summary did not name it. A cars.com 2024 trim listing gives an overall ratio of 16 (see conflicts). The ratio is variable; this is presumably the on-centre or nominal figure. Read from search-result summary; page not opened."
+      "note": "A search summary said 'one spec database' lists the 2024 Stingray's variable-ratio rack-and-pinion steering at 15.7:1 with a 38 ft (11.6 m) turning circle; Corvette Story's 2024 page was the first result and the likely source, but the summary did not name it. A cars.com 2024 trim listing gives an overall ratio of 16 (see conflicts). The ratio is variable; this is presumably the on-centre or nominal figure. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's searches; the 15.7 vs 16 disagreement stays open."
     },
     {
       "key": "turningCircleFt",
@@ -335,7 +417,9 @@
       "url": "https://corvettestory.com/specs/2024-Corvette-specs-options.php",
       "sourceKind": "reference",
       "note": "Same summary: turning circle 38 ft (11.6 m) for the 2024 Stingray; a cars.com 2024 trim listing gives the same 38 ft curb-to-curb turning diameter. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.cars.com/research/chevrolet-corvette-2024/specs/438873/"
+      "corroboratingUrl": "https://www.cars.com/research/chevrolet-corvette-2024/specs/438873/",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's seven searches; no second result either way."
     },
     {
       "key": "brakeFrontDiscIn",
@@ -343,7 +427,9 @@
       "publisher": "Jalopnik",
       "url": "https://jalopnik.com/2172270/c8-corvette-z51-suspension-performance-package-included/",
       "sourceKind": "reference",
-      "note": "A search summary said the Z51 Brembo setup is 'four-piston front calipers with 13.6-inch discs and rear monobloc calipers gripping 13.8-inch rotors', and that a dealer listing gives the same sizes, '13.6\" (345 mm) front and 13.8\" (350 mm) rear' (the summary did not name which listing). Same model-year caveat as tyreModel (article described as about the 2026 lineup). See conflicts for the earlier 13.3 in figure. Read from search-result summary; page not opened."
+      "note": "A search summary said the Z51 Brembo setup is 'four-piston front calipers with 13.6-inch discs and rear monobloc calipers gripping 13.8-inch rotors', and that a dealer listing gives the same sizes, '13.6\" (345 mm) front and 13.8\" (350 mm) rear' (the summary did not name which listing). Same model-year caveat as tyreModel (article described as about the 2026 lineup). See conflicts for the earlier 13.3 in figure. Read from search-result summary; page not opened.",
+      "check": "confirmed",
+      "checkNote": "SlashGear's article on the C8 Z51 package, a different article from the Jalopnik one, says the Z51 front rotors grow to 13.6 inches; model year not stated."
     },
     {
       "key": "brakeRearDiscIn",
@@ -351,7 +437,9 @@
       "publisher": "Jalopnik",
       "url": "https://jalopnik.com/2172270/c8-corvette-z51-suspension-performance-package-included/",
       "sourceKind": "reference",
-      "note": "Same summary: Z51 'rear monobloc calipers gripping 13.8-inch rotors'; a dealer listing gives 13.8 in (350 mm) rear. Same model-year caveat as tyreModel. Read from search-result summary; page not opened."
+      "note": "Same summary: Z51 'rear monobloc calipers gripping 13.8-inch rotors'; a dealer listing gives 13.8 in (350 mm) rear. Same model-year caveat as tyreModel. Read from search-result summary; page not opened.",
+      "check": "confirmed",
+      "checkNote": "SlashGear's article on the C8 Z51 package, a different article from the Jalopnik one, says the Z51 rear rotors grow to 13.8 inches; model year not stated."
     },
     {
       "key": "topSpeedMph",
@@ -360,7 +448,9 @@
       "url": "https://autos.yahoo.com/2020-chevy-corvette-z51s-top-143000923.html",
       "sourceKind": "reference",
       "note": "A search summary quoted: 'The all-new, mid-engine C8 Stingray's top speed drops from a spectacular 194 mph for the base car to a still impressive 184 mph when the car is fitted with the optional Z51 Performance package, according to Chevrolet', the Z51's front splitter and rear spoiler adding about 400 lb of downforce. CAUTION: this is the maker's 2020 model-year statement, as reported; no 2024 maker page giving 184 mph for the Z51 surfaced (Chevrolet's 2024 pages show 194 mph without naming Z51). The CorvetteForum thread quoting a 2022 brochure also gives 184 / 194. Whether it is a governed limit was not stated. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.corvetteforum.com/forums/c8-general-discussion/4845272-interesting-specs.html"
+      "corroboratingUrl": "https://www.corvetteforum.com/forums/c8-general-discussion/4845272-interesting-specs.html",
+      "check": "unconfirmed",
+      "checkNote": "No result in the second reader's searches repeated 184 mph for the Z51 car; as an arithmetic cross-check only, the recorded gearing and rear tyre size put 184 mph at roughly 6,000 rpm in sixth gear, below the 6,450 rpm power peak, so the figure is internally consistent."
     },
     {
       "key": "test0to60Sec",
@@ -369,7 +459,9 @@
       "url": "https://autos.yahoo.com/2020-chevy-corvette-hits-60-203000416.html",
       "sourceKind": "test",
       "note": "A search summary quoted the syndicated Car and Driver story: 'The 2020 Chevrolet Corvette performed a 2.8-second zero-to-60-mph run in C/D testing', for a Z51 car with Magnetic Ride Control. Corvette Story's 2024 page also credits 2.8 s with Z51 to Car and Driver. GM claims 2.9 s; MotorTrend also recorded 2.8 s; Car and Driver's 2021 long-term Z51 car recorded 2.9 s (see conflicts). Car and Driver's test car was a 2020 model-year Stingray coupe with the Z51 package and Magnetic Ride Control: LT2 at 495 hp, 8-speed dual-clutch, RWD, the same configuration as the 2024 Z51 coupe. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://corvettestory.com/specs/2024-Corvette-specs-options.php"
+      "corroboratingUrl": "https://corvettestory.com/specs/2024-Corvette-specs-options.php",
+      "check": "confirmed",
+      "checkNote": "Fox News reports that MotorTrend, Road & Track and Car and Driver all recorded 2.8 s for the Z51 Stingray, and the Yahoo-syndicated Car and Driver story surfaced again with 2.8 s for a Z51 car with Magnetic Ride Control (a 2020 test car, same powertrain as 2024)."
     },
     {
       "key": "testRollout",
@@ -377,7 +469,9 @@
       "publisher": "Car and Driver (syndicated on Yahoo Autos)",
       "url": "https://autos.yahoo.com/2020-chevy-corvette-hits-60-203000416.html",
       "sourceKind": "test",
-      "note": "Set because the test figures are Car and Driver's, whose 0-60 times subtract a one-foot rollout (as the research brief states). The rollout was not stated in the search summary itself. Read from search-result summary; page not opened."
+      "note": "Set because the test figures are Car and Driver's, whose 0-60 times subtract a one-foot rollout (as the research brief states). The rollout was not stated in the search summary itself. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "No result in the second reader's searches said whether Car and Driver's 2.8 s subtracts a one-foot rollout; the flag still rests on the research brief, not on a search result."
     },
     {
       "key": "testQuarterMileSec",
@@ -386,7 +480,9 @@
       "url": "https://autos.yahoo.com/2020-chevy-corvette-hits-60-203000416.html",
       "sourceKind": "test",
       "note": "Same syndicated Car and Driver story: 'It covered the quarter-mile in just 11.2 seconds at 122 mph.' Car and Driver's 40,000-mile wrap-up of its 2021 Z51 long-term car also lists 11.2 s at 122 mph. MotorTrend recorded 11.1 s at 123.2 mph (see conflicts). Car and Driver's test car was a 2020 model-year Stingray coupe with the Z51 package and Magnetic Ride Control: LT2 at 495 hp, 8-speed dual-clutch, RWD, the same configuration as the 2024 Z51 coupe. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://autos.yahoo.com/2021-chevrolet-corvette-stingray-z51-191000969.html"
+      "corroboratingUrl": "https://autos.yahoo.com/2021-chevrolet-corvette-stingray-z51-191000969.html",
+      "check": "confirmed",
+      "checkNote": "The Yahoo-syndicated Car and Driver story surfaced again with 11.2 s at 122 mph for the Z51 car, and Chevrolet's own table (National Corvette Museum) also gives 11.2 s for the Z51."
     },
     {
       "key": "testQuarterMileMph",
@@ -395,7 +491,9 @@
       "url": "https://autos.yahoo.com/2020-chevy-corvette-hits-60-203000416.html",
       "sourceKind": "test",
       "note": "Same story: quarter-mile 'in just 11.2 seconds at 122 mph'. The 2021 long-term wrap-up also lists 122 mph. Car and Driver's test car was a 2020 model-year Stingray coupe with the Z51 package and Magnetic Ride Control: LT2 at 495 hp, 8-speed dual-clutch, RWD, the same configuration as the 2024 Z51 coupe. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://autos.yahoo.com/2021-chevrolet-corvette-stingray-z51-191000969.html"
+      "corroboratingUrl": "https://autos.yahoo.com/2021-chevrolet-corvette-stingray-z51-191000969.html",
+      "check": "confirmed",
+      "checkNote": "The Yahoo-syndicated Car and Driver story surfaced again with 122 mph for the Z51 car; the only other figure seen is Chevrolet's own 121 mph claim for the Z51, 1 mph lower."
     },
     {
       "key": "testBraking70to0Ft",
@@ -403,7 +501,9 @@
       "publisher": "Car and Driver (as retold by MotorBiscuit)",
       "url": "https://www.motorbiscuit.com/2023-corvette-c8s-handling-braking-world-class-or-lackluster/",
       "sourceKind": "test",
-      "note": "A search summary said Car and Driver measured 149 ft from 70 mph for the Z51 coupe (154 ft for the convertible), per a 2023 Corvette braking table on MotorBiscuit, crediting the Z51's larger, better-cooled rotors. The summary did not say which Car and Driver test car (model year) the 149 ft came from; earlier card research saw 149 ft for both the 2020 Z51 coupe test and the 2023 Z51 coupe, and 148 ft for the 2021 long-term car. Same configuration either way. Secondhand; Car and Driver's own page did not surface. Read from search-result summary; page not opened."
+      "note": "A search summary said Car and Driver measured 149 ft from 70 mph for the Z51 coupe (154 ft for the convertible), per a 2023 Corvette braking table on MotorBiscuit, crediting the Z51's larger, better-cooled rotors. The summary did not say which Car and Driver test car (model year) the 149 ft came from; earlier card research saw 149 ft for both the 2020 Z51 coupe test and the 2023 Z51 coupe, and 148 ft for the 2021 long-term car. Same configuration either way. Secondhand; Car and Driver's own page did not surface. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "Two searches aimed at Car and Driver's test numbers returned no 70-0 distance; Fox News said only that stopping distances grew versus the C7, and Digital Trends' 108.4 ft from 60 mph was a pre-launch estimate, not a test."
     },
     {
       "key": "testSkidpadG",
@@ -412,7 +512,9 @@
       "url": "https://www.motorbiscuit.com/2023-corvette-c8s-handling-braking-world-class-or-lackluster/",
       "sourceKind": "test",
       "note": "A search summary said 'The removable-hardtop Z51 Stingray reached 1.03 g, per Car and Driver's 300-ft roadholding skidpad tests'; the summary did not say whether MotorBiscuit or Jalopnik's 'Corvette Skidpad Grip Ranked Best To Worst' carried the sentence. Earlier card research saw 1.03 g for Car and Driver's 2020 and 2023 Z51 coupes via MotorBiscuit. Car and Driver's 2021 long-term wrap-up says the retest 'precisely duplicated' the original skidpad result. Edmunds also reports 1.03 g, but for a 2027 Stingray Z51 (different tester and model year). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.jalopnik.com/2301787/chevrolet-corvette-skidpad-grip-ranked-best-to-worst/"
+      "corroboratingUrl": "https://www.jalopnik.com/2301787/chevrolet-corvette-skidpad-grip-ranked-best-to-worst/",
+      "check": "unconfirmed",
+      "checkNote": "Two searches aimed at Car and Driver's test numbers returned no skidpad figure for the C8 Z51; it is still a second-hand retelling with uncertain attribution."
     },
     {
       "key": "testSkidpadDiameterFt",
@@ -420,7 +522,9 @@
       "publisher": "Car and Driver (syndicated on Yahoo Autos)",
       "url": "https://autos.yahoo.com/2020-chevy-corvette-hits-60-203000416.html",
       "sourceKind": "test",
-      "note": "Set because the test figures are Car and Driver's, which uses a 300-ft skidpad; the skidpad summary itself says 'Car and Driver's 300-ft roadholding skidpad tests'. Read from search-result summary; page not opened."
+      "note": "Set because the test figures are Car and Driver's, which uses a 300-ft skidpad; the skidpad summary itself says 'Car and Driver's 300-ft roadholding skidpad tests'. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "No result in the second reader's searches stated the skidpad diameter; it still rests on the retold skidpad sentence."
     },
     {
       "key": "testWeightLb",
@@ -429,7 +533,9 @@
       "url": "https://autos.yahoo.com/2020-mid-engine-corvette-nearly-120000322.html",
       "sourceKind": "test",
       "note": "A search summary said Car and Driver's scale test, as reported by Yahoo Autos, recorded a 2020 C8 Corvette coupe with the Z51 package at 3,647 pounds, 195 lb more than the last C7 Stingray it weighed; The Drive reports the same 3,647 lb from Car and Driver. This is the 2020 Z51 coupe; the summary did not confirm it is the very car of the acceleration test, though both are Car and Driver's 2020 Z51 coupes. The 2021 long-term Z51 car weighed 3,665 lb (see conflicts). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.thedrive.com/news/30470/2020-chevrolet-corvette-c8-stingray-nearly-200-pounds-heavier-than-outgoing-c7"
+      "corroboratingUrl": "https://www.thedrive.com/news/30470/2020-chevrolet-corvette-c8-stingray-nearly-200-pounds-heavier-than-outgoing-c7",
+      "check": "confirmed",
+      "checkNote": "The Drive's report of Car and Driver's scale test (Z51 coupe at 3,647 lb) and the Yahoo Autos review (heavily optioned test car at 3,647 lb, 195 more than a 2019 C7 Z51) both surfaced again; that is about 110 lb above the 3,535 lb listed for the 2024 2LT coupe, plausible for an optioned Z51 car."
     },
     {
       "key": "testWeightDistFrontPct",
@@ -437,13 +543,14 @@
       "publisher": "Car and Driver (syndicated on Yahoo Autos)",
       "url": "https://autos.yahoo.com/2020-mid-engine-corvette-nearly-120000322.html",
       "sourceKind": "test",
-      "note": "Same Yahoo Autos report of Car and Driver's scale test: the split is 39.4/60.6 front/rear for the 2020 Z51 coupe (versus roughly 49.4/50.1 for the C7). A separate summary of MotorTrend's test said 61 percent of the weight sits on the rear tires. Read from search-result summary; page not opened."
+      "note": "Same Yahoo Autos report of Car and Driver's scale test: the split is 39.4/60.6 front/rear for the 2020 Z51 coupe (versus roughly 49.4/50.1 for the C7). A separate summary of MotorTrend's test said 61 percent of the weight sits on the rear tires. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "The scale-test results that surfaced again gave the 3,647 lb weight but not the front/rear split; only a rounded 40/60 pre-production figure appeared."
     }
   ],
   "notFound": [
     "curbWeightLb",
     "cgHeightIn",
-    "redlineRpm",
     "boostPsi",
     "awdSystem",
     "liftCoefficientFront",
@@ -462,9 +569,12 @@
         3467,
         3769,
         3647,
-        3366
+        3366,
+        3500,
+        3538,
+        3613
       ],
-      "note": "Not recorded. Listings disagree and none names the Z51 package: 3,535 lb (Edmunds and Motor Matchup, 2024 Stingray coupe 2LT); 3,467 lb 'base curb weight' (cars.com, trim unclear); 3,637 / 3,669 / 3,769 lb (iSeeCars, 2024 trims, 3,769 for the 3LT coupe); 3,366 lb is a 'dry weight' on CorvSport's 2020 specification page. 3,647 lb is Car and Driver's scale weight of a 2020 Z51 coupe, recorded as testWeightLb, and 3,665 lb its 2021 long-term Z51 car. No maker curb weight for the 2024 Z51 coupe surfaced. Read from search-result summary; page not opened."
+      "note": "Not recorded. Listings disagree and none names the Z51 package: 3,535 lb (Edmunds and Motor Matchup, 2024 Stingray coupe 2LT); 3,467 lb 'base curb weight' (cars.com, trim unclear); 3,637 / 3,669 / 3,769 lb (iSeeCars, 2024 trims, 3,769 for the 3LT coupe); 3,366 lb is a 'dry weight' on CorvSport's 2020 specification page. 3,647 lb is Car and Driver's scale weight of a 2020 Z51 coupe, recorded as testWeightLb, and 3,665 lb its 2021 long-term Z51 car. No maker curb weight for the 2024 Z51 coupe surfaced. Second reader (2026-11-24): a further search again found 3,535 lb (Motor Matchup and Edmunds, 2024 coupe), a 3,500 lb 'base curb weight' on a cars.com 2024 listing, and unverified CorvetteForum posts citing 3,538 lb for a Z51 coupe on corner scales and 3,613 lb for a 3LT Z51 'from EPA testing'; Wikipedia gives 3,647-3,913 lb across C8 variants. Still no maker curb weight naming the Z51 coupe, so it stays unrecorded. Read from search-result summary; page not opened."
     },
     {
       "key": "topSpeedMph",
@@ -479,9 +589,10 @@
       "values": [
         2.8,
         2.9,
-        3.0
+        3.0,
+        3.2
       ],
-      "note": "Kept 2.8 s, Car and Driver's 2020 Z51 coupe test, which also gives the quarter mile, 70-0, skidpad and scale weight. MotorTrend also recorded 2.8 s with an 11.1 s quarter mile at 123.2 mph (as cited by HotCars and Magzter); Car and Driver has more figures for this configuration, so it was kept. Car and Driver's 2021 long-term Z51 car recorded 2.9 s, 11.2 s at 122 mph and 3,665 lb. 2.9 s is also GM's claim for the Z51 car and 3.0 s GM's claim for the base car; neither is a test. Fox News said MotorTrend, Road & Track and Car and Driver all recorded 2.8 s. Read from search-result summary; page not opened."
+      "note": "Kept 2.8 s, Car and Driver's 2020 Z51 coupe test, which also gives the quarter mile, 70-0, skidpad and scale weight. MotorTrend also recorded 2.8 s with an 11.1 s quarter mile at 123.2 mph (as cited by HotCars and Magzter); Car and Driver has more figures for this configuration, so it was kept. Car and Driver's 2021 long-term Z51 car recorded 2.9 s, 11.2 s at 122 mph and 3,665 lb. 2.9 s is also GM's claim for the Z51 car and 3.0 s GM's claim for the base car; neither is a test. Fox News said MotorTrend, Road & Track and Car and Driver all recorded 2.8 s. Second reader (2026-11-24): Edmunds recorded 3.2 s and an 11.5 s quarter mile at more than 120 mph for its own 2020 Z51 test car (a different tester and procedure), and Chevrolet's own table gives 2.9 s and 11.2 s at 121 mph for the Z51. Read from search-result summary; page not opened."
     },
     {
       "key": "horsepower",
@@ -489,7 +600,7 @@
         495,
         490
       ],
-      "note": "Kept 495 hp / 470 lb-ft, the rating with the performance exhaust included in Z51. The base Stingray without that exhaust is rated 490 hp / 465 lb-ft. This is a configuration difference, not a disagreement between sources. Read from search-result summary; page not opened."
+      "note": "Kept 495 hp / 470 lb-ft, the rating with the performance exhaust included in Z51. The base Stingray without that exhaust is rated 490 hp / 465 lb-ft. This is a configuration difference, not a disagreement between sources. Second reader (2026-11-24): Motor Matchup's 2024 Stingray 2LT convertible listing shows 490 hp / 465 lb-ft, the base rating. Read from search-result summary; page not opened."
     },
     {
       "key": "groundClearanceIn",
@@ -520,9 +631,10 @@
       "key": "testQuarterMileSec",
       "values": [
         11.2,
-        11.1
+        11.1,
+        11.5
       ],
-      "note": "Kept Car and Driver's 11.2 s at 122 mph (2020 Z51 coupe; the 2021 long-term car matched it). MotorTrend's C8 Z51 test gave 11.1 s at 123.2 mph (HotCars / Magzter summaries). Different tester and test conditions; not a disagreement about the car. Read from search-result summary; page not opened."
+      "note": "Kept Car and Driver's 11.2 s at 122 mph (2020 Z51 coupe; the 2021 long-term car matched it). MotorTrend's C8 Z51 test gave 11.1 s at 123.2 mph (HotCars / Magzter summaries). Different tester and test conditions; not a disagreement about the car. Second reader (2026-11-24): Edmunds recorded 11.5 s at more than 120 mph for its own 2020 Z51 test car (different tester), and Chevrolet's own Z51 claim is 11.2 s at 121 mph. Read from search-result summary; page not opened."
     },
     {
       "key": "trackRearIn",
@@ -537,9 +649,10 @@
       "key": "finalDriveRatio",
       "values": [
         5.2,
-        5.17
+        5.17,
+        5.18
       ],
-      "note": "Kept 5.2:1, Chevrolet's stated effective final drive for the Z51 eLSD (1.46 transfer gear x 3.55 ring and pinion). Owner-forum posts give 5.17 for the Z51 and 4.89 for the base car, which is the same gearing quoted to more places; one forum thread also noted that some leaked C8 final-drive numbers differed from Chevrolet's. Read from search-result summary; page not opened."
+      "note": "Kept 5.2:1, Chevrolet's stated effective final drive for the Z51 eLSD (1.46 transfer gear x 3.55 ring and pinion). Owner-forum posts give 5.17 for the Z51 and 4.89 for the base car, which is the same gearing quoted to more places; one forum thread also noted that some leaked C8 final-drive numbers differed from Chevrolet's. Second reader (2026-11-24): Tremec's TR-9080 specification repeats 5.2:1 for the eLSD and 4.9:1 for the mLSD, and one forum post gives 5.18 for the Z51. Read from search-result summary; page not opened."
     },
     {
       "key": "steeringRatio",
@@ -552,10 +665,10 @@
     {
       "key": "redlineRpm",
       "values": [
-        6450,
-        6500
+        6500,
+        6450
       ],
-      "note": "Not recorded. MotorBiscuit lists the C8 Stingray's redline as 6,450 rpm, which is the power peak rather than a stated rev limit; another result listed 6,500 rpm for the 2022 LT2. Neither is a 2024 maker figure and they disagree. Read from search-result summary; page not opened."
+      "note": "Kept 6,500 rpm, added by the second reader (2026-11-24) from Motor Matchup's 2024 Stingray coupe 2LT listing and flagged unconfirmed; the first research also saw 6,500 rpm on a result for the 2022 LT2. MotorBiscuit lists the C8 Stingray's redline as 6,450 rpm, which is the power peak rather than a stated rev limit. Neither is a maker figure. Read from search-result summary; page not opened."
     },
     {
       "key": "dragCoefficient",
@@ -563,7 +676,7 @@
         0.322,
         0.32
       ],
-      "note": "Kept 0.322 for the Z51 car (forum post quoting a Chevrolet aerodynamics engineer). A separate forum post gives 0.32 for the non-Z51 C8. C7 figures (0.30 base, about 0.35 for the C7 Z51, lift 0.20 and about 0.03) were quoted but belong to the previous generation and are not used; no C8 lift coefficient surfaced. Read from search-result summary; page not opened."
+      "note": "Kept 0.322 for the Z51 car (forum post quoting a Chevrolet aerodynamics engineer). A separate forum post gives 0.32 for the non-Z51 C8. C7 figures (0.30 base, about 0.35 for the C7 Z51, lift 0.20 and about 0.03) were quoted but belong to the previous generation and are not used; no C8 lift coefficient surfaced. Second reader (2026-11-24): Hagerty's report of a leaked pre-production document also lists 0.32 for the C8, configuration not stated. Read from search-result summary; page not opened."
     }
   ],
   "searchesUsed": 14

@@ -1,0 +1,120 @@
+{
+  "id": "gearing-final-drive",
+  "topic": "A final-drive (rear axle ratio) change as the only change: quarter-mile, 60-foot and 0-60 times before and after. No instrumented magazine before-and-after test could be read in 14 searches (the motortrend.com and hotrod.com archives, which hold most of the published gear-swap track tests, were closed to the search tool), so every case here is an owner's own report on a forum and none gives the car's stock published figures",
+  "gathered": "2026-11-24",
+  "cases": [
+    {
+      "car": "Chevrolet Corvette (posted in the Corvette Performance section of the LS1Tech forum; generation, model year, engine, transmission, power and tyres not given in the search summary)",
+      "change": "Rear axle gears changed from 3.42 to 3.90 (numerically higher, i.e. shorter); the summary names no other change",
+      "physical": {
+        "axleRatioBefore": 3.42,
+        "axleRatioAfter": 3.9
+      },
+      "measure": "Drag-strip 60-foot time before and after, and the owner's stated quarter-mile gain; owner's own report on a forum, no timeslip, trap speed or absolute elapsed time in the summary",
+      "before": {
+        "sixtyFootSec": 1.64
+      },
+      "after": {
+        "sixtyFootSec": 1.489,
+        "quarterMileGainSecReported": 0.3
+      },
+      "publisher": "LS1Tech forum, Corvette Performance section ('Have 3:42 gears thinking of going to 3:90 need imput?'), an owner's post",
+      "url": "https://ls1tech.com/forums/corvette-performance/823783-have-3-42-gears-thinking-going-3-90-need-imput.html",
+      "sourceKind": "test",
+      "note": "Summary wording: 'An LS1TECH poster going from 3.42 to 3.90 reported about .30 in the quarter mile (my sixty foot went from 1.64 to 1.489).' Only the 60-foot pair has a before and an after figure; the quarter-mile effect is given as a gain of 'about .30' s with no absolute times, recorded under the non-README key quarterMileGainSecReported. Arithmetic on the recorded figures: the ratio is 14.0% shorter (3.90 / 3.42 = 1.140) and the 60-foot time fell by 0.151 s. Weak points: the car is not identified beyond the forum section, a 1.49 s 60-foot time implies drag tyres and probably a modified car, and nothing in the summary says the two runs were made on the same day or in matching conditions. A forum owner's report, not an instrumented test. Read from search-result summary; page not opened."
+    },
+    {
+      "car": "2018 Ford Mustang GT with the 10R80 automatic, as implied by the thread ('3.15 to 3.55 gear on 18 with 10r80'); engine, power, tyres and whether the car was otherwise stock are not given in the search summary",
+      "change": "Rear axle gears changed from 3.55 to 3.15 (numerically LOWER, i.e. taller)",
+      "physical": {
+        "axleRatioBefore": 3.55,
+        "axleRatioAfter": 3.15
+      },
+      "measure": "Quarter-mile drag-strip elapsed time before and after, owner's own report on a forum; no timeslip, 60-foot time or trap-speed figure in the summary",
+      "before": {
+        "quarterMileSec": 11.48
+      },
+      "after": {
+        "quarterMileSec": 11.3
+      },
+      "publisher": "Mustang6G forum ('3.15 to 3.55 gear on 18 with 10r80'), an owner's post",
+      "url": "https://www.mustang6g.com/forums/threads/3-15-to-3-55-gear-on-18-with-10r80.113533/",
+      "sourceKind": "test",
+      "note": "Summary wording, under the heading 'Swap on an 18 GT': 'a driver's e.t. dropped from 11.48 to about 11.3 after switching to 3.15s, and they also gained mph too.' The after figure is approximate ('about 11.3'), and the trap-speed gain is stated without a number. The summary placed the line under the 2018 GT swap thread but did not link the post, so the thread attribution rests on that heading. Arithmetic on the recorded figures: the ratio is 11.3% taller (3.15 / 3.55 = 0.887) and the car is about 0.18 s quicker, i.e. the numerically lower gear was the faster one here. The same summary gives opposing reports from other owners in the same threads ('One owner reported a better 60-foot time on 3.15s than on 3.55s, while another said some people are having better luck with the 3.55's') and says the anecdotes 'don't settle it'. An 11.48 s car may not be stock; the summary does not say. A forum owner's report, not an instrumented test. Read from search-result summary; page not opened."
+    },
+    {
+      "car": "Ford Mustang, turbocharged, C4 automatic (posted in the Turbochargers section of the Corral.net Mustang forum; model year, engine size, power, boost and tyres not given in the search summaries)",
+      "change": "Rear axle gears changed from 3.73 to 3.31 (numerically LOWER, i.e. taller); the poster says the engine, turbo kit and transmission were the same",
+      "physical": {
+        "axleRatioBefore": 3.73,
+        "axleRatioAfter": 3.31
+      },
+      "measure": "Quarter-mile drag-strip elapsed time before and after (trap speed for the after run only), owner's own report on a forum; no timeslip or 60-foot time in the summaries",
+      "before": {
+        "quarterMileSec": 11.2
+      },
+      "after": {
+        "quarterMileSec": 10.42,
+        "quarterMileMph": 128
+      },
+      "publisher": "Corral.net forum, Turbochargers section ('Post 1/4 mile times changing from a 4.10/3.73 to 3.27/3.55 gear.'), an owner's post",
+      "url": "http://forums.corral.net/forums/turbochargers/1250830-post-1-4-mile-times-changing-4-10-3-73-3-27-3-55-gear.html",
+      "sourceKind": "test",
+      "note": "Post as quoted in one summary: 'Same motor, turbo kit, C4, just made the gear swap from 3.73s to 3.31s Car ran out of gear before the finish line and ran a 11.2s. After the gear swap car ran 10.42@128.' A second summary of the same thread reads it as: 'their car ran out of gear before the finish line and ran a 11.2s on 3.73s. After switching to a taller gear, it ran 10.42@128. The snippet doesn't say which ratio that was.' Taken together: 11.2 s on the 3.73 gears with the engine out of revs before the finish line, 10.42 s at 128 mph on the 3.31 gears. The first summary's own paraphrase was muddled (it described the 3.31 swap as the one that ran out of gear), so the direction recorded here rests on the quoted post and the second summary and should be confirmed on the page. Arithmetic on the recorded figures: the ratio is 11.3% taller (3.31 / 3.73 = 0.887) and the car is 0.78 s quicker. That is far more than gearing alone normally gives; the before run was compromised by running out of rpm in top gear, and on a turbo car a taller gear also loads the engine for longer in each gear. No before trap speed is given, and nothing says the runs were on the same day. A forum owner's report, not an instrumented test. Read from search-result summary; page not opened."
+    },
+    {
+      "car": "Toyota Land Cruiser 200 series (model year, engine, transmission, weight and tyre size not given in the search summary)",
+      "change": "Axle gears changed to 4.88 (Nitro gear set, per the thread title); the ratio before the change is not given in the summary",
+      "physical": {
+        "axleRatioBefore": "not given in summary",
+        "axleRatioAfter": 4.88,
+        "gearSet": "Nitro 4.88",
+        "tyres": "not given in summary"
+      },
+      "measure": "0-60 mph time before and after, owner's own timing reported on a forum; timing method and number of runs not stated in the summary",
+      "before": {
+        "zeroToSixtySec": 9.56
+      },
+      "after": {
+        "zeroToSixtySec": 8.48
+      },
+      "publisher": "IH8MUD forum ('Nitro 4.88 Gears Review'), an owner's post",
+      "url": "https://forum.ih8mud.com/threads/nitro-4-88-gears-review.1018461/",
+      "sourceKind": "test",
+      "note": "Summary wording: 'Its poster reported 0-60 dropping from 9:56 to 8:48, an 11% gain. The format is ambiguous, since that is probably 9.56 and 8.48 seconds, and it's a single anecdotal run.' The figures are written with colons in the post; they are recorded as 9.56 s and 8.48 s because (9.56 - 8.48) / 9.56 = 11.3%, which matches the poster's own '11% gain'. The summary adds that 'the LC200 uses wheel sensors to measure speed, so the gear install does not correct the speedometer or fuel economy readings'. NOT SCOREABLE AS IT STANDS: the ratio before the change, the tyre size and the model year are not in the summary, so the size of the gearing change is unknown; the case is kept because both times are documented. A truck on a regear usually also carries larger-than-stock tyres, which the summary does not confirm or rule out. A forum owner's report of a single run, not an instrumented test. Read from search-result summary; page not opened."
+    }
+  ],
+  "ruleOfThumb": [
+    {
+      "claim": "Going from 2.73 to 3.73 gears is worth about half a second in the quarter-mile.",
+      "publisher": "Stangnet forum ('1/4 mile gain from gears'); the same half-second figure appears in other Stangnet owner posts",
+      "url": "https://stangnet.com/mustang-forums/threads/1-4-mile-gain-from-gears.549565/",
+      "note": "Summary wording: 'A general thread on the subject said that 2.73-3.73 gears were worth about .5 seconds'; the summary did not say which of two Stangnet threads in the results it came from (the other is 'gears vs ET', https://stangnet.com/mustang-forums/threads/gears-vs-et.633946/). Arithmetic: 2.73 to 3.73 is a 36.6% shorter ratio. Owner anecdotes in the same vein, all given as gains only with no before and after times, so none is recorded as a case: 'on a 1995 GT, switching from the 3.27 to 3.73 dropped half a second off the 1/4 time'; a 2002 GT owner on 3.73s, 'I'm .5 quicker in the quater mile and 4mph faster' (https://stangnet.com/mustang-forums/threads/gears-improvement.577813/ or a neighbouring thread); 'One guy went from 13.2 to 12.8x with JUST a gear change' (second-hand, car not named); in a search of GM pickup forums, 'One owner who regeared from 3.42 to 4.11 reported about 0.3 seconds quicker in both 0-60 and the quarter mile' (vehicle and thread not identified in the summary). A parts retailer's guide (AmericanMuscle, a seller's claim, not a test) says 'Steeper gears are a great way to lower quarter mile times and improve responsiveness without sacrificing driveability'. Against that, other owners in the same searches reported no gain at all (see the third rule). Forum lore, not a measurement. Read from search-result summary; page not opened."
+    },
+    {
+      "claim": "A numerically higher (shorter) gear buys elapsed time, not trap speed: mph stays the same or falls slightly.",
+      "publisher": "Camaro5 forum (a 2010 reply) and a Mustang forum post",
+      "url": "https://www.camaro5.com/forums/showthread.php?p=2103089",
+      "note": "Summary wording: 'A 2010 Camaro5 forum reply argues that going to a steeper gear lowers your trap mph, given all other variables stay the same'; and from a Mustang forum, 'numerically higher gears don't net you any mph, just et's, since they only allow you to get to that certain speed quicker'. The summary did not say which of the 2010 Camaro5 threads in the results carried the reply (the other candidate is https://www.camaro5.com/forums/showthread.php?p=2102747). Owner reports disagree on the sign: one Mustang Source owner on 4.10s in a manual car said 'ET is a fraction slower, but trap speed is up one or two mph', and a Stangnet owner claimed 4 mph more with 3.73s. On this page the two cars that went the other way (to a numerically lower gear) both got quicker, and the one with a figure for it trapped 128 mph. Forum opinion, not a measurement. Read from search-result summary; page not opened."
+    },
+    {
+      "claim": "Once a car already has enough gear, more gains little: going from 3.73 to 4.10 is worth 0.1 to 0.15 s in the quarter-mile at best, and nothing if the car is traction-limited.",
+      "publisher": "CorvetteForum, Drag Racing section ('what would a gear change do to 1/4 mile times')",
+      "url": "https://www.corvetteforum.com/forums/drag-racing/2455221-what-would-a-gear-change-do-to-1-4-mile-times.html",
+      "note": "Summary wording: 'Because the 3.73s are probably close to optimal, I'd think an improvement of .1 to .15, with a change to 4.10s, might be the best you could hope for', described as an estimate 'if the car isn't traction-limited', not a measured result. Arithmetic: 3.73 to 4.10 is a 9.9% shorter ratio. Supporting reports from the same searches: an S197 Mustang owner found 'identical ETs, 60 fts and mph as if I never even changed the gears' (https://www.s197forum.com/threads/no-change-in-1-4-mile-et-after-gear-change.140471/, no figures given); a Stangnet owner said 'gears did nothing for his track times'; an SVTPerformance member who ran 3.08, 3.73, 4.10 and 4.56 gears in turn, changing only the rear, 'found that every gear change hurt the ET'; a Mustang6G poster noted that the 3.73 Performance Pack cars 'were unable to get enough traction to take advantage of the shorter gear'. Owners' slips for stock 2011-2014 Mustang GTs (different cars, different days, so NOT a before-and-after case) overlap completely: stock 3.31 cars at 12.85 s at 109.7 mph with a 2.02 s 60-foot, 12.906 at 107.8 with a 1.905 60-foot (same car, later pass) and 12.95 at 112; stock 3.73 cars at 13.042 at '108.something' with a '1.8something' 60-foot, and a DragTimes entry for a 2013 GT 3.73 Track Pack car at 12.991 at 111.660 with a 2.184 60-foot (https://www.dragtimes.com/Ford-Mustang-Timeslip-26556.html). An SVTPerformance reply puts a modified car at 'about a tenth reduction in ET from a gear change'. One ambiguous lead not recorded as a case: a Shelby owner's '11.6 uncorrected on F1s and 11.20s with 3.73's only', which the summary says lacks a stated stock-gear baseline (https://www.svtperformance.com/threads/1-4-mile-with-gears-only.1063947/). Forum opinion and owners' slips, not a controlled test. Read from search-result summary; page not opened."
+    },
+    {
+      "claim": "An extra shift eats the gain: on an automatic C6 Corvette, going from 2.56 to 3.42 gears cuts the quarter-mile by only about 0.10 s, because the 2.56 car crosses the line at the end of third gear and the 3.42 car has to shift to fourth.",
+      "publisher": "CorvetteForum, C6 Tech/Performance section ('1/4 Mile Improvement with change from 2.56 to 3.42?')",
+      "url": "https://www.corvetteforum.com/forums/c6-tech-performance/3669991-1-4-mile-improvement-with-change-from-2-56-to-3-42-a.html",
+      "note": "Summary wording: 'a swap from a 2.56 to 3.42 gear with the A6 trans only reduces your 1/4 mile ET by about .10 sec'; 'the reason for the lower than expected gains is due to the fact you end up having to make an extra shift with the 3.42s'; 'A 2.56 gear crosses the stripe at the end of 3rd, while the 3.42 finishes at the end of 4th'. The nearest thing to a measurement: 'A poster who went from 3.42 to 2.56 and back again on two separate occasions said the ET difference was right around a tenth' (same car, but no times given, so not recorded as a case). Arithmetic: 2.56 to 3.42 is a 33.6% shorter ratio for about 0.10 s. The summary adds that claims of larger gains 'usually involved a converter change' (one car went from 11.475 s on 3.42 gears and a stock converter to 11.2 with a higher-stall converter and no other change). The same effect is reported elsewhere: Mustang Source, '4.10 is great for launching and 60ft times, but if it adds an extra shift for the 1/4 mile, it can be costly' (https://themustangsource.com/forums/f669/how-did-gears-affect-your-et-440768/); Mustang6G on the ten-speed automatic, 'the 3.15 guy's SMOKE us (2 to 3 tenths) on the 0-60 because we gotta make that shift to 3rd. But yeah, on the quarter, it probably shifts the other way a couple of tenths', and an owner who ran two stock 2021 GT automatics, one with each ratio, 'reported the 3.55 was .08 second faster in quarter mile' (two cars, no absolute times). A Usenet thread lists a 215 hp 4.6L car with a T-45 gearbox at 0-60 in 6.61 s on 3.27 gears and 7.11 s on 3.73, with quarter-mile trap speeds of 91.0 and 92.2 mph; the summary could not say whether those were measured or calculated (the thread title asks for an 'approximate' time) and called it 'not a clean experiment', so it is not recorded as a case (https://groups.google.com/g/rec.autos.makers.ford.mustang/c/aZqoWn4BHfA). Forum reports, not a controlled test. Read from search-result summary; page not opened."
+    },
+    {
+      "claim": "Boosted cars want a numerically lower (taller) gear and naturally aspirated cars a numerically higher one: owners recommend 3.55 for a naturally aspirated Mustang GT automatic and 3.15 for a boosted one.",
+      "publisher": "Mustang6G forum ('3.15 vs 3.55 gears in a 2022 automatic GT' and neighbouring threads); Corral.net turbo threads say the same",
+      "url": "https://www.mustang6g.com/forums/threads/3-15-vs-3-55-gears-in-a-2022-automatic-gt.186754/",
+      "note": "Summary wording: 'Several owners said the 3.55 is the better choice for a naturally aspirated car, and the 3.15 is better for a boosted one'; the summary did not say which of the Mustang6G threads in the results carried it. From Corral.net turbo threads: 'the 3.73 gear was far too low for my stock block turbo car', 'Car ran 118mph with the 3:55 and 123mph with the 3:27' (thread and car not identified in the summary, so not recorded as a case), and 'the gear that wins often depends on where the car reaches the traps'. Two cases on this page fit the rule: the turbo Mustang that went from 11.2 s on 3.73 gears to 10.42 s on 3.31, and the 2018 GT that went from 11.48 s on 3.55 to about 11.3 on 3.15. A counter-view in the same Mustang6G summary: the torque converter's multiplication 'offsets much of the gear difference' and 'the differences in air temp, elevation, air humidity will have a greater impact on the performance anyways'. Forum opinion, not a measurement. Read from search-result summary; page not opened."
+    }
+  ],
+  "searchesUsed": 14
+}

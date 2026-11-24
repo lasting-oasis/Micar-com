@@ -14,7 +14,9 @@
       "url": "https://www.motormatchup.com/catalog/Volkswagen/Golf-GTI/2024/2.0T-380-S-Manual",
       "sourceKind": "reference",
       "note": "This run: Motor Matchup's '2024 Volkswagen Golf GTI 2.0T 380 S Manual' listing gives a 103.6 in wheelbase; CarExpert (Australian 2024 GTI) gives the same figure. No VW US sheet figure appeared. Ultimatespecs' European GTI DSG gives 103.43 in (see conflicts). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.carexpert.com.au/volkswagen/golf/2024/gti/features-and-specs"
+      "corroboratingUrl": "https://www.carexpert.com.au/volkswagen/golf/2024/gti/features-and-specs",
+      "check": "unconfirmed",
+      "checkNote": "Second reader: none of the 7 searches (spent on mass, power, gearing, tyres and test figures) returned a wheelbase, so there is no second result either way."
     },
     {
       "key": "trackFrontIn",
@@ -23,7 +25,9 @@
       "url": "https://www.iseecars.com/car/2024-volkswagen-golf_gti-dimensions",
       "sourceKind": "reference",
       "note": "This run: iSeeCars lists 'Front Track 60.400001525878906' (60.4 in) for the 2024 GTI S; a later summary said Auto123 and CarExpert also give 60.4 in. The summary did not make clear whether the figure sat on iSeeCars' dimensions or specs page. iSeeCars shows 60.7 in for another version (see conflicts). Not stated for the 380 S manual specifically. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.carexpert.com.au/volkswagen/golf/2024/gti/features-and-specs"
+      "corroboratingUrl": "https://www.carexpert.com.au/volkswagen/golf/2024/gti/features-and-specs",
+      "check": "unconfirmed",
+      "checkNote": "Second reader: none of the 7 searches (spent on mass, power, gearing, tyres and test figures) returned a front track width, so there is no second result either way."
     },
     {
       "key": "trackRearIn",
@@ -32,7 +36,9 @@
       "url": "https://www.iseecars.com/car/2024-volkswagen-golf_gti-dimensions",
       "sourceKind": "reference",
       "note": "This run: iSeeCars lists a rear track of '59.599998474121094' (59.6 in) for the 2024 GTI S; a later summary said Auto123 and CarExpert agree on 59.6 in. Not stated for the 380 S manual specifically. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.carexpert.com.au/volkswagen/golf/2024/gti/features-and-specs"
+      "corroboratingUrl": "https://www.carexpert.com.au/volkswagen/golf/2024/gti/features-and-specs",
+      "check": "unconfirmed",
+      "checkNote": "Second reader: none of the 7 searches (spent on mass, power, gearing, tyres and test figures) returned a rear track width, so there is no second result either way."
     },
     {
       "key": "lengthIn",
@@ -41,7 +47,9 @@
       "url": "https://www.motormatchup.com/catalog/Volkswagen/Golf-GTI/2024/2.0T-380-S-Manual",
       "sourceKind": "reference",
       "note": "This run: Motor Matchup (2024 GTI 2.0T 380 S Manual) and Autoblog both report 168.8 in; CarExpert gives 4287 mm. Ultimatespecs' European GTI DSG gives 168.86 in. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.autoblog.com/buy/2024-Volkswagen-Golf+GTI-2.0T_380_Autobahn__4dr_Hatchback/specs/"
+      "corroboratingUrl": "https://www.autoblog.com/buy/2024-Volkswagen-Golf+GTI-2.0T_380_Autobahn__4dr_Hatchback/specs/",
+      "check": "unconfirmed",
+      "checkNote": "Second reader: none of the 7 searches (spent on mass, power, gearing, tyres and test figures) returned an overall length, so there is no second result either way."
     },
     {
       "key": "widthIn",
@@ -50,7 +58,9 @@
       "url": "https://www.auto123.com/en/specs/volkswagen/golf-gti/volkswagen-golf-gti-2024-380-performance-manual-448169/",
       "sourceKind": "reference",
       "note": "This run: Auto123 lists 'Width, Max w/o mirrors: 70.4 (in)' for the 2024 GTI (Canadian listing; the summary did not say which of its 380 manual pages). Ultimatespecs' European GTI DSG gives 70.43 in. iSeeCars' 81.6 in appears to include mirrors (see conflicts). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.ultimatespecs.com/car-specs/Volkswagen/175413/Volkswagen-Golf-8-2024-GTI-DSG.html"
+      "corroboratingUrl": "https://www.ultimatespecs.com/car-specs/Volkswagen/175413/Volkswagen-Golf-8-2024-GTI-DSG.html",
+      "check": "unconfirmed",
+      "checkNote": "Second reader: none of the 7 searches (spent on mass, power, gearing, tyres and test figures) returned a body width, so there is no second result either way."
     },
     {
       "key": "heightIn",
@@ -59,7 +69,9 @@
       "url": "https://www.motormatchup.com/catalog/Volkswagen/Golf-GTI/2024/2.0T-380-S-Manual",
       "sourceKind": "reference",
       "note": "This run: summary says Auto123, Motor Matchup (2024 GTI 2.0T 380 S Manual) and CarExpert agree on 57.6 in; iSeeCars also lists about 57.6 in for the S, but 57.9 in for some configurations (see conflicts). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.carexpert.com.au/volkswagen/golf/2024/gti/features-and-specs"
+      "corroboratingUrl": "https://www.carexpert.com.au/volkswagen/golf/2024/gti/features-and-specs",
+      "check": "unconfirmed",
+      "checkNote": "Second reader: none of the 7 searches (spent on mass, power, gearing, tyres and test figures) returned a height, so there is no second result either way."
     },
     {
       "key": "curbWeightLb",
@@ -68,7 +80,9 @@
       "url": "https://media.vw.com/assets/documents/original/17302-2024GolfGTITechnicalSpecsFINAL.pdf",
       "sourceKind": "manufacturer",
       "note": "Copied from earlier card research: VW 2024 Golf GTI Technical Specifications 'Curb Weight NHTSA (lb/kg) 3137/1423' for the manual, 3188/1446 for the automatic (split by transmission, not trim grade). Earlier card review confirmed 3,137 lb on Edmunds for the 380 S; this run Motor Matchup lists the 380 S manual at 3,137 lbs and Autoblog shows 'Curb | 3,137 lbs.' Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.motormatchup.com/catalog/Volkswagen/Golf-GTI/2024/2.0T-380-S-Manual"
+      "corroboratingUrl": "https://www.motormatchup.com/catalog/Volkswagen/Golf-GTI/2024/2.0T-380-S-Manual",
+      "check": "confirmed",
+      "checkNote": "Second reader: Edmunds' specs listing gives 3,137 lbs for the 2024 GTI 380 S; Cars.com's 'base' 3,188 lbs is the automatic figure already in conflicts, and Edmunds' 2022 GTI manual test table shows about 3,192 lb for a same-generation manual, so a car on the scales may sit above this figure."
     },
     {
       "key": "weightDistFrontPct",
@@ -76,7 +90,9 @@
       "publisher": "Motor Matchup",
       "url": "https://www.motormatchup.com/catalog/Volkswagen/Golf-GTI/2024/2.0T-380-Autobahn-Manual",
       "sourceKind": "reference",
-      "note": "This run: Motor Matchup lists 'Front: 61.0% | Rear: 39.0%' for the 2024 Golf GTI 2.0T 380 Autobahn Manual. It is the Autobahn grade, not the S (same engine, transmission and curb weight per Motor Matchup/Edmunds), Motor Matchup does not state its source, and no maker figure or measured test weight distribution appeared. Treat as weakly sourced. Read from search-result summary; page not opened."
+      "note": "This run: Motor Matchup lists 'Front: 61.0% | Rear: 39.0%' for the 2024 Golf GTI 2.0T 380 Autobahn Manual. It is the Autobahn grade, not the S (same engine, transmission and curb weight per Motor Matchup/Edmunds), Motor Matchup does not state its source, and no maker figure or measured test weight distribution appeared. Treat as weakly sourced. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "Second reader: a search for a measured front/rear split on magazine test sheets of the Mk8 manual GTI returned none, so Motor Matchup's unsourced 61.0% for the Autobahn grade is still the only figure."
     },
     {
       "key": "groundClearanceIn",
@@ -84,7 +100,9 @@
       "publisher": "Volkswagen of America (media.vw.com)",
       "url": "https://media.vw.com/assets/documents/original/17302-2024GolfGTITechnicalSpecsFINAL.pdf",
       "sourceKind": "manufacturer",
-      "note": "Copied from earlier card research: VW 2024 Golf GTI Technical Specifications 'Ground Clearance (in/mm) 4.9/125' for the manual, 4.7/119 for the automatic. This run Autoblog lists 4.7 in for the S and 380 Autobahn (see conflicts). Read from search-result summary; page not opened."
+      "note": "Copied from earlier card research: VW 2024 Golf GTI Technical Specifications 'Ground Clearance (in/mm) 4.9/125' for the manual, 4.7/119 for the automatic. This run Autoblog lists 4.7 in for the S and 380 Autobahn (see conflicts). Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "Second reader: the search aimed at VW's 2024 spec sheet did not return it or any ground clearance, so there is no second result either way."
     },
     {
       "key": "engineDescription",
@@ -93,7 +111,9 @@
       "url": "https://media.vw.com/press-kits/2024-golf-gti-press-kit",
       "sourceKind": "manufacturer",
       "note": "Copied from earlier card research: the 2024 Golf GTI press kit summary says all 2024 GTI trims use the EA888 2.0-liter engine, 1984 cc, and a later summary of the same kit called it a 'turbocharged 2.0-liter EA888 evo4 engine'. This run a summary described it as 'EA888 evo4 and a 2.0-liter 16-valve DOHC turbo-four'. Wording assembled from those summaries, not a single verbatim maker sentence. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.cars.com/research/volkswagen-golf_gti-2024/specs"
+      "corroboratingUrl": "https://www.cars.com/research/volkswagen-golf_gti-2024/specs",
+      "check": "unconfirmed",
+      "checkNote": "Second reader: Edmunds and Carvana summaries confirm a 241-hp turbocharged 2.0-liter engine, but the EA888 evo4 designation and the 1984 cc figure did not appear in any result seen."
     },
     {
       "key": "powertrain",
@@ -102,7 +122,9 @@
       "url": "https://www.fueleconomy.gov/feg/Find.do?action=sbs&id=46781",
       "sourceKind": "agency",
       "note": "Copied from earlier card research (fuelType): fueleconomy.gov results for the 2024 Volkswagen GTI 2.0 L 4-cyl 6-speed manual list Regular Gasoline. The earlier review noted vehicle id 46781 was not explicitly tied to the manual by any summary it saw. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.fueleconomy.gov/Feg/bymake/Volkswagen2024.shtml"
+      "corroboratingUrl": "https://www.fueleconomy.gov/Feg/bymake/Volkswagen2024.shtml",
+      "check": "unconfirmed",
+      "checkNote": "Second reader: fuel type was not stated in any summary seen; nothing contradicts gasoline."
     },
     {
       "key": "induction",
@@ -111,7 +133,9 @@
       "url": "https://media.vw.com/press-kits/2024-golf-gti-press-kit",
       "sourceKind": "manufacturer",
       "note": "Copied from earlier card research (aspiration): VW's 2024 Golf GTI press kit describes a 'turbocharged 2.0-liter EA888 evo4 engine'; one engine for all trims. Earlier card review confirmed via Motor1's 2024 GTI 380 article (single turbocharger). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.motor1.com/news/684328/2024-volkswagen-golf-gti-380-debuts-final-manual/"
+      "corroboratingUrl": "https://www.motor1.com/news/684328/2024-volkswagen-golf-gti-380-debuts-final-manual/",
+      "check": "confirmed",
+      "checkNote": "Second reader: Edmunds' 2024 GTI 380 track test and Carvana both describe the '241-hp turbocharged 2.0-liter engine'."
     },
     {
       "key": "displacementL",
@@ -119,7 +143,9 @@
       "publisher": "Volkswagen of America (media.vw.com)",
       "url": "https://media.vw.com/press-kits/2024-golf-gti-press-kit",
       "sourceKind": "manufacturer",
-      "note": "Copied from earlier card research: press kit summary 'EA888 2.0-liter engine', 1984 cc, all 2024 Golf GTI trims. Read from search-result summary; page not opened."
+      "note": "Copied from earlier card research: press kit summary 'EA888 2.0-liter engine', 1984 cc, all 2024 Golf GTI trims. Read from search-result summary; page not opened.",
+      "check": "confirmed",
+      "checkNote": "Second reader: Edmunds' 2024 GTI 380 track test and Carvana both give a turbocharged 2.0-liter engine for the 2024 GTI."
     },
     {
       "key": "cylinders",
@@ -128,7 +154,9 @@
       "url": "https://www.cars.com/research/volkswagen-golf_gti-2024/specs",
       "sourceKind": "reference",
       "note": "Copied from earlier card research: Cars.com 2024 Golf GTI S specs summary '2.0 TSI 241 HP 4-Cylinder engine'. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.auto123.com/en/specs/volkswagen/golf-gti/volkswagen-golf-gti-2024-380-performance-manual-448169/"
+      "corroboratingUrl": "https://www.auto123.com/en/specs/volkswagen/golf-gti/volkswagen-golf-gti-2024-380-performance-manual-448169/",
+      "check": "unconfirmed",
+      "checkNote": "Second reader: cylinder count was not stated in any summary seen; nothing contradicts four."
     },
     {
       "key": "horsepower",
@@ -137,7 +165,9 @@
       "url": "https://media.vw.com/assets/documents/original/17302-2024GolfGTITechnicalSpecsFINAL.pdf",
       "sourceKind": "manufacturer",
       "note": "Copied from earlier card research: VW 2024 Golf GTI Technical Specifications '241 hp @ 5000 rpm', one engine for all 2024 GTI trims; press kit agrees. This run an unattributed summary (results led by KBB, Cars.com, Auto123): the 2024 GTI makes 'the same 241 hp and 273 pound-feet' since the Mk8's 2021 release. The European GTI makes more (Motor1: 261 hp facelift), a different market. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://media.vw.com/press-kits/2024-golf-gti-press-kit"
+      "corroboratingUrl": "https://media.vw.com/press-kits/2024-golf-gti-press-kit",
+      "check": "confirmed",
+      "checkNote": "Second reader: KBB says all 2024 Golf GTI trims have 241 horsepower, and Edmunds' 380 test and Carvana give the same 241 hp."
     },
     {
       "key": "horsepowerRpm",
@@ -146,7 +176,9 @@
       "url": "https://media.vw.com/assets/documents/original/17302-2024GolfGTITechnicalSpecsFINAL.pdf",
       "sourceKind": "manufacturer",
       "note": "Earlier card research read VW's 2024 Golf GTI Technical Specifications as '241 hp @ 5000 rpm'. This run Auto123 lists '241 @ 5000' and evo (UK, European car) '242bhp at 5000rpm'. Only the start of the power peak is given; no upper rpm of a power plateau appeared. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.auto123.com/en/specs/volkswagen/golf-gti/volkswagen-golf-gti-2024-380-performance-manual-448169/"
+      "corroboratingUrl": "https://www.auto123.com/en/specs/volkswagen/golf-gti/volkswagen-golf-gti-2024-380-performance-manual-448169/",
+      "check": "unconfirmed",
+      "checkNote": "Second reader: two searches quoting '241 hp at 5000 rpm' returned no summary showing the rpm of the power peak, so it rests on the first reader's sources only."
     },
     {
       "key": "torqueLbFt",
@@ -155,7 +187,9 @@
       "url": "https://media.vw.com/assets/documents/original/17302-2024GolfGTITechnicalSpecsFINAL.pdf",
       "sourceKind": "manufacturer",
       "note": "Copied from earlier card research: VW 2024 Golf GTI Technical Specifications '273 lb-ft @ 1750 rpm'; press kit agrees. This run Auto123 and Cars.com also give 273 lb-ft. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://media.vw.com/press-kits/2024-golf-gti-press-kit"
+      "corroboratingUrl": "https://media.vw.com/press-kits/2024-golf-gti-press-kit",
+      "check": "confirmed",
+      "checkNote": "Second reader: Edmunds' 2024 GTI 380 track test and Carvana both give 273 lb-ft."
     },
     {
       "key": "torqueRpmLow",
@@ -164,7 +198,9 @@
       "url": "https://media.vw.com/assets/documents/original/17302-2024GolfGTITechnicalSpecsFINAL.pdf",
       "sourceKind": "manufacturer",
       "note": "Earlier card research read VW's 2024 Golf GTI Technical Specifications as '273 lb-ft @ 1750 rpm'. This run Auto123 ('273 @ 1750') and Cars.com (273 lb-ft at 1750 rpm) agree. European sources give 1600 rpm (see conflicts). No upper end of the torque plateau appeared. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.cars.com/research/volkswagen-golf_gti-2024/specs"
+      "corroboratingUrl": "https://www.cars.com/research/volkswagen-golf_gti-2024/specs",
+      "check": "unconfirmed",
+      "checkNote": "Second reader: two searches quoting '273 lb-ft at 1750 rpm' returned no summary showing the torque-peak rpm, neither confirming nor contradicting it."
     },
     {
       "key": "drivetrain",
@@ -173,7 +209,9 @@
       "url": "https://www.cars.com/research/volkswagen-golf_gti-2024/specs",
       "sourceKind": "reference",
       "note": "Copied from earlier card research: Cars.com 2024 Golf GTI S specs summary, 2.0 TSI 4-cylinder 'with front-wheel drive'. Earlier card review: a US dealer listing is titled '2024 Volkswagen Golf GTI 380 SE FWD 6-speed Manual Transmission'. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://vwofakron.com/viewdetails/new/wvwsa7cd9rw234175/2024-volkswagen-golf-gti-4dr-car"
+      "corroboratingUrl": "https://vwofakron.com/viewdetails/new/wvwsa7cd9rw234175/2024-volkswagen-golf-gti-4dr-car",
+      "check": "unconfirmed",
+      "checkNote": "Second reader: drive layout was not stated in any summary seen; nothing contradicts FWD."
     },
     {
       "key": "transmissionType",
@@ -182,7 +220,9 @@
       "url": "https://media.vw.com/press-kits/2024-golf-gti-press-kit",
       "sourceKind": "manufacturer",
       "note": "Copied from earlier card research: press kit summary, engine 'paired with either a 6-speed manual or 7-speed DSG transmission'; this record is the manual. For 2024 every US manual GTI is a 380 model (380 S, 380 SE, 380 Autobahn) per Motor1 and Edmunds. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.motor1.com/news/684328/2024-volkswagen-golf-gti-380-debuts-final-manual/"
+      "corroboratingUrl": "https://www.motor1.com/news/684328/2024-volkswagen-golf-gti-380-debuts-final-manual/",
+      "check": "confirmed",
+      "checkNote": "Second reader: Edmunds says every six-speed manual 2024 GTI is a 380 model (380 S, SE, Autobahn) and Autotrader says the 380 S 'brings a 6-speed manual'."
     },
     {
       "key": "gearCount",
@@ -191,7 +231,9 @@
       "url": "https://media.vw.com/press-kits/2024-golf-gti-press-kit",
       "sourceKind": "manufacturer",
       "note": "Press kit summary (earlier card research): '6-speed manual or 7-speed DSG'; this record is the 6-speed manual. This run Autoweb and Auto123 list six forward ratios. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.auto123.com/en/specs/volkswagen/golf-gti/volkswagen-golf-gti-2024-380-performance-manual-448169/"
+      "corroboratingUrl": "https://www.auto123.com/en/specs/volkswagen/golf-gti/volkswagen-golf-gti-2024-380-performance-manual-448169/",
+      "check": "confirmed",
+      "checkNote": "Second reader: Edmunds and Autotrader call it a six-speed manual and Auto123's 380 manual pages list six forward ratios."
     },
     {
       "key": "gearRatios",
@@ -207,7 +249,9 @@
       "url": "https://www.autoweb.com/volkswagen/golf-gti/2024",
       "sourceKind": "reference",
       "note": "This run: Autoweb gives 'First Gear Ratio 3.77 through Sixth Gear Ratio 0.91': 3.77, 2.09, 1.48, 1.09, 1.10, 0.91 for the 2024 manual GTI. Auto123's 380 manual page agrees except third at 1.47 (and reverse 2.77). Note fifth (1.10) is numerically higher than fourth (1.09) in both sources, which only makes sense if the gearbox uses different final drives on its two output shafts; these are gearbox ratios, not overall ratios. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.auto123.com/en/specs/volkswagen/golf-gti/volkswagen-golf-gti-2024-380-performance-manual-448169/"
+      "corroboratingUrl": "https://www.auto123.com/en/specs/volkswagen/golf-gti/volkswagen-golf-gti-2024-380-performance-manual-448169/",
+      "check": "confirmed",
+      "checkNote": "Second reader: Auto123's 380 manual pages give 3.77, 2.09, 1.47, 1.09, 1.10, 0.91, matching five of the six; third is 1.47 there against Autoweb's 1.48, a rounding-level difference left unresolved (see conflicts)."
     },
     {
       "key": "finalDriveRatio",
@@ -216,7 +260,9 @@
       "url": "https://www.auto123.com/en/specs/volkswagen/golf-gti/volkswagen-golf-gti-2024-380-performance-manual-448169/",
       "sourceKind": "reference",
       "note": "This run: Auto123's 2024 GTI 380 manual pages (Performance and Autobahn) list 'Final Drive Axle Ratio (:1): 2.76'. Single source, Canadian listing. CAUTION: the published gear set (5th 1.10 above 4th 1.09) implies two final drives, so one 2.76 figure cannot apply to every gear; Motor Matchup's overall ratios (see conflicts) are consistent with 2.76 only for 6th. No VW figure and no second final-drive value appeared. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.auto123.com/en/specs/volkswagen/golf-gti/volkswagen-golf-gti-2024-380-autobahn-manual-448167/"
+      "corroboratingUrl": "https://www.auto123.com/en/specs/volkswagen/golf-gti/volkswagen-golf-gti-2024-380-autobahn-manual-448167/",
+      "check": "unconfirmed",
+      "checkNote": "Second reader: found again only on Auto123 (380 Autobahn manual page), with no independent source; Motor Matchup's published overall ratios for 1st (13.001) and 4th (3.76) are far from gear x 2.76, so this figure fits only the upper gears and must not be applied to 1st-4th (see conflicts)."
     },
     {
       "key": "differential",
@@ -225,7 +271,9 @@
       "url": "https://www.volkswagen-newsroom.com/en/the-new-golf-gti-international-media-drive-6282/running-gear-for-the-new-golf-gti-6286",
       "sourceKind": "manufacturer",
       "note": "This run: VW newsroom running-gear text for the Mk8 Golf GTI describes the VAQ electronically controlled front differential whose locking torque 'can be increased in the two-stage Sport mode'. That is VW's international launch material, not US 2024 specific; CarExpert's 2024 GTI listing (Australia) shows 'Limited Slip Differential Location: Front Front Type: Electronic'. No US-market summary named the differential. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.carexpert.com.au/volkswagen/golf/2024/gti/features-and-specs"
+      "corroboratingUrl": "https://www.carexpert.com.au/volkswagen/golf/2024/gti/features-and-specs",
+      "check": "unconfirmed",
+      "checkNote": "Second reader: none of the 7 searches returned a description of the front differential for the US 2024 car, so there is no second result either way."
     },
     {
       "key": "tyreFront",
@@ -234,7 +282,9 @@
       "url": "https://www.goodyear.com/en-us/vehicles/Volkswagen/GTI/2024/S-with-Manual-Transmission",
       "sourceKind": "reference",
       "note": "This run: Goodyear lists '2024 Volkswagen GTI S with Manual Transmission 235/35R19'; Mavis calls 235/35R19 the standard OEM size for this configuration; iSeeCars lists the 380 S at 'P235/35R19 91Y'. Edmunds says the 380 has 19-inch wheels. 225/40R18 is listed for the plain (DSG) S (see conflicts). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.mavis.com/vehicle/volkswagen/gti/2024/s-wmanual-transmission/"
+      "corroboratingUrl": "https://www.mavis.com/vehicle/volkswagen/gti/2024/s-wmanual-transmission/",
+      "check": "confirmed",
+      "checkNote": "Second reader: Edmunds' 380 test says 'The GTI 380's 19-inch wheels come wrapped in 235/35 Bridgestone Potenza summer tires at all four corners'; Autotrader (380 S) and Auto123 (380 manual) also give 235/35 on 19s."
     },
     {
       "key": "tyreRear",
@@ -243,7 +293,30 @@
       "url": "https://www.goodyear.com/en-us/vehicles/Volkswagen/GTI/2024/S-with-Manual-Transmission",
       "sourceKind": "reference",
       "note": "This run: the fitment listings (Goodyear, Mavis, iSeeCars, Firestone 'S/SE/Autobahn 235/35R19 ... 39 PSI front and rear') give one size for the car and no separate rear size, i.e. a square fitment. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://vehicle.firestonecompleteautocare.com/volkswagen/gti/2024/tires"
+      "corroboratingUrl": "https://vehicle.firestonecompleteautocare.com/volkswagen/gti/2024/tires",
+      "check": "confirmed",
+      "checkNote": "Second reader: Edmunds says the 235/35 tyres on the 380's 19-inch wheels are fitted 'at all four corners', so the rear matches the front."
+    },
+    {
+      "key": "tyreModel",
+      "text": "Bridgestone Potenza",
+      "publisher": "Edmunds",
+      "url": "https://www.edmunds.com/car-news/2024-vw-golf-gti-380-track-tested.html",
+      "sourceKind": "test",
+      "note": "Added by the second reader: Edmunds' 2024 GTI 380 track test says 'The GTI 380's 19-inch wheels come wrapped in 235/35 Bridgestone Potenza summer tires at all four corners.' This is the tyre on Edmunds' test car; the specific Potenza model was not stated in the summary and no VW fitment list appeared. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "Second reader: single source (Edmunds' test car); no other result named the tyre brand or the exact Potenza model."
+    },
+    {
+      "key": "tyreCategory",
+      "text": "summer",
+      "publisher": "Edmunds",
+      "url": "https://www.edmunds.com/car-news/2024-vw-golf-gti-380-track-tested.html",
+      "sourceKind": "test",
+      "note": "Added by the second reader: Edmunds' 2024 GTI 380 track test says the 380's 19-inch wheels wear '235/35 Bridgestone Potenza summer tires at all four corners'. Autotrader lists 235/35 summer performance tires on the 380 S's gloss-black 19s, Auto123 lists '235/35R19 Summer Performance' for the 380 manual, and Motor1 says VW wraps the 380's 19-inch wheels in summer performance tires. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.autotrader.com/comparisons/2024-volkswagen-golf-gti-golf-r-choosing-the-right-trim",
+      "check": "confirmed",
+      "checkNote": "Second reader: four separate summaries (Edmunds, Autotrader, Auto123, Motor1) agree the 380 manual is delivered on summer tyres."
     },
     {
       "key": "dragCoefficient",
@@ -252,7 +325,9 @@
       "url": "https://www.volkswagen-newsroom.com/en/the-new-golf-gti-6025/design-of-the-new-golf-gti-6032?set_locale=true",
       "sourceKind": "manufacturer",
       "note": "This run: VW press material says the Mk8 basic model's drag coefficient 'fell from 0.3 to 0.275', and the summary said VW's GTI design brief and a Motors Actu article repeat 0.275 for the GTI. This is the 2020 international launch material; it was not tied to the US 2024 GTI. A 2025 US-market GTI description gives 0.31 (see conflicts). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://us.motorsactu.com/?p=6296"
+      "corroboratingUrl": "https://us.motorsactu.com/?p=6296",
+      "check": "unconfirmed",
+      "checkNote": "Second reader: not re-searched; 0.275 is VW's 2020 Mk8 launch figure and the 0.31 quoted for the US-market car (see conflicts) is still unresolved, so treat it as a low-confidence input."
     },
     {
       "key": "turningCircleFt",
@@ -260,7 +335,9 @@
       "publisher": "CarExpert",
       "url": "https://www.carexpert.com.au/volkswagen/golf/2024/gti/features-and-specs",
       "sourceKind": "reference",
-      "note": "This run: CarExpert lists 'Wall to Wall Turning Circle (ft): 35.8' (10,900 mm) for the 2024 GTI. Australian-market listing, wall-to-wall (not curb-to-curb); no second source. A 2025 Jetta GLI review gives the same 35.8 ft. Read from search-result summary; page not opened."
+      "note": "This run: CarExpert lists 'Wall to Wall Turning Circle (ft): 35.8' (10,900 mm) for the 2024 GTI. Australian-market listing, wall-to-wall (not curb-to-curb); no second source. A 2025 Jetta GLI review gives the same 35.8 ft. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "Second reader: none of the 7 searches (spent on mass, power, gearing, tyres and test figures) returned a turning circle, so there is no second result either way. It remains a single Australian wall-to-wall figure."
     },
     {
       "key": "brakeFrontDiscIn",
@@ -269,7 +346,9 @@
       "url": "https://media.vw.com/assets/documents/original/17302-2024GolfGTITechnicalSpecsFINAL.pdf",
       "sourceKind": "manufacturer",
       "note": "Copied from earlier card research (brakesFront): VW 2024 Golf GTI Technical Specifications '13.4 x 1.2-in vented discs'; press material says 2024 Golf GTI models come with 13.4-inch front vented discs. Model-wide. Earlier card review could not re-find it (unconfirmed). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://media.vw.com/press-kits/2024-golf-gti-press-kit"
+      "corroboratingUrl": "https://media.vw.com/press-kits/2024-golf-gti-press-kit",
+      "check": "unconfirmed",
+      "checkNote": "Second reader: the search aimed at VW's 2024 spec sheet returned no summary with brake sizes, so the 13.4 in front disc is neither confirmed nor contradicted."
     },
     {
       "key": "brakeRearDiscIn",
@@ -278,7 +357,9 @@
       "url": "https://media.vw.com/assets/documents/original/17302-2024GolfGTITechnicalSpecsFINAL.pdf",
       "sourceKind": "manufacturer",
       "note": "Copied from earlier card research (brakesRear): VW 2024 Golf GTI Technical Specifications '12.2 x 0.9-in vented discs'; press material says 12.2-inch rear vented discs. Model-wide. Earlier card review could not re-find it (unconfirmed). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://media.vw.com/press-kits/2024-golf-gti-press-kit"
+      "corroboratingUrl": "https://media.vw.com/press-kits/2024-golf-gti-press-kit",
+      "check": "unconfirmed",
+      "checkNote": "Second reader: the search aimed at VW's 2024 spec sheet returned no summary with brake sizes, so the 12.2 in rear disc is neither confirmed nor contradicted."
     },
     {
       "key": "epaCombinedMpg",
@@ -287,7 +368,9 @@
       "url": "https://fueleconomy.gov/feg/bymodel/2024_Volkswagen_Golf_GTI.shtml",
       "sourceKind": "agency",
       "note": "Copied from earlier card research: fueleconomy.gov 2024 Volkswagen GTI 2.0 L 4-cyl 6-speed manual, 27 combined; every source found agrees on 27 combined. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.cars.com/articles/2024-volkswagen-golf-gti-golf-r-last-call-for-a-manual-475434"
+      "corroboratingUrl": "https://www.cars.com/articles/2024-volkswagen-golf-gti-golf-r-last-call-for-a-manual-475434",
+      "check": "unconfirmed",
+      "checkNote": "Second reader: none of the 7 searches (spent on mass, power, gearing, tyres and test figures) returned an EPA combined rating, so there is no second result either way."
     },
     {
       "key": "epaCityMpg",
@@ -296,7 +379,9 @@
       "url": "https://fueleconomy.gov/feg/bymodel/2024_Volkswagen_Golf_GTI.shtml",
       "sourceKind": "agency",
       "note": "Copied from earlier card research: fueleconomy.gov 2024 Volkswagen GTI 6-speed manual, 23 city; Cars.com and California DriveClean give the manual 23/34/27. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.cars.com/articles/2024-volkswagen-golf-gti-golf-r-last-call-for-a-manual-475434"
+      "corroboratingUrl": "https://www.cars.com/articles/2024-volkswagen-golf-gti-golf-r-last-call-for-a-manual-475434",
+      "check": "unconfirmed",
+      "checkNote": "Second reader: none of the 7 searches (spent on mass, power, gearing, tyres and test figures) returned an EPA city rating, so there is no second result either way."
     },
     {
       "key": "epaHighwayMpg",
@@ -305,7 +390,9 @@
       "url": "https://fueleconomy.gov/feg/bymodel/2024_Volkswagen_Golf_GTI.shtml",
       "sourceKind": "agency",
       "note": "Copied from earlier card research: fueleconomy.gov 2024 Volkswagen GTI 6-speed manual, 34 highway; Cars.com and California DriveClean agree. Other circulating figures (33, 32, 31) are the DSG, an earlier year or misreads (see conflicts). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://driveclean.ca.gov/taxonomy/term/38137"
+      "corroboratingUrl": "https://driveclean.ca.gov/taxonomy/term/38137",
+      "check": "unconfirmed",
+      "checkNote": "Second reader: none of the 7 searches (spent on mass, power, gearing, tyres and test figures) returned an EPA highway rating, so there is no second result either way."
     },
     {
       "key": "test0to60Sec",
@@ -313,7 +400,9 @@
       "publisher": "Edmunds",
       "url": "https://www.edmunds.com/car-news/2024-vw-golf-gti-380-track-tested.html",
       "sourceKind": "test",
-      "note": "This run: Edmunds 'recorded a 6.1-second 0-60 mph run for the manual GTI 380' in its 2024 Golf GTI 380 track test. Whether Edmunds subtracted a one-foot rollout was not stated. Test car is a 2024 380 manual (19-inch wheels, dynamic dampers); one summary said Edmunds tested the 380 S, but the grade was not shown in a test-table excerpt. Other testers disagree (see conflicts). Read from search-result summary; page not opened."
+      "note": "This run: Edmunds 'recorded a 6.1-second 0-60 mph run for the manual GTI 380' in its 2024 Golf GTI 380 track test. Whether Edmunds subtracted a one-foot rollout was not stated. Test car is a 2024 380 manual (19-inch wheels, dynamic dampers); one summary said Edmunds tested the 380 S, but the grade was not shown in a test-table excerpt. Other testers disagree (see conflicts). Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "Second reader: two re-reads of the Edmunds 380 article returned its quarter mile, braking and skidpad figures but not the 0-60 time, and no summary said whether a one-foot rollout was subtracted; Edmunds' 2022 manual GTI test table shows about 6.5 s."
     },
     {
       "key": "testQuarterMileSec",
@@ -321,7 +410,9 @@
       "publisher": "Edmunds",
       "url": "https://www.edmunds.com/car-news/2024-vw-golf-gti-380-track-tested.html",
       "sourceKind": "test",
-      "note": "This run, repeated in several summaries: 'Past 60 mph, the GTI 380 ran a 14.4-second quarter mile with a 99-mph trap speed.' Read from search-result summary; page not opened."
+      "note": "This run, repeated in several summaries: 'Past 60 mph, the GTI 380 ran a 14.4-second quarter mile with a 99-mph trap speed.' Read from search-result summary; page not opened.",
+      "check": "confirmed",
+      "checkNote": "Second reader: re-read in two separate searches from the same Edmunds 2024 GTI 380 article ('ran a 14.4-second quarter mile with a 99-mph trap speed'); the 380 is the manual-only car on 235/35R19 summer tyres, so the configuration matches, but there is no second tester."
     },
     {
       "key": "testQuarterMileMph",
@@ -329,7 +420,9 @@
       "publisher": "Edmunds",
       "url": "https://www.edmunds.com/car-news/2024-vw-golf-gti-380-track-tested.html",
       "sourceKind": "test",
-      "note": "This run: same Edmunds sentence, '14.4-second quarter mile with a 99-mph trap speed.' Read from search-result summary; page not opened."
+      "note": "This run: same Edmunds sentence, '14.4-second quarter mile with a 99-mph trap speed.' Read from search-result summary; page not opened.",
+      "check": "confirmed",
+      "checkNote": "Second reader: re-read in two separate searches from the same Edmunds 2024 GTI 380 article ('14.4-second quarter mile with a 99-mph trap speed'); no second tester."
     },
     {
       "key": "testBraking60to0Ft",
@@ -337,7 +430,9 @@
       "publisher": "Edmunds",
       "url": "https://www.edmunds.com/car-news/2024-vw-golf-gti-380-track-tested.html",
       "sourceKind": "test",
-      "note": "Copied from earlier card research and re-read this run: 'in the opposite direction, it confidently stopped from 60 mph in 108 feet.' Edmunds' 2024 GTI 380 manual test. Read from search-result summary; page not opened."
+      "note": "Copied from earlier card research and re-read this run: 'in the opposite direction, it confidently stopped from 60 mph in 108 feet.' Edmunds' 2024 GTI 380 manual test. Read from search-result summary; page not opened.",
+      "check": "confirmed",
+      "checkNote": "Second reader: re-read in two separate searches from the same Edmunds 2024 GTI 380 article ('confidently stopped from 60 mph in 108 feet'); no second tester."
     },
     {
       "key": "testSkidpadG",
@@ -345,7 +440,9 @@
       "publisher": "Edmunds",
       "url": "https://www.edmunds.com/car-news/2024-vw-golf-gti-380-track-tested.html",
       "sourceKind": "test",
-      "note": "This run: 'On our skid pad, the GTI 380 pulled 0.99 g' (Edmunds 2024 GTI 380 manual test). Skidpad diameter not stated in the summary. Earlier card research's 0.96 g belonged to a 2022 GTI manual test (different model year). Read from search-result summary; page not opened."
+      "note": "This run: 'On our skid pad, the GTI 380 pulled 0.99 g' (Edmunds 2024 GTI 380 manual test). Skidpad diameter not stated in the summary. Earlier card research's 0.96 g belonged to a 2022 GTI manual test (different model year). Read from search-result summary; page not opened.",
+      "check": "confirmed",
+      "checkNote": "Second reader: a second search summary of the Edmunds 2024 GTI 380 test again gave 0.99 g; the skidpad diameter was still not stated, and the 2022 manual GTI managed 0.96 g (Edmunds) and 0.97 g (Car and Driver)."
     }
   ],
   "notFound": [
@@ -356,8 +453,6 @@
     "boostPsi",
     "compressionRatio",
     "awdSystem",
-    "tyreModel",
-    "tyreCategory",
     "frontalAreaSqFt",
     "liftCoefficientFront",
     "liftCoefficientRear",
@@ -380,7 +475,7 @@
         3137,
         3188
       ],
-      "note": "Kept 3,137 lb, VW's figure for the manual (Motor Matchup and Autoblog also list 3,137 lb for 380 manual grades this run). 3,188 lb is VW's automatic figure and appears on listing pages for the plain (DSG) S. Canadian listings show 3,135 / 3,177 lb (other market). Read from search-result summary; page not opened."
+      "note": "Kept 3,137 lb, VW's figure for the manual (Motor Matchup and Autoblog also list 3,137 lb for 380 manual grades this run). 3,188 lb is VW's automatic figure and appears on listing pages for the plain (DSG) S. Canadian listings show 3,135 / 3,177 lb (other market). Read from search-result summary; page not opened. Second reader: Edmunds lists 3,137 lbs for the 380 S; Cars.com shows a 'base' 3,188 lbs without naming the transmission; Ultimatespecs' 3,232 lbs is the European GTI DSG (other market); Edmunds' 2022 GTI manual test table shows about 3,192 lb (measured, different model year)."
     },
     {
       "key": "groundClearanceIn",
@@ -435,9 +530,17 @@
       "values": [
         "3rd 1.48 (Autoweb)",
         "3rd 1.47 (Auto123)",
-        "Motor Matchup overall ratios 1st 13.001, 2nd 7.21, 3rd 5.106, 6th 2.512 (final drive shown as '1')"
+        "Motor Matchup overall ratios 1st 13.001, 2nd 7.21, 3rd 5.106, 4th 3.76, 6th 2.512 (final drive shown as '1')"
       ],
-      "note": "Kept Autoweb's US list with 1.48 third; Auto123 gives 1.47. Motor Matchup's 380 manual pages list what look like overall (gear x final drive) ratios with the final drive shown as '1'; dividing them by the gearbox ratios gives about 3.45 for 1st-3rd and about 2.76 for 6th, which supports a two-final-drive gearbox. That division is an observation, not a published final drive, and nothing published a lower-gear final drive. Read from search-result summary; page not opened."
+      "note": "Kept Autoweb's US list with 1.48 third; Auto123 gives 1.47. Motor Matchup's 380 manual pages list what look like overall (gear x final drive) ratios with the final drive shown as '1'; dividing them by the gearbox ratios gives about 3.45 for 1st-3rd and about 2.76 for 6th, which supports a two-final-drive gearbox. That division is an observation, not a published final drive, and nothing published a lower-gear final drive. Read from search-result summary; page not opened. Second reader: Auto123's 380 manual pages re-read as 3.77, 2.09, 1.47, 1.09, 1.10, 0.91 (reverse 2.77), and Motor Matchup also shows a 4th-gear overall ratio of 3.76; third stays 1.48 (Autoweb) against 1.47 (Auto123)."
+    },
+    {
+      "key": "finalDriveRatio",
+      "values": [
+        2.76,
+        "Motor Matchup overall ratios 1st 13.001, 4th 3.76, 6th 2.512 (not gear x 2.76 for 1st and 4th)"
+      ],
+      "note": "Second reader: kept Auto123's 2.76 because it is the only final-drive figure any source published, but it cannot be the final drive for every gear. With the listed gearbox ratios, 2.76 would give about 10.4 overall in 1st and about 3.0 in 4th, whereas Motor Matchup publishes 13.001 and 3.76; only 6th (2.512) agrees with 2.76. The gearbox therefore has a second, shorter final drive for the lower gears that no source stated. A simulation should take Motor Matchup's overall ratios for 1st-4th, or treat 2.76 as valid for 5th and 6th only; using 2.76 throughout would make the lower gears much too tall. Read from search-result summary; page not opened."
     },
     {
       "key": "tyreFront",
@@ -463,26 +566,29 @@
         6.4,
         5.1,
         5.6,
-        5.91
+        5.91,
+        6.5
       ],
-      "note": "Kept Edmunds' 6.1 s because Edmunds has the most figures for the 2024 380 manual (0-60, quarter mile and trap, 60-0, skidpad), all read from its own test article summary. 5.8 s is attributed to Car and Driver for a manual GTI only second-hand (Detroit News column reprinted at henrypayne.com; year/grade not stated; Car and Driver's own page never appeared, and C/D would use a one-foot rollout). 6.4 s is Consumer Reports' manual (summary says its previously tested manual, different model year). 5.1 s is Clean Fleet Report's 380 S road test (not shown to be instrumented). 5.6 s and 5.91 s are Motor Matchup simulations, not tests. Read from search-result summary; page not opened."
+      "note": "Kept Edmunds' 6.1 s because Edmunds has the most figures for the 2024 380 manual (0-60, quarter mile and trap, 60-0, skidpad), all read from its own test article summary. 5.8 s is attributed to Car and Driver for a manual GTI only second-hand (Detroit News column reprinted at henrypayne.com; year/grade not stated; Car and Driver's own page never appeared, and C/D would use a one-foot rollout). 6.4 s is Consumer Reports' manual (summary says its previously tested manual, different model year). 5.1 s is Clean Fleet Report's 380 S road test (not shown to be instrumented). 5.6 s and 5.91 s are Motor Matchup simulations, not tests. Read from search-result summary; page not opened. Second reader: about 6.5 s is Edmunds' 2022 GTI 6-speed manual test table (different model year, same engine and gearbox); the 6.1 s itself did not reappear in the two Edmunds 380 summaries read."
     },
     {
       "key": "testQuarterMileSec",
       "values": [
         14.4,
-        14.2
+        14.2,
+        14.6
       ],
-      "note": "Kept Edmunds' 14.4 s @ 99 mph. 14.2 s @ 98 mph is a Motor Matchup simulation for the 380 S manual, not a measured result. Read from search-result summary; page not opened."
+      "note": "Kept Edmunds' 14.4 s @ 99 mph. 14.2 s @ 98 mph is a Motor Matchup simulation for the 380 S manual, not a measured result. Read from search-result summary; page not opened. Second reader: 14.6 s at roughly 99 mph is Edmunds' 2022 GTI 6-speed manual test (different model year)."
     },
     {
       "key": "testSkidpadG",
       "values": [
         0.99,
         0.96,
-        0.94
+        0.94,
+        0.97
       ],
-      "note": "Kept Edmunds' 0.99 g for the 2024 380 manual. 0.96 g was a 2022 GTI manual test (earlier card research; different model year) and 0.94 g on a 300-ft skidpad was Car and Driver's 2017 GTI (different generation). Read from search-result summary; page not opened."
+      "note": "Kept Edmunds' 0.99 g for the 2024 380 manual. 0.96 g was a 2022 GTI manual test (earlier card research; different model year) and 0.94 g on a 300-ft skidpad was Car and Driver's 2017 GTI (different generation). Read from search-result summary; page not opened. Second reader: the 0.96 g was re-read as Edmunds' 2022 GTI 6-speed manual test, and 0.97 g is Car and Driver's test of the 2022 GTI manual (different model year); Car and Driver's 2017 sheet lists a 300-foot skidpad, but no summary gave Edmunds' skidpad diameter."
     },
     {
       "key": "topSpeedMph",
@@ -491,7 +597,7 @@
         155,
         158
       ],
-      "note": "Not recorded, and topSpeedGoverned not recorded. Earlier card research: 127 mph in a Detroit News review (source and whether governed not stated); 155 mph electronically limited on tractionlife.com (unsourced; VW's European 250 km/h figure is a different tune); 153-158 mph Motor Matchup simulations. This run found no VW US or tested top speed. Read from search-result summary; page not opened."
+      "note": "Not recorded, and topSpeedGoverned not recorded. Earlier card research: 127 mph in a Detroit News review (source and whether governed not stated); 155 mph electronically limited on tractionlife.com (unsourced; VW's European 250 km/h figure is a different tune); 153-158 mph Motor Matchup simulations. This run found no VW US or tested top speed. Read from search-result summary; page not opened. Second reader: Motor Matchup's 380 SE manual page shows 'Top Speed: 158 mph' (simulation), Encycarpedia gives 155 mph on a page quoting 262 bhp (European tune), and Car and Driver's 2017 GTI Sport manual was governor-limited at 126 mph (previous generation). Still no US 2024 figure, and no redline surfaced, so top speed could not be checked against redline, top gear and tyre size."
     },
     {
       "key": "epaHighwayMpg",

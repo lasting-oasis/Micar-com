@@ -285,6 +285,23 @@
       "sourceKind": "reference",
       "note": "Carried over from the earlier card research (engine/data/research/batch-2-2026-11-11.json and gaps-2026-11-11.json); no search in the 2026-11-24 pass was spent on this figure. EPA city/highway 26/32 mpg for the 2024 Outback AWD 2.5-liter; MPGBuddy and the DriveClean EPA mirror agree at 32 highway. The 29 highway figure belongs to the 2.4 turbo. Autopadre listed 31 (see conflicts). Read from search-result summary; page not opened.",
       "corroboratingUrl": "https://mpgbuddy.com/cars/subaru/outback-awd/2024"
+    },
+    {
+      "key": "test0to60Sec",
+      "number": 8.8,
+      "publisher": "Edmunds",
+      "url": "https://www.edmunds.com/subaru/outback/2024/",
+      "sourceKind": "test",
+      "note": "OTHER TRIM, TEST YEAR NOT STATED: Edmunds' 2024 Outback page was summarised as 'Our test vehicle, an Outback Limited with the base four-cylinder engine, accelerated from 0 to 60 mph in 8.8 seconds.' Same 2.5L naturally aspirated engine, Lineartronic CVT and AWD as the Premium, but a Limited, not a Premium; the test car's weight, tyres and model year were not in the summary. Edmunds' 2020 Outback review (corroboratingUrl, the same tester, not an independent test) was summarised with the same car and time (a Limited with the 2.5-liter, 8.8 s), so the test was probably run on a 2020 Limited and carried forward on later model-year pages: same generation and powertrain, not the 2024 model year. Edmunds' times do not subtract a one-foot rollout (see testRollout). No quarter mile, braking, skidpad, top speed or test weight from Edmunds for the 2.5 surfaced. Other testers' 0-60 times are in conflicts. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.edmunds.com/subaru/outback/2020/review/"
+    },
+    {
+      "key": "testRollout",
+      "text": "false",
+      "publisher": "Edmunds",
+      "url": "https://www.edmunds.com/subaru/outback/2024/",
+      "sourceKind": "test",
+      "note": "Recorded as false because the 0-60 figure kept is Edmunds', whose 0-60 times do not subtract a one-foot rollout (the convention the research brief states for Edmunds); the search summary itself did not state it. Applies to the 8.8 s figure. Read from search-result summary; page not opened."
     }
   ],
   "notFound": [
@@ -306,9 +323,7 @@
     "topSpeedMph",
     "topSpeedGoverned",
     "test0to30Sec",
-    "test0to60Sec",
     "test0to100Sec",
-    "testRollout",
     "testQuarterMileSec",
     "testQuarterMileMph",
     "testBraking60to0Ft",
@@ -410,6 +425,10 @@
     {
       "key": "test0to60Sec",
       "values": [
+        8.8,
+        8.5,
+        8.7,
+        7.8,
         8.6,
         7.1,
         9.8,
@@ -418,7 +437,7 @@
         9.0,
         6.0
       ],
-      "note": "Not recorded: no named instrumented test of a 2024 Outback with the 2.5L CVT AWD surfaced in 14 searches, including searches aimed at Car and Driver, MotorTrend and Consumer Reports. 8.6 s (with 16.7 s @ 83.9 mph in the quarter mile) is a 2023 Outback, Touring trim, 3,896 lb, attributed to Car and Driver only by the aggregator 0-60specs.com (https://www.0-60specs.com/subaru/outback-0-60-times), whose attribution earlier research found inconsistent; a search for the original Car and Driver test did not find it. 7.1 s is a dealer-hosted Consumer Reports sheet for the 2024 Outback with no trim or engine named (may be the turbo). 9.8 s 0-62 mph is Autocar's UK test of a 2023 Outback (European 169 PS 2.5i; https://www.autocar.co.uk/node/66041). 9.1 s is Consumer Reports' 2026 Outback Premium (next generation). 8.1 s (motormatchup.com, no source), about 9.0 s (drivechicago.com, approximate) and 6.0 s (2024 Touring XT turbo, MotorWeek) carried over from earlier research. Older: Car and Driver 2015 2.5i 9.1 s; Edmunds 2010 2.5i manual 9.4 s. Read from search-result summary; page not opened."
+      "note": "Kept 8.8 s, Edmunds' own test of an Outback Limited with the base 2.5L four-cylinder (CVT, AWD), no rollout: the only figure where the tester's own pages (Edmunds' 2024 Outback page and its 2020 review) name the car and the engine. Each other tester gave a single figure, so no tester had a fuller set. 8.5 s is a road test of a 2020 Outback Touring with the naturally aspirated 2.5 carried on Yahoo Autos ('2020 Subaru Outback Touring Wagon Will Not Be Rushed', https://autos.yahoo.com/2020-subaru-outback-touring-wagon-130000373.html; the same piece gives 6.3 s for the turbo Touring XT); the summary did not name the tester and showed no quarter mile, skidpad, braking or weight. Other records in this folder cite autos.yahoo.com road tests as Car and Driver syndication, so it is probably Car and Driver's, whose times subtract a one-foot rollout and so read quicker than a no-rollout time for the same car; unconfirmed. 8.7 s is MotorTrend's year-long test of the 2.5 as reported second-hand in a search summary of motorbiscuit.com pages; MotorTrend's own page did not surface (it would also be a rollout time). 7.8 s (with 16.01 s @ 84.9 mph) is Motor Matchup's 2020 Touring page (https://www.motormatchup.com/catalog/Subaru/Outback/2020/Touring-4DR-AWD), no test source stated. On Consumer Reports' 7.1 s, one summary in the test-figure pass said its 2020 test car was the 2.5-liter; that is not settled, and it is far quicker than every other 2.5 figure. Earlier note, written before any test figure was recorded: Not recorded: no named instrumented test of a 2024 Outback with the 2.5L CVT AWD surfaced in 14 searches, including searches aimed at Car and Driver, MotorTrend and Consumer Reports. 8.6 s (with 16.7 s @ 83.9 mph in the quarter mile) is a 2023 Outback, Touring trim, 3,896 lb, attributed to Car and Driver only by the aggregator 0-60specs.com (https://www.0-60specs.com/subaru/outback-0-60-times), whose attribution earlier research found inconsistent; a search for the original Car and Driver test did not find it. 7.1 s is a dealer-hosted Consumer Reports sheet for the 2024 Outback with no trim or engine named (may be the turbo). 9.8 s 0-62 mph is Autocar's UK test of a 2023 Outback (European 169 PS 2.5i; https://www.autocar.co.uk/node/66041). 9.1 s is Consumer Reports' 2026 Outback Premium (next generation). 8.1 s (motormatchup.com, no source), about 9.0 s (drivechicago.com, approximate) and 6.0 s (2024 Touring XT turbo, MotorWeek) carried over from earlier research. Older: Car and Driver 2015 2.5i 9.1 s; Edmunds 2010 2.5i manual 9.4 s. Read from search-result summary; page not opened."
     },
     {
       "key": "testQuarterMileSec",

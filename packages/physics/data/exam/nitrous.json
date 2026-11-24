@@ -1,0 +1,208 @@
+{
+  "id": "nitrous",
+  "topic": "Nitrous oxide kit on a street car: shot size in hp, measured power with and without it, quarter-mile time and trap speed with and without it, nitrous used per run",
+  "gathered": "2026-11-24",
+  "cases": [
+    {
+      "car": "2011 Ford Mustang GT (5.0L Coyote V8; transmission not given in summary) - already fitted with a full exhaust with cat delete, a JLT intake and a custom tune",
+      "change": "ZEX nitrous system for the 2011+ 5.0L (a retailer listing calls it wet-injected), run with the 75 hp jets; the kit also carries 100, 125, 150 and 175 hp jets",
+      "physical": {
+        "shotSizeHp": 75,
+        "shotRatedAt": "flywheel",
+        "kitJetOptionsHp": [75, 100, 125, 150, 175]
+      },
+      "measure": "rear-wheel horsepower and torque, chassis dyno, same car before and after the kit",
+      "before": {
+        "wheelHp": 415.5,
+        "wheelTorqueLbFt": 400.8
+      },
+      "after": {
+        "wheelHp": 483.8,
+        "wheelTorqueLbFt": 498.6
+      },
+      "publisher": "Ford Muscle (FordMuscle.com), 'Installing an Easy 75-175 HP with Zex Nitrous on a 2011 Mustang GT'",
+      "url": "https://www.fordmuscle.com/?p=880325",
+      "sourceKind": "test",
+      "note": "Summary: 'The before and after figures were 415.5 rwhp and 400.8 lb-ft, versus 483.8 rwhp and 498.6 lb-ft, a gain of 68 rwhp and 98 lb-ft.' Quoted: 'The 75 shot did exactly what it was supposed to do, generating an additional 75 hp to the flywheel, which translated into 68 rwhp' and 'The big jump occurred on the torque curve, which increased by 98 lb/ft.' The car was not stock: it 'already had a few bolt-on parts that pushed power over 400 RWHP'. A second Ford Muscle piece on the same install rounds the baseline to '416 hp and 401 lb/ft to the tires'. No results for the 100 to 175 hp jets on this car were in the summaries. A retailer note in the same results says the factory spark plugs in this car 'are not suitable for use with any nitrous setting above 75 hp'. Left out for want of a same-car baseline: a 2015 Mustang GT on Nitrous Express 150 hp jets at 542 hp and 589 lb-ft (Ford Muscle, wheel or crank not stated), and a 2015 Mustang GT on a 150 shot with E85 and a custom tune at 536 rwhp and 572 rwtq (LMR). Read from search-result summary; page not opened."
+    },
+    {
+      "car": "2013 Ford Mustang GT (5.0L Coyote V8; transmission not given in summary) - fitted only with an AIRAID cold air intake and a Stainless Works full exhaust",
+      "change": "Nitrous Express 2011+ 5.0L Coyote High Output Plate System (PN 20951-10), window switch set to bring the nitrous in just after 3,000 rpm; jet size used not given in summary (headline says 'nearly 100 HP')",
+      "physical": {
+        "shotSizeHp": null,
+        "shotSizeNote": "jet size not in the search summaries; the article headline is 'Bolt On Nearly 100 HP'",
+        "kitJetOptionsHp": [50, 75, 100, 125, 150, 200, 250],
+        "windowSwitchOnRpm": 3000,
+        "rearTyrePressurePsiBaseline": 25
+      },
+      "measure": "drag strip (Auto Club Dragway, Fontana, California): 60-foot, eighth-mile and quarter-mile, same car before and after the kit",
+      "before": {
+        "sixtyFootSec": 2.05,
+        "eighthMileSec": 8.56,
+        "eighthMileMph": 84.5,
+        "quarterMileSec": 13.14,
+        "quarterMileMph": 107.3
+      },
+      "after": {
+        "sixtyFootSec": 1.97,
+        "eighthMileSec": 8.15,
+        "eighthMileSecLaterBest": 7.97,
+        "eighthMileMphLaterBest": 92
+      },
+      "publisher": "Ford Muscle (FordMuscle.com) / Dragzine, 'Bolt On Nearly 100 HP With A Nitrous Express-Fed Coyote'",
+      "url": "https://www.fordmuscle.com/?p=7842",
+      "sourceKind": "test",
+      "note": "Quoted baseline: 'a rear tire pressure of 25psi, which resulted in a 13.14 e.t. at 107.3 mph, with a 60-ft time of 2.05 and an eighth-mile time of 8.56 at 84.5 mph.' Quoted with nitrous: the driver 'managed to improve the Mustang's 60-foot (1.97 versus 2.05) and even improved its eighth-mile time (8.15 versus 8.56)'. The with-nitrous quarter-mile time and trap speed were NOT in any summary and are left blank; the article only says 'Gaining nearly a full second in the quarter-mile is extremely impressive, and knocking more than four-tenths off of your eighth-mile time is no joke.' A later update gives 'a new personal-best eighth-mile on the bottle: 7.97 at 92 mph'. The summary did not label the 13.14 run as pre-nitrous in so many words; it is the run that carries the 2.05 and 8.56 the article compares against. The dyno figures behind the headline were not in the summaries. Kit jet list (50 to 250 hp, fits 2011 to 2015 GT) is from a second Ford Muscle summary about the same kit. The '-10' part-number suffix probably means a 10 lb bottle (a retailer lists the same kit with a 15 lb bottle as 20951-15); that is an inference. Read from search-result summary; page not opened."
+    },
+    {
+      "car": "Ford 347 cubic-inch stroker small-block V8 (engine as tested; the car, if any, and the transmission are not given in summary)",
+      "change": "ZEX nitrous kit with the 100 hp jetting, tuned aggressively: 12.3:1 air/fuel ratio and two degrees of ignition timing retard",
+      "physical": {
+        "shotSizeHp": 100,
+        "airFuelRatioOnNitrous": 12.3,
+        "timingRetardDeg": 2,
+        "dynoType": "not stated in summary (wording 'the engine made' suggests an engine dyno)"
+      },
+      "measure": "horsepower and torque on a dyno, naturally aspirated against nitrous on the same engine; summary does not say engine dyno or chassis dyno, so the figures carry neutral keys",
+      "before": {
+        "hp": 441,
+        "torqueLbFt": 405
+      },
+      "after": {
+        "hp": 569,
+        "torqueLbFt": 519
+      },
+      "publisher": "Ford Muscle (FordMuscle.com), 'Adding 171 Dyno-Proven Horsepower With Zex Nitrous'",
+      "url": "https://www.fordmuscle.com/tech-stories/adding-171-dyno-proven-horsepower-with-zex-nitrous/",
+      "sourceKind": "test",
+      "note": "Summary: 'Naturally aspirated, the engine made 441 hp and 405 lb-ft. With 100-shot jetting it made 569 hp and 519 lb-ft, a gain of 128 hp and 114 lb-ft.' Quoted: 'Thanks to aggressive tuning (12.3:1 air/fuel and just two-degrees of timing retard), the 100-horse jetting increased the power output by 128 horsepower and 114 lb-ft of torque.' So a nominal 100 hp jetting delivered 128 hp here. An engine test, not a whole car: no weight, gearing or strip times. Same engine and article as the 150-shot case below. Read from search-result summary; page not opened."
+    },
+    {
+      "car": "Ford 347 cubic-inch stroker small-block V8 (engine as tested; the car, if any, and the transmission are not given in summary) - same engine as the 100-shot case above",
+      "change": "ZEX nitrous kit with the 150 hp jetting",
+      "physical": {
+        "shotSizeHp": 150,
+        "dynoType": "not stated in summary (wording 'the engine made' suggests an engine dyno)"
+      },
+      "measure": "horsepower and torque on a dyno, naturally aspirated against nitrous on the same engine; summary does not say engine dyno or chassis dyno, so the figures carry neutral keys",
+      "before": {
+        "hp": 441,
+        "torqueLbFt": 405
+      },
+      "after": {
+        "hp": 612,
+        "torqueLbFt": 574
+      },
+      "publisher": "Ford Muscle (FordMuscle.com), 'Adding 171 Dyno-Proven Horsepower With Zex Nitrous'",
+      "url": "https://www.fordmuscle.com/tech-stories/adding-171-dyno-proven-horsepower-with-zex-nitrous/",
+      "sourceKind": "test",
+      "note": "Summary: 'Naturally aspirated, the engine made 441 hp and 405 lb-ft' and 'The 150-shot setup reached 612 hp and 574 lb-ft.' The article title's 171 hp is 612 minus 441. Air/fuel ratio and timing for the 150 hp jetting were not in the summary. No quarter-mile times are listed. Read from search-result summary; page not opened."
+    },
+    {
+      "car": "2016 Chevrolet Camaro SS (sixth generation; engine and transmission not given in summary) - owner's car with tyre and wheel upgrades, about 200 miles on the odometer",
+      "change": "Nitrous kit set to a 150 shot (kit brand and type not given in summary)",
+      "physical": {
+        "shotSizeHp": 150
+      },
+      "measure": "drag strip quarter mile (Tulsa Raceway Park), same car without and with nitrous; news report of the owner's passes",
+      "before": {
+        "quarterMileSec": 11.77
+      },
+      "after": {
+        "quarterMileSec": 10.6,
+        "quarterMileMph": 128.81
+      },
+      "publisher": "autoevolution (news report: '2016 Chevrolet Camaro SS Gets Nitrous After 200 Miles of Ownership, Runs 10.6s 1/4-Mile')",
+      "url": "https://www.autoevolution.com/news/2016-chevrolet-camaro-ss-gets-nitrous-after-200-miles-of-ownership-runs-106s-quarter-mile-102791.html",
+      "sourceKind": "test",
+      "note": "Summary: 'A stock example of that car typically runs in the low 12-second range, and a modded car ran 11.77 before nitrous. With a 150 shot, the same car ran 10.6 at 128.81 mph at Tulsa Raceway Park, with 200 miles on the odometer', and 'Its 11.77 was with tire and wheel upgrades, so it isn't a clean stock baseline.' The trap speed of the 11.77 pass was not in the summary, and the 10.6 is given to one decimal only. A news site relaying an owner's time slips, not an instrumented magazine test; conditions of the two passes are not known to match. Read from search-result summary; page not opened."
+    },
+    {
+      "car": "2016 Chevrolet Camaro SS (sixth generation, manual transmission; engine not given in summary) - described as stock",
+      "change": "Nitrous kit, 150 shot (kit brand and type not given in summary)",
+      "physical": {
+        "shotSizeHp": 150
+      },
+      "measure": "drag strip quarter-mile elapsed time, owner's own figures stock and with nitrous; no trap speeds given",
+      "before": {
+        "quarterMileSec": 12.3
+      },
+      "after": {
+        "quarterMileSec": 11.1
+      },
+      "publisher": "Camaro6 forum (owner forum post, thread 'Nitrous on a Stock '16 SS')",
+      "url": "https://www.camaro6.com/forums/showthread.php?t=547960",
+      "sourceKind": "test",
+      "note": "Summary: 'A Camaro6 poster on a 2016 SS with a manual transmission listed a 12.3 stock quarter mile and an 11.1 with a 150 shot, with no trap speed given.' An owner's self-report to one decimal, not a controlled test: track, weather, tyres and whether both passes were the same day are unknown. Agrees in size with the autoevolution 2016 Camaro SS case above (also about 1.2 s for a 150 shot). Read from search-result summary; page not opened."
+    },
+    {
+      "car": "Ford Mustang GT of the 2005-on generation (thread '2005 Mustang GT nitrous' in a 2005+ Mustang GT forum; exact year, engine, transmission and other mods of the poster's car not given in summary)",
+      "change": "Nitrous kit, 100 shot (kit brand and wet or dry not given in summary)",
+      "physical": {
+        "shotSizeHp": 100
+      },
+      "measure": "drag strip quarter-mile elapsed time, owner's own time slips without and with the nitrous; no trap speeds given",
+      "before": {
+        "quarterMileSec": 13.723
+      },
+      "after": {
+        "quarterMileSec": 12.926
+      },
+      "publisher": "The Mustang Source forum (owner forum post, thread '2005 Mustang GT nitrous')",
+      "url": "https://themustangsource.com/forums/f669/2005-mustang-gt-nitrous-413898/index2/",
+      "sourceKind": "test",
+      "note": "Summary: 'One forum owner ran 13.723 without the 100 shot and 12.926 with it.' An owner's self-report, not a controlled test: trap speeds, 60-foot times, track and weather were not in the summary. The difference is 0.797 s, a little under the 'about one second per 100 shot' rule of thumb. Read from search-result summary; page not opened."
+    },
+    {
+      "car": "Car not identified in the search summary (owner thread on Corral.net, a Ford Mustang forum; year, engine and transmission not given)",
+      "change": "Nitrous Express (NX) kit, 100 shot",
+      "physical": {
+        "shotSizeHp": 100
+      },
+      "measure": "rear-wheel horsepower on a chassis dyno, 'on motor' against on nitrous, owner's own dyno session",
+      "before": {
+        "wheelHp": 243
+      },
+      "after": {
+        "wheelHp": 346
+      },
+      "publisher": "Corral.net forum (owner forum thread 'Dyno Results w/nitrous - WOW!')",
+      "url": "https://www.corral.net/threads/dyno-results-w-nitrous-wow.235177/",
+      "sourceKind": "test",
+      "note": "Summary: 'One owner's 100-shot run went from 243 hp on motor to 346 hp, a 103 rwhp gain. A later run on a different day with a different dyno showed a smaller gain. The thread is not clear on whether the runs were on the same day.' An owner's self-report; torque figures were not in the summary and the car itself is not named, so this checks only the size of the power step (a nominal 100 shot showing 103 hp at the wheels). Read from search-result summary; page not opened."
+    }
+  ],
+  "ruleOfThumb": [
+    {
+      "claim": "Bottle life: a 125 hp kit with a standard 10 lb bottle usually gives up to 7 to 10 full quarter-mile passes; at 250 hp, 3 to 5 full quarter-mile passes.",
+      "publisher": "Holley / NOS (nitrous kit maker's support page; manufacturer guidance)",
+      "url": "https://www.holley.com/support/nitrous_oxide_systems/",
+      "note": "Quoted: 'a 125 HP Power Shot kit with a standard 10 lb. capacity bottle will usually offer up to 7 to 10 full quarter-mile passes. At 250 hp, 3 to 5 full quarter-mile passes may be expected.' Arithmetic on those words only: 10 lb over 7 to 10 passes is 1.0 to 1.4 lb per pass at 125 hp; 10 lb over 3 to 5 passes is 2.0 to 3.3 lb per pass at 250 hp. No case on this page measured nitrous used per run (no bottle was weighed before and after in any summary), so this is the only consumption evidence. Read from search-result summary; page not opened."
+    },
+    {
+      "claim": "Consumption: about 0.8 lb of nitrous per 100 hp of shot per 10 seconds of use (some say 1 lb), scaling in proportion to shot size: 50 hp uses about half a pound in 10 seconds, 200 hp about 2 lb in 10 seconds.",
+      "publisher": "Enthusiast forum posts (StangNet, LS1Tech and CamaroZ28 threads returned together; the summary did not tie each quote to one thread)",
+      "url": "https://stangnet.com/mustang-forums/threads/how-long-does-a-10lb-bottle-of-nitrous-last.657978/",
+      "note": "Quoted: 'A good rule of thumb is 0.8lbs of nitrous oxide is used on a 100hp shot for 10 seconds', 'quick math says you will use 1lb for every 100hp for 10 seconds' and '50hp will use 1/2 pound in 10 seconds, 200hp will use 2 pounds in 10 seconds'. Forum users in the same results report about 5 good passes on a 100 shot and about 3 on a 200 shot from a 10 lb bottle, and note that not all of it is usable: 'you won't get adequate pressure to use every last pound and you will lose some through purging the lines.' The url is one of several threads in the result list and may not be the one each quote came from; another candidate is https://ls1tech.com/forums/nitrous-oxide/877471-what-s-formula-determining-nitrous-volume-used-per-sec.html. Read from search-result summary; page not opened."
+    },
+    {
+      "claim": "A shot size is a flywheel horsepower rating, so a chassis dyno shows somewhat less: a 75 hp shot showed 68 hp at the rear wheels.",
+      "publisher": "Ford Muscle (FordMuscle.com), ZEX nitrous on a 2011 Mustang GT",
+      "url": "https://www.fordmuscle.com/?p=880325",
+      "note": "Quoted: 'The 75 shot did exactly what it was supposed to do, generating an additional 75 hp to the flywheel, which translated into 68 rwhp.' The torque gain is larger than the power gain: 98 lb-ft on that car. Measured gains scatter widely around the rating, though. On this page: nominal 100 hp gave 103 rwhp (Corral.net owner) and 128 hp (Ford Muscle 347 on an aggressive tune), nominal 150 hp gave 171 hp (same 347). Left out as cases because only the gain, not the before and after figures, was in the summaries: a tuner's own claim of +112 rwhp / +136 rwtq on a 50 shot (35 nitrous jet, 18 fuel jet) and +169 rwhp / +197 rwtq on a 100 shot (52 nitrous jet, 28 fuel jet) on a Corvette C7 Stingray plate kit (Vengeance Racing, a tuner posting on Corvette Forum, https://www.corvetteforum.com/forums/c7-forced-induction-nitrous/3400375-vengeance-racing-lays-down-680rwhp-643rwtq-with-nitrous-outlet-plate-kit.html), and Corvette owners reporting a 100 shot plate kit that 'picked up only 70hp' and a thread titled '75 shot nitrous=35 rwhp gain?'. Read from search-result summary; page not opened."
+    },
+    {
+      "claim": "Quarter mile: roughly one second quicker per 100 hp of nitrous on a typical street car; a calculator gives about 1.1 seconds for a 3,500 lb car going from 350 to 450 hp.",
+      "publisher": "calchorsepower.com ('Nitrous Calculator: Shot Size, Bottle Use and Jet Rescaling'; a formula, not a test)",
+      "url": "https://www.calchorsepower.com/engine-builder/nitrous-calculator/",
+      "note": "Summary: 'The quarter-mile estimate that circulates is about one second per 100 shot. A calculator on calchorsepower.com gives about 1.1 seconds for a 3,500 lb car going from 350 to 450 hp. That is a formula result, not a measured test.' Check against the cases on this page: 100 shot 13.723 to 12.926 s (0.80 s, owner); 150 shot 12.3 to 11.1 s (1.2 s, owner) and 11.77 to 10.6 s (about 1.17 s, news report); the 2013 Mustang GT plate kit of unstated jet size gained 'nearly a full second' with 0.41 s of it by the eighth mile. Read from search-result summary; page not opened."
+    },
+    {
+      "claim": "On a stock LS1 V8 a 100 shot is worth about 100 rear-wheel hp and more than that in torque: one owner averaged +108 rwhp and +139 rwtq at a 12.0 air/fuel ratio, and reported about a second off the quarter mile and 12 mph more trap speed.",
+      "publisher": "LS1Tech forum (owner forum thread 'How much rwhp gain with a 100 shot?')",
+      "url": "https://ls1tech.com/forums/nitrous-oxide/399708-how-much-rwhp-gain-100-shot.html",
+      "note": "Quoted: 'Two weeks later I averaged 108 rwhp & 139 rwtq on my 100 shot running 12.0 A/F and it was over 90* that after noon.' Summary: 'He reported taking about a second off his quarter-mile times and gaining 12 mph. The thread doesn't give a clear before-and-after quarter-mile table.' Only the gains were given, not the before and after figures, so it is recorded here and not as a case; it is the only trap-speed change found for a known shot size. A Corvette Forum member in another result says the same in general terms: 'a 100 shot will pick up 100 rwhp and 100+tq', adding that every situation is different. Read from search-result summary; page not opened."
+    }
+  ],
+  "searchesUsed": 14
+}

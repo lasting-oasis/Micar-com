@@ -14,7 +14,9 @@
       "url": "https://autos.yahoo.com/2024-toyota-camry-buyers-guide-194800713.html",
       "sourceKind": "reference",
       "note": "Search summary: 'Car and Driver's data, via Yahoo, gives a wheelbase of 111.2 inches' ('Wheelbase (inches): 111.2'); the AOL republication of the same guide lists the 2024 Camry's wheelbase at 111.2 in and says 'The specs below are for the Toyota Camry LE.' KBB also gives 111.2 in. No Toyota-published figure surfaced. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.aol.com/2024-toyota-camry-buyers-guide-194800611.html"
+      "corroboratingUrl": "https://www.aol.com/2024-toyota-camry-buyers-guide-194800611.html",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's six search calls: the spec-page search returned the same listing pages but its summary gave no body dimensions, so there is no second result either way."
     },
     {
       "key": "trackFrontIn",
@@ -22,7 +24,9 @@
       "publisher": "Car and Driver (2024 Camry buyer's guide, republished on Yahoo Autos)",
       "url": "https://autos.yahoo.com/2024-toyota-camry-buyers-guide-194800713.html",
       "sourceKind": "reference",
-      "note": "Search summary: 'Car and Driver's data gives 62.6 inches front and 62.8 inches rear' ('Front Track Width (inches): 62.6'); the guide's specs are stated (AOL republication) to be for the LE. Cars.com's LE page gives 63 in front and rear, apparently rounded (see conflicts). An Auto123 2024 Camry Hybrid LE listing shows the same 62.6/62.8 but is a different powertrain and was not used. No Toyota-published track figure surfaced, and the summary did not say which wheel size the figure applies to. Read from search-result summary; page not opened."
+      "note": "Search summary: 'Car and Driver's data gives 62.6 inches front and 62.8 inches rear' ('Front Track Width (inches): 62.6'); the guide's specs are stated (AOL republication) to be for the LE. Cars.com's LE page gives 63 in front and rear, apparently rounded (see conflicts). An Auto123 2024 Camry Hybrid LE listing shows the same 62.6/62.8 but is a different powertrain and was not used. No Toyota-published track figure surfaced, and the summary did not say which wheel size the figure applies to. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's six search calls: the spec-page search returned the same listing pages but its summary gave no body dimensions, so there is no second result either way."
     },
     {
       "key": "trackRearIn",
@@ -30,7 +34,9 @@
       "publisher": "Car and Driver (2024 Camry buyer's guide, republished on Yahoo Autos)",
       "url": "https://autos.yahoo.com/2024-toyota-camry-buyers-guide-194800713.html",
       "sourceKind": "reference",
-      "note": "Search summary: Car and Driver's data gives 'Rear Track Width (inches): 62.8'; Cars.com's LE page gives 63 in (rounded; see conflicts). No Toyota-published track figure surfaced. Read from search-result summary; page not opened."
+      "note": "Search summary: Car and Driver's data gives 'Rear Track Width (inches): 62.8'; Cars.com's LE page gives 63 in (rounded; see conflicts). No Toyota-published track figure surfaced. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's six search calls: the spec-page search returned the same listing pages but its summary gave no body dimensions, so there is no second result either way."
     },
     {
       "key": "lengthIn",
@@ -39,7 +45,9 @@
       "url": "https://www.edmunds.com/toyota/camry/2024/st-401999971/features-specs",
       "sourceKind": "reference",
       "note": "Edmunds' 2024 Camry LE specs page: 'Length 192.1 in.' The Car and Driver buyer's guide (AOL republication, specs stated to be for the LE) gives the same 192.1 in. No Toyota-published figure surfaced. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.aol.com/2024-toyota-camry-buyers-guide-194800611.html"
+      "corroboratingUrl": "https://www.aol.com/2024-toyota-camry-buyers-guide-194800611.html",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's six search calls: the spec-page search returned the same listing pages but its summary gave no body dimensions, so there is no second result either way."
     },
     {
       "key": "widthIn",
@@ -48,7 +56,9 @@
       "url": "https://www.edmunds.com/toyota/camry/2024/st-401999971/features-specs",
       "sourceKind": "reference",
       "note": "Edmunds' 2024 Camry LE specs page: 'Overall width without mirrors 72.4 in.' The Car and Driver buyer's guide (AOL) also gives 72.4 in. KBB lists 72.4 in described as width 'with mirrors' for most trims (73.1 in for the TRD), so the mirrors wording differs between sites but the number agrees; taken here as the body width without mirrors per Edmunds. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.aol.com/2024-toyota-camry-buyers-guide-194800611.html"
+      "corroboratingUrl": "https://www.aol.com/2024-toyota-camry-buyers-guide-194800611.html",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's six search calls: the spec-page search returned the same listing pages but its summary gave no body dimensions, so there is no second result either way."
     },
     {
       "key": "heightIn",
@@ -57,7 +67,9 @@
       "url": "https://www.edmunds.com/toyota/camry/2024/st-401999971/features-specs",
       "sourceKind": "reference",
       "note": "Edmunds lists the 2024 Camry LE's height as 56.9 in; the Car and Driver buyer's guide republished on AOL gives 56.9 in for the LE. Cars.com's LE page shows 57 in, a rounded figure (see conflicts). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.aol.com/2024-toyota-camry-buyers-guide-194800611.html"
+      "corroboratingUrl": "https://www.aol.com/2024-toyota-camry-buyers-guide-194800611.html",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's six search calls: the spec-page search returned the same listing pages but its summary gave no body dimensions, so there is no second result either way."
     },
     {
       "key": "curbWeightLb",
@@ -66,7 +78,9 @@
       "url": "https://www.edmunds.com/toyota/camry/2024/st-401999971/features-specs",
       "sourceKind": "reference",
       "note": "Copied from the card research: Edmunds and Autoblog give 3,310 lb for the front-wheel-drive 2024 Camry LE; Cars.com and KBB show the same. No Toyota-published figure surfaced, and the listing sites probably share one data feed (card research checker's concern). The LE AWD is listed at 3,475 lb (see conflicts). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.autoblog.com/es-us/buy/2024-Toyota-Camry-LE__4dr_Front_Wheel_Drive_Sedan/specs/"
+      "corroboratingUrl": "https://www.autoblog.com/es-us/buy/2024-Toyota-Camry-LE__4dr_Front_Wheel_Drive_Sedan/specs/",
+      "check": "confirmed",
+      "checkNote": "A second-reader search summary said Edmunds lists the 2024 LE front-wheel-drive car at 3,310 lb and Yahoo Autos' buyer's guide gives the same figure, with Autoblog's 3,475 lb identified as the all-wheel-drive LE; still no Toyota-published figure, and the listing sites may share one feed."
     },
     {
       "key": "groundClearanceIn",
@@ -75,7 +89,9 @@
       "url": "https://www.edmunds.com/toyota/camry/2024/trims",
       "sourceKind": "reference",
       "note": "Copied from the card research: Edmunds lists the 2024 Camry LE's ground clearance as 5.7 in; the checker found KBB showing 5.7 in minimum ground clearance for every 2024 Camry trim and CarBuzz 5.7 in for the LE automatic. A model-wide republished figure, not specific to the FWD LE; Cars.com shows 6 in (see conflicts). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.kbb.com/toyota/camry/2024/specs"
+      "corroboratingUrl": "https://www.kbb.com/toyota/camry/2024/specs",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's six search calls: the spec-page search returned the same listing pages but its summary gave no body dimensions, so there is no second result either way."
     },
     {
       "key": "engineDescription",
@@ -84,7 +100,9 @@
       "url": "https://pressroom.toyota.com/?p=85561",
       "sourceKind": "manufacturer",
       "note": "Copied from the card research: Toyota's 2024 Camry release says the car offered 'a 2.5-liter Dynamic Force four-cylinder', the LE's engine; the card research's gap pass read the same pressroom summary as giving the 2.5-liter Dynamic Force with D-4S injection. The card research's checker confirmed the 2.5L four-cylinder substance but did not see the 'Dynamic Force' wording quoted independently. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.edmunds.com/toyota/camry/2024/st-401999971/features-specs"
+      "corroboratingUrl": "https://www.edmunds.com/toyota/camry/2024/st-401999971/features-specs",
+      "check": "confirmed",
+      "checkNote": "A second-reader engine search returned pages naming the 2018-2024 Camry's base 2.5L as the A25A-FKS of Toyota's Dynamic Force series, a 2.5-liter inline four with D-4S direct injection; no Toyota page was among the results."
     },
     {
       "key": "powertrain",
@@ -93,7 +111,9 @@
       "url": "https://pressroom.toyota.com/2024-toyota-camry-style-and-performance-in-americas-best-selling-midsize-sedan/",
       "sourceKind": "manufacturer",
       "note": "Copied from the card research (fuelType): Toyota's release treats the 2.5-liter and V6 cars as the gas grades, separate from the hybrid; the EPA lists the LE/SE 2.5L separately from the Camry Hybrid and rates it on regular gasoline. The card research's checker found only the ?p=85561 form of this release URL in results. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_Camry.shtml"
+      "corroboratingUrl": "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_Camry.shtml",
+      "check": "confirmed",
+      "checkNote": "A second-reader result describes the A25A-FKS as a 2.5-liter inline four-cylinder gasoline unit, and the listing sites carry the Camry Hybrid LE as a separate car with a different powertrain."
     },
     {
       "key": "induction",
@@ -102,7 +122,9 @@
       "url": "https://www.carbuzz.com/cars/toyota/camry",
       "sourceKind": "reference",
       "note": "Copied from the card research (aspiration): CarBuzz's 2024 Camry review describes the base engine as 'a dual-injected naturally aspirated 2.5-liter inline four-cylinder' making 203 hp and 184 lb-ft in the front-drive LE and SE; KBB says the Camry 'doesn't go in for turbocharging'. No Toyota sentence on aspiration surfaced. The card research's checker confirmed it. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.kbb.com/Toyota/Camry/2024"
+      "corroboratingUrl": "https://www.kbb.com/Toyota/Camry/2024",
+      "check": "confirmed",
+      "checkNote": "A second-reader result (an A25A-FKS engine listing) calls the 203-hp engine naturally aspirated with dual VVT-i; no result mentioned a turbocharger."
     },
     {
       "key": "displacementL",
@@ -111,7 +133,9 @@
       "url": "https://pressroom.toyota.com/2024-toyota-camry-style-and-performance-in-americas-best-selling-midsize-sedan/",
       "sourceKind": "manufacturer",
       "note": "Copied from the card research: Toyota's 2024 Camry press material describes the 2.5-liter four-cylinder; Edmunds lists a 2.5L four-cylinder as standard on the LE. The card research's checker found only the ?p=85561 form of this release URL in results. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.edmunds.com/toyota/camry/2024/trims"
+      "corroboratingUrl": "https://www.edmunds.com/toyota/camry/2024/trims",
+      "check": "confirmed",
+      "checkNote": "Second-reader results on the 2018-2024 Camry's A25A-FKS all describe it as a 2.5-liter engine."
     },
     {
       "key": "cylinders",
@@ -120,7 +144,9 @@
       "url": "https://pressroom.toyota.com/2024-toyota-camry-style-and-performance-in-americas-best-selling-midsize-sedan/",
       "sourceKind": "manufacturer",
       "note": "Copied from the card research: Toyota's 2024 Camry press material calls the 2.5-liter engine a four-cylinder; Edmunds lists it as standard on the LE and the EPA LE/SE entry is a 4-cylinder. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.edmunds.com/toyota/camry/2024/trims"
+      "corroboratingUrl": "https://www.edmunds.com/toyota/camry/2024/trims",
+      "check": "confirmed",
+      "checkNote": "Second-reader results describe the A25A-FKS as an inline four-cylinder."
     },
     {
       "key": "horsepower",
@@ -129,7 +155,9 @@
       "url": "https://pressroom.toyota.com/2024-toyota-camry-style-and-performance-in-americas-best-selling-midsize-sedan/",
       "sourceKind": "manufacturer",
       "note": "Copied from the card research: Toyota's 2024 Camry press material says the 2.5-liter four-cylinder makes '203 hp at 6,600 rpm' (XSE dual exhaust is 206 hp); Cars.com lists 203 hp at 6600 rpm for the LE. 202 hp is the LE AWD (see conflicts). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.cars.com/research/toyota-camry-2024/specs"
+      "corroboratingUrl": "https://www.cars.com/research/toyota-camry-2024/specs",
+      "check": "confirmed",
+      "checkNote": "A second-reader search summary said Cars.com and Capital One list 203 hp for the 2024 LE and an engine listing gives the A25A-FKS 203 hp; KBB's 206 hp against the LE is the XSE figure already in conflicts."
     },
     {
       "key": "horsepowerRpm",
@@ -138,7 +166,9 @@
       "url": "https://pressroom.toyota.com/2024-toyota-camry-style-and-performance-in-americas-best-selling-midsize-sedan/",
       "sourceKind": "manufacturer",
       "note": "Copied from the card research's horsepower note: Toyota's 2024 Camry press material gives '203 hp at 6,600 rpm' for the 2.5-liter; Cars.com lists '203 hp at 6600 rpm' for the LE. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.cars.com/research/toyota-camry-2024/specs"
+      "corroboratingUrl": "https://www.cars.com/research/toyota-camry-2024/specs",
+      "check": "unconfirmed",
+      "checkNote": "No result in the second reader's searches gave the engine speed of the power peak; the Toyota pressroom page did not appear in results."
     },
     {
       "key": "torqueLbFt",
@@ -147,7 +177,9 @@
       "url": "https://pressroom.toyota.com/2024-toyota-camry-style-and-performance-in-americas-best-selling-midsize-sedan/",
       "sourceKind": "manufacturer",
       "note": "Copied from the card research: Toyota's 2024 Camry press material says the 2.5-liter makes '184 lb-ft at 5,000 rpm' (XSE 186); Cars.com shows 184 at 5000 for the front-drive LE. 182 lb-ft is the LE AWD (see conflicts). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.cars.com/research/toyota-camry-2024/specs"
+      "corroboratingUrl": "https://www.cars.com/research/toyota-camry-2024/specs",
+      "check": "confirmed",
+      "checkNote": "A second-reader result (an A25A-FKS engine listing) gives 249 Nm, which converts to 183.7 lb-ft, i.e. the same 184 lb-ft; the US spec-page search returned no torque line."
     },
     {
       "key": "torqueRpmLow",
@@ -156,7 +188,9 @@
       "url": "https://pressroom.toyota.com/2024-toyota-camry-style-and-performance-in-americas-best-selling-midsize-sedan/",
       "sourceKind": "manufacturer",
       "note": "Copied from the card research's torque note: Toyota gives a single peak-torque speed, '184 lb-ft at 5,000 rpm'; Cars.com repeats 5000 rpm for the front-drive LE. Recorded as both low and high because no range was published. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.cars.com/research/toyota-camry-2024/specs"
+      "corroboratingUrl": "https://www.cars.com/research/toyota-camry-2024/specs",
+      "check": "unconfirmed",
+      "checkNote": "No result in the second reader's searches gave the engine speed of the torque peak."
     },
     {
       "key": "torqueRpmHigh",
@@ -165,7 +199,9 @@
       "url": "https://pressroom.toyota.com/2024-toyota-camry-style-and-performance-in-americas-best-selling-midsize-sedan/",
       "sourceKind": "manufacturer",
       "note": "Same single-point figure as torqueRpmLow: '184 lb-ft at 5,000 rpm'. No plateau was published, so the upper end equals the peak speed. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.cars.com/research/toyota-camry-2024/specs"
+      "corroboratingUrl": "https://www.cars.com/research/toyota-camry-2024/specs",
+      "check": "unconfirmed",
+      "checkNote": "No result in the second reader's searches gave the engine speed of the torque peak; this is still the single published point repeated, not a measured plateau."
     },
     {
       "key": "redlineRpm",
@@ -173,7 +209,9 @@
       "publisher": "Motor Matchup",
       "url": "https://www.motormatchup.com/catalog/Toyota/Camry/2024/LE-Auto-(SE)",
       "sourceKind": "reference",
-      "note": "Motor Matchup lists 'a 7,400 rpm redline for the 2024 Camry LE Auto (SE) with the 2.5L engine', alongside 203 hp at 6,600 rpm and 184 lb-ft at 5,000 rpm. A third-party database, not a Toyota figure, and no second source seen; Motor Matchup's 6,800 rpm figure belongs to the 2025 hybrid's A25A-FXS, not this engine. Read from search-result summary; page not opened."
+      "note": "Motor Matchup lists 'a 7,400 rpm redline for the 2024 Camry LE Auto (SE) with the 2.5L engine', alongside 203 hp at 6,600 rpm and 184 lb-ft at 5,000 rpm. A third-party database, not a Toyota figure, and no second source seen; Motor Matchup's 6,800 rpm figure belongs to the 2025 hybrid's A25A-FXS, not this engine. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "A second-reader search aimed at the A25A-FKS redline returned no tachometer redline or rev-limit figure from any source, so 7,400 rpm rests on one third-party simulation database (Motor Matchup) and sits 800 rpm above the 6,600 rpm power peak; treat it as provisional until a Toyota or tester figure is found."
     },
     {
       "key": "compressionRatio",
@@ -181,7 +219,9 @@
       "publisher": "Toyota USA Newsroom",
       "url": "https://pressroom.toyota.com/?p=85561",
       "sourceKind": "manufacturer",
-      "note": "From the card research's gap-pass note only: it says the summary of Toyota's 2024 Camry pressroom page gave '2.5-liter Dynamic Force, 13:1 compression and D-4S injection'. It was not a recorded field there, no second source was seen and no checker looked at it; the summary did not say whether 13:1 applies to every 2.5L grade (203-hp LE and 206-hp XSE) or only some, so treat it as unconfirmed. Read from search-result summary; page not opened."
+      "note": "From the card research's gap-pass note only: it says the summary of Toyota's 2024 Camry pressroom page gave '2.5-liter Dynamic Force, 13:1 compression and D-4S injection'. It was not a recorded field there, no second source was seen and no checker looked at it; the summary did not say whether 13:1 applies to every 2.5L grade (203-hp LE and 206-hp XSE) or only some, so treat it as unconfirmed. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "The second reader's engine search returned A25A-FKS pages but no summary quoted a compression ratio; still one unexamined summary."
     },
     {
       "key": "drivetrain",
@@ -190,7 +230,9 @@
       "url": "https://www.autoblog.com/es-us/buy/2024-Toyota-Camry-LE__4dr_Front_Wheel_Drive_Sedan/specs/",
       "sourceKind": "reference",
       "note": "Copied from the card research: Autoblog has a separate listing for the '2024 Camry LE 4dr Front Wheel Drive Sedan' (and another for the LE AWD); the EPA lists the front-drive LE/SE 2.5L separately from the AWD LE/SE. This record is the front-drive LE. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_Camry.shtml"
+      "corroboratingUrl": "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_Camry.shtml",
+      "check": "confirmed",
+      "checkNote": "A second-reader search summary named the Edmunds 2024 LE listing as the front-wheel-drive model (3,310 lb) with Autoblog's all-wheel-drive LE listed separately, and the EPA/SAE benchmarking paper describes the Camry 2.5L's UB80E as a front-wheel-drive transmission."
     },
     {
       "key": "transmissionType",
@@ -199,7 +241,9 @@
       "url": "https://pressroom.toyota.com/2024-toyota-camry-style-and-performance-in-americas-best-selling-midsize-sedan/",
       "sourceKind": "manufacturer",
       "note": "Copied from the card research: Toyota's release says the 2.5-liter and V6 gas grades are teamed with the 'Direct Shift eight-speed automatic transmission'; the EPA entry is 'Automatic (S8)'. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://fueleconomy.gov/feg/Find.do?action=sbs&id=47090"
+      "corroboratingUrl": "https://fueleconomy.gov/feg/Find.do?action=sbs&id=47090",
+      "check": "confirmed",
+      "checkNote": "A second-reader result, the EPA/SAE benchmarking paper on the 2018 Camry, describes the UB80E fitted to the 2.5L A25A-FKS as an eight-speed automatic; TrueCar's same-generation Camry listings are titled Automatic."
     },
     {
       "key": "gearCount",
@@ -208,7 +252,9 @@
       "url": "https://pressroom.toyota.com/2024-toyota-camry-style-and-performance-in-americas-best-selling-midsize-sedan/",
       "sourceKind": "manufacturer",
       "note": "Copied from the card research (transmission): Toyota's release names the 'Direct Shift eight-speed automatic' for the gas grades including the LE; Edmunds' LE page lists an '8-speed shiftable automatic' and Cars.com '8-Speed A/T'. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.edmunds.com/toyota/camry/2024/st-401999971/features-specs"
+      "corroboratingUrl": "https://www.edmunds.com/toyota/camry/2024/st-401999971/features-specs",
+      "check": "confirmed",
+      "checkNote": "TrueCar's same-generation Camry listing gives 'Gear Number 8' and the EPA/SAE paper calls the UB80E an eight-speed; the count matches the eight ratios in gearRatios."
     },
     {
       "key": "gearRatios",
@@ -226,15 +272,19 @@
       "url": "https://www.motormatchup.com/catalog/Toyota/Camry/2024/SE-Auto-(Natl)",
       "sourceKind": "reference",
       "note": "Search summary for the 2024 Camry 2.5L with the 8-speed automatic: Motor Matchup's gear table gives 'Gear Ratios 1: 5.25 ... 8: 0.67' (5.25, 3.03, 1.95, 1.46, 1.22, 1.00, 0.81, 0.67), reverse 4.01; 'Auto123 and TrueCar match these for the first four gears and the upper gears'. The summary did not say which Motor Matchup 2024 Camry listing held the table (the results were SE Auto (Natl), XLE Auto (GS) and two AWD listings), and the Auto123 corroboration is its 2024 SE listing, which shares the LE's 203-hp 2.5L/8-speed/FWD driveline; no LE-specific or Toyota ratio table was seen. Yahoo's buyer's guide mislabels 3.03 as reverse. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.auto123.com/en/specs/toyota/camry/toyota-camry-2024-se-auto-441465/"
+      "corroboratingUrl": "https://www.auto123.com/en/specs/toyota/camry/toyota-camry-2024-se-auto-441465/",
+      "check": "confirmed",
+      "checkNote": "A second-reader search found TrueCar's 2019 Camry listing giving 5.25 / 3.03 / 1.95 / 1.46 for 1st to 4th and its 2021 Camry listing giving 5.25 first and 1.22 / 1.0 / 0.81 / 0.67 for 5th to 8th (reverse 4.01), the same set for the same-generation 2.5L UB80E; eight ratios match gearCount, but no Toyota table was read (the EPA/SAE UB80E paper has one whose values were not in the summary)."
     },
     {
       "key": "finalDriveRatio",
-      "number": 2.8,
-      "publisher": "Motor Matchup",
-      "url": "https://www.motormatchup.com/catalog/Toyota/Camry/2024/SE-Nightshade-Auto-AWD-(GS)",
+      "number": 2.802,
+      "publisher": "TrueCar",
+      "url": "https://www.truecar.com/toyota/camry/2019/specs/",
       "sourceKind": "reference",
-      "note": "Search summary: 'Most sources give about 2.80:1' for the 2024 Camry 2.5L 8-speed; one unattributed result reads 'Final Drive Axle Ratio 2.802' (TrueCar-style wording, but the summary did not name the page or year), and 'Motor Matchup's AWD SE Nightshade listing also shows Final Drive: 2.8'. The only attributable figure is from an AWD listing, so for the FWD LE this is unconfirmed: no FWD-LE-specific or Toyota final-drive figure was seen. Read from search-result summary; page not opened."
+      "note": "Second reader's search summary: 'TrueCar's spec pages for the 2019 Camry list a 5.25 first-gear ratio and a 2.802 final drive axle ratio, with eight gears' ('Gear Number 8, Final Drive Axle Ratio 2.802, First Gear Ratio 5.25'). The results held two TrueCar 2019 Camry pages (L Automatic and SE Automatic) and the summary did not say which carried the line; both are the same-generation four-cylinder car, and the 5.25 first gear ties the figure to the 2.5L's UB80E gear set recorded in gearRatios. A 2019 listing, not a 2024 one, and a third-party aggregator, not a Toyota figure. Replaces the first reader's 2.8, whose only attributable source was Motor Matchup's 2024 SE Nightshade AWD listing (https://www.motormatchup.com/catalog/Toyota/Camry/2024/SE-Nightshade-Auto-AWD-(GS)), a different drivetrain, alongside an unattributed 'Final Drive Axle Ratio 2.802' that this search now attributes to TrueCar. Read from search-result summary; page not opened.",
+      "check": "confirmed",
+      "checkNote": "The first reader's 2.8 came from an all-wheel-drive listing; a second-reader search found TrueCar's 2019 Camry four-cylinder listing giving 2.802 with the same 5.25 first gear, so the value agrees to the rounding shown and was refined in place to the front-drive listing's 2.802 (old value in conflicts)."
     },
     {
       "key": "tyreFront",
@@ -243,7 +293,9 @@
       "url": "https://www.cars.com/research/toyota-camry-2024/specs",
       "sourceKind": "reference",
       "note": "Cars.com's 2024 Camry LE specs list 'P215/55VR17 front and rear tire size' on 17 x 7.5-inch wheels. Michelin's fitment page for the 2024 Camry LE FWD shows an original-equipment-tagged 215/55R17 94V tire; Firestone and Goodyear show the same size for the LE. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.michelinman.com/auto/browse-tires/by-vehicle/2024/toyota/camry/le-fwd/215---55R17-94V"
+      "corroboratingUrl": "https://www.michelinman.com/auto/browse-tires/by-vehicle/2024/toyota/camry/le-fwd/215---55R17-94V",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's six search calls (none was spent on tyre fitment); no second result either way."
     },
     {
       "key": "tyreRear",
@@ -252,7 +304,9 @@
       "url": "https://www.cars.com/research/toyota-camry-2024/specs",
       "sourceKind": "reference",
       "note": "Cars.com: 'P215/55VR17 front and rear tire size' for the 2024 Camry LE (square fitment). Michelin's LE FWD fitment page shows 215/55R17 94V. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.michelinman.com/auto/browse-tires/by-vehicle/2024/toyota/camry/le-fwd/215---55R17-94V"
+      "corroboratingUrl": "https://www.michelinman.com/auto/browse-tires/by-vehicle/2024/toyota/camry/le-fwd/215---55R17-94V",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's six search calls (none was spent on tyre fitment); no second result either way."
     },
     {
       "key": "tyreCategory",
@@ -260,7 +314,9 @@
       "publisher": "Michelin (fitment guide)",
       "url": "https://www.michelinman.com/auto/browse-tires/by-vehicle/2024/toyota/camry/le-fwd/215---55R17-94V",
       "sourceKind": "reference",
-      "note": "Michelin's dealer finder for the 2024 Toyota Camry LE FWD lists a 215/55R17 94V tire marked as original equipment for Toyota 'in an All-Season, Mud & Snow, EV Ready category'. The snippet did not show the tyre's model name, so tyreModel is left unfound. Read from search-result summary; page not opened."
+      "note": "Michelin's dealer finder for the 2024 Toyota Camry LE FWD lists a 215/55R17 94V tire marked as original equipment for Toyota 'in an All-Season, Mud & Snow, EV Ready category'. The snippet did not show the tyre's model name, so tyreModel is left unfound. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's six search calls (none was spent on tyre fitment); no second result either way."
     },
     {
       "key": "turningCircleFt",
@@ -269,7 +325,9 @@
       "url": "https://www.kbb.com/toyota/camry/2024/specs",
       "sourceKind": "reference",
       "note": "KBB's 2024 Camry spec table lists a turning circle of 37.4 ft for the LE (one summary called it the 'base trim'), 38 ft for other trims; Yahoo Autos' Car and Driver buyer's guide (specs for the LE) also gives 37.4 ft. Cars.com shows 37 ft curb-to-curb on one LE page and 39 ft on an AWD LE page (see conflicts). Not a Toyota figure; curb-to-curb vs wall-to-wall basis not stated. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://autos.yahoo.com/2024-toyota-camry-buyers-guide-194800713.html"
+      "corroboratingUrl": "https://autos.yahoo.com/2024-toyota-camry-buyers-guide-194800713.html",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's six search calls; no second result either way."
     },
     {
       "key": "brakeFrontDiscIn",
@@ -277,7 +335,9 @@
       "publisher": "Cars.com",
       "url": "https://www.cars.com/research/toyota-camry-2024/specs",
       "sourceKind": "reference",
-      "note": "A Cars.com 2024 Camry LE specs page 'lists a 12 in front brake rotor diameter, with the rear at 11 in'. The summary did not say which of Cars.com's several LE listing IDs it was, so the general Cars.com 2024 Camry specs URL is given. Whole-inch figures, probably rounded; no Toyota or second source seen. Read from search-result summary; page not opened."
+      "note": "A Cars.com 2024 Camry LE specs page 'lists a 12 in front brake rotor diameter, with the rear at 11 in'. The summary did not say which of Cars.com's several LE listing IDs it was, so the general Cars.com 2024 Camry specs URL is given. Whole-inch figures, probably rounded; no Toyota or second source seen. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's six search calls; no second result either way."
     },
     {
       "key": "brakeRearDiscIn",
@@ -285,7 +345,9 @@
       "publisher": "Cars.com",
       "url": "https://www.cars.com/research/toyota-camry-2024/specs",
       "sourceKind": "reference",
-      "note": "Same Cars.com 2024 Camry LE specs page: rear brake rotor diameter 11 in. Whole-inch figure, probably rounded; no Toyota or second source seen. Read from search-result summary; page not opened."
+      "note": "Same Cars.com 2024 Camry LE specs page: rear brake rotor diameter 11 in. Whole-inch figure, probably rounded; no Toyota or second source seen. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's six search calls; no second result either way."
     },
     {
       "key": "epaCombinedMpg",
@@ -294,7 +356,9 @@
       "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_Camry.shtml",
       "sourceKind": "agency",
       "note": "Copied from the card research: fueleconomy.gov's LE/SE 2.5L automatic listing shows Combined MPG 32; the AWD LE/SE is 29 and XLE/XSE FWD 31. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.capitalone.com/cars/vehicle-overview/2024/Toyota/Camry"
+      "corroboratingUrl": "https://www.capitalone.com/cars/vehicle-overview/2024/Toyota/Camry",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's six search calls; no second result either way."
     },
     {
       "key": "epaCityMpg",
@@ -303,7 +367,9 @@
       "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_Camry.shtml",
       "sourceKind": "agency",
       "note": "Copied from the card research: fueleconomy.gov's LE/SE 2.5L automatic listing shows City MPG 28; the AWD LE/SE is listed separately at 25. Capital One repeats 28/39/32 for front-drive four-cylinder models. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.capitalone.com/cars/vehicle-overview/2024/Toyota/Camry"
+      "corroboratingUrl": "https://www.capitalone.com/cars/vehicle-overview/2024/Toyota/Camry",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's six search calls; no second result either way."
     },
     {
       "key": "epaHighwayMpg",
@@ -312,7 +378,110 @@
       "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_Camry.shtml",
       "sourceKind": "agency",
       "note": "Copied from the card research: fueleconomy.gov's LE/SE 2.5L automatic listing shows Highway MPG 39; the AWD LE/SE is 34. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.capitalone.com/cars/vehicle-overview/2024/Toyota/Camry"
+      "corroboratingUrl": "https://www.capitalone.com/cars/vehicle-overview/2024/Toyota/Camry",
+      "check": "unconfirmed",
+      "checkNote": "Not covered by the second reader's six search calls; no second result either way."
+    },
+    {
+      "key": "test0to60Sec",
+      "number": 7.9,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/2018-toyota-camry-se-2-221500687.html",
+      "sourceKind": "test",
+      "note": "Car and Driver's instrumented test of a 2018 Toyota Camry SE 2.5L (republished on Yahoo Autos), not a 2024 LE: no instrumented test of an LE of this generation surfaced. The 2018 car is the first year of the body sold through 2024 and the 2018 four-cylinder is described (Consumer Reports summary) as the same 203-hp 2.5-liter, 8-speed automatic, front-drive powertrain; the SE is a different trim from the LE, so its wheel, tyre and suspension package may differ. Summary: 'Zero to 60 mph: 7.9 sec'; The Truth About Cars' piece on the 2018 four-cylinder Camry cites the same Car and Driver 7.9-second figure. Car and Driver subtracts a one-foot rollout (see testRollout). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://thetruthaboutcars.com/2017/09/powerful-new-four-cylinder-2018-toyota-camry-not-quick/",
+      "check": "confirmed",
+      "checkNote": "Second-reader searches found The Truth About Cars citing Car and Driver's 7.9 s for the 203-hp 2018 SE and a summary of the Yahoo republication giving 'Zero to 60 mph: 7.9 sec' for a 3,409 lb test car; it is Car and Driver's 2018 Camry SE 2.5L, a same-generation car with the same 203-hp 2.5L, 8-speed, front-drive powertrain, not a 2024 LE."
+    },
+    {
+      "key": "test0to100Sec",
+      "number": 20.5,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/2018-toyota-camry-se-2-221500687.html",
+      "sourceKind": "test",
+      "note": "Car and Driver's instrumented test of a 2018 Toyota Camry SE 2.5L (republished on Yahoo Autos), not a 2024 LE: no instrumented test of an LE of this generation surfaced. The 2018 car is the first year of the body sold through 2024 and the 2018 four-cylinder is described (Consumer Reports summary) as the same 203-hp 2.5-liter, 8-speed automatic, front-drive powertrain; the SE is a different trim from the LE, so its wheel, tyre and suspension package may differ. Summary of the test table: 'Zero to 100 mph: 20.5 sec'. Seen in one search summary only. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "The second reader's summary of the same Car and Driver page gave the 0-60, quarter-mile, braking and skidpad lines but not zero-to-100 mph, so 20.5 s is still seen in one summary only."
+    },
+    {
+      "key": "testRollout",
+      "text": "true",
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/2018-toyota-camry-se-2-221500687.html",
+      "sourceKind": "test",
+      "note": "Set because the test figures are Car and Driver's, whose 0-60 times subtract a one-foot rollout (the convention specified for this task); the summary itself did not state it. Applies to the 7.9 s figure from the 2018 Camry SE 2.5L test. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "No result in the second reader's searches stated whether Car and Driver's 7.9 s subtracts a one-foot rollout; the flag still rests on the research brief's convention for that tester, not on a search result."
+    },
+    {
+      "key": "testQuarterMileSec",
+      "number": 16.2,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/2018-toyota-camry-se-2-221500687.html",
+      "sourceKind": "test",
+      "note": "Car and Driver's instrumented test of a 2018 Toyota Camry SE 2.5L (republished on Yahoo Autos), not a 2024 LE: no instrumented test of an LE of this generation surfaced. The 2018 car is the first year of the body sold through 2024 and the 2018 four-cylinder is described (Consumer Reports summary) as the same 203-hp 2.5-liter, 8-speed automatic, front-drive powertrain; the SE is a different trim from the LE, so its wheel, tyre and suspension package may differ. Summary: 'Standing 1/4-mile: 16.2 sec @ 90 mph'. A different summary attached 16.2 sec @ 88 mph to Car and Driver's 2016 Camry SE 2.5L (the earlier body), so the time is the same in both tests and only the trap speed differs; the 2018 figure is the one recorded. Read from search-result summary; page not opened.",
+      "check": "confirmed",
+      "checkNote": "A second-reader search summary reproduced 'Standing 1/4-mile: 16.2 sec @ 90 mph' from the Yahoo republication of the test (the same page re-read, not a second publisher); it is Car and Driver's 2018 Camry SE 2.5L, a same-generation car with the same 203-hp 2.5L, 8-speed, front-drive powertrain, not a 2024 LE."
+    },
+    {
+      "key": "testQuarterMileMph",
+      "number": 90,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/2018-toyota-camry-se-2-221500687.html",
+      "sourceKind": "test",
+      "note": "Car and Driver's instrumented test of a 2018 Toyota Camry SE 2.5L (republished on Yahoo Autos), not a 2024 LE: no instrumented test of an LE of this generation surfaced. The 2018 car is the first year of the body sold through 2024 and the 2018 four-cylinder is described (Consumer Reports summary) as the same 203-hp 2.5-liter, 8-speed automatic, front-drive powertrain; the SE is a different trim from the LE, so its wheel, tyre and suspension package may differ. Summary: 'Standing 1/4-mile: 16.2 sec @ 90 mph' for the 2018 SE 2.5L (88 mph belongs to Car and Driver's 2016 SE 2.5L, the earlier body). Read from search-result summary; page not opened.",
+      "check": "confirmed",
+      "checkNote": "A second-reader search summary reproduced '16.2 sec @ 90 mph' for the 2018 Camry SE 2.5L from the same Car and Driver page (the XLE Hybrid's 16.0 s @ 91 mph is a different car); it is Car and Driver's 2018 Camry SE 2.5L, a same-generation car with the same 203-hp 2.5L, 8-speed, front-drive powertrain, not a 2024 LE."
+    },
+    {
+      "key": "testBraking70to0Ft",
+      "number": 175,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/2018-toyota-camry-se-2-221500687.html",
+      "sourceKind": "test",
+      "note": "Car and Driver's instrumented test of a 2018 Toyota Camry SE 2.5L (republished on Yahoo Autos), not a 2024 LE: no instrumented test of an LE of this generation surfaced. The 2018 car is the first year of the body sold through 2024 and the 2018 four-cylinder is described (Consumer Reports summary) as the same 203-hp 2.5-liter, 8-speed automatic, front-drive powertrain; the SE is a different trim from the LE, so its wheel, tyre and suspension package may differ. Two summaries gave 'Braking, 70-0 mph: 175 ft' for the 2018 SE 2.5L (180 ft belongs to Car and Driver's 2016 SE 2.5L). Tyre-dependent: measured on the SE's tyres, which one summary named as Hankook Kinergy GT and another could not confirm; the LE's 215/55R17 fitment may stop differently. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "The number was reproduced (a second-reader summary of the same Car and Driver page gave 'Braking, 70-0 mph: 175 ft' for the 2018 Camry SE 2.5L), but it is an SE-trim measurement on that car's tyres and no result showed an LE on 215/55R17 tyres being tested (Car and Driver's 2018 XLE Hybrid, a different powertrain, took 180 ft), so as a check on the LE's braking it does not meet the README's same-configuration rule."
+    },
+    {
+      "key": "testSkidpadG",
+      "number": 0.88,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/2018-toyota-camry-se-2-221500687.html",
+      "sourceKind": "test",
+      "note": "Car and Driver's instrumented test of a 2018 Toyota Camry SE 2.5L (republished on Yahoo Autos), not a 2024 LE: no instrumented test of an LE of this generation surfaced. The 2018 car is the first year of the body sold through 2024 and the 2018 four-cylinder is described (Consumer Reports summary) as the same 203-hp 2.5-liter, 8-speed automatic, front-drive powertrain; the SE is a different trim from the LE, so its wheel, tyre and suspension package may differ. Summaries: 'Roadholding, 300-ft-dia skidpad: 0.88 g'; one said the car 'circled the 300-foot skidpad at 0.88 g on Hankook Kinergy GT tires', a later summary confirmed 0.88 g but did not find the tyre named (0.83 g belongs to Car and Driver's 2016 SE 2.5L). Tyre- and suspension-dependent: an SE figure, so treat it as an upper-side check for the LE on 215/55R17 all-seasons. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "The number was reproduced (a second-reader summary of the same Car and Driver page gave 'Roadholding, 300-ft-dia skidpad: 0.88 g' for the 2018 Camry SE 2.5L), but it is an SE-trim measurement on that car's tyres and suspension and no result showed an LE on 215/55R17 tyres being tested (Car and Driver's 2018 XLE Hybrid, a different powertrain, managed 0.84 g), so as a check on the LE's grip it does not meet the README's same-configuration rule."
+    },
+    {
+      "key": "testSkidpadDiameterFt",
+      "number": 300,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/2018-toyota-camry-se-2-221500687.html",
+      "sourceKind": "test",
+      "note": "The summaries give the 0.88 g figure as 'Roadholding, 300-ft-dia skidpad', Car and Driver's standard 300-ft circle; from the 2018 Camry SE 2.5L test. Read from search-result summary; page not opened.",
+      "check": "confirmed",
+      "checkNote": "A second-reader search summary quoted the line as 'Roadholding, 300-ft-dia skidpad: 0.88 g' for the 2018 Camry SE 2.5L, so the 300 ft circle is stated with the figure."
+    },
+    {
+      "key": "testTopSpeedMph",
+      "number": 133,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/2018-toyota-camry-se-2-221500687.html",
+      "sourceKind": "test",
+      "note": "Car and Driver's instrumented test of a 2018 Toyota Camry SE 2.5L (republished on Yahoo Autos), not a 2024 LE: no instrumented test of an LE of this generation surfaced. The 2018 car is the first year of the body sold through 2024 and the 2018 four-cylinder is described (Consumer Reports summary) as the same 203-hp 2.5-liter, 8-speed automatic, front-drive powertrain; the SE is a different trim from the LE, so its wheel, tyre and suspension package may differ. Summary of the test table: 'Top speed: 133 mph (governor limited)'. The summary did not say whether Car and Driver measured it or printed the maker's limiter figure. Seen in one search summary only; the record's topSpeedMph and topSpeedGoverned were left as they were. Read from search-result summary; page not opened.",
+      "check": "unconfirmed",
+      "checkNote": "The second reader's summary of the same Car and Driver page did not include a top-speed line, so 133 mph is still seen in one summary only; it is consistent with a governor, since on 215/55R17 tyres with this record's gearing 133 mph is about 3,200 rpm in 8th and 4,800 rpm in 6th, well below the power peak."
+    },
+    {
+      "key": "testWeightLb",
+      "number": 3409,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/2018-toyota-camry-se-2-221500687.html",
+      "sourceKind": "test",
+      "note": "Car and Driver's instrumented test of a 2018 Toyota Camry SE 2.5L (republished on Yahoo Autos), not a 2024 LE: no instrumented test of an LE of this generation surfaced. The 2018 car is the first year of the body sold through 2024 and the 2018 four-cylinder is described (Consumer Reports summary) as the same 203-hp 2.5-liter, 8-speed automatic, front-drive powertrain; the SE is a different trim from the LE, so its wheel, tyre and suspension package may differ. Summaries of the test table: 'Curb weight: 3409 lb', described as Car and Driver's measured weight for the test car; Cars.com lists a base 2018 SE at 3,340 lb and this record's listed curb weight for the 2024 LE is 3,310 lb, so the test car was about 100 lb heavier than the LE's listed figure. No front/rear split was in any summary. Read from search-result summary; page not opened.",
+      "check": "confirmed",
+      "checkNote": "A second-reader search summary reproduced 'Curb weight: 3409 lb' for Car and Driver's 2018 Camry SE 2.5L test car; that is 99 lb (3%) above this record's 3,310 lb listed LE curb weight, plausible for an SE test car, and it is the weight that goes with the acceleration figures, not an LE weight."
     }
   ],
   "notFound": [
@@ -331,17 +500,7 @@
     "topSpeedMph",
     "topSpeedGoverned",
     "test0to30Sec",
-    "test0to60Sec",
-    "test0to100Sec",
-    "testRollout",
-    "testQuarterMileSec",
-    "testQuarterMileMph",
     "testBraking60to0Ft",
-    "testBraking70to0Ft",
-    "testSkidpadG",
-    "testSkidpadDiameterFt",
-    "testTopSpeedMph",
-    "testWeightLb",
     "testWeightDistFrontPct"
   ],
   "conflicts": [
@@ -422,6 +581,24 @@
         141
       ],
       "note": "None kept; topSpeedMph is in notFound. Yahoo's 2024 buyer's guide gives 135 mph but another summary said that guide's performance data is for the 3.5L V6; Motor Matchup's 138 and 141 mph for LE listings are its own simulation results, not measurements or maker figures. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "test0to60Sec",
+      "values": [
+        7.9,
+        7.9,
+        8.2,
+        7.6
+      ],
+      "note": "Kept 7.9 s, Car and Driver's 2018 Camry SE 2.5L (one-foot rollout subtracted), the tester with the most figures for this powertrain. Edmunds, which does not subtract rollout, reports 7.9 s for a 2019 Camry XLE 2.5L front-drive test car (https://edmunds.com/toyota/camry/2019/review) and 8.2 s for a 2020 Camry SE four-cylinder (https://www.edmunds.com/toyota/camry/2020/review/); neither is an LE and no braking or skidpad figure came with them. Not used: Edmunds' 2012 Camry LE track test (8.1 s, 16.0 s @ 87.7 mph, 60-0 in 120 ft) and Car and Driver's 2016 Camry SE 2.5L (8.0 s), both the earlier body; Motor Matchup's 7.03 s for a 2018 LE, a simulation rather than a test. No MotorTrend, MotorWeek or Consumer Reports figures for a four-cylinder Camry of this generation surfaced. Read from search-result summary; page not opened. Second reader: one more figure surfaced, 7.6 s for a 2018 Camry XLE with the 203-hp 2.5-liter, quoted on a mirror page of a review whose outlet the summary could not name; a different trim, unattributed and with no rollout convention stated, so it was not used."
+    },
+    {
+      "key": "finalDriveRatio",
+      "values": [
+        2.802,
+        2.8
+      ],
+      "note": "Kept 2.802 (TrueCar's 2019 Camry four-cylinder listing, front-drive, same 5.25 first gear as this record's ratios). 2.8 was the first reader's figure, attributable only to Motor Matchup's 2024 SE Nightshade AWD listing, a different drivetrain, and is the same ratio to fewer places. No Toyota figure and no 2024 front-drive LE listing was seen. Read from search-result summary; page not opened."
     }
   ],
   "searchesUsed": 14

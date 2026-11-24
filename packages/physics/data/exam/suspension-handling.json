@@ -1,0 +1,89 @@
+{
+  "id": "suspension-handling",
+  "topic": "Lowering springs, coilovers and anti-roll bars as the only change: skidpad g, slalom speed or lap time before and after on the same car and tyres, and the ride-height change",
+  "gathered": "2026-11-24",
+  "cases": [
+    {
+      "car": "2010 Chevrolet Camaro SS (model year inferred from the January 2010 test date and the wording 'new SS Camaros'; engine and transmission not given in the search summary; stock and modified figures come from two cars of the same spec, see note)",
+      "change": "Hotchkis Camaro Track Pack: Sport Lowering Springs, Adjustable Sport Sway Bars and the Chassis Max subframe brace; engine, wheels and tyres identical to the stock cars",
+      "physical": {
+        "parts": "sport lowering springs, adjustable front and rear anti-roll bars, subframe brace",
+        "rideHeightDrop": "not given in the search summary",
+        "springRates": "not given in the search summary",
+        "tyres": "identical on stock and modified cars; model and size not given in the search summary",
+        "skidpadDiameterFt": 200,
+        "slalomLengthFt": 600
+      },
+      "measure": "Maker-run track day (Hotchkis, 7 January 2010): steady-state lateral g on a skidpad, speed through a slalom and lap time on a road/autocross course, same driver in a stock car and in the Track Pack car. Hotchkis describes its test venue as a 600 ft slalom, a 200 ft skidpad and a 14-turn autocross course at California Speedway; the summary does not say outright that this day's figures were taken on those exact layouts",
+      "before": {
+        "skidpadG": 0.85,
+        "slalomMph": 67.1,
+        "lapSec": 75.157
+      },
+      "after": {
+        "skidpadG": 0.88,
+        "slalomMph": 69.2,
+        "lapSec": 73.49
+      },
+      "publisher": "Camaro5 forum post reporting figures from a Hotchkis Sport Suspension track day (the parts maker's own event)",
+      "url": "https://www.camaro5.com/forums/showthread.php?p=1605379",
+      "sourceKind": "manufacturer",
+      "note": "Maker's own test day, relayed by a forum post: treat as a manufacturer claim, not an independent test. Summary wording: 'In the Red Pig, Mark recorded 0.85 g on the skid pad, 67.1 mph through the slalom and a 1.15.157 lap time. In the modified car, his numbers improved to 0.88 g, 69.2 mph and 1.13.490.' Lap times converted from 1:15.157 and 1:13.490 to seconds. Changes: +0.03 g (+3.5%), +2.1 mph in the slalom (+3.1%), -1.667 s a lap (-2.2%). Setup per the summary: 'three new SS Camaros, all with identical engines, wheels and tires. Two were left stock, one was equipped with the Hotchkis Camaro Track Pack', which 'includes Sport Lowering Springs, Adjustable Sport Sway Bars and the Chassis Max Subframe Brace'. Weaknesses: the poster says 'the stock Camaro numbers were recorded in a different, not-pictured, privately owned stock Camaro SS that we didn't drive', so before and after are two cars, not one; another commenter said the skidpad numbers 'seem a little off from what all the other testers have said so far'; the pack includes a subframe brace as well as springs and bars; ride-height drop and spring rates were not in any summary. The figures may be in the neighbouring post https://www.camaro5.com/forums/showthread.php?p=1602198 of the same forum rather than the URL given: the summary did not say which of the two. Read from search-result summary; page not opened."
+    },
+    {
+      "car": "2008 BMW 328i coupe (E92; engine and transmission not given in the search summary; a separate car for each setup, see note)",
+      "change": "Stock OEM springs, dampers and anti-roll bars against the most-modified of four suspension setups (the summaries describe the upgrades in this test family as Eibach Pro-Kit lowering springs, Eibach anti-roll bars and coil-overs; the exact parts on the quickest car are not confirmed in the summary)",
+      "physical": {
+        "partsBefore": "OEM springs, shocks and sway bars",
+        "partsAfter": "most-modified setup of the four tested: aftermarket springs or coil-overs with stiffer anti-roll bars (exact parts not confirmed in summary)",
+        "rideHeightDrop": "not given in the search summary",
+        "springRates": "not given in the search summary",
+        "tyres": "not stated in the summary for this test"
+      },
+      "measure": "Tire Rack suspension test on its own test track: time through a slalom, in seconds (slalom length and cone spacing not given in the summary). The test also covered track laps and cornering g, but no figures for those were in the summary",
+      "before": {
+        "slalomSec": 3.97
+      },
+      "after": {
+        "slalomSec": 3.94
+      },
+      "publisher": "MotorBiscuit ('Is Modifying Your Car's Suspension Really Worth It?'), reporting a Tire Rack suspension test",
+      "url": "https://www.motorbiscuit.com/modifying-car-suspension-worth-it",
+      "sourceKind": "test",
+      "note": "Second-hand report of a retailer's test: Tire Rack sells the parts it tested but does not make them. Summary wording: 'Tire Rack tested four different 2008 BMW E92 328i coupes with four different setups. The stock car kept its OEM springs, shocks, and sway bars'; 'All four cars went through a series of three tests: test track laps, cornering G-Force, and a slalom'; 'The most-modified car was about 1% quicker than stock, at 3.94 seconds versus 3.97 seconds', which the article's source called 'a pretty meaningless difference'. Change: -0.03 s (-0.8%). Weaknesses: four separate cars of the same model rather than one car re-fitted; the parts on the 3.94 s car are not named in the summary (another summary of the same article speaks of 'minimal gains from expensive coil-overs and stiffer sway bars'); tyres not stated for this test (Tire Rack's earlier 330Ci test ran the same tyres on every car). A Tire Rack page on what looks like the same 328i programme gives lap-time changes only: about 0.3 s a lap faster than stock with Pro-Kit springs and about 0.4 s more with Eibach anti-roll bars added (see ruleOfThumb); whether that is the same test day is not confirmed. Read from search-result summary; page not opened."
+    }
+  ],
+  "ruleOfThumb": [
+    {
+      "claim": "Lowering springs alone on the stock dampers are worth about a quarter of a second a lap on a short test track: a 2003 BMW 330Ci on Eibach Pro-Kit springs with the original BMW dampers improved its average lap time by nearly 0.250 s over the stock suspension on the same tyres, and steady-state skidpad cornering improved; adding matched dampers did not improve the average lap further, while adding anti-roll bars gave the fastest laps of the test.",
+      "publisher": "Tire Rack ('Installing Suspension Upgrades - When Fashion and Function Work Together')",
+      "url": "https://www.tirerack.com/suspension/tests/susp_upgrades.jsp",
+      "note": "Summary wording: 'The test cars ran the same tires, 205/55R16 Bridgestone Potenza RE950 High Performance All-Season tires'; 'Average lap time improved nearly 0.250 second over the stock suspension'; 'Because the coupe already sits lower, the test car was lowered about half the usual amount' (no inch or mm figure); the Pro-System car (springs plus dampers) 'did not beat the Pro-Kit-only car on average lap times'; on the Pro-System Plus car 'the anti-roll bars further reduced body roll on the skid pad, helping this vehicle generate the fastest average lap times of the evaluation'. Not recorded as a case: no absolute lap time, g or slalom figure was in any summary, only the change. Tire Rack is a retailer of the parts. Read from search-result summary; page not opened."
+    },
+    {
+      "claim": "On a BMW 328i, Eibach Pro-Kit springs made laps about 0.3 s faster than stock and adding Eibach anti-roll bars took off about another 0.4 s (the fastest combination of that test); a separate Tire Rack spring test found Pro-Kit springs almost 1.5% faster (just under half a second a lap) than stock springs.",
+      "publisher": "Tire Rack ('Eibach BMW 328i Pro-Kit Springs and Anti-Roll Kit Sway Bars'; 'Spring Testing')",
+      "url": "https://www.tirerack.com/suspension/tests/eibach_antisway_rd.jsp",
+      "note": "Summary wording: 'A 328i test with Pro-Kit springs found about 0.3 second faster laps than stock, and about 0.4 second more with Eibach anti-roll bars added. Tire Rack reported this as the fastest combination of that test'; 'A separate spring test reported the Pro-Kit springs were almost 1.5% faster (just under 1/2 second) than stock springs' (probably https://www.tirerack.com/suspension/tests/eibach.jsp; the summary did not tie the sentence to a URL). The summariser warned that the lap-time figures from the different Tire Rack tests 'don't line up exactly, so treat them as approximate'. Not recorded as cases: changes only, no absolute lap times. Read from search-result summary; page not opened."
+    },
+    {
+      "claim": "Tyres matter about five times more than coilovers: on the stock tyres coilovers improved the lap by 0.55 s (about 1%), while better tyres (Dunlop) beat the OEM tyres by 2.79 s (5%); stock suspension on the good tyres was 2.24 s faster than coilovers on the stock tyres.",
+      "publisher": "S197 Forum thread reposting a magazine track test (one summary attributes it to a Grassroots Motorsports Miata test)",
+      "url": "https://www.s197forum.com/threads/sudpension-or-wheels-tires-which-first-assuming-close-in-cost.114608/",
+      "note": "Summary wording: 'with the stock tires the coilovers only improved the lap time .55sec. That was about 1%, and the Dunlop's out performed the OEM tires (which are not bad) by 2.79sec (5%)'; 'A stock suspension on the good tires was faster than the stock tires with coilovers, by 2.24 sec.' The summaries disagree on the car: one calls it a forum repost of a Grassroots Motorsports Miata test, another 'one S197 Mustang test'; the forum URL is the likeliest of the listed results but the summary did not tie the quote to a URL. Grassroots Motorsports' own article 'Testing Coil-Over Performance Gains' (2010 Mazda MX-5, KW Variant 3 coil-overs, OE Bridgestone and Dunlop Z1 Star Spec tyres, Tire Rack test track, https://grassrootsmotorsports.com/project-cars/2010-mazda-mx-5-miata/testing-coil-over-performance-gains) says lap times on both tyres were faster than with the OE suspension, but its numbers were not in the summary. Not recorded as a case: no baseline lap time. Read from search-result summary; page not opened."
+    },
+    {
+      "claim": "On a 2011 Mustang GT road-course test, a wheel-and-tyre swap plus a spring, damper and brace handling pack were together worth 6.79 s a lap over the stock tyre and suspension combination: 2.25 s is credited to the tyres (275/35-19 Nitto NT05 on Track Pack wheels replacing 235/50-18 Pirelli) and a further 4.53 s came after the Ford Racing handling pack went on with the dampers at full firm.",
+      "publisher": "FordMuscle ('Installing and Testing Ford Racing's S197 Handling Pack On A 2011 GT')",
+      "url": "https://www.fordmuscle.com/tech-stories/brakes-suspension/installing-and-testing-ford-racings-s197-handling-pack-on-a-2011-gt/",
+      "note": "Summary wording: the stock car was first run 'on the road course' on '235/50/18 Pirelli tires'; the Nitto swap 'promptly knocked 2.25 seconds off our lap times'; 'we turned up the speed and managed to drop another 4.53 seconds off our lap time. For those of you keeping score, that's a total of 6.79 seconds per lap faster than stock.' The kit is 'adjustable Tokico front struts (pre-assembled with upper strut mounts and springs) and adjustable rear shocks, lowering springs, revised rear bump-stops, Ford Racing strut tower brace'. The split is not certain: one summary of a second copy of the article read the 4.53 s as the tyre step. Not recorded as a case: no absolute lap time and no track length in the summaries, and the ride-height drop is described only as 'revised lower ride height'. Read from search-result summary; page not opened."
+    },
+    {
+      "claim": "Ride-height drop of street lowering kits, two data points: a Pedders eXtreme XA coilover kit left a 2017 Mustang GT about 3/4 in (19 mm) lower at the front and about 1/2 in (13 mm) lower at the rear; a Ford Racing non-adjustable handling pack for the 2005-2014 Mustang GT is listed as lowering the car approximately 1.0 in (25 mm).",
+      "publisher": "FordMuscle ('Review: Pedders eXtreme XA Coilover Kit For The S550 Mustang'); Steeda parts listing for the Ford Racing pack",
+      "url": "https://www.fordmuscle.com/?p=892611",
+      "note": "Summary wording: 'After installation, the front sat about 3/4 inch lower and the rear about 1/2 inch lower'; the kit has 30-way adjustable damping and shorter front sway-bar end links. The Ford Racing figure is from a parts listing (https://www.steeda.com/ford-performance-m-fr3a-mgta-mustang-non-adjustable-handling-package), a seller's description. Millimetre values are plain conversions of the stated inches. The Pedders review timed a 300-foot, 5-point slalom on the factory suspension and again after the kit with the same driver and timing method, but the summaries printed only the factory first passes at 8.25 s and no after time, so it is not recorded as a case. Read from search-result summary; page not opened."
+    }
+  ],
+  "searchesUsed": 14
+}

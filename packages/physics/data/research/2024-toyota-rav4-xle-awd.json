@@ -418,17 +418,22 @@
         7.0,
         7.2,
         8.1,
-        8.64
+        8.64,
+        9.1,
+        8.2,
+        8.0
       ],
-      "note": "Not recorded: no named instrumented test of a 2024 RAV4 XLE AWD (2.5L, 8-speed, AWD) was found by Car and Driver, MotorTrend, Edmunds or anyone else. 8.3 s: Consumer Reports' 2020/2021 AWD RAV4 road tests (2.5L, 8-speed, AWD, but trim not stated in the summary and a different model year; CR does not use rollout). 8.3 s: 0-60specs.com aggregator for a 2024 TRD Off-Road (different trim, tyres and weight; tester attribution inconsistent between Car and Driver and Motor Trend). 7.0 to 7.2 s: Motor Matchup simulations for the 2024/2025 XLE AWD and 2024 Limited AWD (its 15.6 s @ 86 mph quarter mile is also a simulation). 8.1 s: Autoblog 'estimated', and Auto Express 0-62 mph for a UK hybrid. 8.64 s (16.88 s @ 82 mph quarter mile): The Truth About Cars, 2014 RAV4, previous generation and six-speed. Read from search-result summary; page not opened."
+      "note": "Not recorded: no named instrumented test of a 2024 RAV4 XLE AWD (2.5L, 8-speed, AWD) was found by Car and Driver, MotorTrend, Edmunds or anyone else. 8.3 s: Consumer Reports' 2020/2021 AWD RAV4 road tests (2.5L, 8-speed, AWD, but trim not stated in the summary and a different model year; CR does not use rollout). 8.3 s: 0-60specs.com aggregator for a 2024 TRD Off-Road (different trim, tyres and weight; tester attribution inconsistent between Car and Driver and Motor Trend). 7.0 to 7.2 s: Motor Matchup simulations for the 2024/2025 XLE AWD and 2024 Limited AWD (its 15.6 s @ 86 mph quarter mile is also a simulation). 8.1 s: Autoblog 'estimated', and Auto Express 0-62 mph for a UK hybrid. 8.64 s (16.88 s @ 82 mph quarter mile): The Truth About Cars, 2014 RAV4, previous generation and six-speed. Test pass of 2026-11-24 (8 more searches): still no named instrumented test of an XLE AWD of this generation from Car and Driver, MotorTrend, Edmunds, MotorWeek or Consumer Reports. 9.1 s: Edmunds' full test of a 2019 RAV4 Adventure ('2.5L 4-cyl | 8-speed automatic | AWD'; Edmunds does not subtract rollout), repeated in its 2023 review (https://www.edmunds.com/toyota/rav4/2019/review/); the same generation, engine and gearbox with AWD, but another grade whose tyres, test weight and AWD hardware were not read, so it was not put in the fields as the XLE AWD's check. 8.2 s: 0-60specs.com's aggregator row for a 2022 TRD Off-Road (16.30 s @ 87.4 mph quarter mile), which it attributes to Motor Trend; the article itself was not seen. Also 8.2 s on Autoblog's 2019 first-drive spec sheet (trim and method not stated). 8.0 s: a Carlisle Events writer's own run of a 2019 RAV4 (16.2 s quarter mile, on a surface the writer called poor for timing; trim not stated). Consumer Reports' 8.3 s was seen again for the 2021 AWD car, with the tested trim still not shown. Read from search-result summary; page not opened."
     },
     {
       "key": "testBraking60to0Ft",
       "values": [
         108,
-        118
+        118,
+        126,
+        127
       ],
-      "note": "Not recorded: 108 ft (MotorWeek, 2026 RAV4 GR Sport) and 118 ft (Edmunds, 2026 RAV4 plug-in hybrid GR Sport) are a different generation, trim and powertrain. No braking test of a gas XLE AWD was found. Read from search-result summary; page not opened."
+      "note": "Not recorded: 108 ft (MotorWeek, 2026 RAV4 GR Sport) and 118 ft (Edmunds, 2026 RAV4 plug-in hybrid GR Sport) are a different generation, trim and powertrain. No braking test of a gas XLE AWD was found. Test pass of 2026-11-24: 126 ft is Edmunds' full test of a 2019 RAV4 Adventure (2.5L 4-cyl, 8-speed automatic, AWD), which Edmunds called an average distance for a small crossover (https://www.edmunds.com/toyota/rav4/2019/review/); the same generation and powertrain but another grade whose tyres and test weight were not read, so it was not recorded as the XLE AWD's figure. 127 ft is Edmunds' 2026 FWD hybrid XLE Premium, a different generation and powertrain. No 70-0 figure and no skidpad figure for any gas RAV4 of this generation was seen. Read from search-result summary; page not opened."
     },
     {
       "key": "frontalAreaSqFt",
@@ -436,6 +441,25 @@
         28.5
       ],
       "note": "Not recorded: the only figure seen was the search tool's own estimate (height x width x 0.84 from 67 in x 73 in, about 28.5 sq ft), which is not a published figure. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testQuarterMileSec",
+      "values": [
+        16.3,
+        16.5,
+        16.2,
+        15.4
+      ],
+      "note": "Not recorded: no named instrumented quarter-mile test of a gas XLE AWD was found. 16.30 s @ 87.4 mph: 0-60specs.com's aggregator row for a 2022 TRD Off-Road, attributed to Motor Trend (article not seen; another grade). 16.50 s @ 87.0 mph: the same aggregator's 2024 TRD Off-Road row (its tester attribution was inconsistent in the earlier pass). 16.2 s: a Carlisle Events writer's own run of a 2019 RAV4, trim not stated, on a surface the writer called poor for timing. 15.4 s @ 86 mph: Motor Matchup's simulation for the 2025 XLE AWD, not a test. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testQuarterMileMph",
+      "values": [
+        87.4,
+        87.0,
+        86
+      ],
+      "note": "Not recorded: see testQuarterMileSec. 87.4 mph (2022 TRD Off-Road, attributed to Motor Trend) and 87.0 mph (2024 TRD Off-Road) are 0-60specs.com aggregator rows for another grade; 86 mph is Motor Matchup's simulation for the 2025 XLE AWD, not a test. Read from search-result summary; page not opened."
     }
   ],
   "searchesUsed": 14
