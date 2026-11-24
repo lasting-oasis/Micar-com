@@ -15,6 +15,8 @@ export * from './sheet';
 export * from './classes';
 /** Sheets to models, with the basis of every parameter. */
 export * from './resolve';
+/** The parts catalogue and builds: fitting parts and a setup, what each part did, the Garage's builds as real parts. */
+export * from './parts';
 /** The bench: acceleration, braking, skidpad, top speed and the dyno. */
 export * from './bench';
 /** Calibration (tyre grip, drag area) and the check against tests. */
@@ -25,3 +27,5 @@ export { AIR_ENERGY, boostStep, buildEngine, enginePeaks, engineTorque, rebuildT
 export type { EngineSpec } from './engine';
 /** Physical constants the core uses (standard gravity, sea-level air) and the deterministic arithmetic's constants. */
 export { G, HALF_PI, PI, P_AMBIENT, RHO_AIR, TAU, T_AMBIENT } from './math';
+/** The bench in the card's units, for the card engine's simulated specification (DESIGN.md 12). */
+export * from './rating';

@@ -19,3 +19,4 @@ export * from './certification';
 export * from './cards';
 export * from './public';
 export * from './game';
+export * from './simulated';

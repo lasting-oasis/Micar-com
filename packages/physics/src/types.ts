@@ -424,5 +424,11 @@ export type Setup = {
   camberFront?: number; camberRear?: number;
   /** Locking of a limited-slip differential as a multiple of the part's own. */
   diffLock?: number;
+  /** A boosted engine's full-boost gauge pressure as a multiple of what its parts give (still held by the knock and airflow limits). */
+  boostTarget?: number;
+  /** A turbo's spool time (its lag) as a multiple of what its parts give: a bigger figure builds boost more slowly. */
+  spoolTime?: number;
+  /** A nitrous kit's shot as a multiple of the kit's own; the same bottle empties as much faster. */
+  nitrousPower?: number;
 };
 export type Build = { parts: readonly FittedPart[]; setup: Setup };

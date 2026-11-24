@@ -19,6 +19,7 @@ import type {
 import type { EngineSpec } from './engine';
 import type { TyreSize } from './units';
 import { buildEngine, enginePeaks, rebuildTables } from './engine';
+import { fitBuild } from './parts';
 import { tyreMuX } from './tyre';
 import { G, PI, RHO_AIR, datan } from './math';
 import { FT, HP, IN, LB, LBF, LBFT, MPH, PSI, RPM, SQFT, parseTyreSize } from './units';
@@ -203,13 +204,15 @@ export function resolveLayout(sheet: PhysicsSheet): SheetLayout {
 
 /* ------------------------------------------------------------------ tyres */
 
-/** Both axles' tyres and wheels, with the category and grip scale they were built from. */
+/** Both axles' tyres and wheels, with the category, grip scale and sizes they were built from. */
 export type ResolvedTyres = {
   front: TyreParams; rear: TyreParams;
   wheelInertiaFront: number; wheelInertiaRear: number;
   category: TyreCategory;
   /** The grip scale in use: the calibration's, held to the category's range, or 1. */
   gripScale: number;
+  /** The sizes each axle was built from (a part that changes the category or the width builds them again from these). */
+  sizeFront: TyreSize; sizeRear: TyreSize;
 };
 
 /** The coast-down on file, SI: road load A (N), B (N per m/s), C (N per (m/s)^2). Null without a C; A and B are 0 when missing. */
@@ -227,7 +230,12 @@ function readSize(f: Sourced<string> | null): TyreSize | null {
   return size !== null && size.width > 0 && size.radius > 0 && size.rimIn > 0 ? size : null;
 }
 
-function tyreParams(size: TyreSize, category: TyreCategory, gripScale: number, rollingOnFile: boolean): TyreParams {
+/**
+ * One axle's tyre from its size, its category's figures and the car's grip scale: loaded radius 0.97 of the free one,
+ * reference load from the size, stiffness per reference load from the category. With a coast-down's A on file its
+ * rolling resistance is 0 (the A holds it). parts.ts builds a tyre part's tyres with this.
+ */
+export function tyreParams(size: TyreSize, category: TyreCategory, gripScale: number, rollingOnFile: boolean): TyreParams {
   const t = TYRE_CATEGORY[category];
   const fz0 = tyreReferenceLoad(size.width, 2 * size.radius);
   return {
@@ -289,6 +297,8 @@ export function resolveTyres(sheet: PhysicsSheet, layout: SheetLayout, basis: Re
     wheelInertiaFront: wheelInertia(wheelMass(front.width, front.rimIn), tf.radius),
     wheelInertiaRear: wheelInertia(wheelMass(rear.width, rear.rimIn), tr.radius),
     category, gripScale,
+    sizeFront: { width: front.width, aspect: front.aspect, rimIn: front.rimIn, radius: front.radius },
+    sizeRear: { width: rear.width, aspect: rear.aspect, rimIn: rear.rimIn, radius: rear.radius },
   };
 }
 
@@ -435,6 +445,27 @@ export function resolveChassis(sheet: PhysicsSheet, layout: SheetLayout, tyres: 
   basis['chassis.maxSteer'] = steerBasis;
   basis['chassis.steerRatio'] = ratio !== null ? 'sourced' : 'estimated';
   return chassis;
+}
+
+/** What a chassis's inertias are built from: the class's yaw index and the sprung body's radii of gyration, m. */
+export type Gyration = { yawIndex: number; kRoll: number; kPitch: number };
+
+/** The yaw index and radii of gyration resolveChassis gives a car: what a part keeps while it moves mass about. */
+export function chassisGyration(sheet: PhysicsSheet, bodyClass: BodyClass): Gyration {
+  const body = bodySize(sheet, bodyClass);
+  return { yawIndex: CHASSIS_CLASS[bodyClass].yawIndex, kRoll: ROLL_GYRATION_PER_WIDTH * body.width, kPitch: PITCH_GYRATION_PER_LENGTH * body.length };
+}
+
+/**
+ * Works the three inertias out again from the chassis as it now is, by resolveChassis's own formulas: yaw, the yaw
+ * index times m a b; roll and pitch, the sprung body's own about its centre of gravity plus the parallel-axis term to
+ * the roll axis and to the ground. For a part that moves mass or the ride height.
+ */
+export function setInertias(c: ChassisModel, g: Gyration): void {
+  const hRoll = Math.max(c.sprungCgHeight - (c.rollCentreFront + (c.rollCentreRear - c.rollCentreFront) * c.a / c.wheelbase), MIN_ROLL_ARM);
+  c.izz = g.yawIndex * c.mass * c.a * c.b;
+  c.ixx = c.sprungMass * (g.kRoll * g.kRoll + hRoll * hRoll);
+  c.iyy = c.sprungMass * (g.kPitch * g.kPitch + c.sprungCgHeight * c.sprungCgHeight);
 }
 
 /* ------------------------------------------------------------------ air */
@@ -976,8 +1007,8 @@ function goodScale(k: number | undefined): k is number {
  * Applies a build's setup to a resolved model, for the fields that are plain changes to what the resolver computes:
  * bars, springs and dampers as multiples of the car's own; a lower ride height, which lowers the sprung mass and so
  * the whole car's centre of gravity by the sprung share of it; the brakes' front share at the same 1.3 g; the final
- * drive as a multiple; lift area added at each axle. The rest of a setup (tyre pressures, camber, differential lock)
- * waits for parts.ts.
+ * drive as a multiple; lift area added at each axle. parts.ts calls it and does the rest of a setup (the drag that
+ * comes with added downforce, boost, nitrous, differential lock) and re-derives the inertias a ride height moves.
  */
 export function applySetup(model: VehicleModel, setup: Setup, basis: Record<string, Basis>): void {
   const c = model.chassis;
@@ -1017,12 +1048,11 @@ export function applySetup(model: VehicleModel, setup: Setup, basis: Record<stri
 
 /* ------------------------------------------------------------------ the whole car */
 
-/**
- * Turns a sheet into a vehicle model, SI throughout, and records for every parameter of the model how it was reached.
- * Each blank takes its class's figure. A build's parts are not fitted yet (parts.ts will); its setup's plain
- * changes are (applySetup).
- */
-export function resolveModel(sheet: PhysicsSheet, build?: Build): { model: VehicleModel; basis: Record<string, Basis> } {
+/** The stock car with what parts.ts needs to change it: its make-up as read and its tyres as built. */
+export type StockCar = { model: VehicleModel; basis: Record<string, Basis>; layout: SheetLayout; tyres: ResolvedTyres };
+
+/** Turns a sheet into the stock car, as delivered: the model, the basis of every parameter, and the pieces parts.ts reuses. */
+export function resolveStock(sheet: PhysicsSheet): StockCar {
   const basis: Record<string, Basis> = {};
   const layout = resolveLayout(sheet);
   const tyres = resolveTyres(sheet, layout, basis);
@@ -1043,6 +1073,17 @@ export function resolveModel(sheet: PhysicsSheet, build?: Build): { model: Vehic
     wheelInertiaFront: tyres.wheelInertiaFront, wheelInertiaRear: tyres.wheelInertiaRear,
     engine, driveline, brakes, aero, systems, nitrous: null,
   };
-  if (build !== undefined && build !== null && build.setup !== undefined && build.setup !== null) applySetup(model, build.setup, basis);
-  return { model, basis };
+  return { model, basis, layout, tyres };
+}
+
+/**
+ * Turns a sheet into a vehicle model, SI throughout, and records for every parameter of the model how it was reached.
+ * Each blank takes its class's figure. With a build, parts.ts fits its parts in the catalogue's fixed order, applies
+ * its setup, rebuilds the engine's tables and re-derives what depends on what changed (DESIGN.md 11); an empty build
+ * gives the same model, bit for bit, as none.
+ */
+export function resolveModel(sheet: PhysicsSheet, build?: Build): { model: VehicleModel; basis: Record<string, Basis> } {
+  const car = resolveStock(sheet);
+  if (build !== undefined && build !== null) fitBuild(sheet, car, build);
+  return { model: car.model, basis: car.basis };
 }
