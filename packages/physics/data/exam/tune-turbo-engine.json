@@ -1,0 +1,240 @@
+{
+  "id": "tune-turbo-engine",
+  "topic": "ECU tune alone on a factory-turbocharged petrol engine",
+  "gathered": "2026-11-24",
+  "cases": [
+    {
+      "car": "2015 Ford Mustang EcoBoost (2.3L turbo I4; transmission not given in summary)",
+      "change": "SCT X4 Power Flash handheld, supplied 93-octane tune only, otherwise stock car",
+      "physical": {
+        "boostPsiBefore": 20,
+        "boostPsiAfter": 25,
+        "fuelOctaneAki": 93
+      },
+      "measure": "rear-wheel horsepower and torque, chassis dyno",
+      "before": {
+        "wheelHp": 273.2,
+        "wheelTorqueLbFt": 303.8
+      },
+      "after": {
+        "wheelHp": 291.8,
+        "wheelTorqueLbFt": 339.9
+      },
+      "publisher": "Ford Muscle (FordMuscle.com)",
+      "url": "https://www.fordmuscle.com/?p=10006",
+      "sourceKind": "test",
+      "note": "Summary: 'The stock car made 273.2 hp and 303.8 lb-ft at the rear wheels on a chassis dyno.' Quoted: 'Our stock 2015 EcoBoost, with only the supplied 93 octane tune put down 291.8 hp at 5,468 rpm and 339.9 lb-ft of torque at 3,114 rpm, to the rear wheels. That's a gain of 18.6 hp, and 36.1 lb-ft.' Also: at 3,600 rpm the tune had already picked up nearly 32 hp (mid-range gain larger than peak gain). Boost figures are the summary's approximations: 'Boost on the tuned pull climbed from 10 to about 25 psi, versus a stock peak of roughly 20 psi.' Read from search-result summary; page not opened. First-reader check note: Two separate searches agree: stated before figures plus the quoted after figures and stated gains are arithmetically consistent (291.8 - 273.2 = 18.6; 339.9 - 303.8 = 36.1). Boost psi values are approximate ('roughly', 'about') and should be weighted lightly."
+    },
+    {
+      "car": "2017 Ford Mustang EcoBoost (2.3L turbo I4; transmission not given in summary)",
+      "change": "COBB Accessport Stage 1 off-the-shelf reflash only, on a bone-stock car (intake and exhaust were tested afterwards, separately)",
+      "stockPublished": {
+        "crankHp": 310,
+        "crankHpAtRpm": 5500,
+        "crankTorqueLbFt": 320,
+        "crankTorqueAtRpm": 2500
+      },
+      "physical": {
+        "boostPsiBefore": 21,
+        "boostPsiAfter": 22.93
+      },
+      "measure": "peak wheel horsepower, chassis dyno",
+      "before": {
+        "wheelHp": 230.32
+      },
+      "after": {
+        "wheelHp": 275.16
+      },
+      "publisher": "DSPORT Magazine (Test & Tune: 2017 Ford Mustang | Intake, Exhaust & Tune)",
+      "url": "https://dsportmag.com/the-tech/test-n-tune/test-and-tune-2017-ford-mustang/",
+      "sourceKind": "test",
+      "note": "Summary: 'Cobb Stage 1 tune alone (DSPORT): Stock output was 230.32 whp at 21 psi. After the reflash, output was 275.16 whp, and boost rose by about two psi to 22.93. Adding an intake brought it to 283.61 whp.' Second summary gives the rating: '310 horsepower at 5,500 RPM and 320 lb-ft of torque at 2,500 RPM (to the flywheel)' and the test plan: 'how an intake, exhaust, and a tune would affect a bone-stock Ford Mustang Ecoboost.' Wheel torque before/after not in the summaries. Read from search-result summary; page not opened. First-reader check note: Dyno and boost figures come from one search summary; a second search confirmed the article, its stock rating and its bone-stock starting point but did not repeat the dyno numbers. Gain is +44.84 whp (+19.5%) for only +1.93 psi peak boost, so the tune also changed timing/boost curve, not just peak boost."
+    },
+    {
+      "car": "Ford Mustang EcoBoost (S550, 2.3L turbo I4; year and transmission not given in summary)",
+      "change": "COBB Accessport with COBB Stage 1 off-the-shelf tune only",
+      "physical": {},
+      "measure": "wheel horsepower and wheel torque, chassis dyno",
+      "before": {
+        "wheelHp": 221,
+        "wheelTorqueLbFt": 261
+      },
+      "after": {
+        "wheelHp": 230,
+        "wheelTorqueLbFt": 301
+      },
+      "publisher": "S3 Magazine (s3mag.com)",
+      "url": "https://s3mag.com/?p=13940",
+      "sourceKind": "test",
+      "note": "Summary: 'S3mag reported that the car put down 221whp and 261wtq stock, and that with nothing but the COBB Accessport & COBB Stage-1 tune, it jumped to 230hp and 301wtq.' The after power is written '230hp' in context of wheel figures. Read from search-result summary; page not opened. First-reader check note: Single search summary. Shape matches the other EcoBoost cases: small peak-power gain (+9, +4%) but large torque gain (+40 lb-ft, +15%)."
+    },
+    {
+      "car": "2020 Toyota GR Supra (A90, 3.0L B58 turbo I6, automatic)",
+      "change": "EcuTek calibration by the tuning shop, 93-octane fuel",
+      "physical": {
+        "fuelOctaneAki": 93,
+        "dynoRoomAmbientF": 91
+      },
+      "measure": "wheel horsepower and wheel torque, shop chassis dyno, baseline pulls taken before the work",
+      "before": {
+        "wheelHp": 337.79,
+        "wheelTorqueLbFt": 400.56
+      },
+      "after": {
+        "wheelHp": 444.76,
+        "wheelTorqueLbFt": 542.22
+      },
+      "publisher": "National Speed (tuning shop)",
+      "url": "https://nationalspeedinc.com/2020-toyota-gr-supra-ecutek-tuned/",
+      "sourceKind": "manufacturer",
+      "note": "Tuner's own result (the shop that wrote and sold the calibration). Quoted: 'Matt strapped her down for pre-work dyno pulls to establish our stock baseline, coming in at 337.79whp & 400.56lbft. With 93 octane in the tank, and 91° F ambient air temperature in the dyno room, Vlad was able to increase the B58's output to 444.76whp & 542.22lbft.' The same summary mentions other National Speed Supras (about 334 to about 458 whp with 23 psi held to redline; about 345 to about 419 whp on 92 octane). Read from search-result summary; page not opened. First-reader check note: Single search summary. It listed two National Speed EcuTek Supra pages ('2020 Toyota GR Supra – EcuTek Tuned' and 'Downshift Blue 2020 Toyota GR Supra – EcuTek Tuned'); the summary did not say which one holds these exact figures. The phrase 'pre-work' does not rule out other parts; titles of these two pages say only 'EcuTek Tuned'. Gain +106.97 whp (+31.7%), +141.66 lb-ft (+35.4%)."
+    },
+    {
+      "car": "Toyota GR Supra (A90, 3.0L B58 turbo I6; year and transmission not given in summary)",
+      "change": "VR Tuned ECU flash only, pump fuel",
+      "physical": {},
+      "measure": "wheel horsepower and wheel torque, tuner's chassis dyno",
+      "before": {
+        "wheelHp": 310,
+        "wheelTorqueLbFt": 391
+      },
+      "after": {
+        "wheelHp": 372,
+        "wheelTorqueLbFt": 429
+      },
+      "publisher": "Vivid Racing (VR Tuned)",
+      "url": "https://www.vividracing.com/blog/vr-tuned-ecu-flash-for-a90-supra-now-available-big-power-gains",
+      "sourceKind": "manufacturer",
+      "note": "Tuner's own claim. Quoted: 'With the new VR Tuned flash installed, the A90 Supra put down 372whp and 429wtq, representing power gains of +62whp and +38lb-ft.' The before figures are the after figures minus the stated gains (372 - 62, 429 - 38); the stock run itself was not quoted. Summary adds that a 93-octane blend added a bit more. Read from search-result summary; page not opened. First-reader check note: Before values derived by subtraction from published after-and-gain figures, not printed directly. Stock baseline (310 whp) sits at the low end of the 310-345 whp range of stock A90 baselines across shops noted in the same summary."
+    },
+    {
+      "car": "2018 Honda Civic Type R (FK8, 2.0L turbo I4, manual)",
+      "change": "Hondata FlashPro reflash only; aftermarket intake and exhaust were swapped back to factory parts for this run",
+      "physical": {},
+      "measure": "peak wheel horsepower and wheel torque, chassis dyno",
+      "before": {
+        "wheelHp": 293.25,
+        "wheelTorqueLbFt": 282.84
+      },
+      "after": {
+        "wheelHp": 314.15,
+        "wheelTorqueLbFt": 332.27
+      },
+      "publisher": "DSPORT Magazine (Test & Tune: 2018 Honda Civic Type R, Part 1)",
+      "url": "https://dsportmag.com/?p=28306",
+      "sourceKind": "test",
+      "note": "Quoted: 'With everything stock and just the reflash, the car delivered 314.15 peak whp and 332.27 lb-ft of peak torque.' And: 'On their Dyno, the Type R showed an impressive 293.25 peak whp, and a peak of 282.84 lb-ft of torque.' The results table lists the FlashPro run at 314.15 whp with a 20.90 whp gain. Read from search-result summary; page not opened. First-reader check note: Two searches agree and the table gain (20.90) matches 314.15 - 293.25. A separate DSPORT FK8 article gives a different stock baseline (296.72 whp / 290.63 lb-ft) and an off-the-shelf Hondata result of 318.88 whp / 334.96 lb-ft, but the summaries did not confirm that pair was the same car and day, so it is not recorded as a case. Gain here: +20.90 whp (+7.1%), +49.43 lb-ft (+17.5%)."
+    },
+    {
+      "car": "2019 Honda Civic Si (1.5L turbo I4, manual)",
+      "change": "Hondata FlashPro base map, 91-octane fuel (whether the article's MA Performance intake was already fitted for this run is unresolved)",
+      "physical": {
+        "boostPsiBefore": 18.87,
+        "boostPsiAfter": 22.49,
+        "fuelOctaneAki": 91
+      },
+      "measure": "peak wheel horsepower and wheel torque, chassis dyno",
+      "before": {
+        "wheelHp": 189.81,
+        "wheelTorqueLbFt": 190.58
+      },
+      "after": {
+        "wheelHp": 203.88,
+        "wheelTorqueLbFt": 214.7
+      },
+      "publisher": "DSPORT Magazine (Test & Tune: 2019 Honda Civic Si | Intake, Flashpro, Type R Clutch & E85)",
+      "url": "https://dsportmag.com/the-tech/test-n-tune/honda-civic-si-test-tune/",
+      "sourceKind": "test",
+      "note": "Summary: 'The Civic Si made 189.81 peak whp and 190.58 lb-ft of torque stock, running the factory 18.87 psi of boost. After a FlashPro base map on 91-octane, it reached a peak 203.88whp and 214.70 lb-ft of torque', with 'boost increasing to 22.49 psi'. Gain stated as 14.07 whp and 24.12 lb-ft. On E85 (gauge read 76 percent ethanol) the same car made 240.59 whp / 237.96 lb-ft. Read from search-result summary; page not opened. First-reader check note: Figures agree across two searches and the stated gains match the arithmetic. Unresolved: the article also fitted an MA Performance intake and the summaries could not say whether it was on the car for the 203.88 whp run. A separate DSPORT 1.5T Civic article reports about 187 whp at 18.55 psi rising to 212.65 whp at 25.56 psi with a custom FlashPro tune (not recorded; car model and mods unclear)."
+    },
+    {
+      "car": "2015 Volkswagen Golf R (US-spec, Mk7, 2.0T EA888, DSG)",
+      "change": "APR Stage I ECU software, 93 AKI fuel",
+      "physical": {
+        "fuelOctaneAki": 93
+      },
+      "measure": "instrumented acceleration (0-60 mph and quarter mile), tuner's own testing",
+      "before": {
+        "zeroToSixtySec": 4.641,
+        "quarterMileSec": 12.849,
+        "quarterMileMph": 105.3
+      },
+      "after": {
+        "zeroToSixtySec": 3.869,
+        "quarterMileSec": 11.956,
+        "quarterMileMph": 113.733
+      },
+      "publisher": "APR (tuner)",
+      "url": "https://www.goapr.com/blog/post/apr_mk7_golf_r_acceleration/",
+      "sourceKind": "manufacturer",
+      "note": "Tuner's own test. Quoted: '12.849 @ 105.300 MPH vs 11.956 @ 113.733 MPH - 1/4 Mile' and '0-60 MPH times were reduced to 3.8 seconds while the 30-130 MPH test was completed 5.9 seconds faster!' Table 0-60: 4.641 s stock vs 3.869 s Stage I; with 1-foot rollout 4.247 s vs 3.490 s. Read from search-result summary; page not opened. First-reader check note: Two searches agree on all figures. Manufacturer-sourced; the stock 12.849 s is quicker than The Drive's quoted 13.4 s stock Mk7 Golf R, so the baseline may be a well-launched or favourable-conditions run. Trap speed rose 8.43 mph (+8.0%)."
+    },
+    {
+      "car": "Volkswagen Golf R Mk8 (2.0T; year and transmission not given in summary)",
+      "change": "Racing Line power control module only (plug-in piggyback, not an ECU reflash; described as the equivalent of a Stage 1 tune because no reflash existed yet)",
+      "physical": {},
+      "measure": "0-60 mph and quarter mile, timed by an independent video channel, same car stock then with module",
+      "before": {
+        "zeroToSixtySec": 4.18,
+        "quarterMileSec": 12.46
+      },
+      "after": {
+        "zeroToSixtySec": 4.07,
+        "quarterMileSec": 12.28
+      },
+      "publisher": "TopSpeed (reporting an Awesome Cars video test; also covered by Formacar)",
+      "url": "https://www.topspeed.com/cars/car-news/the-volkswagen-golf-r-mk8-is-the-definition-of-a-stealthy-hot-hatchback-and-this-one-is-even-quicker-ar195792.html",
+      "sourceKind": "test",
+      "note": "Summary: 'The stock car ran 0-60 in 4.18 seconds and the quarter mile in 12.46 seconds. After a Racing Line power control module was added, it ran 0-60 in 4.07 seconds and the quarter mile in 12.28 seconds.' Quoted: 'at the point of filming the test, there was no tune available for the Golf R Mk8, so the PCM is, technically, the equivalent of a Stage 1 tune.' Read from search-result summary; page not opened. First-reader check note: Single search summary, two outlets cited. Piggyback module rather than reflash; trap speeds and power figures not given. Gain is much smaller than APR's Mk7 reflash result (-0.18 s vs -0.89 s quarter mile)."
+    },
+    {
+      "car": "Volkswagen GTI Mk7 (2.0T EA888 Gen 3; year and transmission not given in summary), VWR intake fitted for both runs",
+      "change": "Unitronic Stage 1+ ECU software only (intake already fitted in the baseline run)",
+      "physical": {},
+      "measure": "wheel horsepower, shop chassis dyno",
+      "before": {
+        "wheelHp": 207
+      },
+      "after": {
+        "wheelHp": 282
+      },
+      "publisher": "Shop DAP (VW tuning shop that sells and installs the software)",
+      "url": "https://www.shopdap.com/blog/post/mk7-gti-performance-software-tuning-charlotte.html",
+      "sourceKind": "manufacturer",
+      "note": "Shop's own reported result for software it sells. Quoted: 'MK7 VW GTI Stock (w/ MK7 GTI VWR Intake) Wheel Horsepower – 207, and MK7 VW GTI w/ Unitronic Stage 1 Plus Software Wheel Horsepower – 282.' Write-up gives the gain as 75 hp and 43 lb-ft; absolute torque values were not in the summary. Read from search-result summary; page not opened. First-reader check note: Single search summary. +75 whp (+36%) is the largest relative gain on this page and is a seller's figure. Grassroots Motorsports ran an independent 034Motorsport-tune Mk7 GTI dyno test at VMP Performance but its numbers were only in a chart not visible in summaries, so it is not recorded."
+    }
+  ],
+  "ruleOfThumb": [
+    {
+      "claim": "Boost adds roughly 7% power per psi over naturally aspirated (1 psi is about 1/14.7 = 6.8% of sea-level atmosphere), i.e. hp x (14.7 + boost) / 14.7; an idealised figure that ignores knock, fuel-flow and turbo-efficiency limits.",
+      "publisher": "Corvette Forum (forum post); same 7%-per-pound figure in eHow 'Horsepower Vs. Boost Pressure'",
+      "url": "https://www.corvetteforum.com/forums/c6-forced-induction-nitrous/1625544-boost.html",
+      "note": "Quoted: '~ 1 psi boost = 6.8% horsepower max (1/14.7 = 6.8%)' and 'a turbo will increase horsepower by about 7 percent per pound of boost over a naturally aspirated configuration'. Check against Civic Si case: 18.87 -> 22.49 psi predicts about +10.8%; measured +7.4% whp, +12.7% torque. Read from search-result summary; page not opened."
+    },
+    {
+      "claim": "On a stock-turbo car an off-the-shelf tune raises torque much more than peak power: COBB's Focus ST Stage 1 91-octane map lists +1% HP / +22% TQ at peak and +4% HP / +27% TQ at maximum, with ~21.5 psi peak boost tapering to ~13.5 psi by the 6,800 rpm redline.",
+      "publisher": "COBB Tuning, Ford Focus ST Map Notes (tuner's own data)",
+      "url": "https://cobbtuning.atlassian.net/wiki/display/PRS/Ford+Focus+ST+Map+Notes",
+      "note": "Manufacturer claim. Consistent with this page's measured cases (FK8 +7% whp / +17.5% torque; S3 Magazine EcoBoost +4% whp / +15% torque). Read from search-result summary; page not opened."
+    },
+    {
+      "claim": "About 25 psi is the practical limit of the stock EcoBoost Mustang turbo hardware; common pump-gas tunes run around 22 psi.",
+      "publisher": "AmericanMuscle (retailer); Holley states its tunes raise boost up to 22 psi",
+      "url": "https://AmericanMuscle.com/increasing-boost-on-an-ecoboost.html",
+      "note": "Retailer guidance, attributed via search summary ('AmericanMuscle cites a rule of thumb that 25 psi is the stock-hardware limit'). Read from search-result summary; page not opened."
+    },
+    {
+      "claim": "There is no universal Stage 1 percentage: the gain depends on the engine and on how conservatively it was calibrated at the factory; turbo engines gain more than naturally aspirated ones because the tune can raise boost as well as timing and fuel.",
+      "publisher": "HP Academy, 'What Is a Stage 1 Tune?' (attribution from summary)",
+      "url": "https://www.hpacademy.com/blog/what-is-a-stage-1-tune/",
+      "note": "The summary did not tie each phrase to a single URL with certainty; HP Academy was the lead result. Read from search-result summary; page not opened."
+    },
+    {
+      "claim": "Compare tune gains only on the same dyno, same fuel and same day: repeat pulls of one car on one dyno vary, stock baselines for one model span 30+ whp across shops (A90 Supra roughly 310-345 whp), and some modern ECUs adapt after a flash so the first post-tune pull can overstate the gain.",
+      "publisher": "Grassroots Motorsports forum (ECU adaptation comment); BimmerPost forum ('same car on the same dyno 10 times ... 10 different WHP numbers')",
+      "url": "https://grassrootsmotorsports.com/forum/grm/video-is-a-tune-worth-it-we/273529/page1",
+      "note": "Forum comments, quoted: 'modern cars will show an initial power gain after being flashed, then they'll start learning around it and the gains go away.' Read from search-result summary; page not opened."
+    }
+  ],
+  "searchesUsed": 20
+}

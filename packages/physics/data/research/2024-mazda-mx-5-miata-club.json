@@ -1,0 +1,273 @@
+{
+  "id": "2024-mazda-mx-5-miata-club",
+  "year": 2024,
+  "make": "Mazda",
+  "model": "MX-5 Miata",
+  "trim": "Club (soft top, 2.0L Skyactiv-G I-4, 181 hp, 6-speed manual, RWD)",
+  "bodyClass": "sports",
+  "gathered": "2026-11-24",
+  "fields": [
+    {
+      "key": "engineDescription",
+      "text": "Skyactiv-G 2.0-liter four-cylinder",
+      "publisher": "Mazda North American Operations (Mazda USA Newsroom, 2024 MX-5 Miata Pricing and Packaging)",
+      "url": "https://news.mazdausa.com/2024-01-25-24MY-2024-Mazda-MX-5-Miata-Pricing-and-Packaging",
+      "sourceKind": "manufacturer",
+      "note": "Carried over from the earlier card research (2026-11-11): Mazda's 2024 pricing and packaging release was summarized as 'All MX-5 Miata models have a front engine, rear-wheel drive layout, with a Skyactiv-G 2.0-liter four-cylinder engine delivering 181 horsepower at 7,000 rpm and 151 lb-ft of torque at 4,000 rpm routed through a six-speed transmission'. The card reviewer separately saw the only 2024 engine described as a '2.0-liter SKYACTIV-G inline-four'. KBB's Club page was summarized as 'naturally aspirated 2.0-liter four-cylinder', same engine as the other trims. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.kbb.com/mazda/mx-5-miata/2024/club"
+    },
+    {
+      "key": "powertrain",
+      "text": "gasoline",
+      "publisher": "MPG Buddy (republishing EPA fuel economy data)",
+      "url": "https://mpgbuddy.com/cars/mazda/mx-5/2024",
+      "sourceKind": "reference",
+      "note": "Carried over from the earlier card research (fuelType): the card reviewer saw MPG Buddy's 2024 MX-5 page summarized as listing fuel type 'Premium', i.e. premium gasoline, alongside the 2.0-liter four-cylinder and 'manual 6-spd'; no hybrid or electric MX-5 exists. California Drive Clean's EPA-based listing for the 2024 MX-5 manual 2.0L carries ordinary mpg ratings (26/34/29). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://driveclean.ca.gov/node/1219621"
+    },
+    {
+      "key": "induction",
+      "text": "natural",
+      "publisher": "Kelley Blue Book (attribution uncertain)",
+      "url": "https://www.kbb.com/mazda/mx-5-miata/2024/club",
+      "sourceKind": "reference",
+      "note": "Carried over from the earlier card research (aspiration = naturally-aspirated): a search summary said 'All 2024 Mazda MX-5 models use a naturally aspirated 2.0-liter four-cylinder' and that the Club has the same engine as the other trims. The summary did not say which listed result carried the wording (KBB's Club page and Autoblog's Club buyer's guide were the results), so the attribution to KBB is not certain. The card reviewer marked it unconfirmed only because no result of theirs stated aspiration in words; nothing mentioned a turbo or supercharger. Mazda's own wording was not seen. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.autoblog.com/news/2024-mazda-mx-5-miata-club-buyers-guide-and-specs"
+    },
+    {
+      "key": "engineLocation",
+      "text": "front",
+      "publisher": "Mazda North American Operations (Mazda USA Newsroom, 2024 MX-5 Miata Pricing and Packaging)",
+      "url": "https://news.mazdausa.com/2024-01-25-24MY-2024-Mazda-MX-5-Miata-Pricing-and-Packaging",
+      "sourceKind": "manufacturer",
+      "note": "Carried over from the earlier card research: the release was summarized as 'All MX-5 Miata models have a front engine, rear-wheel drive layout'. Applies to every 2024 model including the Club soft top. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "displacementL",
+      "number": 2.0,
+      "publisher": "Mazda North American Operations (Mazda USA Newsroom, 2024 MX-5 Miata Pricing and Packaging)",
+      "url": "https://news.mazdausa.com/2024-01-25-24MY-2024-Mazda-MX-5-Miata-Pricing-and-Packaging",
+      "sourceKind": "manufacturer",
+      "note": "Carried over from the earlier card research: the release was summarized as 'a Skyactiv-G 2.0-liter four-cylinder engine' for all 2024 MX-5 Miata models. KBB's Club page (2.0-liter four-cylinder, shared by all trims) and California Drive Clean's 2024 MX-5 manual 2.0L listing agree. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://driveclean.ca.gov/node/1219621"
+    },
+    {
+      "key": "cylinders",
+      "number": 4,
+      "publisher": "Mazda North American Operations (Mazda USA Newsroom, 2024 MX-5 Miata Pricing and Packaging)",
+      "url": "https://news.mazdausa.com/2024-01-25-24MY-2024-Mazda-MX-5-Miata-Pricing-and-Packaging",
+      "sourceKind": "manufacturer",
+      "note": "Carried over from the earlier card research: the release was summarized as 'a Skyactiv-G 2.0-liter four-cylinder engine' for all 2024 models; the card reviewer saw it described as an inline-four, and KBB's Club page gives a 2.0-liter four-cylinder shared by all trims. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.kbb.com/mazda/mx-5-miata/2024/club"
+    },
+    {
+      "key": "horsepower",
+      "number": 181,
+      "publisher": "Mazda North American Operations (Mazda USA Newsroom, 2024 MX-5 Miata Pricing and Packaging)",
+      "url": "https://news.mazdausa.com/2024-01-25-24MY-2024-Mazda-MX-5-Miata-Pricing-and-Packaging",
+      "sourceKind": "manufacturer",
+      "note": "Carried over from the earlier card research: the release was summarized as 'a Skyactiv-G 2.0-liter four-cylinder engine delivering 181 horsepower at 7,000 rpm' for all 2024 models. The earlier record sourced 181 hp to KBB's Club page (same engine as the other trims, 181 hp at 7,000 rpm); Mazda Canada's 2024 MX-5 sheet lists the same 181 hp (Canadian market, corroboration only). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.kbb.com/mazda/mx-5-miata/2024/club"
+    },
+    {
+      "key": "horsepowerRpm",
+      "number": 7000,
+      "publisher": "Mazda North American Operations (Mazda USA Newsroom, 2024 MX-5 Miata Pricing and Packaging)",
+      "url": "https://news.mazdausa.com/2024-01-25-24MY-2024-Mazda-MX-5-Miata-Pricing-and-Packaging",
+      "sourceKind": "manufacturer",
+      "note": "Carried over from the earlier card research: '181 horsepower at 7,000 rpm' in the release summary. KBB's Club summary gave the same 181 hp at 7,000 rpm, and the card reviewer's search returned 'multiple sources agree on 181 hp at 7,000 rpm'. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.kbb.com/mazda/mx-5-miata/2024/club"
+    },
+    {
+      "key": "torqueLbFt",
+      "number": 151,
+      "publisher": "Mazda North American Operations (Mazda USA Newsroom, 2024 MX-5 Miata Pricing and Packaging)",
+      "url": "https://news.mazdausa.com/2024-01-25-24MY-2024-Mazda-MX-5-Miata-Pricing-and-Packaging",
+      "sourceKind": "manufacturer",
+      "note": "Carried over from the earlier card research: the release was summarized as '151 lb-ft of torque at 4,000 rpm' for all 2024 models. KBB's Club page (151 lb-ft at 4,000 rpm) and Mazda Canada's 2024 MX-5 sheet (151 lb-ft, Canadian market) agree. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://mazda.ca/link/7d5cd9fa55024e668786c979b09966bb.aspx"
+    },
+    {
+      "key": "torqueRpmLow",
+      "number": 4000,
+      "publisher": "Mazda North American Operations (Mazda USA Newsroom, 2024 MX-5 Miata Pricing and Packaging)",
+      "url": "https://news.mazdausa.com/2024-01-25-24MY-2024-Mazda-MX-5-Miata-Pricing-and-Packaging",
+      "sourceKind": "manufacturer",
+      "note": "Mazda gives a single peak-torque speed, '151 lb-ft of torque at 4,000 rpm' (release summary carried over from the earlier card research); KBB's Club summary and the card reviewer's search gave the same 4,000 rpm. Recorded as both low and high because no plateau is published. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.kbb.com/mazda/mx-5-miata/2024/club"
+    },
+    {
+      "key": "torqueRpmHigh",
+      "number": 4000,
+      "publisher": "Mazda North American Operations (Mazda USA Newsroom, 2024 MX-5 Miata Pricing and Packaging)",
+      "url": "https://news.mazdausa.com/2024-01-25-24MY-2024-Mazda-MX-5-Miata-Pricing-and-Packaging",
+      "sourceKind": "manufacturer",
+      "note": "Same single-point figure as torqueRpmLow: '151 lb-ft of torque at 4,000 rpm'. Mazda publishes no plateau, so the upper end equals the peak speed, not a measured band edge. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.kbb.com/mazda/mx-5-miata/2024/club"
+    },
+    {
+      "key": "drivetrain",
+      "text": "RWD",
+      "publisher": "Mazda North American Operations (Mazda USA Newsroom, 2024 MX-5 Miata Pricing and Packaging)",
+      "url": "https://news.mazdausa.com/2024-01-25-24MY-2024-Mazda-MX-5-Miata-Pricing-and-Packaging",
+      "sourceKind": "manufacturer",
+      "note": "Carried over from the earlier card research: the release was summarized as 'All MX-5 Miata models have a front engine, rear-wheel drive layout'. The card reviewer confirmed it from iSeeCars, which lists the 2024 Club 2-door convertible as RWD; MPG Buddy also says the 2024 MX-5 sends power 'through rear-wheel drive'. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.iseecars.com/car/2024-mazda-mx__5_miata-specs"
+    },
+    {
+      "key": "transmissionType",
+      "text": "manual",
+      "publisher": "Mazda North American Operations (Mazda USA Newsroom, 2024 MX-5 Miata Pricing and Packaging)",
+      "url": "https://news.mazdausa.com/2024-01-25-24MY-2024-Mazda-MX-5-Miata-Pricing-and-Packaging",
+      "sourceKind": "manufacturer",
+      "note": "Carried over from the earlier card research: the release summary said Sport and Club are exclusively paired with a six-speed manual. The earlier record sourced 'manual' to MPG Buddy ('manual 6-spd'); the card reviewer confirmed the Club is manual-only from a summary and cars.com's dedicated 2024 Club manual spec listing. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/mazda-mx_5_miata-2024/specs/452538"
+    },
+    {
+      "key": "gearCount",
+      "number": 6,
+      "publisher": "Mazda North American Operations (Mazda USA Newsroom, 2024 MX-5 Miata Pricing and Packaging)",
+      "url": "https://news.mazdausa.com/2024-01-25-24MY-2024-Mazda-MX-5-Miata-Pricing-and-Packaging",
+      "sourceKind": "manufacturer",
+      "note": "Carried over from the earlier card research: release summary, 'routed through a six-speed transmission', with Sport and Club 'exclusively paired with a six-speed manual'. MPG Buddy lists the 2024 MX-5 with 'manual 6-spd', and The Auto Channel reviewed a 2024 MX-5 Club 6MT. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://mpgbuddy.com/cars/mazda/mx-5/2024"
+    },
+    {
+      "key": "differential",
+      "text": "limited-slip (asymmetric limited-slip differential)",
+      "publisher": "Motor1 (attribution uncertain)",
+      "url": "https://www.motor1.com/reviews/716685/2024-mazda-miata-first-drive/",
+      "sourceKind": "reference",
+      "note": "Carried over from the earlier card research: the card reviewers' summaries said 'Motor1 notes the Club's asymmetric limited-slip differential' and that 'Reviews (Motor1, CarPro, Edmunds) describe the manual Club's asymmetric limited-slip rear differential', and noted that the 2024 refresh brought a new asymmetric limited-slip differential to Club and Grand Touring. Those summaries gave no URL; this Motor1 2024 first-drive URL and the CarPro 2024 Club review URL are the pages of those publishers that appeared elsewhere in the same research, so the pairing of wording to page is not certain. No Mazda wording and no differential ratio or locking figures were seen. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://carpro.com/vehicle-reviews/2024-mazda-mx-5-miata-club-with-brembo-bbs-recaro-package-review"
+    },
+    {
+      "key": "groundClearanceIn",
+      "number": 5.3,
+      "publisher": "Autoblog",
+      "url": "https://www.autoblog.com/buy/2024-Mazda-MX_5+Miata-Club__2dr_Convertible/specs/",
+      "sourceKind": "reference",
+      "note": "Carried over from the earlier card research: Autoblog's 2024 MX-5 Miata Club 2dr Convertible spec listing was summarized as giving ground clearance 5.3 in; auto123's Canadian 2024 GS listing shows the same 5.3 in. Not from Mazda's own 2024 sheet, measurement basis (laden or unladen) unknown, and the card reviewer marked it unconfirmed; a later pass saw 4.9 in on CarBuzz for 2024 (see conflicts). Weakest numeric field in this record. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.auto123.com/en/specs/mazda/mx-5/mazda-mx-5-2024-gs-manual-453418/"
+    },
+    {
+      "key": "epaCityMpg",
+      "number": 26,
+      "publisher": "California Drive Clean (state government listing of EPA data)",
+      "url": "https://driveclean.ca.gov/node/1219621",
+      "sourceKind": "agency",
+      "note": "Carried over from the earlier card research: the card reviewer saw California Drive Clean's listing for the 2024 MX-5 manual 2.0L at 26 city (a state government listing built on EPA data); MPG Buddy and Edmunds (2024 Sport, same manual powertrain) give the same, and AutoPadre lists the manual Club at 26 city. The fueleconomy.gov page itself did not appear in results. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://mpgbuddy.com/cars/mazda/mx-5/2024"
+    },
+    {
+      "key": "epaHighwayMpg",
+      "number": 34,
+      "publisher": "California Drive Clean (state government listing of EPA data)",
+      "url": "https://driveclean.ca.gov/node/1219621",
+      "sourceKind": "agency",
+      "note": "Carried over from the earlier card research: California Drive Clean's 2024 MX-5 manual 2.0L listing shows highway08 34; Edmunds (2024 Sport, same manual powertrain), MPG Buddy and AutoPadre (manual Club) agree. The fueleconomy.gov page itself did not appear in results. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.edmunds.com/mazda/mx-5-miata/2024/st-401986487/features-specs"
+    },
+    {
+      "key": "epaCombinedMpg",
+      "number": 29,
+      "publisher": "California Drive Clean (state government listing of EPA data)",
+      "url": "https://driveclean.ca.gov/node/1219621",
+      "sourceKind": "agency",
+      "note": "Carried over from the earlier card research: California Drive Clean's 2024 MX-5 listing shows comb08 29; MPG Buddy (model page and year table) and Edmunds (2024 Sport, same manual powertrain) give 29. AutoPadre alone lists 30 for the manual trims (see conflicts). The fueleconomy.gov page itself did not appear in results. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://mpgbuddy.com/cars/mazda/mx-5/2024"
+    }
+  ],
+  "notFound": [
+    "wheelbaseIn",
+    "trackFrontIn",
+    "trackRearIn",
+    "lengthIn",
+    "widthIn",
+    "heightIn",
+    "curbWeightLb",
+    "weightDistFrontPct",
+    "cgHeightIn",
+    "redlineRpm",
+    "boostPsi",
+    "compressionRatio",
+    "awdSystem",
+    "gearRatios",
+    "finalDriveRatio",
+    "tyreFront",
+    "tyreRear",
+    "tyreModel",
+    "tyreCategory",
+    "dragCoefficient",
+    "frontalAreaSqFt",
+    "liftCoefficientFront",
+    "liftCoefficientRear",
+    "steeringRatio",
+    "turningCircleFt",
+    "brakeFrontDiscIn",
+    "brakeRearDiscIn",
+    "topSpeedMph",
+    "topSpeedGoverned",
+    "test0to30Sec",
+    "test0to60Sec",
+    "test0to100Sec",
+    "testRollout",
+    "testQuarterMileSec",
+    "testQuarterMileMph",
+    "testBraking60to0Ft",
+    "testBraking70to0Ft",
+    "testSkidpadG",
+    "testSkidpadDiameterFt",
+    "testTopSpeedMph",
+    "testWeightLb",
+    "testWeightDistFrontPct"
+  ],
+  "conflicts": [
+    {
+      "key": "curbWeightLb",
+      "values": [2368, 2341, 2366, 2374, 2372, 2403, 2452, 2454, 2470, 2484],
+      "note": "Not recorded. Earlier card research found: 2,368 lb (KBB Club page, iSeeCars 'Club 2dr convertible', Edmunds Club); 2,341 lb (cars.com Club 'base curb weight', Motor1 2024 first drive, TheCarConnection, CarBuzz, AutoPadre Sport manual; also Mazda's 2020 MT figure); 2,366 lb MT / 2,405 lb AT (The Drive 2024 review spec box; also the current mazdausa.com page, which is for the 2026 model year); 2,374 lb (CarGurus base, trim not stated; Mazda Canada 1,077 kg base 6MT soft top, Canadian market); 2,372 lb (0-60specs aggregator for a 2024 Club, attributed to MotorTrend, original not seen); 2,403 lb (TrueDelta, matches Mazda's 2020 AT figure); 2,452 lb (U.S. News Club Manual); 2,454 lb (Road & Track / Car and Driver, 2025 Club); 2,470 lb (Drive Chicago, 2024); 2,484 lb (The Auto Channel 2024 Club 6MT review). No Mazda figure for the 2024 model year surfaced (the 2024 MX-5 Spec Deck PDF at news.mazdausa.com appeared in results but its weight row was never summarized), and the listing sites appear to mix Sport and Club and soft top and RF. The optional Brembo/BBS/Recaro package also changes the weight. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "groundClearanceIn",
+      "values": [5.3, 4.9],
+      "note": "Kept 5.3 in: Autoblog's listing names the 2024 Club 2dr Convertible and auto123's Canadian 2024 listing agrees; Mazda's 2020 spec sheet (seen in the earlier research) gave 5.32 in minimum laden. 4.9 in is CarBuzz for 2024 (trim not stated; Mazda's 2019 press kit gave 4.92 in minimum laden, trim unclear). Neither value was read from Mazda's 2024 sheet, and one earlier pass left the field out for that reason. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "epaCombinedMpg",
+      "values": [29, 30],
+      "note": "Kept 29: California Drive Clean's EPA-based listing, MPG Buddy and Edmunds agree. 30 comes from one aggregator (AutoPadre, manual Club/Grand Touring/Sport) and may be carried over from an earlier model year or another transmission. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "test0to60Sec",
+      "values": [5.5, 5.6, 5.7],
+      "note": "Not recorded. 5.5 s is Car and Driver's figure for a 2024 Miata RF Club 6MT (retractable hardtop, a different body), seen only as repeated by a dealer page and other secondary sources, and also cited for a 2025 Club soft top (a different model year); 5.6 s is the 0-60specs aggregator's '2024 MX-5 Miata Club' with no tester named; 5.7 s is attributed to MotorTrend for a 2024 Club RF via a third-party database, and also to a 2025 Club test. No named instrumented test of the 2024 soft-top Club was found, and none was read from the tester itself, so no citable test URL exists. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testSkidpadG",
+      "values": [0.9],
+      "note": "Not recorded. 0.90 g on Car and Driver's 300-ft skidpad comes from its comparison test of a 2024 Miata RF Club against a Subaru BRZ tS, seen via Yahoo Autos syndication; SlashGear repeats 0.90 g without naming the trim. The RF is a different body from the soft top, and whether the test car had the Brembo/BBS/Recaro package was not stated. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testBraking70to0Ft",
+      "values": [176],
+      "note": "Not recorded. 176 ft is from the same Car and Driver comparison test of the 2024 Miata RF Club (different body from the soft top), seen only via syndication. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "topSpeedMph",
+      "values": [140],
+      "note": "Not recorded. 140 mph appeared only on Drive Chicago for a 2025 Grand Touring RF (different model year, trim and body). topSpeedGoverned is also unsourced. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "brakeFrontDiscIn",
+      "values": ["280 mm ventilated"],
+      "note": "Not recorded. The only front rotor size seen in the earlier research was on Mazda Canada's 2024 MX-5 RF spec sheet (https://cdn.mazda.ca/link/45deeb049bb44b27b3cc60c347ae03d4.aspx): 280 mm ventilated front discs. That is another market and the RF body, in millimetres, and the US 2024 spec deck's brake rows never appeared in a summary. The Club's optional Brembo/BBS/Recaro package fits different front brakes. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "brakeRearDiscIn",
+      "values": ["280 mm solid"],
+      "note": "Not recorded. An earlier summary of Mazda Canada's 2024 MX-5 RF sheet gave 280 mm solid rear discs: another market and the RF body. The same 280 mm as the front figure from that sheet was not cross-checked and may be a summary error. Read from search-result summary; page not opened."
+    }
+  ],
+  "searchesUsed": 0
+}

@@ -1,0 +1,77 @@
+{
+  "id": "tyres-skidpad-braking",
+  "topic": "Tyres as the only change on the same car: skidpad g, 60-0 or 70-0 mph braking distance and lap time on all-season against summer against track-day (200 treadwear or R-compound) tyres",
+  "gathered": "2026-11-24",
+  "cases": [
+    {
+      "car": "2017 Ford Fusion Sport (engine and transmission not given in the search summary; two nearly identically optioned cars, see note)",
+      "change": "Factory all-season tyres replaced by the optional summer performance tyres; nothing else changed on the spec",
+      "physical": {
+        "tyreBefore": "all-season (model and size not given in summary)",
+        "tyreAfter": "summer performance tyre option (model and size not given in summary)",
+        "stabilityControl": "inhibited for the 0.89 g summer-tyre skidpad run"
+      },
+      "measure": "Car and Driver instrumented test: steady-state skidpad lateral g (skidpad diameter not stated in the summary) and 70-0 mph braking distance",
+      "before": {
+        "skidpadG": 0.84,
+        "braking70to0Ft": 178
+      },
+      "after": {
+        "skidpadG": 0.89,
+        "braking70to0Ft": 155
+      },
+      "publisher": "Car and Driver (syndicated on Yahoo News: '2017 Ford Fusion Sport with Performance Tires')",
+      "url": "https://news.yahoo.com/2017-ford-fusion-sport-performance-153500248.html",
+      "sourceKind": "test",
+      "note": "Summary wording: 'The summer tires helped the Sport generate 0.89 g on the skidpad, 0.05 g greater than with the all-seasons' (all-season car measured at 0.84 g; the 0.89 g figure was taken with stability control inhibited) and 'The summer tires chop 23 feet off the 70-mph-to-zero stopping distance, the deed having been done in 155 feet.' The all-season 70-0 figure of 178 ft is not printed in the summary: it is 155 ft plus the stated 23 ft. The summer tyres also cost one-tenth of a second in both 0-60 mph and the quarter-mile (absolute times not in summary, not recorded). The summary says Car and Driver tested 'a nearly identically optioned 2017 Fusion Sport with the summer-tire fitment rather than the same car on both tire sets', so before and after are two cars of the same spec, not one car. A Michelin fitment page in the results lists 235/40R19 96V for the 2017 Fusion Sport (URL only; not confirmed as the test tyre size). Read from search-result summary; page not opened."
+    },
+    {
+      "car": "Vehicle not named in the search summary: a car sold from the factory with a choice of same-size all-season or summer tyres (215/45R17), the summer tyre a $200 option",
+      "change": "Michelin Pilot HX MXM4 all-season replaced by Michelin Pilot Exalto PE2 summer tyre, same size; a snow tyre (181 ft, 12.7 s) was also tested",
+      "physical": {
+        "tyreBefore": "Michelin Pilot HX MXM4 all-season, 215/45R17 (treadwear grade not in summary)",
+        "tyreAfter": "Michelin Pilot Exalto PE2 summer, 215/45R17 (treadwear grade not in summary)"
+      },
+      "measure": "Edmunds instrumented test: 60-0 mph braking distance and 0-60 mph acceleration on the same car with each tyre; test surface not clear from summaries (see note)",
+      "before": {
+        "braking60to0Ft": 215,
+        "zeroToSixtySec": 15.4
+      },
+      "after": {
+        "braking60to0Ft": 157,
+        "zeroToSixtySec": 11.9
+      },
+      "publisher": "Edmunds ('Tire Test: All-Season vs. Snow vs. Summer')",
+      "url": "https://www.edmunds.com/car-reviews/features/tire-test-all-season-vs-snow-vs-summer.html",
+      "sourceKind": "test",
+      "note": "Summary wording: 'the summer tire's 157-foot stop is the shortest, the snow tires come up 2nd at 181 feet and the all-season tires lag further behind in a flurry of ABS activity on the way to a distance of 215 feet'; 'The snow tire's 12.7-second effort for 2nd place is significantly better, but the summer tire tops them all with an 11.9-second performance' (all-season 15.4 s). The test car 'can be bought with your choice of Michelin Pilot HX MXM4 all-season tires or, for $200 more, Michelin Pilot Exalto PE2 high-performance summer tires, both in size 215/45R17.' On the wet skidpad the summer tyre reached 0.81 g; the all-season skidpad figure was not in any summary, so skidpad is not recorded. Surface is uncertain: one summary mentions the 'wet skid pad', another says the test was on a snowy surface, which sits badly with the summer tyre beating the snow tyre. The 0-60 times and stops are far longer than dry figures for any ordinary car, so this is a low-grip-surface result and must not be used to check dry grip. Read from search-result summary; page not opened."
+    }
+  ],
+  "ruleOfThumb": [
+    {
+      "claim": "Summer tyres typically offer better steering precision, shorter braking distances and higher cornering limits than all-season tyres (qualitative, no figure).",
+      "publisher": "Tire Rack (tyre retailer and tester)",
+      "url": "https://www.tirerack.com/upgrade-garage/summer-tires-vs-all-season-tires",
+      "note": "Summary: 'summer tires typically offer better steering precision, shorter braking distances, and higher cornering limits.' A buying guide, not a controlled result. Read from search-result summary; page not opened."
+    },
+    {
+      "claim": "Summer tyres stop 10-20% shorter than all-season tyres (attributed to Tire Rack by a tyre retailer; attribution not confirmed).",
+      "publisher": "Performance Plus Tire (tyre retailer blog)",
+      "url": "https://www.performanceplustire.com/Blog/summer-vs-all-season-tires-2026",
+      "note": "The search summary says the blog 'gives a 10-20% braking advantage for summer tires and attributes it to Tire Rack' but that the attribution could not be confirmed. Against this page: the Car and Driver Fusion Sport 70-0 stop was 12.9% shorter on summer tyres (inside the range); the Edmunds low-grip result was 27% shorter (outside it). Read from search-result summary; page not opened."
+    },
+    {
+      "claim": "Modern performance all-season tyres can come close to summer tyres: a 2026 Corvette E-Ray on all-season tyres averaged 1.01 g on Car and Driver's 300-ft skidpad, the first car to pass 1.0 g on all-seasons, and gave up very little to Pilot Sport 4S summer tyres, needing about one extra foot to stop.",
+      "publisher": "Corvette Blogger, reporting a Car and Driver test",
+      "url": "https://www.corvetteblogger.com/2025/12/29/car-and-driver-proclaims-the-2026-corvette-e-ray-to-be-first-to-exceed-1-0-g-on-the-skidpad-with-all-season-tires/",
+      "note": "Summary: the E-Ray 'equipped with all-season rubber circled Car and Driver's 300-foot skidpad with a 1.01-g average'; per a secondary summary 'the stock Michelin All-Seasons gave up very little in performance to the Pilot Sport 4S summer tires, and the car needed just one extra foot in braking'. Not recorded as a case: no summer-tyre skidpad figure and no absolute braking distances were in the summaries. Read from search-result summary; page not opened."
+    },
+    {
+      "claim": "200-treadwear track tyres do not necessarily slow down as they wear: in a long-term Super 200 test a Vitour P1 ran the same lap times new at 7/32 in and worn to 4/32 in, while a Nankang CR-S ran clearly quicker with less tread.",
+      "publisher": "Grassroots Motorsports",
+      "url": "https://grassrootsmotorsports.com/articles/how-200tw-tires-perform-as-they-age",
+      "note": "Summary: 'The Vitour P1 delivered the same lap times both when new at 7/32 inch and when worn to 4/32, yet the Nankang CR-S clearly ran much quicker with less tread.' Lap times themselves were not in the summary. Read from search-result summary; page not opened."
+    }
+  ],
+  "searchesUsed": 9
+}

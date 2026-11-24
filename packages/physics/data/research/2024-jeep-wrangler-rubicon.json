@@ -1,0 +1,533 @@
+{
+  "id": "2024-jeep-wrangler-rubicon",
+  "year": 2024,
+  "make": "Jeep",
+  "model": "Wrangler",
+  "trim": "Rubicon 4-Door (3.6L Pentastar V6, 8-speed 850RE automatic, 4WD, LT285/70R17)",
+  "bodyClass": "off-road-suv",
+  "gathered": "2026-11-24",
+  "fields": [
+    {
+      "key": "wheelbaseIn",
+      "number": 118.4,
+      "publisher": "TrueDelta",
+      "url": "https://www.truedelta.com/Jeep-Wrangler/specs-146-2024&r=3",
+      "sourceKind": "reference",
+      "note": "TrueDelta's 2024 Wrangler specs give the four-door wheelbase as 3,007 mm (118.4 in converted; unit conversion only, not an estimate). Cars.com's 2024 Rubicon 392 Final Edition page (a four-door) lists a rounded 118 in. No Stellantis dimension table for 2024 surfaced. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/jeep-wrangler-2024/specs/456173"
+    },
+    {
+      "key": "trackFrontIn",
+      "number": 64.4,
+      "publisher": "iSeeCars",
+      "url": "https://www.iseecars.com/car/2024-jeep-wrangler-dimensions",
+      "sourceKind": "reference",
+      "note": "iSeeCars' 2024 Wrangler dimensions list 'Front Track 64.4 in' for the '4x4 Rubicon 4dr SUV'. Auto123's 2024 Wrangler 4xe Rubicon X 4-door sheet also gives 'Track Width, Front: 64.4 (in)' (same Rubicon axles, different powertrain). Cars.com shows a rounded 63 in on Rubicon pages of unclear door count (see conflicts). No Stellantis track figure surfaced. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.auto123.com/en/specs/jeep/wrangler-4xe/jeep-wrangler-4xe-2024-rubicon-x-4-door-4x4-436179/"
+    },
+    {
+      "key": "trackRearIn",
+      "number": 64.4,
+      "publisher": "iSeeCars",
+      "url": "https://www.iseecars.com/car/2024-jeep-wrangler-dimensions",
+      "sourceKind": "reference",
+      "note": "iSeeCars' 2024 Wrangler dimensions list 'Rear Track 64.4 in' for the '4x4 Rubicon 4dr SUV'. Auto123's 2024 Wrangler 4xe Rubicon X 4-door sheet gives 'Track Width, Rear: 64.4 (in)'. Cars.com shows 63 in and CarExpert (Australian, other model years) 62.9 in (see conflicts). No Stellantis track figure surfaced. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.auto123.com/en/specs/jeep/wrangler-4xe/jeep-wrangler-4xe-2024-rubicon-x-4-door-4x4-436179/"
+    },
+    {
+      "key": "lengthIn",
+      "number": 188.4,
+      "publisher": "Jeep (jeep.com Wrangler FAQ)",
+      "url": "https://jeep.com/wrangler/faq.html",
+      "sourceKind": "manufacturer",
+      "note": "Jeep's Wrangler FAQ: 'the 4-door model is 188.4 inches' long (two-door 166.8 in; Wrangler Unlimited with the Xtreme Recon Package 192.5 in). Read from search-result summary; page not opened."
+    },
+    {
+      "key": "widthIn",
+      "number": 73.9,
+      "publisher": "Jeep (jeep.com Wrangler FAQ)",
+      "url": "https://jeep.com/wrangler/faq.html",
+      "sourceKind": "manufacturer",
+      "note": "Jeep's Wrangler FAQ lists width as 73.9 inches for most models, the exception being the four-door with the Xtreme Recon Package. Mirror-inclusive or body width not stated in the summary. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "heightIn",
+      "number": 73.6,
+      "publisher": "Jeep (jeep.com Wrangler FAQ)",
+      "url": "https://jeep.com/wrangler/faq.html",
+      "sourceKind": "manufacturer",
+      "note": "Jeep's Wrangler FAQ gives hardtop height as 'Sport/Sahara/Rubicon - 73.6 inches'. The summary did not say whether this line is for the two-door or the four-door body, and the query contained the number 73.6, so treat this as weaker than the length and width figures. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "curbWeightLb",
+      "number": 4604,
+      "publisher": "The Drive",
+      "url": "https://www.thedrive.com/car-reviews/2024-jeep-wrangler-first-drive-review-specs-price-options-impressions",
+      "sourceKind": "reference",
+      "note": "Copied from earlier card research: The Drive's 2024 first-drive review lists its four-door Rubicon with the 3.6 V6 and eight-speed automatic at 4,604 lb; auto-data.net gives 2,088 kg (4,603 lb) for the JL facelift Unlimited Rubicon 3.6 automatic. A JL Wrangler Forums post on official 2024 curb weights says the V6 manual is 29 lb lighter than the V6 automatic, which matches the 4,575 lb that J.D. Power and Auto123 give for the Rubicon 4-door V6 6-speed manual. Earlier reviewers did not reproduce 4,604 lb in their own searches; Jeep's own FAQ gives only a 4,287-4,976 lb range for all four-door Wranglers (see conflicts). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.auto-data.net/en/jeep-wrangler-iv-unlimited-jl-facelift-2023-rubicon-3.6-pentastar-v6-290hp-4x4-automatic-50544"
+    },
+    {
+      "key": "groundClearanceIn",
+      "number": 10.8,
+      "publisher": "The Drive",
+      "url": "https://www.thedrive.com/car-reviews/2024-jeep-wrangler-first-drive-review-specs-price-options-impressions",
+      "sourceKind": "reference",
+      "note": "Copied from earlier card research: 10.8 in of ground clearance cited for the 2024 four-door Rubicon in The Drive's first-drive review; a later search summary tied the same 10.8 in to the four-door Rubicon on the standard 33-inch tyres. One other summary attributed 10.8 in to the Sport S instead, so this was marked unconfirmed by the earlier reviewer. AutoPadre's 2024 Rubicon listing (body style unclear) also shows 10.8 in. Jeep's headline 12.9 in is for the 35-inch tyre package and was not used (see conflicts). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.autopadre.com/seating-capacity/jeep-wrangler/2024-rubicon-66498"
+    },
+    {
+      "key": "engineDescription",
+      "text": "3.6-liter Pentastar V6",
+      "publisher": "The Drive",
+      "url": "https://www.thedrive.com/car-reviews/2024-jeep-wrangler-first-drive-review-specs-price-options-impressions",
+      "sourceKind": "reference",
+      "note": "Copied from earlier card research: The Drive's 2024 first-drive review describes its four-door Rubicon tester's engine as the 3.6-liter Pentastar V6 with the eight-speed automatic; Motor Authority's 2024 review calls the base engine a 285-hp 3.6-liter V-6. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.motorauthority.com/news/1140067_2024-jeep-wrangler-test-drive-review"
+    },
+    {
+      "key": "powertrain",
+      "text": "gasoline",
+      "publisher": "U.S. EPA / DOE (fueleconomy.gov)",
+      "url": "https://www.fueleconomy.gov/feg/bymake/Jeep2024.shtml",
+      "sourceKind": "agency",
+      "note": "Copied from earlier card research (fuelType): the fueleconomy.gov summary for the 2024 Wrangler Rubicon 4dr 4WD, 3.6 L 6-cyl, 8-speed automatic said it is rated 16/19/17 mpg on regular gasoline. The URL is the EPA's 2024 Jeep index page, not the vehicle page. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://mpgbuddy.com/cars/jeep/wrangler-rubicon-4dr-4wd/2024"
+    },
+    {
+      "key": "induction",
+      "text": "natural",
+      "publisher": "CarExpert",
+      "url": "https://www.carexpert.com.au/car-news/2024-jeep-wrangler-says-goodbye-to-the-petrol-v6",
+      "sourceKind": "reference",
+      "note": "Copied from earlier card research (aspiration): the article describes 'the venerable 3.6-litre Pentastar naturally aspirated V6 petrol engine' in the 2024 Wrangler context. Australian-market news, used only for the engine description; no maker or EPA statement on aspiration surfaced. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "displacementL",
+      "number": 3.6,
+      "publisher": "U.S. EPA / DOE (fueleconomy.gov)",
+      "url": "https://www.fueleconomy.gov/feg/bymake/Jeep2024.shtml",
+      "sourceKind": "agency",
+      "note": "EPA listing for the 2024 Wrangler Rubicon 4dr 4WD automatic is a 3.6 L, 6-cyl engine (earlier card research and its review); The Drive's 2024 four-door Rubicon review also gives 3.6 liters. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.thedrive.com/car-reviews/2024-jeep-wrangler-first-drive-review-specs-price-options-impressions"
+    },
+    {
+      "key": "cylinders",
+      "number": 6,
+      "publisher": "U.S. EPA / DOE (fueleconomy.gov)",
+      "url": "https://www.fueleconomy.gov/feg/bymake/Jeep2024.shtml",
+      "sourceKind": "agency",
+      "note": "EPA listing for the 2024 Wrangler Rubicon 4dr 4WD automatic: 3.6 L, 6 cyl (earlier card research and its review); The Drive calls it the Pentastar V6. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.thedrive.com/car-reviews/2024-jeep-wrangler-first-drive-review-specs-price-options-impressions"
+    },
+    {
+      "key": "horsepower",
+      "number": 285,
+      "publisher": "The Drive",
+      "url": "https://www.thedrive.com/car-reviews/2024-jeep-wrangler-first-drive-review-specs-price-options-impressions",
+      "sourceKind": "reference",
+      "note": "Copied from earlier card research: 285 hp for the 3.6-liter Pentastar V6 in The Drive's 2024 four-door Rubicon tester with the eight-speed automatic; AutoPadre's 2024 Rubicon listing gives 285 bhp at 6400 rpm, and this pass's search also returned 285 hp @ 6,400 rpm for the Wrangler V6. No Stellantis 2024 sheet surfaced. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.autopadre.com/seating-capacity/jeep-wrangler/2024-rubicon-66498"
+    },
+    {
+      "key": "horsepowerRpm",
+      "number": 6400,
+      "publisher": "AutoPadre",
+      "url": "https://www.autopadre.com/seating-capacity/jeep-wrangler/2024-rubicon-66498",
+      "sourceKind": "reference",
+      "note": "AutoPadre's 2024 Rubicon listing gives '285 bhp at 6400 rpm' (earlier card research); this pass's search summary said sources agree on 285 hp at 6,400 rpm, including a 2024 dealer-style spec page and a 2020 Wrangler JL listing (TrueCar). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.truecar.com/jeep/wrangler/2020/willys/specs/"
+    },
+    {
+      "key": "torqueLbFt",
+      "number": 260,
+      "publisher": "The Drive",
+      "url": "https://www.thedrive.com/car-reviews/2024-jeep-wrangler-first-drive-review-specs-price-options-impressions",
+      "sourceKind": "reference",
+      "note": "Copied from earlier card research: 260 lb-ft for the 3.6-liter Pentastar V6 in The Drive's 2024 four-door Rubicon tester; AutoPadre's 2024 Rubicon listing gives 260 lb-ft at 4800 rpm. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.autopadre.com/seating-capacity/jeep-wrangler/2024-rubicon-66498"
+    },
+    {
+      "key": "torqueRpmLow",
+      "number": 4800,
+      "publisher": "AutoPadre",
+      "url": "https://www.autopadre.com/seating-capacity/jeep-wrangler/2024-rubicon-66498",
+      "sourceKind": "reference",
+      "note": "AutoPadre's 2024 Rubicon listing gives '260 lb-ft at 4800 rpm' (earlier card research); this pass's summary said sources agree on 260 lb-ft at 4,800 rpm. A single peak speed is published, so it is recorded as both low and high. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.truecar.com/jeep/wrangler/2020/willys/specs/"
+    },
+    {
+      "key": "torqueRpmHigh",
+      "number": 4800,
+      "publisher": "AutoPadre",
+      "url": "https://www.autopadre.com/seating-capacity/jeep-wrangler/2024-rubicon-66498",
+      "sourceKind": "reference",
+      "note": "Same single-point figure as torqueRpmLow ('260 lb-ft at 4800 rpm'); no torque plateau was published, so the upper end equals the peak speed. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.truecar.com/jeep/wrangler/2020/willys/specs/"
+    },
+    {
+      "key": "redlineRpm",
+      "number": 6600,
+      "publisher": "auto-data.net",
+      "url": "https://www.auto-data.net/en/jeep-wrangler-iv-unlimited-jl-facelift-2023-rubicon-3.6-pentastar-v6-290hp-4x4-automatic-50544",
+      "sourceKind": "reference",
+      "note": "auto-data.net's JL facelift Unlimited Rubicon 3.6 Pentastar V6 automatic page lists a 'maximum engine speed 6600 rpm'. It is a catalogue figure (the page rates the engine 290 hp, a metric figure) and not a maker's or tester's redline; no 2024 US source for redline surfaced. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "compressionRatio",
+      "number": 11.3,
+      "publisher": "PickupTruckTalk (2024 Jeep Wrangler specification chart)",
+      "url": "https://pickuptrucktalk.com/2023/04/2024-jeep-wrangler-specification-chart/",
+      "sourceKind": "reference",
+      "note": "The 2024 Jeep Wrangler specification chart (reprinted by PickupTruckTalk) shows an 11.3:1 compression ratio for the 285 hp 3.6L V6; TrueCar's 2020 Wrangler listing also gives 'Compression Ratio 11.3'. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.truecar.com/jeep/wrangler/2020/willys/specs/"
+    },
+    {
+      "key": "drivetrain",
+      "text": "4WD",
+      "publisher": "U.S. EPA / DOE (fueleconomy.gov)",
+      "url": "https://www.fueleconomy.gov/feg/bymake/Jeep2024.shtml",
+      "sourceKind": "agency",
+      "note": "EPA model designation is 'Wrangler Rubicon 4dr 4WD' (earlier card research); mpgbuddy, repeating EPA data, lists '2024 Jeep Wrangler Rubicon 4dr 4WD'. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://mpgbuddy.com/cars/jeep/wrangler-rubicon-4dr-4wd/2024"
+    },
+    {
+      "key": "transmissionType",
+      "text": "automatic",
+      "publisher": "U.S. EPA / DOE (fueleconomy.gov)",
+      "url": "https://www.fueleconomy.gov/feg/bymake/Jeep2024.shtml",
+      "sourceKind": "agency",
+      "note": "EPA listing for the 2024 Wrangler Rubicon 4-door 3.6L V6 is with the 8-speed automatic (earlier card research); cars.com's 2024 Rubicon V6 page names the 8-speed automatic 850RE. Mopar Insiders reports the V6 automatic option was dropped on the Wrangler Unlimited and returned for 2025 (see conflicts). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/jeep-wrangler-2024/specs/435416"
+    },
+    {
+      "key": "gearCount",
+      "number": 8,
+      "publisher": "U.S. EPA / DOE (fueleconomy.gov)",
+      "url": "https://www.fueleconomy.gov/feg/bymake/Jeep2024.shtml",
+      "sourceKind": "agency",
+      "note": "EPA listing for this configuration: 'Automatic 8-spd' (earlier card research and its review); cars.com names the 850RE eight-speed. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/jeep-wrangler-2024/specs/435416"
+    },
+    {
+      "key": "gearRatios",
+      "numbers": [
+        4.71,
+        3.13,
+        2.1,
+        1.67,
+        1.28,
+        1.0,
+        0.84,
+        0.67
+      ],
+      "publisher": "Stellantis (2023 Jeep Wrangler specification sheet)",
+      "url": "https://s3.amazonaws.com/chryslermedia.iconicweb.com/mediasite/specs/2023_JP_Wrangler_20th_SP.pdf",
+      "sourceKind": "manufacturer",
+      "note": "Stellantis' 2023 Wrangler spec sheet lists the 850RE eight-speed at 4.71 / 3.13 / 2.10 / 1.67 / 1.28 / 1.00 / 0.84 / 0.67, reverse 3.30. It is the model-year 2023 sheet; no 2024 sheet surfaced, but the same 850RE is the 2024 V6 automatic, and a search summary of the 2026 Stellantis sheet showed the same 850RE ratios (in a jumbled layout). Note 2nd gear is 3.13, not 3.14. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "finalDriveRatio",
+      "number": 4.1,
+      "publisher": "PickupTruckTalk (2024 Jeep Wrangler specification chart)",
+      "url": "https://pickuptrucktalk.com/2023/04/2024-jeep-wrangler-specification-chart/",
+      "sourceKind": "reference",
+      "note": "2024 spec chart: 'Axle ratios 3.45, 4.10 (Rubicon, Willys), 4.56 (Rubicon 392 and Xtreme 35 Pkg), 4.88 (opt Rubicon 3.6 liters)'. 4.10 is the standard Rubicon ratio; 4.88 is an option on the 3.6 Rubicon (see conflicts). Read from search-result summary; page not opened."
+    },
+    {
+      "key": "tyreFront",
+      "text": "LT285/70SR17",
+      "publisher": "Cars.com",
+      "url": "https://www.cars.com/research/jeep-wrangler-2024/specs/435416",
+      "sourceKind": "reference",
+      "note": "Search summary: 'Most sources give LT285/70SR17 for the standard Rubicon, and cars.com's 4xe Rubicon page shows the same size'; TrueDelta lists 285/70R17 tyres for the four-door; the Rubicon 392 is LT315/70SR17. The summary did not pin LT285/70SR17 to one named URL, so the cars.com 2024 Rubicon page is cited as the most likely carrier. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.truedelta.com/Jeep-Wrangler/specs-146-2024&r=3"
+    },
+    {
+      "key": "tyreRear",
+      "text": "LT285/70SR17",
+      "publisher": "Cars.com",
+      "url": "https://www.cars.com/research/jeep-wrangler-2024/specs/435416",
+      "sourceKind": "reference",
+      "note": "Same square tyre size front and rear on the standard Rubicon (LT285/70SR17 per the search summary; TrueDelta 285/70R17 for the four-door). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.truedelta.com/Jeep-Wrangler/specs-146-2024&r=3"
+    },
+    {
+      "key": "tyreModel",
+      "text": "BFGoodrich All-Terrain T/A KO2",
+      "publisher": "BFGoodrich (tyre maker fitment page)",
+      "url": "https://www.bfgoodrichtires.com/auto/browse-tires/by-vehicle/2024/jeep/wrangler/unlimited-rubicon",
+      "sourceKind": "reference",
+      "note": "BFGoodrich's 2024 Wrangler Unlimited Rubicon fitment page marks the All-Terrain T/A KO2 as Original Equipment for Jeep; the base 2024 Rubicon page lists only the KO2. The Mud-Terrain KM3 appears for Rubicon X trims only. A fitment tool, not the car maker's sheet. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.bfgoodrichtires.com/auto/browse-tires/by-vehicle/2024/jeep/wrangler/rubicon"
+    },
+    {
+      "key": "tyreCategory",
+      "text": "all-terrain",
+      "publisher": "BFGoodrich (tyre maker fitment page)",
+      "url": "https://www.bfgoodrichtires.com/auto/browse-tires/by-vehicle/2024/jeep/wrangler/unlimited-rubicon",
+      "sourceKind": "reference",
+      "note": "The OE tyre named on BFGoodrich's 2024 Unlimited Rubicon fitment page is the All-Terrain T/A KO2, an all-terrain tyre by its maker's own naming. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.bfgoodrichtires.com/auto/browse-tires/by-vehicle/2024/jeep/wrangler/rubicon"
+    },
+    {
+      "key": "dragCoefficient",
+      "number": 0.454,
+      "publisher": "Wikipedia (List of automobile drag coefficients, mirror copy)",
+      "url": "https://wikwiand-revamp.pages.dev/en/List_of_automobile_drag_coefficients",
+      "sourceKind": "reference",
+      "note": "The list gives 0.454 for the 'Jeep Wrangler (JL), 2018'; a MotorBiscuit article gives the same figure. Not broken out by body style (two-door vs four-door) or model year, and not from Stellantis; the list notes Cd varies about +/-0.015 between wind tunnels. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.motorbiscuit.com/jeep-wrangler-less-aerodynamic-cow"
+    },
+    {
+      "key": "turningCircleFt",
+      "number": 38.8,
+      "publisher": "Kelley Blue Book",
+      "url": "https://www.kbb.com/jeep/wrangler-4-door/2024/specs",
+      "sourceKind": "reference",
+      "note": "Search summary: curb-to-curb turning diameter about 38.8 ft for the 2024 Rubicon 4-door per J.D. Power's listing, and 'Kelley Blue Book's table shows the same 38.8 ft figure across trims' (2024 Wrangler 4-Door specs). Auto123's 2024 Wrangler 4xe Rubicon 4-door sheet also gives 38.8 ft curb to curb. Cars.com gives 39 ft wall to wall (see conflicts). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.auto123.com/en/specs/jeep/wrangler-4xe/jeep-wrangler-4xe-2024-rubicon-4-door-4x4-436177/"
+    },
+    {
+      "key": "epaCityMpg",
+      "number": 16,
+      "publisher": "U.S. EPA / DOE (fueleconomy.gov)",
+      "url": "https://www.fueleconomy.gov/feg/bymake/Jeep2024.shtml",
+      "sourceKind": "agency",
+      "note": "Copied from earlier card research: 16 mpg city for the 2024 Wrangler Rubicon 4dr 4WD, 3.6L V6, 8-speed automatic; California ARB DriveClean gives the same. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://driveclean.ca.gov/taxonomy/term/42549"
+    },
+    {
+      "key": "epaHighwayMpg",
+      "number": 19,
+      "publisher": "U.S. EPA / DOE (fueleconomy.gov)",
+      "url": "https://www.fueleconomy.gov/feg/bymake/Jeep2024.shtml",
+      "sourceKind": "agency",
+      "note": "Copied from earlier card research: 19 mpg highway for the 2024 Wrangler Rubicon 4dr 4WD, 3.6L V6, 8-speed automatic; DriveClean agrees. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://driveclean.ca.gov/taxonomy/term/42549"
+    },
+    {
+      "key": "epaCombinedMpg",
+      "number": 17,
+      "publisher": "U.S. EPA / DOE (fueleconomy.gov)",
+      "url": "https://www.fueleconomy.gov/feg/bymake/Jeep2024.shtml",
+      "sourceKind": "agency",
+      "note": "Copied from earlier card research: 17 mpg combined for the 2024 Wrangler Rubicon 4dr 4WD, 3.6L V6, 8-speed automatic; DriveClean agrees. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://driveclean.ca.gov/taxonomy/term/42549"
+    },
+    {
+      "key": "test0to60Sec",
+      "number": 7.5,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/2018-jeep-wrangler-jl-unlimited-195000837.html",
+      "sourceKind": "test",
+      "note": "Car and Driver's test of the 2018 JL Wrangler Unlimited Rubicon, 3.6 V-6, eight-speed automatic (republished on Yahoo Autos): 'This Rubicon ambled to 60 mph in 7.5 seconds (exactly the same time as its manual counterpart)'. Same engine, transmission, drive, body and trim as this record, but model year 2018 (pre-2024 refresh, before the full-float rear axle). A later search summary could not reproduce the 7.5 s and attributed it elsewhere, so this figure rests on one summary. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testRollout",
+      "text": "true",
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/2018-jeep-wrangler-jl-unlimited-195000837.html",
+      "sourceKind": "test",
+      "note": "Car and Driver's 0-60 times subtract a one-foot rollout (the convention specified for this task); the summary itself did not state it. Applies to the 7.5 s figure. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testQuarterMileSec",
+      "number": 15.9,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/2018-jeep-wrangler-jl-unlimited-195000837.html",
+      "sourceKind": "test",
+      "note": "Car and Driver, 2018 JL Wrangler Unlimited Rubicon V-6 automatic: 'through the quarter-mile in 15.9 seconds at 87 mph' (manual Rubicon: 15.9 s at 85 mph). Returned by two separate searches. Model year 2018. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testQuarterMileMph",
+      "number": 87,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/2018-jeep-wrangler-jl-unlimited-195000837.html",
+      "sourceKind": "test",
+      "note": "Same Car and Driver test: quarter mile in 15.9 seconds at 87 mph for the Rubicon automatic. Model year 2018. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testBraking70to0Ft",
+      "number": 212,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/2018-jeep-wrangler-jl-unlimited-195000837.html",
+      "sourceKind": "test",
+      "note": "Same Car and Driver test: 70-0 mph in 'a long 212 feet for this Rubicon automatic', versus 203 ft for the Rubicon manual and 176 ft for the Sahara on its road tyres. Returned by two searches this pass and by the earlier card research. Model year 2018. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testSkidpadDiameterFt",
+      "number": 300,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/2018-jeep-wrangler-jl-unlimited-195000837.html",
+      "sourceKind": "test",
+      "note": "Car and Driver's skidpad is 300 ft in diameter (the task's convention; the Sahara test in the same results says 'Roadholding, 300-ft-dia skidpad'). Recorded because Car and Driver is this record's tester; no skidpad g for the Rubicon automatic surfaced, so testSkidpadG is not recorded. Read from search-result summary; page not opened."
+    }
+  ],
+  "notFound": [
+    "weightDistFrontPct",
+    "cgHeightIn",
+    "engineLocation",
+    "boostPsi",
+    "awdSystem",
+    "differential",
+    "frontalAreaSqFt",
+    "liftCoefficientFront",
+    "liftCoefficientRear",
+    "steeringRatio",
+    "brakeFrontDiscIn",
+    "brakeRearDiscIn",
+    "topSpeedMph",
+    "topSpeedGoverned",
+    "test0to30Sec",
+    "test0to100Sec",
+    "testBraking60to0Ft",
+    "testSkidpadG",
+    "testTopSpeedMph",
+    "testWeightLb",
+    "testWeightDistFrontPct"
+  ],
+  "conflicts": [
+    {
+      "key": "curbWeightLb",
+      "values": [
+        4604,
+        4603,
+        4575,
+        4246,
+        4222
+      ],
+      "note": "Kept 4,604 lb (The Drive, 2024 four-door Rubicon 3.6 V6 automatic; auto-data 2,088 kg = 4,603 lb for the facelift Unlimited Rubicon 3.6 automatic). 4,575 lb (J.D. Power, Auto123, Motor Matchup, cars.com) is tied by J.D. Power/Auto123 to the 6-speed manual; a JL Wrangler Forums post says the V6 manual is 29 lb lighter than the automatic, consistent with 4,604 for the automatic, but no source confirmed 4,604 for the Rubicon trim in this pass. 4,246 (cars.com) and 4,222 lb (Edmunds) look like two-door figures. Jeep's FAQ gives only a 4,287-4,976 lb range for all four-door models. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "groundClearanceIn",
+      "values": [
+        10.8,
+        12.9,
+        11,
+        11.1
+      ],
+      "note": "Kept 10.8 in (The Drive, four-door Rubicon on 33-inch tyres). 12.9 in is Jeep's capability-page figure 'with 35-inch tires' (Xtreme 35 package / Rubicon X), 11 in is a rounded cars.com V6 figure, 11.1 in is the Rubicon 392. One earlier summary attributed 10.8 in to the Sport S, so the figure is not firmly tied to this trim. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "horsepower",
+      "values": [
+        285,
+        290,
+        280
+      ],
+      "note": "Kept 285 hp, the US-market figure. 290 is auto-data's metric (PS) figure; 280 is an Australian-market rating. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "epaCombinedMpg",
+      "values": [
+        17,
+        19
+      ],
+      "note": "Kept fueleconomy.gov's 16/19/17 for the Rubicon 4-door automatic. Edmunds' 17/23/19 matches the EPA entry for the 3.6L 4-door with the 6-speed manual. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "transmissionType",
+      "values": [
+        "automatic (EPA 2024 listing; The Drive's 2024 four-door Rubicon tester)",
+        "V6 automatic dropped on the Wrangler Unlimited, back for 2025 (Mopar Insiders)"
+      ],
+      "note": "Kept automatic: fueleconomy.gov rates a 2024 Rubicon 4dr 4WD 3.6L 8-speed automatic and The Drive drove one. Mopar Insiders (https://moparinsiders.com/jeep-brings-back-8-speed-850re-for-wrangler-unlimited-v6/) reports Jeep 'discontinued the option on the Wrangler Unlimited in 2023' and brought the 850RE back as a $4,500 option for 2025 V6 Unlimited models; Stellantis' December 2024 release (https://blog.stellantisnorthamerica.com/?p=13974) confirms the 2025 return. So the V6/automatic four-door may have been available only for part of the 2024 model year. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "gearRatios",
+      "values": [
+        5.13,
+        2.63,
+        1.53,
+        1.0,
+        0.81,
+        0.72
+      ],
+      "note": "Kept the Stellantis 850RE ratios. One search summary attributed 5.13 / 2.63 / 1.53 / 1.00 / 0.81 / 0.72 (reverse 4.49) to the 850RE from a JL Wrangler Forums post (https://www.jlwranglerforums.com/forum/goto/post?id=142351); these are six ratios, so they belong to the six-speed manual, not the eight-speed automatic. The same post was elsewhere summarised as quoting 4.71 / 3.13. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "finalDriveRatio",
+      "values": [
+        4.1,
+        4.88
+      ],
+      "note": "Kept 4.10, the standard Rubicon axle ratio. 4.88 is listed as an option on the Rubicon with the 3.6-liter V6 (2024 spec chart); a car with that option would need 4.88. A forum post also lists a 3.73 option not shown on the 2024 chart. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "trackFrontIn",
+      "values": [
+        64.4,
+        63
+      ],
+      "note": "Kept 64.4 in (iSeeCars '4x4 Rubicon 4dr SUV'; Auto123 4xe Rubicon X 4-door). Cars.com shows 63 in front and rear on 2024 Rubicon and Rubicon X pages of unclear door count (likely rounded or a different wheel offset). J.D. Power's 392 page shows 74.5 in front, an apparent data error. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "trackRearIn",
+      "values": [
+        64.4,
+        63,
+        62.9
+      ],
+      "note": "Kept 64.4 in (iSeeCars, Auto123). Cars.com shows 63 in; CarExpert (Australian market, 2023 and 2026 pages) shows 62.9 in rear. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "turningCircleFt",
+      "values": [
+        38.8,
+        39
+      ],
+      "note": "Kept 38.8 ft curb to curb (KBB, J.D. Power, Auto123). Cars.com gives 39 ft wall to wall, a different measure. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "weightDistFrontPct",
+      "values": [
+        51,
+        53
+      ],
+      "note": "Not recorded. Only owner weigh-ins on JL Wrangler Forums (https://www.jlwranglerforums.com/forum/threads/jl-weight-distribution.145883/): a 2021 JL Unlimited at 2,520/2,380 lb (about 51% front, engine not stated), a 2024 'JLURX' (Rubicon X) at 2,820/2,447 lb (about 53% front, 5,267 lb, door count unclear), a Rubicon hardtop 'nearly 50/50'. None is a published figure for this configuration. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "topSpeedMph",
+      "values": [
+        97,
+        110
+      ],
+      "note": "Not recorded, and topSpeedGoverned left blank. JL Wrangler Forums owners (https://www.jlwranglerforums.com/forum/threads/top-speed.99142/post-2052216) report a 'Vehicle Max Speed Calibration' on build sheets, 97 mph or 110 mph (one example a 2021 Willys 3.6 manual), tied to tyre speed rating. Owner reports only; no Jeep or tester figure for the 2024 Rubicon 4-door. Earlier research also saw a 127 mph Motor Matchup simulation, not used. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "brakeFrontDiscIn",
+      "values": [
+        12.99
+      ],
+      "note": "Not recorded. Aftermarket sellers (Detroit Axle, https://www.detroitaxle.com/?p=915568) list a 12.99 in (330 mm) front rotor for 2024 Rubicon X and Rubicon 392 with the BRY brake code; not stated for the plain Rubicon V6, and not a maker figure. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "brakeRearDiscIn",
+      "values": [
+        13.78,
+        12.91,
+        13.46
+      ],
+      "note": "Not recorded. Aftermarket listings disagree: 350 mm (13.78 in, Detroit Axle, 2023-2024 Rubicon 392), 328 mm (1A Auto, 2024 Wrangler BRY code), 342 mm (13.46 in, 2020-2023 heavy-duty Rubicon brakes). Size depends on brake code; none tied to this configuration. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testSkidpadG",
+      "values": [
+        0.73
+      ],
+      "note": "Not recorded. Car and Driver's 0.73 g (300 ft skidpad) belongs to the 2018 JL Unlimited Sahara V-6 automatic (https://autos.yahoo.com/2018-jeep-wrangler-unlimited-v-203000859.html) on road tyres, not the Rubicon. No Rubicon skidpad figure surfaced. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "test0to60Sec",
+      "values": [
+        7.5,
+        7.2,
+        7.11,
+        6.7
+      ],
+      "note": "Kept Car and Driver's 7.5 s (2018 JL Unlimited Rubicon V-6 automatic, same configuration, older model year). No instrumented test of a 2024 V6 Rubicon surfaced: 7.2 s (automobile-catalog) and 7.11 s / 6.9 s (Motor Matchup) are calculations; 6.7 s is MotorWeek's 2024 Wrangler 4xe (different powertrain); Car and Driver's 4.0 s is the Rubicon 392. Read from search-result summary; page not opened."
+    }
+  ],
+  "searchesUsed": 22
+}

@@ -1,0 +1,194 @@
+{
+  "id": "supercharger-on-v8",
+  "topic": "Bolt-on supercharger kit on a naturally aspirated V8 (Ford Coyote 5.0, GM LT1 6.2)",
+  "gathered": "2026-11-24",
+  "cases": [
+    {
+      "car": "2024 Ford Mustang Dark Horse (5.0L Coyote V8, 10-speed automatic) - Edmunds long-term test car",
+      "change": "Ford Performance supercharger kit, installed by a Ford dealer, kit keeps the factory warranty; kit includes GT500 high-flow port fuel injectors",
+      "physical": {
+        "boostPsiBefore": 0,
+        "claimedCrankHpAfterManufacturer": 810,
+        "claimedCrankHpAfterNoActiveExhaustManufacturer": 800
+      },
+      "measure": "instrumented acceleration test (0-60 mph, quarter mile), Edmunds test track; same car before and after",
+      "before": {
+        "zeroToSixtySec": 4.4,
+        "quarterMileSec": 12.6,
+        "quarterMileMph": 113
+      },
+      "after": {
+        "zeroToSixtySec": 3.9,
+        "quarterMileSec": 11.6,
+        "quarterMileMph": 125.6
+      },
+      "publisher": "Edmunds (2024 Ford Mustang Dark Horse long-term test, supercharged update)",
+      "url": "https://www.edmunds.com/car-news/2024-ford-mustang-dark-horse-supercharged-long-term-update.html",
+      "sourceKind": "test",
+      "note": "Quoted: the supercharged car 'picked up even more speed down the straight, eclipsing the quarter-mile mark in 11.6 seconds at 125.6 mph. That's a full second quicker and more than 12 mph faster than before', and 'hit 60 mph in 3.9 seconds, half a second quicker than before'. A second summary gives the pre-supercharger long-term retest as '0-60 mph at 4.4 seconds and a quarter mile of 12.6 seconds @ 113 mph'; Edmunds' original instrumented test of a Dark Horse gave 4.6 s and 12.8 s at 111.6 mph (different session, not used). Edmunds also reports the supercharged car 'registered 630 hp at the wheels' on a dyno (no stock wheel figure in the summaries, so not used as a before/after pair). The 810 hp (active exhaust) / 800 hp (non-active exhaust) figures are Ford Performance's own crank rating for the kit, i.e. a manufacturer claim. Boost psi not in the summaries. Read from search-result summary; page not opened."
+    },
+    {
+      "car": "2024 Ford Mustang GT (S650, 5.0L Coyote V8; transmission not given in summary) - Ford Muscle 'Project SC650'",
+      "change": "ProCharger Stage 2 P-1X centrifugal supercharger kit with calibration and unspecified supporting mods",
+      "physical": {
+        "boostPsiBefore": 0,
+        "fuelOctaneAki": 93
+      },
+      "measure": "rear-wheel horsepower and torque, Dynomite chassis dyno at Papapini's Garage (Temecula, California), stock and boosted on the same dyno",
+      "before": {
+        "wheelHp": 412,
+        "wheelTorqueLbFt": 351.88
+      },
+      "after": {
+        "wheelHp": 716,
+        "wheelTorqueLbFt": 543
+      },
+      "publisher": "Ford Muscle (FordMuscle.com), Project SC650 series",
+      "url": "https://www.fordmuscle.com/project-cars/project-sc650/our-2024-mustang-gets-a-boost-of-power-with-a-procharger-p-1x/",
+      "sourceKind": "test",
+      "note": "Quoted: 'In stock form, Project SC650 put down 412 horsepower and 351.88 lb-ft of torque.' With the ProCharger P-1X, calibration and supporting mods the car 'reached 716 hp and 543 lb-ft at Papapini's Garage in Temecula, California, on its Dynomite chassis dyno', and 'made all 716 ponies on standard California 91 octane with a splash of Boostane to get it up to 93 octane.' One summary did not say wheel or crank; the second says rear wheels. Boost psi for this car not given (ProCharger only claims the six-rib drive handles up to 18 psi). Later drag-strip article (https://www.fordmuscle.com/?p=34543): 1.69 s 60-ft, best 6.92 s eighth mile at 108.90 mph, 'about a 10.65-second quarter-mile' equivalent; no stock strip time for this car was found, so the strip run is not a before/after pair. Read from search-result summary; page not opened."
+    },
+    {
+      "car": "2018 Ford Mustang GT (5.0L Coyote V8, automatic) - MAK Performance shop car",
+      "change": "ProCharger P-1X intercooled centrifugal supercharger, 4-inch pulley, early calibration, 93 octane",
+      "physical": {
+        "boostPsiBefore": 0,
+        "boostPsiAfter": 10,
+        "boostAtRpm": 7800,
+        "pulleyDiameterIn": 4,
+        "intercooled": true,
+        "fuelOctaneAki": 93
+      },
+      "measure": "rear-wheel horsepower and torque, shop's in-house Mustang Dyno chassis dyno, fifth gear",
+      "before": {
+        "wheelHp": 433,
+        "wheelTorqueLbFt": 375
+      },
+      "after": {
+        "wheelHp": 620,
+        "wheelTorqueLbFt": 451
+      },
+      "publisher": "Ford Muscle (FordMuscle.com), reporting MAK Performance's dyno results",
+      "url": "https://www.fordmuscle.com/tech-stories/power-adders/procharger-p-1x-a-powerful-match-for-high-revving-coyotes/",
+      "sourceKind": "test",
+      "note": "Quoted: 'With 93 octane in the tank, the stock MAK Performance 2018 Mustang GT auto put down 433 horsepower and 375 lb-ft of torque at the rear wheels running in Fifth gear on the shop's in-house Mustang Dyno.' The P-1X ran 'a 4-inch pulley that delivers 10 pounds of boost when revving up to 7,800 engine rpm', and 'an early calibration with 10 psi of intercooled boost produced an impressive gain of 187 horsepower and 76 lb-ft of torque at the rear wheels.' The after figures are therefore 433 + 187 = 620 whp and 375 + 76 = 451 lb-ft (arithmetic on stated figures, not read directly). Another summary line puts the car at 656 hp and 487 lb-ft on 93 octane (probably a later calibration) and over 846 hp / 598 lb-ft on E85 (https://www.fordmuscle.com/news/procharger-boosted-2018-mustang-belts-out-846-hp); those are not used. Which of the Ford Muscle P-1X articles carries each quote was not certain from the summary. Read from search-result summary; page not opened."
+    },
+    {
+      "car": "2017 Chevrolet Corvette Grand Sport (6.2L LT1 V8, 8L90E 8-speed automatic) - National Speed customer car",
+      "change": "Edelbrock E-Force supercharger kit with National Speed tune",
+      "physical": {
+        "boostPsiBefore": 0
+      },
+      "measure": "rear-wheel horsepower and torque, National Speed chassis dyno; baseline is the shop's typical stock C7 automatic on the same dyno, not this car",
+      "before": {
+        "wheelHp": 410,
+        "wheelHpRangeHigh": 415,
+        "wheelTorqueLbFt": 410,
+        "wheelTorqueLbFtRangeHigh": 415
+      },
+      "after": {
+        "wheelHp": 562.26,
+        "wheelTorqueLbFt": 564.76
+      },
+      "publisher": "National Speed (tuning shop)",
+      "url": "https://nationalspeedinc.com/2017-chevrolet-corvette-grand-sport/",
+      "sourceKind": "manufacturer",
+      "note": "Tuning shop's own result for a build it sells: treat as a tuner claim. Quoted: the car 'made 562.26whp & 564.76lbft, all through the 8L90E automatic transmission', compared with 'stock C7 A8s, which put down around 410-415whp/lbft on our dyno.' The before entry holds the low end of that stated range (wheelHp 410) with the high end in wheelHpRangeHigh. Boost psi not in the summary. Read from search-result summary; page not opened."
+    },
+    {
+      "car": "2017 Chevrolet Corvette Grand Sport (6.2L LT1 V8; transmission not given in summary) - owner's car",
+      "change": "Edelbrock E-Force Stage 1 supercharger kit with Edelbrock's canned 91-octane tune",
+      "physical": {
+        "boostPsiBefore": 0,
+        "fuelOctaneAki": 91
+      },
+      "measure": "rear-wheel horsepower, chassis dyno (owner report)",
+      "before": {
+        "wheelHp": 430
+      },
+      "after": {
+        "wheelHp": 500
+      },
+      "publisher": "Corvette Forum (owner forum post)",
+      "url": "https://www.corvetteforum.com/forums/c7-forced-induction-nitrous/4796970-dyno-stage-1-edelbrock-supercharger-1570-a.html",
+      "sourceKind": "test",
+      "note": "Summary: 'A forum owner running the Stage 1 kit with the canned 91-octane tune on a 2017 GS said the car bumped from 430 to 500 HP at the rear wheels.' The URL is the forum thread whose title matches ('Dyno Stage 1 Edelbrock Supercharger'); the summary did not tie the quote to one link with certainty. Same search: an ECS dyno run on an automatic E-Force C7 made 500 rwhp / 540 rwtq in a hot dyno room. Edelbrock's own listing claims 'up to 537 horsepower and 527' lb-ft and other Edelbrock marketing claims 554 or 624 flywheel hp (manufacturer claims, not used). Read from search-result summary; page not opened."
+    },
+    {
+      "car": "Chevrolet Corvette C7 Stingray (6.2L LT1 V8; year and transmission not given in summary) - owner's car at 5,280 ft (Denver, Colorado)",
+      "change": "A&A supercharger kit, installed and dyno-tuned in Denver; tuning credited to Corvette Connection",
+      "physical": {
+        "boostPsiBefore": 0,
+        "dynoAltitudeFt": 5280
+      },
+      "measure": "rear-wheel horsepower, chassis dyno, same car stock and supercharged, reported with SAE correction and uncorrected",
+      "before": {
+        "wheelHp": 423.42,
+        "wheelHpUncorrected": 348.01
+      },
+      "after": {
+        "wheelHp": 623.08,
+        "wheelHpUncorrected": 514.07
+      },
+      "publisher": "Corvette Forum (owner forum thread)",
+      "url": "https://www.corvetteforum.com/forums/c7-forced-induction-nitrous/4008826-a-and-a-supercharger-install-dyno-tuned-denver-colorado-5280-ft.html",
+      "sourceKind": "test",
+      "note": "Summary: 'a stock baseline of 423.42 rwhp SAE and a supercharged result of 623.08 rwhp SAE. The uncorrected values are 348.01 rwhp stock and 514.07 rwhp blown', with stated gains 'about 199.66 rwhp on SAE and about 166.06 rwhp uncorrected'. Some posters argued 'standard' correction is more realistic for on-boost runs at altitude, and another Colorado owner noted SAE 670 rwhp vs 518 uncorrected on a hot day. wheelHp holds the SAE-corrected value. Boost psi not in the summary. Read from search-result summary; page not opened."
+    },
+    {
+      "car": "Chevrolet Camaro SS (6th generation, 6.2L LT1 V8; year and transmission not given in summary) - National Speed build",
+      "change": "Whipple 3.0L positive-displacement supercharger kit with National Speed calibration",
+      "physical": {
+        "boostPsiBefore": 0
+      },
+      "measure": "chassis dyno at National Speed, same car stock and supercharged (summary does not label wheel vs crank; recorded as wheel, see note)",
+      "before": {
+        "wheelHp": 414.1,
+        "wheelHpAtRpm": 5710,
+        "wheelTorqueLbFt": 422.21,
+        "wheelTorqueAtRpm": 4410
+      },
+      "after": {
+        "wheelHp": 674.1,
+        "wheelTorqueLbFt": 649.21
+      },
+      "publisher": "Street Muscle / LSX Magazine (reporting National Speed's dyno results)",
+      "url": "https://www.lsxmag.com/news/whipples-3-0l-supercharger-makes-for-major-horsepower-gains/",
+      "sourceKind": "manufacturer",
+      "note": "Tuning shop's own build and dyno, relayed by the magazine: treat as a tuner claim. Quoted: 'the stock dyno numbers show that this SS Camaro made its peak 414.10 horsepower at 5,710 rpm and 422.21 torque at 4,410 rpm.' Street Muscle's coverage of the same build says the team 'picked up 260 horsepower and 227 torque'. Those must be gains (as absolute figures they would be below stock), so after = 414.10 + 260 = 674.10 and 422.21 + 227 = 649.21 (arithmetic on stated figures). Recorded as wheel figures because the car was measured on a chassis dyno and 414.10 is well below the 455 hp crank rating quoted for this engine in another summary (Street Muscle 'Camaro Compressed AIR'); the summary itself does not say. A retailer listing for this kit carries '7-8psi' in its title (https://phastekperformance.com/whipple-3-0l-supercharger-full-kit-7-8psi-black-2016-2022-camaro-ss), not confirmed for this car. Read from search-result summary; page not opened."
+    }
+  ],
+  "ruleOfThumb": [
+    {
+      "claim": "A ProCharger kit on a C8 Corvette (6.2L LT2) generally yields about a 45% rear-wheel horsepower gain on 93-octane fuel; ProCharger's own page says the C8 system adds up to 230+ hp on pump gas on an otherwise 100% stock car.",
+      "publisher": "Corvette Forum thread quoting ProCharger; ProCharger C8 product page (manufacturer claim)",
+      "url": "https://www.corvetteforum.com/forums/c8-forced-induction-nitrous/4701519-procharger-power.html",
+      "note": "Quoted: 'In general, they expect a 45% increase in RWHP on 93 octane fuel.' A forum user argued that differences between installs trace back to how strong each car's stock baseline was. Check against cases: Colorado C7 +47%, MAK Mustang +43%, National Speed Grand Sport +35 to +37%, Project SC650 (with supporting mods) +74%, National Speed Whipple Camaro +63%, owner Grand Sport +16%. Read from search-result summary; page not opened."
+    },
+    {
+      "claim": "ProCharger lists its 2018-2023 Mustang GT kits as Stage 1 at 8.5 psi for a 290+ hp gain and Stage 2 at 12 psi for a 320+ hp gain (manufacturer figures, flywheel basis not stated), i.e. roughly 27-34 hp per psi on the 5.0 Coyote.",
+      "publisher": "ProCharger (manufacturer)",
+      "url": "https://www.procharger.com/automotive-superchargers/ford/mustang-gt/2018-mustang-gt",
+      "note": "Summary: 'ProCharger's own kit specs list a Stage 1 system at 8.5 psi of boost with a 290+ HP gain, and a Stage 2 at 12 psi with a 320+ HP gain.' The per-psi figure is this page's division (290/8.5 = 34, 320/12 = 27). Compare the MAK case: +187 whp at 10 psi on an early calibration. Read from search-result summary; page not opened."
+    },
+    {
+      "claim": "Supercharged Mustangs lose roughly 15-20% between flywheel and rear wheels with the automatic transmission: LMR's 2014 GT with a ROUSH Phase 2 kit (rated 625 hp and 525 lb-ft at the flywheel) made 505 hp and 435 lb-ft on a Dynojet.",
+      "publisher": "LMR (lmr.com) dyno write-up; ROUSH rating via retailer listings",
+      "url": "https://lmr.com/products/Mustang-Roush-Supercharger-Dyno",
+      "note": "Summary: 'LMR's 2014 GT with a Phase 2 kit made 505 HP and 435 ft/lbs of torque on a Dynojet, with the author estimating a 15-20% driveline loss with the automatic transmission'; retailers list the Phase 2 kit as '625 HP and 525 lb-ft at the Flywheel'. 505/625 = 0.81, i.e. 19% loss against the maker's rating. Ford Muscle's Vortech 2011 GT report likewise converts wheel to flywheel with a 15% drivetrain-loss assumption. Read from search-result summary; page not opened."
+    },
+    {
+      "claim": "A positive-displacement (roots/TVS) blower on these V8s makes nearly flat boost from low rpm that tapers slightly at redline, whereas a centrifugal reaches its rated boost only near redline: a Magnuson logged 14.8 psi from 2,000 to 3,700 rpm falling to 13.2 psi at the 6,000-rpm redline, while ProCharger's P-1X on a Coyote is quoted at 10 psi 'when revving up to 7,800 engine rpm'.",
+      "publisher": "Kenne Bell ('Calibrated For Boost' by Michael Galimi); Ford Muscle (ProCharger P-1X on a 2018 Mustang GT)",
+      "url": "https://kennebell.net/calibrated-boost-michael-galimi/",
+      "note": "Quoted: 'On the dyno, the Magnuson logged a peak reading of 14.8 psi from 2,000 rpm to 3,700 rpm and it fell off to 13.2 psi by the time the engine reached the 6,000-rpm redline.' The Kenne Bell summary does not name the car. The consequence shows in the cases: Whipple positive-displacement Camaro +54% peak torque vs centrifugal MAK Mustang +20% peak torque. Read from search-result summary; page not opened."
+    },
+    {
+      "claim": "Stock baselines for these V8s vary by roughly 10-30 rear-wheel hp between cars and dynos, so a kit gain quoted against 'a typical stocker' carries that much uncertainty: stock S550 Mustang GT around 400-410 rwhp, stock 2016 Camaro SS anywhere from 400 to 430 rwhp, stock C7 automatic around 410-415 rwhp.",
+      "publisher": "Ford Muscle (Garage Days ProCharger P-1X on a 2020 Mustang); LSX Magazine (2017 Camaro SS with Edelbrock supercharger); National Speed (2017 Corvette Grand Sport)",
+      "url": "https://www.lsxmag.com/?p=4728",
+      "note": "Quoted: Ford Muscle, 'a stock vehicle typically records somewhere around 400-410 rwhp' (https://www.fordmuscle.com/?p=924986); LSX Mag, 'a bone stock '16 Camaro SS typically puts down anywhere from 400 to 430 horsepower at the rear wheels'; National Speed, 'stock C7 A8s ... put down around 410-415whp/lbft on our dyno'. Kit makers state gains this way: Whipple, 'an LT1 using our supercharger system will make 600 rear-wheel horsepower - a gain of over 200 rwhp over stock'; Magnuson, 'over 175 horsepower and more than 141 lb-ft' on a stock 2011 Camaro SS at 7 psi. Read from search-result summary; page not opened."
+    }
+  ],
+  "searchesUsed": 20
+}

@@ -1,0 +1,452 @@
+{
+  "id": "2024-toyota-prius-le-fwd",
+  "year": 2024,
+  "make": "Toyota",
+  "model": "Prius",
+  "trim": "LE FWD (2.0L M20A-FXS hybrid, 194 hp net system, e-CVT, 195/60R17)",
+  "bodyClass": "hatchback",
+  "gathered": "2026-11-24",
+  "fields": [
+    {
+      "key": "wheelbaseIn",
+      "number": 108.3,
+      "publisher": "Kelley Blue Book",
+      "url": "https://www.kbb.com/toyota/prius/2024/specs",
+      "sourceKind": "reference",
+      "note": "KBB's 2024 Prius specs give a 108.3 in wheelbase for the Prius lineup. AutoPadre's 2024 Prius LE dimensions page lists a rounded 108 in, and Cars.com also gives 108 in. No Toyota table was surfaced. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.autopadre.com/vehicle-dimensions/toyota-prius/2024-le-67602"
+    },
+    {
+      "key": "trackFrontIn",
+      "number": 61.5,
+      "publisher": "iSeeCars",
+      "url": "https://www.iseecars.com/car/2024-toyota-prius-dimensions",
+      "sourceKind": "reference",
+      "note": "iSeeCars' 2024 Prius dimensions list about 61.5 in front track for the 'LE 4dr Hatchback'. AutoPadre's LE page gives a rounded 61 in; Velocity Journal gives 61.7 in without naming a trim (see conflicts). No Toyota tread figure was surfaced. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "trackRearIn",
+      "number": 62.2,
+      "publisher": "iSeeCars",
+      "url": "https://www.iseecars.com/car/2024-toyota-prius-dimensions",
+      "sourceKind": "reference",
+      "note": "iSeeCars' 2024 Prius dimensions list about 62.2 in rear track for the 'LE 4dr Hatchback'. AutoPadre's LE page gives a rounded 62 in ('Rear Track Width (in) | 62 in.'); Velocity Journal gives 61.8 in without naming a trim (see conflicts). No Toyota tread figure was surfaced. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.autopadre.com/vehicle-dimensions/toyota-prius/2024-le-67602"
+    },
+    {
+      "key": "lengthIn",
+      "number": 181.1,
+      "publisher": "Kelley Blue Book",
+      "url": "https://www.kbb.com/toyota/prius/2024/specs",
+      "sourceKind": "reference",
+      "note": "KBB's 2024 Prius specs: dimensions '181.1\" L x 70.2\" W x 55.9\" H' for the LE (all trims 181.1 in long). No Toyota table was surfaced. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "widthIn",
+      "number": 70.2,
+      "publisher": "Kelley Blue Book",
+      "url": "https://www.kbb.com/toyota/prius/2024/specs",
+      "sourceKind": "reference",
+      "note": "KBB's 2024 Prius specs give 70.2 in width for every trim; the search summary described it as width 'with mirrors', which could not be checked against the page. Another listing in a separate result also gave 70.20 in. No Toyota table was surfaced. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "heightIn",
+      "number": 55.9,
+      "publisher": "Kelley Blue Book",
+      "url": "https://www.kbb.com/toyota/prius/2024/specs",
+      "sourceKind": "reference",
+      "note": "KBB's 2024 Prius specs: height 55.9 in for the LE and 56.3 in for the XLE and Limited (19-inch wheels). No Toyota table was surfaced. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "curbWeightLb",
+      "number": 3097,
+      "publisher": "Kelley Blue Book",
+      "url": "https://www.kbb.com/toyota/prius/2024/specs",
+      "sourceKind": "reference",
+      "note": "KBB lists 3,097 lb for the 2024 LE; Edmunds' 2024 trim comparison and TheCarConnection give the same, and Toyota's own 2023 Prius Product Information sheet (same generation, copy hosted on PriusChat) lists 'Curb Weight 3097 lbs. (LE)'. Cars.com and AutoPadre show 3,230 lb on 2024 LE pages, which iSeeCars ties to the AWD LE (see conflicts). Carried over from the earlier trading-card research record (engine/data/research/seed-2026-11-10.json). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://attachments.priuschat.com/attachment-files/2022/12/230557_2023_Toyota_Prius_Product_Information_Final_12052022.pdf"
+    },
+    {
+      "key": "groundClearanceIn",
+      "number": 5.6,
+      "publisher": "Kelley Blue Book",
+      "url": "https://www.kbb.com/toyota/prius/2024/specs",
+      "sourceKind": "reference",
+      "note": "KBB and Edmunds both list 5.6 in for the 2024 LE (KBB's 2023 table: 5.6 in LE, 6.0 in XLE and Limited). No Toyota document carrying this figure was surfaced. Carried over from the earlier trading-card research record (engine/data/research/seed-2026-11-10.json). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.edmunds.com/toyota/prius/2024/trims"
+    },
+    {
+      "key": "engineDescription",
+      "text": "2.0-liter inline four-cylinder gasoline engine (M20A-FXS, Atkinson cycle) paired with two motor-generators through a planetary-type CVT; Toyota fifth-generation hybrid system",
+      "publisher": "Toyota USA Newsroom",
+      "url": "https://pressroom.toyota.com/stunning-style-and-elevated-efficiency-the-2024-toyota-prius/",
+      "sourceKind": "manufacturer",
+      "note": "Toyota's 2024 Prius release describes a fifth-generation hybrid system pairing a 2.0L inline-four with two motor-generators through a planetary-type CVT; the M20A-FXS code and 'Atkinson cycle' are in Toyota's 2023 Prius Product Information sheet (corroborating link, PriusChat-hosted copy, same generation). Carried over from the earlier trading-card research record (engine/data/research/seed-2026-11-10.json). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://attachments.priuschat.com/attachment-files/2022/12/230557_2023_Toyota_Prius_Product_Information_Final_12052022.pdf"
+    },
+    {
+      "key": "powertrain",
+      "text": "hybrid",
+      "publisher": "Toyota USA Newsroom",
+      "url": "https://pressroom.toyota.com/stunning-style-and-elevated-efficiency-the-2024-toyota-prius/",
+      "sourceKind": "manufacturer",
+      "note": "Non-plug-in gasoline-electric hybrid (Cars.com: 'Gas/Electric Hybrid'); the EPA rates it on regular gasoline. The plug-in car is the separate Prius Prime. Carried over from the earlier trading-card research record (engine/data/research/seed-2026-11-10.json). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/toyota-prius-2024/specs/"
+    },
+    {
+      "key": "displacementL",
+      "number": 2.0,
+      "publisher": "Toyota USA Newsroom",
+      "url": "https://pressroom.toyota.com/stunning-style-and-elevated-efficiency-the-2024-toyota-prius/",
+      "sourceKind": "manufacturer",
+      "note": "Toyota describes a 2.0L engine; the EPA listing for the 2024 Prius reads '2.0 L, 4 cyl'. Cars.com lists '2.0 L/121'. Carried over from the earlier trading-card research record (engine/data/research/seed-2026-11-10.json). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://fueleconomy.gov/feg/Find.do?action=sbs&id=47243"
+    },
+    {
+      "key": "cylinders",
+      "number": 4,
+      "publisher": "Toyota USA Newsroom",
+      "url": "https://pressroom.toyota.com/stunning-style-and-elevated-efficiency-the-2024-toyota-prius/",
+      "sourceKind": "manufacturer",
+      "note": "Toyota: 2.0L inline-four. EPA listing: 2.0 L, 4 cyl, Automatic (variable gear ratios). Carried over from the earlier trading-card research record (engine/data/research/seed-2026-11-10.json). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://fueleconomy.gov/feg/Find.do?action=sbs&id=47243"
+    },
+    {
+      "key": "horsepower",
+      "number": 194,
+      "publisher": "Toyota USA Newsroom",
+      "url": "https://pressroom.toyota.com/stunning-style-and-elevated-efficiency-the-2024-toyota-prius/",
+      "sourceKind": "manufacturer",
+      "note": "Net combined hybrid system output for front-wheel-drive models ('194 net hp on Front-Wheel Drive (FWD) equipped models'); Toyota quotes 196 net hp with e-AWD. Automotive Fleet and Edmunds (194 hp @ 6,000 rpm for the LE) agree. KBB and CarsDirect list 150 hp, the gasoline engine alone (see conflicts). Carried over from the earlier trading-card research record (engine/data/research/seed-2026-11-10.json). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.automotive-fleet.com/news/2024-toyota-prius-overview"
+    },
+    {
+      "key": "horsepowerRpm",
+      "number": 6000,
+      "publisher": "Kelley Blue Book",
+      "url": "https://www.kbb.com/toyota/prius/2024/specs",
+      "sourceKind": "reference",
+      "note": "KBB's 2024 Prius specs list '150 @ 6000 RPM' (the gasoline engine alone). The Toyota Dynamic Force engine article gives the M20A-FXS '112 kW (150 hp; 152 PS) at 6,000 rpm', and Edmunds lists '194 hp @ 6,000 rpm' for the LE. CAVEAT: 6,000 rpm is the engine's peak-power speed; the 194 hp system figure has no separate rpm, since the motor-generators add power independent of engine speed. No Toyota figure was surfaced. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://wikiwand.com/en/Toyota_Dynamic_Force_engine"
+    },
+    {
+      "key": "torqueLbFt",
+      "number": 152,
+      "publisher": "Toyota USA Newsroom",
+      "url": "https://pressroom.toyota.com/stunning-style-and-elevated-efficiency-the-2024-toyota-prius/",
+      "sourceKind": "manufacturer",
+      "note": "CAVEAT: not a combined system torque and not the engine torque. Toyota's 2024 release headline reads 'Powerful Hybrid System with up to 196-hp and 152 lb.-ft. of torque' without saying which component it describes; AutoInformed attributes 152 lb-ft to the front-drive motor-generator. The gasoline engine alone is 139 lb-ft (188 Nm) per Cars.com, KBB and the WA State DES database (see conflicts). Toyota publishes no system torque in the results found. Carried over from the earlier trading-card research record (engine/data/research/seed-2026-11-10.json). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://autoinformed.com/?p=87470"
+    },
+    {
+      "key": "torqueRpmLow",
+      "number": 4400,
+      "publisher": "Wikipedia (Toyota Dynamic Force engine article, Wikiwand copy)",
+      "url": "https://wikiwand.com/en/Toyota_Dynamic_Force_engine",
+      "sourceKind": "reference",
+      "note": "The Dynamic Force engine article lists the Prius M20A-FXS torque as '188 N·m at 4,400–5,200 rpm'; auto-data.net's XW60 Prius listing also gives '188 Nm @ 4400-5200 rpm', and Cars.com gives '139 @ 4400' for the 2024 LE. These rpm figures describe the gasoline engine's 139 lb-ft peak, not the 152 lb-ft recorded under torqueLbFt. The Washington State DES vehicle database gives 139 lb-ft @ 3,600-5,200 rpm (see conflicts). Read from search-result summary; page not opened."
+    },
+    {
+      "key": "torqueRpmHigh",
+      "number": 5200,
+      "publisher": "Wikipedia (Toyota Dynamic Force engine article, Wikiwand copy)",
+      "url": "https://wikiwand.com/en/Toyota_Dynamic_Force_engine",
+      "sourceKind": "reference",
+      "note": "The Dynamic Force engine article lists the Prius M20A-FXS torque as '188 N·m at 4,400–5,200 rpm'; auto-data.net ('188 Nm @ 4400-5200 rpm') and the Washington State DES database ('139 tq @3600-5200 rpm') give the same upper end. Gasoline engine only. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://apps.des.wa.gov/CARS/VehicleSpecifications.aspx?id=2544"
+    },
+    {
+      "key": "compressionRatio",
+      "number": 14.0,
+      "publisher": "Wikipedia (Toyota Dynamic Force engine article, Wikiwand copy)",
+      "url": "https://wikiwand.com/en/Toyota_Dynamic_Force_engine",
+      "sourceKind": "reference",
+      "note": "The Dynamic Force engine article gives 14.0:1 for the hybrid M20A-FXS; another result described the M20A-FXS as having 'Atkinson cycle, D-4S direct injection, a 14:1 compression ratio, and a 41% thermal efficiency', and a PriusChat thread gives the same figure (noting the Atkinson cycle lowers effective compression). Engine-level figure, not a Toyota statement for the 2024 US Prius. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "drivetrain",
+      "text": "FWD",
+      "publisher": "Toyota USA Newsroom",
+      "url": "https://pressroom.toyota.com/stunning-style-and-elevated-efficiency-the-2024-toyota-prius/",
+      "sourceKind": "manufacturer",
+      "note": "The LE is sold as front-wheel drive or with optional e-AWD; this record is the front-wheel-drive car (Toyota: '194 net hp on Front-Wheel Drive (FWD) equipped models'). The EPA's base 2024 Prius entry is the front-drive configuration. Carried over from the earlier trading-card research record (engine/data/research/seed-2026-11-10.json). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://fueleconomy.gov/feg/Find.do?action=sbs&id=47243"
+    },
+    {
+      "key": "transmissionType",
+      "text": "ecvt",
+      "publisher": "Toyota USA Newsroom",
+      "url": "https://pressroom.toyota.com/stunning-style-and-elevated-efficiency-the-2024-toyota-prius/",
+      "sourceKind": "manufacturer",
+      "note": "Toyota's release describes a planetary-type CVT joined to two motor-generators, i.e. the electronically controlled hybrid CVT; the EPA descriptor is 'Automatic (variable gear ratios)'. The release excerpt does not use the term 'eCVT' itself. Carried over from the earlier trading-card research record (engine/data/research/seed-2026-11-10.json). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://fueleconomy.gov/feg/Find.do?action=sbs&id=47243"
+    },
+    {
+      "key": "finalDriveRatio",
+      "number": 3.667,
+      "publisher": "PriusChat (forum member post, 'Some (deep) notes on the Gen 5 transaxles')",
+      "url": "https://www.priuschat.com/goto/post?id=3375949",
+      "sourceKind": "reference",
+      "note": "UNOFFICIAL. A PriusChat member's notes on the fifth-generation transaxles list the 2.0 HEV final drive as 77:21 (3.667), the 1.8 HEV as 74:20 (3.700) and the PHEV as 78:20 (3.900), with the 2.0 HEV MG2 reduction 53:16 (3.313). The summary drew on two posts in that thread (ids 3375949 and 3542243) and did not say which one holds the figure. No Toyota figure for the US hybrid was surfaced; Toyota UK's August 2024 Prius sheet gives 3.605 for its FWD car (the UK Prius is the plug-in) and Auto123 lists a generic 4.11 axle ratio for the AWD Limited (see conflicts). Read from search-result summary; page not opened."
+    },
+    {
+      "key": "tyreFront",
+      "text": "195/60R17",
+      "publisher": "Toyota (2024 Prius eBrochure)",
+      "url": "https://www.toyota.com/content/dam/toyota/brochures/pdf/2024/prius_ebrochure.pdf",
+      "sourceKind": "manufacturer",
+      "note": "Toyota's 2023 and 2024 Prius brochures list 17-in. alloy wheels with wheel covers and 195/60R17 tires on the base (LE) trim; XLE and Limited use 195/50R19. iSeeCars prints 'P195/60R17 90H' for the LE 4dr Hatchback; Firestone lists 195/60R17, speed rating H, 36 psi front / 35 psi rear for the 2024 LE. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.iseecars.com/car/2024-toyota-prius-tire-size"
+    },
+    {
+      "key": "tyreRear",
+      "text": "195/60R17",
+      "publisher": "Toyota (2024 Prius eBrochure)",
+      "url": "https://www.toyota.com/content/dam/toyota/brochures/pdf/2024/prius_ebrochure.pdf",
+      "sourceKind": "manufacturer",
+      "note": "Same size front and rear: Toyota's 2024 brochure lists 195/60R17 tires on the base trim; iSeeCars prints 'P195/60R17 90H' for the LE; Firestone lists 195/60R17 H at 35 psi rear for the 2024 LE. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://vehicle.firestonecompleteautocare.com/toyota/prius/2024/tires/"
+    },
+    {
+      "key": "dragCoefficient",
+      "number": 0.27,
+      "publisher": "Toyota USA Newsroom",
+      "url": "https://pressroom.toyota.com/stunning-style-and-elevated-efficiency-the-2024-toyota-prius/",
+      "sourceKind": "manufacturer",
+      "note": "Toyota's 2024 Prius launch release states a '0.27 Coefficient of Drag (Cd)'. An SAE Automotive Engineering piece notes the Cd is on paper worse than the previous Prius' 0.24 but that the new shape has less frontal area, lowering CdA; it gave no frontal-area figure. A blog claim of 0.24 for the 2023 car was not used. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "turningCircleFt",
+      "number": 34.4,
+      "publisher": "Kelley Blue Book",
+      "url": "https://www.kbb.com/toyota/prius/2024/specs",
+      "sourceKind": "reference",
+      "note": "KBB's 2024 Prius specs give a 34.4 ft turning circle for the LE and 35.4 ft for XLE and Limited; ConceptCarz also gives 34.4 ft. Cars.com gives 35 ft curb to curb (see conflicts). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.conceptcarz.com/s33114/toyota-prius.aspx"
+    },
+    {
+      "key": "epaCombinedMpg",
+      "number": 57,
+      "publisher": "EPA fueleconomy.gov",
+      "url": "https://fueleconomy.gov/feg/Find.do?action=sbs&id=47243",
+      "sourceKind": "agency",
+      "note": "57 mpg combined for the front-drive base (LE) listing, vehicle id 47243; Toyota's release quotes 'up to 57 MPG combined on FWD models'. The EPA rates the FWD XLE/Limited at 52 combined and the AWD LE at 54 combined. Carried over from the earlier trading-card research record (engine/data/research/seed-2026-11-10.json). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://pressroom.toyota.com/stunning-style-and-elevated-efficiency-the-2024-toyota-prius/"
+    },
+    {
+      "key": "epaCityMpg",
+      "number": 57,
+      "publisher": "EPA fueleconomy.gov",
+      "url": "https://fueleconomy.gov/feg/Find.do?action=sbs&id=47243",
+      "sourceKind": "agency",
+      "note": "EPA entry '2024 Toyota Prius', 2.0 L, 4 cyl, Automatic (variable gear ratios), regular gasoline: the front-drive base (LE) listing, vehicle id 47243. The XLE/Limited and AWD versions carry separate, lower ratings. Carried over from the earlier trading-card research record (engine/data/research/seed-2026-11-10.json). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/toyota-prius-2024"
+    },
+    {
+      "key": "epaHighwayMpg",
+      "number": 56,
+      "publisher": "EPA fueleconomy.gov",
+      "url": "https://fueleconomy.gov/feg/Find.do?action=sbs&id=47243",
+      "sourceKind": "agency",
+      "note": "Same EPA entry as the city figure (front-drive base LE listing, vehicle id 47243). Carried over from the earlier trading-card research record (engine/data/research/seed-2026-11-10.json). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/toyota-prius-2024"
+    },
+    {
+      "key": "test0to60Sec",
+      "number": 7.1,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/tested-2023-toyota-prius-drives-120000770.html",
+      "sourceKind": "test",
+      "note": "TRIM MISMATCH: Car and Driver's instrumented test of a 2023 Prius Limited FWD (same 2.0L hybrid, e-CVT and front drive as the 2024 LE, but the Limited rides on 195/50R19 tires and weighs more), syndicated on Yahoo Autos. SlashGear's summary of Car and Driver testing gives the front-wheel-drive Prius 7.1 s to 60 mph. No instrumented test of an LE was found. MotorTrend (7.2 s, drive not stated) and Edmunds (7.7 s, FWD, trim not stated) are in conflicts; Toyota's own estimate for FWD is 7.2 s. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.slashgear.com/1827452/prius-vs-prius-prime-plug-in-hybrid-comparison/"
+    },
+    {
+      "key": "testRollout",
+      "text": "true",
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/tested-2023-toyota-prius-drives-120000770.html",
+      "sourceKind": "test",
+      "note": "Car and Driver's 0-60 times subtract a one-foot rollout (the convention this task specifies for Car and Driver); the summary itself did not state it. Applies to the 7.1 s figure above. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testQuarterMileSec",
+      "number": 15.5,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/tested-2023-toyota-prius-drives-120000770.html",
+      "sourceKind": "test",
+      "note": "TRIM MISMATCH (2023 Prius Limited FWD, 19-inch tires): the Yahoo-syndicated Car and Driver test was summarized as 'the new car's 15.5-second, 92-mph effort' in the quarter mile. MotorTrend's 2023 'standard Prius' also ran 15.5 s (at 91.7 mph; drive not stated). Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testQuarterMileMph",
+      "number": 92,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/tested-2023-toyota-prius-drives-120000770.html",
+      "sourceKind": "test",
+      "note": "TRIM MISMATCH (2023 Prius Limited FWD, 19-inch tires): Car and Driver's 15.5-second, 92-mph quarter mile. MotorTrend's 2023 'standard Prius' trapped 91.7 mph (see conflicts). Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testBraking70to0Ft",
+      "number": 171,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/tested-2023-toyota-prius-drives-120000770.html",
+      "sourceKind": "test",
+      "note": "TRIM MISMATCH (2023 Prius Limited FWD on 195/50R19 tires, not the LE's 195/60R17): Car and Driver's test summary says 'stops from 70 mph take just 171 feet'. A later Car and Driver Prius vs Prius Prime comparison gives 194 ft for 'the standard Prius' with trim not stated, and a repost of it says 174 ft (see conflicts). Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testSkidpadDiameterFt",
+      "number": 300,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/tested-2023-toyota-prius-drives-120000770.html",
+      "sourceKind": "test",
+      "note": "Car and Driver's skidpad is 300 ft in diameter (the convention this task specifies). Recorded because Car and Driver is the tester for this record's test figures; no skidpad g for the tested Limited FWD was tied to this test, so testSkidpadG is not recorded. Read from search-result summary; page not opened."
+    }
+  ],
+  "notFound": [
+    "weightDistFrontPct",
+    "cgHeightIn",
+    "induction",
+    "engineLocation",
+    "redlineRpm",
+    "boostPsi",
+    "awdSystem",
+    "gearCount",
+    "gearRatios",
+    "differential",
+    "tyreModel",
+    "tyreCategory",
+    "frontalAreaSqFt",
+    "liftCoefficientFront",
+    "liftCoefficientRear",
+    "steeringRatio",
+    "brakeFrontDiscIn",
+    "brakeRearDiscIn",
+    "topSpeedMph",
+    "topSpeedGoverned",
+    "test0to30Sec",
+    "test0to100Sec",
+    "testBraking60to0Ft",
+    "testSkidpadG",
+    "testTopSpeedMph",
+    "testWeightLb",
+    "testWeightDistFrontPct"
+  ],
+  "conflicts": [
+    {
+      "key": "curbWeightLb",
+      "values": [
+        3097,
+        3230
+      ],
+      "note": "Kept 3,097 lb (KBB, Edmunds, TheCarConnection for the 2024 LE; Toyota's 2023 Product Information sheet for the LE). Cars.com and AutoPadre show 3,230 lb on 2024 LE pages; iSeeCars ties 3,230 lb to the AWD LE. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "trackFrontIn",
+      "values": [
+        61.5,
+        61.7,
+        61
+      ],
+      "note": "Kept 61.5 in (iSeeCars, LE 4dr Hatchback). Velocity Journal lists 61.7 in without naming a trim; AutoPadre's LE page rounds to 61 in. No Toyota tread figure surfaced. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "trackRearIn",
+      "values": [
+        62.2,
+        61.8,
+        62
+      ],
+      "note": "Kept 62.2 in (iSeeCars, LE 4dr Hatchback; AutoPadre's LE page rounds to 62 in). Velocity Journal lists 61.8 in without naming a trim. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "horsepower",
+      "values": [
+        194,
+        196,
+        150
+      ],
+      "note": "Kept 194 hp, Toyota's net system figure for FWD models. 196 hp is Toyota's e-AWD figure (shown on some Cars.com LE pages, likely the AWD LE); 150 hp (KBB, CarsDirect) is the gasoline engine alone. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "torqueLbFt",
+      "values": [
+        152,
+        139
+      ],
+      "note": "Kept Toyota's 152 lb-ft because it is the only manufacturer torque figure, but it is apparently the front motor-generator's rating, not system or engine torque. 139 lb-ft (188 Nm) @ 4,400 rpm (Cars.com, KBB, CarsDirect, Auto123, WA DES) is the gasoline engine alone and is the figure that pairs with torqueRpmLow/High. A modeller of the engine should use 139 lb-ft. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "torqueRpmLow",
+      "values": [
+        4400,
+        3600
+      ],
+      "note": "Kept 4,400 rpm (Dynamic Force engine article, auto-data.net, Cars.com '139 @ 4400'). The Washington State DES vehicle database gives 139 lb-ft @ 3,600-5,200 rpm. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "finalDriveRatio",
+      "values": [
+        3.667,
+        3.605,
+        4.11
+      ],
+      "note": "Kept 3.667 (77:21), the only figure stated for the 2.0 hybrid (non-plug-in) transaxle, from a PriusChat member's notes; it is unofficial. Toyota UK's technical sheet (media.toyota.co.uk, 240830-PriusTechSpecs.pdf) gives a 3.605 'differential gear ratio' for its FWD 1,987 cc Prius, but the UK car is the plug-in (Parkers: 'Toyota Prius Plug-in (2024 onwards)') and the same forum post gives 78:20 (3.900) for the PHEV, so the two disagree or define the ratio differently. Auto123 lists a generic 4.11 'final drive axle ratio' for the Canadian 2023/2024 Prius XLE/Limited AWD-e and the Prius Prime, which looks like a placeholder value. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "turningCircleFt",
+      "values": [
+        34.4,
+        35
+      ],
+      "note": "Kept 34.4 ft (KBB LE; ConceptCarz). Cars.com gives 35 ft curb to curb, which matches KBB's 35.4 ft for XLE/Limited rounded down. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "test0to60Sec",
+      "values": [
+        7.1,
+        7.2,
+        7.7
+      ],
+      "note": "Kept Car and Driver's 7.1 s (2023 Prius Limited FWD) because Car and Driver also has quarter-mile, trap and 70-0 figures for that car. MotorTrend's September 2023 piece (via a Magzter reprint) gives 'the standard Prius' 7.2 s and 15.5 s @ 91.7 mph without stating trim or drive. Edmunds measured 7.7 s with a front-drive 2023 test car of unstated trim; Consumer Reports also reported 7.7 s. Toyota's estimate is 7.2 s for FWD (7.0 s AWD). Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testQuarterMileMph",
+      "values": [
+        92,
+        91.7
+      ],
+      "note": "Kept Car and Driver's 92 mph (same test as the 0-60). MotorTrend's 2023 'standard Prius' trapped 91.7 mph in 15.5 s (trim and drive not stated). Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testBraking70to0Ft",
+      "values": [
+        171,
+        194,
+        174
+      ],
+      "note": "Kept 171 ft from Car and Driver's dedicated test of the 2023 Prius Limited FWD. Car and Driver's later Prius vs Prius Prime comparison (autos.yahoo.com/toyota-prius-prius-prime-hybrids-140000505.html) gives 194 ft for 'the standard Prius' without naming trim, drive or year; a repost of it (invoice-pricing.com) says 174 ft. None is an LE on 17-inch tires. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testSkidpadG",
+      "values": [
+        0.87
+      ],
+      "note": "Not recorded. Car and Driver's Prius vs Prius Prime comparison gives 0.87 g for 'the standard Prius' (Prime 0.84 g), but it is paired there with a 194 ft 70-0 stop that contradicts the 171 ft of Car and Driver's dedicated Limited FWD test, so it cannot be tied to that car or to an LE. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "weightDistFrontPct",
+      "values": [
+        60
+      ],
+      "note": "Not recorded. A PriusChat forum post cites MotorTrend's 2023 test of a Prius Limited FWD at 60/40% front/rear and 3,211 lb (a test weight of a different trim on 19-inch wheels, from a different tester than this record's Car and Driver figures). No maker or reference figure for the LE was found. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "topSpeedMph",
+      "values": [
+        112,
+        132
+      ],
+      "note": "Not recorded. 112 mph appeared only as an unattributed figure in reviews/FAQ pages; 132 mph is a Motor Matchup simulation for the 2024 Limited AWD-e. No Toyota or instrumented figure, so topSpeedGoverned is also unsourced. Read from search-result summary; page not opened."
+    }
+  ],
+  "searchesUsed": 22
+}

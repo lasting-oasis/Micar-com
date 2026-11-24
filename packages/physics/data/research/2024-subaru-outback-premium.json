@@ -1,0 +1,233 @@
+{
+  "id": "2024-subaru-outback-premium",
+  "year": 2024,
+  "make": "Subaru",
+  "model": "Outback",
+  "trim": "Premium (2.5L naturally aspirated flat-four, Lineartronic CVT, Symmetrical AWD)",
+  "bodyClass": "wagon",
+  "gathered": "2026-11-24",
+  "fields": [
+    {
+      "key": "curbWeightLb",
+      "number": 3661,
+      "publisher": "Edmunds",
+      "url": "https://edmunds.com/subaru/outback/2024/st-401982692/features-specs",
+      "sourceKind": "reference",
+      "note": "Carried over from the earlier card research (engine/data/research/batch-2-2026-11-11.json); no fresh search was possible in this pass. Edmunds gives curb weight 3,661 lbs for the 2024 Outback Premium; one summary also attributed 3,661 lb (Premium, base curb weight) to Subaru's own 2024 trim comparison, though another summary said that document's values were not visible and its column alignment was not clean. 3,641 lb is the base trim. Base curb weight without Premium option packages (moonroof, power rear gate), so an optioned car is heavier. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.subaru.com/services/vehicles/pdf/trimComparison/2024/OBK?hideBuildMsrp=false"
+    },
+    {
+      "key": "groundClearanceIn",
+      "number": 8.7,
+      "publisher": "Sierra Subaru (dealer page reproducing Subaru launch material)",
+      "url": "https://www.sierrasubaru.com/2024-subaru-outback-launch",
+      "sourceKind": "reference",
+      "note": "Carried over from the earlier card research (engine/data/research/batch-2-2026-11-11.json); no fresh search was possible in this pass. Summary says Subaru's US launch material cites 8.7 inches of ground clearance as standard for the 2024 Outback Premium. The second reader found Subaru's 2024 trim comparison summarised as '8.7 inches at base curb weight' for the Premium (corroboratingUrl), a more primary citation. Wilderness (9.5 in) and the Australian 213 mm figure are other cars. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.subaru.com/services/vehicles/pdf/trimComparison/2024/OBK"
+    },
+    {
+      "key": "engineDescription",
+      "text": "2.5-liter naturally aspirated BOXER (horizontally opposed) 4-cylinder",
+      "publisher": "Subaru of America (media.subaru.com)",
+      "url": "https://media.subaru.com/pressrelease/2020/1/subaru-announces-pricing-2024-outback-legacy-models",
+      "sourceKind": "manufacturer",
+      "note": "Carried over from the earlier card research (engine/data/research/batch-2-2026-11-11.json); no fresh search was possible in this pass. Subaru's 2024 Outback pricing release and press kit: the 2.5-liter BOXER engine, described as naturally aspirated, powers the non-XT trims including Premium. The '4-cylinder' wording comes from third-party listings (mpgbuddy, automoblog); a US Premium VIN listing shows 'B4, 2.5L; DOHC'. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://media.subaru.com/pressrelease/2159/1/2024-subaru-outback-press-kit"
+    },
+    {
+      "key": "powertrain",
+      "text": "gasoline",
+      "publisher": "U.S. EPA / DOE (fueleconomy.gov)",
+      "url": "https://www.fueleconomy.gov/feg/noframes/46541.shtml",
+      "sourceKind": "agency",
+      "note": "Carried over from the earlier card research (engine/data/research/batch-2-2026-11-11.json and gaps-2026-11-11.json); no fresh search was possible in this pass. The fueleconomy.gov result for the 2024 Subaru Outback AWD, 2.5 L, 4 cyl, Automatic (AV-S8) was summarised as running on Regular Gasoline, no turbocharger. Subaru's 2024 trim comparison was summarised as 'Fuel requirement: Unleaded gasoline (87 octane)' for the 2.5-liter. The second reader could not re-surface the fueleconomy.gov id 46541, so that page id is unverified; the Subaru sheet was re-seen. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.subaru.com/services/vehicles/pdf/trimComparison/2024/OBK"
+    },
+    {
+      "key": "induction",
+      "text": "natural",
+      "publisher": "Subaru of America (media.subaru.com)",
+      "url": "https://media.subaru.com/pressrelease/2020/1/subaru-announces-pricing-2024-outback-legacy-models",
+      "sourceKind": "manufacturer",
+      "note": "Carried over from the earlier card research (engine/data/research/batch-2-2026-11-11.json); no fresh search was possible in this pass. Subaru's 2024 Outback pricing release refers to the 2.5-liter as 'the naturally aspirated engine' ('The naturally aspirated engine is paired with a standard Lineartronic CVT'). Automoblog independently calls the base 2.5 naturally-aspirated. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.automoblog.net/2024-subaru-outback/"
+    },
+    {
+      "key": "displacementL",
+      "number": 2.5,
+      "publisher": "Subaru of America (media.subaru.com)",
+      "url": "https://media.subaru.com/pressrelease/2020/1/subaru-announces-pricing-2024-outback-legacy-models",
+      "sourceKind": "manufacturer",
+      "note": "Carried over from the earlier card research (engine/data/research/batch-2-2026-11-11.json); no fresh search was possible in this pass. Subaru's 2024 Outback pricing release: '2.5-liter BOXER engine' for the non-turbo trims, which include Premium. The EPA/CARB record for the 2024 Outback AWD (DriveClean mirror) is also a 2.5L 4-cylinder with the AV-S8. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://driveclean.ca.gov/taxonomy/term/37932"
+    },
+    {
+      "key": "cylinders",
+      "number": 4,
+      "publisher": "MPGBuddy",
+      "url": "https://mpgbuddy.com/cars/subaru/outback-awd/2024",
+      "sourceKind": "reference",
+      "note": "Carried over from the earlier card research (engine/data/research/batch-2-2026-11-11.json); no fresh search was possible in this pass. MPGBuddy says the 2024 Subaru Outback AWD has a 2.5-liter 4-cylinder engine (model line, not trim-specific). The second reader found the EPA-data mirror listing '2.5 L, 4 cyl' and a 2024 Outback Premium dealer VIN listing showing 'B4, 2.5L DOHC'. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://driveclean.ca.gov/taxonomy/term/37932"
+    },
+    {
+      "key": "horsepower",
+      "number": 182,
+      "publisher": "Subaru of America (media.subaru.com)",
+      "url": "https://media.subaru.com/pressrelease/2020/1/subaru-announces-pricing-2024-outback-legacy-models",
+      "sourceKind": "manufacturer",
+      "note": "Carried over from the earlier card research (engine/data/research/batch-2-2026-11-11.json); no fresh search was possible in this pass. Subaru's 2024 Outback releases: the 2.5-liter BOXER engine produces 182 hp and 176 lb-ft. Third-party listings (not named in the earlier record) give 182 hp @ 5,800 rpm; that rpm is not recorded here because no publisher or URL was kept for it. The 260 hp figure is the 2.4 turbo (XT/Wilderness). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://media.subaru.com/pressrelease/2159/1/2024-subaru-outback-press-kit"
+    },
+    {
+      "key": "torqueLbFt",
+      "number": 176,
+      "publisher": "Subaru of America (media.subaru.com)",
+      "url": "https://media.subaru.com/pressrelease/2020/1/subaru-announces-pricing-2024-outback-legacy-models",
+      "sourceKind": "manufacturer",
+      "note": "Carried over from the earlier card research (engine/data/research/batch-2-2026-11-11.json); no fresh search was possible in this pass. Subaru's 2024 Outback releases: 176 lb-ft for the 2.5-liter BOXER. Unnamed third-party listings give 176 lb-ft @ 4,400 rpm (rpm not recorded, no publisher or URL kept). One dealer-run page listed 178 lb-ft (see conflicts). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://media.subaru.com/pressrelease/2159/1/2024-subaru-outback-press-kit"
+    },
+    {
+      "key": "drivetrain",
+      "text": "AWD",
+      "publisher": "Edmunds",
+      "url": "https://edmunds.com/subaru/outback/2024/st-401982692/features-specs",
+      "sourceKind": "reference",
+      "note": "Carried over from the earlier card research (engine/data/research/batch-2-2026-11-11.json); no fresh search was possible in this pass. Edmunds lists drive type all-wheel drive for the 2024 Outback; another result says all engines pair with a CVT driving all four wheels through Subaru Symmetrical all-wheel drive. EPA lists the model only as 'Outback AWD'. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.automoblog.net/2024-subaru-outback/"
+    },
+    {
+      "key": "awdSystem",
+      "text": "Subaru Symmetrical All-Wheel Drive (standard)",
+      "publisher": "Subaru of America (media.subaru.com)",
+      "url": "https://media.subaru.com/pressrelease/2159/1/2024-subaru-outback-press-kit",
+      "sourceKind": "manufacturer",
+      "note": "Carried over from the earlier card research (engine/data/research/batch-2-2026-11-11.json); no fresh search was possible in this pass. The second reader's summary of Subaru's 2024 Outback press material: standard Symmetrical All-Wheel Drive across the line. The first reader's result (Automoblog) says all engines drive all four wheels through Subaru Symmetrical all-wheel drive. No description of the centre coupling or torque split for the CVT Premium was seen. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.automoblog.net/2024-subaru-outback/"
+    },
+    {
+      "key": "transmissionType",
+      "text": "cvt",
+      "publisher": "Subaru of America (media.subaru.com)",
+      "url": "https://media.subaru.com/pressrelease/2020/1/subaru-announces-pricing-2024-outback-legacy-models",
+      "sourceKind": "manufacturer",
+      "note": "Carried over from the earlier card research (engine/data/research/batch-2-2026-11-11.json); no fresh search was possible in this pass. Subaru's 2024 Outback pricing release: the naturally aspirated engine is paired with a standard Lineartronic CVT that includes an 8-speed manual shift mode (paddle shift switches). EPA transmission code AV-S8 (variable, 8 selectable ratios). The 8 manual-mode ratios were not published in anything seen, so gearCount and gearRatios are left blank. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://driveclean.ca.gov/taxonomy/term/37932"
+    },
+    {
+      "key": "epaCombinedMpg",
+      "number": 28,
+      "publisher": "Edmunds (repeating EPA rating)",
+      "url": "https://edmunds.com/subaru/outback/2024/st-401982692/features-specs",
+      "sourceKind": "reference",
+      "note": "Carried over from the earlier card research (engine/data/research/batch-2-2026-11-11.json and gaps-2026-11-11.json); no fresh search was possible in this pass. Combined 28 mpg for the 2024 Outback AWD 2.5-liter per Edmunds and MPGBuddy (citing EPA); the DriveClean EPA mirror and a fueleconomy.gov result (id 46541, unverified) were summarised with 26/32/28 for the 2.5L AWD AV-S8. Autopadre listed 27 (see conflicts). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://mpgbuddy.com/cars/subaru/outback-awd/2024"
+    },
+    {
+      "key": "epaCityMpg",
+      "number": 26,
+      "publisher": "Edmunds (repeating EPA rating)",
+      "url": "https://edmunds.com/subaru/outback/2024/st-401982692/features-specs",
+      "sourceKind": "reference",
+      "note": "Carried over from the earlier card research (engine/data/research/batch-2-2026-11-11.json and gaps-2026-11-11.json); no fresh search was possible in this pass. EPA city/highway 26/32 mpg for the 2024 Outback AWD 2.5-liter; MPGBuddy says the EPA rates it 26 city; the DriveClean EPA mirror agrees. Autopadre listed 25 (see conflicts). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://mpgbuddy.com/cars/subaru/outback-awd/2024"
+    },
+    {
+      "key": "epaHighwayMpg",
+      "number": 32,
+      "publisher": "Edmunds (repeating EPA rating)",
+      "url": "https://edmunds.com/subaru/outback/2024/st-401982692/features-specs",
+      "sourceKind": "reference",
+      "note": "Carried over from the earlier card research (engine/data/research/batch-2-2026-11-11.json and gaps-2026-11-11.json); no fresh search was possible in this pass. EPA city/highway 26/32 mpg for the 2024 Outback AWD 2.5-liter; MPGBuddy and the DriveClean EPA mirror agree at 32 highway. The 29 highway figure belongs to the 2.4 turbo. Autopadre listed 31 (see conflicts). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://mpgbuddy.com/cars/subaru/outback-awd/2024"
+    }
+  ],
+  "notFound": [
+    "wheelbaseIn",
+    "trackFrontIn",
+    "trackRearIn",
+    "lengthIn",
+    "widthIn",
+    "heightIn",
+    "weightDistFrontPct",
+    "cgHeightIn",
+    "engineLocation",
+    "horsepowerRpm",
+    "torqueRpmLow",
+    "torqueRpmHigh",
+    "redlineRpm",
+    "boostPsi",
+    "compressionRatio",
+    "gearCount",
+    "gearRatios",
+    "finalDriveRatio",
+    "differential",
+    "tyreFront",
+    "tyreRear",
+    "tyreModel",
+    "tyreCategory",
+    "dragCoefficient",
+    "frontalAreaSqFt",
+    "liftCoefficientFront",
+    "liftCoefficientRear",
+    "steeringRatio",
+    "turningCircleFt",
+    "brakeFrontDiscIn",
+    "brakeRearDiscIn",
+    "topSpeedMph",
+    "topSpeedGoverned",
+    "test0to30Sec",
+    "test0to60Sec",
+    "test0to100Sec",
+    "testRollout",
+    "testQuarterMileSec",
+    "testQuarterMileMph",
+    "testBraking60to0Ft",
+    "testBraking70to0Ft",
+    "testSkidpadG",
+    "testSkidpadDiameterFt",
+    "testTopSpeedMph",
+    "testWeightLb",
+    "testWeightDistFrontPct"
+  ],
+  "conflicts": [
+    {
+      "key": "torqueLbFt",
+      "values": [
+        176,
+        178
+      ],
+      "note": "Kept 176 lb-ft, Subaru's figure (also Automoblog and most listings). 178 lb-ft appeared on one dealer-run page only; the second reader saw no other source for it. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "epaCombinedMpg",
+      "values": [
+        28,
+        27
+      ],
+      "note": "Kept 26/32/28 city/highway/combined (Edmunds, MPGBuddy, DriveClean EPA mirror, a fueleconomy.gov result). Autopadre's 'Premium' listing (https://www.autopadre.com/gas-mileage/subaru-outback) gives 25/31/27, which matches neither the 2.5L nor the 2.4 turbo (22/29/25 range); likely a different year or a data error. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "test0to60Sec",
+      "values": [
+        7.1,
+        8.1,
+        9.0,
+        8.6,
+        6.0
+      ],
+      "note": "Not recorded: no named instrumented test of a 2024 Outback 2.5L CVT was found in the earlier research. 7.1 s is a dealer-hosted Consumer Reports sheet for the 2024 Outback with trim and engine not stated (may be the turbo); 8.1 s is motormatchup.com for the 2024 Premium AWD with no test source; about 9.0 s is an approximate figure in a drivechicago.com review; 8.6 s is a 2023 Outback Touring 2.5L on 0-60specs.com with inconsistent Car and Driver / Motor Trend attribution; 6.0 s is a 2024 Touring XT turbo (MotorWeek). Other generations: Car and Driver 2015 2.5i 9.1 s; Car and Driver 2026 estimate 8.8 s; Consumer Reports 2026 9.1 s. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testSkidpadG",
+      "values": [
+        0.81,
+        0.83,
+        0.77
+      ],
+      "note": "Not recorded: all are other generations. Car and Driver 2015 Outback 2.5i 0.81 g (with 173 ft braking, stop speed not stated in the summary); Edmunds 2026 Outback 0.83 g (128 ft 60-0); Edmunds 2010 Outback 2.5i 0.77 g. Read from search-result summary; page not opened."
+    }
+  ],
+  "searchesUsed": 0
+}

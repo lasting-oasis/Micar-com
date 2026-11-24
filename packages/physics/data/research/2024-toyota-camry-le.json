@@ -1,0 +1,263 @@
+{
+  "id": "2024-toyota-camry-le",
+  "year": 2024,
+  "make": "Toyota",
+  "model": "Camry",
+  "trim": "LE (2.5L naturally aspirated I-4, 8-speed automatic, FWD)",
+  "bodyClass": "sedan",
+  "gathered": "2026-11-24",
+  "fields": [
+    {
+      "key": "engineDescription",
+      "text": "2.5-liter Dynamic Force four-cylinder, D-4S injection",
+      "publisher": "Toyota USA Newsroom",
+      "url": "https://pressroom.toyota.com/?p=85561",
+      "sourceKind": "manufacturer",
+      "note": "Copied from the card research: Toyota's 2024 Camry release says the car offered 'a 2.5-liter Dynamic Force four-cylinder', the LE's engine; the card research's gap pass read the same pressroom summary as giving the 2.5-liter Dynamic Force with D-4S injection. The card research's checker confirmed the 2.5L four-cylinder substance but did not see the 'Dynamic Force' wording quoted independently. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.edmunds.com/toyota/camry/2024/st-401999971/features-specs"
+    },
+    {
+      "key": "powertrain",
+      "text": "gasoline",
+      "publisher": "Toyota USA Newsroom",
+      "url": "https://pressroom.toyota.com/2024-toyota-camry-style-and-performance-in-americas-best-selling-midsize-sedan/",
+      "sourceKind": "manufacturer",
+      "note": "Copied from the card research (fuelType): Toyota's release treats the 2.5-liter and V6 cars as the gas grades, separate from the hybrid; the EPA lists the LE/SE 2.5L separately from the Camry Hybrid and rates it on regular gasoline. The card research's checker found only the ?p=85561 form of this release URL in results. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_Camry.shtml"
+    },
+    {
+      "key": "induction",
+      "text": "natural",
+      "publisher": "CarBuzz",
+      "url": "https://www.carbuzz.com/cars/toyota/camry",
+      "sourceKind": "reference",
+      "note": "Copied from the card research (aspiration): CarBuzz's 2024 Camry review describes the base engine as 'a dual-injected naturally aspirated 2.5-liter inline four-cylinder' making 203 hp and 184 lb-ft in the front-drive LE and SE; KBB says the Camry 'doesn't go in for turbocharging'. No Toyota sentence on aspiration surfaced. The card research's checker confirmed it. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.kbb.com/Toyota/Camry/2024"
+    },
+    {
+      "key": "displacementL",
+      "number": 2.5,
+      "publisher": "Toyota USA Newsroom",
+      "url": "https://pressroom.toyota.com/2024-toyota-camry-style-and-performance-in-americas-best-selling-midsize-sedan/",
+      "sourceKind": "manufacturer",
+      "note": "Copied from the card research: Toyota's 2024 Camry press material describes the 2.5-liter four-cylinder; Edmunds lists a 2.5L four-cylinder as standard on the LE. The card research's checker found only the ?p=85561 form of this release URL in results. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.edmunds.com/toyota/camry/2024/trims"
+    },
+    {
+      "key": "cylinders",
+      "number": 4,
+      "publisher": "Toyota USA Newsroom",
+      "url": "https://pressroom.toyota.com/2024-toyota-camry-style-and-performance-in-americas-best-selling-midsize-sedan/",
+      "sourceKind": "manufacturer",
+      "note": "Copied from the card research: Toyota's 2024 Camry press material calls the 2.5-liter engine a four-cylinder; Edmunds lists it as standard on the LE and the EPA LE/SE entry is a 4-cylinder. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.edmunds.com/toyota/camry/2024/trims"
+    },
+    {
+      "key": "horsepower",
+      "number": 203,
+      "publisher": "Toyota USA Newsroom",
+      "url": "https://pressroom.toyota.com/2024-toyota-camry-style-and-performance-in-americas-best-selling-midsize-sedan/",
+      "sourceKind": "manufacturer",
+      "note": "Copied from the card research: Toyota's 2024 Camry press material says the 2.5-liter four-cylinder makes '203 hp at 6,600 rpm' (XSE dual exhaust is 206 hp); Cars.com lists 203 hp at 6600 rpm for the LE. 202 hp is the LE AWD (see conflicts). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/toyota-camry-2024/specs"
+    },
+    {
+      "key": "horsepowerRpm",
+      "number": 6600,
+      "publisher": "Toyota USA Newsroom",
+      "url": "https://pressroom.toyota.com/2024-toyota-camry-style-and-performance-in-americas-best-selling-midsize-sedan/",
+      "sourceKind": "manufacturer",
+      "note": "Copied from the card research's horsepower note: Toyota's 2024 Camry press material gives '203 hp at 6,600 rpm' for the 2.5-liter; Cars.com lists '203 hp at 6600 rpm' for the LE. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/toyota-camry-2024/specs"
+    },
+    {
+      "key": "torqueLbFt",
+      "number": 184,
+      "publisher": "Toyota USA Newsroom",
+      "url": "https://pressroom.toyota.com/2024-toyota-camry-style-and-performance-in-americas-best-selling-midsize-sedan/",
+      "sourceKind": "manufacturer",
+      "note": "Copied from the card research: Toyota's 2024 Camry press material says the 2.5-liter makes '184 lb-ft at 5,000 rpm' (XSE 186); Cars.com shows 184 at 5000 for the front-drive LE. 182 lb-ft is the LE AWD (see conflicts). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/toyota-camry-2024/specs"
+    },
+    {
+      "key": "torqueRpmLow",
+      "number": 5000,
+      "publisher": "Toyota USA Newsroom",
+      "url": "https://pressroom.toyota.com/2024-toyota-camry-style-and-performance-in-americas-best-selling-midsize-sedan/",
+      "sourceKind": "manufacturer",
+      "note": "Copied from the card research's torque note: Toyota gives a single peak-torque speed, '184 lb-ft at 5,000 rpm'; Cars.com repeats 5000 rpm for the front-drive LE. Recorded as both low and high because no range was published. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/toyota-camry-2024/specs"
+    },
+    {
+      "key": "torqueRpmHigh",
+      "number": 5000,
+      "publisher": "Toyota USA Newsroom",
+      "url": "https://pressroom.toyota.com/2024-toyota-camry-style-and-performance-in-americas-best-selling-midsize-sedan/",
+      "sourceKind": "manufacturer",
+      "note": "Same single-point figure as torqueRpmLow: '184 lb-ft at 5,000 rpm'. No plateau was published, so the upper end equals the peak speed. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/toyota-camry-2024/specs"
+    },
+    {
+      "key": "compressionRatio",
+      "number": 13.0,
+      "publisher": "Toyota USA Newsroom",
+      "url": "https://pressroom.toyota.com/?p=85561",
+      "sourceKind": "manufacturer",
+      "note": "From the card research's gap-pass note only: it says the summary of Toyota's 2024 Camry pressroom page gave '2.5-liter Dynamic Force, 13:1 compression and D-4S injection'. It was not a recorded field there, no second source was seen and no checker looked at it; the summary did not say whether 13:1 applies to every 2.5L grade (203-hp LE and 206-hp XSE) or only some, so treat it as unconfirmed. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "drivetrain",
+      "text": "FWD",
+      "publisher": "Autoblog",
+      "url": "https://www.autoblog.com/es-us/buy/2024-Toyota-Camry-LE__4dr_Front_Wheel_Drive_Sedan/specs/",
+      "sourceKind": "reference",
+      "note": "Copied from the card research: Autoblog has a separate listing for the '2024 Camry LE 4dr Front Wheel Drive Sedan' (and another for the LE AWD); the EPA lists the front-drive LE/SE 2.5L separately from the AWD LE/SE. This record is the front-drive LE. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_Camry.shtml"
+    },
+    {
+      "key": "transmissionType",
+      "text": "automatic",
+      "publisher": "Toyota USA Newsroom",
+      "url": "https://pressroom.toyota.com/2024-toyota-camry-style-and-performance-in-americas-best-selling-midsize-sedan/",
+      "sourceKind": "manufacturer",
+      "note": "Copied from the card research: Toyota's release says the 2.5-liter and V6 gas grades are teamed with the 'Direct Shift eight-speed automatic transmission'; the EPA entry is 'Automatic (S8)'. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://fueleconomy.gov/feg/Find.do?action=sbs&id=47090"
+    },
+    {
+      "key": "gearCount",
+      "number": 8,
+      "publisher": "Toyota USA Newsroom",
+      "url": "https://pressroom.toyota.com/2024-toyota-camry-style-and-performance-in-americas-best-selling-midsize-sedan/",
+      "sourceKind": "manufacturer",
+      "note": "Copied from the card research (transmission): Toyota's release names the 'Direct Shift eight-speed automatic' for the gas grades including the LE; Edmunds' LE page lists an '8-speed shiftable automatic' and Cars.com '8-Speed A/T'. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.edmunds.com/toyota/camry/2024/st-401999971/features-specs"
+    },
+    {
+      "key": "curbWeightLb",
+      "number": 3310,
+      "publisher": "Edmunds",
+      "url": "https://www.edmunds.com/toyota/camry/2024/st-401999971/features-specs",
+      "sourceKind": "reference",
+      "note": "Copied from the card research: Edmunds and Autoblog give 3,310 lb for the front-wheel-drive 2024 Camry LE; Cars.com and KBB show the same. No Toyota-published figure surfaced, and the listing sites probably share one data feed (card research checker's concern). The LE AWD is listed at 3,475 lb (see conflicts). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.autoblog.com/es-us/buy/2024-Toyota-Camry-LE__4dr_Front_Wheel_Drive_Sedan/specs/"
+    },
+    {
+      "key": "groundClearanceIn",
+      "number": 5.7,
+      "publisher": "Edmunds",
+      "url": "https://www.edmunds.com/toyota/camry/2024/trims",
+      "sourceKind": "reference",
+      "note": "Copied from the card research: Edmunds lists the 2024 Camry LE's ground clearance as 5.7 in; the checker found KBB showing 5.7 in minimum ground clearance for every 2024 Camry trim and CarBuzz 5.7 in for the LE automatic. A model-wide republished figure, not specific to the FWD LE; Cars.com shows 6 in (see conflicts). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.kbb.com/toyota/camry/2024/specs"
+    },
+    {
+      "key": "epaCityMpg",
+      "number": 28,
+      "publisher": "U.S. EPA / fueleconomy.gov",
+      "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_Camry.shtml",
+      "sourceKind": "agency",
+      "note": "Copied from the card research: fueleconomy.gov's LE/SE 2.5L automatic listing shows City MPG 28; the AWD LE/SE is listed separately at 25. Capital One repeats 28/39/32 for front-drive four-cylinder models. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.capitalone.com/cars/vehicle-overview/2024/Toyota/Camry"
+    },
+    {
+      "key": "epaHighwayMpg",
+      "number": 39,
+      "publisher": "U.S. EPA / fueleconomy.gov",
+      "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_Camry.shtml",
+      "sourceKind": "agency",
+      "note": "Copied from the card research: fueleconomy.gov's LE/SE 2.5L automatic listing shows Highway MPG 39; the AWD LE/SE is 34. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.capitalone.com/cars/vehicle-overview/2024/Toyota/Camry"
+    },
+    {
+      "key": "epaCombinedMpg",
+      "number": 32,
+      "publisher": "U.S. EPA / fueleconomy.gov",
+      "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_Camry.shtml",
+      "sourceKind": "agency",
+      "note": "Copied from the card research: fueleconomy.gov's LE/SE 2.5L automatic listing shows Combined MPG 32; the AWD LE/SE is 29 and XLE/XSE FWD 31. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.capitalone.com/cars/vehicle-overview/2024/Toyota/Camry"
+    }
+  ],
+  "notFound": [
+    "wheelbaseIn",
+    "trackFrontIn",
+    "trackRearIn",
+    "lengthIn",
+    "widthIn",
+    "heightIn",
+    "weightDistFrontPct",
+    "cgHeightIn",
+    "engineLocation",
+    "redlineRpm",
+    "boostPsi",
+    "awdSystem",
+    "gearRatios",
+    "finalDriveRatio",
+    "differential",
+    "tyreFront",
+    "tyreRear",
+    "tyreModel",
+    "tyreCategory",
+    "dragCoefficient",
+    "frontalAreaSqFt",
+    "liftCoefficientFront",
+    "liftCoefficientRear",
+    "steeringRatio",
+    "turningCircleFt",
+    "brakeFrontDiscIn",
+    "brakeRearDiscIn",
+    "topSpeedMph",
+    "topSpeedGoverned",
+    "test0to30Sec",
+    "test0to60Sec",
+    "test0to100Sec",
+    "testRollout",
+    "testQuarterMileSec",
+    "testQuarterMileMph",
+    "testBraking60to0Ft",
+    "testBraking70to0Ft",
+    "testSkidpadG",
+    "testSkidpadDiameterFt",
+    "testTopSpeedMph",
+    "testWeightLb",
+    "testWeightDistFrontPct"
+  ],
+  "conflicts": [
+    {
+      "key": "horsepower",
+      "values": [
+        203,
+        202,
+        206
+      ],
+      "note": "Kept 203 hp (Toyota's figure for the 2.5-liter; Cars.com front-drive LE). 202 hp is attached to the LE AWD listing (Motor Matchup), a different drivetrain; 206 hp is the XSE dual-exhaust figure, which one KBB summary showed against the LE, apparently a trim mix-up. From the card research. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "torqueLbFt",
+      "values": [
+        184,
+        182,
+        186
+      ],
+      "note": "Kept 184 lb-ft (Toyota; Cars.com front-drive LE). 182 lb-ft is the LE AWD; 186 lb-ft is the XSE. From the card research. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "curbWeightLb",
+      "values": [
+        3310,
+        3475,
+        3350
+      ],
+      "note": "Kept 3,310 lb, which Edmunds, Autoblog (FWD LE), Cars.com and KBB give for the front-drive LE. 3,475 lb is on Cars.com and Autoblog LE AWD listings (and one Cars.com LE page of uncertain drivetrain); 3,350 lb is iSeeCars/CarBuzz, apparently an AWD LE. No Toyota figure found. From the card research. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "groundClearanceIn",
+      "values": [
+        5.7,
+        6
+      ],
+      "note": "Kept 5.7 in (Edmunds LE; KBB all trims; CarBuzz LE automatic). Cars.com's gas LE page shows 6 in, apparently the same figure rounded. From the card research. Read from search-result summary; page not opened."
+    }
+  ],
+  "searchesUsed": 0
+}

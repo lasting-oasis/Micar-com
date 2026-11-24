@@ -1,0 +1,403 @@
+{
+  "id": "2024-tesla-model-3-long-range-awd",
+  "year": 2024,
+  "make": "Tesla",
+  "model": "Model 3",
+  "trim": "Long Range AWD (2024 refresh, dual motor, single-speed 9.03:1, 235/45R18 all-season)",
+  "bodyClass": "sedan",
+  "gathered": "2026-11-24",
+  "fields": [
+    {
+      "key": "wheelbaseIn",
+      "number": 113.2,
+      "publisher": "Yahoo Autos (spec listing)",
+      "url": "https://autos.yahoo.com/2024-tesla-model-3-information-162300022.html",
+      "sourceKind": "reference",
+      "note": "The 2024 Model 3 information-and-specs listing, which says 'The specs below are for the Long Range AWD version of the Model 3', gives a 113.2 in wheelbase; another summary attributed the same listing (also on AOL) to Road & Track. Autoblog's 2024 Long Range 4dr All Wheel Drive Sedan page and KBB's 2024 specs give the same 113.2 in. Tesla's 2017-2023 owner's manual lists 2,875 mm for the previous car; no 2024 Tesla dimension table surfaced. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.kbb.com/tesla/model-3/2024/specs"
+    },
+    {
+      "key": "trackFrontIn",
+      "number": 62.4,
+      "publisher": "iSeeCars",
+      "url": "https://www.iseecars.com/car/2024-tesla-model_3-dimensions",
+      "sourceKind": "reference",
+      "note": "iSeeCars' 2024 Model 3 dimensions list 'Front Track 62.4 in'. An auto-data.net listing for the refreshed Model 3 gave 'front track of 1584 mm 62.36 in' (exact auto-data page not identified in the summary). Tesla's 2017-2023 manual gives 1,580 mm for the previous car; see conflicts. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "trackRearIn",
+      "number": 61.8,
+      "publisher": "iSeeCars",
+      "url": "https://www.iseecars.com/car/2024-tesla-model_3-dimensions",
+      "sourceKind": "reference",
+      "note": "iSeeCars' 2024 Model 3 dimensions show rear track 62.4 in on some variants and 'the AWD Long Range listing at 61.8 in rear track'. An auto-data.net listing for the refreshed Model 3 gave 'rear track of 1570 mm 61.81 in' (exact auto-data page not identified in the summary). See conflicts. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "lengthIn",
+      "number": 185.8,
+      "publisher": "Yahoo Autos (spec listing)",
+      "url": "https://autos.yahoo.com/2024-tesla-model-3-information-162300022.html",
+      "sourceKind": "reference",
+      "note": "Listing states its specs are 'for the Long Range AWD version of the Model 3' and gives a length of about 185.8 in; Edmunds and Autoblog's 2024 Long Range 4dr All Wheel Drive Sedan page give the same figure. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.autoblog.com/buy/2024-Tesla-Model+3-Long_Range__4dr_All_Wheel_Drive_Sedan/specs/"
+    },
+    {
+      "key": "widthIn",
+      "number": 72.8,
+      "publisher": "Autoblog",
+      "url": "https://www.autoblog.com/buy/2024-Tesla-Model+3-Long_Range__4dr_All_Wheel_Drive_Sedan/specs/",
+      "sourceKind": "reference",
+      "note": "Autoblog's 2024 Model 3 Long Range 4dr All Wheel Drive Sedan page gives a body width of about 72.8 in without mirrors; Edmunds' 2024 Long Range specs give the same 72.8 in without mirrors and 82.2 in with mirrors (KBB also 82.2 in with mirrors). This is body width excluding mirrors. See conflicts. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.edmunds.com/tesla/model-3/2024/st-402023057/features-specs"
+    },
+    {
+      "key": "heightIn",
+      "number": 56.7,
+      "publisher": "Yahoo Autos (spec listing)",
+      "url": "https://autos.yahoo.com/2024-tesla-model-3-information-162300022.html",
+      "sourceKind": "reference",
+      "note": "The Long Range AWD spec listing and Autoblog's 2024 Long Range AWD page both give a height of about 56.7 in; EVSpecifications lists 56.8 in. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.autoblog.com/buy/2024-Tesla-Model+3-Long_Range__4dr_All_Wheel_Drive_Sedan/specs/"
+    },
+    {
+      "key": "curbWeightLb",
+      "number": 4030,
+      "publisher": "Motor Matchup",
+      "url": "https://www.motormatchup.com/catalog/Tesla/Model-3/2024/Long-Range-AWD",
+      "sourceKind": "reference",
+      "note": "Copied from earlier card research (2026-11-11). Motor Matchup's catalogue page for the 2024 Tesla Model 3 Long Range AWD lists a curb weight of 4,030 lb; Edmunds' 2024 Model 3 Long Range specs page was summarised as 4,030 lb for the AWD trim. Listing-site figure only: no 2024 US Tesla document and no instrumented-test weight surfaced. Other listings range 4,034-4,081 lb; see conflicts. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://edmunds.com/tesla/model-3/2024/st-402053137/features-specs"
+    },
+    {
+      "key": "weightDistFrontPct",
+      "number": 50.5,
+      "publisher": "Motor Matchup",
+      "url": "https://www.motormatchup.com/catalog/Tesla/Model-3/2024/Long-Range-AWD",
+      "sourceKind": "reference",
+      "note": "Motor Matchup's 2024 Long Range AWD page: 'Weight Distribution: Front: 50.5% | Rear: 49.5%'. The summary warned the same page has some inconsistent drivetrain details. Tesla's axle masses surfaced only in the 2017-2023 manual (previous car), which work out close to 50/50; see conflicts. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "groundClearanceIn",
+      "number": 5.4,
+      "publisher": "Tesla (Model 3 Owner's Manual)",
+      "url": "https://www.tesla.com/ownersmanual/model3/en_eu/GUID-56562137-FC31-4110-A13C-9A9FC6657BF0.html",
+      "sourceKind": "manufacturer",
+      "note": "Copied from earlier card research (2026-11-11). The owner's manual dimension table was summarised as 'Ground Clearance 5.4 in / 138 mm' for the Rear-Wheel Drive / Long Range configuration (Performance 5.0 in). EU-English edition of the current (2024+) manual, not a US page; Tesla's Saudi Model 3 page gives 138 mm for the non-Performance cars. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.tesla.com/en_SA/model3"
+    },
+    {
+      "key": "engineDescription",
+      "text": "Dual-motor electric drive: rear AC permanent magnet synchronous motor, front AC induction motor",
+      "publisher": "Tesla (Model 3 Owner's Manual, Subsystems section)",
+      "url": "https://www.tesla.cn/ownersmanual/model3/en_ca/GUID-E414862C-CFA1-4A0B-9548-BE21C32CAA58.html",
+      "sourceKind": "manufacturer",
+      "note": "Copied from earlier card research (2026-11-11). The 2024+ 'model3' manual Subsystems section (Canada-English edition) describes the rear motor as AC permanent magnet synchronous and the front motor (AWD vehicles) as AC induction, driving through a single-speed fixed gear. EVSpecifications lists per-motor ratings of 158 kW front and 208 kW rear for the 2024 Long Range AWD (a North American listing elsewhere shows 137 kW front / 194 kW rear); no Tesla per-motor or combined rating surfaced. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.evspecifications.com/en/model/98db3d2"
+    },
+    {
+      "key": "powertrain",
+      "text": "electric",
+      "publisher": "EVSpecifications",
+      "url": "https://www.evspecifications.com/en/model/98db3d2",
+      "sourceKind": "reference",
+      "note": "Copied from earlier card research (2026-11-11). The 2024 Model 3 Long Range AWD is listed as a battery-electric car with two electric motors; ENERGY STAR rates it in MPGe. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.energystar.gov/productfinder/product/electric-vehicles-and-hybrids/details/47908"
+    },
+    {
+      "key": "drivetrain",
+      "text": "AWD",
+      "publisher": "EVSpecifications",
+      "url": "https://www.evspecifications.com/en/model/98db3d2",
+      "sourceKind": "reference",
+      "note": "Copied from earlier card research (2026-11-11). Listing titled 2024 Tesla Model 3 Long Range AWD with a front and a rear motor; this search's result gave 'Drivetrain: All-wheel drive (AWD)'. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.motormatchup.com/catalog/Tesla/Model-3/2024/Long-Range-AWD"
+    },
+    {
+      "key": "awdSystem",
+      "text": "Dual motor all-wheel drive: separate front motor (AC induction) and rear motor (AC permanent magnet synchronous)",
+      "publisher": "Tesla (Model 3 Owner's Manual, Subsystems section)",
+      "url": "https://www.tesla.cn/ownersmanual/model3/en_ca/GUID-E414862C-CFA1-4A0B-9548-BE21C32CAA58.html",
+      "sourceKind": "manufacturer",
+      "note": "The Subsystems section of the 2024+ manual lists drive types 'Rear-Wheel Drive RWD, Long Range AWD, Performance AWD' and describes a front motor on AWD vehicles in addition to the rear motor. No result described torque split or any coupling between axles. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.evspecifications.com/en/model/98db3d2"
+    },
+    {
+      "key": "transmissionType",
+      "text": "single-speed",
+      "publisher": "Tesla (Model 3 Owner's Manual, Subsystems section)",
+      "url": "https://www.tesla.com/OWNERSMANUAL/model3/en_cn/GUID-E414862C-CFA1-4A0B-9548-BE21C32CAA58.html",
+      "sourceKind": "manufacturer",
+      "note": "Tesla's 2024+ 'model3' manual (China-English and other regional editions) lists 'Type: Single speed fixed gear; Gearbox Ratio: 9.03:1' for drive types including Long Range AWD. EVSpecifications gives 'Type of transmission: Automatic single-speed reduction gear'. US-English page not seen. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.evspecifications.com/en/model/98db3d2"
+    },
+    {
+      "key": "gearCount",
+      "number": 1,
+      "publisher": "Tesla (Model 3 Owner's Manual, Subsystems section)",
+      "url": "https://www.tesla.com/OWNERSMANUAL/model3/en_cn/GUID-E414862C-CFA1-4A0B-9548-BE21C32CAA58.html",
+      "sourceKind": "manufacturer",
+      "note": "'Type: Single speed fixed gear' in the Subsystems table that covers 'Rear-Wheel Drive RWD, Long Range AWD, Performance AWD'. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.evspecifications.com/en/model/98db3d2"
+    },
+    {
+      "key": "finalDriveRatio",
+      "number": 9.03,
+      "publisher": "Tesla (Model 3 Owner's Manual, Subsystems section)",
+      "url": "https://www.tesla.com/OWNERSMANUAL/model3/en_cn/GUID-E414862C-CFA1-4A0B-9548-BE21C32CAA58.html",
+      "sourceKind": "manufacturer",
+      "note": "'Gearbox Ratio 9.03:1' with 'Type: Single speed fixed gear', in a table covering Long Range AWD. This is the whole motor-to-wheel reduction (the only ratio published); EVSpecifications gives 'Axle ratio: 9.03' for the Long Range AWD. The manual shows one ratio, not separate front and rear figures; Motor Matchup lists 'Final Drive: 9' for both motors. China-English edition, not US. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.evspecifications.com/en/model/98db3d2"
+    },
+    {
+      "key": "tyreFront",
+      "text": "235/45R18",
+      "publisher": "Goodyear (fitment guide)",
+      "url": "https://www.goodyear.com/en-us/vehicles/Tesla/Model-3/2024/Long-Range",
+      "sourceKind": "reference",
+      "note": "Goodyear's page for the 2024 Model 3 Long Range lists 235/45R18; Big O Tires gives 18-inch wheels with 235/45R18 as original equipment (19-inch option 235/40R19), and Firestone's chart shows 235/45R18 W for the 2024 Long Range. Tesla's own 18-inch Photon wheel package lists 235/45R18 on an 18x8.5J wheel. Sources give one size for all four corners. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.bigotires.com/tires/by-vehicle/tesla/3/2024/long-range"
+    },
+    {
+      "key": "tyreRear",
+      "text": "235/45R18",
+      "publisher": "Goodyear (fitment guide)",
+      "url": "https://www.goodyear.com/en-us/vehicles/Tesla/Model-3/2024/Long-Range",
+      "sourceKind": "reference",
+      "note": "Same single size listed for the 2024 Model 3 Long Range (no staggered rear size given by Goodyear, Big O or Firestone); Big O lists 235/45R18 as original equipment on 18-inch wheels. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.bigotires.com/tires/by-vehicle/tesla/3/2024/long-range"
+    },
+    {
+      "key": "tyreCategory",
+      "text": "all-season",
+      "publisher": "Edmunds",
+      "url": "https://www.edmunds.com/tesla/model-3/2024/long-term-road-test/",
+      "sourceKind": "test",
+      "note": "Edmunds on its 2024 Model 3 Long Range long-term car: 'The car also pulled 0.92 g on the skid pad on all-season tires, matching a BMW i4 on summer rubber.' The tyre model was not named in any result. Tesla's 2024 service manual lists Michelin Primacy A/S T0 235/45R18 as a newer-generation all-season replacement tyre. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://service.tesla.com/docs/Model3/ServiceManual/2024/en-us/GUID-92AB1F42-7358-45AD-BACC-90A41BB3E715.html"
+    },
+    {
+      "key": "dragCoefficient",
+      "number": 0.219,
+      "publisher": "InsideEVs (reporting Tesla)",
+      "url": "https://insideevs.com/news/684644/new-model-3-is-tesla-most-aerodynamic-car-ever-cd-0-219/",
+      "sourceKind": "reference",
+      "note": "InsideEVs reports Tesla's figure for the refreshed Model 3: drag reduced 'from 0.225 Cd to 0.219 Cd'. auto-data.net lists 'Drag coefficient (Cd) 0.219' for the Highland Long Range Dual Motor AWD. Not read from a Tesla page; no frontal area was published in any result. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.auto-data.net/en/tesla-model-3-highland-facelift-2023-long-range-79-kwh-440hp-dual-motor-awd-49903"
+    },
+    {
+      "key": "turningCircleFt",
+      "number": 38.4,
+      "publisher": "Yahoo Autos (spec listing)",
+      "url": "https://autos.yahoo.com/2024-tesla-model-3-information-162300022.html",
+      "sourceKind": "reference",
+      "note": "Long Range AWD spec listing: 'Turning Diameter / Radius, curb to curb (feet): 38.4'. A regional edition of Tesla's owner's manual was summarised as 'Turning Circle (curb to curb) | 38.4 ft (11.7 m)', but which edition (2024+ or 2017-2023) was not identified, so it is not cited as the source. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "brakeFrontDiscIn",
+      "number": 12.6,
+      "publisher": "Tesla (Model 3 Owner's Manual, Subsystems section)",
+      "url": "https://www.tesla.com/ownersmanual/model3/en_nz/GUID-E414862C-CFA1-4A0B-9548-BE21C32CAA58.html",
+      "sourceKind": "manufacturer",
+      "note": "Tesla's New Zealand-English 2024+ manual lists the non-Performance front rotor at about 12.6 in (320 mm) under a section headed RWD/AWD; the Performance front rotor is 355 mm. Cars.com rounds the 2024 rotors to 13 in. Not a US edition. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "brakeRearDiscIn",
+      "number": 13.2,
+      "publisher": "Tesla (Model 3 Owner's Manual, Subsystems section)",
+      "url": "https://www.tesla.com/ownersmanual/model3/en_nz/GUID-E414862C-CFA1-4A0B-9548-BE21C32CAA58.html",
+      "sourceKind": "manufacturer",
+      "note": "Tesla's New Zealand-English 2024+ manual lists the non-Performance rear rotor at about 13.2 in (335 mm) under a section headed RWD/AWD. Cars.com rounds the 2024 rotors to 13 in. Not a US edition. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "topSpeedMph",
+      "number": 125,
+      "publisher": "InsideEVs",
+      "url": "https://insideevs.com/news/704076/2024-tesla-model3-highland-range-specs-pricing/",
+      "sourceKind": "reference",
+      "note": "InsideEVs' 2024 Model 3 (Highland) specs overview: 'top speed of the new Tesla Model 3 is 125 mph, compared to 140-145 mph previously'; KBB's 2024 specs list 125 mph for the Long Range AWD trim, CarExpert 125 mph (201 km/h), EVSpecifications 124.9 mph. Republished maker figure, not a test; no result said whether it is electronically limited. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.kbb.com/tesla/model-3/2024/specs"
+    },
+    {
+      "key": "epaCombinedMpg",
+      "number": 130,
+      "publisher": "ENERGY STAR (US EPA)",
+      "url": "https://www.energystar.gov/productfinder/product/electric-vehicles-and-hybrids/details/47908",
+      "sourceKind": "agency",
+      "note": "Copied from earlier card research (2026-11-11). Value is MPGe, not mpg. The ENERGY STAR listing was summarised as 130 MPGe combined for the 2024 Model 3 Long Range AWD; InsideEVs reports the same for the 18-inch-wheel car. fueleconomy.gov itself never appeared in results. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://insideevs.com/news/719013/2024-tesla-model3-epa-range-consumption/"
+    },
+    {
+      "key": "epaCityMpg",
+      "number": 137,
+      "publisher": "CarFactSheet",
+      "url": "https://carfactsheet.com/2024/tesla/model-3/",
+      "sourceKind": "reference",
+      "note": "Copied from earlier card research (2026-11-11). Value is MPGe. 137 MPGe city for the 2024 Model 3 Long Range AWD, a repeated EPA figure; Edmunds' 2024 Long Range page lists the same, though that page's drivetrain was not stated in its summary. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.edmunds.com/tesla/model-3/2024/st-402023057/features-specs"
+    },
+    {
+      "key": "epaHighwayMpg",
+      "number": 124,
+      "publisher": "CarFactSheet",
+      "url": "https://carfactsheet.com/2024/tesla/model-3/",
+      "sourceKind": "reference",
+      "note": "Copied from earlier card research (2026-11-11). Value is MPGe. 124 MPGe highway for the 2024 Model 3 Long Range AWD, a repeated EPA figure; InsideEVs and Edmunds give the same. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://insideevs.com/news/719013/2024-tesla-model3-epa-range-consumption/"
+    },
+    {
+      "key": "test0to60Sec",
+      "number": 4.2,
+      "publisher": "Edmunds",
+      "url": "https://www.edmunds.com/tesla/model-3/2024/long-term-road-test/",
+      "sourceKind": "test",
+      "note": "Edmunds' 2024 Model 3 Long Range long-term test ('2024 Tesla Model 3: What's It Like to Live With?'): 'At our test track, it accelerated from zero to 60 mph in 4.2 seconds and cleared the quarter mile in 12.3 seconds at 114 mph.' One summary said the page might be headed 'Performance', but Edmunds' Performance car ran 3.0 s and 11.0 s at 123.7 mph, so these figures are the Long Range car. Edmunds' Performance rating compares against 'the Model 3 Long Range AWD', and Edmunds' range table lists its 2024 Long Range with a 341-mile EPA estimate (the AWD rating), so the test car is taken to be the AWD; no summary printed 'AWD' next to the 4.2 s figure. Equals Tesla's 4.2 s claim. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.edmunds.com/car-news/2024-tesla-model-3-performance-full-rating.html"
+    },
+    {
+      "key": "testRollout",
+      "text": "false",
+      "publisher": "Edmunds",
+      "url": "https://www.edmunds.com/car-news/2024-tesla-model-3-performance-full-rating.html",
+      "sourceKind": "test",
+      "note": "Recorded as false. Edmunds' 2024 Model 3 Performance full rating was summarised as: Tesla's claimed 0-60 time includes rollout while Edmunds' times do not (Tesla 2.9 s claim vs Edmunds 3.0 s measured). This is stated for Edmunds' method in that article, not printed beside the Long Range figure. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testQuarterMileSec",
+      "number": 12.3,
+      "publisher": "Edmunds",
+      "url": "https://www.edmunds.com/tesla/model-3/2024/long-term-road-test/",
+      "sourceKind": "test",
+      "note": "Edmunds' 2024 Model 3 Long Range long-term test: 'cleared the quarter mile in 12.3 seconds at 114 mph.' A MotorTrend item surfaced via InsideEVs also gave 'the quarter-mile in 12.3 seconds at 114.4 mph' for a Model 3 LR of unclear year; see conflicts. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testQuarterMileMph",
+      "number": 114,
+      "publisher": "Edmunds",
+      "url": "https://www.edmunds.com/tesla/model-3/2024/long-term-road-test/",
+      "sourceKind": "test",
+      "note": "Edmunds' 2024 Model 3 Long Range long-term test: '12.3 seconds at 114 mph.' Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testSkidpadG",
+      "number": 0.92,
+      "publisher": "Edmunds",
+      "url": "https://www.edmunds.com/tesla/model-3/2024/long-term-road-test/",
+      "sourceKind": "test",
+      "note": "Edmunds' 2024 Model 3 Long Range long-term test: 'The car also pulled 0.92 g on the skid pad on all-season tires, matching a BMW i4 on summer rubber.' (Copied from earlier card research as lateralGripG and re-found here on the Long Range page; the Performance car pulled 0.97 g.) Skidpad diameter not stated in any result. Read from search-result summary; page not opened."
+    }
+  ],
+  "notFound": [
+    "cgHeightIn",
+    "induction",
+    "engineLocation",
+    "displacementL",
+    "cylinders",
+    "horsepower",
+    "horsepowerRpm",
+    "torqueLbFt",
+    "torqueRpmLow",
+    "torqueRpmHigh",
+    "redlineRpm",
+    "boostPsi",
+    "compressionRatio",
+    "gearRatios",
+    "differential",
+    "tyreModel",
+    "frontalAreaSqFt",
+    "liftCoefficientFront",
+    "liftCoefficientRear",
+    "steeringRatio",
+    "topSpeedGoverned",
+    "test0to30Sec",
+    "test0to100Sec",
+    "testBraking60to0Ft",
+    "testBraking70to0Ft",
+    "testSkidpadDiameterFt",
+    "testTopSpeedMph",
+    "testWeightLb",
+    "testWeightDistFrontPct"
+  ],
+  "conflicts": [
+    {
+      "key": "curbWeightLb",
+      "values": [4030, 4034, 4065, 4081],
+      "note": "Kept 4,030 lb (Motor Matchup and Edmunds, both naming the 2024 Long Range AWD). KBB and Autoblog list 4,034 lb; EVKX 4,065 lb; EVSpecifications about 4,081 lb (1,851 kg, market unclear). Tesla's 2024+ China-English manual gives about 1,823 kg maximum curb mass for 'Long Range' (other market, not converted); the 2017-2023 manual's 1,900 kg is the previous car. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "weightDistFrontPct",
+      "values": [50.5, 49.9, 50.1],
+      "note": "Kept 50.5% (Motor Matchup, 2024 Long Range AWD). The 49.9% and 50.1% values are the summary's arithmetic from Tesla's 2017-2023 manual axle masses (US-built Long Range AWD 948 kg front / 952 kg rear of 1,900 kg; China-built 919 / 915 kg of 1,834 kg), which describe the previous car. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "trackFrontIn",
+      "values": [62.4, 62.2],
+      "note": "Kept 62.4 in (iSeeCars 2024; auto-data 1,584 mm agrees). Tesla's 2017-2023 manual gives 1,580 mm front and rear for the previous car. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "trackRearIn",
+      "values": [61.8, 62.4, 62.2],
+      "note": "Kept 61.8 in, which iSeeCars ties to the AWD Long Range (auto-data 1,570 mm agrees); iSeeCars shows 62.4 in for other 2024 variants, and Tesla's 2017-2023 manual gives 1,580 mm for the previous car. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "widthIn",
+      "values": [72.8, 82.2, 76.1],
+      "note": "Kept 72.8 in body width without mirrors (Autoblog, Edmunds). 82.2 in is with mirrors (Edmunds, KBB); CarExpert Australia's 1,933 mm (about 76.1 in) appears to include folded mirrors. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "heightIn",
+      "values": [56.7, 56.8],
+      "note": "Kept 56.7 in (Long Range AWD spec listing, Autoblog); EVSpecifications lists 56.8 in, a rounding difference. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "groundClearanceIn",
+      "values": [5.4, 5.2],
+      "note": "Kept 5.4 in / 138 mm from Tesla's 2024+ manual; EVKX's 5.2 in / 133 mm was judged by the earlier check to be the first-generation car. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "horsepower",
+      "values": [425, 390, 491, 498, 392],
+      "note": "Left out. 425 hp (Yahoo/AOL spec listing, described as 'Up to 425', possibly a lineup maximum); 390 hp (Motor Matchup); 366 kW = about 491 hp / 498 PS (Carsales, autotijd.be, ArenaEV, auto-data.net), which equals the sum of the 158 kW and 208 kW per-motor ratings rather than a system rating; 392 hp / 288 kW (CarExpert NZ, inconsistent with its own motor breakdown). No Tesla or government system output was found. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "torqueLbFt",
+      "values": [475, 390, 376],
+      "note": "Left out. 475 lb-ft (Yahoo/AOL spec listing); 390 lb-ft (Motor Matchup); 376 lb-ft / 510 Nm (ArenaEV); auto-data.net lists 560 Nm; EVSpecifications gives per-motor figures only (340 Nm rear, 219 Nm front). No Tesla figure. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "finalDriveRatio",
+      "values": [9.03, 9.0],
+      "note": "Kept 9.03:1 from Tesla's 2024+ manual (EVSpecifications agrees). The 2017-2023 manual rounds to 9:1; the Yahoo/AOL listing shows 'Final Drive Axle Ratio (:1): 9.00'; Motor Matchup lists 9 for each motor. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "topSpeedMph",
+      "values": [125, 124.9, 130],
+      "note": "Kept 125 mph (InsideEVs, KBB, CarExpert); EVSpecifications 124.9 mph (201 km/h) agrees after rounding. The Yahoo/AOL listing's 130 mph is the only such figure. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "epaCombinedMpg",
+      "values": [130, 128],
+      "note": "Kept 130 MPGe (ENERGY STAR, 2024 Long Range AWD on 18-inch wheels). A DriveClean page (no model year shown) and an mpgbuddy page for a 2025 AWD show 128 / 133 / 122 MPGe. Edmunds' range table lists a 341-mile EPA estimate for its 2024 Long Range, while ENERGY STAR and InsideEVs give 342 miles. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "test0to60Sec",
+      "values": [4.2, 4.0, 4.3],
+      "note": "Kept Edmunds' 4.2 s (named test of a 2024 Long Range, with quarter-mile and skidpad figures). MotorTrend's 4.0 s (12.5 s at 113.1 mph, reported by InsideEVs) is the pre-2024 Long Range AWD; Consumer Reports' 4.3 s is from its 2025 road-test page. Car and Driver and MotorTrend 2024 test sheets could not be searched (domains refused). Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testQuarterMileMph",
+      "values": [114, 114.4, 113.1],
+      "note": "Kept Edmunds' 114 mph. A MotorTrend item surfaced in an InsideEVs Highland range-test result said 'The Model 3 LR also does the quarter-mile in 12.3 seconds at 114.4 mph', but the year and drivetrain of that car were not clear; 113.1 mph is MotorTrend's pre-2024 Long Range AWD. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testBraking60to0Ft",
+      "values": [124],
+      "note": "Not recorded. Edmunds says its Model 3 Performance stopped from 60 mph in 109 ft, '15 feet better than the Model 3 Long Range AWD', which implies about 124 ft only by arithmetic; Edmunds' Long Range page says the 60-0 distance 'was a bit long in our testing' without a number. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "tyreModel",
+      "values": ["Hankook (model not named)", "Michelin Primacy A/S T0", "Michelin Primacy MXM4 T1"],
+      "note": "Not recorded. Hankook rests on one owner's forum reply (March 2024); Tesla's 2024 service manual lists Michelin Primacy A/S T0 235/45R18 as a replacement all-season tyre and the Primacy MXM4 T1 as a previous-generation tyre; neither is stated as the 2024 factory fitment. Read from search-result summary; page not opened."
+    }
+  ],
+  "searchesUsed": 18
+}
