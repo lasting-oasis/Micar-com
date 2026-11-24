@@ -514,7 +514,7 @@
       "values": [
         1.08
       ],
-      "note": "Not recorded. The card research saw a Rennlist forum post quoting a Car and Driver base Carrera test dated 12/1/2020 at 1.08 g and 139 ft 70-0; this run saw a Rennlist repost with 140 ft 70-0. Forum reposts disagree with each other and were not read from the publisher, so testSkidpadG and testBraking70to0Ft stay in notFound. Read from search-result summary; page not opened. Second reader: two searches found no skidpad or braking figure for the 2020 base Carrera test; the only forum figures that surfaced (135 ft 70-0, 1.06 g) are from a thread titled 'C&D 991.2 Base Carrera PDK test results', the previous generation."
+      "note": "Not recorded. The card research saw a Rennlist forum post quoting a Car and Driver base Carrera test dated 12/1/2020 at 1.08 g and 139 ft 70-0; this run saw a Rennlist repost with 140 ft 70-0. Forum reposts disagree with each other and were not read from the publisher, so testSkidpadG and testBraking70to0Ft stay in notFound. Read from search-result summary; page not opened. Second reader: two searches found no skidpad or braking figure for the 2020 base Carrera test; the only forum figures that surfaced (135 ft 70-0, 1.06 g) are from a thread titled 'C&D 991.2 Base Carrera PDK test results', the previous generation. Test-figure pass (2026-11-24): Stuttcars' 992.2 Carrera Coupe page (https://www.stuttcars.com/porsche-911-carrera-coupe-9922/) was summarized as saying Car and Driver's comparison 'was against an early 992.1 test car, with skidpad 1.09 g vs. 1.08 g', without naming the 992.1 car's trim. That is a second result agreeing on 1.08 g, but it is still not tied to the base Carrera, so testSkidpadG stays in notFound. Read from search-result summary; page not opened."
     },
     {
       "key": "finalDriveRatio",
@@ -560,6 +560,13 @@
         194
       ],
       "note": "Kept 182 mph (Porsche's claimed top track speed for the 379 hp car). 183 mph (294 km/h) is the 992.2 Carrera. Read from search-result summary; page not opened. Second reader: a new summary again gave 182 mph (official) for the base Carrera. 180 mph is the Carrera 4 page. 193 mph is the Yahoo buyer's guide with no trim stated (the same guide that carried a 3,311 lb weight). 194 mph is a Motor1 headline, 'Base Porsche 911 Still Plenty Fast In Autobahn Top Speed Run, Hits 194 MPH', a road run with no model year or instrumentation shown in the result, so it is neither Porsche's claim nor a usable testTopSpeedMph."
+    },
+    {
+      "key": "testWeightDistFrontPct",
+      "values": [
+        36.4
+      ],
+      "note": "Not recorded: a second tester, and Car and Driver's set stays in the fields. The technical data for auto motor und sport's 'Kosten und Realverbrauch' test of a Porsche 911 (992) Carrera (https://www.auto-motor-und-sport.de/test/kosten-realverbrauch-porsche-911-992-carrera/technische-daten/) was summarized as 'Leergewicht 1595 kg', 'Leergewicht Testwagen 1527 kg' (test-car weight, in kg as published, not converted, so not entered under testWeightLb) and 'Gewichtsverteilung 36,4 / 63,6 %', read as front / rear. It is a European-market 992 Carrera. Neither the model year nor the transmission was stated, and the summary itself said it could not tell whether the figures belong to the PDK car. It also did not explain why the test car weighs less than the listed Leergewicht. The same 36.4% front figure is recorded for Edmunds' Carrera S test weight under weightDistFrontPct. Read from search-result summary; page not opened."
     }
   ],
   "searchesUsed": 14

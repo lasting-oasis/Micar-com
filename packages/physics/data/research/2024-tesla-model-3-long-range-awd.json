@@ -348,6 +348,14 @@
       "note": "Edmunds' 2024 Model 3 Long Range long-term test: 'The car also pulled 0.92 g on the skid pad on all-season tires, matching a BMW i4 on summer rubber.' (Copied from earlier card research as lateralGripG and re-found here on the Long Range page; the Performance car pulled 0.97 g.) Skidpad diameter not stated in any result. Read from search-result summary; page not opened.",
       "check": "confirmed",
       "checkNote": "A second-reader search summary reproduced Edmunds' long-term Model 3 skidpad figure of 0.92 g (trim not printed beside it; Edmunds' Performance car is reported separately at 0.97 g); skidpad diameter still not stated."
+    },
+    {
+      "key": "testSkidpadDiameterFt",
+      "number": 200,
+      "publisher": "Edmunds",
+      "url": "https://edmunds.com/car-reviews/track-tests/track-tested-2011-hyundai-sonata-limited-with-six-speed-automatic.html",
+      "sourceKind": "test",
+      "note": "Edmunds' own skidpad circle, not a figure printed beside the Model 3: an Edmunds track-test sheet (2011 Hyundai Sonata Limited) was summarised as listing its skidpad result on a 200-foot-diameter circle, set against Car and Driver's usual 300 ft circle. No result gave a diameter next to the 2024 Model 3 Long Range's 0.92 g, and that sheet is 13 years older than the Model 3 test, so this assumes Edmunds still uses the same circle. Edmunds' 'How We Test & Rank Cars' page surfaced, but its summary stopped before any skidpad detail. Read from search-result summary; page not opened."
     }
   ],
   "notFound": [
@@ -376,7 +384,6 @@
     "test0to100Sec",
     "testBraking60to0Ft",
     "testBraking70to0Ft",
-    "testSkidpadDiameterFt",
     "testTopSpeedMph",
     "testWeightLb",
     "testWeightDistFrontPct"
@@ -509,9 +516,10 @@
     {
       "key": "testBraking60to0Ft",
       "values": [
-        124
+        124,
+        114
       ],
-      "note": "Not recorded. Edmunds says its Model 3 Performance stopped from 60 mph in 109 ft, '15 feet better than the Model 3 Long Range AWD', which implies about 124 ft only by arithmetic; Edmunds' Long Range page says the 60-0 distance 'was a bit long in our testing' without a number. Read from search-result summary; page not opened. Second reader: a video test (dailymotion, tester not identified) measured 114 ft from 60 mph for a Highland AWD car; not recorded because the tester is not named."
+      "note": "Not recorded. Edmunds says its Model 3 Performance stopped from 60 mph in 109 ft, '15 feet better than the Model 3 Long Range AWD', which implies about 124 ft only by arithmetic; Edmunds' Long Range page says the 60-0 distance 'was a bit long in our testing' without a number. Read from search-result summary; page not opened. Second reader: a video test (dailymotion, tester not identified) measured 114 ft from 60 mph for a Highland AWD car; not recorded because the tester is not named. Test-figure pass: a search summary attributed the dailymotion video test to a MotorTrend comparison of the 2024 Highland Model 3, giving 114 ft from 60 mph for the AWD car and 115 ft for the RWD car; the summary did not say the AWD car was the Long Range, and did not tie the figure to one of the two dailymotion results (x96kv5e, x8ovboa), so it is still not recorded. Read from search-result summary; page not opened."
     },
     {
       "key": "tyreModel",

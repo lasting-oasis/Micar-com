@@ -349,6 +349,14 @@
       "checkNote": "The second search found the same Car and Driver test's 92 mph trap speed (2023 Prius Limited FWD, trim mismatch as flagged)."
     },
     {
+      "key": "test0to100Sec",
+      "number": 18.8,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/2023-toyota-prius-shames-predecessors-120000639.html",
+      "sourceKind": "test",
+      "note": "TRIM MISMATCH (2023 Prius Limited FWD on 195/50R19 tires, not the LE on 195/60R17): a Yahoo Autos syndication titled '2023 Toyota Prius Shames Its Predecessor's Acceleration Performance' reports the front-drive Limited reaching 100 mph in 18.8 s, 11.7 s quicker than its predecessor, alongside the same 7.1 s to 60. The summary did not name Car and Driver. The attribution rests on that matching 7.1 s and on the article's comparison with the 3,113 lb 2017 Prius Three 'they tested years earlier', whose Car and Driver data block (3,113 lb, 10.5 s to 60) is syndicated at autos.yahoo.com/2017-toyota-prius-three-touring-170700912.html. The same article appears on finance.yahoo.com (a copy, not a second source). Read from search-result summary; page not opened."
+    },
+    {
       "key": "testBraking70to0Ft",
       "number": 171,
       "publisher": "Car and Driver",
@@ -359,6 +367,15 @@
       "checkNote": "The second-reader search for Car and Driver's test surfaced the acceleration figures but not the 171 ft 70-0 stop."
     },
     {
+      "key": "testSkidpadG",
+      "number": 0.87,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/tested-2023-toyota-prius-drives-120000770.html",
+      "sourceKind": "test",
+      "note": "TRIM MISMATCH (2023 Prius Limited FWD on 195/50R19 tires, not the LE on 195/60R17): a search summary credited Car and Driver's dedicated test (Yahoo Autos syndication, the same test as the 171 ft 70-0 stop) with 'a healthy 0.87 g of cornering grip'. Car and Driver's later Prius vs Prius Prime comparison also gives the standard Prius 0.87 g (corroborating link). Measured on Car and Driver's 300 ft skidpad (see testSkidpadDiameterFt). This supersedes the earlier 'Not recorded' conflicts entry for this key, which doubted the 0.87 g because the comparison pairs it with a 194 ft stop; the dedicated test pairs it with 171 ft. Car and Driver's long-term 2025 Prius XLE (different tires) later recorded 0.81 g and 181 ft (autos.yahoo.com/articles/2025-toyota-prius-arrives-style-143000790.html). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://autos.yahoo.com/toyota-prius-prius-prime-hybrids-140000505.html"
+    },
+    {
       "key": "testSkidpadDiameterFt",
       "number": 300,
       "publisher": "Car and Driver",
@@ -367,6 +384,14 @@
       "note": "Car and Driver's skidpad is 300 ft in diameter (the convention this task specifies). Recorded because Car and Driver is the tester for this record's test figures; no skidpad g for the tested Limited FWD was tied to this test, so testSkidpadG is not recorded. Read from search-result summary; page not opened.",
       "check": "unconfirmed",
       "checkNote": "No search result stated the skidpad diameter; the 300 ft figure is Car and Driver's convention as the record says, and no skidpad g is recorded with it."
+    },
+    {
+      "key": "testWeightLb",
+      "number": 3199,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/2023-toyota-prius-shames-predecessors-120000639.html",
+      "sourceKind": "test",
+      "note": "TRIM MISMATCH: this is the scale weight of the 2023 Prius Limited FWD test car (19-inch wheels), not an LE. The same syndicated article ('2023 Toyota Prius Shames Its Predecessor's Acceleration Performance', attributed to Car and Driver as explained under test0to100Sec) says it 'tipped our scales at 3199 pounds', 86 lb more than the 3,113 lb 2017 Prius Three tested earlier. That is 102 lb above the 3,097 lb curb weight recorded here for the LE. No front/rear split for this car was found. Read from search-result summary; page not opened."
     }
   ],
   "notFound": [
@@ -391,11 +416,8 @@
     "topSpeedMph",
     "topSpeedGoverned",
     "test0to30Sec",
-    "test0to100Sec",
     "testBraking60to0Ft",
-    "testSkidpadG",
     "testTopSpeedMph",
-    "testWeightLb",
     "testWeightDistFrontPct"
   ],
   "conflicts": [

@@ -12,60 +12,46 @@
       "physical": {
         "ecuCalibration": "stock"
       },
-      "measure": "peak wheel horsepower, chassis dyno, DSPORT Test & Tune results table (stock baseline and intake run in the same test series)",
+      "measure": "peak wheel horsepower and peak wheel torque, chassis dyno, DSPORT Test & Tune results (stock baseline and intake run in the same test series)",
       "before": {
-        "wheelHp": 293.25
+        "wheelHp": 293.25,
+        "wheelTorqueLbFt": 282.84
       },
       "after": {
-        "wheelHp": 297.01
+        "wheelHp": 297.01,
+        "wheelTorqueLbFt": 280.38
       },
       "publisher": "DSPORT Magazine (Test & Tune: 2018 Honda Civic Type R, Part 1)",
       "url": "https://dsportmag.com/?p=28306",
       "sourceKind": "test",
-      "note": "Summary quotes the results table: 'Test 1 AEM Intake | 297.01 WHP | 3.76 | 1.26%' against a baseline of '293.25 peak whp'. The same series lists 'Test 2 REMARK Exhaust | 296.66 WHP | 3.41 | 1.14%' (next case) and 'Test 3 Intake + Exhaust | 295.80 WHP', i.e. the two together made less than either alone. With the intake and exhaust swapped back to stock and only an ECU reflash, the car made 314.15 peak whp and 332.27 lb-ft (not an intake result, not used). Honda's 306 hp rating is from the same search summary. The table sits on dsportmag.com/?p=28306; the Part 1 article (https://dsportmag.com/the-tech/test-tune-2018-honda-civic-type-r-part-1/) shows the same tests, but one summary said its table does not print the 293.25 baseline, so which URL carries which row is not certain. No torque figures for the intake run in the summaries. Read from search-result summary; page not opened. First-pass check (was 'partial'): baseline 293.25 whp appeared in two searches; gain +3.76 whp is +1.28% on the baseline, while the table's 1.26% equals gain divided by the after figure; a civicx.com FK8 owner measured 306 whp / 305 wtq stock and only +4 whp / +0 wtq from full bolt-ons on the stock tune, attributed to the ECU working to torque targets; Mishimoto claims +12.8 hp / +12.9 lb-ft for its FK8 intake on the stock tune (manufacturer, no baseline, not used)."
+      "note": "Summary quotes the results table: 'Test 1 AEM Intake | 297.01 WHP | 3.76 | 1.26%' against a baseline of '293.25 peak whp'. The same series lists 'Test 2 REMARK Exhaust | 296.66 WHP | 3.41 | 1.14%' (next case) and 'Test 3 Intake + Exhaust | 295.80 WHP', i.e. the two together made less than either alone. With the intake and exhaust swapped back to stock and only an ECU reflash, the car made 314.15 peak whp and 332.27 lb-ft (not an intake result, not used). Honda's 306 hp rating is from the same search summary. The table sits on dsportmag.com/?p=28306; the Part 1 article (https://dsportmag.com/the-tech/test-tune-2018-honda-civic-type-r-part-1/) shows the same tests, but one summary said its table does not print the 293.25 baseline, so which URL carries which row is not certain. Read from search-result summary; page not opened. First-pass check (was 'partial'): baseline 293.25 whp appeared in two searches; gain +3.76 whp is +1.28% on the baseline, while the table's 1.26% equals gain divided by the after figure; a civicx.com FK8 owner measured 306 whp / 305 wtq stock and only +4 whp / +0 wtq from full bolt-ons on the stock tune, attributed to the ECU working to torque targets; Mishimoto claims +12.8 hp / +12.9 lb-ft for its FK8 intake on the stock tune (manufacturer, no baseline, not used). Second read: a new search returned the same 293.25 and 297.01 whp figures and added torque: 'The intake result was 297.01 peak whp and a peak 280.38 lb-ft of torque', against a baseline torque given in the exhaust passage as 282.84 lb-ft ('rose from 282.84 lb-ft'), so peak torque fell 2.46 lb-ft (-0.9%) with the intake. Intake + exhaust: '295.80 of peak wheel-horsepower, and 293.34 lb-ft of peak torque'. The summary warned that 'the intake-only and exhaust-only results come from two different DSPORT pages' which 'also report different totals for the same combinations', and that a separate DSPORT Type R fuel-system Test & Tune (https://dsportmag.com/?p=31490; same project car likely but not confirmed) 'reported a stock baseline of 296.72whp and 290.63 lb-ft', i.e. 3.47 whp and 7.79 lb-ft above this baseline on another day.",
+      "check": "confirmed",
+      "checkNote": "A second search returned the same 293.25 to 297.01 whp figures and added torque (282.84 to 280.38 lb-ft), but the +3.76 whp gain is about the size of the 3.47 whp gap to a later DSPORT stock Type R baseline (296.72 whp), so the figures stand while the gain itself is within day-to-day dyno noise."
     },
     {
       "car": "2018 Honda Civic Type R (FK8, 2.0L turbocharged four-cylinder; transmission not given in summary) - DSPORT Magazine Test & Tune car (same car as above)",
       "stockPublished": {
         "crankHp": 306
       },
-      "change": "REMARK FK8 Spec-III exhaust alone, factory ECU calibration (summary does not say where the system starts; reported as an exhaust-only bolt-on)",
+      "change": "REMARK FK8 Spec-III exhaust alone, factory ECU calibration, stock airbox kept (summary does not say where the system starts; reported as an exhaust-only bolt-on)",
       "physical": {
         "ecuCalibration": "stock"
       },
-      "measure": "peak wheel horsepower, chassis dyno, DSPORT Test & Tune results table (same baseline as the intake case)",
+      "measure": "peak wheel horsepower and peak wheel torque, chassis dyno, DSPORT Test & Tune results (same baseline as the intake case)",
       "before": {
-        "wheelHp": 293.25
+        "wheelHp": 293.25,
+        "wheelTorqueLbFt": 282.84
       },
       "after": {
-        "wheelHp": 296.66
+        "wheelHp": 296.66,
+        "wheelTorqueLbFt": 299.16
       },
       "publisher": "DSPORT Magazine (Test & Tune: 2018 Honda Civic Type R, Part 1)",
       "url": "https://dsportmag.com/?p=28306",
       "sourceKind": "test",
-      "note": "Summary: 'A DSPORT table lists a 293.25 WHP baseline, with the REMARK exhaust test at 296.66 WHP, a gain of 3.41 WHP (about 1.14%). Test 2 REMARK Exhaust | 296.66 WHP | 3.41 | 1.14% | +3.41.' The Part 1 article names the exhaust as the REMARK FK8 Spec-III. Intake + exhaust together: 295.80 whp. No torque figures in the summary. Read from search-result summary; page not opened. First-pass check (was 'partial'): single summary for the after figure, baseline shared with the intake case; 296.66 - 293.25 = 3.41 matches the stated gain (+1.16% on the baseline, 1.15% of the after figure, against 1.14% printed); a gain this size is inside typical pull-to-pull dyno variation (see ruleOfThumb)."
-    },
-    {
-      "car": "2019 Subaru WRX (2.0L turbocharged flat-four; transmission not given in summary; about 35,000 miles, otherwise stock) - DSPORT Magazine Test & Tune car",
-      "stockPublished": {
-        "crankHp": 268,
-        "crankTorqueLbFt": 258
-      },
-      "change": "Aftermarket exhaust alone, factory ECU calibration (article text names it REMARK, the results table names ARK Design)",
-      "physical": {
-        "ecuCalibration": "stock"
-      },
-      "measure": "peak wheel horsepower, chassis dyno, DSPORT Test & Tune results table",
-      "before": {
-        "wheelHp": 253.14
-      },
-      "after": {
-        "wheelHp": 260.93
-      },
-      "publisher": "DSPORT Magazine (Test & Tune: 2019 Subaru WRX, Part 1: Exhaust and Accessport)",
-      "url": "https://dsportmag.com/?p=29573",
-      "sourceKind": "test",
-      "note": "Summary: the car is 'rated at 268 horsepower and 258 lb-ft of torque to the flywheel' and was 'completely stock with 35,000 miles'. 'One passage reports 244 peak wheel horsepower and 256 lb-ft of peak torque. A results table from what appears to be the same test series lists a baseline of 253.14 WHP.' 'The table shows an exhaust test at 260.93 WHP (+7.79, about 3.1%).' A Cobb AccessPort V3 flash is listed at 258.57 WHP and Perrin intake plus AccessPort at 273.59 WHP (not single-part changes, not used). The article says the Cobb reflash gave 'a 12.1whp gain, or a 38whp gain, depending on the factory ECU's mood'. Read from search-result summary; page not opened. First-pass check (was 'partial'): weakest case on the page; the 253.14 table baseline disagrees with the text's 244 whp, the exhaust brand differs between text and table, and the summary only says the table 'appears' to belong to this test; if it does, +7.79 whp (+3.08%); the ECU's run-to-run 'mood' (12 to 38 whp spread on a reflash) is larger than the exhaust gain. Second read: the table's AccessPort row (258.57 whp) is +5.43 over 253.14 or +14.57 over 244, matching neither of the article's stated 12.1 or 38 whp reflash gains, further sign that table and text may not describe the same runs."
+      "note": "Summary: 'A DSPORT table lists a 293.25 WHP baseline, with the REMARK exhaust test at 296.66 WHP, a gain of 3.41 WHP (about 1.14%). Test 2 REMARK Exhaust | 296.66 WHP | 3.41 | 1.14% | +3.41.' The Part 1 article names the exhaust as the REMARK FK8 Spec-III. Intake + exhaust together: 295.80 whp. Read from search-result summary; page not opened. First-pass check (was 'partial'): single summary for the after figure, baseline shared with the intake case; 296.66 - 293.25 = 3.41 matches the stated gain (+1.16% on the baseline, 1.15% of the after figure, against 1.14% printed); a gain this size is inside typical pull-to-pull dyno variation (see ruleOfThumb). Second read: a new search returned the same figure and added torque: 'With the stock airbox still on, the exhaust reached 296.66 peak whp. Its bigger gain was torque, which rose from 282.84 lb-ft to 299.16 lb-ft' (+16.32 lb-ft, +5.8%). The same summary warned that the intake-only and exhaust-only rows come from two different DSPORT pages that report different totals for the same combinations, and that another DSPORT Type R stock baseline read 296.72 whp / 290.63 lb-ft (see the intake case).",
+      "check": "confirmed",
+      "checkNote": "A second search returned the same 296.66 whp exhaust-only run with the stock airbox kept and added torque 282.84 to 299.16 lb-ft; the +3.41 whp is within day-to-day noise, but the +16.3 lb-ft torque gain is about twice the 7.8 lb-ft gap between two DSPORT stock Type R baselines, so the torque result is the more meaningful one."
     },
     {
       "car": "2010 Chevrolet Camaro SS (6.2L L99 V8, naturally aspirated, 6L80E 6-speed automatic) - stock owner's car lent for the test",
@@ -76,22 +62,24 @@
       "physical": {
         "ecuCalibration": "stock"
       },
-      "measure": "rear-wheel horsepower and torque, Dynojet chassis dyno, stock and intake on the same car in one test session",
+      "measure": "rear-wheel horsepower and torque, Dynojet chassis dyno, stock and intake on the same car in one test session (hood up)",
       "before": {
         "wheelHp": 312.9,
         "wheelTorqueLbFt": 331.5
       },
       "after": {
         "wheelHp": 337.9,
-        "wheelTorqueLbFt": 352.3
+        "wheelTorqueLbFt": 352.26
       },
       "publisher": "Chevy Hardcore / LSX Magazine ('Dyno Test: 4 K&N vs. AEM 5th Gen Camaro Intake Options', January 2012)",
       "url": "https://lsxmag.com/tech-stories/engine/dyno-test-4-kn-vs-aem-5th-gen-camaro-intake-options",
       "sourceKind": "test",
-      "note": "Summary: 'A stock 2010 Camaro SS with the 400 hp L99 and 6L80E automatic was run on a Dynojet', lent by an owner in Killeen, Texas. 'The stock car made about 312.9 rwhp and 331.5 lb-ft'; 'K&N Panel Filter: About 321.4 rwhp, a gain of roughly 8.4 rwhp'; 'K&N Aircharger: About 337.9 rwhp and 352.3 lb-ft, a gain of about 25 rwhp and 20.8 lb-ft'. AEM figures were not in the summary. The summary also says 'the test was run on K&N's own equipment in a third-party article', so K&N may have hosted the test: treat with some caution. A separate Chevy Hardcore header test recorded a different stock 2010 Camaro SS at 313.1 hp at 5,800 rpm on a Mustang dyno (https://www.chevyhardcore.com/?p=358594), a useful cross-check on the baseline. Same article also at https://www.chevyhardcore.com/?p=10497. Read from search-result summary; page not opened. First-pass check (was 'partial'): single summary, internally consistent (337.9 - 312.9 = 25.0 whp, +8.0%; 352.3 - 331.5 = 20.8 lb-ft, +6.3%); stock baseline matches an independent Chevy Hardcore stock 2010 SS (313.1) within 0.2 hp; K&N's own write-up for this engine claims an estimated 18 hp."
+      "note": "Summary: 'A stock 2010 Camaro SS with the 400 hp L99 and 6L80E automatic was run on a Dynojet', lent by an owner in Killeen, Texas. 'The stock car made about 312.9 rwhp and 331.5 lb-ft'; 'K&N Panel Filter: About 321.4 rwhp, a gain of roughly 8.4 rwhp'; 'K&N Aircharger: About 337.9 rwhp and 352.3 lb-ft, a gain of about 25 rwhp and 20.8 lb-ft'. AEM figures were not in the summary. A separate Chevy Hardcore header test recorded a different stock 2010 Camaro SS at 313.1 hp at 5,800 rpm on a Mustang dyno (https://www.chevyhardcore.com/?p=358594), a useful cross-check on the baseline. Same article also at https://www.chevyhardcore.com/?p=10497 and https://www.lsxmag.com/?p=90481. Read from search-result summary; page not opened. First-pass check (was 'partial'): single summary, internally consistent (337.9 - 312.9 = 25.0 whp, +8.0%; 352.3 - 331.5 = 20.8 lb-ft, +6.3%); stock baseline matches an independent Chevy Hardcore stock 2010 SS (313.1) within 0.2 hp; K&N's own write-up for this engine claims an estimated 18 hp. Second read: a new search gave the same 312.9 to 337.9 rwhp and torque 'from about 331.5 to 352.26 lb-ft' (after torque now recorded at that precision), said 'Testing was done with the hood up, which one forum commenter argued about, and the magazine tests were run at Sunshine Performance in Killeen, Texas' (this replaces a first-pass summary's suggestion that K&N hosted the test), and that K&N's own pages report smaller gains on a 2010 SS: 344.27 rwhp, 'a net gain of 18.62 hp', for its 63-3074 kit, and an R&D test with 'an estimated 18 hp gain at about 5200 RPM' (https://www.knfilters.com/blog/add-power-to-2010-through-2015-chevy-camaro-ss-with-kn-air-intake-kit/); the summary said the magazine and K&N tests differ in setup and part numbers.",
+      "check": "confirmed",
+      "checkNote": "A second search matched 312.9 to 337.9 rwhp and 331.5 to 352.26 lb-ft on the same stock car in one session at an independent shop (Sunshine Performance), but the test was run hood-up and the maker's own dyno pages for a 2010 SS claim less (+18.62 hp), so the +25 rwhp is at or above the top of the plausible range."
     },
     {
-      "car": "Scion FR-S / Subaru BRZ (2.0L naturally aspirated flat-four; year, exact model and transmission not given in summary) - MotoIQ test car",
+      "car": "Subaru BRZ (2.0L naturally aspirated flat-four, FR-S/BRZ platform; year and transmission not given in summary) - MotoIQ's stock BRZ test 'mule'",
       "stockPublished": {
         "crankHp": 200,
         "crankTorqueLbFt": 151
@@ -109,12 +97,16 @@
       },
       "after": {
         "wheelHp": 152.8,
-        "wheelHpAtRpm": 7000
+        "wheelHpAtRpm": 7000,
+        "wheelTorqueLbFt": 121,
+        "wheelTorqueAtRpm": 6100
       },
       "publisher": "MotoIQ ('The Great ARK Design FR-S / BRZ Exhaust Shootout')",
       "url": "https://motoiq.com/the-great-ark-design-fr-s-brz-exhaust-shootout/2",
       "sourceKind": "test",
-      "note": "Summary: 'The stock baseline was 148 hp @ 6900 rpm and 118.3 lb ft of torque at 6100 rpm. The ARK Road Spec reached 152.8 hp @ 7000 rpm, which is a gain of nearly 5 whp and 3 lb/ft of torque over stock.' The after torque is given only as 'about 3 lb-ft' more, so no after torque figure is recorded. The 200 hp / 151 lb-ft stock rating is from a Grassroots Motorsports summary (case below). MotoIQ's FR-S articles say their Superflow dyno 'typically reads about 10 hp lower than a Dynojet' (not confirmed to be the dyno used here). Other figures from the same search: Perrin's own cat-back about +7 whp (manufacturer); speed.academy's Corsa cat-back test on a 155 whp stock FR-S expected about 2 whp and noted gains this small are hard to detect; aFe and Injen claim +5 hp / +6 lb-ft and up to +7 hp / +8 lb-ft (manufacturer). Read from search-result summary; page not opened. First-pass check (was 'partial'): single summary; 152.8 - 148 = 4.8 whp ('nearly 5'), +3.2%; the shootout is of one maker's systems but the magazine ran the dyno; agrees in size with the other NA cat-back figures found (vendor +4 to +7 hp, independent 'about 2 whp'); DSPORT found on this platform that an exhaust added after an intake made no further power on the stock ECU."
+      "note": "Summary: 'The stock baseline was 148 hp @ 6900 rpm and 118.3 lb ft of torque at 6100 rpm. The ARK Road Spec reached 152.8 hp @ 7000 rpm, which is a gain of nearly 5 whp and 3 lb/ft of torque over stock.' The 200 hp / 151 lb-ft stock rating is from a Grassroots Motorsports summary (case below). MotoIQ's FR-S articles say their Superflow dyno 'typically reads about 10 hp lower than a Dynojet' (not confirmed to be the dyno used here). Other figures from the same search: Perrin's own cat-back about +7 whp (manufacturer); speed.academy's Corsa cat-back test on a 155 whp stock FR-S expected about 2 whp and noted gains this small are hard to detect; aFe and Injen claim +5 hp / +6 lb-ft and up to +7 hp / +8 lb-ft (manufacturer). Read from search-result summary; page not opened. First-pass check (was 'partial'): single summary; 152.8 - 148 = 4.8 whp ('nearly 5'), +3.2%; the shootout is of one maker's systems but the magazine ran the dyno; agrees in size with the other NA cat-back figures found (vendor +4 to +7 hp, independent 'about 2 whp'); DSPORT found on this platform that an exhaust added after an intake made no further power on the stock ECU. Second read: a new search gave the same figures and the after torque: 'The exhaust produced 152.8 hp @ 7000 rpm and 121 lb ft of torque at 6100 rpm' (+2.7 lb-ft, +2.3%); it names the car 'The stock BRZ mule' (car field corrected from 'Scion FR-S / Subaru BRZ'), and MotoIQ itself notes 'it is hard to get the car to consistently read power on a dyno to where you can accurately measure a gain of 5 horsepower or so'.",
+      "check": "confirmed",
+      "checkNote": "A second search matched 148 hp @ 6900 to 152.8 hp @ 7000 and added 121 lb-ft @ 6100 after, but MotoIQ itself says its BRZ mule does not read consistently enough to measure a gain of about 5 hp accurately, so the size of the gain is near the noise floor."
     },
     {
       "car": "2015 Scion FR-S (2.0L flat-four with an aftermarket turbocharger kit; boost and transmission not given in summary) - Grassroots Motorsports 'Project Copart' car",
@@ -139,7 +131,9 @@
       "publisher": "Grassroots Motorsports ('The cork in our turbocharged FR-S build? The exhaust.')",
       "url": "https://grassrootsmotorsports.com/project-cars/2015-scion-fr-s/bolt-exhaust-actually-sounds-better-and-easy-insta",
       "sourceKind": "test",
-      "note": "Quoted: 'After a few pulls, they averaged around 246 horsepower and 223 lb.-ft. of torque. That's already 46 more horsepower and 72 more torque than stock thanks to the turbocharger.' After the JBA cat-back 'the car dynoed at 263 horsepower and 240 lb-ft, a gain of 17 horsepower and 17 lb-ft', and 'the JBA system weighed 8 pounds less than the factory exhaust'. A later article on the same car lists 292 hp / 242 lb-ft with several more mods, 'an increase of 92 horses and 91 torques over the stock car's 200 horsepower and 151 lb.-ft. of torque' (not used). GRM compares its dyno figures with the factory crank rating, so the wheel label is inferred from the chassis-dyno setting rather than stated. Turbo kit make and boost psi not in the summaries. Read from search-result summary; page not opened. First-pass check (was 'confirmed'): two searches agreed on 246/223 before and 263/240 after; 263 - 246 = 17 and 240 - 223 = 17 match the stated gains; +6.9% power, +7.6% torque. Second read corrected the first pass's comparison: that is about twice (not four times) the +3.2% of the naturally aspirated FR-S/BRZ ARK cat-back, and about six times the Type R's +1.2% on a factory turbo calibration."
+      "note": "Quoted: 'After a few pulls, they averaged around 246 horsepower and 223 lb.-ft. of torque. That's already 46 more horsepower and 72 more torque than stock thanks to the turbocharger.' After the JBA cat-back 'the car dynoed at 263 horsepower and 240 lb-ft, a gain of 17 horsepower and 17 lb-ft', and 'the JBA system weighed 8 pounds less than the factory exhaust'. A later article on the same car lists 292 hp / 242 lb-ft with several more mods, 'an increase of 92 horses and 91 torques over the stock car's 200 horsepower and 151 lb.-ft. of torque' (not used). GRM compares its dyno figures with the factory crank rating, so the wheel label is inferred from the chassis-dyno setting rather than stated. Turbo kit make and boost psi not in the summaries. Read from search-result summary; page not opened. First-pass check (was 'confirmed'): two searches agreed on 246/223 before and 263/240 after; 263 - 246 = 17 and 240 - 223 = 17 match the stated gains; +6.9% power, +7.6% torque. Second read corrected the first pass's comparison: that is about twice (not four times) the +3.2% of the naturally aspirated FR-S/BRZ ARK cat-back, and about six times the Type R's +1.2% on a factory turbo calibration. Second reader: one search returned only the 246/223 baseline; a second returned 'The car now made 263 horsepower and 240 lb.-ft. of torque - a total increase of 17 horsepower and 17 lb.-ft. of torque'. That summary called the article 'a sponsored guest update' and said 'the source gives only one dyno session for each figure, so treat the gain as the author's measurement rather than a controlled test', and found no independent dyno result for this exhaust on a turbo FR-S. Whether the before and after sessions were on the same day and the same dyno is not stated.",
+      "check": "confirmed",
+      "checkNote": "Two second-read searches returned the same 246/223 before and 263/240 after with the JBA cat-back as the only stated change, but the article is described as a sponsored guest update, same-day same-dyno testing is not stated, and no independent test of this exhaust on a turbo FR-S was found."
     },
     {
       "car": "2017 Honda Civic Si (10th generation, 1.5L turbocharged four-cylinder; transmission not given in summary) - PRL Motorsports 'Project Snow White'",
@@ -159,7 +153,9 @@
       "publisher": "PRL Motorsports (intake maker's own project-car blog)",
       "url": "https://prlmotorsports.com/blogs/news/project-snow-white-10th-gen-si-part-1-baseline-testing",
       "sourceKind": "manufacturer",
-      "note": "Intake maker's own result for its own product: a manufacturer claim. Quoted: '100% Stock Civic Si Baseline: 186 hp & 215 ft/lbs tq; 100% Stock Civic Si + Stage 1 Intake: 191 hp & 216 ft/lbs tq.' The post 'says hp, not whp', and says four dyno pulls were recorded. Recorded as wheel figures because they are chassis-dyno pulls of the car. Context from other summaries: DSPORT measured a different stock 2019 Si at 189.8 whp / 190.6 lb-ft with factory boost of roughly 18.9 psi (https://dsportmag.com/the-tech/test-n-tune/honda-civic-si-test-tune/); Mishimoto claims +4.2 whp for its Si intake on the stock tune (manufacturer); PRL elsewhere reports +4 to +9 whp from a drop-in filter and intake hose without a tune. Read from search-result summary; page not opened. First-pass check (was 'confirmed'): two searches agreed on 186 -> 191 hp and the second gave torque 215 -> 216; +5 hp (+2.7%), +1 lb-ft (+0.5%), power up at the top end with peak torque essentially unchanged, consistent with a torque-limited stock turbo calibration."
+      "note": "Intake maker's own result for its own product: a manufacturer claim. Quoted: '100% Stock Civic Si Baseline: 186 hp & 215 ft/lbs tq; 100% Stock Civic Si + Stage 1 Intake: 191 hp & 216 ft/lbs tq.' The post 'says hp, not whp', and says four dyno pulls were recorded. Recorded as wheel figures because they are chassis-dyno pulls of the car. Context from other summaries: DSPORT measured a different stock 2019 Si at 189.8 whp / 190.6 lb-ft with factory boost of roughly 18.9 psi (https://dsportmag.com/the-tech/test-n-tune/honda-civic-si-test-tune/); Mishimoto claims +4.2 whp for its Si intake on the stock tune (manufacturer); PRL elsewhere reports +4 to +9 whp from a drop-in filter and intake hose without a tune. Read from search-result summary; page not opened. First-pass check (was 'confirmed'): two searches agreed on 186 -> 191 hp and the second gave torque 215 -> 216; +5 hp (+2.7%), +1 lb-ft (+0.5%), power up at the top end with peak torque essentially unchanged, consistent with a torque-limited stock turbo calibration. Second reader: not re-searched (search cap spent on the independent cases).",
+      "check": "unconfirmed",
+      "checkNote": "Not re-searched on the second read because the six-search cap went to the independent cases, so these figures rest only on the first pass's two summaries of the intake maker's own blog."
     }
   ],
   "ruleOfThumb": [
@@ -167,7 +163,7 @@
       "claim": "K&N says its intakes typically add an average of 15-25 hp over a stock system (manufacturer claim); its own Silverado test claims up to +27.1 hp and +39.0 lb-ft at 5,000 rpm, with a low-end loss noted for a closed-box design.",
       "publisher": "K&N Engineering (manufacturer)",
       "url": "https://knfilters.com/blog/dyno-testing/",
-      "note": "Summary: 'The company says its intakes typically add an average of 15-25 additional horsepower over a stock system. That is a marketing figure, not an independent result.' and 'max gain of 27.1 horsepower and 39.0-foot pounds of torque at 5,000 RPM'. Which K&N page carries the 15-25 hp line was not certain from the summary. Against the cases on this page, only the Camaro SS (+25 whp, possibly on K&N equipment) reaches that range; the independent turbo results are +4 to +5 whp. Read from search-result summary; page not opened."
+      "note": "Summary: 'The company says its intakes typically add an average of 15-25 additional horsepower over a stock system. That is a marketing figure, not an independent result.' and 'max gain of 27.1 horsepower and 39.0-foot pounds of torque at 5,000 RPM'. Which K&N page carries the 15-25 hp line was not certain from the summary. Against the cases on this page, only the Camaro SS (+25 rwhp, an independent shop test run hood-up, where K&N's own 2010 SS pages claim +18.62 hp) reaches that range; the turbo intake results are +4 to +5 whp. Read from search-result summary; page not opened."
     },
     {
       "claim": "In an independent same-car test of four cold-air intakes, three produced no change in horsepower or torque and the fourth gained about 2 percent.",
@@ -179,7 +175,7 @@
       "claim": "On naturally aspirated cars a cat-back exhaust gains little: an Engineering Explained test on a Honda S2000 showed about 3 hp, mostly at higher rpm.",
       "publisher": "MotorBiscuit (reporting an Engineering Explained test)",
       "url": "https://www.motorbiscuit.com/do-performance-exhausts-really-increase-horsepower/",
-      "note": "Summary: 'One Engineering Explained test on a Honda S2000 showed about 3 hp, mostly at higher RPM. The same article concludes that for naturally-aspirated cars, the improvements are fairly minimal.' Compare the MotoIQ FR-S/BRZ ARK case (+4.8 whp, +3.2%). The same search's lower-authority blogs put intake gains at about 0-5 whp NA and 3-10 whp turbo (tpautorepair.net, threepiece.us), not used as evidence. Read from search-result summary; page not opened."
+      "note": "Summary: 'One Engineering Explained test on a Honda S2000 showed about 3 hp, mostly at higher RPM. The same article concludes that for naturally-aspirated cars, the improvements are fairly minimal.' Compare the MotoIQ BRZ ARK case (+4.8 whp, +3.2%). The same search's lower-authority blogs put intake gains at about 0-5 whp NA and 3-10 whp turbo (tpautorepair.net, threepiece.us), not used as evidence. Read from search-result summary; page not opened."
     },
     {
       "claim": "Modern stock ECUs cap what bolt-ons can add: on the FR-S/BRZ the factory ECU 'has tables built in that essentially limit the amount of additional power', and on the FK8 Type R full bolt-ons on the stock tune gained only about 4 whp because the ECU works to torque targets; the gains appear after a reflash.",
@@ -192,7 +188,13 @@
       "publisher": "Mustang6G forum (discussion of MotoIQ's Borla S-Type test); K&N Engineering (methodology note)",
       "url": "https://www.mustang6g.com/forums/goto/post?id=3146972",
       "note": "Mustang6G summary: one user argued 'a dyno can vary from pull to pull' by the size of the 12.91 whp Borla gain, so 'back-to-back tests on the same dyno within about an hour are needed'; another replied that 'if it were statistical noise it would be 3-4 rwhp, not 12'. K&N: competitor tests are 'often performed on different days - sometimes even weeks apart'. MotoIQ also notes its Superflow dyno reads about 10 hp below a Dynojet, so absolute figures differ by dyno while same-dyno differences are what this page records. Which Mustang6G post carries which quote was not certain. Read from search-result summary; page not opened."
+    },
+    {
+      "claim": "A stock turbocharged car's factory calibration can swing more from run to run than any single bolt-on adds: DSPORT's stock 2019 Subaru WRX 'recorded anywhere between 217whp and 243whp on the factory tune'.",
+      "publisher": "DSPORT Magazine (Test & Tune: 2019 Subaru WRX, Part 1: Exhaust and Accessport)",
+      "url": "https://dsportmag.com/?p=29573",
+      "note": "Second-read summary: the article 'says the car recorded anywhere between 217whp and 243whp on the factory tune', and its Stage 1 used 'a REMARK axleback and a Cobb Stage 1 91 octane tune' together (not a single-part change). A first-pass summary had the article saying the Cobb reflash gave 'a 12.1whp gain, or a 38whp gain, depending on the factory ECU's mood'. This page formerly carried an exhaust-only case for this car (253.14 to 260.93 whp); the second read removed it because the summary found that the DSPORT table carrying those figures 'doesn't name the car', lists an 'ARK Design Road Spec' exhaust with a cumulative AccessPort and Perrin intake sequence the WRX article does not describe, and its 253.14 whp baseline lies above the article's whole 217-243 whp factory-tune range. Read from search-result summary; page not opened."
     }
   ],
-  "searchesUsed": 20
+  "searchesUsed": 26
 }

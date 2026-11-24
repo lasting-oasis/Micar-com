@@ -370,6 +370,22 @@
       "corroboratingUrl": "https://www.wuwm.com/2024-07-08/2024-toyota-tacoma-trd-off-road-4x4-double-cab-review",
       "check": "unconfirmed",
       "checkNote": "No second-reader summary repeated the 4,794 lb figure; it is 74 lb above the top of Toyota's 4,485-4,720 lb i-FORCE 4x4 Double Cab curb-weight range (re-confirmed by a second-reader search), which fits an optioned, fuelled test truck, but WUWM listing the identical 4,794 lb leaves open whether it is a measured weight or a spec-sheet figure."
+    },
+    {
+      "key": "testBraking70to0Ft",
+      "number": 171,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/tested-2024-toyota-tacoma-no-164500137.html",
+      "sourceKind": "test",
+      "note": "Car and Driver's instrumented test of the 2024 TRD Off-Road (Yahoo Autos syndication): 'Stopping from 70 mph required 171 feet, nine feet shorter than a last-gen TRD Pro wearing similar knobby tires.' Three searches returned the same sentence; one summary tied it to 'Tested: 2024 Toyota Tacoma Is No Longer a Dinosaur', the other two only to 'a Yahoo Autos piece'. The comparison with a last-gen TRD Pro may instead come from Car and Driver's Testing Hub piece on this truck vs a 2017 TRD Pro (https://autos.yahoo.com/2024-toyota-tacoma-better-tests-140000353.html), which a summary said reports shorter 70-0 stops than the 2017 TRD Pro without quoting a number. Taken to be the same test truck as the 7.0 s / 15.3 s @ 91 mph set and the 4,794 lb test weight. No second source with the number, so no corroboratingUrl. Car and Driver's comparison test vs the Colorado ZR2 gave 179 ft (see conflicts). Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testSkidpadG",
+      "number": 0.77,
+      "publisher": "Car and Driver",
+      "url": "https://www.tacoma4g.com/forum/threads/c-d-comparison-test-2024-tacoma-trd-off-road-versus-2023-chevy-colorado-zr2.2061/",
+      "sourceKind": "test",
+      "note": "From Car and Driver's comparison test of the 2024 Tacoma TRD Off-Road against a 2023 Chevy Colorado ZR2 (March/April 2024 issue), as excerpted in a Tacoma4G forum thread: the summary read the Tacoma's test data as '300-ft skidpad roadholding' 0.77 g and 70-0 mph 179 ft, against the ZR2's 0.72 g and 186 ft, and warned the snippet was garbled. This is a different test session, and probably a different truck (a dealer summary says it was optioned to $61,590), from the standalone test whose 0-60, quarter-mile, 70-0 and weight fill this record; no skidpad g from the standalone test surfaced in any of eight searches. The comparison truck's transmission was not stated in any summary. Diameter 300 ft as the summary stated, matching testSkidpadDiameterFt, whose older note (written before this figure was found) says no skidpad g was recorded. Read from search-result summary; page not opened."
     }
   ],
   "notFound": [
@@ -396,8 +412,6 @@
     "test0to30Sec",
     "test0to100Sec",
     "testBraking60to0Ft",
-    "testBraking70to0Ft",
-    "testSkidpadG",
     "testTopSpeedMph",
     "testWeightDistFrontPct"
   ],
@@ -456,6 +470,11 @@
       "key": "testBraking60to0Ft",
       "values": [114, 136, 108],
       "note": "None recorded. 114 ft is MotorTrend's TRD Off-Road first test known only through a Valley Hi Toyota dealer summary (transmission of the test truck not stated), and MotorTrend is not this record's tester; 136 ft is Consumer Reports on a 2024 Tacoma of unstated configuration; 108 ft is MotorWeek's 2024 Tacoma road test, which the earlier research record tied to the 228-hp engine. No Car and Driver braking figure appeared in any summary. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testBraking70to0Ft",
+      "values": [171, 179],
+      "note": "Kept 171 ft from Car and Driver's standalone TRD Off-Road test (Yahoo Autos syndication), the set that fills this record's 0-60 and quarter-mile fields. 179 ft is the same magazine's comparison test against the Colorado ZR2 (Tacoma4G forum excerpt; the summary called the snippet garbled; ZR2 186 ft), the test whose 6.8 s and 15.2 s @ 92 mph sit in the test0to60Sec and quarter-mile conflicts and whose 0.77 g is recorded as testSkidpadG. Read from search-result summary; page not opened."
     },
     {
       "key": "weightDistFrontPct",

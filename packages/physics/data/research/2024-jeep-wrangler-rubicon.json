@@ -443,6 +443,14 @@
       "note": "Car and Driver's skidpad is 300 ft in diameter (the task's convention; the Sahara test in the same results says 'Roadholding, 300-ft-dia skidpad'). Recorded because Car and Driver is this record's tester; no skidpad g for the Rubicon automatic surfaced, so testSkidpadG is not recorded. Read from search-result summary; page not opened.",
       "check": "unconfirmed",
       "checkNote": "No second-reader search result stated the skidpad diameter for this test, and no Rubicon skidpad g was found, so this field describes a test figure that is not recorded."
+    },
+    {
+      "key": "testWeightLb",
+      "number": 4629,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/2018-jeep-wrangler-jl-unlimited-195000837.html",
+      "sourceKind": "test",
+      "note": "Car and Driver's test of the 2018 JL Wrangler Unlimited Rubicon, 3.6 V-6, eight-speed automatic (the same test as this record's 0-60, quarter-mile and 70-0 figures; republished on Yahoo Autos): 'This maxed-out version crushed the scales to the tune of 4629 pounds.' Two separate searches returned 4,629 lb from this same page; no second URL repeated it. Model year 2018 (pre-2024 refresh), a heavily optioned test car, so it sits 25 lb above the 4,604 lb curb weight kept for the 2024 car. Car and Driver's separate 2018 Unlimited V-6 automatic (Sahara) test weighed 4,469 lb and is not this configuration. No front weight share surfaced for this test. Read from search-result summary; page not opened."
     }
   ],
   "notFound": [
@@ -465,7 +473,6 @@
     "testBraking60to0Ft",
     "testSkidpadG",
     "testTopSpeedMph",
-    "testWeightLb",
     "testWeightDistFrontPct"
   ],
   "conflicts": [
