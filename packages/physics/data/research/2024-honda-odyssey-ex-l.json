@@ -1,0 +1,502 @@
+{
+  "id": "2024-honda-odyssey-ex-l",
+  "year": 2024,
+  "make": "Honda",
+  "model": "Odyssey",
+  "trim": "EX-L (3.5L naturally aspirated SOHC i-VTEC V6, 10-speed automatic, FWD, 235/60 R18)",
+  "bodyClass": "minivan",
+  "gathered": "2026-11-24",
+  "fields": [
+    {
+      "key": "wheelbaseIn",
+      "number": 118.1,
+      "publisher": "Honda Newsroom (hondanews.com)",
+      "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f00fe4b-2024-honda-odyssey-specs",
+      "sourceKind": "manufacturer",
+      "note": "Search summary of Honda's 2024 Odyssey specifications release: 'Wheelbase | 118.1 in', consistent across trims; iSeeCars' 2024 page and Edmunds' 2025 trim comparison give the same 118.1 in, and Honda's 2023 and 2025 sheets were said to match. (The query that returned this summary contained 118.1, a figure first seen on iSeeCars in an earlier search.) Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.iseecars.com/car/2024-honda-odyssey-specs"
+    },
+    {
+      "key": "trackFrontIn",
+      "number": 67.3,
+      "publisher": "Honda Information Center (American Honda)",
+      "url": "https://www.hondainfocenter.com/2024/Odyssey/Feature-Guide/Specifications/",
+      "sourceKind": "manufacturer",
+      "note": "Search summary of Honda's 2024 Odyssey specification pages (Honda Info Center / Honda News): 'Track is listed as 67.3 in front and 67.2 in rear across all trims.' iSeeCars' 2024 specs page independently gives front track 'about 67.3 inches'. The summary did not say whether the track differs between 18- and 19-inch wheels; it said all trims. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.iseecars.com/car/2024-honda-odyssey-specs"
+    },
+    {
+      "key": "trackRearIn",
+      "number": 67.2,
+      "publisher": "Honda Information Center (American Honda)",
+      "url": "https://www.hondainfocenter.com/2024/Odyssey/Feature-Guide/Specifications/",
+      "sourceKind": "manufacturer",
+      "note": "Same Honda 2024 summary: rear track 67.2 in across all trims; iSeeCars' 2024 page gives rear track 'about 67.2 inches'. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.iseecars.com/car/2024-honda-odyssey-specs"
+    },
+    {
+      "key": "lengthIn",
+      "number": 205.2,
+      "publisher": "Honda Newsroom (hondanews.com)",
+      "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f00fe4b-2024-honda-odyssey-specs",
+      "sourceKind": "manufacturer",
+      "note": "Search summary of Honda's 2024 Odyssey specifications release: length 205.2 inches, listed alongside width and height. iSeeCars' 2024 specs page and Edmunds' 2025 trim comparison also give 205.2 in. (The query contained the wheelbase only; length was not in it.) Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.iseecars.com/car/2024-honda-odyssey-specs"
+    },
+    {
+      "key": "widthIn",
+      "number": 78.5,
+      "publisher": "Honda Newsroom (hondanews.com)",
+      "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f00fe4b-2024-honda-odyssey-specs",
+      "sourceKind": "manufacturer",
+      "note": "Search summary of Honda's 2024 Odyssey specifications release: '78.5 inches wide'. iSeeCars (2024) and Motor Matchup (2024 Touring) also give 78.5 in. Whether this excludes mirrors was not stated. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.iseecars.com/car/2024-honda-odyssey-specs"
+    },
+    {
+      "key": "heightIn",
+      "number": 69.6,
+      "publisher": "Honda Newsroom (hondanews.com)",
+      "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f00fe4b-2024-honda-odyssey-specs",
+      "sourceKind": "manufacturer",
+      "note": "Search summary of Honda's 2024 Odyssey specifications release: '69.6 inches tall'. iSeeCars (2024) and Motor Matchup (2024 Touring) also give 69.6 in. The summary did not break height out by trim. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.iseecars.com/car/2024-honda-odyssey-specs"
+    },
+    {
+      "key": "curbWeightLb",
+      "number": 4526,
+      "publisher": "Honda Newsroom (hondanews.com)",
+      "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f00fe4b-2024-honda-odyssey-specs",
+      "sourceKind": "manufacturer",
+      "note": "Copied from the card research and re-found in this run: Honda's 2024 Odyssey spec table reads 'Curb Weight (2WD/AWD); EX: 4482 lbs; EX-L: 4526 lbs', and the Honda Info Center page matches; Edmunds repeats 4,526 lb for the EX-L. Other reference sites differ (see conflicts). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.edmunds.com/honda/odyssey/2024/features-specs"
+    },
+    {
+      "key": "weightDistFrontPct",
+      "number": 55.5,
+      "publisher": "Honda Newsroom (hondanews.com)",
+      "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f00fe4b-2024-honda-odyssey-specs",
+      "sourceKind": "manufacturer",
+      "note": "Search summary of Honda's 2024 Odyssey spec table: 'Weight Distribution (%) (front/rear) · 55.7 / 44.3 · 55.5 / 44.5', read by the summary as 55.5/44.5 for the EX-L (55.7/44.3 being the lighter EX, matching the column order of the curb-weight row EX 4482 / EX-L 4526). The summary cautioned that the page is a mixed-column table, so the EX-L column assignment is its interpretation; the two values differ by only 0.2 point. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "engineDescription",
+      "text": "3.5-liter, 24-valve SOHC i-VTEC V-6 with direct injection",
+      "publisher": "Honda Information Center (American Honda)",
+      "url": "https://www.hondainfocenter.com/-/media/Honda-Sales-Tool-Media-Folder/Images/2024-Odyssey/PDFs/2024-Odyssey-Features-by-Trim.ashx",
+      "sourceKind": "manufacturer",
+      "note": "Copied from the card research: Honda's 2024 Odyssey features-by-trim document is headed '3.5-liter, 24-valve SOHC i-VTEC V-6 engine'; Cars.com's 2024 EX-L page words it '3.5L 24-valve direct-injection SOHC i-VTEC V6'. A summary in this run added that it is an aluminum-alloy, direct-injection SOHC 24-valve i-VTEC engine with Variable Cylinder Management. One engine for all 2024 trims. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/honda-odyssey-2024/specs/445569/"
+    },
+    {
+      "key": "powertrain",
+      "text": "gasoline",
+      "publisher": "US EPA / fueleconomy.gov",
+      "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Honda_Odyssey.shtml",
+      "sourceKind": "agency",
+      "note": "Copied from the card research (fuelType): fueleconomy.gov lists the 2024 Odyssey (3.5 L, 6 cyl, Automatic S10) on regular gasoline; Edmunds lists regular unleaded. No hybrid Odyssey is offered in 2024 per the same listing. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.edmunds.com/honda/odyssey/2024/features-specs"
+    },
+    {
+      "key": "induction",
+      "text": "natural",
+      "publisher": "CarBuzz",
+      "url": "https://carbuzz.com/cars/honda/odyssey-generations",
+      "sourceKind": "reference",
+      "note": "Copied from the card research (aspiration): CarBuzz's 2024 Odyssey review describes the engine as a traditional naturally aspirated six-cylinder, in contrast with turbocharged rivals; DoubleClutch.ca called it normally aspirated. No Honda or EPA sentence on aspiration surfaced. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://doubleclutch.ca/?p=159800"
+    },
+    {
+      "key": "engineLocation",
+      "text": "front",
+      "publisher": "WardsAuto",
+      "url": "https://www.wardsauto.com/news/archive-wards-honda-details-front-engine-front-wheel-drive-10at-on-odyssey/790223/",
+      "sourceKind": "reference",
+      "note": "Taken from a search-result TITLE, not a summary sentence: WardsAuto archive article 'Honda details front-engine, front-wheel-drive 10AT on Odyssey'. The article covers the 10-speed's introduction on the current-generation (2018-on) Odyssey; its exact date was not shown. EPA and Edmunds list the 2024 Odyssey as front-wheel drive (see drivetrain). Read from search-result summary; page not opened."
+    },
+    {
+      "key": "displacementL",
+      "number": 3.5,
+      "publisher": "Honda Information Center (American Honda)",
+      "url": "https://www.hondainfocenter.com/-/media/Honda-Sales-Tool-Media-Folder/Images/2024-Odyssey/PDFs/2024-Odyssey-Features-by-Trim.ashx",
+      "sourceKind": "manufacturer",
+      "note": "Copied from the card research: Honda describes the 2024 Odyssey engine as 3.5-liter; fueleconomy.gov lists 3.5 L. Cars.com gives '3.5 L/212' and auto-data.net 3471 cm3 in this run. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.fueleconomy.gov/feg/bymodel/2024_Honda_Odyssey.shtml"
+    },
+    {
+      "key": "cylinders",
+      "number": 6,
+      "publisher": "US EPA / fueleconomy.gov",
+      "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Honda_Odyssey.shtml",
+      "sourceKind": "agency",
+      "note": "Copied from the card research: fueleconomy.gov lists the 2024 Odyssey as 3.5 L, 6 cyl; Honda calls it a V-6. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.hondainfocenter.com/-/media/Honda-Sales-Tool-Media-Folder/Images/2024-Odyssey/PDFs/2024-Odyssey-Features-by-Trim.ashx"
+    },
+    {
+      "key": "horsepower",
+      "number": 280,
+      "publisher": "Honda Information Center (American Honda)",
+      "url": "https://www.hondainfocenter.com/2024/Odyssey/Feature-Guide/Specifications/",
+      "sourceKind": "manufacturer",
+      "note": "Copied from the card research: Honda's 2024 Odyssey specifications list 280 hp @ 6000 rpm (SAE net), shared across trims including the EX-L. Honda's 2024 Odyssey vs Sienna comparison sheet (title) also shows '280 @ 6000 rpm (SAE net)'. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f00fe4b-2024-honda-odyssey-specs"
+    },
+    {
+      "key": "horsepowerRpm",
+      "number": 6000,
+      "publisher": "Honda Information Center (American Honda)",
+      "url": "https://www.hondainfocenter.com/2024/Odyssey/Feature-Guide/Specifications/",
+      "sourceKind": "manufacturer",
+      "note": "Copied from the horsepower note in the card research ('280 hp @ 6000 rpm (SAE net)'); Cars.com lists '280 @ 6000' for net horsepower at rpm in this run, and Honda's 2024 Odyssey vs Sienna sheet title reads '280 @ 6000 rpm (SAE net)'. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/honda-odyssey-2024/specs/445571/"
+    },
+    {
+      "key": "torqueLbFt",
+      "number": 262,
+      "publisher": "Honda Newsroom (hondanews.com)",
+      "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f00fe4b-2024-honda-odyssey-specs",
+      "sourceKind": "manufacturer",
+      "note": "Copied from the card research: Honda's 2024 Odyssey specifications give 262 lb-ft @ 4700 rpm (SAE net) for the V6 used in every trim; Cars.com and TrueCar repeat 262 lb-ft in this run. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/honda-odyssey-2024/specs/445569/"
+    },
+    {
+      "key": "torqueRpmLow",
+      "number": 4700,
+      "publisher": "Honda Newsroom (hondanews.com)",
+      "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f00fe4b-2024-honda-odyssey-specs",
+      "sourceKind": "manufacturer",
+      "note": "Honda gives a single peak-torque speed, '262 lb-ft @ 4700 rpm (SAE net)' (card research); Cars.com lists '262 @ 4700' for net torque at rpm in this run. Recorded as both low and high because no plateau was published. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/honda-odyssey-2024/specs/445571/"
+    },
+    {
+      "key": "torqueRpmHigh",
+      "number": 4700,
+      "publisher": "Honda Newsroom (hondanews.com)",
+      "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f00fe4b-2024-honda-odyssey-specs",
+      "sourceKind": "manufacturer",
+      "note": "Same single-point figure as torqueRpmLow: '262 lb-ft @ 4700 rpm'. No range was published, so the upper end equals the peak speed. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/honda-odyssey-2024/specs/445571/"
+    },
+    {
+      "key": "drivetrain",
+      "text": "FWD",
+      "publisher": "US EPA / fueleconomy.gov",
+      "url": "https://www.fueleconomy.gov/feg/Find.do?action=sbs&id=46860",
+      "sourceKind": "agency",
+      "note": "Copied from the card research: the fueleconomy.gov page for the 2024 Odyssey gives 'Drive: Front-Wheel Drive' with the 10-speed automatic and 19/28/22 mpg; Edmunds' 2024 spec table also lists front-wheel drive, and a review summary said no AWD is offered. A dealer page's i-VTM4 AWD mention was judged text from another Honda (see conflicts). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.edmunds.com/honda/odyssey/2024/features-specs"
+    },
+    {
+      "key": "transmissionType",
+      "text": "automatic",
+      "publisher": "US EPA / fueleconomy.gov",
+      "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Honda_Odyssey.shtml",
+      "sourceKind": "agency",
+      "note": "Copied from the card research: Cars.com's 2024 EX-L page lists a 10-speed automatic and the EPA codes the 2024 Odyssey 'Automatic (S10)'. Honda's 2024 feature guide has a '10-Speed Automatic Transmission' page. (The card research credited Cars.com; the agency listing is used as the more primary source.) Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/honda-odyssey-2024/specs/445569/"
+    },
+    {
+      "key": "gearCount",
+      "number": 10,
+      "publisher": "Honda Information Center (American Honda)",
+      "url": "https://www.hondainfocenter.com/2024/Odyssey/Feature-Guide/Engine-Chassis-Features/10-Speed-Automatic-Transmission/",
+      "sourceKind": "manufacturer",
+      "note": "Honda's 2024 Odyssey feature guide page is titled '10-Speed Automatic Transmission' and, per the summary, says the 10-speed was added to improve dynamic performance, fuel efficiency and refinement; fueleconomy.gov lists 'Automatic (S10)' and Cars.com's EX-L page '10-speed automatic'. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.fueleconomy.gov/feg/bymodel/2024_Honda_Odyssey.shtml"
+    },
+    {
+      "key": "gearRatios",
+      "numbers": [
+        5.25,
+        3.27,
+        2.19,
+        1.6,
+        1.3,
+        1.0,
+        0.78,
+        0.65,
+        0.581,
+        0.517
+      ],
+      "publisher": "auto123 (2024 Odyssey Touring listing), 9th/10th from Honda's 2025 Odyssey specifications",
+      "url": "https://www.auto123.com/en/specs/honda/odyssey/honda-odyssey-2024-touring-auto-446120/",
+      "sourceKind": "reference",
+      "note": "MIXED SOURCES. 1st-8th: auto123's 2024 Odyssey Touring listing gives '1st 5.25, 2nd 3.27, 3rd 2.19, 4th 1.60, 5th 1.30, 6th 1.00, 7th 0.78, 8th 0.65', reverse 3.97, final drive 3.61; its 2024 Black Edition and Autobytel's 2024 page repeat the same lower ratios, and the summaries said these pages list only eight forward ratios. 9th 0.581 and 10th 0.517: one summary attributed them to Honda's 2025 Odyssey spec sheet and TrueCar's Odyssey listing; two later searches did not reproduce them, so treat the top two ratios as less certain. The same summaries quoted Honda's more precise values 1st 5.246, 2nd 3.271 (2027 page), 3rd 2.185, 4th 1.597, 8th 0.653, reverse 3.974. All trims share the one 10-speed; no EX-L-specific table or 2024 Honda ratio table surfaced (one summary said Honda's 2024 sheet shows only 1st 5.246 and the final drive). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://hondanews.com/en-US/honda-automobiles/releases/release-410d07897fdd63d8043cb72750011124-2025-honda-odyssey-specifications-features"
+    },
+    {
+      "key": "finalDriveRatio",
+      "number": 3.61,
+      "publisher": "Honda Newsroom (hondanews.com)",
+      "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f00fe4b-2024-honda-odyssey-specs",
+      "sourceKind": "manufacturer",
+      "note": "Search summary of Honda's 2024 Odyssey spec pages: 'Honda's spec sheet lists a 1st gear ratio of 5.246 and a final drive ratio of 3.610 for the 10-speed automatic.' auto123's 2024 Touring listing and Autobytel's 2024 page give 3.61; Honda's 2025 sheet 3.610. Shared by all trims. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://autobytel.com/honda/odyssey/2024"
+    },
+    {
+      "key": "tyreFront",
+      "text": "235/60 R18",
+      "publisher": "Honda Information Center (American Honda)",
+      "url": "https://www.hondainfocenter.com/2024/Odyssey/Feature-Guide/Exterior-Features/Wheels-and-Tires/",
+      "sourceKind": "manufacturer",
+      "note": "Honda Info Center's 2024 Odyssey wheels-and-tires page lists 235/60R18 for the EX-L trim on 18-inch alloy wheels; a summary of Honda's 2024 spec sheet said '235/60 R18 size applies to the base EX and EX-L', with Sport, Touring and Elite on '235 / 55 R19 101H'. Firestone's fitment lookup lists the 2024 EX-L at 235/60R18 with an H speed rating, 35/35 psi; Goodyear's lookup shows the same size. Same size front and rear. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://vehicle.firestonecompleteautocare.com/honda/odyssey/2024/tires"
+    },
+    {
+      "key": "tyreRear",
+      "text": "235/60 R18",
+      "publisher": "Honda Information Center (American Honda)",
+      "url": "https://www.hondainfocenter.com/2024/Odyssey/Feature-Guide/Exterior-Features/Wheels-and-Tires/",
+      "sourceKind": "manufacturer",
+      "note": "Same as tyreFront: Honda's 2024 sheet gives one tyre size per trim, identical front and rear; Firestone lists 35 PSI/35 PSI front/rear on 235/60R18 for the 2024 EX-L. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://vehicle.firestonecompleteautocare.com/honda/odyssey/2024/tires"
+    },
+    {
+      "key": "tyreCategory",
+      "text": "all-season",
+      "publisher": "Honda Information Center (American Honda)",
+      "url": "https://www.hondainfocenter.com/-/media/Honda-Sales-Tool-Media-Folder/Images/2024-Odyssey/PDFs/2024-Odyssey-Features-by-Trim.ashx",
+      "sourceKind": "manufacturer",
+      "note": "Search summary: Honda's 2024 trim feature guide lists 'P235/60 R18 all-season tires' for the base trim (the EX, which shares the EX-L's 18-inch size), and a summary of retailer and Honda results said 'Several sources give 235/60R18 all-season tires for the EX-L'. The factory tyre's brand and model were not named, so tyreModel is left unfound. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.hondainfocenter.com/2024/Odyssey/Feature-Guide/Exterior-Features/Wheels-and-Tires/"
+    },
+    {
+      "key": "steeringRatio",
+      "number": 14.35,
+      "publisher": "Honda Newsroom (hondanews.com)",
+      "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f00fe4b-2024-honda-odyssey-specs",
+      "sourceKind": "manufacturer",
+      "note": "Search summary of Honda's 2024 Odyssey specifications release: '2.97 steering wheel turns lock-to-lock and a 14.35:1 steering ratio'. Not broken out by trim. Cars.com's 2025 EX-L page shows the steering ratio as N/A. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "turningCircleFt",
+      "number": 39.64,
+      "publisher": "Honda Newsroom (hondanews.com)",
+      "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f00fe4b-2024-honda-odyssey-specs",
+      "sourceKind": "manufacturer",
+      "note": "Search summary of Honda's 2024 Odyssey spec sheet: 'curb-to-curb turning diameter of 39.64 feet'; the Honda Info Center 2024 page gives the same figure for every trim (EX, EX-L, Sport, Touring, Elite), though it mislabels the unit 'cu ft' in places. KBB and iSeeCars list 39.6 ft for 2024 trims. Other listings differ (see conflicts). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.kbb.com/honda/odyssey/2024/specs"
+    },
+    {
+      "key": "brakeFrontDiscIn",
+      "number": 12.6,
+      "publisher": "Honda Newsroom (hondanews.com)",
+      "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f00fe4b-2024-honda-odyssey-specs",
+      "sourceKind": "manufacturer",
+      "note": "Copied from the card research (brakesFront): Honda lists 'Power-Assisted Ventilated Front Disc/Solid Rear Disc Brakes' at 12.6 in / 13.0 in for the 2024 Odyssey; CarGurus repeats ventilated front disc, 12.6 in. Stated for the model line, not by trim. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cargurus.com/research/2024-Honda-Odyssey-c33083"
+    },
+    {
+      "key": "brakeRearDiscIn",
+      "number": 13.0,
+      "publisher": "Honda Newsroom (hondanews.com)",
+      "url": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f00fe4b-2024-honda-odyssey-specs",
+      "sourceKind": "manufacturer",
+      "note": "Copied from the card research (brakesRear): Honda lists solid rear discs at 13.0 in for the 2024 Odyssey (larger than the 12.6-in ventilated fronts, as stated); CarGurus repeats rear disc, 13.0 in. Stated for the model line, not by trim. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cargurus.com/research/2024-Honda-Odyssey-c33083"
+    },
+    {
+      "key": "epaCombinedMpg",
+      "number": 22,
+      "publisher": "US EPA / fueleconomy.gov",
+      "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Honda_Odyssey.shtml",
+      "sourceKind": "agency",
+      "note": "Copied from the card research: fueleconomy.gov's 2024 Odyssey listing (3.5 L, 6 cyl, Automatic S10, FWD) shows 22 combined, one rating for all trims; Edmunds lists the EX-L at 22. A make-level page summary showed 21 (see conflicts). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://edmunds.com/honda/odyssey/2024/mpg"
+    },
+    {
+      "key": "epaCityMpg",
+      "number": 19,
+      "publisher": "US EPA / fueleconomy.gov",
+      "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Honda_Odyssey.shtml",
+      "sourceKind": "agency",
+      "note": "Copied from the card research: fueleconomy.gov's 2024 Odyssey listing shows 19 city; Edmunds lists the EX-L at 19 city. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://edmunds.com/honda/odyssey/2024/mpg"
+    },
+    {
+      "key": "epaHighwayMpg",
+      "number": 28,
+      "publisher": "US EPA / fueleconomy.gov",
+      "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Honda_Odyssey.shtml",
+      "sourceKind": "agency",
+      "note": "Copied from the card research: fueleconomy.gov's 2024 Odyssey listing shows 28 highway; Edmunds lists the EX-L at 28. A make-level page summary showed 25 (see conflicts). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://edmunds.com/honda/odyssey/2024/mpg"
+    },
+    {
+      "key": "test0to60Sec",
+      "number": 6.6,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/2018-honda-odyssey-10-speed-230000103.html",
+      "sourceKind": "test",
+      "note": "CONFIGURATION MISMATCH (model year and trim): Car and Driver's instrumented test of a 2018 Honda Odyssey with the 10-speed automatic, which the summary said was the Elite trim, republished on Yahoo Autos. Same 3.5L V6, 10-speed automatic and front drive as the 2024 EX-L, but it predates the 2021 refresh, and the Elite rides on 19-inch tyres (235/55 R19 per Honda's 2024 sheet for Sport/Touring/Elite) and is heavier and better equipped than the EX-L. No instrumented test of a 2024 EX-L, or of any 2021-2024 Odyssey with full figures from the tester itself, surfaced (see conflicts). Summary: 'The same test shows 0 to 60 mph in 6.6 seconds.' The same publication's 2018 nine-speed EX-L test was said to give up only 0.1 s to the 10-speed. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testRollout",
+      "text": "true",
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/2018-honda-odyssey-10-speed-230000103.html",
+      "sourceKind": "test",
+      "note": "Car and Driver's 0-60 times subtract a one-foot rollout (the convention specified for this task); the summary itself did not state it. Applies to the 6.6 s figure from the 2018 10-speed (Elite) test. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testQuarterMileSec",
+      "number": 15.2,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/2018-honda-odyssey-10-speed-230000103.html",
+      "sourceKind": "test",
+      "note": "CONFIGURATION MISMATCH (model year and trim): Car and Driver's instrumented test of a 2018 Honda Odyssey with the 10-speed automatic, which the summary said was the Elite trim, republished on Yahoo Autos. Same 3.5L V6, 10-speed automatic and front drive as the 2024 EX-L, but it predates the 2021 refresh, and the Elite rides on 19-inch tyres (235/55 R19 per Honda's 2024 sheet for Sport/Touring/Elite) and is heavier and better equipped than the EX-L. No instrumented test of a 2024 EX-L, or of any 2021-2024 Odyssey with full figures from the tester itself, surfaced (see conflicts). Summary: '15.2-second quarter mile at 95 mph'; a second search's summary of the nine-speed EX-L test said it 'exactly matched the 10-speed's quarter-mile time and trap speed of 15.2 seconds at 95 mph'. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://autos.yahoo.com/2018-honda-odyssey-nine-speed-182000165.html"
+    },
+    {
+      "key": "testQuarterMileMph",
+      "number": 95,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/2018-honda-odyssey-10-speed-230000103.html",
+      "sourceKind": "test",
+      "note": "CONFIGURATION MISMATCH (model year and trim): Car and Driver's instrumented test of a 2018 Honda Odyssey with the 10-speed automatic, which the summary said was the Elite trim, republished on Yahoo Autos. Same 3.5L V6, 10-speed automatic and front drive as the 2024 EX-L, but it predates the 2021 refresh, and the Elite rides on 19-inch tyres (235/55 R19 per Honda's 2024 sheet for Sport/Touring/Elite) and is heavier and better equipped than the EX-L. No instrumented test of a 2024 EX-L, or of any 2021-2024 Odyssey with full figures from the tester itself, surfaced (see conflicts). Summary: quarter mile in 15.2 seconds at 95 mph for the 10-speed car; repeated in the nine-speed EX-L test's comparison. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://autos.yahoo.com/2018-honda-odyssey-nine-speed-182000165.html"
+    },
+    {
+      "key": "testBraking70to0Ft",
+      "number": 184,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/2018-honda-odyssey-10-speed-230000103.html",
+      "sourceKind": "test",
+      "note": "CONFIGURATION MISMATCH (model year and trim): Car and Driver's instrumented test of a 2018 Honda Odyssey with the 10-speed automatic, which the summary said was the Elite trim, republished on Yahoo Autos. Same 3.5L V6, 10-speed automatic and front drive as the 2024 EX-L, but it predates the 2021 refresh, and the Elite rides on 19-inch tyres (235/55 R19 per Honda's 2024 sheet for Sport/Touring/Elite) and is heavier and better equipped than the EX-L. No instrumented test of a 2024 EX-L, or of any 2021-2024 Odyssey with full figures from the tester itself, surfaced (see conflicts). Summary: 'reports a 184-foot stop from 70 mph'. The 2018 nine-speed EX-L (18-inch tyres, different transmission) stopped in 180 ft (see conflicts). Braking depends on tyres, so the 19-inch Elite figure is only an approximate check for the EX-L. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testSkidpadG",
+      "number": 0.75,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/2018-honda-odyssey-10-speed-230000103.html",
+      "sourceKind": "test",
+      "note": "CONFIGURATION MISMATCH (model year and trim): Car and Driver's instrumented test of a 2018 Honda Odyssey with the 10-speed automatic, which the summary said was the Elite trim, republished on Yahoo Autos. Same 3.5L V6, 10-speed automatic and front drive as the 2024 EX-L, but it predates the 2021 refresh, and the Elite rides on 19-inch tyres (235/55 R19 per Honda's 2024 sheet for Sport/Touring/Elite) and is heavier and better equipped than the EX-L. No instrumented test of a 2024 EX-L, or of any 2021-2024 Odyssey with full figures from the tester itself, surfaced (see conflicts). Summary: '0.75 g on the 300-foot skidpad', which the reviewers called unimpressive for the class. The 2018 nine-speed EX-L pulled 0.74 g (see conflicts). Grip depends on tyres; the Elite's 19-inch tyres differ from the EX-L's 235/60 R18. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testSkidpadDiameterFt",
+      "number": 300,
+      "publisher": "Car and Driver",
+      "url": "https://autos.yahoo.com/2018-honda-odyssey-10-speed-230000103.html",
+      "sourceKind": "test",
+      "note": "The summary of the 2018 10-speed test said '0.75 g on the 300-foot skidpad', matching Car and Driver's 300-ft skidpad convention. Read from search-result summary; page not opened."
+    }
+  ],
+  "notFound": [
+    "groundClearanceIn",
+    "cgHeightIn",
+    "redlineRpm",
+    "boostPsi",
+    "compressionRatio",
+    "awdSystem",
+    "differential",
+    "tyreModel",
+    "dragCoefficient",
+    "frontalAreaSqFt",
+    "liftCoefficientFront",
+    "liftCoefficientRear",
+    "topSpeedMph",
+    "topSpeedGoverned",
+    "test0to30Sec",
+    "test0to100Sec",
+    "testBraking60to0Ft",
+    "testTopSpeedMph",
+    "testWeightLb",
+    "testWeightDistFrontPct"
+  ],
+  "conflicts": [
+    {
+      "key": "curbWeightLb",
+      "values": [
+        4526,
+        4566,
+        4400
+      ],
+      "note": "Kept 4,526 lb, Honda's own EX-L figure, repeated by Edmunds and Motor Matchup. 4,566 lb is Auto123's EX-L listing; 4,400 lb is vincheck.info with trim unstated. From the card research. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "epaCombinedMpg",
+      "values": [
+        22,
+        21
+      ],
+      "note": "Kept 22 combined (19 city / 28 highway) from the model-specific fueleconomy.gov pages, which Edmunds matches for the EX-L. 21 combined / 25 highway came from a summary of fueleconomy.gov's make-level 2024 Honda page and may belong to another row. From the card research. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "epaHighwayMpg",
+      "values": [
+        28,
+        25
+      ],
+      "note": "Kept 28 (model-specific EPA page, Edmunds EX-L); 25 is the make-level page summary noted under epaCombinedMpg. From the card research. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "drivetrain",
+      "values": [
+        "FWD",
+        "AWD (i-VTM4 mention)"
+      ],
+      "note": "Kept FWD (EPA, Edmunds, review summaries saying no AWD is offered). A dealer page (teamhonda.com) mentioned a '2nd-Gen i-VTM4 AWD System', apparently text from another Honda model. From the card research. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "groundClearanceIn",
+      "values": [
+        5,
+        4.5
+      ],
+      "note": "None kept; groundClearanceIn is in notFound. Cars.com shows 5 in for some 2024 trims (Sport; the card research saw it on the EX-L page with a warning that its values looked misaligned); iSeeCars gives 4.5 in for the 2024 Elite, and carspecs.us/autoweb about 4.5 in. Honda's own 2024 spec pages, per three summaries, showed no ground clearance figure. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "turningCircleFt",
+      "values": [
+        39.64,
+        39.6,
+        37,
+        36.7
+      ],
+      "note": "Kept Honda's 39.64 ft curb to curb (2024 spec sheet, all trims); KBB and iSeeCars give 39.6 ft, the same figure rounded. Cars.com's 2025 EX-L page lists 37 ft curb to curb (different model year, apparently rounded or a different basis) and TrueCar's older Odyssey EX 36.7 ft (different model year). Read from search-result summary; page not opened."
+    },
+    {
+      "key": "dragCoefficient",
+      "values": [
+        0.45
+      ],
+      "note": "None kept; dragCoefficient is in notFound. Motor Matchup's 2024 Odyssey Touring listing gives 'Drag Coefficient: 0.45'. Motor Matchup is a third-party catalog whose performance figures are its own simulations, it is not the EX-L listing, and no Honda or tester figure surfaced, so it was not used. No frontal area was published (a summary offered a height x width x 0.84 estimate, which was not used). Read from search-result summary; page not opened."
+    },
+    {
+      "key": "gearRatios",
+      "values": [
+        5.246,
+        5.25
+      ],
+      "note": "Not a disagreement in substance: Honda's sheets quote 1st 5.246, 2nd 3.271, 3rd 2.185, 4th 1.597, 8th 0.653, reverse 3.974, while auto123 rounds to two decimals (5.25, 3.27, 2.19, 1.60, 0.65, 3.97). The two-decimal auto123 2024 values were kept for gears 1-8 because they form a complete 2024 table; the precise Honda values come from 2025/2027 sheets. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "test0to60Sec",
+      "values": [
+        6.6,
+        6.8,
+        6.7,
+        6.5,
+        7.5
+      ],
+      "note": "Kept Car and Driver's 6.6 s (2018 Odyssey 10-speed, Elite) because that test also gives quarter mile, 70-0 braking and skidpad, the most figures for this engine/transmission/drive. Others: MotorWeek's road test of a 2021 Odyssey (https://motorweek.org/road_tests/2021-honda-odyssey), trim not stated in the summary: 6.8 s 0-60 and 15.2 s at 95 mph, closer in model year (post-refresh) but fewer figures and rollout convention not stated. 0-60specs.com lists a MotorTrend run of a 2021 EX-L at 6.70 s and 15.10 s at 94.4 mph, not confirmed on MotorTrend's own page. The Auto Channel's 2024 Elite review gave 6.5 s and 15.1 s at 96 mph, not shown to be instrumented. Motor Matchup's 7.5 s for the 2024 EX-L is a simulation. The card research also saw 6.8 s for a 2024 Elite on 0-60specs.com with inconsistent attribution. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testBraking70to0Ft",
+      "values": [
+        184,
+        180,
+        179
+      ],
+      "note": "Kept 184 ft (Car and Driver, 2018 10-speed Elite, same transmission as the 2024). Car and Driver's 2018 nine-speed EX-L stopped in 180 ft on the EX-L's 18-inch tyres, but with the nine-speed transmission, a different configuration (https://autos.yahoo.com/2018-honda-odyssey-nine-speed-182000165.html). An aggregator's 179 ft for a 2026 Odyssey named no tester. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testSkidpadG",
+      "values": [
+        0.75,
+        0.74
+      ],
+      "note": "Kept 0.75 g (Car and Driver, 2018 10-speed Elite, 300-ft skidpad). The 2018 nine-speed EX-L pulled 0.74 g on its 18-inch tyres in Car and Driver's test, a different transmission (https://autos.yahoo.com/2018-honda-odyssey-nine-speed-182000165.html). Read from search-result summary; page not opened."
+    }
+  ],
+  "searchesUsed": 14
+}

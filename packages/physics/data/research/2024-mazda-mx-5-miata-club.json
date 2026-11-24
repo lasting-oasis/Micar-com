@@ -8,6 +8,65 @@
   "gathered": "2026-11-24",
   "fields": [
     {
+      "key": "wheelbaseIn",
+      "number": 90.9,
+      "publisher": "Autoblog",
+      "url": "https://www.autoblog.com/buy/2024-Mazda-MX_5+Miata-Club__2dr_Convertible/specs/",
+      "sourceKind": "reference",
+      "note": "Search summary: 'Autoblog lists it at 90.9 inches, and TrueDelta gives the same figure for both the soft top and the RF'; the Autoblog listing is for the 2024 MX-5 Miata Club 2dr Convertible. No Mazda 2024 figure was seen (the 2024 MX-5 Spec Deck PDF appeared in results but its dimension tables were not shown). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.truedelta.com/Mazda-MX-5-Miata/specs-175"
+    },
+    {
+      "key": "trackFrontIn",
+      "number": 58.9,
+      "publisher": "CarExpert (New Zealand)",
+      "url": "https://www.carexpert.co.nz/mazda/mx-5/2024/exterior-and-dimensions",
+      "sourceKind": "reference",
+      "note": "Search summary: 'CarExpert's listing gives a front track of about 58.9 in (1495 mm)'. Published in millimetres (1495 mm = 58.86 in). This is the New Zealand-market 2024 MX-5 roadster listing (the NZ page cites VDA measurement), not a US Club figure; front track depends on wheel offset, so a US 17-inch Club may differ slightly. No US-market front track was seen. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "trackRearIn",
+      "number": 59.3,
+      "publisher": "CarExpert (New Zealand)",
+      "url": "https://www.carexpert.co.nz/mazda/mx-5/2024/exterior-and-dimensions",
+      "sourceKind": "reference",
+      "note": "Search summary: 'a rear track of about 59.3 in (1505 mm)'. Published in millimetres (1505 mm = 59.25 in). A US-market 2024 Miata buyer's guide syndicated on Yahoo (described in the summary as cars.com-linked) gives the rear as 59.2 in, which agrees within rounding; kept the CarExpert value so front and rear come from one source on one basis. New Zealand-market listing, not a US Club figure. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://ca.news.yahoo.com/2024-mazda-miata-specs-features-131800686.html"
+    },
+    {
+      "key": "lengthIn",
+      "number": 154.1,
+      "publisher": "Autoblog",
+      "url": "https://www.autoblog.com/buy/2024-Mazda-MX_5+Miata-Club__2dr_Convertible/specs/",
+      "sourceKind": "reference",
+      "note": "Search summary: 'Autoblog's Club listing also gives a 154.1-inch length' (2024 MX-5 Miata Club 2dr Convertible). No second source and no Mazda 2024 figure was seen. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "widthIn",
+      "number": 68.3,
+      "publisher": "CarExpert (New Zealand)",
+      "url": "https://www.carexpert.co.nz/mazda/mx-5/2024/exterior-and-dimensions",
+      "sourceKind": "reference",
+      "note": "Search summary: 'Overall width is about 68.3 in (1735 mm) without mirrors, and about 75.5 in (1918 mm) with mirrors'. Recorded the without-mirrors body width. Published in millimetres; New Zealand-market 2024 MX-5 listing, not a US Club figure. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "weightDistFrontPct",
+      "number": 52,
+      "publisher": "CarGurus",
+      "url": "https://www.cargurus.com/research/2024-Mazda-MX-5-Miata-c33315",
+      "sourceKind": "reference",
+      "note": "Search summary: 'CarGurus reports a 52/48 front-to-rear split for the soft top, and 51/49 for the RF' (2024 MX-5 Miata research page). Trim, transmission, and load basis (curb, with or without driver) not stated. Mazda's own 2023 model-year page was summarized as giving 53:47, and Mazda marketing elsewhere says 'nearly perfect 50/50' (see conflicts); kept CarGurus because it is the only figure that names the 2024 soft top. Weak field: confirm before relying on it. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "groundClearanceIn",
+      "number": 5.3,
+      "publisher": "Autoblog",
+      "url": "https://www.autoblog.com/buy/2024-Mazda-MX_5+Miata-Club__2dr_Convertible/specs/",
+      "sourceKind": "reference",
+      "note": "Carried over from the earlier card research: Autoblog's 2024 MX-5 Miata Club 2dr Convertible spec listing was summarized as giving ground clearance 5.3 in; auto123's Canadian 2024 GS listing shows the same 5.3 in. Not from Mazda's own 2024 sheet, measurement basis (laden or unladen) unknown, and the card reviewer marked it unconfirmed; a later pass saw 4.9 in on CarBuzz for 2024 (see conflicts). Weakest numeric field in this record. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.auto123.com/en/specs/mazda/mx-5/mazda-mx-5-2024-gs-manual-453418/"
+    },
+    {
       "key": "engineDescription",
       "text": "Skyactiv-G 2.0-liter four-cylinder",
       "publisher": "Mazda North American Operations (Mazda USA Newsroom, 2024 MX-5 Miata Pricing and Packaging)",
@@ -106,6 +165,24 @@
       "corroboratingUrl": "https://www.kbb.com/mazda/mx-5-miata/2024/club"
     },
     {
+      "key": "redlineRpm",
+      "number": 7500,
+      "publisher": "Automotive Powertrain Technology International (attribution uncertain)",
+      "url": "https://www.automotivepowertraintechnologyinternational.com/features/engines-on-test-2019-mazda-mx-5-2-0-liter-skyactiv-g.html",
+      "sourceKind": "reference",
+      "note": "Search summary: 'One source says the high compression ratio of 13:1 with a heady 7,500 rpm redline ... and a separate spec listing gives a redline of 7,500 rpm.' The summary did not name either page; this engine-test article (written about the 2019 MX-5 2.0-liter Skyactiv-G, an earlier model year with the same 181 hp rating) and auto123's 2024 GS-P listing were the likeliest results, so the pairing of wording to page is not certain. No Mazda wording for the 2024 redline was seen. Weak field. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.auto123.com/en/specs/mazda/mx-5/mazda-mx-5-2024-gs-p-manual-453419/"
+    },
+    {
+      "key": "compressionRatio",
+      "number": 13.0,
+      "publisher": "Mazda Canada (2024 MX-5 digital owner's manual, Vehicle Specification)",
+      "url": "https://mazda.ca/en/digital-owners-manual/2024/mx-5/contents/70070600.html",
+      "sourceKind": "manufacturer",
+      "note": "Search summary: 'Mazda Canada's owner's manual also lists a compression ratio of 13.0'; another result in the same search said 'the high compression ratio of 13:1 with a heady 7,500 rpm redline'. Canadian-market 2024 MX-5; Mazda Canada's 2024 spec sheet gives the same 181 hp at 7,000 rpm as the US car. No US-market wording was seen. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.automotivepowertraintechnologyinternational.com/features/engines-on-test-2019-mazda-mx-5-2-0-liter-skyactiv-g.html"
+    },
+    {
       "key": "drivetrain",
       "text": "RWD",
       "publisher": "Mazda North American Operations (Mazda USA Newsroom, 2024 MX-5 Miata Pricing and Packaging)",
@@ -133,6 +210,31 @@
       "corroboratingUrl": "https://mpgbuddy.com/cars/mazda/mx-5/2024"
     },
     {
+      "key": "gearRatios",
+      "numbers": [
+        5.09,
+        2.99,
+        2.04,
+        1.59,
+        1.29,
+        1.0
+      ],
+      "publisher": "auto123",
+      "url": "https://www.auto123.com/en/specs/mazda/mx-5/mazda-mx-5-2024-gt-manual-453421/",
+      "sourceKind": "reference",
+      "note": "Search summary: 'Several listings give the same gear ratios: 5.09 first, 2.99 second, 2.04 third, 1.59 fourth, 1.29 fifth, and 1.00 sixth. Reverse is 4.70' for the 2024 six-speed manual (auto123 2024 MX-5 GT manual, Canadian market; Autoweb and an AOL buyer's guide also cited). A second search found the same ratios to three decimals for the 2.0-liter ND 6MT in earlier model years: 5.087 / 2.991 / 2.035 / 1.594 / 1.286 / 1.000, reverse 4.696 (Moss Miata 2016 ND table; also auto123 2020-2021, Carspecs 2020 Sport manual, TrueCar 2017 RF Club manual). No source specific to the US Club trim was seen; the Club is manual-only and no result suggested trim-specific gearing. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://mossmiata.com/miata-mx5-2016-nd"
+    },
+    {
+      "key": "finalDriveRatio",
+      "number": 2.87,
+      "publisher": "auto123",
+      "url": "https://www.auto123.com/en/specs/mazda/mx-5/mazda-mx-5-2024-gt-manual-453421/",
+      "sourceKind": "reference",
+      "note": "Search summary: 'the final drive is 2.87:1' for the 2024 six-speed manual (auto123 2024 MX-5 GT manual, Canadian market). Earlier-model-year 2.0-liter 6MT listings give 2.866 (TrueCar 2017 RF Club manual, Moss Miata 2016 ND table). The automatic's 3.454 final drive does not apply. No US Club-specific listing was seen. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.truecar.com/mazda/mx-5-miata/2017/rf-club-manual/specs/"
+    },
+    {
       "key": "differential",
       "text": "limited-slip (asymmetric limited-slip differential)",
       "publisher": "Motor1 (attribution uncertain)",
@@ -142,13 +244,57 @@
       "corroboratingUrl": "https://carpro.com/vehicle-reviews/2024-mazda-mx-5-miata-club-with-brembo-bbs-recaro-package-review"
     },
     {
-      "key": "groundClearanceIn",
-      "number": 5.3,
-      "publisher": "Autoblog",
-      "url": "https://www.autoblog.com/buy/2024-Mazda-MX_5+Miata-Club__2dr_Convertible/specs/",
+      "key": "tyreFront",
+      "text": "205/45R17",
+      "publisher": "Mavis Tires & Brakes",
+      "url": "https://www.mavis.com/vehicle/mazda/mx-5-miata/2024/club/",
       "sourceKind": "reference",
-      "note": "Carried over from the earlier card research: Autoblog's 2024 MX-5 Miata Club 2dr Convertible spec listing was summarized as giving ground clearance 5.3 in; auto123's Canadian 2024 GS listing shows the same 5.3 in. Not from Mazda's own 2024 sheet, measurement basis (laden or unladen) unknown, and the card reviewer marked it unconfirmed; a later pass saw 4.9 in on CarBuzz for 2024 (see conflicts). Weakest numeric field in this record. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.auto123.com/en/specs/mazda/mx-5/mazda-mx-5-2024-gs-manual-453418/"
+      "note": "Search summary: 'Mavis calls 205/45R17 the standard OEM size for this trim' (2024 MX-5 Miata Club); Goodyear's 2024 Club fitment listing and Firestone ('205/45R17 with a W speed rating and 29 PSI/29 PSI front/rear inflation') agree. BigO lists a 195/50R16 alternative for some 2024 MX-5 trims; the Club's 17-inch wheels (BBS forged 17-inch wheels with the optional Brembo/BBS/Recaro package) take the 205/45R17. Tyre-retailer fitment data, not Mazda's spec sheet. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.goodyear.com/en-us/vehicles/Mazda/MX~-5-Miata/2024/Club"
+    },
+    {
+      "key": "tyreRear",
+      "text": "205/45R17",
+      "publisher": "Mavis Tires & Brakes",
+      "url": "https://www.mavis.com/vehicle/mazda/mx-5-miata/2024/club/",
+      "sourceKind": "reference",
+      "note": "Same fitment listings as tyreFront: one size, 205/45R17, is listed for the 2024 Club with no staggered rear size, and Firestone gives front and rear inflation (29/29 psi) for that single size. Tyre-retailer fitment data, not Mazda's spec sheet. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://vehicle.firestonecompleteautocare.com/mazda/mx-5-miata/2024/tires"
+    },
+    {
+      "key": "turningCircleFt",
+      "number": 30.8,
+      "publisher": "CarExpert (New Zealand)",
+      "url": "https://www.carexpert.co.nz/mazda/mx-5/2024/exterior-and-dimensions",
+      "sourceKind": "reference",
+      "note": "Search summary: 'Kerb-to-kerb is about 9.4 m (30.8 ft)'. Published in metres; kerb-to-kerb (not wall-to-wall). New Zealand-market 2024 MX-5 listing; the 2024 model received a new steering rack, so earlier-year figures were not used. No US figure was seen. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "brakeFrontDiscIn",
+      "number": 11.02,
+      "publisher": "BuyBrakes.com (PowerStop TDBK7359 kit listing)",
+      "url": "https://www.buybrakes.com/powerstop-tdbk7359-track-day-high-performance-brake-kit",
+      "sourceKind": "reference",
+      "note": "Search summary: 'A PowerStop track kit listed for the 2024 Club gives an 11.02-inch front rotor'; Detroit Axle's kit for 2016-2023 Club models without Brembo brakes gives '11.02 inch (280mm) front and rear rotors', and Mazda Canada's 2024 MX-5 RF sheet (seen in the earlier research) gives 280 mm ventilated front discs. Aftermarket replacement-part data, not Mazda's 2024 US spec. The Club's optional Brembo/BBS/Recaro package fits Brembo front calipers; a Grassroots Motorsports forum reply says the rotor diameter is the same, which is forum comment only. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.detroitaxle.com/?p=992005"
+    },
+    {
+      "key": "brakeRearDiscIn",
+      "number": 11.01,
+      "publisher": "BuyBrakes.com (PowerStop TDBK7359 kit listing)",
+      "url": "https://www.buybrakes.com/powerstop-tdbk7359-track-day-high-performance-brake-kit",
+      "sourceKind": "reference",
+      "note": "Search summary: the same 2024 Club PowerStop listing gives 'a rear rotor outside diameter of 279.7 mm' (279.7 mm = 11.01 in); Detroit Axle's 2016-2023 Club (non-Brembo) kit gives 11.02 in (280 mm) rear, and Mazda Canada's 2024 MX-5 RF sheet (earlier research) gives 280 mm solid rear discs. Aftermarket replacement-part data, not Mazda's 2024 US spec. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.detroitaxle.com/?p=992005"
+    },
+    {
+      "key": "epaCombinedMpg",
+      "number": 29,
+      "publisher": "California Drive Clean (state government listing of EPA data)",
+      "url": "https://driveclean.ca.gov/node/1219621",
+      "sourceKind": "agency",
+      "note": "Carried over from the earlier card research: California Drive Clean's 2024 MX-5 listing shows comb08 29; MPG Buddy (model page and year table) and Edmunds (2024 Sport, same manual powertrain) give 29. AutoPadre alone lists 30 for the manual trims (see conflicts). The fueleconomy.gov page itself did not appear in results. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://mpgbuddy.com/cars/mazda/mx-5/2024"
     },
     {
       "key": "epaCityMpg",
@@ -167,35 +313,14 @@
       "sourceKind": "agency",
       "note": "Carried over from the earlier card research: California Drive Clean's 2024 MX-5 manual 2.0L listing shows highway08 34; Edmunds (2024 Sport, same manual powertrain), MPG Buddy and AutoPadre (manual Club) agree. The fueleconomy.gov page itself did not appear in results. Read from search-result summary; page not opened.",
       "corroboratingUrl": "https://www.edmunds.com/mazda/mx-5-miata/2024/st-401986487/features-specs"
-    },
-    {
-      "key": "epaCombinedMpg",
-      "number": 29,
-      "publisher": "California Drive Clean (state government listing of EPA data)",
-      "url": "https://driveclean.ca.gov/node/1219621",
-      "sourceKind": "agency",
-      "note": "Carried over from the earlier card research: California Drive Clean's 2024 MX-5 listing shows comb08 29; MPG Buddy (model page and year table) and Edmunds (2024 Sport, same manual powertrain) give 29. AutoPadre alone lists 30 for the manual trims (see conflicts). The fueleconomy.gov page itself did not appear in results. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://mpgbuddy.com/cars/mazda/mx-5/2024"
     }
   ],
   "notFound": [
-    "wheelbaseIn",
-    "trackFrontIn",
-    "trackRearIn",
-    "lengthIn",
-    "widthIn",
     "heightIn",
     "curbWeightLb",
-    "weightDistFrontPct",
     "cgHeightIn",
-    "redlineRpm",
     "boostPsi",
-    "compressionRatio",
     "awdSystem",
-    "gearRatios",
-    "finalDriveRatio",
-    "tyreFront",
-    "tyreRear",
     "tyreModel",
     "tyreCategory",
     "dragCoefficient",
@@ -203,9 +328,6 @@
     "liftCoefficientFront",
     "liftCoefficientRear",
     "steeringRatio",
-    "turningCircleFt",
-    "brakeFrontDiscIn",
-    "brakeRearDiscIn",
     "topSpeedMph",
     "topSpeedGoverned",
     "test0to30Sec",
@@ -225,49 +347,93 @@
   "conflicts": [
     {
       "key": "curbWeightLb",
-      "values": [2368, 2341, 2366, 2374, 2372, 2403, 2452, 2454, 2470, 2484],
+      "values": [
+        2368,
+        2341,
+        2366,
+        2374,
+        2372,
+        2403,
+        2452,
+        2454,
+        2470,
+        2484
+      ],
       "note": "Not recorded. Earlier card research found: 2,368 lb (KBB Club page, iSeeCars 'Club 2dr convertible', Edmunds Club); 2,341 lb (cars.com Club 'base curb weight', Motor1 2024 first drive, TheCarConnection, CarBuzz, AutoPadre Sport manual; also Mazda's 2020 MT figure); 2,366 lb MT / 2,405 lb AT (The Drive 2024 review spec box; also the current mazdausa.com page, which is for the 2026 model year); 2,374 lb (CarGurus base, trim not stated; Mazda Canada 1,077 kg base 6MT soft top, Canadian market); 2,372 lb (0-60specs aggregator for a 2024 Club, attributed to MotorTrend, original not seen); 2,403 lb (TrueDelta, matches Mazda's 2020 AT figure); 2,452 lb (U.S. News Club Manual); 2,454 lb (Road & Track / Car and Driver, 2025 Club); 2,470 lb (Drive Chicago, 2024); 2,484 lb (The Auto Channel 2024 Club 6MT review). No Mazda figure for the 2024 model year surfaced (the 2024 MX-5 Spec Deck PDF at news.mazdausa.com appeared in results but its weight row was never summarized), and the listing sites appear to mix Sport and Club and soft top and RF. The optional Brembo/BBS/Recaro package also changes the weight. Read from search-result summary; page not opened."
     },
     {
       "key": "groundClearanceIn",
-      "values": [5.3, 4.9],
+      "values": [
+        5.3,
+        4.9
+      ],
       "note": "Kept 5.3 in: Autoblog's listing names the 2024 Club 2dr Convertible and auto123's Canadian 2024 listing agrees; Mazda's 2020 spec sheet (seen in the earlier research) gave 5.32 in minimum laden. 4.9 in is CarBuzz for 2024 (trim not stated; Mazda's 2019 press kit gave 4.92 in minimum laden, trim unclear). Neither value was read from Mazda's 2024 sheet, and one earlier pass left the field out for that reason. Read from search-result summary; page not opened."
     },
     {
       "key": "epaCombinedMpg",
-      "values": [29, 30],
+      "values": [
+        29,
+        30
+      ],
       "note": "Kept 29: California Drive Clean's EPA-based listing, MPG Buddy and Edmunds agree. 30 comes from one aggregator (AutoPadre, manual Club/Grand Touring/Sport) and may be carried over from an earlier model year or another transmission. Read from search-result summary; page not opened."
     },
     {
       "key": "test0to60Sec",
-      "values": [5.5, 5.6, 5.7],
-      "note": "Not recorded. 5.5 s is Car and Driver's figure for a 2024 Miata RF Club 6MT (retractable hardtop, a different body), seen only as repeated by a dealer page and other secondary sources, and also cited for a 2025 Club soft top (a different model year); 5.6 s is the 0-60specs aggregator's '2024 MX-5 Miata Club' with no tester named; 5.7 s is attributed to MotorTrend for a 2024 Club RF via a third-party database, and also to a 2025 Club test. No named instrumented test of the 2024 soft-top Club was found, and none was read from the tester itself, so no citable test URL exists. Read from search-result summary; page not opened."
+      "values": [
+        5.5,
+        5.6,
+        5.7,
+        6.4
+      ],
+      "note": "Not recorded; no test figures are recorded for this car. 5.5 s is Car and Driver's figure for a 2024 Miata RF Club 6MT (retractable hardtop, a different body) from its comparison test against the Subaru BRZ tS (Yahoo Autos syndication, https://autos.yahoo.com/2024-mazda-miata-rf-club-141100304.html); SlashGear repeats the same set (5.5 s, quarter mile 14.3 s at 96 mph, 0.90 g, 176 ft from 70 mph) without naming the model year or trim. A 2025 Club soft-top write-up syndicated on AOL (https://www.aol.com/tested-2025-mazda-mx-5-175900887.html) lists 5.5 s 'crediting Car and Driver's testing' but is labelled Road & Track, so its tester is unclear, and it is another model year. 5.6 s (quarter mile 14.2 s) is the 0-60specs aggregator's '2024 Club' with no tester named. 5.7 s (quarter mile 14.5 s at 95 mph) is from The Auto Channel's 2024 MX-5 Club 6M review (https://www2020.theautochannel.com/news/2024/05/01/1375027-2024-mazda-mx-5-club-6m-review-by-david-colman.html), the exact configuration, but the summary did not establish that it was an instrumented test or whether it used a one-foot rollout; 5.7 s was also attributed to MotorTrend for a 2024 Club RF via a third-party database. 6.4 s (quarter mile 14.8 s at 92.9 mph) is Edmunds' 2024 RF Club track test (https://www.edmunds.com/car-news/2024-mazda-mx-5-miata-rf-club-track-tested.html), a different body. No named instrumented test of the 2024 soft-top Club was read from the tester itself. Read from search-result summary; page not opened."
     },
     {
       "key": "testSkidpadG",
-      "values": [0.9],
+      "values": [
+        0.9
+      ],
       "note": "Not recorded. 0.90 g on Car and Driver's 300-ft skidpad comes from its comparison test of a 2024 Miata RF Club against a Subaru BRZ tS, seen via Yahoo Autos syndication; SlashGear repeats 0.90 g without naming the trim. The RF is a different body from the soft top, and whether the test car had the Brembo/BBS/Recaro package was not stated. Read from search-result summary; page not opened."
     },
     {
       "key": "testBraking70to0Ft",
-      "values": [176],
+      "values": [
+        176
+      ],
       "note": "Not recorded. 176 ft is from the same Car and Driver comparison test of the 2024 Miata RF Club (different body from the soft top), seen only via syndication. Read from search-result summary; page not opened."
     },
     {
       "key": "topSpeedMph",
-      "values": [140],
-      "note": "Not recorded. 140 mph appeared only on Drive Chicago for a 2025 Grand Touring RF (different model year, trim and body). topSpeedGoverned is also unsourced. Read from search-result summary; page not opened."
+      "values": [
+        140,
+        136
+      ],
+      "note": "Not recorded. 140 mph appeared only on Drive Chicago for a 2025 Grand Touring RF (different model year, trim and body). 136 mph is Auto Express's UK figure for the 2.0-litre Roadster (137 mph RF), and auto-data gives 136.08 mph for the 184-hp European-spec 2.0 (https://www.auto-data.net/en/mazda-mx-5-iv-nd-facelift-2023-2.0-skyactiv-g-184hp-45806): a different market and engine rating. No US figure for the 2024 Club was seen; topSpeedGoverned is also unsourced. Read from search-result summary; page not opened."
     },
     {
-      "key": "brakeFrontDiscIn",
-      "values": ["280 mm ventilated"],
-      "note": "Not recorded. The only front rotor size seen in the earlier research was on Mazda Canada's 2024 MX-5 RF spec sheet (https://cdn.mazda.ca/link/45deeb049bb44b27b3cc60c347ae03d4.aspx): 280 mm ventilated front discs. That is another market and the RF body, in millimetres, and the US 2024 spec deck's brake rows never appeared in a summary. The Club's optional Brembo/BBS/Recaro package fits different front brakes. Read from search-result summary; page not opened."
+      "key": "testBraking60to0Ft",
+      "values": [
+        113
+      ],
+      "note": "Not recorded. Edmunds' 2024 MX-5 Miata page says its 'manual-equipped test car' stopped from 60 mph in 113 feet (https://www.edmunds.com:443/mazda/mx-5-miata/); Edmunds' 2024 track test was of the RF Club (a different body), and the summary did not say which body this car was. Read from search-result summary; page not opened."
     },
     {
-      "key": "brakeRearDiscIn",
-      "values": ["280 mm solid"],
-      "note": "Not recorded. An earlier summary of Mazda Canada's 2024 MX-5 RF sheet gave 280 mm solid rear discs: another market and the RF body. The same 280 mm as the front figure from that sheet was not cross-checked and may be a summary error. Read from search-result summary; page not opened."
+      "key": "weightDistFrontPct",
+      "values": [
+        52,
+        53,
+        50
+      ],
+      "note": "Kept 52 (CarGurus, 2024 soft top 52/48; RF 51/49). Mazda's own 2023 model-year page (https://www.mazdausa.com/vehicles/2023-mx-5-miata/) was summarized as giving 53:47 'for both manual and automatic versions'; that is the maker but another model year, and the summary's wording is vague, so it was not carried to 2024. Mazda marketing describes 'nearly perfect 50/50 weight distribution', which is not a measured figure. None of these states the load basis. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "heightIn",
+      "values": [
+        48.2,
+        48.6,
+        48.4
+      ],
+      "note": "Not recorded. CarExpert's New Zealand 2024 MX-5 listing gives about 48.2 in (1225 mm) for one configuration and 48.6 in (1235 mm) for another without saying which is which; CarExpert Australia gives 1230 mm (48.4 in). iSeeCars gives the RF hardtop about 49 in. No US Club soft-top figure was seen, and choosing between the NZ values would be a guess. Read from search-result summary; page not opened."
     }
   ],
-  "searchesUsed": 0
+  "searchesUsed": 14
 }

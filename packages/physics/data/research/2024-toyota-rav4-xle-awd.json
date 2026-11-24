@@ -1,0 +1,442 @@
+{
+  "id": "2024-toyota-rav4-xle-awd",
+  "year": 2024,
+  "make": "Toyota",
+  "model": "RAV4",
+  "trim": "XLE AWD (2.5L naturally aspirated I-4, 8-speed automatic, AWD)",
+  "bodyClass": "suv",
+  "gathered": "2026-11-24",
+  "fields": [
+    {
+      "key": "wheelbaseIn",
+      "number": 105.9,
+      "publisher": "Auto123",
+      "url": "https://www.auto123.com/en/specs/toyota/rav4/toyota-rav4-2024-xle-ti-445213/",
+      "sourceKind": "reference",
+      "note": "Auto123's 2024 RAV4 XLE spec listing gives '105.9 (in)' wheelbase; Cars.com's 2024 RAV4 XLE and LE pages give '106 in Wheelbase', the same figure rounded, across the trims listed. Auto123 is a Canadian site; its 2024 RAV4 'XLE' listing (its EPA class is shown as a 4WD small SUV; the URL slug 'xle-ti' is read as the French 'traction integrale') is the AWD XLE, but the search summary did not show its drivetrain field, and it may carry Canadian-market data. No Toyota-published figure surfaced. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/toyota-rav4-2024/specs/444682/"
+    },
+    {
+      "key": "trackFrontIn",
+      "number": 63.4,
+      "publisher": "Auto123",
+      "url": "https://www.auto123.com/en/specs/toyota/rav4/toyota-rav4-2024-xle-ti-445213/",
+      "sourceKind": "reference",
+      "note": "Auto123's 2024 RAV4 XLE listing gives 'Track Width, Front: 63.4 (in)'. Cars.com's 2024 RAV4 pages give '63 in Track Width, Front' (rounded). Auto123 is a Canadian site; its 2024 RAV4 'XLE' listing (its EPA class is shown as a 4WD small SUV; the URL slug 'xle-ti' is read as the French 'traction integrale') is the AWD XLE, but the search summary did not show its drivetrain field, and it may carry Canadian-market data. No Toyota-published tread figure surfaced. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/toyota-rav4-2024/specs/444682/"
+    },
+    {
+      "key": "trackRearIn",
+      "number": 64.6,
+      "publisher": "Auto123",
+      "url": "https://www.auto123.com/en/specs/toyota/rav4/toyota-rav4-2024-xle-ti-445213/",
+      "sourceKind": "reference",
+      "note": "Auto123's 2024 RAV4 XLE listing gives 'Track Width, Rear: 64.6 (in)'. Cars.com gives 64 in on an LE listing and 63 in on one XLE Premium AWD listing, so the rounded Cars.com figures do not agree among themselves (see conflicts). Auto123 is a Canadian site; its 2024 RAV4 'XLE' listing (its EPA class is shown as a 4WD small SUV; the URL slug 'xle-ti' is read as the French 'traction integrale') is the AWD XLE, but the search summary did not show its drivetrain field, and it may carry Canadian-market data. No Toyota-published tread figure surfaced. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "lengthIn",
+      "number": 180.9,
+      "publisher": "Auto123",
+      "url": "https://www.auto123.com/en/specs/toyota/rav4/toyota-rav4-2024-xle-ti-445213/",
+      "sourceKind": "reference",
+      "note": "Auto123's 2024 RAV4 XLE listing gives 'Length, Overall: 180.9 (in)'; Cars.com gives '181 in Length, Overall' for most 2024 trims (182 in for the Adventure, a different trim). Auto123 is a Canadian site; its 2024 RAV4 'XLE' listing (its EPA class is shown as a 4WD small SUV; the URL slug 'xle-ti' is read as the French 'traction integrale') is the AWD XLE, but the search summary did not show its drivetrain field, and it may carry Canadian-market data.  Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/toyota-rav4-2024/specs/444682/"
+    },
+    {
+      "key": "widthIn",
+      "number": 73,
+      "publisher": "Auto123",
+      "url": "https://www.auto123.com/en/specs/toyota/rav4/toyota-rav4-2024-xle-ti-445213/",
+      "sourceKind": "reference",
+      "note": "Auto123's 2024 RAV4 XLE listing gives 'Width, Max w/o mirrors: 73 (in)'; Motor Matchup's 2024 LE and XLE pages also show a width of 73 in (the Adventure AWD is listed at 73.4 in). Auto123 is a Canadian site; its 2024 RAV4 'XLE' listing (its EPA class is shown as a 4WD small SUV; the URL slug 'xle-ti' is read as the French 'traction integrale') is the AWD XLE, but the search summary did not show its drivetrain field, and it may carry Canadian-market data.  Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.motormatchup.com/catalog/Toyota/RAV4/2024/XLE-AWD-(Natl)"
+    },
+    {
+      "key": "heightIn",
+      "number": 67,
+      "publisher": "Auto123",
+      "url": "https://www.auto123.com/en/specs/toyota/rav4/toyota-rav4-2024-xle-ti-445213/",
+      "sourceKind": "reference",
+      "note": "Auto123's 2024 RAV4 XLE listing gives 'Height, Overall: 67 (in)'; Motor Matchup's 2024 LE and XLE pages also show a height of 67 in (the Adventure AWD is 68.6 in). Whether the XLE figure includes roof rails was not stated. Auto123 is a Canadian site; its 2024 RAV4 'XLE' listing (its EPA class is shown as a 4WD small SUV; the URL slug 'xle-ti' is read as the French 'traction integrale') is the AWD XLE, but the search summary did not show its drivetrain field, and it may carry Canadian-market data.  Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.motormatchup.com/catalog/Toyota/RAV4/2024/XLE-AWD-(Natl)"
+    },
+    {
+      "key": "curbWeightLb",
+      "number": 3515,
+      "publisher": "iSeeCars",
+      "url": "https://www.iseecars.com/car/2024-toyota-rav4-specs",
+      "sourceKind": "reference",
+      "note": "Copied from the card research (engine/data/research/batch-2-2026-11-11.json). iSeeCars lists the 2024 RAV4 AWD XLE at 3,515 lb curb weight, with 3,405 lb for the FWD XLE; the card research's checker found Motor Matchup's 2024 XLE AWD entry at the same 3,515 lb. Both are listing sites that may share a data feed, and Toyota's brochure table could not be read from the search extract, so this is a republished figure. In this pass Auto123's 2025 XLE AWD (Canadian) showed 3,362 lb and TrueCar's 2019 XLE AWD 3,490 lb (see conflicts). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.motormatchup.com/catalog/Toyota/RAV4/2024/XLE-AWD-(Natl)"
+    },
+    {
+      "key": "groundClearanceIn",
+      "number": 8.4,
+      "publisher": "Edmunds",
+      "url": "https://www.edmunds.com/toyota/rav4/2024/trims",
+      "sourceKind": "reference",
+      "note": "Copied from the card research (engine/data/research/batch-2-2026-11-11.json). Edmunds' 2024 RAV4 trim comparison gives 8.4 in for LE and XLE and 8.6 in for the other trims; KBB's XLE page also gives 8.4 in. The card research's checker read several ground-clearance guides, citing Toyota's 2024 brochure, giving 8.4 in for the gas LE and XLE. No FWD/AWD split was stated. In this pass Auto123's (Canadian) XLE listing gave 'Min Ground Clearance: 8.3 (in)' and a Cars.com LE listing 8 in (see conflicts). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.kbb.com/toyota/rav4/2024/xle"
+    },
+    {
+      "key": "engineDescription",
+      "text": "2.5-liter Dynamic Force 4-cylinder (DOHC, Dual VVT-i)",
+      "publisher": "Kelley Blue Book",
+      "url": "https://www.kbb.com/toyota/rav4/2024/xle",
+      "sourceKind": "reference",
+      "note": "Copied from the card research (engine/data/research/batch-2-2026-11-11.json). KBB's 2024 RAV4 XLE page lists the engine as '4-Cyl, Dynamic-Force, 2.5 Liter'; Auto123 words it '2.5L 4-Cylinder DOHC Dual VVT-i'. Edmunds says the 2.5L applies across the gas trims. The card research's checker confirmed the 2.5L four-cylinder substance but did not see the 'Dynamic Force' wording independently. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.edmunds.com/toyota/rav4/2024/st-401994384/features-specs"
+    },
+    {
+      "key": "powertrain",
+      "text": "gasoline",
+      "publisher": "Toyota USA Newsroom",
+      "url": "https://pressroom.toyota.com/2024-toyota-rav4-go-wild-in-style/",
+      "sourceKind": "manufacturer",
+      "note": "Copied from the card research (engine/data/research/batch-2-2026-11-11.json). (fuelType) Toyota's 2024 RAV4 release refers to the 2.5L engine on 'all gas grades', of which XLE is one; the hybrid is a separate model line. The checker's EPA-derived listing (CarWhere) gives 'Regular Gasoline' for the 2.5L AWD automatic. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.carwhere.com/specs/toyota/rav4/2024"
+    },
+    {
+      "key": "induction",
+      "text": "natural",
+      "publisher": "Kelley Blue Book",
+      "url": "https://www.kbb.com/toyota/rav4/2024/expert-review/",
+      "sourceKind": "reference",
+      "note": "Copied from the card research (engine/data/research/gaps-2026-11-11.json). (aspiration) KBB's 2024 RAV4 expert review: 'Its naturally aspirated (non-turbo) 2.5-liter 4-cylinder engine won't light streets on fire with 203 horsepower'. This is the only gasoline engine of the 2024 RAV4. The checker confirmed it, but both readings come from KBB; no Toyota or second publisher wording on aspiration was seen. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.kbb.com/toyota/rav4/2024/adventure"
+    },
+    {
+      "key": "displacementL",
+      "number": 2.5,
+      "publisher": "Kelley Blue Book",
+      "url": "https://www.kbb.com/toyota/rav4/2024/xle",
+      "sourceKind": "reference",
+      "note": "Copied from the card research (engine/data/research/batch-2-2026-11-11.json). KBB lists the 2024 RAV4 XLE engine as 2.5 Liter; Edmunds describes a 2.5-liter four-cylinder for all gas trims; the checker's EPA-derived listing gives '2.5L 4-cyl' for the 2024 RAV4 AWD. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.edmunds.com/toyota/rav4/2024/st-401994384/features-specs"
+    },
+    {
+      "key": "cylinders",
+      "number": 4,
+      "publisher": "Kelley Blue Book",
+      "url": "https://www.kbb.com/toyota/rav4/2024/xle",
+      "sourceKind": "reference",
+      "note": "Copied from the card research (engine/data/research/batch-2-2026-11-11.json). KBB lists '4-Cyl' for the 2024 RAV4 XLE; Edmunds says 2.5-liter four-cylinder across the gas trims. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.edmunds.com/toyota/rav4/2024/st-401994384/features-specs"
+    },
+    {
+      "key": "horsepower",
+      "number": 203,
+      "publisher": "Edmunds",
+      "url": "https://www.edmunds.com/toyota/rav4/2024/st-401994384/features-specs",
+      "sourceKind": "reference",
+      "note": "Copied from the card research (engine/data/research/batch-2-2026-11-11.json). Edmunds lists the 2024 RAV4 2.5-liter four-cylinder at 203 horsepower across the gas trims; cars.com XLE pages list the same; the checker found Motor Matchup's 2024 XLE AWD entry at '203 hp @ 6,600 rpm'. No Toyota-published horsepower page appeared in the results. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/toyota-rav4-2024/specs/444672/"
+    },
+    {
+      "key": "horsepowerRpm",
+      "number": 6600,
+      "publisher": "Motor Matchup",
+      "url": "https://www.motormatchup.com/catalog/Toyota/RAV4/2024/XLE-AWD-(Natl)",
+      "sourceKind": "reference",
+      "note": "The card research's checker read Motor Matchup's 2024 RAV4 XLE AWD entry as '203 hp @ 6,600 rpm'. In this pass the search summary said multiple 2024 listings (Auto123's 2024 XLE, LE and Limited among the results) give '203 hp@6600' for the non-hybrid trims, Cars.com's 2024 Limited page gives 203 hp at 6600 rpm, and auto-data's A25A-FKS listing gives the same 6,600 rpm peak. No Toyota page surfaced. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://specs2.auto123.com/en/specs/toyota/rav4/toyota-rav4-2024-xle-ti-445213"
+    },
+    {
+      "key": "torqueLbFt",
+      "number": 184,
+      "publisher": "Edmunds",
+      "url": "https://www.edmunds.com/toyota/rav4/2024/st-401994384/features-specs",
+      "sourceKind": "reference",
+      "note": "Copied from the card research (engine/data/research/batch-2-2026-11-11.json). Edmunds lists 184 lb-ft for the 2024 RAV4 2.5-liter across the gas trims; cars.com XLE pages list the same; the checker found Motor Matchup's XLE AWD entry at '184 lb-ft @ 5,000 rpm'. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/toyota-rav4-2024/specs/444672/"
+    },
+    {
+      "key": "torqueRpmLow",
+      "number": 5000,
+      "publisher": "Motor Matchup",
+      "url": "https://www.motormatchup.com/catalog/Toyota/RAV4/2024/XLE-AWD-(Natl)",
+      "sourceKind": "reference",
+      "note": "The card research's checker read Motor Matchup's 2024 RAV4 XLE AWD entry as '184 lb-ft @ 5,000 rpm'; in this pass the search summary said multiple 2024 listings (Auto123 2024 XLE among them) give '184 lb-ft@5000', and auto-data's A25A-FKS listing gives 183.65 lb-ft @ 5000 rpm. Only a single peak-torque speed is published, so it is recorded as both low and high. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://specs2.auto123.com/en/specs/toyota/rav4/toyota-rav4-2024-xle-ti-445213"
+    },
+    {
+      "key": "torqueRpmHigh",
+      "number": 5000,
+      "publisher": "Motor Matchup",
+      "url": "https://www.motormatchup.com/catalog/Toyota/RAV4/2024/XLE-AWD-(Natl)",
+      "sourceKind": "reference",
+      "note": "Same single-point figure as torqueRpmLow: '184 lb-ft @ 5,000 rpm' (Motor Matchup 2024 XLE AWD; Auto123 2024 XLE). No plateau was published, so the upper end equals the peak speed. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://specs2.auto123.com/en/specs/toyota/rav4/toyota-rav4-2024-xle-ti-445213"
+    },
+    {
+      "key": "redlineRpm",
+      "number": 7400,
+      "publisher": "Motor Matchup",
+      "url": "https://www.motormatchup.com/catalog/Toyota/RAV4/2024/TRD-Off-Road-AWD-(GS)",
+      "sourceKind": "reference",
+      "note": "The search summary said Motor Matchup's 2024 RAV4 TRD Off-Road AWD page gives a redline of 7,400 rpm, the only redline figure found. That page is a different trim, but the 2024 gas RAV4 has one engine (2.5L, 203 hp, 184 lb-ft) and one 8-speed automatic across all gas grades, so the engine's redline is shared; still single-source and not tied to an XLE page. No Toyota figure surfaced. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "drivetrain",
+      "text": "AWD",
+      "publisher": "Toyota USA Newsroom",
+      "url": "https://pressroom.toyota.com/?generate_pdf=87387",
+      "sourceKind": "manufacturer",
+      "note": "Copied from the card research (engine/data/research/batch-2-2026-11-11.json). Toyota's 2024 RAV4 release says the standard gas-engine AWD uses Dynamic Torque Control; the 2024 brochure names an 'XLE AWD' configuration (AWD is optional on XLE; FWD is standard). The checker found the EPA row 'All-Wheel Drive' and Motor Matchup and iSeeCars 'XLE AWD' listings, and flagged the generate_pdf URL as possibly unstable; the brochure URL is the safer citation. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.toyota.com/content/dam/toyota/brochures/pdf/2024/rav4_ebrochure.pdf"
+    },
+    {
+      "key": "awdSystem",
+      "text": "Dynamic Torque Control AWD (front-to-rear torque varied from 100:0 to 50:50)",
+      "publisher": "Toyota USA Newsroom",
+      "url": "https://pressroom.toyota.com/?generate_pdf=87387",
+      "sourceKind": "manufacturer",
+      "note": "Copied from the card research (engine/data/research/batch-2-2026-11-11.json). (drivetrain note) Toyota's 2024 RAV4 release says the standard gas-engine AWD uses Dynamic Torque Control, varying front-to-rear power from 100:0 to 50:50. The summary did not name the XLE explicitly; 'standard gas-engine AWD' is read as the system on the LE/XLE AWD grades as opposed to any upgraded system on other grades, which this pass did not verify. No fresh search was spent on it. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "transmissionType",
+      "text": "automatic",
+      "publisher": "Toyota USA Newsroom",
+      "url": "https://pressroom.toyota.com/2024-toyota-rav4-go-wild-in-style/",
+      "sourceKind": "manufacturer",
+      "note": "Copied from the card research (engine/data/research/batch-2-2026-11-11.json). Toyota describes the gas-grade transmission as a Direct Shift 8-speed automatic that locks up in gears two through eight, a torque-converter automatic, stated for all gas grades. The checker's EPA-derived row reads 'Automatic (S8)'. This pass's search also saw the brochure wording 'Direct Shift 8-speed Automatic Transmission' for the non-hybrid 2.5L. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.carwhere.com/specs/toyota/rav4/2024"
+    },
+    {
+      "key": "gearCount",
+      "number": 8,
+      "publisher": "Toyota USA Newsroom",
+      "url": "https://pressroom.toyota.com/2024-toyota-rav4-go-wild-in-style/",
+      "sourceKind": "manufacturer",
+      "note": "Copied from the card research (engine/data/research/batch-2-2026-11-11.json). (transmission) Toyota's 2024 RAV4 release: 'Direct Shift 8-speed automatic' paired with the 2.5L on all gas grades; the EPA-derived row is 'Automatic (S8)'; Auto123's 2024 XLE listing gives eight forward ratios. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.toyota.com/content/dam/toyota/brochures/pdf/2024/rav4_ebrochure.pdf"
+    },
+    {
+      "key": "gearRatios",
+      "numbers": [
+        5.25,
+        3.03,
+        1.95,
+        1.46,
+        1.22,
+        1.0,
+        0.81,
+        0.67
+      ],
+      "publisher": "Auto123",
+      "url": "https://www.auto123.com/en/specs/toyota/rav4/toyota-rav4-2024-xle-ti-445213/",
+      "sourceKind": "reference",
+      "note": "The search summary for the 2024 RAV4 2.5L 8-speed gave 'First Gear Ratio (:1): 5.25 ... Second 3.03 ... Third 1.95 ... Fourth 1.46 ... Fifth 1.22 ... Sixth 1.00 ... Seventh 0.81 ... Eighth 0.67' (reverse 4.01) from the Auto123 2024 listings (XLE, Trail, Limited, LE among the results; the summary did not pin each ratio to the XLE page specifically). Auto123 is a Canadian site; its 2024 RAV4 'XLE' listing (its EPA class is shown as a 4WD small SUV; the URL slug 'xle-ti' is read as the French 'traction integrale') is the AWD XLE, but the search summary did not show its drivetrain field, and it may carry Canadian-market data. No Toyota spec sheet with the ratios surfaced; the summary called these third-party database values. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "finalDriveRatio",
+      "number": 3.18,
+      "publisher": "Auto123",
+      "url": "https://www.auto123.com/en/specs/toyota/rav4/toyota-rav4-2024-xle-ti-445213/",
+      "sourceKind": "reference",
+      "note": "Auto123's 2024 RAV4 XLE and Trail listings give 'Final Drive Axle Ratio (:1): 3.18'; Motor Matchup's 2024 AWD and FWD pages also list 'Final Drive: 3.18'; TrueCar's 2020 Limited AWD lists 3.177, the same value at higher precision. The 2.5L hybrid's 3.605 is a different powertrain. Auto123 is a Canadian site; its 2024 RAV4 'XLE' listing (its EPA class is shown as a 4WD small SUV; the URL slug 'xle-ti' is read as the French 'traction integrale') is the AWD XLE, but the search summary did not show its drivetrain field, and it may carry Canadian-market data.  Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.motormatchup.com/catalog/Toyota/RAV4/2024/LE-AWD-(SE)"
+    },
+    {
+      "key": "tyreFront",
+      "text": "225/65R17",
+      "publisher": "Goodyear (fitment guide)",
+      "url": "https://www.goodyear.com/en-us/vehicles/Toyota/RAV4/2024",
+      "sourceKind": "reference",
+      "note": "Goodyear's 2024 RAV4 fitment table lists 'XLE All-Wheel Drive' at 225/65R17; BFGoodrich's fitment finder gives 225/65R17 102H for the 2024 XLE AWD; Auto123's (Canadian) XLE listing prints 'P225/65HR17' on '17 X 7 in' wheels. All are tyre-maker or retailer fitment lists, not a Toyota spec sheet. Same size front and rear. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.bfgoodrichtires.com/auto/browse-tires/by-vehicle/2024/toyota/rav4/xle-awd/225---65R17-102H"
+    },
+    {
+      "key": "tyreRear",
+      "text": "225/65R17",
+      "publisher": "Goodyear (fitment guide)",
+      "url": "https://www.goodyear.com/en-us/vehicles/Toyota/RAV4/2024",
+      "sourceKind": "reference",
+      "note": "Goodyear's 2024 RAV4 fitment table lists one size, 225/65R17, for the XLE All-Wheel Drive (no staggered fitment); BFGoodrich gives 225/65R17 102H for the 2024 XLE AWD. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.bfgoodrichtires.com/auto/browse-tires/by-vehicle/2024/toyota/rav4/xle-awd/225---65R17-102H"
+    },
+    {
+      "key": "dragCoefficient",
+      "number": 0.34,
+      "publisher": "Motor Matchup",
+      "url": "https://www.motormatchup.com/catalog/Toyota/RAV4/2024/XLE-AWD-(Natl)",
+      "sourceKind": "reference",
+      "note": "The search summary said Motor Matchup's 2024 RAV4 trim pages, including the XLE AWD (Natl), XLE FWD, LE and Adventure AWD, list a drag coefficient of 0.34; third-party, not manufacturer data. Toyota UK's late-2024 RAV4 spec sheets give 0.32, but the UK RAV4 range is hybrid-only, a different powertrain and market, so the UK maker figure was not kept for this US 2.5L gas XLE AWD (see conflicts). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.motormatchup.com/catalog/Toyota/RAV4/2024/XLE-FWD-(Natl)"
+    },
+    {
+      "key": "turningCircleFt",
+      "number": 36,
+      "publisher": "Cars.com",
+      "url": "https://www.cars.com/research/toyota-rav4-2024/specs/444682/",
+      "sourceKind": "reference",
+      "note": "Cars.com's 2024 RAV4 spec pages give '36 ft Turning Diameter - Curb to Curb' on most trims and 37 ft on the Adventure; the summary did not tie the 36 ft line to one specific XLE page or say whether that page is FWD or AWD. Curb-to-curb, not wall-to-wall. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "brakeFrontDiscIn",
+      "number": 12,
+      "publisher": "Cars.com",
+      "url": "https://www.cars.com/research/toyota-rav4-2024/specs/444682/",
+      "sourceKind": "reference",
+      "note": "Copied from the card research (engine/data/research/batch-2-2026-11-11.json). (brakesFront note) Cars.com's 2024 RAV4 XLE page lists a 12 in front rotor; in this pass Cars.com's Limited and XLE Premium AWD pages showed the same '12 in Front Brake Rotor Diam x Thickness'. Only Cars.com gave it, the XLE page's drivetrain was not stated, the value is rounded to the inch, and ventilated versus solid was not stated. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/toyota-rav4-2024/specs/444685/"
+    },
+    {
+      "key": "brakeRearDiscIn",
+      "number": 11,
+      "publisher": "Cars.com",
+      "url": "https://www.cars.com/research/toyota-rav4-2024/specs/444682/",
+      "sourceKind": "reference",
+      "note": "Copied from the card research (engine/data/research/batch-2-2026-11-11.json). (brakesRear note) Cars.com's 2024 RAV4 XLE page lists an 11 in rear rotor; in this pass the Limited page and the XLE page showed the same '11 in Rear Brake Rotor Diam x Thickness'. Single publisher, rounded to the inch, drivetrain of the page not stated, solid versus ventilated not stated. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/toyota-rav4-2024/specs/444694/"
+    },
+    {
+      "key": "epaCombinedMpg",
+      "number": 29,
+      "publisher": "Toyota (2024 RAV4 brochure, EPA-estimated figures)",
+      "url": "https://www.toyota.com/content/dam/toyota/brochures/pdf/2024/rav4_ebrochure.pdf",
+      "sourceKind": "manufacturer",
+      "note": "Copied from the card research (engine/data/research/batch-2-2026-11-11.json). The 2024 RAV4 brochure footnote gives EPA-estimated 29 combined mpg for the 2024 XLE AWD and XLE Premium AWD; fueleconomy.gov's 'RAV4 AWD' 2.5L Automatic (S8) entry shows combined 29. The checker noted the EPA rates 'RAV4 AWD LE' separately at 27/34/30 and 'RAV4 AWD TRD Off-Road' at 25/32/28; the XLE AWD falls under the generic 'RAV4 AWD' entry. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_RAV4.shtml"
+    },
+    {
+      "key": "epaCityMpg",
+      "number": 27,
+      "publisher": "Toyota (2024 RAV4 brochure, EPA-estimated figures)",
+      "url": "https://www.toyota.com/content/dam/toyota/brochures/pdf/2024/rav4_ebrochure.pdf",
+      "sourceKind": "manufacturer",
+      "note": "Copied from the card research (engine/data/research/batch-2-2026-11-11.json). The 2024 RAV4 brochure footnote gives EPA-estimated 27 city mpg for the 2024 XLE AWD; fueleconomy.gov's 'RAV4 AWD' 2.5L Automatic (S8) entry is 27 city. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_RAV4.shtml"
+    },
+    {
+      "key": "epaHighwayMpg",
+      "number": 33,
+      "publisher": "Toyota (2024 RAV4 brochure, EPA-estimated figures)",
+      "url": "https://www.toyota.com/content/dam/toyota/brochures/pdf/2024/rav4_ebrochure.pdf",
+      "sourceKind": "manufacturer",
+      "note": "Copied from the card research (engine/data/research/batch-2-2026-11-11.json). The 2024 RAV4 brochure footnote gives EPA-estimated 33 highway mpg for the 2024 XLE AWD; fueleconomy.gov's 'RAV4 AWD' entry is 33 highway. A dealer page's 35 highway looks like the FWD rating and the AWD LE's 34 is a separate EPA entry. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_RAV4.shtml"
+    }
+  ],
+  "notFound": [
+    "weightDistFrontPct",
+    "cgHeightIn",
+    "engineLocation",
+    "boostPsi",
+    "compressionRatio",
+    "differential",
+    "tyreModel",
+    "tyreCategory",
+    "frontalAreaSqFt",
+    "liftCoefficientFront",
+    "liftCoefficientRear",
+    "steeringRatio",
+    "topSpeedMph",
+    "topSpeedGoverned",
+    "test0to30Sec",
+    "test0to60Sec",
+    "test0to100Sec",
+    "testRollout",
+    "testQuarterMileSec",
+    "testQuarterMileMph",
+    "testBraking60to0Ft",
+    "testBraking70to0Ft",
+    "testSkidpadG",
+    "testSkidpadDiameterFt",
+    "testTopSpeedMph",
+    "testWeightLb",
+    "testWeightDistFrontPct"
+  ],
+  "conflicts": [
+    {
+      "key": "curbWeightLb",
+      "values": [
+        3515,
+        3405,
+        3362,
+        3490
+      ],
+      "note": "Kept 3,515 lb (iSeeCars and Motor Matchup, both tying it to the 2024 XLE AWD). 3,405 lb is the FWD XLE (iSeeCars' FWD row; KBB's XLE page with drivetrain not stated; Edmunds' 2025 XLE page listing front-wheel drive); 3,362 lb is Auto123's Canadian XLE AWD listing (2024 and 2025); 3,490 lb is TrueCar's 2019 XLE AWD, a different model year. No Toyota curb-weight figure was read. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "groundClearanceIn",
+      "values": [
+        8.4,
+        8.3,
+        8.6,
+        8
+      ],
+      "note": "Kept 8.4 in (Edmunds and KBB for the XLE; guides citing Toyota's brochure for gas LE/XLE). 8.3 in is Auto123's Canadian XLE listing; 8.6 in belongs to XLE Premium, Adventure, TRD Off-Road and Limited; 8 in is a Cars.com LE listing. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "trackRearIn",
+      "values": [
+        64.6,
+        64,
+        63
+      ],
+      "note": "Kept 64.6 in (Auto123 2024 XLE, the only figure given to a tenth). Cars.com gives 64 in on an LE listing and 63 in on an XLE Premium AWD listing; both are whole-inch roundings and disagree with each other, so neither was kept. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "trackFrontIn",
+      "values": [
+        63.4,
+        63
+      ],
+      "note": "Kept 63.4 in (Auto123 2024 XLE). Cars.com's 63 in is the same figure rounded to the inch. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "dragCoefficient",
+      "values": [
+        0.34,
+        0.32,
+        0.35
+      ],
+      "note": "Kept 0.34 (Motor Matchup, given for the 2024 US XLE AWD, XLE FWD, LE and Adventure AWD). Toyota UK's late-2024 RAV4 tech specs give 0.32, a maker figure but for the UK range, which is hybrid-only (a different powertrain and possibly different aero trim); a 2026-dated Toyota UK sheet gives 0.35 for the plug-in hybrid. The maker figure was not kept because it is for another configuration; a modeller wanting a maker value should treat 0.32 as a lower bound, not as this car's Cd. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "brakeFrontDiscIn",
+      "values": [
+        12,
+        12.9
+      ],
+      "note": "Kept 12 in (Cars.com 2024 XLE, Limited and XLE Premium AWD pages). A Toyota UK RAV4 spec sheet lists 'Ventilated discs, 328 mm' (12.9 in) front, but it is for the UK hybrid AWD-i, a different configuration, so it was not used. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "compressionRatio",
+      "values": [
+        13,
+        14
+      ],
+      "note": "Not recorded. TrueCar's 2022 RAV4 Limited AWD page lists a compression ratio of 13 (a different model year; the 2024 TrueCar page leaves it blank); a Toyota UK sheet lists 14.0:1 for the hybrid engine, a different engine tune. Neither is a 2024 XLE AWD figure. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "test0to60Sec",
+      "values": [
+        8.3,
+        8.3,
+        7.0,
+        7.2,
+        8.1,
+        8.64
+      ],
+      "note": "Not recorded: no named instrumented test of a 2024 RAV4 XLE AWD (2.5L, 8-speed, AWD) was found by Car and Driver, MotorTrend, Edmunds or anyone else. 8.3 s: Consumer Reports' 2020/2021 AWD RAV4 road tests (2.5L, 8-speed, AWD, but trim not stated in the summary and a different model year; CR does not use rollout). 8.3 s: 0-60specs.com aggregator for a 2024 TRD Off-Road (different trim, tyres and weight; tester attribution inconsistent between Car and Driver and Motor Trend). 7.0 to 7.2 s: Motor Matchup simulations for the 2024/2025 XLE AWD and 2024 Limited AWD (its 15.6 s @ 86 mph quarter mile is also a simulation). 8.1 s: Autoblog 'estimated', and Auto Express 0-62 mph for a UK hybrid. 8.64 s (16.88 s @ 82 mph quarter mile): The Truth About Cars, 2014 RAV4, previous generation and six-speed. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testBraking60to0Ft",
+      "values": [
+        108,
+        118
+      ],
+      "note": "Not recorded: 108 ft (MotorWeek, 2026 RAV4 GR Sport) and 118 ft (Edmunds, 2026 RAV4 plug-in hybrid GR Sport) are a different generation, trim and powertrain. No braking test of a gas XLE AWD was found. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "frontalAreaSqFt",
+      "values": [
+        28.5
+      ],
+      "note": "Not recorded: the only figure seen was the search tool's own estimate (height x width x 0.84 from 67 in x 73 in, about 28.5 sq ft), which is not a published figure. Read from search-result summary; page not opened."
+    }
+  ],
+  "searchesUsed": 14
+}

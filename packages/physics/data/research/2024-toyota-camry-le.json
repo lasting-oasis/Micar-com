@@ -8,6 +8,76 @@
   "gathered": "2026-11-24",
   "fields": [
     {
+      "key": "wheelbaseIn",
+      "number": 111.2,
+      "publisher": "Car and Driver (2024 Camry buyer's guide, republished on Yahoo Autos)",
+      "url": "https://autos.yahoo.com/2024-toyota-camry-buyers-guide-194800713.html",
+      "sourceKind": "reference",
+      "note": "Search summary: 'Car and Driver's data, via Yahoo, gives a wheelbase of 111.2 inches' ('Wheelbase (inches): 111.2'); the AOL republication of the same guide lists the 2024 Camry's wheelbase at 111.2 in and says 'The specs below are for the Toyota Camry LE.' KBB also gives 111.2 in. No Toyota-published figure surfaced. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.aol.com/2024-toyota-camry-buyers-guide-194800611.html"
+    },
+    {
+      "key": "trackFrontIn",
+      "number": 62.6,
+      "publisher": "Car and Driver (2024 Camry buyer's guide, republished on Yahoo Autos)",
+      "url": "https://autos.yahoo.com/2024-toyota-camry-buyers-guide-194800713.html",
+      "sourceKind": "reference",
+      "note": "Search summary: 'Car and Driver's data gives 62.6 inches front and 62.8 inches rear' ('Front Track Width (inches): 62.6'); the guide's specs are stated (AOL republication) to be for the LE. Cars.com's LE page gives 63 in front and rear, apparently rounded (see conflicts). An Auto123 2024 Camry Hybrid LE listing shows the same 62.6/62.8 but is a different powertrain and was not used. No Toyota-published track figure surfaced, and the summary did not say which wheel size the figure applies to. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "trackRearIn",
+      "number": 62.8,
+      "publisher": "Car and Driver (2024 Camry buyer's guide, republished on Yahoo Autos)",
+      "url": "https://autos.yahoo.com/2024-toyota-camry-buyers-guide-194800713.html",
+      "sourceKind": "reference",
+      "note": "Search summary: Car and Driver's data gives 'Rear Track Width (inches): 62.8'; Cars.com's LE page gives 63 in (rounded; see conflicts). No Toyota-published track figure surfaced. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "lengthIn",
+      "number": 192.1,
+      "publisher": "Edmunds",
+      "url": "https://www.edmunds.com/toyota/camry/2024/st-401999971/features-specs",
+      "sourceKind": "reference",
+      "note": "Edmunds' 2024 Camry LE specs page: 'Length 192.1 in.' The Car and Driver buyer's guide (AOL republication, specs stated to be for the LE) gives the same 192.1 in. No Toyota-published figure surfaced. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.aol.com/2024-toyota-camry-buyers-guide-194800611.html"
+    },
+    {
+      "key": "widthIn",
+      "number": 72.4,
+      "publisher": "Edmunds",
+      "url": "https://www.edmunds.com/toyota/camry/2024/st-401999971/features-specs",
+      "sourceKind": "reference",
+      "note": "Edmunds' 2024 Camry LE specs page: 'Overall width without mirrors 72.4 in.' The Car and Driver buyer's guide (AOL) also gives 72.4 in. KBB lists 72.4 in described as width 'with mirrors' for most trims (73.1 in for the TRD), so the mirrors wording differs between sites but the number agrees; taken here as the body width without mirrors per Edmunds. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.aol.com/2024-toyota-camry-buyers-guide-194800611.html"
+    },
+    {
+      "key": "heightIn",
+      "number": 56.9,
+      "publisher": "Edmunds",
+      "url": "https://www.edmunds.com/toyota/camry/2024/st-401999971/features-specs",
+      "sourceKind": "reference",
+      "note": "Edmunds lists the 2024 Camry LE's height as 56.9 in; the Car and Driver buyer's guide republished on AOL gives 56.9 in for the LE. Cars.com's LE page shows 57 in, a rounded figure (see conflicts). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.aol.com/2024-toyota-camry-buyers-guide-194800611.html"
+    },
+    {
+      "key": "curbWeightLb",
+      "number": 3310,
+      "publisher": "Edmunds",
+      "url": "https://www.edmunds.com/toyota/camry/2024/st-401999971/features-specs",
+      "sourceKind": "reference",
+      "note": "Copied from the card research: Edmunds and Autoblog give 3,310 lb for the front-wheel-drive 2024 Camry LE; Cars.com and KBB show the same. No Toyota-published figure surfaced, and the listing sites probably share one data feed (card research checker's concern). The LE AWD is listed at 3,475 lb (see conflicts). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.autoblog.com/es-us/buy/2024-Toyota-Camry-LE__4dr_Front_Wheel_Drive_Sedan/specs/"
+    },
+    {
+      "key": "groundClearanceIn",
+      "number": 5.7,
+      "publisher": "Edmunds",
+      "url": "https://www.edmunds.com/toyota/camry/2024/trims",
+      "sourceKind": "reference",
+      "note": "Copied from the card research: Edmunds lists the 2024 Camry LE's ground clearance as 5.7 in; the checker found KBB showing 5.7 in minimum ground clearance for every 2024 Camry trim and CarBuzz 5.7 in for the LE automatic. A model-wide republished figure, not specific to the FWD LE; Cars.com shows 6 in (see conflicts). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.kbb.com/toyota/camry/2024/specs"
+    },
+    {
       "key": "engineDescription",
       "text": "2.5-liter Dynamic Force four-cylinder, D-4S injection",
       "publisher": "Toyota USA Newsroom",
@@ -98,6 +168,14 @@
       "corroboratingUrl": "https://www.cars.com/research/toyota-camry-2024/specs"
     },
     {
+      "key": "redlineRpm",
+      "number": 7400,
+      "publisher": "Motor Matchup",
+      "url": "https://www.motormatchup.com/catalog/Toyota/Camry/2024/LE-Auto-(SE)",
+      "sourceKind": "reference",
+      "note": "Motor Matchup lists 'a 7,400 rpm redline for the 2024 Camry LE Auto (SE) with the 2.5L engine', alongside 203 hp at 6,600 rpm and 184 lb-ft at 5,000 rpm. A third-party database, not a Toyota figure, and no second source seen; Motor Matchup's 6,800 rpm figure belongs to the 2025 hybrid's A25A-FXS, not this engine. Read from search-result summary; page not opened."
+    },
+    {
       "key": "compressionRatio",
       "number": 13.0,
       "publisher": "Toyota USA Newsroom",
@@ -133,22 +211,90 @@
       "corroboratingUrl": "https://www.edmunds.com/toyota/camry/2024/st-401999971/features-specs"
     },
     {
-      "key": "curbWeightLb",
-      "number": 3310,
-      "publisher": "Edmunds",
-      "url": "https://www.edmunds.com/toyota/camry/2024/st-401999971/features-specs",
+      "key": "gearRatios",
+      "numbers": [
+        5.25,
+        3.03,
+        1.95,
+        1.46,
+        1.22,
+        1.0,
+        0.81,
+        0.67
+      ],
+      "publisher": "Motor Matchup",
+      "url": "https://www.motormatchup.com/catalog/Toyota/Camry/2024/SE-Auto-(Natl)",
       "sourceKind": "reference",
-      "note": "Copied from the card research: Edmunds and Autoblog give 3,310 lb for the front-wheel-drive 2024 Camry LE; Cars.com and KBB show the same. No Toyota-published figure surfaced, and the listing sites probably share one data feed (card research checker's concern). The LE AWD is listed at 3,475 lb (see conflicts). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.autoblog.com/es-us/buy/2024-Toyota-Camry-LE__4dr_Front_Wheel_Drive_Sedan/specs/"
+      "note": "Search summary for the 2024 Camry 2.5L with the 8-speed automatic: Motor Matchup's gear table gives 'Gear Ratios 1: 5.25 ... 8: 0.67' (5.25, 3.03, 1.95, 1.46, 1.22, 1.00, 0.81, 0.67), reverse 4.01; 'Auto123 and TrueCar match these for the first four gears and the upper gears'. The summary did not say which Motor Matchup 2024 Camry listing held the table (the results were SE Auto (Natl), XLE Auto (GS) and two AWD listings), and the Auto123 corroboration is its 2024 SE listing, which shares the LE's 203-hp 2.5L/8-speed/FWD driveline; no LE-specific or Toyota ratio table was seen. Yahoo's buyer's guide mislabels 3.03 as reverse. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.auto123.com/en/specs/toyota/camry/toyota-camry-2024-se-auto-441465/"
     },
     {
-      "key": "groundClearanceIn",
-      "number": 5.7,
-      "publisher": "Edmunds",
-      "url": "https://www.edmunds.com/toyota/camry/2024/trims",
+      "key": "finalDriveRatio",
+      "number": 2.8,
+      "publisher": "Motor Matchup",
+      "url": "https://www.motormatchup.com/catalog/Toyota/Camry/2024/SE-Nightshade-Auto-AWD-(GS)",
       "sourceKind": "reference",
-      "note": "Copied from the card research: Edmunds lists the 2024 Camry LE's ground clearance as 5.7 in; the checker found KBB showing 5.7 in minimum ground clearance for every 2024 Camry trim and CarBuzz 5.7 in for the LE automatic. A model-wide republished figure, not specific to the FWD LE; Cars.com shows 6 in (see conflicts). Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.kbb.com/toyota/camry/2024/specs"
+      "note": "Search summary: 'Most sources give about 2.80:1' for the 2024 Camry 2.5L 8-speed; one unattributed result reads 'Final Drive Axle Ratio 2.802' (TrueCar-style wording, but the summary did not name the page or year), and 'Motor Matchup's AWD SE Nightshade listing also shows Final Drive: 2.8'. The only attributable figure is from an AWD listing, so for the FWD LE this is unconfirmed: no FWD-LE-specific or Toyota final-drive figure was seen. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "tyreFront",
+      "text": "P215/55R17",
+      "publisher": "Cars.com",
+      "url": "https://www.cars.com/research/toyota-camry-2024/specs",
+      "sourceKind": "reference",
+      "note": "Cars.com's 2024 Camry LE specs list 'P215/55VR17 front and rear tire size' on 17 x 7.5-inch wheels. Michelin's fitment page for the 2024 Camry LE FWD shows an original-equipment-tagged 215/55R17 94V tire; Firestone and Goodyear show the same size for the LE. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.michelinman.com/auto/browse-tires/by-vehicle/2024/toyota/camry/le-fwd/215---55R17-94V"
+    },
+    {
+      "key": "tyreRear",
+      "text": "P215/55R17",
+      "publisher": "Cars.com",
+      "url": "https://www.cars.com/research/toyota-camry-2024/specs",
+      "sourceKind": "reference",
+      "note": "Cars.com: 'P215/55VR17 front and rear tire size' for the 2024 Camry LE (square fitment). Michelin's LE FWD fitment page shows 215/55R17 94V. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.michelinman.com/auto/browse-tires/by-vehicle/2024/toyota/camry/le-fwd/215---55R17-94V"
+    },
+    {
+      "key": "tyreCategory",
+      "text": "all-season",
+      "publisher": "Michelin (fitment guide)",
+      "url": "https://www.michelinman.com/auto/browse-tires/by-vehicle/2024/toyota/camry/le-fwd/215---55R17-94V",
+      "sourceKind": "reference",
+      "note": "Michelin's dealer finder for the 2024 Toyota Camry LE FWD lists a 215/55R17 94V tire marked as original equipment for Toyota 'in an All-Season, Mud & Snow, EV Ready category'. The snippet did not show the tyre's model name, so tyreModel is left unfound. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "turningCircleFt",
+      "number": 37.4,
+      "publisher": "Kelley Blue Book",
+      "url": "https://www.kbb.com/toyota/camry/2024/specs",
+      "sourceKind": "reference",
+      "note": "KBB's 2024 Camry spec table lists a turning circle of 37.4 ft for the LE (one summary called it the 'base trim'), 38 ft for other trims; Yahoo Autos' Car and Driver buyer's guide (specs for the LE) also gives 37.4 ft. Cars.com shows 37 ft curb-to-curb on one LE page and 39 ft on an AWD LE page (see conflicts). Not a Toyota figure; curb-to-curb vs wall-to-wall basis not stated. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://autos.yahoo.com/2024-toyota-camry-buyers-guide-194800713.html"
+    },
+    {
+      "key": "brakeFrontDiscIn",
+      "number": 12,
+      "publisher": "Cars.com",
+      "url": "https://www.cars.com/research/toyota-camry-2024/specs",
+      "sourceKind": "reference",
+      "note": "A Cars.com 2024 Camry LE specs page 'lists a 12 in front brake rotor diameter, with the rear at 11 in'. The summary did not say which of Cars.com's several LE listing IDs it was, so the general Cars.com 2024 Camry specs URL is given. Whole-inch figures, probably rounded; no Toyota or second source seen. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "brakeRearDiscIn",
+      "number": 11,
+      "publisher": "Cars.com",
+      "url": "https://www.cars.com/research/toyota-camry-2024/specs",
+      "sourceKind": "reference",
+      "note": "Same Cars.com 2024 Camry LE specs page: rear brake rotor diameter 11 in. Whole-inch figure, probably rounded; no Toyota or second source seen. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "epaCombinedMpg",
+      "number": 32,
+      "publisher": "U.S. EPA / fueleconomy.gov",
+      "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_Camry.shtml",
+      "sourceKind": "agency",
+      "note": "Copied from the card research: fueleconomy.gov's LE/SE 2.5L automatic listing shows Combined MPG 32; the AWD LE/SE is 29 and XLE/XSE FWD 31. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.capitalone.com/cars/vehicle-overview/2024/Toyota/Camry"
     },
     {
       "key": "epaCityMpg",
@@ -167,45 +313,21 @@
       "sourceKind": "agency",
       "note": "Copied from the card research: fueleconomy.gov's LE/SE 2.5L automatic listing shows Highway MPG 39; the AWD LE/SE is 34. Read from search-result summary; page not opened.",
       "corroboratingUrl": "https://www.capitalone.com/cars/vehicle-overview/2024/Toyota/Camry"
-    },
-    {
-      "key": "epaCombinedMpg",
-      "number": 32,
-      "publisher": "U.S. EPA / fueleconomy.gov",
-      "url": "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_Camry.shtml",
-      "sourceKind": "agency",
-      "note": "Copied from the card research: fueleconomy.gov's LE/SE 2.5L automatic listing shows Combined MPG 32; the AWD LE/SE is 29 and XLE/XSE FWD 31. Read from search-result summary; page not opened.",
-      "corroboratingUrl": "https://www.capitalone.com/cars/vehicle-overview/2024/Toyota/Camry"
     }
   ],
   "notFound": [
-    "wheelbaseIn",
-    "trackFrontIn",
-    "trackRearIn",
-    "lengthIn",
-    "widthIn",
-    "heightIn",
     "weightDistFrontPct",
     "cgHeightIn",
     "engineLocation",
-    "redlineRpm",
     "boostPsi",
     "awdSystem",
-    "gearRatios",
-    "finalDriveRatio",
     "differential",
-    "tyreFront",
-    "tyreRear",
     "tyreModel",
-    "tyreCategory",
     "dragCoefficient",
     "frontalAreaSqFt",
     "liftCoefficientFront",
     "liftCoefficientRear",
     "steeringRatio",
-    "turningCircleFt",
-    "brakeFrontDiscIn",
-    "brakeRearDiscIn",
     "topSpeedMph",
     "topSpeedGoverned",
     "test0to30Sec",
@@ -257,7 +379,50 @@
         6
       ],
       "note": "Kept 5.7 in (Edmunds LE; KBB all trims; CarBuzz LE automatic). Cars.com's gas LE page shows 6 in, apparently the same figure rounded. From the card research. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "heightIn",
+      "values": [
+        56.9,
+        57
+      ],
+      "note": "Kept 56.9 in (Edmunds LE; Car and Driver buyer's guide via AOL). Cars.com's LE page shows 57 in, the same figure rounded. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "trackFrontIn",
+      "values": [
+        62.6,
+        63
+      ],
+      "note": "Kept 62.6 in (Car and Driver buyer's guide data via Yahoo). Cars.com's LE page gives 63 in, apparently rounded to the inch. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "trackRearIn",
+      "values": [
+        62.8,
+        63
+      ],
+      "note": "Kept 62.8 in (Car and Driver buyer's guide data via Yahoo). Cars.com's LE page gives 63 in, apparently rounded to the inch. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "turningCircleFt",
+      "values": [
+        37.4,
+        37,
+        38,
+        39
+      ],
+      "note": "Kept 37.4 ft (KBB LE; Yahoo/Car and Driver guide). Cars.com shows 37 ft on one LE page (rounded), KBB 38 ft for other trims, and Cars.com 39 ft on an AWD LE page, a different drivetrain. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "topSpeedMph",
+      "values": [
+        135,
+        138,
+        141
+      ],
+      "note": "None kept; topSpeedMph is in notFound. Yahoo's 2024 buyer's guide gives 135 mph but another summary said that guide's performance data is for the 3.5L V6; Motor Matchup's 138 and 141 mph for LE listings are its own simulation results, not measurements or maker figures. Read from search-result summary; page not opened."
     }
   ],
-  "searchesUsed": 0
+  "searchesUsed": 14
 }

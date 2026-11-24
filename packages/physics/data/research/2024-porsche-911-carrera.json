@@ -1,0 +1,488 @@
+{
+  "id": "2024-porsche-911-carrera",
+  "year": 2024,
+  "make": "Porsche",
+  "model": "911",
+  "trim": "Carrera Coupe (992.1, 3.0L twin-turbo flat-six, 379 hp, 8-speed PDK, RWD)",
+  "bodyClass": "coupe",
+  "gathered": "2026-11-24",
+  "fields": [
+    {
+      "key": "wheelbaseIn",
+      "number": 96.5,
+      "publisher": "Yahoo (syndicated 2024 Porsche 911 buyer's guide)",
+      "url": "https://www.yahoo.com/tech/2024-porsche-911-specs-features-163900938.html",
+      "sourceKind": "reference",
+      "note": "A search summary quoted the guide: 'The dimensions of the 2024 Porsche 911 are a wheelbase of 96.5 inches, length of 177.9 inches and width of 72.9 inches.' Model-wide wording, not tied to the Carrera trim. Autoblog's 2020 911 Carrera Cabriolet spec page also lists a 96.5-in wheelbase (same 992.1 car, other body). CAUTION: the earlier card review found this same guide carried a 3,311 lb weight and implausible performance figures. No Porsche dimension sheet surfaced. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.autoblog.com/buy/2020-Porsche-911-Carrera__2dr_Rear_wheel_Drive_Cabriolet/specs/editors-review/"
+    },
+    {
+      "key": "trackFrontIn",
+      "number": 62.7,
+      "publisher": "Stuttcars",
+      "url": "https://stuttcars.com/?p=444412",
+      "sourceKind": "reference",
+      "note": "Stuttcars' '2020 Porsche 911 Carrera (992) Technical Specifications' page: 'Track width front (inches/mm) | 62.7 in. / 1591 mm'. Model year 2020 base Carrera (992.1, same 379 hp RWD PDK car as the 2024). A later summary said one CarExpert 2024 Carrera page also showed 1,591 mm front track (page not identified). A 992.2 Carrera S listing gives 1,601 mm, a different car. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "trackRearIn",
+      "number": 61.2,
+      "publisher": "Stuttcars",
+      "url": "https://stuttcars.com/?p=444412",
+      "sourceKind": "reference",
+      "note": "Stuttcars' '2020 Porsche 911 Carrera (992) Technical Specifications' page: 'Track width rear (inches/mm) | 61.2 in. / 1557 mm'. Model year 2020 base Carrera (992.1). Auto123's 2024 Carrera coupe listing gives 61.3 in (see conflicts); a 992.2 Carrera S listing gives 1,555 mm. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "lengthIn",
+      "number": 177.9,
+      "publisher": "Yahoo (syndicated 2024 Porsche 911 buyer's guide)",
+      "url": "https://www.yahoo.com/tech/2024-porsche-911-specs-features-163900938.html",
+      "sourceKind": "reference",
+      "note": "Same buyer's-guide sentence as wheelbaseIn: 'length of 177.9 inches'. The summary said another result 'independently lists the length at 177.9 inches' without naming it. Model-wide, not trim-specific; see the caution on wheelbaseIn about this guide. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "widthIn",
+      "number": 72.9,
+      "publisher": "Yahoo (syndicated 2024 Porsche 911 buyer's guide)",
+      "url": "https://www.yahoo.com/tech/2024-porsche-911-specs-features-163900938.html",
+      "sourceKind": "reference",
+      "note": "Same buyer's-guide sentence: 'width of 72.9 inches'. Autoblog's 2020 Carrera Cabriolet page lists a 72.9-in body width, and a Porsche newsroom result gave the Carrera S Cabriolet's rear body width as 1,852 mm (72.91 in). Whether mirrors are included was not stated (72.9 in reads as body width without mirrors). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.autoblog.com/buy/2020-Porsche-911-Carrera__2dr_Rear_wheel_Drive_Cabriolet/specs/editors-review/"
+    },
+    {
+      "key": "heightIn",
+      "number": 50.9,
+      "publisher": "Yahoo (syndicated 2024 Porsche 911 buyer's guide)",
+      "url": "https://www.yahoo.com/tech/2024-porsche-911-specs-features-163900938.html",
+      "sourceKind": "reference",
+      "note": "'The height of the 2024 Porsche 911 is 50.9 inches.' The only height figure found; trim and suspension not stated. See the caution on wheelbaseIn about this guide. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "curbWeightLb",
+      "number": 3354,
+      "publisher": "Porsche (2020 911 Carrera US specifications)",
+      "url": "https://download.newsroom.porsche.com/dam/jcr:683ce58d-5a57-4bd0-bf5f-b1bf5fe1931d/2020_911_Carrera_and_911_Carrera_Cabriolet_US_specifications.pdf",
+      "sourceKind": "manufacturer",
+      "note": "A search summary said: 'The base Carrera's US spec sheet lists a curb weight of 3354 lbs, which is a manufacturer figure'; the Porsche sheet in that result list was '2020 911 Carrera and 911 Carrera Cabriolet US specifications' (model year 2020, same 992.1 PDK car). The line itself was not quoted, so the coupe column could not be confirmed. Cars.com lists a base curb weight of 3,354 lb for the 2024 Carrera Coupe and Edmunds matches it (carried from the card research, where the reviewer also saw 3,354 lb on Carwhere). Other listings in conflicts. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/porsche-911-2024/specs/444371/"
+    },
+    {
+      "key": "groundClearanceIn",
+      "number": 4.8,
+      "publisher": "CarExpert (Australia)",
+      "url": "https://www.carexpert.com.au/porsche/911/2024-carrera-3l-coupe-rwd-petrol-automatic-jf8ksafa20240701",
+      "sourceKind": "reference",
+      "note": "A search summary said CarExpert's 2024 911 Carrera (RWD coupe, Australian market) listing gives 'Ground Clearance Unladen (mm): 121', which the summary converted to about 4.8 in. The summary did not say which of CarExpert's several 2024 Carrera pages carried it. LOW CONFIDENCE: the earlier card research saw 121 mm attributed to the Carrera in one summary and to the Carrera T in another and left it out (see conflicts). Suspension (steel or PASM) not stated. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "engineDescription",
+      "text": "3.0-liter twin-turbocharged boxer (flat) six, 4 valves per cylinder",
+      "publisher": "Porsche (2020 911 Carrera US specifications)",
+      "url": "https://download.newsroom.porsche.com/dam/jcr:683ce58d-5a57-4bd0-bf5f-b1bf5fe1931d/2020_911_Carrera_and_911_Carrera_Cabriolet_US_specifications.pdf",
+      "sourceKind": "manufacturer",
+      "note": "A search summary said Porsche's 2020 US sheet for the 911 Carrera and Carrera Cabriolet 'lists a twin-turbo boxer six for both models, with 4 valves per cylinder'. The 3.0 L displacement is from fueleconomy.gov's 2024 listing (see displacementL); Cars.com lists the 2024 Carrera coupe engine as 'Twin Turbo Premium Unleaded H-6'. Another summary gave bore/stroke 91.0 / 76.4 mm without naming its source. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/porsche-911-2024/specs/444371/"
+    },
+    {
+      "key": "powertrain",
+      "text": "gasoline",
+      "publisher": "US EPA / fueleconomy.gov",
+      "url": "https://fueleconomy.gov/feg/noframes/47290.shtml",
+      "sourceKind": "agency",
+      "note": "Carried over from the card research: fueleconomy.gov lists the 2024 911 Carrera (3.0 L, AM-S8) as running on premium gasoline; the card reviewer confirmed it via MPG Buddy's copy of the listing. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "induction",
+      "text": "twin-turbo",
+      "publisher": "Porsche (2020 911 Carrera US specifications)",
+      "url": "https://download.newsroom.porsche.com/dam/jcr:683ce58d-5a57-4bd0-bf5f-b1bf5fe1931d/2020_911_Carrera_and_911_Carrera_Cabriolet_US_specifications.pdf",
+      "sourceKind": "manufacturer",
+      "note": "Porsche's 2020 US sheet lists 'a twin-turbo boxer six' (summary wording). Card research: Cars.com lists the 2024 Carrera coupe engine as 'Twin Turbo Premium Unleaded H-6'; the card reviewer confirmed 'twin-turbo' on Carwhere's 2020-2024 Carrera Coupe table. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.cars.com/research/porsche-911-2024/specs/444371/"
+    },
+    {
+      "key": "displacementL",
+      "number": 3.0,
+      "publisher": "US EPA / fueleconomy.gov",
+      "url": "https://fueleconomy.gov/feg/noframes/47290.shtml",
+      "sourceKind": "agency",
+      "note": "Carried over from the card research: fueleconomy.gov listing for the 2024 Porsche 911 Carrera shows 3.0L, six-cylinder, automatic AM-S8, premium gasoline. Confirmed by the card reviewer on Carwhere (3.0L, 2020-2024 Carrera Coupe). Read from search-result summary; page not opened."
+    },
+    {
+      "key": "cylinders",
+      "number": 6,
+      "publisher": "US EPA / fueleconomy.gov",
+      "url": "https://fueleconomy.gov/feg/noframes/47290.shtml",
+      "sourceKind": "agency",
+      "note": "Carried over from the card research: fueleconomy.gov lists the 2024 911 Carrera with a 3.0L six-cylinder engine; Carwhere lists a flat-6. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "horsepower",
+      "number": 379,
+      "publisher": "Cars.com",
+      "url": "https://www.cars.com/research/porsche-911-2024/specs/444371/",
+      "sourceKind": "reference",
+      "note": "Carried over from the card research: Cars.com lists the 2024 911 Carrera at 379 hp; Stuttcars' 992.1 Carrera Coupe (2020-2024) page gives 379 hp at 6,500 rpm; the card reviewer saw 379 hp on Carwhere for the 2020-2024 RWD PDK Carrera Coupe. In this run a summary said 'Porsche's 2020 US sheet lists 379 hp at 6,500 rpm'. The 388/394 figures belong to the 992.2 (model year 2025 in the US). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.stuttcars.com/porsche-911-carrera-coupe-992/"
+    },
+    {
+      "key": "horsepowerRpm",
+      "number": 6500,
+      "publisher": "Stuttcars (2020 Carrera technical specifications)",
+      "url": "https://stuttcars.com/?p=444412",
+      "sourceKind": "reference",
+      "note": "A search summary said 'Porsche's 2020 US sheet lists 379 hp at 6,500 rpm and 331 lb-ft from 1,900-5,000 rpm'. The Porsche PDF was not in that result list; Stuttcars' '2020 Porsche 911 Carrera (992) Technical Specifications' page was, so it is cited as the republisher. The card research also saw '379 hp at 6,500 rpm' on Stuttcars' 992.1 Carrera Coupe page. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.stuttcars.com/porsche-911-carrera-coupe-992/"
+    },
+    {
+      "key": "torqueLbFt",
+      "number": 331,
+      "publisher": "Cars.com",
+      "url": "https://www.cars.com/research/porsche-911-2024/specs/444371/",
+      "sourceKind": "reference",
+      "note": "Carried over from the card research: Cars.com lists the 2024 911 Carrera at 331 lb-ft; Stuttcars' 992.1 Carrera Coupe (2020-2024) page gives 331 lb-ft; the card reviewer saw 331 lb-ft on Carwhere. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.stuttcars.com/porsche-911-carrera-coupe-992/"
+    },
+    {
+      "key": "torqueRpmLow",
+      "number": 1900,
+      "publisher": "Stuttcars (2020 Carrera technical specifications)",
+      "url": "https://stuttcars.com/?p=444412",
+      "sourceKind": "reference",
+      "note": "Same summary as horsepowerRpm: 'Porsche's 2020 US sheet lists ... 331 lb-ft from 1,900-5,000 rpm'. The same summary said 'A 2021 spec sheet gives the torque band as 1950-5000 rpm instead' and that one source gives the Carrera T's band 'from ~1,900 rpm' (see conflicts). Read from search-result summary; page not opened."
+    },
+    {
+      "key": "torqueRpmHigh",
+      "number": 5000,
+      "publisher": "Stuttcars (2020 Carrera technical specifications)",
+      "url": "https://stuttcars.com/?p=444412",
+      "sourceKind": "reference",
+      "note": "Same summary as horsepowerRpm: '331 lb-ft from 1,900-5,000 rpm'; the 2021 sheet's '1950-5000 rpm' agrees on the 5,000 rpm upper end. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "redlineRpm",
+      "number": 7500,
+      "publisher": "Stuttcars (attribution uncertain)",
+      "url": "https://stuttcars.com/?p=444412",
+      "sourceKind": "reference",
+      "note": "A search summary on 992.1 Carrera engine data said 'The maximum engine speed is 7500 rpm' without tying the sentence to one result; the results were Stuttcars' 2020 Carrera technical specifications and 992.1 Carrera Coupe pages, Wikipedia's Porsche 992 article, evo, and Porsche's 992.2 Carrera sheet. If it came from the 992.2 sheet it describes the facelift engine. Maximum engine speed is taken as the rev limit. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "compressionRatio",
+      "number": 10.2,
+      "publisher": "Stuttcars (attribution uncertain)",
+      "url": "https://stuttcars.com/?p=444412",
+      "sourceKind": "reference",
+      "note": "Same summary and same attribution caveat as redlineRpm: 'Compression ratio: The figure is 10.2:1, with a tolerance of +/- 0.3.' Read from search-result summary; page not opened."
+    },
+    {
+      "key": "drivetrain",
+      "text": "RWD",
+      "publisher": "Cars.com",
+      "url": "https://www.cars.com/research/porsche-911-2024/specs/444371/",
+      "sourceKind": "reference",
+      "note": "Carried over from the card research: Cars.com lists the 2024 911 Carrera coupe as rear-wheel drive; TrueCar says 2024 Carrera models are rear-wheel drive; the card reviewer saw RWD on Carwhere. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.truecar.com/overview/porsche/911/2024/"
+    },
+    {
+      "key": "transmissionType",
+      "text": "dual-clutch",
+      "publisher": "US EPA / fueleconomy.gov",
+      "url": "https://fueleconomy.gov/feg/noframes/47290.shtml",
+      "sourceKind": "agency",
+      "note": "Carried over from the card research: fueleconomy.gov lists the 2024 911 Carrera with an 'AM-S8' 8-speed automated transmission; Stuttcars names it the 8-speed PDK. In this run a summary said 'Porsche's launch material describes an 8-speed dual-clutch transmission fitted as standard to the rear-wheel-drive Carrera and the Carrera 4S' (the Porsche newsroom powertrain page was in the result list; the summary did not tie the sentence to it). Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://newsroom.porsche.com/en_US/technology/porsche-911-carrera-type-992-powertrain-boxer-engine-16978.html"
+    },
+    {
+      "key": "gearCount",
+      "number": 8,
+      "publisher": "Porsche (2020 911 Carrera US specifications)",
+      "url": "https://download.newsroom.porsche.com/dam/jcr:683ce58d-5a57-4bd0-bf5f-b1bf5fe1931d/2020_911_Carrera_and_911_Carrera_Cabriolet_US_specifications.pdf",
+      "sourceKind": "manufacturer",
+      "note": "Summaries of Porsche's 2020 US sheet for the 911 Carrera and Carrera Cabriolet: 'the sheet lists 8 gears for the transmission' and 'Transmission: Number of gears 8'. fueleconomy.gov lists the 2024 Carrera as AM-S8. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://fueleconomy.gov/feg/noframes/47290.shtml"
+    },
+    {
+      "key": "gearRatios",
+      "numbers": [
+        4.89,
+        3.17,
+        2.15,
+        1.56,
+        1.18,
+        0.94,
+        0.76,
+        0.61
+      ],
+      "publisher": "Porsche (2020 911 Carrera S and Carrera 4S US specifications)",
+      "url": "https://newsroom.porsche.com:443/dam/jcr:d5712d5c-b376-41d9-8201-09731162e143/2020_911_Carrera_S_and_911_Carrera_4S_US_specifications.pdf.PDF",
+      "sourceKind": "manufacturer",
+      "note": "TRIM CAUTION. The summary of Porsche's 2020 US sheet for the base 911 Carrera showed 'Transmission: Number of gears 8 ... 1st 4.89 4.89, 2nd 3.17 3.17' and was cut off after second gear. The full set (3rd 2.15, 4th 1.56, 5th 1.18, 6th 0.94, 7th 0.76, 8th 0.61, reverse 3.99) came from Porsche's 2020 Carrera S / Carrera 4S US sheet. The same eight ratios appeared on Stuttcars listings for a Carrera 4S PDK, a Carrera 4S Cabriolet and a 992.2 Carrera S. Third to eighth gear were therefore not seen for the base Carrera itself; they are recorded because the base sheet's first and second gears match and every 992 8-speed PDK listing seen carried the same ratios. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://download.newsroom.porsche.com/dam/jcr:683ce58d-5a57-4bd0-bf5f-b1bf5fe1931d/2020_911_Carrera_and_911_Carrera_Cabriolet_US_specifications.pdf"
+    },
+    {
+      "key": "tyreFront",
+      "text": "P235/40YR19",
+      "publisher": "Cars.com",
+      "url": "https://www.cars.com/research/porsche-911-2024/specs/444371/",
+      "sourceKind": "reference",
+      "note": "Cars.com 2024 911 Carrera: 'P235/40YR19 Front Tire Size', on 19 x 8.5 in front wheels. iSeeCars: 'Standard staggered OEM tire sizes for the 2024 Porsche 911 Carrera are 235/40ZR19 for the front'; Auto123 matches. A Porsche bulletin (see tyreModel) printed '235/40 ZR 19 (96Y) XL'. CarExpert's 235/35 R19 is in conflicts. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.iseecars.com/car/2024-porsche-911-tire-size"
+    },
+    {
+      "key": "tyreRear",
+      "text": "P295/35YR20",
+      "publisher": "Cars.com",
+      "url": "https://www.cars.com/research/porsche-911-2024/specs/444371/",
+      "sourceKind": "reference",
+      "note": "Cars.com 2024 911 Carrera: 'P295/35YR20 Rear Tire Size', on 20 x 11.5 in rear wheels. iSeeCars: '295/35ZR20 for the rear'; Auto123 matches. A Porsche bulletin printed '295/35 ZR 20 (105Y) XL'. CarExpert's 295/35 R19 is in conflicts. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.iseecars.com/car/2024-porsche-911-tire-size"
+    },
+    {
+      "key": "tyreModel",
+      "text": "Pirelli P Zero NA1",
+      "publisher": "Porsche (technical bulletin filed with NHTSA; attribution uncertain)",
+      "url": "https://static.nhtsa.gov/odi/tsbs/2019/MC-10166911-0001.pdf",
+      "sourceKind": "manufacturer",
+      "note": "A search summary said 'A Porsche technical bulletin for the 992 lists Pirelli P Zero NA1 with front 235/40 ZR 19 (96Y) XL and rear 295/35 ZR 20 (105Y) XL for the Carrera', applying to 'model year as of 2020' and 'marked DRAFT'. Three NHTSA-hosted Porsche bulletins were in the result list (filed 2019, 2023 and 2024); the summary did not say which carried the line, and the 2019 one is cited as the one matching 'as of 2020'. Whether other N-rated brands were also fitted at the factory was not stated. Hankook's 2026 OE announcement is for a later model year (see conflicts). Read from search-result summary; page not opened."
+    },
+    {
+      "key": "dragCoefficient",
+      "number": 0.31,
+      "publisher": "Porsche (2020 911 Carrera US specifications)",
+      "url": "https://download.newsroom.porsche.com/dam/jcr:683ce58d-5a57-4bd0-bf5f-b1bf5fe1931d/2020_911_Carrera_and_911_Carrera_Cabriolet_US_specifications.pdf",
+      "sourceKind": "manufacturer",
+      "note": "A search summary: 'Porsche's own US specification sheet for the 2020 911 Carrera lists a drag coefficient of 0.31 (Drag coefficient (Cd) 0.31 0.31)', the two columns being Carrera and Carrera Cabriolet. Stuttcars' 2020 Carrera page shows 'Drag coefficient (Cd) | 0.31'. US figure; The Drive reported that Porsche quotes different Cd values outside the US for the 992.2 GTS. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://stuttcars.com/?p=444412"
+    },
+    {
+      "key": "turningCircleFt",
+      "number": 36.7,
+      "publisher": "CarExpert (Australia)",
+      "url": "https://www.carexpert.com.au/porsche/911/2024-carrera-3l-coupe-rwd-petrol-automatic-jf8ksafa20240701",
+      "sourceKind": "reference",
+      "note": "A search summary: CarExpert gives 'Kerb To Kerb Turning Circle (ft): 36.7', matching the 11,200 mm in its metric listing, for the 2024 911 Carrera; the summary did not say which of CarExpert's 2024 Carrera pages carried it. Auto123 gives 36.8 ft (see conflicts); cars-data.com's 992.2 Carrera page lists 11.2 m. Kerb-to-kerb. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "brakeFrontDiscIn",
+      "number": 13,
+      "publisher": "Auto123",
+      "url": "https://www.auto123.com/en/specs/porsche/911/porsche-911-2024-carrera-coup-441072/",
+      "sourceKind": "reference",
+      "note": "Auto123's 2024 911 Carrera coupe listing: 'Brake Type: 4-Wheel Disc' and 'Front Brake Rotor Diam x Thickness: 13 (in)'. A Cars.com Carrera T page (different trim) gives the same 13-in front rotor. The card research saw an unattributed statement of 330 mm front discs for Carrera models, which agrees. Rounded to the inch as listed. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "brakeRearDiscIn",
+      "number": 13,
+      "publisher": "Auto123",
+      "url": "https://www.auto123.com/en/specs/porsche/911/porsche-911-2024-carrera-coup-441072/",
+      "sourceKind": "reference",
+      "note": "The search summary said 'Auto123 lists 13-inch front and rear rotors for the Carrera coupe', but the line it quoted was the front rotor only. LOW CONFIDENCE: no rear-rotor line was quoted and no second source gave a rear size. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "topSpeedMph",
+      "number": 182,
+      "publisher": "Stuttcars",
+      "url": "https://www.stuttcars.com/porsche-911-carrera-coupe-992/",
+      "sourceKind": "reference",
+      "note": "Carried over from the card research: Stuttcars' 992.1 Carrera (2020-2024) spec page lists a 182 mph top track speed with PDK; a Porsche dealer research page lists 'Top track speed (with summer tires) | 182 mph' alongside 379 hp. Porsche's claim repeated, not a test; the 183 mph figures belong to the 992.2. Whether it is electronically limited was not found. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://porsche.dealerleads.com/research/2024-Porsche-911-Carrera/Riverside-CA"
+    },
+    {
+      "key": "epaCombinedMpg",
+      "number": 20,
+      "publisher": "US EPA / fueleconomy.gov",
+      "url": "https://fueleconomy.gov/feg/noframes/47290.shtml",
+      "sourceKind": "agency",
+      "note": "Carried over from the card research: fueleconomy.gov listing for the 2024 911 Carrera (3.0L six-cylinder, AM-S8, premium) shows 20 mpg combined; Edmunds lists the same 18/24/20. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.edmunds.com/porsche/911/2024/st-401968200/features-specs"
+    },
+    {
+      "key": "epaCityMpg",
+      "number": 18,
+      "publisher": "US EPA / fueleconomy.gov",
+      "url": "https://fueleconomy.gov/feg/noframes/47290.shtml",
+      "sourceKind": "agency",
+      "note": "Carried over from the card research: fueleconomy.gov listing for the 2024 911 Carrera (3.0L six-cylinder, AM-S8, premium) shows 18 mpg city. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://mpgbuddy.com/cars/porsche/911-carrera/2024"
+    },
+    {
+      "key": "epaHighwayMpg",
+      "number": 24,
+      "publisher": "US EPA / fueleconomy.gov",
+      "url": "https://fueleconomy.gov/feg/noframes/47290.shtml",
+      "sourceKind": "agency",
+      "note": "Carried over from the card research: fueleconomy.gov listing for the 2024 911 Carrera (3.0L six-cylinder, AM-S8, premium) shows 24 mpg highway. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://mpgbuddy.com/cars/porsche/911-carrera/2024"
+    },
+    {
+      "key": "test0to60Sec",
+      "number": 3.2,
+      "publisher": "Car and Driver (syndicated on Yahoo Autos)",
+      "url": "https://autos.yahoo.com/2020-porsche-911-worthy-six-164700699.html",
+      "sourceKind": "test",
+      "note": "The Yahoo Autos page 'Tested: Base 2020 Porsche 911 Is a Worthy Six-Figure Sports Car' reports 'consistent, repeated passes of 3.2 seconds to 60 mph and 11.5 seconds through the quarter-mile' with the PDK automatic; the summary did not name the publisher on that page. A second summary (Stuttcars' 992.1 Carrera Coupe page) said 'Car and Driver's base, rear-drive Carrera (same 379-hp engine) repeatedly clocked 3.2 s to 60 mph and 11.5 s quarter-mile', which is the basis for naming Car and Driver. Test car: a model-year 2020 base Carrera coupe, 379 hp, 8-speed PDK, rear-wheel drive, the same configuration as the 2024 Carrera (the 992.1 Carrera ran unchanged in rating from 2020 to 2024 per the card research). Options on the test car (Sport Chrono launch control, tyres) were not stated. Porsche claims 4.0 s (3.8 s with Sport Chrono). The page mentions a December 2020 update with results for a PDK Carrera. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.stuttcars.com/porsche-911-carrera-coupe-992/"
+    },
+    {
+      "key": "testQuarterMileSec",
+      "number": 11.5,
+      "publisher": "Car and Driver (syndicated on Yahoo Autos)",
+      "url": "https://autos.yahoo.com/2020-porsche-911-worthy-six-164700699.html",
+      "sourceKind": "test",
+      "note": "Same test as test0to60Sec: 'consistent, repeated passes of 3.2 seconds to 60 mph and 11.5 seconds through the quarter-mile'. Trap speed was not shown in any summary. Test car: a model-year 2020 base Carrera coupe, 379 hp, 8-speed PDK, rear-wheel drive, the same configuration as the 2024 Carrera (the 992.1 Carrera ran unchanged in rating from 2020 to 2024 per the card research). Options on the test car (Sport Chrono launch control, tyres) were not stated. Read from search-result summary; page not opened.",
+      "corroboratingUrl": "https://www.stuttcars.com/porsche-911-carrera-coupe-992/"
+    },
+    {
+      "key": "testRollout",
+      "text": "true",
+      "publisher": "Car and Driver (syndicated on Yahoo Autos)",
+      "url": "https://autos.yahoo.com/2020-porsche-911-worthy-six-164700699.html",
+      "sourceKind": "test",
+      "note": "Set because the test figures are Car and Driver's, whose 0-60 times subtract a one-foot rollout (as the research brief states). The rollout was not stated in the search summary itself. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testSkidpadDiameterFt",
+      "number": 300,
+      "publisher": "Car and Driver (syndicated on Yahoo Autos)",
+      "url": "https://autos.yahoo.com/2020-porsche-911-worthy-six-164700699.html",
+      "sourceKind": "test",
+      "note": "Set because the test figures are Car and Driver's, which uses a 300-ft skidpad (as the research brief states). No skidpad result for this test appeared in any summary, so testSkidpadG is in notFound. Read from search-result summary; page not opened."
+    }
+  ],
+  "notFound": [
+    "weightDistFrontPct",
+    "cgHeightIn",
+    "engineLocation",
+    "boostPsi",
+    "awdSystem",
+    "finalDriveRatio",
+    "differential",
+    "tyreCategory",
+    "frontalAreaSqFt",
+    "liftCoefficientFront",
+    "liftCoefficientRear",
+    "steeringRatio",
+    "topSpeedGoverned",
+    "test0to30Sec",
+    "test0to100Sec",
+    "testQuarterMileMph",
+    "testBraking60to0Ft",
+    "testBraking70to0Ft",
+    "testSkidpadG",
+    "testTopSpeedMph",
+    "testWeightLb",
+    "testWeightDistFrontPct"
+  ],
+  "conflicts": [
+    {
+      "key": "curbWeightLb",
+      "values": [
+        3354,
+        3318,
+        3351,
+        3311
+      ],
+      "note": "Kept 3,354 lb: Porsche's 2020 US sheet for the base Carrera (as summarized), matched by Cars.com and Edmunds for the 2024 Carrera Coupe. 3,318 lb (Auto123, 2024 Carrera), 3,351 lb (Encycarpedia) and 3,311 lb (the Yahoo buyer's guide) are reference listings from the card research. 3,342 lb is Porsche's 992.2 Carrera (2025) figure and 3,254 / 3,338 lb belong to the Carrera T. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "trackRearIn",
+      "values": [
+        61.2,
+        61.3
+      ],
+      "note": "Kept 61.2 in (1,557 mm) from Stuttcars' 2020 Carrera technical specifications; Auto123's 2024 Carrera coupe listing shows 61.3 in. The 0.1 in gap is likely rounding of the same figure; neither is a maker page. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "turningCircleFt",
+      "values": [
+        36.7,
+        36.8
+      ],
+      "note": "Kept 36.7 ft from CarExpert (stated with its 11,200 mm metric equivalent); Auto123 gives 36.8 ft. Both are reference listings for the 2024 Carrera. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "torqueRpmLow",
+      "values": [
+        1900,
+        1950
+      ],
+      "note": "Kept 1,900 rpm, which the summary attributed to Porsche's 2020 US sheet; the same summary said a 2021 spec sheet gives 1,950-5,000 rpm. Both reached me through a republisher, not a Porsche page. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "tyreFront",
+      "values": [
+        "P235/40YR19",
+        "235/35 R19"
+      ],
+      "note": "Kept Cars.com's 235/40 R19 front (matched by iSeeCars, Auto123 and the Porsche bulletin). CarExpert's 235/35 R19 front / 295/35 R19 rear conflicts with all of them and may be another market or wheel option. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "tyreModel",
+      "values": [
+        "Pirelli P Zero NA1",
+        "Hankook Ventus S1 evo Z NA2"
+      ],
+      "note": "Kept Pirelli P Zero NA1 (Porsche bulletin for model years from 2020). Hankook press material on Tyrepress and Tire Technology International, dated 2026, says Porsche selected the Ventus S1 evo Z (235/40 ZR19 front, 295/35 ZR20 rear, NA2) for Carreras that 'will' leave the factory on it, which reads as a later model year, not 2024. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "test0to60Sec",
+      "values": [
+        3.2,
+        3.0,
+        3.5,
+        4.0
+      ],
+      "note": "Kept Car and Driver's 3.2 s for a 2020 base RWD PDK Carrera. A Rennlist forum thread reposts Car and Driver figures of 3.0 s to 60 and 140 ft 70-0 without naming the trim. Edmunds' 3.5 s (11.7 s at 117.2 mph, 102 ft 60-0, 1.07 g on a 200-ft pad) is the 2025 992.2 Carrera, a different car (388 hp). 4.0 s (3.8 s with Sport Chrono) is Porsche's claim, not a test. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "testSkidpadG",
+      "values": [
+        1.08
+      ],
+      "note": "Not recorded. The card research saw a Rennlist forum post quoting a Car and Driver base Carrera test dated 12/1/2020 at 1.08 g and 139 ft 70-0; this run saw a Rennlist repost with 140 ft 70-0. Forum reposts disagree with each other and were not read from the publisher, so testSkidpadG and testBraking70to0Ft stay in notFound. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "finalDriveRatio",
+      "values": [
+        3.39
+      ],
+      "note": "Not recorded. A summary said 'For PDK cars, Porsche's US sheet lists Rear Axle Ratio / rear constant transaxle ratio 3.39 / 0.92' but that 'The sheet does not name the model in that snippet'; Stuttcars lists the same 3.39 / 0.92 for the 2025 (992.2) Carrera S. Nothing tied it to the base 2024 Carrera. Manual 992 cars show 3.56. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "weightDistFrontPct",
+      "values": [
+        38,
+        36.4
+      ],
+      "note": "Not recorded. 38% front / 62% rear is a 911UK forum reading of a video of what looked like a Carrera S; 36.4% front is Edmunds' test weight of a Carrera S (3,428 lb). Neither is this configuration. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "groundClearanceIn",
+      "values": [
+        4.8,
+        4.7,
+        4.5
+      ],
+      "note": "Kept 4.8 in (121 mm, CarExpert 2024 Carrera) at low confidence. The card research saw about 4.7 in on an unattributed listing for the base coupe with steel suspension, 4.5 in for the Carrera T, and the 121 mm figure attributed in one summary to the Carrera T; Cars.com shows N/A for the Carrera Coupe. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "horsepower",
+      "values": [
+        379,
+        388,
+        394
+      ],
+      "note": "Kept 379 hp. 388 hp (Porsche US) and 394 PS figures belong to the 992.2 Carrera, sold in the US as model year 2025; several European sites label that car '2024'. Read from search-result summary; page not opened."
+    },
+    {
+      "key": "topSpeedMph",
+      "values": [
+        182,
+        183
+      ],
+      "note": "Kept 182 mph (Porsche's claimed top track speed for the 379 hp car). 183 mph (294 km/h) is the 992.2 Carrera. Read from search-result summary; page not opened."
+    }
+  ],
+  "searchesUsed": 14
+}
