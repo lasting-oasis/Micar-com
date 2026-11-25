@@ -192,10 +192,10 @@ from two different cars on the maker's own day.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 0 | 2017 Fusion Sport (confirmed) | all-season to summer: tyres-summer | skidpad, 300 ft | 0.84 to 0.89 g (+6.0%) | +8.9% | 0.914 | +0.024 / 0.040 | pass |
 | | | | 70-0 | 178 to 155 ft (-12.9%) | -10.4% | 159.4 | +4.4 / 10.9 | pass |
-| 2 | 2025 Maverick Lobo (unconfirmed) | all-season to Pilot Sport 4: tyres-summer | skidpad, 300 ft | 0.85 to 0.90 g (+5.9%) | +8.6% | 0.923 | +0.023 / 0.040 | pass |
-| | | | 70-0 | 188 to 164 ft (-12.8%) | -10.4% | 168.4 | +4.4 / 11.5 | pass |
+| 2 | 2025 Maverick Lobo (unconfirmed) | all-season to Pilot Sport 4: tyres-summer | skidpad, 300 ft | 0.85 to 0.90 g (+5.9%) | +8.3% | 0.920 | +0.020 / 0.040 | pass |
+| | | | 70-0 | 188 to 164 ft (-12.8%) | -10.2% | 168.8 | +4.8 / 11.5 | pass |
 
-Both pass, both a little generous on the skidpad (+0.024 g) and a little short on the stop (2.7%): the category step
+Both pass, both a little generous on the skidpad (+0.020 and +0.024 g) and a little short on the stop (about 3%): the category step
 in `classes.ts TYRE_CATEGORY` (0.92 to 1.02 friction) is about the size two magazine tests measured.
 
 ## weight-reduction
@@ -277,7 +277,9 @@ listed is the resolver's class estimate.
   2.146, 1.769, 1.520, 1.275, 1.000, 0.854, 0.689, 0.636, axle 3.55 (record), 3,705 lb.
 - Fusion Sport 2017: 2.7 L twin-turbo V6, 325 hp at 5,500 rpm, 380 lb ft at 3,500 rpm, all-wheel drive, automatic,
   3,989 lb, 235/40R19 all-season.
-- Maverick Lobo 2025: 2.0 L turbo four, 250 hp at 5,500 rpm, 277 lb ft at 3,000 rpm, front drive, automatic; weight
+- Maverick Lobo 2025: 2.0 L turbo four, 250 hp at 5,500 rpm, 277 lb ft at 3,000 rpm (Ford's 2025 Maverick and Lobo
+  technical specifications; Edmunds and Cars.com print 238 hp), all-wheel drive (the Lobo comes with the EcoBoost and
+  all-wheel drive only: Edmunds, Cars.com; it was entered from memory as front drive), automatic; weight
   and tyre size the class's (a pickup's 2,300 kg and 275/65R18); the prediction is a ratio over a change of category
   alone, which these hardly move.
 - Ram 1500 Tungsten 2025: 3.0 L twin-turbo six, 540 hp (record), 521 lb ft, four-wheel drive, automatic, 5,900 lb

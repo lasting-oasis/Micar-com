@@ -6,7 +6,7 @@ import { CoreDriver, isCoreDriver, type DriverLike } from './driver';
 import type { CoreCar } from './model';
 import { assistsInAddress, coreChosen, type DrivingMode } from './switch';
 
-export { CoreDriver, isCoreDriver, type CoreDriveOpts, type DriverLike } from './driver';
+export { CoreDriver, isCoreDriver, shiftCue, type CoreDriveOpts, type DriverLike } from './driver';
 export { coreModelFor, type CoreCar } from './model';
 export { assistsInAddress, coreChosen, drivingMode, type DrivingMode } from './switch';
 

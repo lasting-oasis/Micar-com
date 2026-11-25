@@ -850,7 +850,9 @@ compilers and its tests.
 6. **Diesel friction** `[84e3, 48e3, 3.6e3]` was quoted from memory as Heywood gives Millington and Hartles: check it
    against the book. `EngineSpec` has no friction field, so the resolver refits a built engine. The fuel booking uses
    petrol's 14.7 for every engine (a diesel's is about 14.5), and an electric car books shaft energy, with no motor or
-   inverter efficiency.
+   inverter efficiency. The closed-throttle pumping (`PUMPING_MEP`) is charged to every combustion engine, a diesel's
+   too, though a diesel has no throttle plate; and the friction's load term is held at its full-load figure at every
+   load (more than the Shinn-Flynn form gives a motored cylinder, nothing more on boost: classes.ts FMEP).
 7. **Fixed shapes that lack a field** (fix centrally in types.ts): the ground's rolling factor reaches `drivelineStep`
    through the module array `driveline.surfaceRolling` (vehicle.ts writes it each substep, drivelineStep puts it back
    to 1), for want of an argument or a state field; `Telemetry.wheelUse` has no field in `VehicleState`;
@@ -1290,7 +1292,11 @@ cannot drift says so. Every preset's pedal is mapped as a drive-by-wire car maps
 its first 5% the pedal asks for its share of the engine's full torque at its speed and boost, the closed throttle's
 drag fading out over that 5%, so a light squeeze of an analog trigger drives the car. A manual driver in an
 automatic or dual-clutch car follows the box when it changes up by itself at redline (its gear asked for never asks
-it back down).
+it back down). With neither pedal down at a walk or slower (2.5 m/s) the adapter holds the car on its brakes (0.3 of
+the pedal at rest, nothing at 2.5 m/s), so a stopped car stands still with no key held, as the old model's does: a
+converter's creep moved an automatic on at 5 km/h for good, and the brake key held at a standstill selects reverse.
+The HUD's SHIFT cue is shown only where a shift press changes gear (`driver.ts shiftCue`: not on a CVT, whose
+old-model Params count six ratios, nor in Casual).
 
 Race starts: while the runner holds the car on the line the adapter holds the brakes and the clutch and lets the
 pedal set the launch revs; at the green it lets go.

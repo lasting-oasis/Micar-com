@@ -5,8 +5,9 @@
 //   1. reads from the Vehicle what the outside may have changed since the last one (a wall's push and bounce, the
 //      race runner's pins and grid places, a respawn, a refill, a blown engine), sim to core: X = z, Y = x,
 //      (hx, hy) = (cos h, sin h), u, v and r = w unchanged;
-//   2. sorts the pedals as the old model does (the down pedal held at a standstill selects reverse) and turns the
-//      Input into the core's Controls through the assist layer (assists.ts), steer = -Input.steer;
+//   2. sorts the pedals as the old model does (the down pedal held at a standstill selects reverse; with neither
+//      pedal down at a walk or slower the car is held on its brakes, so it stands still as the old model's does) and
+//      turns the Input into the core's Controls through the assist layer (assists.ts), steer = -Input.steer;
 //   3. steps the core once (its own step is 1/120 s, in four substeps);
 //   4. writes back every field a reader uses, in its old unit and sense, into the same Vehicle object.
 // Race starts: while the race runner holds the car on the line, the brakes and the clutch are held and the throttle
@@ -52,6 +53,15 @@ const CREEP = 0.5, BACK_OFF = 0.97;
 
 /** The share of the pedal's travel over which the engine's closed-throttle drag fades out (pedalThrottle). */
 export const PEDAL_DRAG = 0.05;
+
+/**
+ * With neither pedal down the car is held on its brakes below this road speed, m/s (a walk): the old model's car
+ * stands still with no key held, and a converter's creep (1 to 2 m/s) would otherwise move an automatic on for as
+ * long as nothing is pressed, the brake key at a standstill selecting reverse (the hold of a modern automatic's
+ * brake-hold button, always on). The hold comes on in a straight line from nothing there to STAND_BRAKE at rest.
+ */
+export const STAND_SPEED = 2.5;
+export const STAND_BRAKE = 0.3;
 
 /**
  * The throttle for a pedal (0 to 1) as a drive-by-wire car maps it: past the first PEDAL_DRAG of its travel the pedal
@@ -102,6 +112,16 @@ export function cannotDrift(m: VehicleModel): string | null {
   const push = peak * g * d.finalDrive * d.efficiency * rear / m.tyreRear.radius;
   const load = ch.mass * 9.80665 * ch.a / ch.wheelbase, grip = m.tyreRear.muY0 * m.tyreRear.muXRatio * load;
   return push > grip ? null : 'the engine cannot spin the rear tyres';
+}
+
+/**
+ * Whether the HUD's SHIFT cue (hud.ts, raceHud.ts: manual, near redline, not in top gear) belongs on screen: the gears
+ * are the driver's (`manual`), and on the core a shift press changes gear in this car with these assists (a stepped
+ * box of more than one gear, the gears not Casual's). A CVT counts six ratios in its old-model Params for the
+ * straight-line run, so the cue read off P.gears alone flashed on it for good in a drag race.
+ */
+export function shiftCue(driver: DriverLike | null, manual: boolean): boolean {
+  return manual && !(driver instanceof CoreDriver && !driver.takesShifts());
 }
 
 /** The core's model of the car, its state, and the game's Vehicle it fills: the adapter between the two. */
@@ -192,6 +212,12 @@ export class CoreDriver implements DriverLike {
     this.writeBack(0);
   }
 
+  /** Whether a manual's shift press changes gear here: a stepped box of more than one gear, and gears that are not the assists' (Casual shifts for the driver). */
+  takesShifts(): boolean {
+    const m = this.s.model;
+    return stepped(m) && m.driveline.gears.length > 1 && !ASSISTS[this.preset].autoGears;
+  }
+
   /** Put the car at (x, z) metres facing h, stopped, in first gear, the engine idling (world/physics.ts resetVehicle). */
   place(x: number, z: number, h: number): void {
     const s = this.s, V = this.V;
@@ -254,6 +280,11 @@ export class CoreDriver implements DriverLike {
         this.revHold += dt;
         if (this.revHold > 0.25) { this.reverse = true; thr = J.back; brk = 0; }
       } else this.revHold = 0;
+    }
+    // Nothing pressed at a walk or slower: held on the brakes, so a stopped car stays stopped (STAND_SPEED).
+    if (!(thr > 0) && !(brk > 0) && !held) {
+      const u = Math.abs(s.u);
+      if (u < STAND_SPEED) brk = STAND_BRAKE * (1 - u / STAND_SPEED);
     }
 
     // The gear lever: a manual's shift edges (first from reverse, reverse from first at a walk), else the car's own.

@@ -380,7 +380,7 @@ const EXAMINED: readonly Examined[] = [
   },
   {
     page: TYRES, index: 2, figures: ['skidpad', 'braking70'], skidpadFt: 300,
-    stock: () => stockSheet('exam-2025-ford-maverick-lobo', 2025, 'Ford', 'Maverick', 'Lobo (2.0L turbo)', 'pickup', { litres: 2.0, cylinders: 4, induction: 'turbo', hp: 250, hpRpm: 5500, torque: 277, torqueRpmLow: 3000, drive: 'FWD', transmission: 'automatic', tyres: 'all-season' }),
+    stock: () => stockSheet('exam-2025-ford-maverick-lobo', 2025, 'Ford', 'Maverick', 'Lobo (2.0L turbo)', 'pickup', { litres: 2.0, cylinders: 4, induction: 'turbo', hp: 250, hpRpm: 5500, torque: 277, torqueRpmLow: 3000, drive: 'AWD', transmission: 'automatic', tyres: 'all-season' }),
     before: build([]), after: build(['tyres-summer']),
     how: 'tyres-summer; weight and tyre size not given (the class\'s)',
   },

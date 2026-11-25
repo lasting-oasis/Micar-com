@@ -8,6 +8,8 @@ A scorecard for how real MiCar's racing is: 27 criteria in six areas, each score
 
 **Today's score: 29 out of 100.**
 
+**Re-scored 2026-11-25 (section 9): 29.7 with the old model, the default; 56.0 with `?physics=core`.** Sections 1 to 8 are the baseline as it was measured on 2026-11-14.
+
 The physics core's rule is the rule here too: real figures about a car go in, and how it launches, turns and stops comes out. A criterion cannot pass level 1 while an input is bent to hit its result.
 
 ## 2. The scale
@@ -323,3 +325,267 @@ AI racers paced from a stock Ronin GT (221 hp), flying lap, catch-up rule off.
 | Ardennes (6.97 km) | 2:50.9 | 2:37.6 | 2.8 → 5.2 g |
 
 Sustained cornering is the best one-second average of turn rate × speed. A lap-against-limit figure cannot be given cleanly yet: no circuit has a racing line and an opponent is not a car. The stage 4 driver model produces it.
+
+## 9. Re-score, 2026-11-25: the old model and the physics core
+
+### How it was measured
+
+Every figure below is printed by one script, from the repository root (about 40 s; two runs give the same output):
+
+```
+pnpm --filter @micar/sim exec tsx ../../packages/physics/scripts/rubric.ts
+```
+
+Two columns are scored:
+
+- **Classic**: the game as it ships, the old model (`apps/sim/src/world/physics.ts`) with the old AI and drag cars. The model is unchanged since the baseline. The script measures it the way section 3 describes, and all 36 rows of section 8's table come back: power to the horsepower, 0-60 and the quarter mile to the tenth, top speed to the mile an hour, and trap speed within 2 mph. For example: Camry 248 hp, 0-60 7.9 s, 16.1 s @ 95 mph, skidpad 0.972 g; Corvette 603 hp, 5.2 s, 199 mph, 12.9 s @ 123 mph; F-150 0.884 g; all nine parts on the Mustang 1,102 hp, 3.87 s, 10.83 s; 23 of 36 within 7% or 0.3 s of the table). Trap speeds are a mile an hour lower here because the script averages the last 66 ft.
+- **Core**: the game with `?physics=core`, scored on what the live game does, not on what the core could do. A world car drives on the sheet `world/core/model.ts coreModelFor` picks: 7 of the 36 models on a researched record, 29 on the car table's six figures. The researched records are driven as filed, and nobody calibrates them: `data/sheets.ts` holds every calibration as null and `coreModelFor` never calls `calibrate`. The Garage's tiers reach the car through `legacyBuild`, the player's pedals through `CoreDriver` with Standard assists, and the opponents are `world/core/opponents.ts`.
+
+The validation cars are checked twice. Once as VALIDATION.md runs them (calibrated, at the test weight), and once as the game drives the same sheet. The game's figures are the ones scored. Where a level turns on a rule that code cannot measure (a red light, a handicap format, a label), the fact is stated with the file that shows it. Where a band can be read two ways, the lower level is taken and the reason given.
+
+Two classic levels moved without the old model changing. F3 rose from 1 to 3, because the server's floors are now worked out on both models and serve both. B5 fell from a provisional 2 to 1 once it was measured.
+
+### Scorecard
+
+| Area | Points | Baseline | Classic now | Core now |
+| --- | --- | --- | --- | --- |
+| A. Straight line | 20 | 7.3 | 7.3 | 7.3 |
+| B. Cornering and tyres | 20 | 5.7 | 5.0 | 11.7 |
+| C. Honest inputs | 12 | 2.3 | 2.3 | 6.7 |
+| D. Modifications, one to one | 20 | 5.7 | 5.7 | 12.3 |
+| E. Opponents and race rules | 16 | 4.0 | 4.0 | 11.0 |
+| F. One truth | 12 | 4.0 | 5.3 | 7.0 |
+| **Total** | **100** | **29.0** | **29.7** | **56.0** |
+
+| Criterion | Weight | Baseline | Classic | Core |
+| --- | --- | --- | --- | --- |
+| A1 Launch | 6 | 1 | 1 | 1 |
+| A2 0-60 mph | 5 | 1 | 1 | 1 |
+| A3 Quarter mile | 5 | 1 | 1 | 1 |
+| A4 Top speed and the limiter | 2 | 1 | 1 | 1 |
+| A5 Braking | 2 | 2 | 2 | 2 |
+| B1 Skidpad, car by car | 7 | 1 | 1 | 1 |
+| B2 What moves grip | 5 | 0 | 0 | 2 |
+| B3 How a tyre lets go | 4 | 1 | 1 | 2 |
+| B4 Lift and downforce | 2 | 1 | 1 | 2 |
+| B5 Balance | 2 | 2 (provisional) | 1 | 3 |
+| C1 Power is the car's own | 5 | 0 | 0 | 2 |
+| C2 Each car is itself | 4 | 1 | 1 | 1 |
+| C3 Every number says where it came from | 3 | 1 | 1 | 2 |
+| D1 Power parts match the dyno, by engine | 6 | 1 | 1 | 2 |
+| D2 Parts carry their real costs | 4 | 1 | 1 | 2 |
+| D3 Chassis parts do what they really do | 5 | 1 | 1 | 2 |
+| D4 A fully built car stays inside reality | 3 | 0 | 0 | 1 |
+| D5 Nitrous | 2 | 1 | 1 | 2 |
+| E1 Opponents obey their car | 6 | 0 | 0 | 3 |
+| E2 Close racing without cheating | 3 | 1 | 1 | 2 |
+| E3 Drag strip procedure | 3 | 1 | 1 | 1 |
+| E4 Circuit procedure and terrain | 2 | 2 | 2 | 2 |
+| E5 Drift | 2 | 1 | 1 | 1 |
+| F1 A part does the same thing on the card and on the road | 5 | 0 | 0 | 1 |
+| F2 The card's result is the driven result | 3 | 2 | 2 | 2 |
+| F3 The server's limits come from the physics | 2 | 1 | 3 | 3 |
+| F4 Same inputs, same result, everywhere | 2 | 2 | 2 | 2 |
+
+The core lifts the score from 29.7 to 56.0. Almost all of the gain is in cornering, honest inputs, parts and opponents. The straight line does not move: the core's physics is honest there, but the figures the game feeds it are not good enough yet (A1 to A4 below).
+
+### Criterion by criterion
+
+#### A. Straight line (classic 7.3, core 7.3)
+
+**A1. Launch. Weight 6. Classic 1, core 1.**
+- Classic: 0-30 mph Corvette 2.32 s, M4 2.42, Mustang 2.76, Civic 3.87, X5 1.99. The best quarter second of launch is 0.60, 0.57, 0.60, 0.42 and 0.90 g. Every car sits on its body style's weight split.
+- Core: 0-30 mph Corvette 1.76 s (0.80 g), M4 2.36 (0.63 g), Mustang 2.30 (0.63 g), Civic 3.41 (0.47 g), X5 2.32 (0.65 g). Wheelspin is something each wheel does. No sheet on file carries an instrumented 0-30 or 60 ft figure, so level 2's "within 15% for each layout" cannot be shown. The launch is judged through the 0-60 checks, and on those the two rear-drive validation cars, floored in the game as a player floors them, take 29% (Corvette) and 33% (911) longer than their tests. The Corvette is held back by its rear tyres. The 911 drives on a front-engine weight split, because its engine location is not on file. Of the five cars, 3 drive on a published weight split.
+- To level 3: instrumented 0-30 and 60 ft figures; the 911's engine location; the Corvette's tyre, which sits at its category's edge (VALIDATION.md); published weight splits for the table's cars.
+
+**A2. 0-60 mph. Weight 5. Classic 1, core 1.**
+- Classic: 23 of 36 within 7% or 0.3 s of the table, with power bent to get there (C1).
+- Core: in the game, 2 of 7 validation 0-60s are within tolerance and 3 within twice it, with a fleet median of 17.2% (level 3 asks for 4%). Floored by a player through the adapter: Corvette +29%, Civic -16%, 911 +33%, Model 3 +92%, Camry -8%, Tacoma +2%, Golf GTI +2%. Against the unverified table, 8 of 36 land within 7% or 0.3 s with nothing fitted. That is fewer than the old model's 23, and the reason is that the old model fitted its torque to the 0-60.
+- To level 3: the Model 3's system power on file (it drives as a 200 hp class blank); the 911's engine location; the Corvette's tyre. The Civic and the Camry are tested by gentle launchers (Consumer Reports, an economy automatic), while the bench launches as an expert does.
+
+**A3. Quarter mile. Weight 5. Classic 1, core 1.**
+- Classic: no quarter-mile figure to compare against. The Engine part moves the Mustang's time -3.4% for +33% power, where the rule of thumb says -9.1%.
+- Core: in the game, quarter-mile times are 3 of 6 within tolerance and 4 within twice. Trap speeds are 4 of 5 within tolerance. Level 2 asks for every one within 8%, and the 911 and the Model 3 miss (the same missing inputs as A2). The quarter answers power at less than half the rule's rate. The Engine part gives +17.4% power and -2.3% on the quarter, where the rule says -5.2%. The top-tier turbo kit gives +83% power and -3.6% on the quarter, where the rule says -18.3%, and its 0-60 gets 2% slower. EXAM.md's Dark Horse row says the same: the bench's launch of a powerful rear-drive car stays held at the tyres. The bench prints a full timeslip (the Mustang: 60 ft 2.19, 330 ft 5.68, 1/8 8.45 @ 90.2, 1000 ft 10.75, 1/4 12.69 @ 116.0), but the Strip shows the finish time only.
+- To level 3: the inputs above; a launch that answers power as real cars do; the timeslip on the Strip.
+
+**A4. Top speed and the limiter. Weight 2. Classic 1, core 1.**
+- Classic: 21 of 36 within 4% of the table, by bending the final drive. 11 governed trucks, SUVs and vans run past their governor (F-150 129 mph for 107).
+- Core: no table truck runs past its governor, and 35 of 36 are within 4% of the table. That holds by construction, not on evidence: `sheet.ts sheetFromTable` reads every table top speed as a governor, so it says nothing about drag and gearing. Against the makers' figures on the researched sheets: Corvette 204 mph for 184 (+10.8%), GT-R 194 for 196, 911 191 for 182 (+5.0%), Model 3 113 for 125 (-9.4%, its power blank), Mustang 155 on its governor. The Camry's tested 133 mph governor comes out at 129.6 mph, the sedan class's. The 29 table cars run on class gear ratios, not their own.
+- To level 3: within 4% from real ratios and drag (the Corvette is 11% fast); each car's own governed speed on its sheet.
+
+**A5. Braking. Weight 2. Classic 2, core 2.**
+- Classic: unchanged since the baseline. 60-0 in 115 to 133 ft by body style, and 300 kg changes nothing.
+- Core: in the game both checks pass: the Corvette's 70-0 in 146 ft for 149, the GTI's 60-0 in 112 ft for 108. The tyres set the stop: the top-tier Brakes make the Mustang's first stop 0.7% longer (their weight), and top-tier Tyres make it 19.6% shorter. Calibrated to its skidpad, as VALIDATION.md runs it, the Corvette stops 8.9% short, which is a miss. So it passes in the game only because its grip is not fitted.
+- To level 3: brake fade, so that brakes set how often a stop can be repeated; within 7% on calibrated cars.
+
+#### B. Cornering and tyres (classic 5.0, core 11.7)
+
+**B1. Skidpad, car by car. Weight 7. Classic 1, core 1.**
+- Classic: one grip number per body style. Camry 0.97 g, Civic 0.97, Prius 0.98, 3 Series 0.99, Mustang 1.05, Supra 1.05, Corvette 1.05, Odyssey 0.89, F-150 0.88, Tahoe 0.92.
+- Core: the game drives the researched sheets uncalibrated, so every skidpad on file is a prediction there. The Corvette reaches 0.944 g for 1.03 (-0.086), the Model 3 0.800 g for 0.92 (-0.120) and the GTI 0.906 g for 0.99 (-0.084): all three are outside level 2's 0.08 g. Calibrated, as VALIDATION.md runs them, the misses would be -0.075 and -0.067 g and the GTI would meet its figure, which is level 2. Table cars: Camry 0.79, Civic 0.80, Prius 0.78, 3 Series 0.80, Mustang 0.91, Supra 1.01, Corvette 0.94, Odyssey 0.75, F-150 0.70, Tahoe 0.70 g. The core corners below its tyres' friction (VALIDATION.md: 86 to 88%).
+- To level 3: calibrated sheets in the game; enough grip in the categories for the Corvette and the Model 3; a tyre grade on the table cars' sheets.
+
+**B2. What moves grip. Weight 5. Classic 0, core 2.**
+- Classic: a centre of gravity 30% higher costs 0.002 g, and 300 kg gains 0.002 g. The model has no left and right.
+- Core, on the Camry the game drives: 30% higher costs 0.030 g; 300 kg costs 0.030 g; 10% narrower tracks cost 0.013 g; a 2.5 times stiffer rear bar takes 0.29 degrees of steer off a 0.65 g corner, toward oversteer. The model can lift an inner wheel to exactly zero (chassis.test.ts). But no car in the world does lift one at its limit. At 0.97 of its own skidpad figure the lightest wheel keeps 21% of its static load on the GTI, 28% on the Tahoe and 29% to 37% on the others. That includes the GTI, a car known for lifting its inside rear wheel. So level 3's "an inside wheel can lift" is not shown on a car.
+- To level 3: inside wheels that lift on the cars that lift them (roll stiffness split and bar rates for front-drive hatchbacks); published figures to hold the sizes to; a rear bar on the sports, coupe and pickup classes, where it is 0 and a part that scales it moves nothing (DESIGN.md open question 4).
+
+**B3. How a tyre lets go. Weight 4. Classic 1, core 2.**
+- Classic: unchanged (`tireCurve`). The peak is at 9 degrees, 96% of it is left at 20, grip does not depend on load, and force arrives at once.
+- Core, the tyre model at its reference load at 20 m/s:
+
+  | Category | Peak | At 20 degrees | Double the load | Force builds over |
+  | --- | --- | --- | --- | --- |
+  | all-season | 8.0 deg | 83% of the peak | 1.76 x the force | 0.55 m |
+  | summer | 7.3 deg | 83% | 1.74 x | 0.50 m |
+  | max-performance | 6.8 deg | 83% | 1.72 x | 0.45 m |
+  | track | 6.8 deg | 85% | 1.70 x | 0.40 m |
+  | all-terrain | 9.3 deg | 86% | 1.80 x | 0.65 m |
+
+  Each wheel shares one friction ellipse between drive, brake and steer.
+- To level 3: each grade's figures are class estimates, with no sourced range to sit inside; a locked wheel's sliding force tilts sideways (DESIGN.md open question 1).
+
+**B4. Lift and downforce. Weight 2. Classic 1, core 2.**
+- Classic: unchanged. Every car carries downforce worth 20% of its weight at 123 mph.
+- Core: a stock car lifts slightly, and a wing turns that into downforce and brings its drag. The Camry has 352 N of lift at 123 mph (2.3% of its weight), and -389 N with the big wing, its CdA rising from 0.620 to 0.690 m^2. The Corvette and the Mustang have 278 N of lift, and -463 N with the wing. But lift is a class estimate on every car, because no sheet carries a lift figure, and drag is a class estimate on 35 of the 36. The aero slider at +1 also adds a modest lip and wing, with their drag, when no part is fitted.
+- To level 3: published lift coefficients, drag for the table's cars, and slider downforce only from a part that makes it.
+
+**B5. Balance. Weight 2. Classic 1, core 3.**
+- Test: a steady 300 ft corner at 0.9 of the car's limit, then for one second the steer frozen and the pedal held, floored or lifted, in a held gear, with stability and traction control off.
+- Classic, measured for the first time: the Civic runs wide when floored (-0.01 to 1.30 m out). But no rear-drive car rotates. The Mustang and the Corvette run wide too (0.90 and 1.75 m), and their yaw falls (the Mustang from 0.459 to 0.380 rad/s). Lifting tightens the line on all three. Counter-steer help and a steering fade are inside the car model. The baseline's provisional 2 does not survive the measurement.
+- Core: the Civic runs wide when floored (0.03 to 0.33 m out, yaw 0.401 to 0.285 rad/s). The Mustang rotates (yaw 0.400 to 1.630 rad/s, sideslip -1.9 to -42 degrees: it spins, with its systems off). Lifting tightens the line on all three. Driver help is the assist layer (`world/core/assists.ts`), and Pure turns it off.
+
+#### C. Honest inputs (classic 2.3, core 6.7)
+
+**C1. Power is the car's own. Weight 5. Classic 0, core 2.**
+- Classic: a median of 12.4% off the table, with torque scaled until the 0-60 matches.
+- Core: every researched sheet's peak power and torque come out within 0.01%, each within one step of the engine's table (100 rpm) of its published speed. The table's cars come out within 0.02%. Nothing is fitted to an acceleration test. But the Model 3 has no power figure on file, and the game drives it as a 200 hp class blank. One world car's power is not its own.
+- To level 3: a sourced system power for the Model 3, and a rule that a car with no power figure is not driven as though it had one.
+
+**C2. Each car is itself. Weight 4. Classic 1, core 1.**
+- Classic: seven body-style chassis, all with six gears. The identical pairs are Sienna and Odyssey, Supra and Z4, and Explorer and Pilot (the baseline named only the first two).
+- Core: there are no identical pairs. 27 of the 503 pairs that are 10% apart on the table's 0-60 come out the other way round (the old model: 31). Of the 36 cars, 34 have their own mass (the Corvette and the Tacoma drive at a class blank's weight, with no curb weight on file), 4 their own weight split, 7 their own gear ratios, tyre size, transmission and track, 0 their own centre-of-gravity height, and 1 its own drag. The 29 table cars are their six figures and their class.
+- To level 3: researched sheets for the table's cars; the missing curb weights and the 911's engine location.
+
+**C3. Every number says where it came from. Weight 3. Classic 1, core 2.**
+- Classic: unchanged. The driving model marks nothing.
+- Core: every parameter of every model carries a basis. Over the 36 cars that is 329 sourced, 115 derived, 3,300 estimated and none calibrated. That the estimates lean unfavourable is not shown. The 29 table cars reach 60 mph a median 3.5% quicker than their table says. 12 of them are more than 7% quicker, the trucks and SUVs most (Explorer -13%, Tahoe -12%, Silverado -11%, Prius -11%), and 7 are more than 7% slower. Nothing in the game labels a car that has not passed its checks. Ranked card play does not read the core.
+- To level 3: class estimates that make a car slower than its figures, not quicker (gearing, transmission type and launch for the table's cars); a label in the Garage; ranked play kept to checked cars once it reads the core.
+
+#### D. Modifications, one to one (classic 5.7, core 12.3)
+
+One top-tier part at a time on the Mustang. On the core, stock is 480 hp, 0-60 4.61 s, 12.69 s @ 116.0 mph, 0.915 g, 60-0 in 111 ft and 1,767 kg as driven.
+
+| Part | Core road | Card in the switch-on Garage (bench) | Card, ruleset v1 | Old road |
+| --- | --- | --- | --- | --- |
+| Engine | power +17%, 0-60 +1%, quarter -2.3%, trap +6.7%, -11 kg | power +17%, 0-60 +1% | power +30%, 0-60 -20% | power +33%, quarter -3.4% |
+| ECU | power +5%, quarter -0.8% | power +5% | power +5%, 0-60 -4% | power +20%, quarter -3.1% |
+| Turbo | power +83%, 0-60 +2%, quarter -3.6%, trap +14.2%, +35 kg | power +83%, 0-60 +2% | power +70%, 0-60 -32% | power +38%, quarter -3.2% |
+| Nitrous | power +31% (150 hp shot), quarter -3.0%, +16 kg | power +31% | power +28%, 0-60 -16% | (not fired) |
+| Transmission | 0-60 -7%, quarter -2.6%, +10 kg | 0-60 -7% | 0-60 -6% | 0-60 -11%, quarter -5.0% |
+| Weight | -203 kg, quarter -1.1%, +0.023 g, 60-0 -1.7% | no change | 0-60 -8% | quarter -1.5% |
+| Tyres | +0.186 g, 0-60 -17%, 60-0 -19.6% | 0-60 -17% | 0-60 -3% | +0.180 g, 0-60 -13% |
+| Suspension | +0.015 g, 0-60 +3% | 0-60 +3% | no change | +0.088 g, 0-60 -6% |
+| Brakes | 60-0 +0.7% (+6 kg) | no change | no change | no change |
+| All nine | 1,367 hp, 0-60 3.30 s, 10.23 s @ 155.4 mph, 1.151 g, 88 ft | 1,310 hp, 3.08 s | 1,418 hp, 1.90 s | 1,102 hp, 3.87 s, 10.83 s |
+
+**D1. Power parts match the dyno, by engine. Weight 6. Classic 1, core 2.**
+- Classic: the same percentage on any engine. ECU tier 3 is +20.5% on the V8 and +16.6% on a turbo four; Turbo tier 3 is +38.0% and +38.1%.
+- Core: gains come from airflow. The ECU tiers give +2.8%, +2.8% and +5.1% on the unboosted Mustang, and +10.0%, +10.0% and +12.3% on the turbo GTI. A turbo kit gives +83.4% on the V8, and a bigger turbo +4.7% on the Supra. Both stage-1 figures are inside the published range for the part (2% to 5% unboosted; +4% to +36% on the exam's eight stock-turbo dynos). The parts exam has 39 of 57 figures within the band (EXAM.md).
+- To level 3: the exam's 18 misses, among them stage-1 maps that gain more torque than power, a centrifugal kit and the nitrous window (EXAM.md, last section). Tiers 1 and 2 of the ECU are the same part on a car without the exhaust tier 2 asks for.
+
+**D2. Parts carry their real costs. Weight 4. Classic 1, core 2.**
+- Classic: on the road a part costs nothing but the turbo's spool.
+- Core: a turbo kit adds 35 kg on the nose and 0.45 s of spool. Nitrous adds 16 kg and a bottle that empties. Wings bring their drag, race fuel draws 1.3 times the fuel, and clutch capacity limits what gets through. The card engine charges the same build's reliability and durability (`garageBench.ts cardMods`).
+- To level 3: heat (charge, engine and brakes), and what a gearbox can hold.
+
+**D3. Chassis parts do what they really do. Weight 5. Classic 1, core 2.**
+- Classic: Tyres +0.18 g, Suspension +0.088 g by raising grip, nothing with a downside.
+- Core: Tyres move skidpad, braking and launch together (+0.186 g, 60-0 -19.6%, 0-60 -17%). Suspension gives +0.015 g from a lower, stiffer car (the baseline's typical figure is 0.02 to 0.05 g). Weight leaves the traction-limited 0-60 where it was and takes 1.1% off the quarter. Brakes do not shorten the first stop. On the exam, tyres pass 4 of 4, weight 10 of 10, and suspension 1 of 1 (its band is wider than the change).
+- To level 3: brake fade; a rear bar on three classes (open question 4); more exam cases for springs and bars.
+
+**D4. A fully built car stays inside reality. Weight 3. Classic 0, core 1.**
+- Classic: unchanged. All nine on the Mustang make 1,102 hp and 10.8 s on the road. Ruleset v1's card says 1,418 hp and 1.90 s; the baseline's 1.73 s now stops at the card's 1.9 s floor.
+- Core: all nine on the Mustang make 1,367 hp with the shot, 0-60 in 3.30 s (the tyres allow no less than 1.91 s) and 10.23 s @ 155.4 mph. Hale's rule says 169.9 mph: the car keeps its stock 155 mph governor through a race tune. A built Corvette makes 1,408 hp, 2.48 s, 9.04 s @ 174.3 mph and **281 mph**. That is the old model's 277 mph again, the one the baseline called out: nothing limits a road tyre's speed or a body's lift. Power stops at the parts' airflow and knock limits, and the launch at the tyres.
+- To level 3: documented whole builds to land within tolerance of; a tyre speed limit and lift at speed; a governor a tune can move.
+
+**D5. Nitrous. Weight 2. Classic 1, core 2.**
+- Classic: 30% to 55% more torque for 4 to 8 s, and a bottle that refills itself.
+- Core: a fixed shot (150 hp at tier 3), and a 4.5 kg bottle that empties and stays empty (83 s of shot at 54 g/s). The card engine charges its reliability. But the race runner fills the bottle free at every start (`strip/events.ts`), and nothing models its pressure.
+- To level 3: a refill that costs money, and pressure falling as the bottle empties.
+
+#### E. Opponents and race rules (classic 4.0, core 11.0)
+
+**E1. Opponents obey their car. Weight 6. Classic 0, core 3.**
+- Classic: unchanged (`strip/ai.ts`). A point on a line, sustaining 2.1 to 5.2 g.
+- Core: each racer is the player's own car on the same step, with a seeded pilot. A stock Ronin GT field ran five circuits:
+
+  | Circuit | Limit lap | Flying laps | Share of the limit | Best sustained 1 s |
+  | --- | --- | --- | --- | --- |
+  | Harbour GP | 128.6 s | 138.9, 138.9, 135.0 s | 0.926 to 0.953 | 0.94 g |
+  | Royal Park GP | 148.4 s | 155.1, 155.1, 151.8 s | 0.956 to 0.978 | 0.97 g |
+  | Figure Eight GP | 170.8 s | 181.3, 180.8, 176.0 s | 0.942 to 0.971 | 0.95 g |
+  | Mountain GP | 168.1 s | 176.2, 175.8, 171.7 s | 0.954 to 0.979 | 0.95 g |
+  | Ardennes GP | 192.7 s | 203.2, 203.0, 197.8 s | 0.948 to 0.974 | 0.95 g |
+
+  Every lap is inside the skill band and none beats the limit. The car's skidpad is 0.94 g. The drag strip's cars are core cars with pilots too.
+
+**E2. Close racing without cheating. Weight 3. Classic 1, core 2.**
+- Classic: unchanged. Speed changes with the gap, and drag opponents get 91% to 117% of the player's torque.
+- Core: no speed depends on the gap. The field is the player's own car, so it is of the player's class by construction.
+- To level 3: handicaps as rules a player can read, such as a bracket dial-in, ballast or a reversed grid.
+
+**E3. Drag strip procedure. Weight 3. Classic 1, core 1.**
+- Both: the same 3-2-1 count and the same time from the green (`strip/events.ts`); no red light, no splits, no trap speed on the Strip. Held on the limiter in first gear for four seconds, neither engine is destroyed: the old one reaches 165 rpm past redline with 0.85 s of over-rev, the core's 165 rpm with 0.47 s. The 1.5 s instant failure is still the rule for a missed downshift.
+- To level 3: staging beams, the tree in both its forms, the red light, the rollout, a full timeslip, heads-up and bracket racing, and wear in place of the instant failure.
+
+**E4. Circuit procedure and terrain. Weight 2. Classic 2, core 2.**
+- Both: lights, sectors and gaps as before. The core can take a gradient, but the game passes it flat ground. No penalty for a jumped start or a cut corner.
+- To level 3: elevation; penalties for a jumped start and a cut corner.
+
+**E5. Drift. Weight 2. Classic 1, core 1.**
+- Classic: a mode that cuts rear grip to 68%.
+- Core: no grip is cut. A drift turns stability and traction control off and widens the steering limit (`assists.ts`). A powerful rear-drive car steps out on its own (B5), and a car that cannot drift says so. But the event is still a mode scored by speed x angle x time, with no zones, and the computer drifters' scores are seeded dice, not their driving (`strip/events.ts`).
+- To level 3: judged zones; opponents scored on what they drive; no switch.
+
+#### F. One truth (classic 5.3, core 7.0)
+
+**F1. A part does the same thing on the card and on the road. Weight 5. Classic 0, core 1.**
+- Classic: the top-tier turbo is +38% on the road and +70% on the card.
+- Core: in the switch-on Garage one catalogue moves both the road and the card the Garage shows. The top-tier turbo is +83% on the road and +83% on the bench card, and the class letter is the bench's: level 3's mechanism is there. But the card that card races read is still ruleset v1's table: the same turbo is +70%, and all nine parts read 1,418 hp and 1.90 s against the road's 1,367 hp and 3.30 s. Two catalogues with two sets of numbers remain, so level 2 is not met.
+- To level 3: the owner adopting the bench card as a ruleset (level 2 at once), and worn cars benched (level 3).
+
+**F2. The card's result is the driven result. Weight 3. Classic 2, core 2.**
+- Classic: the card's drag order agrees with the old model's quarter mile in 563 of 625 pairs, 90.1%. The baseline counted 562 of 618; the script leaves out pairs level on either side.
+- Core: 575 of 627 pairs (91.7%). A card race is still the card engine's weighted scores and a seed.
+- To level 3: 97% of pairs in every mode, and a card race that is a seeded run of the same physics.
+
+**F3. The server's limits come from the physics. Weight 2. Classic 3, core 3.**
+- Both: 20 of 20 events have a floor that is the fastest legal build's run, less a stated 10% (`world/floors.json`, `payout.ts raceFloor`), with every car bounded on both models. The server cannot tell which model a run was driven on, so the table serves both. The Mountain Half Mile's floor is 12.39 s. Every built run measured here is slower: the Corvette on the core 13.83 s, the Corvette on the old model 14.99 s, the Tsubasa R4 on the old model 14.74 s. The outrun is paid by a time rule, not a floor.
+- The rubric's "later the server re-runs the input log" is read as the next step, not part of level 3.
+
+**F4. Same inputs, same result, everywhere. Weight 2. Classic 2, core 2.**
+- Core: the core is deterministic, and its golden hash holds in Node on all 4 proof cars. A race with the switch on is seeded. But no browser has run the hash (CI installs Chromium for the Strip smokes only). The adapter and the walls use the browser's trigonometry. There are no replays.
+- To level 3: the golden hash in Chromium, Firefox and WebKit (DESIGN.md open question 9); deterministic walls and adapter.
+
+### What the re-score found
+
+1. **The game drives its researched cars uncalibrated.** The calibration step exists and VALIDATION.md runs it, but the game never does. That costs B1 a level (2.3 points) and turns the Corvette's 70-0 miss into a pass.
+2. **The class estimates make table cars quick.** They are meant to lean slow. Trucks and SUVs on the car table's six figures reach 60 mph 11% to 13% before their table time, and the median table car 3.5% before.
+3. **The quarter mile barely answers power.** An 83% turbo gain is worth 3.6% on the Mustang's quarter, where the rule of thumb says 18%, and its 0-60 gets slower.
+4. **A built Corvette runs 281 mph on the core**, the absurdity the baseline found in the old model (277 mph). A built Mustang keeps its 155 mph governor through a race tune.
+5. **No car in the world lifts a wheel at its limit**, the GTI included.
+6. **The old model's rear-drive cars do not rotate under power** once B5 is measured: they run wide.
+7. **Opponents are now real cars.** The core's laps sit at 0.93 to 0.98 of their own limit and corner at 0.94 to 0.97 g. The old AI sustained up to 5.2 g.
+
+### What would move the score next
+
+| Change | Criteria | Points |
+| --- | --- | --- |
+| Calibrate the researched sheets the game drives (`model.ts`, or calibrated sheets from `build-sheets.ts`) | B1 to 2 | +2.3 |
+| Adopt the bench card as a ruleset (the owner's decision) | F1 to 2 | +1.7 |
+| Inside-wheel lift on front-drive hatchbacks; a rear bar on the sports, coupe and pickup classes | B2 to 3 | +1.7 |
+| A sourced power figure for the Model 3; the 911's engine location; curb weights for the Corvette and Tacoma | C1 to 3, and A2, A3 and C2 nearer 2 | +1.7 and more |
+| A red light, a 60 ft time and a trap speed on the Strip | E3 to 2 | +1.0 |
+| A tyre speed limit and lift at speed; a governor a tune can move | D4 to 2 | +1.0 |
+| Handicaps as written rules | E2 to 3 | +1.0 |

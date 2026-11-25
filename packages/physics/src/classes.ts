@@ -499,6 +499,11 @@ export function peakSpeedShares(boosted: boolean): PeakSpeedShares {
  * 7,000. MDPI Lubricants 7 (2019) 105 measured two modern petrol engines at no more than 1.18 and 1.40 bar (oil at
  * 70 C). Heywood's fit for 1970s and 1980s engines (0.97 + 0.15 x + 0.05 x^2 bar, 4.5 bar at 7,000 rpm), the start,
  * made a 12 bar engine 16.5 bar indicated at its power peak and levered every boost gain by that much.
+ * One figure at every load (engine.ts): the load term is held at its full-load value. That departs from the form on
+ * both sides: a motored cylinder (a closed throttle, a few bar of peak pressure, where b pmax is 0.03 to 0.05 bar) is
+ * charged about 0.45 bar more than the form gives, and that, with PUMPING_MEP, is what puts the engine braking inside
+ * engine.test.ts's 25 to 50 N m; and boost (peak pressure 1.5 to 2 times) adds none of the friction the form adds, so
+ * a boost kit's gain reads a point or two high (the 9 psi kit +58.8% against its 60% ceiling).
  * Diesel: Millington and Hartles' correlation for automotive diesels, 7 (rc - 4) + 48 x + 0.4 Sp^2 kPa (Sp the mean
  * piston speed, m/s), at a compression ratio of 16 and a 90 mm stroke (Sp = 3 x): higher everywhere, from heavier
  * pistons, stiffer rings and higher cylinder pressure.

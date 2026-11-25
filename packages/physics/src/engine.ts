@@ -27,7 +27,9 @@ export const AIR_ENERGY = 1.15e6;
  * throttle holds the manifold about 20 to 24 inHg (68 to 81 kPa) below the air outside (Motor magazine: 18 to 22 inHg
  * at idle, and it jumps when the throttle snaps shut), and every intake stroke pulls against that while the exhaust
  * stroke pushes out at about the air outside. With friction it is the engine braking a driver feels; with the
- * friction of the class table (1.1 bar at 3,000 rpm) a 2.0 litre brakes with about 29 N m there.
+ * friction of the class table (1.1 bar at 3,000 rpm) a 2.0 litre brakes with about 29 N m there. It is charged to every
+ * combustion engine (the engine model does not carry its fuel): a diesel has no throttle plate and pumps far less on
+ * the overrun, which no car on file is yet (DESIGN.md open question 6).
  */
 export const PUMPING_MEP = 75e3;
 const FOUR_PI = 4 * PI;

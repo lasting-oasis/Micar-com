@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { CoreDriver, bestLaunch, cannotDrift, pedalThrottle, type CoreDriveOpts } from './driver';
+import { CoreDriver, bestLaunch, cannotDrift, pedalThrottle, shiftCue, type CoreDriveOpts } from './driver';
 import { RPM } from './params';
 import { matchDrivingMode } from './index';
 import { Driver } from '../driver';
@@ -135,6 +135,32 @@ describe('what the readers get back, in their old units and sense', () => {
       run(d, man, 1);
       expect(d.s.gear, car.model).toBe(before + 1);
     }
+  });
+
+  it('the HUD\'s SHIFT cue is shown only where a shift press changes gear: not for a CVT, not in Casual (its gears are the car\'s), and as ever on the old model', () => {
+    // A CVT is counted as six ratios for the old model's straight-line run, so P.gears had six entries while the core
+    // kept the gear at 1: in a drag race (always manual) the Civic and the Prius flashed SHIFT near redline for good;
+    // in Casual every automatic upshift was announced by a SHIFT the driver could not act on.
+    const civic = { make: 'Honda', model: 'Civic', bodyStyle: 'sedan' };
+    const cvt = new CoreDriver(civic, specFor(civic), build(), { x: 0, z: 0, h: 0 });
+    expect(cvt.s.model.driveline.transmission).toMatch(/cvt/);
+    expect(cvt.V.P.gears.length).toBeGreaterThan(1);
+    expect(shiftCue(cvt, true)).toBe(false);
+    const casual = new CoreDriver(camry, specFor(camry), build(), { x: 0, z: 0, h: 0 }, { preset: 'casual' });
+    expect(shiftCue(casual, true)).toBe(false);
+    for (const car of [camry, camaro]) {
+      expect(shiftCue(make(car), true), car.model).toBe(true);
+      expect(shiftCue(make(car), false), car.model).toBe(false);
+    }
+    const old = new Driver(specFor(civic), build(), { x: 0, z: 0, h: 0 });
+    expect(shiftCue(old, true)).toBe(true);
+    expect(shiftCue(old, false)).toBe(false);
+    expect(shiftCue(null, true)).toBe(true);
+    // And the press does nothing in either, as the cue now says: a CVT stays in its one gear, Casual shifts for itself.
+    run(cvt, { ...NO_INPUT, manual: true, fwd: 1 }, 3);
+    cvt.stepFrame(1 / 60, { ...NO_INPUT, manual: true, fwd: 1, shiftUp: true }, opts());
+    run(cvt, { ...NO_INPUT, manual: true, fwd: 1 }, 1);
+    expect(cvt.V.gear).toBe(1);
   });
 
   it('boost 0 to 1: exactly 0 without a turbo; with the turbo kit it builds at full throttle and never passes 1', () => {
@@ -289,6 +315,28 @@ describe('the pedals', () => {
       expect(pedalThrottle(s, 1)).toBe(1);
       const full = engineTorque(e, w, 1, s.boost);
       for (const p of [0.1, 0.2, 0.5]) expect(engineTorque(e, w, pedalThrottle(s, p), s.boost), `${rpm} rpm, pedal ${p}`).toBeCloseTo(p * full, 6);
+    }
+  });
+
+  it('an automatic left with no pedal stands still, as on the old model: from rest, and rolled to a stop from 30 km/h; the throttle still pulls away', () => {
+    // A converter's creep moved the Camry and the Ronin GT at 5 km/h for as long as no key was held (12 m in 10 s), and a
+    // car let roll from 30 km/h settled at that creep instead of stopping; the brake key held at a standstill selects
+    // reverse (the old model's rule), so only the handbrake kept a stopped car still.
+    for (const car of [camry, ronin]) {
+      const d = make(car), z0 = d.V.z;
+      run(d, NO_INPUT, 10);
+      expect(Math.abs(d.V.u), `${car.make} from rest`).toBeLessThan(0.05);
+      expect(Math.hypot(d.V.x, d.V.z - z0), `${car.make} from rest`).toBeLessThan(0.5);
+      run(d, { ...NO_INPUT, fwd: 1 }, 3);
+      expect(d.V.u * 3.6, `${car.make} pulls away`).toBeGreaterThan(30);
+      run(d, NO_INPUT, 30);
+      expect(Math.abs(d.V.u), `${car.make} let roll from speed`).toBeLessThan(0.05);
+      const at = d.V.z;
+      run(d, NO_INPUT, 5);
+      expect(Math.abs(d.V.z - at), `${car.make} stopped`).toBeLessThan(0.1);
+      // and a light squeeze still moves it off
+      run(d, { ...NO_INPUT, fwd: 0.1 }, 5);
+      expect(d.V.u * 3.6, `${car.make} a tenth of the pedal`).toBeGreaterThan(5);
     }
   });
 });

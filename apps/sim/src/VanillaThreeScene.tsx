@@ -17,7 +17,7 @@ import { buildCity } from './scene/world/city';
 import { buildGate, buildStripExit, GATE_RETURN } from './scene/world/gate';
 import { createDealership, type DealershipGate } from './scene/world/dealership';
 import { STEP, townCollider, type DriveOpts } from './world/driver';
-import { driverKind, drivingMode, isCoreDriver, makeDriver, matchDrivingMode, type CoreCar, type CoreDriveOpts, type DriverLike } from './world/core';
+import { driverKind, drivingMode, isCoreDriver, makeDriver, matchDrivingMode, shiftCue, type CoreCar, type CoreDriveOpts, type DriverLike } from './world/core';
 import { EVENTS, STOCK_CFG, TUNE_DEF, specFor, stageOf, visualRating, type BodyStyle, type CarCfg, type StripRecord } from './world/data';
 import { NO_INPUT, type Input, type Tune, type VehicleSpec } from './world/physics';
 import { anchorsFor, attachParts, disposeParts, setKitGlow, syncKitLod, type PartsKit } from './world/parts';
@@ -1206,7 +1206,7 @@ export function VanillaThreeScene() {
                     const h = hudState, T = inStrip ? strip! : null, a = T ? T.runner.active : null;
                     h.PV = V; h.district = district; h.event = a; h.standings = a ? T!.runner.standings() : NONE;
                     h.outrun = T ? T.outrun : null; h.gps = T ? T.gpsTarget : null; h.markers = T ? T.hudMarkers() : NONE; h.roads = T ? T.hudRoads() : NONE; h.ais = T ? T.ais : NONE;
-                    h.money = me.money; h.units = opt.units; h.manual = manualNow(); h.touch = touchUi || window.innerWidth <= 1024; h.small = window.innerWidth < 700 || h.touch; h.sticks = h.touch && opt.controls === 'sticks'; h.gears = useDriveUi.getState().gears; h.stage = stripStage(); { const u = useDriveUi.getState(); h.topInset = u.topInset; h.topPanelL = u.topPanelL; h.topPanelR = u.topPanelR; }
+                    h.money = me.money; h.units = opt.units; h.manual = shiftCue(driver, manualNow()); h.touch = touchUi || window.innerWidth <= 1024; h.small = window.innerWidth < 700 || h.touch; h.sticks = h.touch && opt.controls === 'sticks'; h.gears = useDriveUi.getState().gears; h.stage = stripStage(); { const u = useDriveUi.getState(); h.topInset = u.topInset; h.topPanelL = u.topPanelL; h.topPanelR = u.topPanelR; }
                     h.lang = getLang(); const dcar = drivenCar(); h.carName = dcar ? dcar.make + ' ' + dcar.model : undefined; // the lap-race HUD's labels and car card
                     hud.draw(h);
                 }

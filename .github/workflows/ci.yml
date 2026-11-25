@@ -17,7 +17,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm --filter @micar/value test
       - run: pnpm --filter @micar/sim test
-      # the new physics core (not yet driving the game): both compilers, then its tests and whole-car proof
+      # the physics core (it drives the game behind ?physics=core): both compilers, then its tests and whole-car proof
       - run: pnpm --filter @micar/physics typecheck
       - run: pnpm --filter @micar/physics test
       - run: pnpm -r --if-present build
