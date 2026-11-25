@@ -6,7 +6,11 @@ import { describe, expect, it } from 'vitest';
 import type { BenchResult, PhysicsSheet, Source } from './types';
 import type { Check } from './calibrate';
 import { skidpadAt, topSpeedOf } from './bench';
-import { MEDIAN_QUARTER, MEDIAN_ZERO_TO_SIXTY, ORDER_GAP, TOLERANCE, calibrate, checkSheet, dragTarget, fleetMedians, orderInversions } from './calibrate';
+import { MEDIAN_QUARTER, MEDIAN_ZERO_TO_SIXTY, ORDER_GAP, TOLERANCE, asTested, calibrate, checkSheet, dragTarget, fleetMedians, orderInversions } from './calibrate';
+import { DRIVER_MASS } from './classes';
+import { sheetById } from './data/sheets';
+import { runBench } from './bench';
+import { LB } from './units';
 import { tyreGripScaleRange } from './classes';
 import { resolveModel } from './resolve';
 import { emptySheet } from './sheet';
@@ -210,5 +214,25 @@ describe('the fleet-wide criteria (plan of record, section 7)', () => {
     ];
     expect(orderInversions(cars)).toEqual([]);
     expect(ORDER_GAP).toBe(0.1);
+  });
+});
+
+describe('the car as tested', () => {
+  it('runs a sheet\'s tests on the test car\'s own scale weight: the Tacoma at its 4,794 lb test truck, not the pickup class\'s blank 5,071 lb', () => {
+    // Nothing read tests.testWeightLb: a truck with no curb weight on file was checked at the class blank, 277 lb
+    // heavier than the truck that was timed (the Raptor 876 lb lighter), and its acceleration checks compared unlike cars.
+    const tacoma = sheetById('2024-toyota-tacoma-trd-off-road')!;
+    expect(tacoma.curbWeightLb).toBeNull();
+    const tested = asTested(tacoma);
+    expect(tested.curbWeightLb?.value).toBe(4794);
+    expect(tested.tests).toEqual(tacoma.tests);
+    const m = resolveModel(tested).model;
+    expect((m.chassis.mass - DRIVER_MASS) / LB).toBeCloseTo(4794, 0);   // the driver rides along, as he did for the runs
+    const zero = (s: PhysicsSheet) => runBench(resolveModel(s).model, 'accel').zeroToSixtyRollout;
+    expect(zero(tested)).toBeLessThan(zero(tacoma) - 0.15);
+    // A sheet whose tests carry no weight is run as it is.
+    const gti = sheetById('2024-volkswagen-golf-gti-s')!;
+    expect(gti.tests.testWeightLb).toBeNull();
+    expect(asTested(gti)).toBe(gti);
   });
 });

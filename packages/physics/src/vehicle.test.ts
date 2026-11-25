@@ -6,10 +6,12 @@ import type { Controls, SurfaceSample, TyreParams, VehicleState, WorldQuery } fr
 import { AUTO_GEAR } from './types';
 import { fixtureModel } from './fixtures';
 import { G, rng } from './math';
-import { FLAT, createTelemetry, defaultControls } from './state';
+import { FLAT, createState, createTelemetry, defaultControls } from './state';
 import { peakSlipRatio, peakSlipTan, tyreForces, tyreMuX, tyreMuY } from './tyre';
 import { MPH, RPM } from './units';
 import { STEP, SUBSTEPS, applyImpulse, createVehicle, hashState, placeVehicle, step, stepWith, telemetry } from './vehicle';
+import { proofSheet } from './golden';
+import { resolveModel } from './resolve';
 
 const KMH = 1 / 3.6;
 const ctl = (over: Partial<Controls> = {}): Controls => ({ ...defaultControls(), ...over });
@@ -36,7 +38,7 @@ function kinetic(s: VehicleState): number {
 
 const SCALARS = ['time', 'x', 'y', 'hx', 'hy', 'u', 'v', 'r', 'ax', 'ay', 'heave', 'pitch', 'roll', 'heaveRate', 'pitchRate', 'rollRate',
   'engineOmega', 'boost', 'engineTorque', 'clutchTorque', 'clutchLocked', 'gear', 'gearNext', 'shiftTimer', 'ratio',
-  'tcsActive', 'escActive', 'limiterActive', 'tcsCut', 'nitrousLeft', 'distance', 'energyUsed'] as const;
+  'tcsActive', 'escActive', 'limiterActive', 'tcsCut', 'nitrousLeft', 'distance', 'energyUsed', 'shiftPedal'] as const;
 const ARRAYS = ['wheelOmega', 'wheelLoad', 'wheelFx', 'wheelFy', 'wheelMz', 'wheelDefX', 'wheelDefY', 'wheelSlipRatio', 'wheelSlipTan',
   'wheelSteer', 'wheelBrake', 'absActive', 'absHold', 'tcsBrake'] as const;
 
@@ -293,6 +295,36 @@ describe('full throttle from rest', () => {
   });
 });
 
+describe('an automatic choosing its own gears', () => {
+  // The proof sedan's eight-speed and the proof pickup's ten-speed. A driver feeding the pedal in and out for wheelspin,
+  // or easing it through a corner exit, is still asking for everything the car has: a gearbox controller reads the
+  // pedal through a filter for that reason, and a launch never changes back down into the gear it has just left.
+  const proof = (name: 'sedan' | 'pickup') => resolveModel(proofSheet(name)).model;
+  for (const [dipTo, dipFor, every] of [[0, 0.25, 0.75], [0.2, 0.2, 0.6], [0.5, 0.3, 0.9], [0.75, 0.25, 0.5]] as const) {
+    it(`flat out from rest with the pedal dipping to ${dipTo} for ${dipFor} s every ${every} s, it only ever changes up`, () => {
+      for (const name of ['sedan', 'pickup'] as const) {
+        const s = createVehicle(proof(name)), c = ctl({ gear: AUTO_GEAR });
+        const seen: number[] = [s.gear];
+        for (let k = 0; k < seconds(25) && s.u < 70 * MPH; k++) {
+          c.throttle = (k * STEP) % every < dipFor ? dipTo : 1;
+          step(s, c, FLAT);
+          if (s.gear !== seen[seen.length - 1]) seen.push(s.gear);
+        }
+        expect(s.u, name).toBeGreaterThan(70 * MPH);
+        for (let i = 1; i < seen.length; i++) expect(seen[i], `${name}: ${seen.join(' ')}`).toBeGreaterThan(seen[i - 1]);
+      }
+    });
+  }
+  it('lifted for good, it still changes up early as a light throttle asks, within a few seconds', () => {
+    const s = createVehicle(proof('sedan')), c = ctl({ gear: AUTO_GEAR, throttle: 1 });
+    while (s.u < 40 * MPH) step(s, c, FLAT);
+    const flatOut = s.gear;
+    c.throttle = 0.12;
+    for (let k = 0; k < seconds(6); k++) step(s, c, FLAT);
+    expect(s.gear).toBeGreaterThan(flatOut + 1);
+  });
+});
+
 describe('steering', () => {
   const sides = (): { left: VehicleState; right: VehicleState } => {
     const left = fresh(), right = fresh();
@@ -443,6 +475,31 @@ describe('the state hash', () => {
     }
     expect(hashState(s)).toBe(base);
     expect(checked).toBe(SCALARS.length + 4 * ARRAYS.length);
+  });
+});
+
+describe('the state is the car', () => {
+  it('a copy of every field of a VehicleState is the same car: the same hash, and the same gear and speed a second on', () => {
+    // The pedal the gearbox controller reads was kept beside the state: a copy of every field had none of it, hashed
+    // differently, and a second at 0.3 of the pedal later the original was in fifth and the copy in seventh.
+    const m = resolveModel(proofSheet('sedan')).model, a = createVehicle(m), c = defaultControls();
+    c.gear = AUTO_GEAR; c.throttle = 1;
+    while (a.u < 50 * MPH) step(a, c, FLAT);
+    for (const b of [createVehicle(m), createState(m)]) {
+      const from = a as unknown as Record<string, unknown>, to = b as unknown as Record<string, unknown>;
+      for (const k of Object.keys(from)) {
+        const v = from[k];
+        if (v instanceof Float64Array) (to[k] as Float64Array).set(v); else to[k] = v;
+      }
+      expect(hashState(b)).toBe(hashState(a));
+    }
+    const b = createState(m), from = a as unknown as Record<string, unknown>, to = b as unknown as Record<string, unknown>;
+    for (const k of Object.keys(from)) { const v = from[k]; if (v instanceof Float64Array) (to[k] as Float64Array).set(v); else to[k] = v; }
+    c.throttle = 0.3;
+    for (let k = 0; k < 120; k++) { step(a, c, FLAT); step(b, c, FLAT); }
+    expect(b.gear).toBe(a.gear);
+    expect(b.u).toBe(a.u);
+    expect(hashState(b)).toBe(hashState(a));
   });
 });
 

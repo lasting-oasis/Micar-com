@@ -492,13 +492,19 @@ export function peakSpeedShares(boosted: boolean): PeakSpeedShares {
 
 /**
  * Friction mean effective pressure, Pa = c0 + c1 x + c2 x^2 with x in thousands of rpm (EngineAir.fmep).
- * Petrol: the fit Heywood gives for 0.85 to 2.0 litre spark-ignition engines at full throttle (DESIGN.md's start).
+ * Petrol: the Shinn-Flynn form a + b pmax + c cm^2 with Basshuysen and Schaefer's constants (a 0.3 to 0.5 bar, b 0.004
+ * to 0.006, c 0.0006 to 0.0012 bar s^2/m^2), taken in the upper half of their spread as every estimate here leans
+ * unfavourable: a + b pmax = 1.0 bar at an unboosted engine's full-load peak pressure (53 to 83 bar), and c = 0.0011
+ * on a 90 mm stroke (mean piston speed 3 m/s per thousand rpm), so 1.04 bar at 2,000 rpm, 1.36 at 6,000 and 1.49 at
+ * 7,000. MDPI Lubricants 7 (2019) 105 measured two modern petrol engines at no more than 1.18 and 1.40 bar (oil at
+ * 70 C). Heywood's fit for 1970s and 1980s engines (0.97 + 0.15 x + 0.05 x^2 bar, 4.5 bar at 7,000 rpm), the start,
+ * made a 12 bar engine 16.5 bar indicated at its power peak and levered every boost gain by that much.
  * Diesel: Millington and Hartles' correlation for automotive diesels, 7 (rc - 4) + 48 x + 0.4 Sp^2 kPa (Sp the mean
  * piston speed, m/s), at a compression ratio of 16 and a 90 mm stroke (Sp = 3 x): higher everywhere, from heavier
  * pistons, stiffer rings and higher cylinder pressure.
  */
 export const FMEP: Readonly<{ petrol: readonly [number, number, number]; diesel: readonly [number, number, number] }> = deepFreeze({
-  petrol: [97e3, 15e3, 5e3] as const,
+  petrol: [100e3, 0, 1.0e3] as const,
   diesel: [84e3, 48e3, 3.6e3] as const,
 });
 

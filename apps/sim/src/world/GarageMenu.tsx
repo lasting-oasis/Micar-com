@@ -5,7 +5,9 @@ import React, { useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import { useGameStore } from '../store';
 import { deriveStyle, setCarModels } from '../scene/carModel';
 import { carMeshId } from '../scene/car/carMeshes';
-import { GarageModel, drawDyno, type Row, type RowTone } from './garage';
+import { GarageModel, drawDyno, drawDynoCurves, type Row, type RowTone } from './garage';
+import { coreChosen } from './core/switch';
+import { requestGarageBench } from './core/garageBench';
 import { GarageScene } from './GarageScene';
 import { Audio } from './audio';
 import { useDriveUi } from './driveUi';
@@ -32,8 +34,8 @@ export function GarageMenu({ onQuickRace }: { onQuickRace?: (eventId: string) =>
   const style: BodyStyle = useMemo(() => { const s = car ? (car.bodyStyle ?? deriveStyle(car.model)) : 'sedan'; return (STYLES as string[]).includes(s) ? s as BodyStyle : 'sedan'; }, [car?.bodyStyle, car?.model]);
   const fallback = useMemo(() => ({ cfg: clone(STOCK_CFG), tune: clone(TUNE_DEF), owned: [] as string[] }), [carId]);
 
-  const live = useRef({ carId, spec, fallback, cars: [] as { id: string; name: string; drive?: string }[] });
-  live.current = { carId, spec, fallback, cars: (me?.inventory ?? []).map(c => { const d = getCarSpec(c, c.bodyStyle ?? deriveStyle(c.model)).drive; return { id: c.id, name: `${c.year} ${c.make} ${c.model}`, drive: d === '4WD' ? 'AWD' : d }; }) };
+  const live = useRef({ carId, spec, fallback, car, cars: [] as { id: string; name: string; drive?: string }[] });
+  live.current = { carId, spec, fallback, car, cars: (me?.inventory ?? []).map(c => { const d = getCarSpec(c, c.bodyStyle ?? deriveStyle(c.model)).drive; return { id: c.id, name: `${c.year} ${c.make} ${c.model}`, drive: d === '4WD' ? 'AWD' : d }; }) };
 
   const [, bump] = useReducer((x: number) => x + 1, 0);
   const [toast, setToast] = useState<{ text: string; bad: boolean; n: number } | null>(null);
@@ -58,6 +60,15 @@ export function GarageMenu({ onQuickRace }: { onQuickRace?: (eventId: string) =>
       // the options are saved (world/options.ts) and read by the driving: transmission, units, camera, sound
       getOpt: (k) => getOption(k),
       setOpt: (k, v) => { setOption(k, v); if (k === 'mute') audio.current?.setMute(!!getOptions().mute); if (k === 'models') setCarModels(getOptions().models); },
+      // With the physics switch on, the stat panel and the dyno are the core's bench for the car as built: measured off
+      // the page's thread the first time a build is shown (the panel says it is measuring), kept after that.
+      coreBench: (perf, tune) => {
+        const c = live.current.car;
+        if (!c || !coreChosen()) return undefined;
+        // The body style the scene drives it with (a car with none stored is its model's derived style), so the bench
+        // models the car the road does.
+        return requestGarageBench({ year: c.year, make: c.make, model: c.model, bodyStyle: c.bodyStyle || deriveStyle(c.model), rental: c.rental, testCar: c.testCar }, perf, tune, bump);
+      },
     });
   }
   const g = model.current;
@@ -129,7 +140,12 @@ export function GarageMenu({ onQuickRace }: { onQuickRace?: (eventId: string) =>
   const dynoCanvas = useRef<HTMLCanvasElement>(null);
   const stats = car && spec ? g.stats() : null;
   const dyno = car && spec ? g.dynoPanel() : false;
-  useEffect(() => { if (dyno && stats && dynoCanvas.current) drawDyno(dynoCanvas.current, stats.Pn, stats.Pp); });
+  useEffect(() => {
+    if (!dyno || !stats || !dynoCanvas.current) return;
+    const cd = stats.core?.dyno;
+    if (cd) drawDynoCurves(dynoCanvas.current, cd.now, cd.preview, cd.redline, cd.preview.length ? cd.preview[cd.preview.length - 1][0] : cd.redline);
+    else if (!stats.core) drawDyno(dynoCanvas.current, stats.Pn, stats.Pp);
+  });
 
   const listRef = useRef<HTMLDivElement>(null);
   const sel = car && spec ? g.sel() : 0;
@@ -189,7 +205,11 @@ export function GarageMenu({ onQuickRace }: { onQuickRace?: (eventId: string) =>
 
       {/* stat panel */}
       <div className="absolute left-4 right-4 bottom-3 md:left-auto md:right-6 md:bottom-20 md:w-[300px] bg-night/80 border border-line px-3 py-2 md:px-[18px] md:py-4 grid gap-1.5 md:gap-2.5">
-        <h3 className="m-0 font-cond italic font-extrabold text-base md:text-lg">{stats.title}<span className="ml-2 not-italic font-semibold text-xs tracking-[.14em] text-haze">{stats.changed ? 'Preview' : 'Current'}</span></h3>
+        <h3 className="m-0 font-cond italic font-extrabold text-base md:text-lg">{stats.title}<span className="ml-2 not-italic font-semibold text-xs tracking-[.14em] text-haze">{stats.changed ? 'Preview' : 'Current'}{stats.core?.measuring ? ' · measuring on the bench…' : ''}</span>
+          {stats.core && stats.core.cls && (
+            <span className="float-right not-italic font-bold text-xs tracking-[.14em] text-market" data-core-class={stats.core.cls} title={`Power Rating ${stats.core.rating ?? '—'}${stats.core.provisional ? ' (provisional)' : ''}, scored by the card engine from this build's bench run`}>CLASS {stats.core.cls} · {stats.core.rating ?? '—'}</span>
+          )}
+        </h3>
         <div className="font-cond font-semibold text-xs md:text-sm text-haze"><b className="text-ink">{stats.hp} hp</b> @ {stats.hpRpm} rpm · <b className="text-ink">{stats.mass} kg</b> · {stats.drive}</div>
         <div className="grid grid-cols-2 md:grid-cols-1 gap-x-3 gap-y-1.5 md:gap-y-2.5">
         {stats.bars.map(b => (

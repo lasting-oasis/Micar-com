@@ -27,6 +27,13 @@ export { AIR_ENERGY, boostStep, buildEngine, enginePeaks, engineTorque, rebuildT
 export type { EngineSpec } from './engine';
 /** Physical constants the core uses (standard gravity, sea-level air) and the deterministic arithmetic's constants. */
 export { G, HALF_PI, PI, P_AMBIENT, RHO_AIR, TAU, T_AMBIENT } from './math';
+/** Every researched car's sheet (generated from data/research) and the one filed under an id, for the game's world cars. */
+export { SHEETS, sheetById } from './data/sheets';
+/** The bench's drag launch (its launch speeds are bench.ts launchSpeeds): the game's server floors run every legal car with it. */
+export { launchDriver } from './drivers';
+export type { Driver, LaunchDriver } from './drivers';
+/** The slip at which a tyre's driving force and its side force peak at a load: what an assist layer holds a car under. */
+export { peakSlipRatio, peakSlipTan } from './tyre';
 /** The bench in the card's units, for the card engine's simulated specification (DESIGN.md 12). */
 export * from './rating';
 /** A circuit's racing line from its centreline and width, finding a car on it, and the proof circuits (DESIGN.md 14). */

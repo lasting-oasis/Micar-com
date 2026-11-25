@@ -55,6 +55,15 @@ const FEWEST = 8;
 const SAGITTA_RADIUS = 100;
 // Lateral nudge for the numerical slope of curvature against offset, m.
 const NUDGE = 1e-4;
+/**
+ * On the inside of a bend of the centreline the line keeps no further from it than this share of the bend's radius
+ * (the centreline's own, the tightest within INSIDE_SPAN points either side). The normals of a bend tighter than the
+ * offset cross before they reach it: a line laid that far in folds back on itself, steps backward and turns in a
+ * cusp (the Eifel GP's centreline turns 72 degrees in 6 m, a 4.2 m radius, where the line sat 4.4 m in: 0.12 m of
+ * radius, turning the wrong way). Half the radius keeps the offset curve's steps at least half the centreline's.
+ */
+export const INSIDE_SHARE = 0.5;
+const INSIDE_SPAN = 2;
 
 /**
  * Signed curvature of the circle through three points, 1/m, positive when a, b, c turn left: twice the cross product
@@ -81,9 +90,29 @@ export function racingLine(xs: ArrayLike<number>, ys: ArrayLike<number>, width: 
   const line = resample(xs, ys, m, spacing);
   line.width = width;
   line.margin = margin;
-  relax(line, width / 2 - margin, passes);
+  const inside = insideLimits(line);
+  relax(line, width / 2 - margin, passes, inside);
   finish(line);
   return line;
+}
+
+// How far the line may lie to the left and to the right of the centreline at each point, on the inside of the
+// centreline's bends: INSIDE_SHARE of the tightest radius bending that way within INSIDE_SPAN points. Infinite where
+// the centreline is straight or bends the other way.
+type Inside = { left: Float64Array; right: Float64Array };
+
+function insideLimits(line: RacingLine): Inside {
+  const n = line.n, k = centreCurvature(line), left = new Float64Array(n), right = new Float64Array(n);
+  for (let i = 0; i < n; i++) {
+    let kl = 0, kr = 0;
+    for (let d = -INSIDE_SPAN; d <= INSIDE_SPAN; d++) {
+      const c = k[((i + d) % n + n) % n];
+      if (c > kl) kl = c; else if (-c > kr) kr = -c;
+    }
+    left[i] = kl > 0 ? INSIDE_SHARE / kl : Infinity;
+    right[i] = kr > 0 ? INSIDE_SHARE / kr : Infinity;
+  }
+  return { left, right };
 }
 
 // The centreline resampled at n even steps along its polygon (straight lines between the points given), with its
@@ -130,14 +159,14 @@ function segmentLength(xs: ArrayLike<number>, ys: ArrayLike<number>, m: number, 
 
 // Coarse to fine: at each level, LINE_PASSES x sqrt(step) passes over every step-th point, then the points between
 // laid on the curve the coarse points make.
-function relax(line: RacingLine, room: number, perLevel: number): void {
+function relax(line: RacingLine, room: number, perLevel: number, inside: Inside): void {
   if (!(room > 0)) return;
   let step = COARSEST;
   while (step > 1 && line.n / step < FEWEST) step >>= 1;
   for (; step >= 1; step >>= 1) {
     const passes = perLevel * Math.floor(Math.sqrt(step));
-    for (let p = 0; p < passes; p++) smooth(line, step, room);
-    if (step > 1) fillBetween(line, step, room);
+    for (let p = 0; p < passes; p++) smooth(line, step, room, inside);
+    if (step > 1) fillBetween(line, step, room, inside);
   }
 }
 
@@ -150,7 +179,7 @@ function coarse(line: RacingLine, step: number, j: number): number {
 }
 
 // One pass of the level: each coarse point moved toward the curvature its neighbours ask of it.
-function smooth(line: RacingLine, step: number, room: number): void {
+function smooth(line: RacingLine, step: number, room: number, inside: Inside): void {
   const count = Math.floor(line.n / step), X = line.x, Y = line.y;
   for (let j = 0; j < count; j++) {
     const pp = coarse(line, step, j - 2), p = coarse(line, step, j - 1), i = j * step, q = coarse(line, step, j + 1), qq = coarse(line, step, j + 2);
@@ -159,12 +188,12 @@ function smooth(line: RacingLine, step: number, room: number): void {
     const lp = dist(X[i], Y[i], X[p], Y[p]), ln = dist(X[i], Y[i], X[q], Y[q]);
     // The curvature here if it changed in a straight line with distance from the point behind to the point ahead.
     const target = lp + ln > 0 ? (ln * kPrev + lp * kNext) / (lp + ln) : 0;
-    adjust(line, p, i, q, target, room - lp * ln / (8 * SAGITTA_RADIUS));
+    adjust(line, p, i, q, target, room - lp * ln / (8 * SAGITTA_RADIUS), inside);
   }
 }
 
 // After a level, each point between two coarse points is laid where the curvature changes evenly between theirs.
-function fillBetween(line: RacingLine, step: number, room: number): void {
+function fillBetween(line: RacingLine, step: number, room: number, inside: Inside): void {
   const count = Math.floor(line.n / step), n = line.n, X = line.x, Y = line.y;
   for (let j = 0; j < count; j++) {
     const a = j * step, bIndex = j + 1 < count ? (j + 1) * step : n, b = bIndex < n ? bIndex : 0;
@@ -173,15 +202,15 @@ function fillBetween(line: RacingLine, step: number, room: number): void {
     const kb = curvature3(X[a], Y[a], X[b], Y[b], X[q], Y[q]);
     for (let k = a + 1; k < bIndex; k++) {
       const t = (k - a) / (bIndex - a);
-      adjust(line, a, k, b, ka + (kb - ka) * t, room);
+      adjust(line, a, k, b, ka + (kb - ka) * t, room, inside);
     }
   }
 }
 
 // Moves point i along its normal so the circle through points p, i and q has the target curvature: first onto the
 // chord p-q (curvature zero), then one Newton step (curvature is all but straight in the offset near the chord), then
-// held within `limit` of the centreline (never less than zero).
-function adjust(line: RacingLine, p: number, i: number, q: number, target: number, limit: number): void {
+// held within `limit` of the centreline (never less than zero) and within the inside limits of its bends.
+function adjust(line: RacingLine, p: number, i: number, q: number, target: number, limit: number, inside: Inside): void {
   const X = line.x, Y = line.y;
   const px = X[p], py = Y[p], qx = X[q], qy = Y[q];
   const dx = qx - px, dy = qy - py;
@@ -195,6 +224,8 @@ function adjust(line: RacingLine, p: number, i: number, q: number, target: numbe
   if (slope > 1e-12 || slope < -1e-12) a += (target - k0) / slope;
   const lim = limit > 0 ? limit : 0;
   if (a > lim) a = lim; else if (a < -lim) a = -lim;
+  // Never further inside a bend of the centreline than its radius allows (insideLimits).
+  if (a > inside.left[i]) a = inside.left[i]; else if (a < -inside.right[i]) a = -inside.right[i];
   line.offset[i] = a;
   X[i] = cx + a * nx;
   Y[i] = cy + a * ny;

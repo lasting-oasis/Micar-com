@@ -44,6 +44,9 @@ export type NetField = {
 /** `core`: with the physics switch on, the real car and pilot that drive it (V is then only written, for the readers). */
 export type DragCar = { V: Vehicle; m: unknown; lane: number; s: number; ft: number | null; react: number; name: string; crash: boolean; estimated?: boolean; core?: CoreDragCar };
 export type DragTraffic = { A: AI; s: number; lane: number; v: number };
+/** Core racers in a drift event are scored once per this many seconds of race time (events.ts update). */
+export const DRIFT_SCORE_STEP = 0.25;
+
 export type ActiveEvent = {
   ev: EventDef; route: Route; laps: number; type: EventType; state: 'count' | 'race' | 'done'; t: number; time: number;
   racers: Racer[]; pS: number; pMax: number; pLap: number; pCp: number; wrong: number; pFt: number | null;
@@ -51,6 +54,8 @@ export type ActiveEvent = {
   drift: { cur: number; score: number; mult: number; dT: number; idle: number; lastBank: number };
   drag: { lane: number; trafficA: DragTraffic[]; ai: DragCar[]; dir: number; fwd: [number, number]; right: [number, number]; p0: { x: number; z: number } | null; perfSeen?: number };
   startX?: number; startZ?: number; lastB?: string; wrongShown?: boolean;
+  /** a drift event with core racers: how many DRIFT_SCORE_STEP s of race time their scores have been drawn for */
+  driftTicks?: number;
   /** a challenge (the other cars are people), and its green light once the count has begun */
   net: NetField | null; go: number | null;
   /** a lap race's start lights: how many are on (null: a challenge still waiting for its green), seconds to the
@@ -268,7 +273,17 @@ export class EventRunner {
       if (!R.core) stepAI(R, dt, a.pS, fx.stage());
       const tot = R.s; if (R.key) a.timing?.step(R.key, tot, a.time);
       if (tot >= a.target - 1) { R.done = true; R.ft = a.time; R.v *= .5; if (R.key) a.timing?.step(R.key, Math.max(tot, a.target), a.time); } // home: its last lap ends on the line
-      if (drift) { R.score += dt * (90 + 55 * fx.stage()) * (.6 + .8 * (field ? field.rand() : Math.random())) * (R.v > 8 ? 1 : 0); }
+      if (drift && !field) { R.score += dt * (90 + 55 * fx.stage()) * (.6 + .8 * Math.random()) * (R.v > 8 ? 1 : 0); }
+    }
+    // Core racers' drift scores, from the race's seed: one draw per racer each DRIFT_SCORE_STEP s of race time, never
+    // one a frame, so the same seed gives the same scores at any frame rate.
+    if (drift && field) {
+      const step = DRIFT_SCORE_STEP;
+      let ticks = a.driftTicks ?? 0;
+      for (; (ticks + 1) * step <= a.time; ticks++) {
+        for (const R of a.racers) if (!R.done && !R.remote) R.score += step * (90 + 55 * fx.stage()) * (.6 + .8 * field.rand()) * (R.v > 8 ? 1 : 0);
+      }
+      a.driftTicks = ticks;
     }
     if (!a.net && !field) separateAIs(a.racers);
     if (drift) this.updateDrift(dt);

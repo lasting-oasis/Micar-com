@@ -1,17 +1,17 @@
 /* What a Strip run pays, and the checks the server makes before paying it.
    Pure (no I/O): the server calls these on its own player records; applyPayout mutates the Player it is given. */
-import { CATS, EVENTS, TUNES, TUNE_DEF, freshStrip, prizeFor, pruneStrip, stageOf, visualRating, type EventDef, type EventType, type PartValue, type StripRecord } from './data';
+import { CATS, EVENTS, TUNES, TUNE_DEF, freshStrip, prizeFor, pruneStrip, stageOf, visualRating, type EventDef, type PartValue, type StripRecord } from './data';
 import { routeFor } from './strip/district';
 import type { Tune } from './physics';
 import type { Player } from '../types';
+import { VMAX, floorFor } from './floors';
 
 export type FinishMsg = { eventId: string; pos: number; time: number | null; score: number; failed: boolean };
 export type EventEntry = { eventId: string; startedAt: number; carId?: string };
 export type Reward = { cash: number; octane: number; rep: number; stamps: string[] };
 
-/** The fastest realistic average speed by event type, m/s: a quarter-mile drag (402 m) in no less than about
- *  8 s is 50 m/s; on the real circuits (and their sectors) a fully tuned car averages well under 65 m/s (234 km/h). */
-export const VMAX: Readonly<Record<EventType, number>> = { drag: 50, sprint: 65, circuit: 65, streetx: 65, drift: 65 };
+/** The old fixed average speeds by event type (m/s, drag 50, every other 65): now only the floor of an event floors.json has no run for. */
+export { VMAX };
 /** The countdown before the green light (EventRunner counts 3.6 → 0.6, so 3.0 s of wall clock): on the server's clock, but not in the run's time. */
 export const COUNTDOWN_S = 3.0;
 /** Paid events are at least this far apart per socket (a finish sooner pays nothing). */
@@ -38,8 +38,12 @@ export function eventDistance(ev: EventDef): number {
   return ev.loop ? len * (ev.laps || 1) : len;
 }
 
-/** The least time an event can take, in seconds from the green light: its distance over VMAX for its type. */
-export function raceFloor(ev: EventDef): number { return eventDistance(ev) / VMAX[ev.type]; }
+/**
+ * The least time an event can take, in seconds from the green light (rubric F3): the fastest legal build's run on it,
+ * on the physics core and on the old model, less a stated margin (floors.ts); an event with no run worked out falls
+ * back to its distance over the old VMAX for its type.
+ */
+export function raceFloor(ev: EventDef): number { return floorFor(ev, () => eventDistance(ev) / VMAX[ev.type]); }
 
 /** An event is entered only from inside the Strip, and only once the stage has opened it. */
 export function validateEnter(district: string | undefined, ev: EventDef, stage: number): { ok: true } | { ok: false; reason: string } {

@@ -51,7 +51,8 @@ One substep, in order:
 1. **Controls to actuators.** `steerAngles` writes `wheelSteer`: the input clamped to [-1, 1] (the rack's end stops),
    both front wheels `steer * maxSteer` (no Ackermann), rear 0. `autoShift` runs every substep and returns the gear
    wanted: unless it is `AUTO_GEAR`, the request itself, rounded and clamped (and, in any box but a manual, no lower
-   than keeps the engine within redline; section 5.2).
+   than keeps the engine within redline; section 5.2). It reads the pedal as the gearbox controller does, through
+   `shiftPedalStep`'s filter, whose value is the state's `shiftPedal`.
 2. **Air.** `aeroForces(model.aero, u)` gives drag and lift at each axle.
 3. **Loads.** `wheelLoads` writes `wheelLoad` from the static split, lift, and the load transfer of section 4, using
    `state.ax`, `state.ay` from the previous substep.
@@ -60,10 +61,11 @@ One substep, in order:
    For each wheel, `tyreForces` turns its slip states and load into `wheelFx`, `wheelFy`, `wheelMz` (section 3), with
    that wheel's grip and the contact patch's sliding speed `sqrt(Vsx^2 + Vsy^2)`.
 5. **Systems.** `brakeTorques` (pedal, handbrake, ABS, brake-force distribution), then `stabilityControl` (adds
-   brake), `tractionControl` (its brake half adds brake; it returns the engine half's throttle multiplier) and
-   `limiterCut` (returns the governor's). Then the tyres' low-speed damping (section 3) joins `wheelFx` and
+   brake), `tractionControl` (its brake half adds brake; it returns the engine half's cut, a share of the engine's
+   drive) and `limiterCut` (returns the governor's). Then the tyres' low-speed damping (section 3) joins `wheelFx` and
    `wheelFy`: here and not in step 4, because its stable form depends on whether the brake holds the wheel.
-6. **Driveline.** `drivelineStep` gets the throttle `clamp(controls.throttle, 0, 1) * traction control * governor`,
+6. **Driveline.** `drivelineStep` gets the throttle `throttleForShare(engine, omega, boost, clamp(controls.throttle, 0, 1)
+   * governor, traction control's cut)`: the throttle that makes that share of the drive the pedal and governor ask for,
    works out engine torque and advances `engineOmega`, `wheelOmega`, boost, clutch, shift and ratio (section 5). The
    ground's rolling factor under each wheel reaches it through `driveline.surfaceRolling` (section 10).
 7. **Body.** Rotate each tyre's force into the body by its steer angle (`dcos`, `dsin`). Sum forces and yaw moment
@@ -91,7 +93,7 @@ undeflected, the engine at idle, first gear, the ratio of first (a CVT's lowest 
 whichever order the model lists them in). It works out the model's shift points (through `createState`), outside the
 step. `placeVehicle` (a reset or respawn: moved there, stopped) normalises the heading; zeroes the body, the wheels,
 the tyre deflections and the suspension; sets the static loads, the engine back to idle and no boost; clears the ABS,
-traction and stability control memory; finishes any shift (the gear is kept; a CVT goes back to its lowest gearing);
+traction and stability control memory and the gearbox controller's pedal (`shiftPedal` 0); finishes any shift (the gear is kept; a CVT goes back to its lowest gearing);
 and keeps `time`, `distance`, `energyUsed` and `nitrousLeft`.
 
 `applyImpulse(state, jx, jy, atX, atY)`: a world-frame impulse (N s) at a world point changes `u`, `v`, `r` at once.
@@ -262,8 +264,10 @@ peak power is not a positive, finite number. Then:
    An authored `curve` is used as given. An electric motor: flat `Tmax` up to `Pmax / Tmax`, then `Pmax / omega`,
    tapering in a straight line to 0 at redline over the last 10% of its speed range.
 2. **Friction** from `fmep` (Pa) `= f0 + f1 x + f2 x^2`, `x` in thousands of rpm: torque `= fmep * displacement / (4 pi)`.
-   `buildEngine` starts every engine as petrol, `[97e3, 15e3, 5e3]`; the resolver refits a diesel (section 7). The
-   closed-throttle drag is this plus pumping (`35e3 Pa` more). Below 0.5 rad/s the drag falls in a straight line to
+   `buildEngine` starts every engine as petrol, the class table's `FMEP.petrol = [100e3, 0, 1.0e3]` (VALIDATION.md fix
+   2: the Shinn-Flynn form at an unboosted engine's full-load peak pressure, held at every load and boost); the resolver
+   refits a diesel (section 7). The closed-throttle drag is this plus pumping (`PUMPING_MEP = 75e3 Pa` more: a closed
+   throttle's manifold vacuum, applied to every combustion engine, a diesel's included). Below 0.5 rad/s the drag falls in a straight line to
    nothing at rest and turns round for a shaft turned backward: drag opposes the turning, it never drives a stopped
    shaft. An electric motor's friction table holds its regeneration instead (below).
 3. **Air model** (a combustion engine built from its peaks; an electric motor and an authored curve have none).
@@ -403,9 +407,11 @@ shift, its turbine torque times `shiftTorqueHold`, and the engine finds its own 
 the first engine speed above the power peak (read off `wot` up to redline) where the next gear gives as much wheel
 torque, `T(omega) = k T(k omega)` with `k` the next gear's ratio over this one's, refined by bisection; redline when
 there is no crossing. At a light throttle it changes up so that the next gear lands the engine at 1.75 x idle, never
-later than the full-throttle point; a throttle from 0.1 to 0.9 moves the point between the two. Down when the lower
-gear would sit below 85% of its own (throttle-scaled) point. It skips gears both ways, so its answer is a fixed
-point: asked again in the gear it returns, it returns the same, and it never hunts. The speed it judges by is the
+later than the full-throttle point; a pedal from 0.1 to 0.9 moves the point between the two. Down when the lower
+gear would sit below 85% of its own (pedal-scaled) point. It skips gears both ways, so its answer is a fixed
+point: asked again in the gear it returns, it returns the same. The pedal it scales by is the gearbox controller's,
+`shiftPedal`, filtered by `shiftPedalStep` (it follows a press in about 0.1 s and a lift in about 1.5 s): read raw, a
+pedal dipping for wheelspin changed the box up and its return kicked it down, so the box hunted (VALIDATION.md fix 3). The speed it judges by is the
 driven wheels' mean times the final drive, except that a driven wheel whose slip (against the road under it, divided
 by at least 1 m/s) is past its tyre's dry peak, capped at `SHIFT_SLIP_CAP = 0.15`, counts at the road's speed: a
 spinning wheel neither changes it up early nor back down as the wheels catch the road in the shift, and locked wheels
@@ -477,7 +483,8 @@ four for all-wheel drive.
   the gripping wheel. `tcsBrake` (state, per wheel) carries it.
 - **The engine half**: while the worst driven wheel spins past 1.3 times its peak, the cut moves (0.05 s) toward
   `tcsCut / worst`, `worst` in peak spins: past the peak the spin grows with the torque beyond what the tyre holds, so
-  this aims at the throttle that holds the peak without knowing the engine. Once every driven wheel is back under 1.0
+  this aims at the drive that holds the peak; the cut is a share of the engine's drive, which `throttleForShare`
+  turns into a throttle (with friction and pumping in the way, a share of the pedal is a larger share of the drive). Once every driven wheel is back under 1.0
   peak the throttle comes back (0.15 s); between the two the cut holds. It watches the worst wheel even while the
   brake half works on it.
 
@@ -702,8 +709,8 @@ four-wheel) drive takes 0.04 off the efficiency. Clutch capacity: 1.6 x peak tor
 Peak power speed when not on file: 0.92 x redline unboosted, 0.85 boosted; peak torque speed 0.68 x redline unboosted,
 a plateau from 0.30 to 0.65 x redline boosted. Redline when not on file: 6500 rpm (6200 for eight cylinders or more,
 6000 for a boosted four-cylinder pickup or off-roader, 5500 diesel, 14,000 an electric motor's top speed); a hybrid's
-engine takes the petrol figure. Friction: petrol `fmep [97e3, 15e3, 5e3]` Pa (Heywood's fit for 0.85 to 2.0 litre
-spark-ignition engines); diesel `[84e3, 48e3, 3.6e3]`, Millington and Hartles' `7 (rc - 4) + 48 x + 0.4 Sp^2` kPa
+engine takes the petrol figure. Friction: petrol `fmep [100e3, 0, 1.0e3]` Pa (classes.ts FMEP.petrol, VALIDATION.md
+fix 2; it replaced Heywood's 1980s fit `[97e3, 15e3, 5e3]`); diesel `[84e3, 48e3, 3.6e3]`, Millington and Hartles' `7 (rc - 4) + 48 x + 0.4 Sp^2` kPa
 taken at a compression ratio of 16 and a 90 mm stroke. Stock charge air: compressor efficiency 0.70; intercooler 0.70
 behind a turbo, 0.60 behind a supercharger; a supercharger's blower drive 0.12; gauge boost when not on file 100 kPa
 turbo, 70 kPa supercharged; pump fuel's knock limit a pressure ratio of 2.6. Brake front share: 0.70 front-drive, 0.66
@@ -901,6 +908,8 @@ export function rebuildTables(e: EngineModel): void;
 export function engineTorque(e: EngineModel, omega: number, throttle: number, boost: number): number;   // brake torque, N m
 export function boostStep(e: EngineModel, boost: number, omega: number, throttle: number, h: number): number;  // the new boost state
 export function enginePeaks(e: EngineModel): { power: number; powerOmega: number; torque: number; torqueOmega: number };
+export const PUMPING_MEP: number;   // 75e3 Pa: the closed throttle's pumping, on top of friction
+export function throttleForShare(e: EngineModel, omega: number, boost: number, th: number, share: number): number;   // the throttle that makes `share` of the torque `th` makes (traction control's cut)
 
 // aero.ts
 export type AeroOut = { drag: number; liftFront: number; liftRear: number };   // drag: N along body x, negative when moving forward. lift: N upward at each axle
@@ -922,7 +931,9 @@ export function brakeTorques(s: VehicleState, c: Controls, grip: Float64Array, h
 export function prepareShiftPoints(model: VehicleModel): void;               // once per model, outside the step (createState calls it)
 export function shiftUpOmega(model: VehicleModel, gear: number): number;     // engine speed to shift up from this gear at full throttle
 export function autoShift(s: VehicleState, c: Controls): number;             // the gear wanted
-export function tractionControl(s: VehicleState, c: Controls, grip: Float64Array, h: number): number;   // throttle multiplier, 0 to 1; adds its brake to s.wheelBrake
+export function tractionControl(s: VehicleState, c: Controls, grip: Float64Array, h: number): number;   // the engine half's cut: a share of the drive, 0 to 1; adds its brake to s.wheelBrake
+export const SHIFT_PEDAL_RISE: number, SHIFT_PEDAL_FALL: number;          // the gearbox controller's pedal filter, s (0.1 and 1.5)
+export function shiftPedalStep(read: number, pedal: number, h: number): number;   // the filtered pedal h seconds on
 export function stabilityControl(s: VehicleState, c: Controls, grip: Float64Array, h: number): void;    // adds to s.wheelBrake (h unused)
 export function limiterCut(s: VehicleState): number;                         // throttle multiplier, 0 to 1
 
@@ -940,6 +951,8 @@ export function stepWith(s: VehicleState, c: Controls, world: WorldQuery, subste
 export function telemetry(s: VehicleState, out: Telemetry): void;
 export function applyImpulse(s: VehicleState, jx: number, jy: number, atX: number, atY: number): void;
 export function hashState(s: VehicleState): number;
+export function shiftPedal(s: VehicleState): number;                          // s.shiftPedal: the pedal as the gearbox controller reads it
+export function setShiftPedal(s: VehicleState, read: number): void;
 
 // state.ts
 export function createState(model: VehicleModel): VehicleState;             // zeroed, at the origin facing +X; prepares the shift points
@@ -956,6 +969,10 @@ export type ResearchReading = { sheet: PhysicsSheet; used: string[]; dropped: Sh
 export function emptySheet(id: string, identity: PhysicsSheet['identity']): PhysicsSheet;
 export function readResearch(record: ResearchRecord): ResearchReading;       // throws when the identity cannot be read
 export function sheetFromResearch(record: ResearchRecord): PhysicsSheet;
+export const SET_APART: string;                                               // the reason's prefix for a test figure that is not a check
+export const NOT_SECOND_READ: string;                                         // ...because nobody second-read it
+export function isSetApart(p: SheetProblem): boolean;
+export function testerPractice(publisher: string): { name: string; rollout: boolean | null; skidpadFt: number | null };   // null: not known
 export function sheetProblems(record: ResearchRecord): SheetProblem[];
 export type TableRow = { make: string; model: string; bodyClass: BodyClass; engine: string; hp: number; weightLb: number; zeroToSixty: number; topSpeedMph: number; drive: Drivetrain };
 export function sheetFromTable(row: TableRow): PhysicsSheet;                 // an estimated sheet from a game table's six figures; 0-60 goes to tests only
@@ -1053,6 +1070,7 @@ export function topSpeedOf(model: VehicleModel): { mph: number; governed: boolea
 export function setRolling(s: VehicleState, u: number, r: number): void;                           // a standing car set rolling, wheels and engine with it
 export function copyState(from: VehicleState, to: VehicleState): void;
 export function frictionLimit(model: VehicleModel): number;                                         // m/s^2 at static loads
+export function asTested(sheet: PhysicsSheet): PhysicsSheet;                 // the curb weight replaced by the tested car's scale weight, when the tests carry one
 export function calibrate(sheet: PhysicsSheet): PhysicsSheet;
 export function dragTarget(sheet: PhysicsSheet): number | null;                                     // mph, or null when drag may not be fitted
 export type Check = { name: string; unit: string; real: number; model: number; error: number; tolerance: number; pass: boolean };
@@ -1111,9 +1129,12 @@ Garage and (through section 12) for the card. Nothing in it is a percentage of p
 pressure, a flow, a mass, a stiffness, a friction, and the bench shows what that is worth on the car it is fitted to.
 
 `resolveModel(sheet, build)`: resolve the stock pieces (the exported steps of `resolve.ts`), let each fitted part
-change them **in the catalogue's fixed order** (never the order the player bought them in), apply `build.setup`
-within what the fitted parts allow, call `rebuildTables` on the engine, then re-derive what depends on what changed
-(mass and its split, inertias, centre-of-gravity heights, the brake sizing only when a brake part says so).
+change them **in the catalogue's fixed order** (never the order the player bought them in), apply `build.setup` as
+given (any positive scale, on whatever the fitted parts left: section 13; the "the setup may move" ranges in the table
+below are what a part is sold to adjust, which is for whoever builds the setup to hold to, and the code does not), call
+`rebuildTables` on the engine, then re-derive what depends on what changed (mass and its split, inertias,
+centre-of-gravity heights, and the brake sizing when a brake part or a tyre part says so: a tyre part re-sizes the
+brakes to the new tyres through `resolveBrakes`).
 `describeBuild(sheet, build)` returns, for each part, what it changed in words and numbers, and why a part was
 refused (`fits` returns a reason: a turbo kit on an electric car, a second induction kit, a part that needs another).
 
@@ -1140,11 +1161,12 @@ refused (`fits` returns a reason: a turbo kit on an electric car, a second induc
 | brakes | `brakes-1` pads and fluid, `brakes-2` big brake kit, `brakes-3` race kit | brake torque capacity x1.15, x1.4, x1.6 (a first stop is still the tyres'); from `brakes-2` the setup may move the bias; fade resistance when heat is modelled | `brakes-2/3`: +2, +3 kg unsprung a front corner |
 | aero | `aero-front-1/2` splitter, `aero-rear-1/2` wing | front lift area -0.10, -0.22 m^2 with drag +0.012, +0.03; rear -0.18, -0.40 with drag +0.03, +0.07; the setup may trim each between zero and the part's full figure, drag in proportion | drag; +3 to +8 kg |
 
-Every number in that table is `estimated` until the parts exam (`data/exam/*.json`) says otherwise: `parts.test.ts`
-runs each exam page that has enough physical detail and asserts the predicted change is within the exam's scatter
+Every number in that table is `estimated` until the parts exam (`data/exam/*.json`) says otherwise: `exam.test.ts`
+runs each exam case that has enough physical detail and asserts the predicted change is within the exam's scatter
 (peak power and torque within 5% of the measured figure after the change; quarter-mile time and trap speed within
 4%; skidpad within 0.04 g; a braking distance within 7%). A part that cannot meet its exam is fixed in its physics
-or reported. It is never given a per-car factor.
+or reported: a reported miss is recorded in the test (`RECORDED_MISSES`, its reason in EXAM.md), so the case still
+fails on any other miss or once the recorded band is met. It is never given a per-car factor.
 
 `legacyBuild(perf, tune, sheet)` maps the Garage's nine three-tier parts and eight sliders onto this catalogue, so
 that saved builds carry over and the three tiers become presets of real parts:
@@ -1171,7 +1193,9 @@ dampers x(1 + 0.2 t); steering is the assist layer's, not the car's; gears moves
 ## 12. Rating and the card (`rating.ts` here; `simulated.ts` in `@micar/engine`)
 
 `benchFigures(bench, model)` gives the bench in the card's units: horsepower, torque (lb ft), curb weight (lb),
-0-60 with rollout (s), top speed (mph), skidpad on 300 ft (g), 60-0 (ft), quarter mile (s, mph).
+0-60 with rollout (s), top speed (mph), skidpad on 300 ft (g), 60-0 (ft), quarter mile (s, mph). A nitrous kit's shot
+is in the horsepower, and the bench's drag runs arm the kit, so its 0-60 and quarter mile are the car with it too; the
+top speed, the stops and the skidpad are run without it, and the torque is the engine's own.
 
 The card engine never imports this package. Its new file takes plain numbers:
 `simulatedSpec(spec, stock, built)` returns a copy of a card specification whose horsepower, torque, curb weight,
@@ -1184,7 +1208,14 @@ Nothing in ranked play reads this until the owner approves a new ruleset: it is 
 place of it.
 
 The world's class letter for a build is the card engine's `raceClassOf` on the Power Rating of that simulated
-specification: one rating for the card and the road.
+specification: one rating for the card and the road. In the game (`apps/sim/src/world/core/garageBench.ts`) the
+card is the world's own for the model (`world/cardStats.ts` `engineSpecFor`: the car table's figures), the two runs
+are the core's bench of the car stock and as built, the parts are charged through `buildCardMods` as fitted by the
+Strip's Garage (a professional install, declared, new), and the Power Rating is the one the world shows: the
+provisional rating while the world's card leaves efficiency and reliability unrated (as `CardStatsPanel` shows it).
+The world's car table has no word for the powertrain, and the card engine refuses a combustion part's charge on a
+blank one, so the Garage's card takes the powertrain from the core's sheet for the car (`garageBench.ts garageCard`;
+a blank sheet is driven as petrol).
 
 ## 13. The game drives on it (`apps/sim/src/world/core/`)
 
@@ -1203,15 +1234,63 @@ camera all hold it). The adapter is a `Driver` with the same surface whose step 
    keep a `P` whose `redline`, `idle`, `gears`, `turbo`, `nos`, `drive` describe the core's car.
 
 A car becomes a model by `coreModelFor(car, perf, tune)`: a rental car through `sheetFromAuthored`; a world car
-through its researched sheet (`world-<make>-<model>`) when there is one, else `sheetFromTable`; then
-`resolveModel(sheet, legacyBuild(perf, tune, sheet))`, cached per car and build.
+through a researched sheet when one is that car, else `sheetFromTable` (else its body style's drawn archetype); then
+`resolveModel(sheet, legacyBuild(perf, tune, sheet))`, cached per car and build. Research files a record as
+`<year>-<make>-<model>-<trim>`, so a world car's record is found by what it is (`model.ts` `researchedFor`), from
+`SHEETS`: its make and model are the world car's real ones (a car the world names by its game name, Nizzan GT-RR,
+has a real one behind it, `carModels.ts` `realNameOf`; Chevy is Chevrolet; a body word after the model, "Civic
+Sedan", is dropped); when the car table has a row for it, the record's horsepower is within 12% of the row's
+(`POWER_MATCH`: a model-year update moves a rating a few per cent, another configuration of the model a third or
+more, so the F-150 Raptor's 450 hp is not the table's 325 hp 2.7 EcoBoost F-150, nor the fifth-generation Prius's
+194 hp its 121 hp Prius); of several, the one whose engine is the row's (displacement within 0.15 L, the same
+cylinders), then the nearest horsepower, then the newest, then by id. Today twelve world cars drive on a record:
+Camry, RAV4, Tacoma, Mustang, Civic, Odyssey, Corvette, and by their game names the Wrangler, GT-R, 911, Model 3
+and Golf GTI.
+
+**The Garage** with the switch on shows the core's own bench for the car as built (`garageBench.ts`): the bars are
+`benchFigures` (top speed, 0-60 with rollout, the 300 ft skidpad, 60-0, the nitrous shot and bottle), the header the
+peak power and the car's mass as driven, the dyno the core engine's own full-throttle table (`wot`, full boost)
+from idle to redline, and beside them the build's class letter (section 12). A build is measured once (two bench
+runs, stock and built: up to a couple of seconds) and kept; the runs are made in a worker, or on a timer where the
+page has none, so the panel draws at once and says it is measuring until they are back. With the switch off the
+panel is the old model's. The Garage's sliders reach the same on every car, as they always have: `resolveModel`
+applies `build.setup` as given, and holding a setup to what the fitted parts allow is for whoever builds the setup
+(the Garage offers its sliders on any car; `legacyBuild` maps them). With race fuel fitted (`fuel-1`, the ECU's
+third tier) the adapter draws 1.3 times the fuel from the tank for the same throttle (section 11's cost).
+
+**Class** is shown where the world shows one, the Garage, and the world's computer racers with the switch on drive
+the player's own car (section 14), so a field is of the player's class by construction; a challenge room lends
+every racer the same rental.
+
+**The server's floors** (rubric F3, `world/floors.ts`): a Strip finish faster than its event's floor is refused as
+impossible. Each floor is the fastest legal build's run on that event less 10% (`FLOOR_MARGIN`), worked out by
+`apps/sim/scripts/build-floors.ts` into `floors.json` (`core/floorRuns.ts` says what each run is): every car a
+player can drive, every part at its top tier, the sliders at the settings that make it quickest; on the core a drag
+is the bench's launch with the nitrous armed, a lap the limit lap on the widest line inside the walls with the
+nitrous all the way; and because the old model is still the default and the server cannot tell which a run was
+driven on, each car is bounded on the old model too, the fastest of all setting the run. The margin is for what no
+run holds (a better launch or shift point, a gap in the walls, a slow frame, a physics change since the table was
+made; `floors.test.ts` calls the table stale at 3%). The Mountain Half Mile's floor is 12.4 s, under the 13.8 s of
+the fastest legal car (a Corvette on the core), where the old fixed 50 m/s gave 16.1 s; a circuit's floor is two
+laps of the fastest car, where 65 m/s let through a time half as long.
 
 **Assists** are one layer for every car, in three presets. They shape the driver's inputs; they never touch a car's
 physics. Casual: steering lock limited to just under the front tyres' peak slip at the present speed, steering
 speed that falls with road speed, counter-steer help, ABS, traction and stability control on, automatic gears,
 throttle eased when the driven wheels spin. Standard (the default): the same steering limit a little looser, no
 throttle easing, the car's own systems on. Pure: the wheel goes where it is put, systems as the driver sets them,
-manual gears if chosen. In a drift event stability and traction control are off, and a car that cannot drift says so.
+manual gears if chosen. The steering limit holds the front at its peak only while the car corners: as the rear slides
+past its peak slip angle (pilot.ts `rearSlip`, from 1 to 1.5 times it) or the car turns faster than a steady corner
+at its speed allows (yaw rate times speed over the tyres' friction times g, from 1 to 1.5), the side of the limit
+that would push the car further round closes in to the front axle's path, so the front stops feeding a slide (held
+at its peak there, a hands-off family sedan wound itself into a 55 degree slide after a keyboard lane change). In a
+drift event stability and traction control are off; Standard's limit lets a slide grow 2.5 times as far before it
+closes in (a drift of about half a radian holds), Casual's closes in as ever (it stops the spin); and a car that
+cannot drift says so. Every preset's pedal is mapped as a drive-by-wire car maps it (`driver.ts pedalThrottle`): past
+its first 5% the pedal asks for its share of the engine's full torque at its speed and boost, the closed throttle's
+drag fading out over that 5%, so a light squeeze of an analog trigger drives the car. A manual driver in an
+automatic or dual-clutch car follows the box when it changes up by itself at redline (its gear asked for never asks
+it back down).
 
 Race starts: while the runner holds the car on the line the adapter holds the brakes and the clutch and lets the
 pedal set the launch revs; at the green it lets go.
@@ -1219,12 +1298,19 @@ pedal set the launch revs; at the green it lets go.
 ## 14. Opponents on the same physics (`line.ts`, `lap.ts`, `pilot.ts`)
 
 - `line.ts`: from a circuit's centreline and width, a racing line by minimising curvature within the track
-  (an iterative relaxation, deterministic), returned with its curvature along distance.
+  (an iterative relaxation, deterministic), returned with its curvature along distance. On the inside of a bend of
+  the centreline the line keeps within half the bend's radius of it (`INSIDE_SHARE`): where the drawn centreline
+  turns tighter than the line's room, the normals cross and a line laid further in folds into a cusp. The game lays
+  a circuit's line 2 m from each edge (`opponents.ts CIRCUIT_MARGIN`): half a wide car and a metre to spare for the
+  pilot's placement.
 - `lap.ts`: a car's limit lap on a line: its own envelope (acceleration, braking and cornering against speed,
   measured once on the bench, with lift and downforce in it), a backward and forward pass along the line, the
   resulting speed profile and lap time. No driver in the loop: the fastest the car can go.
 - `pilot.ts`: a driver for a real car on that line: steering from the line's curvature ahead plus correction of
-  lateral and heading error; pedals that follow the speed profile scaled by skill and respect the tyres' slip.
+  lateral and heading error, and a felt correction of the car's yaw rate against the one it asked for (`YAW_GAIN`);
+  its lock held to the outer front tyre's peak slip, the bound toward a slide closing in to the front axle's path as
+  the rear slides (`rearSlip`, the assists' rule); pedals that follow the speed profile scaled by skill and respect the
+  tyres' slip.
   Skill 0.80 to 0.98 of the envelope, a reaction time and a precision, all seeded. No speed change by the gap to
   anyone: close races come from matching cars by class.
 - In the game an opponent is a core car with a pilot when the switch is on. Its lap falls inside its skill band of

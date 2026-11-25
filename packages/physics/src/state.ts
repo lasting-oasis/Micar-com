@@ -23,6 +23,7 @@ export function createState(model: VehicleModel): VehicleState {
     absHold: new Float64Array([1, 1, 1, 1]), tcsCut: 1, tcsBrake: new Float64Array(4),
     nitrousLeft: model.nitrous ? model.nitrous.bottleMass : 0,
     distance: 0, energyUsed: 0,
+    shiftPedal: 0,
   };
 }
 

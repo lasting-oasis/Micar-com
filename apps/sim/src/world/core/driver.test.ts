@@ -1,18 +1,22 @@
 import { describe, expect, it } from 'vitest';
-import { CoreDriver, bestLaunch, cannotDrift, type CoreDriveOpts } from './driver';
+import { CoreDriver, bestLaunch, cannotDrift, pedalThrottle, type CoreDriveOpts } from './driver';
 import { RPM } from './params';
 import { matchDrivingMode } from './index';
 import { Driver } from '../driver';
 import { specFor, STOCK_CFG, TUNE_DEF, type CarCfg } from '../data';
+import { engineTorque } from '@micar/physics';
 import { NO_INPUT, resetVehicle, simStats, syncBody, type Input, type PerfCfg, type Tune } from '../physics';
 import { snapToRoad } from '../strip/routes';
 
 const ronin = { make: 'Ronin', model: 'GT', rental: true };           // RWD, 6-speed automatic (converter)
 const camry = { make: 'Toyota', model: 'Camry', bodyStyle: 'sedan' };   // FWD, 8-speed automatic
-const mustang = { make: 'Ford', model: 'Mustang', bodyStyle: 'sports' }; // RWD, dual-clutch: a clutch car
+// RWD, dual-clutch: a clutch car on the car table's figures (the Mustang now drives on its researched record, a
+// six-speed manual: model.test.ts)
+const camaro = { make: 'Chevy', model: 'Camaro', bodyStyle: 'sports' };
+const corolla = { make: 'Toyota', model: 'Corolla', bodyStyle: 'sedan' }; // FWD, automatic, on the car table's figures
 const build = (perf: Partial<PerfCfg> = {}, tune: Partial<Tune> = {}) => ({ cfg: { ...STOCK_CFG, perf: { ...STOCK_CFG.perf, ...perf } } as CarCfg, tune: { ...TUNE_DEF, ...tune } });
 const opts = (o: Partial<CoreDriveOpts> = {}): CoreDriveOpts => ({ drift: false, fuel: () => 100, burn: () => {}, collide: () => 0, ...o });
-const make = (car: typeof ronin | typeof camry | typeof mustang, at = { x: 0, z: 0, h: 0 }, b = build()) => new CoreDriver(car, specFor(car), b, at);
+const make = (car: typeof ronin | typeof camry | typeof camaro | typeof corolla, at = { x: 0, z: 0, h: 0 }, b = build()) => new CoreDriver(car, specFor(car), b, at);
 const run = (d: CoreDriver, I: Input, seconds: number, o: CoreDriveOpts = opts(), each?: () => void) => {
   for (let f = 0; f < Math.round(seconds * 60); f++) { d.stepFrame(1 / 60, I, o); each?.(); }
 };
@@ -96,11 +100,12 @@ describe('what the readers get back, in their old units and sense', () => {
     const expected = wheel * m.driveline.gears[g - 1] * m.driveline.finalDrive / RPM;
     expect(d.V.rpm).toBeGreaterThan(expected * 0.92);         // a converter slips a little before it locks
     expect(d.V.rpm).toBeLessThan(expected * 1.15);
-    expect(d.V.P.redline).toBe(6500);
+    // P describes the core's car: the Camry's researched 7,400 rpm redline, in rev/min.
+    expect(d.V.P.redline).toBe(7400);
   });
 
   it('gear: -1 in reverse and never 0, through the automatic\'s shifts, a stop, reverse and a manual\'s gear changes', () => {
-    const d = make(mustang), seen = new Set<number>(), note = () => seen.add(d.V.gear);
+    const d = make(camaro), seen = new Set<number>(), note = () => seen.add(d.V.gear);
     run(d, { ...NO_INPUT, fwd: 1 }, 7, opts(), note);         // up through the gears
     run(d, { ...NO_INPUT, back: 1 }, 6, opts(), note);        // braked to a stop, then the down pedal held: reverse
     expect(d.V.gear).toBe(-1);
@@ -113,6 +118,23 @@ describe('what the readers get back, in their old units and sense', () => {
     expect(seen.has(-1)).toBe(true);
     expect(Math.max(...seen)).toBeGreaterThanOrEqual(4);
     expect([...seen].every(g => g === -1 || (g >= 1 && g <= d.V.P.gears.length))).toBe(true);
+  });
+
+  it('manual gears in an automatic or a dual-clutch car: when the box changes up by itself at redline the gear asked for follows it, so it never hunts and the next shift-up press goes up a gear', () => {
+    // The gear asked for changed only on a press: the box's own change up at redline was asked back down whenever the
+    // revs allowed (a dual-clutch 1 2 1 2 3 4 3 4 5 4 5 in 10 s flat out, the HUD's digit and the shift sound with it),
+    // and a press only caught up with the gear the box was already in.
+    for (const car of [camaro, camry]) {
+      const d = make(car), gears: number[] = [];
+      const man: Input = { ...NO_INPUT, manual: true, fwd: 1 };
+      run(d, man, 10, opts(), () => { if (gears[gears.length - 1] !== d.V.gear) gears.push(d.V.gear); });
+      expect(gears.length, `${car.model}: ${gears.join(' ')}`).toBeGreaterThan(2);
+      for (let k = 1; k < gears.length; k++) expect(gears[k], `${car.model}: ${gears.join(' ')}`).toBeGreaterThan(gears[k - 1]);
+      const before = d.s.gear;
+      d.stepFrame(1 / 60, { ...man, shiftUp: true }, opts());
+      run(d, man, 1);
+      expect(d.s.gear, car.model).toBe(before + 1);
+    }
   });
 
   it('boost 0 to 1: exactly 0 without a turbo; with the turbo kit it builds at full throttle and never passes 1', () => {
@@ -129,7 +151,9 @@ describe('what the readers get back, in their old units and sense', () => {
   });
 
   it('nos in seconds: a full bottle is P.nos.cap seconds of full shot, and a second of full shot takes a second off it', () => {
-    const d = make(camry, { x: 0, z: 0, h: 0 }, build({ nos: 1 }));
+    // A car whose traction control leaves the pedal whole in the shot's window (the Camry's record, 203 hp through
+    // the front wheels in a low gear, has its own cut it to 0.97 there).
+    const d = make(corolla, { x: 0, z: 0, h: 0 }, build({ nos: 1 }));
     const cap = d.V.P.nos.cap, n = d.s.model.nitrous!;
     expect(cap).toBeCloseTo(n.bottleMass / n.flow, 9);
     expect(d.V.nos).toBeCloseTo(cap, 9);
@@ -155,7 +179,7 @@ describe('what the readers get back, in their old units and sense', () => {
   });
 
   it('the other readers\' fields: spin flags 0 to 1, beta in rad, ax smoothed m/s^2, thr and brk 0 to 1, a finite hyd', () => {
-    const d = make(mustang);
+    const d = make(camaro);
     let spin = 0, ax = 0;
     run(d, { ...NO_INPUT, fwd: 1, hb: true }, 1.5, opts(), () => { spin = Math.max(spin, d.V.spinR); });
     run(d, { ...NO_INPUT, fwd: 1 }, 3, opts(), () => { ax = Math.max(ax, d.V.ax); });
@@ -182,14 +206,14 @@ describe('what the readers get back, in their old units and sense', () => {
 
 describe('race starts and pulling away', () => {
   it('held on the line the car does not move and the pedal sets the revs; at the green it launches', () => {
-    for (const car of [mustang, ronin]) {
+    for (const car of [camaro, ronin]) {
       const d = make(car);
       let held = true;
       const o = opts({ held: () => held });
       run(d, { ...NO_INPUT, fwd: 1 }, 2.5, o);
       const launch = bestLaunch(d.s.model) / RPM;
       expect(Math.hypot(d.V.x, d.V.z)).toBeLessThan(0.05);
-      if (car === mustang) { // a clutch car: the pedal holds the revs at the launch speed
+      if (car === camaro) { // a clutch car: the pedal holds the revs at the launch speed
         expect(d.V.rpm).toBeGreaterThan(launch * 0.9); expect(d.V.rpm).toBeLessThan(launch * 1.1);
         run(d, { ...NO_INPUT, fwd: 0.5 }, 1, o);
         const half = (d.s.model.engine.idle / RPM + launch) / 2;
@@ -204,8 +228,29 @@ describe('race starts and pulling away', () => {
     }
   });
 
+  it('a turbo car launches on boost: its launch revs are where its boosted curve reaches 90% of its peak, not 1.5 x idle', () => {
+    // Read off the curve without boost, a turbo engine was at 90% of that at once: the GT-RR launched at 1,125 rpm,
+    // its turbos asleep, half a second slower to 60 mph from the line than at the revs its boost comes in.
+    const gtr = { make: 'Nizzan', model: 'GT-RR', bodyStyle: 'sports' };
+    const d = new CoreDriver(gtr, specFor(gtr), build(), { x: 0, z: 0, h: 0 }), e = d.s.model.engine;
+    expect(e.kind).toBe('turbo');
+    const launch = bestLaunch(d.s.model);
+    expect(launch).toBeGreaterThan(2 * e.idle);
+    // On the full-boost curve the launch speed is the first point at 90% of the peak.
+    let peak = 0;
+    for (let i = 0; i < e.n && i * e.dOmega <= e.redline; i++) peak = Math.max(peak, e.wot[i]);
+    expect(e.wot[Math.round(launch / e.dOmega)]).toBeGreaterThanOrEqual(0.9 * peak - 1e-9);
+    let held = true;
+    const o = opts({ held: () => held });
+    run(d, { ...NO_INPUT, fwd: 1 }, 3, o);
+    held = false;
+    let t = 0;
+    while (d.V.u < 60 * 0.44704 && t < 10) { d.stepFrame(1 / 60, { ...NO_INPUT, fwd: 1 }, o); t += 1 / 60; }
+    expect(t).toBeLessThan(3.5);
+  });
+
   it('a clutch car pulled away in a manual\'s first gear keeps its revs well off idle (the core\'s own bite sits at 1.15 x idle)', () => {
-    const d = make(mustang);
+    const d = make(camaro);
     let low = Infinity;
     run(d, { ...NO_INPUT, manual: true, fwd: 1 }, 0.2);
     run(d, { ...NO_INPUT, manual: true, fwd: 1 }, 1.8, opts(), () => { low = Math.min(low, d.V.rpm); });
@@ -218,7 +263,33 @@ describe('race starts and pulling away', () => {
     const d = new CoreDriver(camry, specFor(camry), build(), { x: 0, z: 0, h: 0 }, { notice: t => said.push(t) });
     run(d, NO_INPUT, 0.2, opts({ drift: true }));
     expect(said).toEqual(['This car cannot drift: front-wheel drive']);
-    expect(cannotDrift(make(mustang).s.model)).toBeNull();
+    expect(cannotDrift(make(camaro).s.model)).toBeNull();
+  });
+});
+
+describe('the pedals', () => {
+  it('a light squeeze of an analog pedal drives the car: 10 s at a tenth or a fifth of the pedal from rest moves an automatic and a clutch car at a walk and more', () => {
+    // The core's throttle is the throttle plate, its torque in a straight line from the closed throttle's drag to
+    // full: passed through, a tenth of the pedal left every clutch car standing and a fifth gave an automatic only its
+    // converter's creep (the Camry 6 km/h). The old model's pedal is the pedal times the torque.
+    const speed = (car: typeof camry | typeof camaro, pedal: number) => { const d = make(car); run(d, { ...NO_INPUT, fwd: pedal }, 10); return d.V.u * 3.6; };
+    expect(speed(camaro, 0.1)).toBeGreaterThan(10);
+    expect(speed(camry, 0.1)).toBeGreaterThan(10);
+    expect(speed(camry, 0.2)).toBeGreaterThan(20);
+    expect(speed(camry, 0.2)).toBeGreaterThan(speed(camry, 0.1) + 8); // and the pedal sets the pace
+  });
+
+  it('the pedal asks for its share of the engine\'s torque; a lifted foot still brakes on the engine', () => {
+    const d = make(camry), s = d.s, e = s.model.engine;
+    for (const rpm of [1000, 3000, 5000]) {
+      s.engineOmega = rpm * RPM;
+      const w = s.engineOmega;
+      expect(pedalThrottle(s, 0)).toBe(0);
+      expect(engineTorque(e, w, pedalThrottle(s, 0), s.boost)).toBeLessThan(0);
+      expect(pedalThrottle(s, 1)).toBe(1);
+      const full = engineTorque(e, w, 1, s.boost);
+      for (const p of [0.1, 0.2, 0.5]) expect(engineTorque(e, w, pedalThrottle(s, p), s.boost), `${rpm} rpm, pedal ${p}`).toBeCloseTo(p * full, 6);
+    }
   });
 });
 
@@ -260,5 +331,31 @@ describe('the same Vehicle object, whatever happens to the build or the model', 
     d.stepFrame(1 / 60, NO_INPUT, opts());
     expect(Math.abs(d.V.u)).toBeLessThan(0.2);
     expect(Math.abs(d.V.x - 100)).toBeLessThan(0.1);
+  });
+});
+
+describe('race fuel draws more from the tank (DESIGN.md 11: fuel-1, fuel flow x1.3 for the same power)', () => {
+  it('with the ECU at its third tier (race fuel fitted) the throttle draws 1.3 times the fuel for the same throttle; the car\'s running costs the same', () => {
+    // Two seconds flat out from rest: what the tank gives up (world/driver.ts: the throttle's draw plus the speed's).
+    const draw = (ecu: 2 | 3) => {
+      const e = make(camry, { x: 0, z: 0, h: 0 }, build({ ecu, engine: 3, turbo: 0 }));
+      let burned = 0, thr = 0;
+      for (let f = 0; f < 120; f++) {
+        e.stepFrame(1 / 60, { ...NO_INPUT, fwd: 1 }, opts({ burn: (x) => { burned += x; } }));
+        thr += e.V.thr;
+      }
+      return { burned, e, thr };
+    };
+    const pump = draw(2), race = draw(3);
+    expect(pump.e.core.build.parts.some(p => p.id === 'fuel-1')).toBe(false);
+    expect(race.e.core.build.parts.some(p => p.id === 'fuel-1')).toBe(true);
+    expect(pump.e.fuelFlow).toBe(1);
+    expect(race.e.fuelFlow).toBe(1.3);
+    // Both on full throttle nearly all the way; the race-fuel car draws 1.2 to 1.3 times as much (the speed term, the
+    // same per metre, is a small share of it).
+    expect(pump.thr / 120).toBeGreaterThan(0.8);
+    expect(race.thr / 120).toBeGreaterThan(0.8);
+    expect(race.burned / pump.burned).toBeGreaterThan(1.2);
+    expect(race.burned / pump.burned).toBeLessThan(1.32);
   });
 });

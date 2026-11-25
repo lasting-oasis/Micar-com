@@ -40,9 +40,11 @@ export type CardFigures = {
  *
  * A nitrous kit's shot is added to the horsepower, as a kit is rated and as a dyno pull with the kit armed reads it:
  * the shot is a fixed power from well under the power peak's engine speed to the limiter, so the peak with it is the
- * engine's peak plus the shot. The bench's drivers never arm it, so its timed figures are the car without it; and the
- * peak torque stays the engine's own (the shot's torque is greatest at the bottom of its window, where the engine's
- * own torque may not be).
+ * engine's peak plus the shot. The bench's drag runs arm it (bench.ts), so the 0-60 and the quarter mile are the car
+ * with its shot, as the horsepower is: with the kit counted in one and not the other, a third-tier kit put 150 hp on a
+ * Camry's card and a slower 0-60 beside it (the bottle's weight, no shot). The top speed, the stops and the skidpad
+ * are run without it, as a magazine runs them. The peak torque stays the engine's own (the shot's torque is greatest
+ * at the bottom of its window, where the engine's own torque may not be).
  */
 export function benchFigures(bench: BenchResult, model: VehicleModel): CardFigures {
   const shot = model.nitrous !== null && model.nitrous.power > 0 ? model.nitrous.power / HP : 0;

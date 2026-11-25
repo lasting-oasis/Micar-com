@@ -243,7 +243,12 @@ export function launchDriver(model: VehicleModel, launchOmega: number, shiftShar
         return;
       }
       c.launchOmega = converter ? 0 : launchOmega;
-      // Up a gear at the shift speed (a request mid-shift would be ignored, so wait for the box).
+      // Up a gear at the shift speed (a request mid-shift would be ignored, so wait for the box). A box that changed up
+      // on its own (an automatic's guard against the output turning the engine past redline, a moment before the engine
+      // reaches a shift speed set at redline) is followed, never asked back down: asked for the lower gear, it went
+      // 3-4-3-4 each time the revs fell.
+      const inBox = s.shiftTimer > 0 ? s.gearNext : s.gear;
+      if (stepped && inBox > gear && inBox <= n) gear = inBox;
       if (stepped && gear < n && s.shiftTimer === 0 && s.gear === gear && s.engineOmega >= shiftOmega[gear - 1]) gear++;
       c.gear = gear;
       // The right foot: the throttle that asks the engine for the torque the tyres can take, and a correction from the

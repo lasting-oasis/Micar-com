@@ -55,6 +55,16 @@ describe('benchFigures', () => {
     // A test the bench did not run is NaN, as in the bench's own result: the card engine leaves such a figure as published.
     expect([fig.zeroToSixtySec, fig.topSpeedMph, fig.lateralGripG]).toEqual([NaN, NaN, NaN]);
   });
+
+  it('times the kit armed, as its horsepower counts it: the 100 hp shot makes the 0-60 and the quarter mile quicker, not slower', () => {
+    // The drag runs never armed the bottle: the card gained the shot's horsepower and the bottle's 16 kg, and its 0-60
+    // and quarter mile came out slower than stock beside it.
+    const kitted = resolveModel(proofSheet('sedan'), build(['nitrous-2'])).model;
+    const fig = benchFigures(runBench(kitted, 'accel'), kitted);
+    expect(fig.zeroToSixtySec).toBeLessThan(card.zeroToSixtySec * 0.95);
+    expect(fig.quarterMileSec).toBeLessThan(card.quarterMileSec * 0.97);
+    expect(fig.quarterMileMph).toBeGreaterThan(card.quarterMileMph * 1.03);
+  });
 });
 
 describe('a tune on the bench, and on a card shaped like the car', () => {

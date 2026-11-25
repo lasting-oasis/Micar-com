@@ -15,7 +15,7 @@ import { brakeDriver, circleDriver, cruiseDriver, drivenWheels, flatOutDriver, l
 import { staticLoads } from './chassis';
 import { enginePeaks } from './engine';
 import { G, PI, datan2 } from './math';
-import { FLAT, createState, defaultControls } from './state';
+import { FLAT, defaultControls } from './state';
 import { autoShift } from './systems';
 import { tyreMuY } from './tyre';
 import { FT, HP, LBFT, MPH, RPM } from './units';
@@ -80,8 +80,8 @@ const HOLD_TRIES = 6;
 /* ------------------------------------------------------------------ running a car */
 
 /**
- * Copies every number of one car's state into another's (the same model's), typed arrays element by element, so a run
- * set aside can be taken up again exactly where it was.
+ * Copies every number of one car's state into another's (the same model's), typed arrays element by element, and the
+ * gearbox controller's pedal kept beside it, so a run set aside can be taken up again exactly where it was.
  */
 export function copyState(from: VehicleState, to: VehicleState): void {
   to.time = from.time; to.x = from.x; to.y = from.y; to.hx = from.hx; to.hy = from.hy;
@@ -97,7 +97,7 @@ export function copyState(from: VehicleState, to: VehicleState): void {
   to.gear = from.gear; to.gearNext = from.gearNext; to.shiftTimer = from.shiftTimer; to.ratio = from.ratio;
   to.absActive.set(from.absActive); to.tcsActive = from.tcsActive; to.escActive = from.escActive; to.limiterActive = from.limiterActive;
   to.absHold.set(from.absHold); to.tcsCut = from.tcsCut; to.tcsBrake.set(from.tcsBrake); to.nitrousLeft = from.nitrousLeft;
-  to.distance = from.distance; to.energyUsed = from.energyUsed;
+  to.distance = from.distance; to.energyUsed = from.energyUsed; to.shiftPedal = from.shiftPedal;
 }
 
 /** A bench in progress: one car, one controls record, the substep count every step is cut into. */
@@ -107,8 +107,9 @@ function rig(model: VehicleModel, substeps: number): Rig {
   return { s: createVehicle(model), c: defaultControls(), substeps };
 }
 
-function advance(r: Rig, d: Driver): void {
+function advance(r: Rig, d: Driver, nitrous = false): void {
   d.control(r.s, r.c);
+  if (nitrous) r.c.nitrous = true;
   if (r.substeps === SUBSTEPS) step(r.s, r.c, FLAT); else stepWith(r.s, r.c, FLAT, r.substeps);
 }
 
@@ -167,16 +168,18 @@ const M60 = 0, M330 = 1, M594 = 2, M660 = 3, M1000 = 4, M1254 = 5, M1320 = 6;
 /**
  * One drag run with this launch speed and shift share. It ends at the quarter mile, or at 100 mph when `to100` (and
  * the quarter), or early once its clock has passed `beat` s (it cannot be the best run then). Null if it was cut short.
+ * A nitrous kit is armed, as a drag racer runs one: the shot fires in its window at full throttle (and the card counts
+ * it in the horsepower, rating.ts).
  */
 function accelRun(model: VehicleModel, launchOmega: number, share: number, substeps: number, to100: boolean, beat: number): AccelRun | null {
   const r = rig(model, substeps);
   const d = launchDriver(model, launchOmega, share);
-  const s = r.s;
+  const s = r.s, armed = model.nitrous !== null && model.nitrous.power > 0;
   const run: AccelRun = { launchOmega, shiftOmega: d.shiftOmega[0], moved: NaN, rolled: NaN, t30: NaN, t60: NaN, t100: NaN, marks: new Float64Array(MARKS.length).fill(NaN) };
   let x0 = s.x, u0 = s.u, t0 = s.time;
   let next = 0;
   while (s.time < ACCEL_LIMIT) {
-    advance(r, d);
+    advance(r, d, armed);
     const x = s.x, u = s.u, t = s.time;
     // The first movement: the speed passing MOVING for the last time before the rollout (a creep that stops is not a start).
     if (run.rolled !== run.rolled) {
@@ -322,7 +325,8 @@ function skidpadRun(model: VehicleModel, radius: number, substeps: number): numb
   for (let k = 0; k < HOLD_TRIES && hi - lo > 1; k++) {
     const mid = k === 0 ? lo : (lo + hi) >> 1;
     const held = circleRun(model, radius, 0, substeps, snaps[mid]);
-    if (held.laps >= 1) { if (!(held.best <= best)) best = held.best; if (k > 0) lo = mid; }
+    // A held run counts only with a timed lap; its figure replaces the best only when it is a number and better.
+    if (held.laps >= 1 && held.best > 0) { if (!(held.best <= best)) best = held.best; if (k > 0) lo = mid; }
     else if (k === 0) break;   // not even the earliest holds: the ramp's lap stands
     else hi = mid;
   }
@@ -372,7 +376,7 @@ function circleRun(model: VehicleModel, radius: number, v0: number, substeps: nu
     if (Math.abs(d.wide) > SKIDPAD_WIDE || !(s.u > 0)) break;
     if (s.time < settle) continue;
     if (from === null && s.time >= nextSnap && Math.abs(d.wide) <= SNAP_ON_LINE) {
-      const keep = createState(model);
+      const keep = createVehicle(model);
       copyState(s, keep);
       snaps.push({ s: keep, d: { t0: d.t0, v0: d.v0, rise: d.rise, held: d.held, trim: d.trim, target: d.target }, lap: 2 * PI * radius / s.u });
       nextSnap = s.time + SNAP_EVERY;
@@ -389,7 +393,10 @@ function circleRun(model: VehicleModel, radius: number, v0: number, substeps: nu
     if (!(g <= best)) best = g;
     if (from !== null) break;   // a held run needs its one lap
   }
-  return { best, laps: n > 0 ? Math.floor((swept - angles[0]) / (2 * PI)) : 0, ended: s.time, snaps };
+  // Laps are counted on the samples taken, not on the angle swept: the step on which the car runs wide is swept but
+  // not sampled, and a lap that ended on it was counted with no time (the Corvette Z51's 300 ft figure came out NaN
+  // under the old friction table, and its grip was then fitted to nothing).
+  return { best, laps: n > 0 ? Math.floor((angles[n - 1] - angles[0]) / (2 * PI)) : 0, ended: s.time, snaps };
 }
 
 /* ------------------------------------------------------------------ top speed */

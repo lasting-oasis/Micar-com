@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import type { BodyClass, PhysicsSheet, SheetTests, SourceKind } from './types';
 import type { AuthoredSpec, ResearchField, ResearchRecord, TableRow } from './sheet';
 import {
-  DRIVER_KG, LOADED_RADIUS_SHARE, TABLE_NOTE, emptySheet, readResearch, sheetFromAuthored, sheetFromResearch, sheetFromTable,
+  DRIVER_KG, LOADED_RADIUS_SHARE, TABLE_NOTE, emptySheet, isSetApart, readResearch, sheetFromAuthored, sheetFromResearch, sheetFromTable,
   sheetProblems, tableProblems, tyreSizeFor,
 } from './sheet';
 import { IN, LB, SQFT, parseTyreSize } from './units';
@@ -21,6 +21,8 @@ function num(key: string, number: number, sourceKind = 'manufacturer'): Research
 function txt(key: string, text: string, sourceKind = 'manufacturer'): ResearchField {
   return { key, text, publisher: `Publisher of ${key}`, url: `https://example.org/${key}`, sourceKind, note: `Note on ${key}` };
 }
+/** A field the second reader confirmed (every real record's figures carry a check mark; a test figure without one is set apart). */
+function read2(f: ResearchField): ResearchField { return { ...f, check: 'confirmed' }; }
 /** The sheet a record of these fields gives, on a coupe unless the record says otherwise. */
 function read(fields: ResearchField[], over: Partial<ResearchRecord> = {}): PhysicsSheet { return sheetFromResearch(record(fields, over)); }
 function droppedKeys(fields: ResearchField[], over: Partial<ResearchRecord> = {}): string[] { return sheetProblems(record(fields, over)).map((p) => p.key); }
@@ -79,19 +81,19 @@ const FULL: Expect[] = [
   { key: 'topSpeedMph', path: 'topSpeedMph', field: num('topSpeedMph', 196, 'reference') },
   { key: 'topSpeedGoverned', path: 'topSpeedGoverned', field: txt('topSpeedGoverned', 'false') },
   // instrumented tests
-  { key: 'test0to30Sec', path: 'tests.zeroToThirtySec', field: num('test0to30Sec', 1.2, 'test') },
-  { key: 'test0to60Sec', path: 'tests.zeroToSixtySec', field: num('test0to60Sec', 3.3, 'test') },
-  { key: 'test0to100Sec', path: 'tests.zeroToHundredSec', field: num('test0to100Sec', 7.4, 'test') },
+  { key: 'test0to30Sec', path: 'tests.zeroToThirtySec', field: read2(num('test0to30Sec', 1.2, 'test')) },
+  { key: 'test0to60Sec', path: 'tests.zeroToSixtySec', field: read2(num('test0to60Sec', 3.3, 'test')) },
+  { key: 'test0to100Sec', path: 'tests.zeroToHundredSec', field: read2(num('test0to100Sec', 7.4, 'test')) },
   { key: 'testRollout', path: 'tests.rollout', field: txt('testRollout', 'true', 'test') },
-  { key: 'testQuarterMileSec', path: 'tests.quarterMileSec', field: num('testQuarterMileSec', 11.4, 'test') },
-  { key: 'testQuarterMileMph', path: 'tests.quarterMileMph', field: num('testQuarterMileMph', 125, 'test') },
-  { key: 'testBraking60to0Ft', path: 'tests.braking60to0Ft', field: num('testBraking60to0Ft', 104, 'test') },
-  { key: 'testBraking70to0Ft', path: 'tests.braking70to0Ft', field: num('testBraking70to0Ft', 141, 'test') },
-  { key: 'testSkidpadG', path: 'tests.skidpadG', field: num('testSkidpadG', 1.02, 'test') },
+  { key: 'testQuarterMileSec', path: 'tests.quarterMileSec', field: read2(num('testQuarterMileSec', 11.4, 'test')) },
+  { key: 'testQuarterMileMph', path: 'tests.quarterMileMph', field: read2(num('testQuarterMileMph', 125, 'test')) },
+  { key: 'testBraking60to0Ft', path: 'tests.braking60to0Ft', field: read2(num('testBraking60to0Ft', 104, 'test')) },
+  { key: 'testBraking70to0Ft', path: 'tests.braking70to0Ft', field: read2(num('testBraking70to0Ft', 141, 'test')) },
+  { key: 'testSkidpadG', path: 'tests.skidpadG', field: read2(num('testSkidpadG', 1.02, 'test')) },
   { key: 'testSkidpadDiameterFt', path: 'tests.skidpadDiameterFt', field: num('testSkidpadDiameterFt', 300, 'test') },
-  { key: 'testTopSpeedMph', path: 'tests.topSpeedMph', field: num('testTopSpeedMph', 193, 'test') },
-  { key: 'testWeightLb', path: 'tests.testWeightLb', field: num('testWeightLb', 3950, 'test') },
-  { key: 'testWeightDistFrontPct', path: 'tests.testWeightDistFrontPct', field: num('testWeightDistFrontPct', 54.3, 'test') },
+  { key: 'testTopSpeedMph', path: 'tests.topSpeedMph', field: read2(num('testTopSpeedMph', 193, 'test')) },
+  { key: 'testWeightLb', path: 'tests.testWeightLb', field: read2(num('testWeightLb', 3950, 'test')) },
+  { key: 'testWeightDistFrontPct', path: 'tests.testWeightDistFrontPct', field: read2(num('testWeightDistFrontPct', 54.3, 'test')) },
 ];
 // Keys the format has that are not model inputs: the card shows them, or they cross-check another figure.
 const NOT_INPUTS: ResearchField[] = [
@@ -277,10 +279,137 @@ describe('figures that are left out, and named', () => {
     expect(read([], { bodyClass: 'pickup truck' }).identity.bodyClass).toBe('pickup');
   });
 
+  it('reads an off-road SUV as the off-road class, whose blank sheet is a 4WD six', () => {
+    for (const words of ['off-road-suv', 'Off-road SUV', 'off-road sport utility vehicle']) expect(read([], { bodyClass: words }).identity.bodyClass, words).toBe('offroad');
+  });
+
   it('takes an unknown source kind as the weakest claim, reference', () => {
     const r = readResearch(record([num('horsepower', 300, 'magazine')]));
     expect(r.sheet.horsepower?.source.kind).toBe('reference');
     expect(r.notes.map((n) => n.key)).toEqual(['horsepower']);
+  });
+});
+
+/* ------------------------------------------------------------------ like with like: what a test figure is a check of */
+
+/** A test figure as a tester printed it, with the note and the second reader's checkNote the research format carries. */
+function test(key: string, number: number, publisher: string, url: string, note = 'Read from a search summary.', checkNote = ''): ResearchField {
+  return { key, number, publisher, url, sourceKind: 'test', note, checkNote, check: 'confirmed' } as ResearchField;
+}
+const OWN = 'https://example.org/own-test', OTHER = 'https://example.org/other-test';
+
+describe('test figures that are not a check of this configuration, set apart', () => {
+  it('sets apart a figure whose note says the test car was another configuration, trim or model year with other hardware, and every figure of that same test', () => {
+    for (const note of [
+      'CONFIGURATION MISMATCH (options): the test car had the Performance Package.',
+      'TRIM MISMATCH: the Limited rides on 19-inch tyres and weighs more.',
+      'OTHER TRIM, TEST YEAR NOT STATED: a Limited, not a Premium.',
+      'NOT a 2024 car: same engine, but before the 2024 front limited-slip differential and aero changes.',
+    ]) {
+      const r = readResearch(record([
+        test('test0to60Sec', 4.8, 'Edmunds', OWN, note),
+        test('testQuarterMileSec', 12.7, 'Edmunds', OWN, 'Same run.'),
+        test('testBraking60to0Ft', 107, 'Car and Driver', OTHER),
+      ]));
+      expect(r.sheet.tests.zeroToSixtySec, note).toBeNull();
+      expect(r.sheet.tests.quarterMileSec, note).toBeNull();                 // the same test car
+      expect(r.sheet.tests.braking60to0Ft?.value, note).toBe(107);          // another test, of this configuration
+      const apart = r.dropped.filter(isSetApart);
+      expect(apart.map((p) => p.key), note).toEqual(['test0to60Sec', 'testQuarterMileSec']);
+      expect(apart[1].reason, note).toMatch(/test0to60Sec/);
+    }
+  });
+
+  it('sets apart a second-hand figure the second reader found fails the same-configuration rule, and only that figure', () => {
+    const r = readResearch(record([
+      test('test0to60Sec', 7.9, 'Car and Driver', OWN, 'Same powertrain.', 'A same-generation car with the same powertrain.'),
+      test('testSkidpadG', 0.88, 'Car and Driver', OWN, 'An SE figure.', 'As a check on the LE\'s grip it does not meet the README\'s same-configuration rule.'),
+    ]));
+    expect(r.sheet.tests.zeroToSixtySec?.value).toBe(7.9);
+    expect(r.sheet.tests.skidpadG).toBeNull();
+    expect(r.dropped.filter(isSetApart).map((p) => p.key)).toEqual(['testSkidpadG']);
+  });
+
+  it('sets apart a test figure nobody second-read (no check mark), and keeps a confirmed or an unconfirmed one', () => {
+    // The F-150 Raptor's nine test figures came in after the second reads and carry no check mark: they were checks
+    // all the same, and one calibrated its grip. A figure nobody tried to refute is not evidence (the parts exam's rule).
+    const unread = { ...test('test0to60Sec', 5.2, 'Car and Driver', OWN), check: undefined } as ResearchField;
+    const r = readResearch(record([
+      unread,
+      { ...test('testQuarterMileSec', 13.9, 'Car and Driver', OWN), check: 'unconfirmed' } as ResearchField,
+      test('testSkidpadG', 0.69, 'Car and Driver', OWN),
+    ]));
+    expect(r.sheet.tests.zeroToSixtySec).toBeNull();
+    expect(r.sheet.tests.quarterMileSec?.value).toBe(13.9);
+    expect(r.sheet.tests.skidpadG?.value).toBe(0.69);
+    const apart = r.dropped.filter(isSetApart);
+    expect(apart.map((p) => p.key)).toEqual(['test0to60Sec']);
+    expect(apart[0].reason).toMatch(/second-read/);
+  });
+
+  it('reads the real F-150 Raptor record: none of its test figures is a check (none was second-read)', () => {
+    const raptor = sheetById('2024-ford-f-150-raptor')!;
+    for (const [k, v] of Object.entries(raptor.tests)) {
+      if (k === 'rollout' || k === 'skidpadDiameterFt') continue;
+      expect(v, k).toBeNull();
+    }
+    const tacoma = sheetById('2024-toyota-tacoma-trd-off-road')!;
+    expect(tacoma.tests.skidpadG).toBeNull();
+    expect(tacoma.tests.braking70to0Ft).toBeNull();
+    expect(tacoma.tests.zeroToSixtySec?.value).toBe(7.0);
+  });
+
+  it('keeps a figure whose note only mentions another test, session or model year beside it', () => {
+    const r = readResearch(record([
+      test('testSkidpadG', 0.99, 'Edmunds', OWN, 'This run. Earlier research\'s 0.96 g belonged to a 2022 car (different model year).'),
+      test('testBraking70to0Ft', 171, 'Car and Driver', OTHER, 'This is a different test session of the same configuration.'),
+    ]));
+    expect(r.sheet.tests.skidpadG?.value).toBe(0.99);
+    expect(r.sheet.tests.braking70to0Ft?.value).toBe(171);
+    expect(r.dropped.filter(isSetApart)).toEqual([]);
+  });
+});
+
+describe('a tester\'s known practice, when the record does not say', () => {
+  it('times a Car and Driver or MotorTrend 0-60 from the one-foot rollout, and an Edmunds, MotorWeek or Consumer Reports one from rest', () => {
+    const cases: [string, boolean][] = [
+      ['Car and Driver', true], ['Car and Driver (syndicated on Yahoo Autos)', true], ['MotorTrend', true], ['Motor Trend', true],
+      ['Edmunds', false], ['MotorWeek', false], ['Consumer Reports', false],
+    ];
+    for (const [publisher, rollout] of cases) {
+      const r = readResearch(record([test('test0to60Sec', 6.1, publisher, OWN)]));
+      expect(r.sheet.tests.rollout?.value, publisher).toBe(rollout);
+      expect(r.sheet.tests.rollout?.source.note, publisher).toMatch(/practice/);
+      expect(r.notes.map((n) => n.key), publisher).toContain('testRollout');
+    }
+  });
+
+  it('puts a Car and Driver skidpad on its 300 ft circle and a MotorTrend or Edmunds one on 200 ft', () => {
+    for (const [publisher, ft] of [['Car and Driver', 300], ['MotorTrend', 200], ['Edmunds', 200]] as const) {
+      const r = readResearch(record([test('testSkidpadG', 0.95, publisher, OWN)]));
+      expect(r.sheet.tests.skidpadDiameterFt?.value, publisher).toBe(ft);
+    }
+    // A tester whose circle is not known leaves it to the check's default.
+    expect(read([test('testSkidpadG', 0.95, 'Some Magazine', OWN)]).tests.skidpadDiameterFt).toBeNull();
+  });
+
+  it('claims no practice for a tester it does not know: its 0-60 rollout is left unknown, with no note saying otherwise', () => {
+    // An unknown tester was given "times from rest every 0-60 it publishes", a sourced-looking claim with nothing
+    // behind it (Road & Track, for one, keeps the rollout in).
+    for (const publisher of ['Some Magazine', 'Road & Track']) {
+      const r = readResearch(record([test('test0to60Sec', 4.1, publisher, OWN)]));
+      expect(r.sheet.tests.rollout, publisher).toBeNull();
+      expect(r.notes.map((n) => n.key), publisher).not.toContain('testRollout');
+    }
+  });
+
+  it('never overrides what the record says, and adds nothing where there is no 0-60 or skidpad figure', () => {
+    const own = read([test('test0to60Sec', 4.2, 'Car and Driver', OWN), { ...txt('testRollout', 'false'), sourceKind: 'test' }, test('testSkidpadG', 0.9, 'Edmunds', OWN), test('testSkidpadDiameterFt', 300, 'Edmunds', OWN)]);
+    expect(own.tests.rollout?.value).toBe(false);
+    expect(own.tests.skidpadDiameterFt?.value).toBe(300);
+    const none = read([test('testQuarterMileSec', 12.7, 'Car and Driver', OWN)]);
+    expect(none.tests.rollout).toBeNull();
+    expect(none.tests.skidpadDiameterFt).toBeNull();
   });
 });
 
@@ -359,19 +488,22 @@ describe('words to the sheet\'s kinds, read with care', () => {
     expect(droppedKeys(fields)).toEqual(['awdSystem']);
   });
 
-  it('reads the real GT-R NISMO record: nothing dropped, rear-driven on demand, a limited-slip differential at each end', () => {
+  it('reads the real GT-R NISMO record: no figure dropped, its tests of 2017 and 2020 cars set apart, rear-driven on demand, a limited-slip differential at each end', () => {
     const files = import.meta.glob('../data/research/2024-nissan-gt-r-nismo.json', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
     const text = files['../data/research/2024-nissan-gt-r-nismo.json'];
     expect(typeof text).toBe('string');
     const r = readResearch(JSON.parse(text) as ResearchRecord);
-    expect(r.dropped).toEqual([]);
+    // Every figure is read; only its tests are set apart: MotorWeek's 2020 NISMO (no 2024 front limited-slip
+    // differential or aero; the note says "NOT a 2024 car") and a forum's quote of MotorTrend's 2017 car.
+    expect(r.dropped.filter((p) => !isSetApart(p))).toEqual([]);
+    expect(r.dropped.filter(isSetApart).map((p) => p.key).sort()).toEqual(['test0to60Sec', 'testBraking60to0Ft', 'testQuarterMileMph', 'testQuarterMileSec', 'testSkidpadG']);
     expect(r.sheet.curbWeightLb?.value).toBe(3867);
     expect(r.sheet.weightDistFrontPct?.value).toBe(54);
     expect(r.sheet.awdKind?.value).toBe('rear-on-demand');
     expect(r.sheet.diffFront?.value).toBe('limited-slip');
     expect(r.sheet.diffRear?.value).toBe('limited-slip');
     expect(r.sheet.gearRatios?.value).toEqual([4.056, 2.301, 1.595, 1.248, 1.001, 0.796]);
-    expect(r.sheet.tests.skidpadG?.value).toBe(1.02);
+    expect(r.sheet.tests.skidpadG).toBeNull();
     expect(r.sheet.horsepower?.source).toMatchObject({ kind: 'manufacturer', asOf: '2026-11-14' });
   });
 });

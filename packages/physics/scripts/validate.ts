@@ -8,8 +8,8 @@
 import type { Basis, PhysicsSheet, SheetTests } from '../src/types';
 import type { Check } from '../src/calibrate';
 import { runBench } from '../src/bench';
-import { MEDIAN_QUARTER, MEDIAN_ZERO_TO_SIXTY, ORDER_GAP, calibrate, checkSheet, fleetMedians, orderInversions } from '../src/calibrate';
-import { SHEETS } from '../src/data/sheets';
+import { MEDIAN_QUARTER, MEDIAN_ZERO_TO_SIXTY, ORDER_GAP, asTested, calibrate, checkSheet, fleetMedians, orderInversions } from '../src/calibrate';
+import { SET_APART, SHEETS } from '../src/data/sheets';
 import { resolveModel } from '../src/resolve';
 
 // The host's clock and console: not in the ES2020 library the package compiles against, so reached through globalThis.
@@ -45,7 +45,8 @@ type CarResult = { sheet: PhysicsSheet; checks: Check[]; basis: Record<Basis, nu
 
 function runCar(sheet: PhysicsSheet): CarResult {
   const t0 = host.performance.now();
-  const fitted = calibrate(sheet);
+  // The car as tested: the test car's scale weight where the tests carry one (calibrate.ts asTested).
+  const fitted = calibrate(asTested(sheet));
   const { model, basis } = resolveModel(fitted);
   const bench = runBench(model);
   const checks = checkSheet(fitted, bench);
@@ -54,22 +55,47 @@ function runCar(sheet: PhysicsSheet): CarResult {
   return { sheet, checks, basis: counts, grip: fitted.calibration.tyreGripScale, drag: fitted.calibration.dragAreaM2, ms: host.performance.now() - t0 };
 }
 
+// How each 0-60 was timed and on which circle each skidpad was run, and whether the record said so or the tester's
+// known practice stands in (sheet.ts testerPractice): the check compares the bench's 0-60 with or without the rollout,
+// and its skidpad on the nearer circle, to match.
+function practiceLine(sheet: PhysicsSheet): string | null {
+  const t = sheet.tests, parts: string[] = [];
+  const said = (note: string | undefined): string => (note !== undefined && /tester's known practice/.test(note) ? 'tester\'s practice' : 'on file');
+  if (t.zeroToSixtySec !== null) {
+    const r = t.rollout;
+    parts.push(`0-60 by ${t.zeroToSixtySec.source.name ?? '?'}: ${r === null ? 'from rest (not known)' : r.value ? 'one-foot rollout' : 'from rest'}${r === null ? '' : ` (${said(r.source.note)})`}`);
+  }
+  if (t.skidpadG !== null) {
+    const d = t.skidpadDiameterFt;
+    parts.push(`skidpad by ${t.skidpadG.source.name ?? '?'}: ${d === null ? '300 ft (not known; the check\'s default)' : `${d.value} ft (${said(d.source.note)})`}`);
+  }
+  if (t.testWeightLb !== null) {
+    parts.push(`run at the test car's ${t.testWeightLb.value} lb (${sheet.curbWeightLb === null ? 'no curb weight on file' : `curb weight on file ${sheet.curbWeightLb.value} lb`})`);
+  }
+  return parts.length > 0 ? parts.join('; ') : null;
+}
+
 function main(): void {
   const sheets = SHEETS.filter(hasTests);
-  print(`Validation: ${sheets.length} of ${SHEETS.length} researched sheet(s) carry test figures.\n`);
+  print(`Validation: ${sheets.length} of ${SHEETS.length} researched sheet(s) carry test figures that are a check of their own configuration.\n`);
+  print('How each test was taken (the check matches it):');
+  for (const s of sheets) { const line = practiceLine(s); if (line !== null) print(`  ${pad(s.id, 36)} ${line}`); }
+  print(`\nSet apart, not checks (a test of another configuration, trim or model year with other hardware, a second-hand quote failing the same-configuration rule, or a figure nobody second-read): ${SET_APART.length}`);
+  for (const a of SET_APART) print(`  ${pad(a.id, 36)} ${pad(a.key, 20)} ${lpad(a.value, 7)}  ${a.reason.replace(/^set apart, not a like-for-like check: /, '')}`);
+  print('');
   const results = sheets.map(runCar);
 
-  const header = `${pad('car', 28)} ${pad('check', 30)} ${lpad('real', 9)} ${lpad('model', 9)} ${lpad('error', 9)} ${lpad('tol', 8)} ${lpad('x tol', 6)}  result`;
+  const header = `${pad('car', 36)} ${pad('check', 38)} ${lpad('real', 9)} ${lpad('model', 9)} ${lpad('error', 9)} ${lpad('tol', 8)} ${lpad('x tol', 6)}  result`;
   print(header);
   print('-'.repeat(header.length));
   let worst = 0, worstWhat = 'none';
   for (const r of results) {
-    if (r.checks.length === 0) print(`${pad(r.sheet.id, 28)} (no test the bench can check)`);
+    if (r.checks.length === 0) print(`${pad(r.sheet.id, 36)} (no test the bench can check)`);
     for (const c of r.checks) {
       const d = digitsFor(c.unit);
       const ratio = c.tolerance > 0 ? Math.abs(c.error) / c.tolerance : Infinity;
       if (!(ratio <= worst)) { worst = ratio; worstWhat = `${r.sheet.id}: ${c.name}`; }
-      print(`${pad(r.sheet.id, 28)} ${pad(`${c.name} (${c.unit})`, 30)} ${lpad(num(c.real, d), 9)} ${lpad(num(c.model, d), 9)} `
+      print(`${pad(r.sheet.id, 36)} ${pad(`${c.name} (${c.unit})`, 38)} ${lpad(num(c.real, d), 9)} ${lpad(num(c.model, d), 9)} `
         + `${lpad((c.error >= 0 ? '+' : '') + num(c.error, d), 9)} ${lpad(num(c.tolerance, d), 8)} ${lpad(num(ratio, 2), 6)}  ${c.pass ? 'pass' : 'MISS'}`);
     }
   }
@@ -77,7 +103,7 @@ function main(): void {
   print('\nCalibration and basis (model parameters by how each was reached):');
   for (const r of results) {
     const b = r.basis;
-    print(`  ${pad(r.sheet.id, 28)} grip scale ${r.grip === null ? '-' : r.grip.toFixed(4)}, drag area ${r.drag === null ? '-' : `${r.drag.toFixed(3)} m^2`}; `
+    print(`  ${pad(r.sheet.id, 36)} grip scale ${r.grip === null ? '-' : r.grip.toFixed(4)}, drag area ${r.drag === null ? '-' : `${r.drag.toFixed(3)} m^2`}; `
       + `sourced ${b.sourced}, derived ${b.derived}, calibrated ${b.calibrated}, estimated ${b.estimated}  (${r.ms.toFixed(0)} ms)`);
   }
 

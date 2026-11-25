@@ -10,6 +10,7 @@ import { carParams, clamp, dynoCurve, simStats, type Params, type PerfCfg, type 
 import { routeFor, trackLoaded, TRACKS } from './strip/district';
 import { OPTION_DEFAULTS } from './options';
 import { DRIVING_MODES, DRIVING_OPTION } from './core/switch';
+import type { CoreGarage, DynoPoint } from './core/garageBench';
 
 const clone = <T>(o: T): T => JSON.parse(JSON.stringify(o)) as T;
 const money = (n: number): string => '$' + Math.round(n).toLocaleString('en-US');
@@ -34,7 +35,40 @@ export type GarageCtx = {
   /** Options storage; without it the options live in the model. */
   getOpt?: (k: string) => unknown;
   setOpt?: (k: string, v: unknown) => void;
+  /**
+   * With the physics switch on, the core's bench figures for this car with a build (core/garageBench.ts): the figures
+   * when measured, null while they are being measured. Undefined (or the field left out) with the switch off: the
+   * stat panel and the dyno are the old model's, exactly as they were.
+   */
+  coreBench?: (perf: PerfCfg, tune: Tune) => CoreGarage | null | undefined;
 };
+
+/** The stat panel as data: the header, the hp line, per bar the 12 segments of now against the preview; the old model's Params (switch off) or the core's figures (switch on). */
+export type GarageStats = {
+  title: string; changed: boolean; hp: number; hpRpm: number; mass: number; drive: string;
+  bars: { n: string; txt: string; segs: ('on' | 'up' | 'down' | '')[] }[];
+  Pn: Params; Pp: Params;
+  /** Switch on: the class letter of the build shown (its card's Power Rating), the rating, whether it is provisional, and the bench still measuring. */
+  core?: { cls: string | null; rating: number | null; provisional: boolean; measuring: boolean; dyno: { now: DynoPoint[]; preview: DynoPoint[]; redline: number } | null };
+};
+
+/** The core's figures as the five stat bars (0 to 1 each, with their text): top speed, 0-60 mph, skidpad grip, 60-0 mph and the nitrous shot. */
+export function coreStatRows(g: CoreGarage | null, units: 'kmh' | 'mph'): StatRow[] {
+  const cl = (v: number) => clamp(Number.isFinite(v) ? v : 0, 0, 1);
+  if (!g) return ['Top speed', 'Acceleration', 'Handling', 'Braking', 'Nitrous'].map(n => ({ n, v: 0, txt: '…' }));
+  const f = g.built, kmh = f.topSpeedMph * 1.609344;
+  return [
+    // The old bars' scales where the figure is the same kind: top speed 180 to 340 km/h, 0-60 (0-100 km/h there) 9.5 to 2.5 s.
+    { n: 'Top speed', v: cl((kmh - 180) / (340 - 180)), txt: units === 'mph' ? Math.round(f.topSpeedMph) + ' mph' : Math.round(kmh) + ' km/h' },
+    { n: 'Acceleration', v: cl((9.5 - f.zeroToSixtySec) / (9.5 - 2.5)), txt: Number.isFinite(f.zeroToSixtySec) ? f.zeroToSixtySec.toFixed(1) + ' s 0-60' : '--' },
+    // A 300 ft skidpad from an economy car on all-season tyres (0.75 g) to a track car on track tyres (1.25 g).
+    { n: 'Handling', v: cl((f.lateralGripG - 0.75) / (1.25 - 0.75)), txt: Number.isFinite(f.lateralGripG) ? f.lateralGripG.toFixed(2) + ' g' : '--' },
+    // 60-0 mph from a long 150 ft to a race car's 90 ft.
+    { n: 'Braking', v: cl((150 - f.braking60to0Ft) / (150 - 90)), txt: Number.isFinite(f.braking60to0Ft) ? Math.round(f.braking60to0Ft) + ' ft 60-0' : '--' },
+    // The shot of the biggest kit, 150 hp.
+    { n: 'Nitrous', v: cl(g.nitrousHp / 150), txt: g.nitrousHp > 0 ? Math.round(g.nitrousHp) + ' hp · ' + g.nitrousSeconds.toFixed(0) + ' s' : 'none' },
+  ];
+}
 
 export type MenuKind = 'menu' | 'cat' | 'dyno' | 'cars' | 'options' | 'quick';
 type MenuItem = { n?: string; to?: string; act?: 'drive'; cat?: string; d?: string };
@@ -293,37 +327,67 @@ export class GarageModel {
     const txt = [this.speedStr(c.top), (c.t100 ? c.t100.toFixed(1) : '--') + ' s 0-100', '', '', c.nos ? c.nos.toFixed(1) + ' s' : 'none'];
     return c.rows.map((r, i) => ({ ...r, txt: txt[i] }));
   }
-  /** Night Tuner's renderStats as data: header, hp line, and per bar the 12 segments of now vs preview. */
-  stats(): { title: string; changed: boolean; hp: number; hpRpm: number; mass: number; drive: string; bars: { n: string; txt: string; segs: ('on' | 'up' | 'down' | '')[] }[]; Pn: Params; Pp: Params } {
-    const Pn = this.currentParams(), Pp = this.previewParams(), now = this.statRows(Pn), pv = this.statRows(Pp), s = statsOf(Pp).s;
+  /** Night Tuner's renderStats as data: header, hp line, and per bar the 12 segments of now vs preview. With the switch on, the core's bench for the car as built (and as previewed), and its class. */
+  stats(): GarageStats {
+    const Pn = this.currentParams(), Pp = this.previewParams();
+    const core = this.ctx.coreBench;
+    if (core) {
+      const c = this.cur(), sh = this.shown();
+      const now = core(c.cfg.perf as PerfCfg, c.tune);
+      if (now !== undefined) {
+        const changed = Pn !== Pp, pv = changed ? core(sh.cfg.perf as PerfCfg, sh.tune) : now;
+        const show = pv ?? now, units = this.opt('units') === 'mph' ? 'mph' : 'kmh';
+        const rn = coreStatRows(now, units), rp = coreStatRows(show, units);
+        return {
+          title: this.dynoPanel() ? 'Dyno' : 'Performance', changed,
+          hp: show ? Math.round(show.built.horsepower) : 0, hpRpm: show ? show.peakHpRpm : 0, mass: show ? Math.round(show.massKg) : Math.round(Pp.mass), drive: show ? show.drive : Pp.drive,
+          Pn, Pp, bars: segsOf(rn, rp),
+          core: {
+            cls: show ? show.raceClass : null, rating: show ? show.powerRating : null, provisional: show ? show.provisional : true,
+            measuring: now === null || pv === null,
+            dyno: now && show ? { now: now.dyno, preview: show.dyno, redline: Math.max(now.redlineRpm, show.redlineRpm) } : null,
+          },
+        };
+      }
+    }
+    const now = this.statRows(Pn), pv = this.statRows(Pp), s = statsOf(Pp).s;
     return {
       title: this.dynoPanel() ? 'Dyno' : 'Performance', changed: Pn !== Pp, hp: s.hp, hpRpm: s.hpRpm, mass: Math.round(Pp.mass), drive: Pp.drive, Pn, Pp,
-      bars: now.map((b, i) => {
-        const a = Math.round(b.v * 12), c = Math.round(pv[i].v * 12), segs: ('on' | 'up' | 'down' | '')[] = [];
-        for (let q = 0; q < 12; q++) segs.push(q < Math.min(a, c) ? 'on' : q < c ? 'up' : q < a ? 'down' : '');
-        return { n: b.n, txt: pv[i].txt, segs };
-      }),
+      bars: segsOf(now, pv),
     };
   }
 }
 
+// Per bar the 12 segments: lit where both are, up where the preview adds, down where it takes away; the preview's text.
+function segsOf(now: StatRow[], pv: StatRow[]): GarageStats['bars'] {
+  return now.map((b, i) => {
+    const a = Math.round(b.v * 12), c = Math.round(pv[i].v * 12), segs: ('on' | 'up' | 'down' | '')[] = [];
+    for (let q = 0; q < 12; q++) segs.push(q < Math.min(a, c) ? 'on' : q < c ? 'up' : q < a ? 'down' : '');
+    return { n: b.n, txt: pv[i].txt, segs };
+  });
+}
+
 /** Night Tuner's dyno chart: now (faint) and preview curves, hp and Nm, redline mark. MiCar colours. */
 export function drawDyno(c: HTMLCanvasElement, Pn: Params, Pp: Params): void {
+  drawDynoCurves(c, dynoCurve(Pn), dynoCurve(Pp), Math.max(Pn.redline, Pp.redline), Pp.redline);
+}
+
+/** The dyno chart from two curves of [rpm, N m, hp] (the old model's, or the core engine's own tables): now faint, the preview bold, the preview's redline marked. */
+export function drawDynoCurves(c: HTMLCanvasElement, cn: readonly (readonly [number, number, number])[], cp: readonly (readonly [number, number, number])[], topRpm: number, redline: number): void {
   const d = Math.min(2, (typeof devicePixelRatio === 'number' && devicePixelRatio) || 1), W = c.clientWidth || 264, H = 150;
   c.width = W * d; c.height = H * d;
   const g = c.getContext('2d'); if (!g) return;
   g.setTransform(d, 0, 0, d, 0, 0); g.clearRect(0, 0, W, H);
-  const cn = dynoCurve(Pn), cp = dynoCurve(Pp);
-  const maxR = Math.max(Pn.redline, Pp.redline) + 300, maxH = Math.max(...cn.map(p => p[2]), ...cp.map(p => p[2])) * 1.1, maxT = Math.max(...cn.map(p => p[1]), ...cp.map(p => p[1])) * 1.1;
+  const maxR = topRpm + 300, maxH = Math.max(...cn.map(p => p[2]), ...cp.map(p => p[2])) * 1.1, maxT = Math.max(...cn.map(p => p[1]), ...cp.map(p => p[1])) * 1.1;
   const X = (r: number) => 24 + (r - 800) / (maxR - 800) * (W - 30), YH = (h: number) => H - 18 - h / maxH * (H - 30), YT = (t: number) => H - 18 - t / maxT * (H - 30);
   g.strokeStyle = 'rgba(255,255,255,.08)'; g.lineWidth = 1;
   for (let r = 1000; r < maxR; r += 1000) { g.beginPath(); g.moveTo(X(r), 8); g.lineTo(X(r), H - 18); g.stroke(); }
   g.fillStyle = '#8e9bb0'; g.font = '600 10px "Barlow Condensed",sans-serif'; g.textAlign = 'center';
   for (let r = 2000; r < maxR; r += 2000) g.fillText((r / 1000) + 'k', X(r), H - 6);
-  const line = (cv: [number, number, number][], fn: (p: [number, number, number]) => number, col: string, w: number) => { g.strokeStyle = col; g.lineWidth = w; g.beginPath(); cv.forEach((p, i) => { const y = fn(p); if (i) g.lineTo(X(p[0]), y); else g.moveTo(X(p[0]), y); }); g.stroke(); };
+  const line = (cv: readonly (readonly [number, number, number])[], fn: (p: readonly [number, number, number]) => number, col: string, w: number) => { g.strokeStyle = col; g.lineWidth = w; g.beginPath(); cv.forEach((p, i) => { const y = fn(p); if (i) g.lineTo(X(p[0]), y); else g.moveTo(X(p[0]), y); }); g.stroke(); };
   const HP = '#ffd23f', NM = '#f3f6fb';
   line(cn, p => YH(p[2]), 'rgba(255,210,63,.4)', 1.5); line(cn, p => YT(p[1]), 'rgba(243,246,251,.3)', 1.5);
   line(cp, p => YH(p[2]), HP, 2.2); line(cp, p => YT(p[1]), NM, 2.2);
   g.textAlign = 'left'; g.fillStyle = HP; g.fillText('hp', 6, 14); g.fillStyle = NM; g.fillText('Nm', 6, 26);
-  g.fillStyle = '#ff4d5e'; g.fillRect(X(Pp.redline), 8, 1.5, H - 26);
+  g.fillStyle = '#ff4d5e'; g.fillRect(X(redline), 8, 1.5, H - 26);
 }

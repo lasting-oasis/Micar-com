@@ -40,5 +40,8 @@ jobs:
           BASE=http://localhost:3123/ node e2e/sound.smoke.mjs || status=$?
           # a challenge race: one link, two browsers, the same quarter mile at the same moment
           BASE=http://localhost:3123/ node e2e/challenge.smoke.mjs || status=$?
+          # the physics core behind ?physics=core: the player's car, then a race with core opponents
+          BASE=http://localhost:3123/ node e2e/core.smoke.mjs || status=$?
+          if [ -f e2e/core-race.smoke.mjs ]; then BASE=http://localhost:3123/ node e2e/core-race.smoke.mjs || status=$?; fi
           if [ "$status" != 0 ]; then echo "--- server log"; tail -50 "$RUNNER_TEMP/server.log"; fi
           exit $status

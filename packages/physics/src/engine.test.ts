@@ -3,7 +3,7 @@
 import { describe, expect, it } from 'vitest';
 import type { EngineKind, EngineModel } from './types';
 import type { EngineSpec } from './engine';
-import { AIR_ENERGY, boostStep, buildEngine, enginePeaks, engineTorque, rebuildTables, targetTorque } from './engine';
+import { AIR_ENERGY, boostStep, buildEngine, enginePeaks, engineTorque, rebuildTables, targetTorque, throttleForShare } from './engine';
 import { HP, LBFT, PSI, RPM } from './units';
 
 type Published = {
@@ -143,7 +143,9 @@ describe('the air model', () => {
     const e = buildEngine(spec(V8));
     const stock = Float64Array.from(e.wot);
     const stockPeak = enginePeaks(e).power;
-    const limit = 0.35;                          // kg/s: 402.5 kW of indicated work
+    // kg/s: 322 kW of indicated work, four fifths of the 408 kW this engine makes indicated at its power peak (its
+    // 362 kW at the crank and 1.5 bar of friction).
+    const limit = 0.28;
     e.air!.maxAirflow = limit;
     rebuildTables(e);
     let flat = 0;
@@ -228,6 +230,37 @@ describe('closed throttle, limiter and idle', () => {
     expect(big).toBeLessThan(small);
     expect(big / small).toBeGreaterThan(2.8);    // displacement ratio 3.1
     expect(big / small).toBeLessThan(3.4);
+  });
+
+  it('traction control\'s cut is a share of the drive: throttleForShare finds the throttle that makes that share of the torque', () => {
+    for (const p of [SMALL_FOUR, TURBO_FOUR, PUSHROD_V8]) {
+      const e = buildEngine(spec(p));
+      for (const rpm of [2000, 3000, 5000]) {
+        for (const th of [0.6, 1]) {
+          for (const share of [0.25, 0.5, 0.9]) {
+            const w = rpm * RPM, out = throttleForShare(e, w, 1, th, share);
+            expect(engineTorque(e, w, out, 1), `${p.name} ${rpm} ${th} ${share}`).toBeCloseTo(share * engineTorque(e, w, th, 1), 6);
+            // The drag in the way means a share of the drive takes more than that share of the pedal.
+            expect(out).toBeGreaterThan(share * th);
+          }
+        }
+      }
+    }
+  });
+
+  it('on the overrun the engine pumps against the manifold vacuum: 68 to 81 kPa of mean pressure on top of its friction', () => {
+    // A closed throttle holds the manifold 20 to 24 inHg below the air outside on the overrun (18 to 22 at idle):
+    // each intake stroke pulls against that, which is the main part of a petrol engine's engine braking.
+    for (const p of [SMALL_FOUR, PUSHROD_V8]) {
+      const e = buildEngine(spec(p));
+      for (const rpm of [2000, 3000, 5000]) {
+        const i = Math.round(rpm * RPM / e.dOmega), w = i * e.dOmega;
+        const pumping = -engineTorque(e, w, 0, 0) - e.friction[i];
+        const mep = pumping * 4 * Math.PI / e.displacement;
+        expect(mep, `${p.name} at ${rpm} rpm`).toBeGreaterThan(68e3);
+        expect(mep, `${p.name} at ${rpm} rpm`).toBeLessThan(81e3);
+      }
+    }
   });
 
   it('past redline the full-throttle torque fades to nothing within limiterBand', () => {
@@ -363,5 +396,16 @@ describe('stock charge air comes from the class tables (rule 2)', () => {
     // The full-throttle curve the maker published still comes out: the cooler only changes what a part works on.
     const p = enginePeaks(buildEngine(spec(BLOWN_V8)));
     expect(relErr(p.power / HP, BLOWN_V8.hp)).toBeLessThan(0.005);
+  });
+  it('a petrol engine\'s friction is classes.ts\'s FMEP.petrol, so the class table is the one place it is tuned', async () => {
+    const { FMEP } = await import('./classes');
+    for (const p of [SMALL_FOUR, TURBO_FOUR, PUSHROD_V8]) {
+      const e = buildEngine(spec(p));
+      expect((e.air as NonNullable<EngineModel['air']>).fmep).toEqual([...FMEP.petrol]);
+      // Near 6,000 rpm: the friction torque is that mean pressure over the displacement, V fmep / (4 pi).
+      const i = Math.round(6000 * RPM / e.dOmega), x = i * e.dOmega / (1000 * RPM);
+      const at = FMEP.petrol[0] + FMEP.petrol[1] * x + FMEP.petrol[2] * x * x;
+      expect(e.friction[i]).toBeCloseTo(at * e.displacement / (4 * Math.PI), 6);
+    }
   });
 });

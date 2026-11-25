@@ -105,6 +105,57 @@ describe('the assist layer', () => {
     }
   });
 
+  it('Standard: a keyboard lane change at 100 and 120 km/h leaves a front-drive family sedan settled once the wheel is let go (at most 0.2 rad of body slip)', () => {
+    // Steer one way for half a second, the other for half a second, then hands off at half throttle. The limit held
+    // the hands-off wheel at its edge, the front at its peak toward the slide: the Camry wound itself up to 0.96 rad
+    // (1.2 rad at 120 km/h) and lost half its speed; with the wheel simply let go it stays under 0.1 rad.
+    const camry = { make: 'Toyota', model: 'Camry', bodyStyle: 'sedan' };
+    for (const kmh of [100, 120]) {
+      for (const preset of ['standard', 'pure'] as const) {
+        const d = new CoreDriver(camry, specFor(camry), { cfg: STOCK_CFG, tune: TUNE_DEF }, { x: 0, z: 0, h: 0 }, { preset });
+        for (let t = 0; d.V.u * 3.6 < kmh && t < 25; t += 1 / 60) d.stepFrame(1 / 60, { ...NO_INPUT, fwd: 1 }, opts());
+        let worst = 0;
+        const legs: [number, number][] = [[0.5, -1], [0.5, 1], [3, 0]];
+        for (const [secs, steer] of legs) {
+          for (let f = 0; f < secs * 60; f++) { d.stepFrame(1 / 60, { ...NO_INPUT, steer, fwd: 0.5 }, opts()); worst = Math.max(worst, Math.abs(d.V.beta)); }
+        }
+        expect(worst, `${preset} at ${kmh} km/h`).toBeLessThan(0.2);
+        expect(Math.abs(d.V.beta), `${preset} at ${kmh} km/h, 3 s after`).toBeLessThan(0.02);
+        expect(d.V.u * 3.6, `${preset} at ${kmh} km/h`).toBeGreaterThan(0.75 * kmh);
+      }
+    }
+  });
+
+  it('Casual in a drift (stability and traction control off) does not spin in a steady corner the bare car takes cleanly, and is about as steady as Pure', () => {
+    // Held at 70 km/h with half lock and 0.6 throttle for 3 s, then hands off: the limit held the front at its peak and
+    // the rear let go, so the rental spun at 2.9 s; Pure, its front past its peak, stayed under 0.1 rad.
+    const ronin = { make: 'Ronin', model: 'GT', rental: true }, drift = (): DriveOpts => ({ ...opts(), drift: true });
+    const worst: Record<string, number> = {};
+    for (const preset of ['casual', 'pure'] as const) {
+      const d = new CoreDriver(ronin, specFor(ronin), { cfg: STOCK_CFG, tune: TUNE_DEF }, { x: 0, z: 0, h: 0 }, { preset });
+      for (let t = 0; d.V.u * 3.6 < 70 && t < 25; t += 1 / 60) d.stepFrame(1 / 60, { ...NO_INPUT, fwd: 1 }, drift());
+      let w = 0;
+      for (let f = 0; f < 180; f++) { d.stepFrame(1 / 60, { ...NO_INPUT, steer: -0.5, fwd: 0.6 }, drift()); w = Math.max(w, Math.abs(d.V.beta)); }
+      for (let f = 0; f < 120; f++) { d.stepFrame(1 / 60, NO_INPUT, drift()); w = Math.max(w, Math.abs(d.V.beta)); }
+      expect(d.V.u, preset).toBeGreaterThan(10); // still driving forward, not spun round
+      worst[preset] = w;
+    }
+    expect(worst.casual).toBeLessThan(0.2);
+    expect(worst.casual).toBeLessThan(worst.pure + 0.05);
+  });
+
+  it('Standard in a drift lets a power slide build and holds it: half a radian and more, no spin', () => {
+    // A drift is wanted there (and scored past 0.17 rad): the limit closes in only beyond DRIFT_ROOM times its usual slide.
+    const ronin = { make: 'Ronin', model: 'GT', rental: true }, drift = (): DriveOpts => ({ ...opts(), drift: true });
+    const d = new CoreDriver(ronin, specFor(ronin), { cfg: STOCK_CFG, tune: TUNE_DEF }, { x: 0, z: 0, h: 0 }, { preset: 'standard' });
+    for (let t = 0; d.V.u * 3.6 < 60 && t < 25; t += 1 / 60) d.stepFrame(1 / 60, { ...NO_INPUT, fwd: 1 }, drift());
+    let w = 0;
+    for (let f = 0; f < 180; f++) { d.stepFrame(1 / 60, { ...NO_INPUT, steer: -1, fwd: 1 }, drift()); w = Math.max(w, Math.abs(d.V.beta)); }
+    expect(w).toBeGreaterThan(0.4);
+    expect(w).toBeLessThan(1.0);
+    expect(d.V.u).toBeGreaterThan(5);
+  });
+
   it('Casual steering slows with road speed: a keyboard press reaches full lock several times quicker parked than at 100 km/h', () => {
     const toFull = (speed: number) => {
       const d = rolling('casual', 0), mem = assistMemory(), c = defaultControls(), tel = createTelemetry();

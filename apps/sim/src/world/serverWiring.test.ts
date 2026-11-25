@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url';
 import { io as connect, type Socket } from 'socket.io-client';
 import { signMagic, signSession } from './accounts';
 import { EVENTS, freshStrip, stageOf } from './data';
-import { partPrice } from './payout';
+import { partPrice, raceFloor } from './payout';
 import { RENTAL_DENIED, STRIP_LIMIT, VISITOR_DENIED } from './stripFlow';
 import { CLAIM_LATE_S, SLOT_COLORS, type RoomView } from './race';
 import { TESTER_MONEY, TESTER_REFUSED, TESTER_REP } from './tester';
@@ -594,8 +594,10 @@ describe('server wiring', () => {
     expect((await quitSeen).members.map(m => [m.name, m.state, m.why])).toEqual([['Ana', 'racing', null], ['Bo', 'racing', null], ['Cy', 'dnf', 'quit']]);
     expect((await cBack).inventory).toEqual([]);
     expect(loanOf(await aKeeps)).toBeTruthy();
-    // once the quarter mile's floor has passed (402 m at 50 m/s: 8.04 s after the green light) a finish is taken
-    await new Promise(r => setTimeout(r, Math.max(0, goAt + 8_150 - Date.now())));
+    // once the quarter mile's floor has passed (the fastest legal build's run less 10%, about 8.2 s after the green
+    // light: floors.ts) a finish is taken
+    const floorMs = raceFloor(EVENTS.find(e => e.id === 'royal_drag')!) * 1000;
+    await new Promise(r => setTimeout(r, Math.max(0, goAt + floorMs + 110 - Date.now())));
     const aHome = roomSeen(a.s, r => r.members.find(m => m.id === a.id)?.state === 'finished');
     const claim = (Date.now() - goAt) / 1000;
     a.s.emit('race_finish', { time: claim, score: 0, failed: false });

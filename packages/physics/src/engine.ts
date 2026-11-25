@@ -6,7 +6,7 @@
 import type { EngineAir, EngineKind, EngineModel } from './types';
 import { P_AMBIENT, PI, T_AMBIENT, curveAt, dexp, dln, dpow, hermite, tableAt } from './math';
 import { LITRE, RPM } from './units';
-import { CHARGE_AIR, COMPRESSOR_EFFICIENCY, KNOCK_LIMIT_PR } from './classes';
+import { CHARGE_AIR, COMPRESSOR_EFFICIENCY, FMEP, KNOCK_LIMIT_PR } from './classes';
 
 /** The published figures buildEngine needs, already in SI (resolve.ts converts them). */
 export type EngineSpec = {
@@ -22,10 +22,14 @@ export type EngineSpec = {
 /** Indicated work an engine gets from one kg of air at a full-throttle mixture, J/kg: what turns an airflow limit into a torque limit. */
 export const AIR_ENERGY = 1.15e6;
 
-// Friction mean effective pressure of a petrol engine, Pa, against speed in thousands of rpm (Heywood's fit; DESIGN.md's start).
-const PETROL_FMEP_0 = 97e3, PETROL_FMEP_1 = 15e3, PETROL_FMEP_2 = 5e3;
-// Extra mean effective pressure lost pumping against a closed throttle, Pa.
-const PUMPING_MEP = 35e3;
+/**
+ * Mean effective pressure a petrol engine loses pumping against a closed throttle, Pa: on the overrun the closed
+ * throttle holds the manifold about 20 to 24 inHg (68 to 81 kPa) below the air outside (Motor magazine: 18 to 22 inHg
+ * at idle, and it jumps when the throttle snaps shut), and every intake stroke pulls against that while the exhaust
+ * stroke pushes out at about the air outside. With friction it is the engine braking a driver feels; with the
+ * friction of the class table (1.1 bar at 3,000 rpm) a 2.0 litre brakes with about 29 N m there.
+ */
+export const PUMPING_MEP = 75e3;
 const FOUR_PI = 4 * PI;
 // Full-throttle torque at idle as a share of peak: an unboosted engine (or one with a crank-driven blower) already
 // breathes well there; a turbocharged one has no boost yet.
@@ -237,7 +241,9 @@ export function buildEngine(spec: EngineSpec): EngineModel {
     regen: electric ? REGEN : 0,
     air: null,
   };
-  const fmep: [number, number, number] = [PETROL_FMEP_0, PETROL_FMEP_1, PETROL_FMEP_2];
+  // Every engine starts as petrol (EngineSpec has no friction field): the class table's fit, copied so a part can
+  // change this engine's without touching the frozen row. resolve.ts refits a diesel.
+  const fmep: [number, number, number] = [FMEP.petrol[0], FMEP.petrol[1], FMEP.petrol[2]];
 
   if (!hasAir) {
     for (let i = 0; i < n; i++) {
@@ -384,6 +390,23 @@ function idleGovernor(e: EngineModel, omega: number): number {
   if (offset > most) offset = most;
   const g = (idle + offset - omega) * k;
   return g <= 0 ? 0 : g < cap ? g : cap;
+}
+
+/**
+ * The throttle (0 to th) at which the engine makes `share` of the torque it makes at throttle th, at this speed and
+ * boost: what traction control's cut is worth at the crank. Brake torque is a straight line in throttle from the
+ * closed-throttle drag (friction and pumping) to full torque, so cutting the pedal by a share cuts the drive by more
+ * than that share (a 2.0 litre at 3,000 rpm and half throttle makes 0.42 of its full torque, not 0.5): traction
+ * control aims at torque, as a real unit's spark and throttle cut does. A throttle that makes no drive is cut by the
+ * share itself.
+ */
+export function throttleForShare(e: EngineModel, omega: number, boost: number, th: number, share: number): number {
+  const t0 = engineTorque(e, omega, 0, boost), t1 = engineTorque(e, omega, 1, boost);
+  if (!(t1 > t0)) return th * share;
+  const t = t0 + th * (t1 - t0);
+  if (!(t > 0)) return th * share;
+  const out = (share * t - t0) / (t1 - t0);
+  return out < 0 ? 0 : out > th ? th : out;
 }
 
 /**

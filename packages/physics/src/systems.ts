@@ -258,6 +258,31 @@ export const LIGHT_THROTTLE = 0.1;
 /** Throttle at or above which the full-throttle shift points apply. */
 export const FULL_THROTTLE = 0.9;
 
+/**
+ * A gearbox controller reads the pedal through a filter, not as it stands: a press counts within about this many
+ * seconds (a stamp still kicks down at once, as a driver expects)...
+ */
+export const SHIFT_PEDAL_RISE = 0.1;
+/**
+ * ...and a lift only after about this many. A driver feeding the pedal in and out for wheelspin, or easing it through
+ * a corner exit, is still asking for all the car has; read as it stands, each dip moved the shift points down to the
+ * light-throttle ones and each return moved them back, so the box changed up on the dip and kicked down on the return
+ * (the proof sedan went 1-4-1-4-1-5 on a launch). A lift held for good still reads as a light throttle within a few
+ * seconds, and the box changes up early as it should.
+ */
+export const SHIFT_PEDAL_FALL = 1.5;
+
+/**
+ * The pedal as the gearbox controller reads it after h more seconds of the driver's pedal (clamped to 0 to 1), from
+ * what it read before: a first-order lag, quick to follow a press and slow to follow a lift. Implicit, so it is the
+ * same filter at any substep. vehicle.ts keeps it for each car and hands autoShift this, not the raw pedal.
+ */
+export function shiftPedalStep(read: number, pedal: number, h: number): number {
+  const p = pedal > 0 ? (pedal < 1 ? pedal : 1) : 0;
+  const k = h / (p > read ? SHIFT_PEDAL_RISE : SHIFT_PEDAL_FALL);
+  return (read + p * k) / (1 + k);
+}
+
 // Per model: the full-throttle up-shift speed of each gear, then the light-throttle one, rad/s (2n numbers).
 const SHIFT_POINTS = new WeakMap<VehicleModel, Float64Array>();
 

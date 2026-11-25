@@ -107,11 +107,15 @@ export function goldenRun(name: string): number {
  * (Last set when the solver's convergence loop, the road-speed centre coupling, rolling resistance as friction, the
  * tyres' re-stick, the shift logic's road speed, the auto-clutch's bite, neutral at once, the brakes' axle sizing and
  * the host-independent hash went in; set again when traction control gained its brake half, whose memory the state
- * now carries and hashes, and front-drive cars lost the class's understeering margin in their roll split.)
+ * now carries and hashes, and front-drive cars lost the class's understeering margin in their roll split; and set
+ * again when petrol friction moved from Heywood's 1980s fit to the published modern band (classes.ts FMEP: 4.5 to
+ * 1.5 bar at 7,000 rpm), closed-throttle pumping to the overrun's manifold vacuum (35 to 75 kPa), traction control's
+ * cut from a share of the pedal to a share of the engine's drive, and the gearbox controller began reading the pedal
+ * through a filter, which the hash now folds in, so an automatic no longer hunts when the pedal dips.)
  */
 export const GOLDEN: Readonly<Record<string, number>> = {
-  sedan: 2015088161,
-  sports: 3605451667,
-  coupe: 246215136,
-  pickup: 490601578,
+  sedan: 250174790,
+  sports: 1596765487,
+  coupe: 2362223398,
+  pickup: 3077390888,
 };

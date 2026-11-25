@@ -11,16 +11,18 @@
 //   4. writes back every field a reader uses, in its old unit and sense, into the same Vehicle object.
 // Race starts: while the race runner holds the car on the line, the brakes and the clutch are held and the throttle
 // pedal sets the launch revs; at the green they are let go, and the clutch bites at those revs.
-import { AUTO_GEAR, FLAT, createTelemetry, createVehicle, defaultControls, engineTorque, placeVehicle, setRolling, step, telemetry } from '@micar/physics';
+import { AUTO_GEAR, FLAT, createTelemetry, createVehicle, defaultControls, engineTorque, peakSlipRatio, placeVehicle, setRolling, step, telemetry } from '@micar/physics';
 import type { Controls, Telemetry, VehicleModel, VehicleState } from '@micar/physics';
 import { makeVehicle, type Input, type Params, type Vehicle, type VehicleSpec } from '../physics';
 import { FUEL_PER_MS, FUEL_PER_THR, MAX_FRAME, MAX_STEPS, STEP, type DriveOpts, type DriveState } from '../driver';
 import { WORLD_PER_M } from '../units';
-import { ASSISTS, DEFAULT_PRESET, applyAssists, assistMemory, peakSlipRatio, type AssistMemory, type AssistPreset, type DriverWish, type SystemsChoice } from './assists';
+import { ASSISTS, DEFAULT_PRESET, applyAssists, assistMemory, type AssistMemory, type AssistPreset, type DriverWish, type SystemsChoice } from './assists';
 import { coreModelFor, type CoreCar, type CoreCarModel } from './model';
 import { RPM, paramsFor, stepped } from './params';
 
 const W = WORLD_PER_M;
+/** Fuel drawn for the same power on race fuel or E85 (the fuel-1 part), as a multiple of pump fuel's (DESIGN.md 11). */
+export const FUEL_1_FLOW = 1.3;
 
 /** The drive options with the race runner's hold: true while the runner holds the car on the start line (its count). */
 export type CoreDriveOpts = DriveOpts & { held?: () => boolean };
@@ -48,11 +50,39 @@ const GENTLE_BITE = 1.15;
 // Holding a converter car on the brake at the line: wheel speed (rad/s) that counts as creeping, and how fast the foot comes back.
 const CREEP = 0.5, BACK_OFF = 0.97;
 
-/** The engine speed (rad/s) a hard launch is made at: where the full-throttle curve (off boost) first reaches 90% of its peak, held between 1.5 x idle and 0.6 x redline. 0 for an electric car. */
+/** The share of the pedal's travel over which the engine's closed-throttle drag fades out (pedalThrottle). */
+export const PEDAL_DRAG = 0.05;
+
+/**
+ * The throttle for a pedal (0 to 1) as a drive-by-wire car maps it: past the first PEDAL_DRAG of its travel the pedal
+ * asks for that share of the engine's full torque at its present speed and boost (the old model's pedal times torque),
+ * and over that first part the closed-throttle drag (friction and pumping, or an electric car's regeneration) fades
+ * out, so a lifted foot brakes on the engine as ever. The core's throttle is the throttle plate, whose torque runs in a
+ * straight line from that drag to full: passed through, the bottom fifth of a trigger's travel or two fifths of a touch
+ * stick's made no drive (at 1,000 rpm a Camry's engine made -14 N m at 10% and 4% of its torque at 20%). Above
+ * redline the pedal is passed through (the limiter is cutting the torque).
+ */
+export function pedalThrottle(s: VehicleState, pedal: number): number {
+  const p = pedal > 0 ? (pedal < 1 ? pedal : 1) : 0;
+  const e = s.model.engine, w = s.engineOmega;
+  if (p === 0 || p === 1 || !(w <= e.redline)) return p;
+  const t0 = engineTorque(e, w, 0, s.boost), t1 = engineTorque(e, w, 1, s.boost);
+  if (!(t1 > t0) || !(t0 < 0)) return p;
+  const want = p * (t1 > 0 ? t1 : 0) + (p < PEDAL_DRAG ? (1 - p / PEDAL_DRAG) * t0 : 0);
+  const th = (want - t0) / (t1 - t0);
+  return th > p ? (th < 1 ? th : 1) : p;
+}
+
+/**
+ * The engine speed (rad/s) a hard launch is made at: where the full-throttle curve, with its boost built, first reaches
+ * 90% of its peak, held between 1.5 x idle and 0.6 x redline. 0 for an electric car. (Read off the curve without boost,
+ * a turbo engine reached 90% of that at once, so it launched at 1.5 x idle, off boost: the GT-RR at 1,125 rpm, half a
+ * second slower to 60 than at its 3,000.)
+ */
 export function bestLaunch(m: VehicleModel): number {
   const e = m.engine;
   if (e.kind === 'electric' || m.driveline.launch === 'direct') return 0;
-  const table = e.kind === 'turbo' || e.kind === 'supercharged' ? e.offBoost : e.wot;
+  const table = e.wot;
   const top = Math.min(e.n - 1, Math.floor(e.redline / e.dOmega));
   let peak = 0;
   for (let i = 0; i <= top; i++) if (table[i] > peak) peak = table[i];
@@ -132,6 +162,17 @@ export class CoreDriver implements DriverLike {
     }
   }
 
+  /**
+   * The fuel the throttle draws, as a multiple of the old model's (FUEL_PER_THR): race fuel or E85 (the fuel-1 part, an
+   * ECU at its third tier) takes 1.3 times the fuel for the same power (DESIGN.md 11: its energy per kilogram is lower),
+   * so the tank empties that much faster under power. The speed term (the car's own running) is unchanged.
+   */
+  get fuelFlow(): number {
+    if (this.flowOf !== this.core) { this.flowOf = this.core; this.flow = this.core.build.parts.some(p => p.id === 'fuel-1') ? FUEL_1_FLOW : 1; }
+    return this.flow;
+  }
+  private flowOf: CoreCarModel | null = null; private flow = 1;
+
   /** New parts or tune: the car keeps its place, speed and gear (DESIGN.md 13; world/driver.ts rebuild). */
   rebuild(spec: VehicleSpec, state: DriveState): void {
     const next = coreModelFor(this.car, state.cfg.perf, state.tune), V = this.V;
@@ -177,7 +218,7 @@ export class CoreDriver implements DriverLike {
       const empty = opts.fuel() <= 0;
       if (empty) { if (V.gear === -1) J.back = 0; else J.fwd = 0; }
       this.subStep(J, opts.drift, held ? held() : false);
-      if (!empty) opts.burn((FUEL_PER_THR * V.thr + FUEL_PER_MS * Math.abs(V.u)) * STEP);
+      if (!empty) opts.burn((FUEL_PER_THR * this.fuelFlow * V.thr + FUEL_PER_MS * Math.abs(V.u)) * STEP);
       const imp = opts.collide(V); if (imp > impact) impact = imp;
       I.shiftUp = I.shiftDn = I.hop = false; // one-shot edges reach one sub-step
       steps++;
@@ -220,6 +261,11 @@ export class CoreDriver implements DriverLike {
     V.perfect = false;
     if (manual) {
       if (!this.wasManual) this.want = s.gear >= 1 ? s.gear : 1;
+      // A box that is not a manual changes up by itself rather than let the output turn the engine past redline
+      // (systems.ts autoShift): the gear asked for follows it up, never asks it back down (asked for the lower gear,
+      // it went 2-1-2 and 4-3-4 as the revs fell, and the next shift-up press only caught up with it).
+      const inBox = s.shiftTimer > 0 ? s.gearNext : s.gear;
+      if (n > 1 && m.driveline.transmission !== 'manual' && !this.reverse && inBox > this.want && inBox <= n) this.want = inBox;
       if (J.shiftUp) {
         if (this.reverse) { this.reverse = false; this.want = 1; }
         else if (this.want < n && s.shiftTimer <= 0) {
@@ -237,7 +283,7 @@ export class CoreDriver implements DriverLike {
 
     const w = this.wish;
     w.steer = -J.steer; w.steerMul = this.steerMul;
-    w.throttle = thr; w.brake = brk; w.handbrake = J.hb ? 1 : 0; w.nitrous = J.nos; w.drift = drift;
+    w.throttle = pedalThrottle(s, thr); w.brake = brk; w.handbrake = J.hb ? 1 : 0; w.nitrous = J.nos; w.drift = drift;
     w.gear = this.reverse ? -1 : manual ? this.want : AUTO_GEAR;
     applyAssists(cfg, w, s, this.tel, this.mem, this.systems, c, dt);
     c.autoClutch = true; c.clutch = 0;
@@ -343,7 +389,7 @@ export class CoreDriver implements DriverLike {
     // over the road at a walk or more: a car braked to a stop is not skidding), followed at 8/s.
     let f = 0, r = 0;
     for (let i = 0; i < 4; i++) {
-      const p = i < 2 ? m.tyreFront : m.tyreRear, pk = peakSlipRatio(p, s.wheelLoad[i]);
+      const p = i < 2 ? m.tyreFront : m.tyreRear, pk = peakSlipRatio(p, s.wheelLoad[i] > 0 ? s.wheelLoad[i] : 0, 1);
       const slide = Math.abs(s.wheelOmega[i] * p.radius - s.u);
       if (pk > 0 && slide > SPIN_SLIDE && Math.abs(this.tel.wheelSlipRatio[i]) > SPIN_PAST_PEAK * pk) { if (i < 2) f = 1; else r = 1; }
     }

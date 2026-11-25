@@ -67,9 +67,16 @@ export function prewarmOpponents(model: VehicleModel): void { envelopeOf(model);
 
 const circuitLines = new WeakMap<TrackData, RacingLine>();
 /**
+ * The margin a circuit's racing line keeps from each edge of the road, m: half a wide car and a metre to spare. A
+ * pilot's place wanders up to about a metre off its line where a fast bend or a kink of the drawn road asks a quick
+ * change of direction of it: with line.ts's own 1.6 m (half a metre to spare) pilots put a wheel up to 0.2 m past the
+ * edge in 10 of the every-circuit test's 90 runs, on four circuits.
+ */
+export const CIRCUIT_MARGIN = 2;
+/**
  * A circuit's racing line (line.ts racingLine) from its centreline and width, in the core's plane (X = z, Y = x, the
- * track's offset applied): built once per loaded track. Every route of a circuit (its laps, its sprint, its drift
- * sector) runs along that centreline in the same direction, so the one line serves them all.
+ * track's offset applied), CIRCUIT_MARGIN from each edge: built once per loaded track. Every route of a circuit (its
+ * laps, its sprint, its drift sector) runs along that centreline in the same direction, so the one line serves them all.
  */
 export function circuitLine(track: TrackData): RacingLine {
   let line = circuitLines.get(track);
@@ -77,7 +84,7 @@ export function circuitLine(track: TrackData): RacingLine {
     const pts = track.centre.pts, n = pts.length, ox = track.offset[0], oz = track.offset[1];
     const X = new Float64Array(n), Y = new Float64Array(n);
     for (let i = 0; i < n; i++) { X[i] = pts[i][1] + oz; Y[i] = pts[i][0] + ox; }
-    line = racingLine(X, Y, track.centre.width);
+    line = racingLine(X, Y, track.centre.width, CIRCUIT_MARGIN);
     circuitLines.set(track, line);
   }
   return line;

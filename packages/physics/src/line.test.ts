@@ -150,6 +150,22 @@ describe('the racing line', () => {
     // A quarter turn with room to run wide needs no tighter than the corner's own 30 m, and a racing line opens it.
     expect(1 / most(line.k)).toBeGreaterThan(30);
   });
+
+  it('does not fold where the centreline turns tighter than the line\'s room: a quarter turn of 4 m radius on a 12 m road', () => {
+    // A drawn circuit's centreline can kink (the Eifel GP's turns 72 degrees in 6 m, a 4.2 m radius) where the road is
+    // 12 m wide: 4.4 m in from it the normals have crossed. Laid there, the line turned the wrong way in a 0.4 m
+    // radius cusp; it must instead cut the corner on a curve a car can follow.
+    const kinked = centrelineFrom([straight(256), arc(4, PI / 2), straight(256), arc(40, PI / 2), straight(220), arc(40, PI / 2), straight(220), arc(40, PI / 2)], 1);
+    expect(kinked.gap).toBeLessThan(1e-9);
+    const line = racingLine(kinked.x, kinked.y, 12);
+    expect(most(line.offset)).toBeLessThanOrEqual(6 - LINE_MARGIN + 1e-12);
+    // Its tightest radius is over 10 m (it was 0.4 m), and every point's neighbours lie ahead of and behind it.
+    expect(1 / most(line.k)).toBeGreaterThan(10);
+    for (let i = 0; i < line.n; i++) {
+      const j = (i + 1) % line.n;
+      expect((line.x[j] - line.x[i]) * line.tx[i] + (line.y[j] - line.y[i]) * line.ty[i], `point ${i}`).toBeGreaterThan(0);
+    }
+  });
 });
 
 describe('finding a car against the line and the track', () => {

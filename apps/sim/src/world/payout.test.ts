@@ -1,6 +1,7 @@
 import path from 'node:path';
 import { beforeAll, describe, expect, it } from 'vitest';
 import { applyPayout, validateEnter, validateFinish, validateOutrun, OUTRUN_MIN_MS, PAID_COOLDOWN_MS, COUNTDOWN_S, VMAX, raceFloor, eventDistance, outrunEvent, clampTune, partPrice, ensureStrip, ENTRY_TTL_MS } from './payout';
+import { FLOOR_MARGIN, fastestRun, floorFor } from './floors';
 import { EVENTS, freshStrip, carState, withV } from './data';
 import { routeFor, TRACKS } from './strip/district';
 import { readTrackSync, setTrackDir } from './strip/districtNode';
@@ -44,22 +45,38 @@ describe('validateEnter', () => {
 
 describe('the time floor', () => {
   const royalDrag = EVENTS.find(e => e.id === 'royal_drag')!, harbourGp = EVENTS.find(e => e.id === 'harbour_gp')!;
-  it('is the distance over the type\'s top average: a quarter mile at 50 m/s, the circuits at 65 m/s', () => {
-    expect(VMAX).toEqual({ drag: 50, sprint: 65, circuit: 65, streetx: 65, drift: 65 });
-    expect(raceFloor(royalDrag)).toBeCloseTo(402 / 50, 1);
+  it('is the fastest legal build\'s run on the event less 10% (floors.ts); an event with no run falls back to its distance over the old 50 / 65 m/s', () => {
+    expect(FLOOR_MARGIN).toBe(0.1);
+    for (const ev of EVENTS) {
+      const run = fastestRun(ev.id);
+      expect(run, ev.id).not.toBeNull();
+      expect(raceFloor(ev), ev.id).toBeCloseTo(run!.fastest * 0.9, 2);
+    }
+    // The quarter mile's floor is a 9 s class run less its margin: about 8 s, as the old 50 m/s gave.
+    expect(raceFloor(royalDrag)).toBeGreaterThan(7.5);
+    expect(raceFloor(royalDrag)).toBeLessThan(9);
+    // Every lap counts: the Harbour GP's floor is two laps of the fastest car, and far above one lap at 65 m/s.
     expect(eventDistance(EVENTS.find(e => e.id === 'royal_gp')!)).toBe(routeFor('royal_gp').len * 2);
-    expect(raceFloor(harbourGp)).toBeCloseTo(eventDistance(harbourGp) / 65, 5);
-    expect(Math.abs(raceFloor(EVENTS.find(e => e.id === 'ardennes_gp')!) - 2 * 6969 / 65)).toBeLessThan(1);
+    expect(raceFloor(harbourGp)).toBeGreaterThan(eventDistance(harbourGp) / 65);
+    // An outrun is not in the table: its floor is the old rule's.
+    expect(VMAX).toEqual({ drag: 50, sprint: 65, circuit: 65, streetx: 65, drift: 65 });
+    const outrun = outrunEvent(1);
+    expect(fastestRun(outrun.id)).toBeNull();
+    expect(floorFor(outrun, () => 1234)).toBe(1234);
+    expect(floorFor(harbourGp, () => 1234)).toBeCloseTo(fastestRun('harbour_gp')!.fastest * 0.9, 2);
     expect(ENTRY_TTL_MS).toBe(45 * 60 * 1000);
   });
-  it('refuses a drag run under 9 s and a finish sooner than the countdown plus the floor', () => {
+  it('refuses a drag run faster than its floor and a finish sooner than the countdown plus the floor', () => {
+    const floor = raceFloor(royalDrag);
     expect(validateFinish({ eventId: 'royal_drag', startedAt: 0 }, finish('royal_drag', 1, 7.5), 60000).ok).toBe(false);
-    expect(validateFinish({ eventId: 'royal_drag', startedAt: 0 }, finish('royal_drag', 1, 8.5), 11000).ok).toBe(false); // 11 s < 3.0 + 8.04
+    expect(validateFinish({ eventId: 'royal_drag', startedAt: 0 }, finish('royal_drag', 1, 8.5), (COUNTDOWN_S + floor - 0.1) * 1000).ok).toBe(false);
     expect(validateFinish({ eventId: 'royal_drag', startedAt: 0 }, finish('royal_drag', 1, 8.5), (COUNTDOWN_S + 8.5) * 1000)).toEqual({ ok: true, pos: 1 });
   });
-  it('holds a circuit to 65 m/s over every lap', () => {
+  it('holds a circuit to two laps of the fastest legal car: the Harbour GP in 120 s is refused, in the fastest car\'s own time it is paid', () => {
+    const fastest = fastestRun('harbour_gp')!.fastest;
     expect(validateFinish({ eventId: 'harbour_gp', startedAt: 0 }, finish('harbour_gp', 1, 90), 600000).ok).toBe(false);
-    expect(validateFinish({ eventId: 'harbour_gp', startedAt: 0 }, finish('harbour_gp', 1, 110), 200000).ok).toBe(true);
+    expect(validateFinish({ eventId: 'harbour_gp', startedAt: 0 }, finish('harbour_gp', 1, 120), 600000).ok).toBe(false);
+    expect(validateFinish({ eventId: 'harbour_gp', startedAt: 0 }, finish('harbour_gp', 1, fastest), (COUNTDOWN_S + fastest) * 1000 + 1000)).toEqual({ ok: true, pos: 1 });
   });
 });
 

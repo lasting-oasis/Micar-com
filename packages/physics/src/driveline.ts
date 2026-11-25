@@ -13,7 +13,7 @@
 // the new gear's speed. Everything here runs in the step: plain arithmetic on module-level scratch, nothing allocated.
 import type { Controls, DiffModel, DrivelineModel, EngineModel, VehicleModel, VehicleState } from './types';
 import { AUTO_GEAR } from './types';
-import { AIR_ENERGY, boostStep, engineTorque } from './engine';
+import { AIR_ENERGY, PUMPING_MEP, boostStep, engineTorque } from './engine';
 import { PI, tableAt } from './math';
 import { rollingResistance } from './tyre';
 
@@ -44,9 +44,6 @@ const UNLOCK_OVER_IDLE = 1.25;
 const NITROUS_WINDOW = 0.4;
 // Petrol's stoichiometric air-fuel ratio by mass: a full-throttle mixture burns about this much air per kg of fuel.
 const STOICHIOMETRIC = 14.7;
-// Pumping mean effective pressure against a closed throttle (DESIGN.md 5.1), Pa: the share of closed-throttle drag
-// that is not friction, needed to tell indicated work (what fuel pays for) from brake work.
-const PUMPING_MEP = 35e3;
 const FOUR_PI = 4 * PI;
 // Floating-point slack on the shift timer, as a share of the substep, so that a shift of whole substeps ends on time.
 const TIMER_SLACK = 1e-9;

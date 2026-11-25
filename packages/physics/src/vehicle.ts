@@ -14,9 +14,10 @@ import { aeroForces, roadLoad } from './aero';
 import { brakeTorques } from './brakes';
 import { staticLoads, steerAngles, suspensionStep, wheelLoads } from './chassis';
 import { drivelineStep, surfaceRolling } from './driveline';
+import { throttleForShare } from './engine';
 import { G, HASH_START, datan, datan2, dcos, dsin, hashNumber } from './math';
 import { createState } from './state';
-import { autoShift, limiterCut, stabilityControl, tractionControl } from './systems';
+import { autoShift, limiterCut, shiftPedalStep, stabilityControl, tractionControl } from './systems';
 import { elasticShare, lowSpeedDamping, lowSpeedFade, maxDeflectionX, maxDeflectionY, peakSlipRatio, peakSlipTan, relaxStep, tyreForces, tyreMuY } from './tyre';
 import { RPM } from './units';
 
@@ -57,6 +58,9 @@ let slopeY = 0;
 // The share of grip each tyre used in the last substep, per car, for telemetry. It is an output, not state (nothing
 // in the next step reads it), so it lives beside the state rather than in it and the hash leaves it out.
 const GRIP_USE = new WeakMap<VehicleState, Float64Array>();
+// The controls autoShift is handed: the driver's gear request with the pedal as the gearbox controller reads it
+// (VehicleState.shiftPedal).
+const shiftAsk: Controls = { steer: 0, throttle: 0, brake: 0, handbrake: 0, clutch: 0, gear: 0, autoClutch: true, abs: true, tcs: true, esc: true, launchOmega: 0, nitrous: false };
 
 /* ------------------------------------------------------------------ making and placing a car */
 
@@ -75,6 +79,16 @@ export function createVehicle(model: VehicleModel): VehicleState {
   s.ratio = restingRatio(model);
   GRIP_USE.set(s, new Float64Array(4));
   return s;
+}
+
+/** The pedal (0 to 1) this car's gearbox controller reads, through its filter: the state's shiftPedal. */
+export function shiftPedal(s: VehicleState): number {
+  return s.shiftPedal;
+}
+
+/** Sets what this car's gearbox controller reads of the pedal (the state's shiftPedal). */
+export function setShiftPedal(s: VehicleState, read: number): void {
+  s.shiftPedal = read;
 }
 
 // The ratio a stopped car's box sits at in first: a stepped box's first gear; a CVT's lowest gearing (the larger of
@@ -112,6 +126,7 @@ export function placeVehicle(s: VehicleState, x: number, y: number, hx: number, 
   s.tcsActive = 0; s.escActive = 0; s.limiterActive = 0; s.tcsCut = 1;
   const use = GRIP_USE.get(s);
   if (use !== undefined) for (let i = 0; i < 4; i++) use[i] = 0;
+  setShiftPedal(s, 0);
 }
 
 /* ------------------------------------------------------------------ the step */
@@ -139,9 +154,12 @@ export function stepWith(s: VehicleState, c: Controls, world: WorldQuery, subste
 function substep(s: VehicleState, c: Controls, world: WorldQuery, h: number, use: Float64Array | undefined): void {
   const m = s.model;
 
-  // 1. Controls to actuators: the road wheels' steer angles, and the gear the car (or the driver) wants.
+  // 1. Controls to actuators: the road wheels' steer angles, and the gear the car (or the driver) wants, chosen on
+  // the pedal as the gearbox controller reads it.
   steerAngles(s, c.steer);
-  const gearWanted = autoShift(s, c);
+  s.shiftPedal = shiftPedalStep(s.shiftPedal, c.throttle, h);
+  shiftAsk.gear = c.gear; shiftAsk.throttle = s.shiftPedal;
+  const gearWanted = autoShift(s, shiftAsk);
   wheelGeometry(s);
 
   // 2. Air, at the forward speed the substep starts with.
@@ -174,8 +192,12 @@ function substep(s: VehicleState, c: Controls, world: WorldQuery, h: number, use
   for (let i = 0; i < 4; i++) lowSpeedDamp(s, i, h);
 
   // 6. Driveline: engine, clutch, gearbox, differentials, brakes and the four wheels' spin.
+  // Traction control's cut is a share of the engine's drive (its torque at the pedal), the governor's a share of the
+  // pedal: with friction and pumping in the way, a cut of the pedal alone took off more drive than the unit asked.
   const pedal = c.throttle > 0 ? (c.throttle < 1 ? c.throttle : 1) : 0;
-  drivelineStep(s, c, gearWanted, pedal * tcs * governor, h);
+  let throttle = pedal * governor;
+  if (tcs < 1 && throttle > 0) throttle = throttleForShare(m.engine, s.engineOmega, s.boost, throttle, tcs);
+  drivelineStep(s, c, gearWanted, throttle, h);
 
   // 7. Body.
   moveBody(s, h);
@@ -475,6 +497,8 @@ export function hashState(s: VehicleState): number {
   h = hashArray(h, s.tcsBrake);
   h = hashNumber(h, s.nitrousLeft);
   h = hashNumber(h, s.distance); h = hashNumber(h, s.energyUsed);
+  // The gearbox controller's pedal: it decides the next gear.
+  h = hashNumber(h, s.shiftPedal);
   return h;
 }
 

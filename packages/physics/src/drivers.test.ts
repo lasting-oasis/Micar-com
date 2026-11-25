@@ -14,6 +14,8 @@ import { FLAT, defaultControls } from './state';
 import { peakSlipRatio, tyreMuX } from './tyre';
 import { RPM } from './units';
 import { STEP, createVehicle, hashState, step, telemetry } from './vehicle';
+import { proofSheet } from './golden';
+import { resolveModel } from './resolve';
 import { createTelemetry } from './state';
 
 const fixture = fixtureModel();
@@ -136,6 +138,26 @@ describe('the launch driver', () => {
     for (let g = 0; g < at.length; g++) {
       expect(at[g] / d.shiftOmega[g]).toBeGreaterThanOrEqual(1);
       expect(at[g] / d.shiftOmega[g]).toBeLessThan(1.02);   // within a step's worth of revs
+    }
+  });
+
+  it('never asks an automatic back into a gear its box changed up from to keep the engine under redline', () => {
+    // The proof sedan's eight-speed, shifting at its own points, which sit at redline: the box's over-rev guard (the
+    // gearbox output would turn the engine past redline) changes it up a moment before the engine itself reaches the
+    // shift speed. A driver that went on asking for the lower gear got it back each time the revs fell, and the box
+    // went 3-4-3-4 for 0.17 s of the quarter mile.
+    const m = resolveModel(proofSheet('sedan')).model;
+    for (const share of [1, 1.04]) {
+      const d = launchDriver(m, 975 * RPM, share);
+      const s = createVehicle(m), c = defaultControls();
+      const seen: number[] = [s.gear];
+      for (let k = 0; k < seconds(16); k++) {
+        d.control(s, c);
+        step(s, c, FLAT);
+        if (s.gear !== seen[seen.length - 1]) seen.push(s.gear);
+      }
+      expect(seen.length, `share ${share}`).toBeGreaterThan(4);
+      for (let i = 1; i < seen.length; i++) expect(seen[i], `share ${share}: ${seen.join(' ')}`).toBeGreaterThan(seen[i - 1]);
     }
   });
 

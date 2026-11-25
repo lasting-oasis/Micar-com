@@ -544,6 +544,21 @@ describe('engines', () => {
     expect(fmepFor('hybrid')).toBe(FMEP.petrol);
     expect(fmepFor('gasoline')).toBe(FMEP.petrol);
   });
+  it('friction: a modern petrol engine at full throttle loses 0.7 to 1.55 bar of mean pressure from 6,000 to 7,000 rpm, not Heywood\'s 1980s 3.7 to 4.5', () => {
+    // Published: the Shinn-Flynn form FMEP = a + b pmax + c cm^2 (Basshuysen and Schaefer: a 0.3 to 0.5 bar, b 0.004
+    // to 0.006, c 0.0006 to 0.0012 bar s^2/m^2), with a naturally aspirated engine's full-load peak pressure of 53 to
+    // 83 bar and a 90 mm stroke (mean piston speed 18 to 21 m/s), gives 0.73 to 1.39 bar at 6,000 rpm and 0.80 to
+    // 1.53 bar at 7,000; MDPI Lubricants 7 (2019) 105 measured two modern petrol engines at no more than 1.18 and
+    // 1.40 bar, with the oil at 70 C. A 7,000 rpm friction of 4.5 bar would make a 12 bar engine 16.5 bar indicated,
+    // which no unboosted petrol engine reaches, and levers every boost gain.
+    const at = (c: readonly [number, number, number], x: number): number => c[0] + c[1] * x + c[2] * x * x;
+    for (const x of [6, 6.5, 7]) {
+      expect(at(FMEP.petrol, x)).toBeGreaterThan(70e3);
+      expect(at(FMEP.petrol, x)).toBeLessThan(155e3);
+    }
+    // Friction still rises with speed (more piston speed, more hydrodynamic shear).
+    expect(at(FMEP.petrol, 7)).toBeGreaterThan(at(FMEP.petrol, 2));
+  });
   it('charge air: the compressor is 0.6 to 0.78 efficient; at its default boost an intercooled engine breathes 30 to 60 C air, and the same air leaves the compressor at 90 to 140 C before it is cooled', () => {
     expect(COMPRESSOR_EFFICIENCY).toBeGreaterThanOrEqual(0.6);
     expect(COMPRESSOR_EFFICIENCY).toBeLessThanOrEqual(0.78);

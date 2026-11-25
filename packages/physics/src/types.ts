@@ -354,6 +354,8 @@ export type VehicleState = {
   nitrousLeft: number;
   /** m driven, kg of fuel (or J of battery energy for an electric car) used. */
   distance: number; energyUsed: number;
+  /** The pedal (0 to 1) as the gearbox controller reads it, through its filter (systems.ts shiftPedalStep): the next substep's gear choice reads it. */
+  shiftPedal: number;
 };
 
 export type Telemetry = {

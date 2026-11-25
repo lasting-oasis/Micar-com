@@ -196,6 +196,9 @@ function readBodyClass(text: unknown): BodyClass | null {
   if (/^(roadster|supercar|sports car)$/.test(t)) return 'sports';
   if (/^saloon$/.test(t)) return 'sedan';
   if (/^(off-road|offroader|off-roader)$/.test(t)) return 'offroad';
+  // An off-road SUV (a Wrangler, a Bronco, a 4Runner) is the off-road class, whose blank sheet is a 4WD six on
+  // all-terrain tyres; a plain SUV is the crossover class.
+  if (/^off-?road[- ](suv|sport utility( vehicle)?)$/.test(t)) return 'offroad';
   return null;
 }
 
@@ -408,6 +411,73 @@ function readFlag(text: string, yes: RegExp | null, no: RegExp | null): boolean 
   return null;
 }
 
+/* ------------------------------------------------------------------ like with like */
+
+/**
+ * The reason a sheet gives every test figure it sets apart: a test of another configuration is not a check of this
+ * one (data/research/README.md: "A test figure must come from a named instrumented test of the same configuration").
+ */
+export const SET_APART = 'set apart, not a like-for-like check';
+
+/** Whether a figure readResearch left out was set apart as a test of another configuration, rather than dropped as wrong. */
+export function isSetApart(p: SheetProblem): boolean {
+  return p.reason.slice(0, SET_APART.length) === SET_APART;
+}
+
+// What a researcher writes when the test car was not this configuration: the flags the research notes carry in capitals
+// ("CONFIGURATION MISMATCH", "TRIM MISMATCH", "OTHER TRIM", "NOT a 2024 car"). Each describes the test car, so every
+// figure of that test (its url) goes with it.
+const OTHER_CAR: readonly RegExp[] = [
+  /\bconfiguration mismatch\b/i, /\btrim mismatch\b/i, /\bother trim\b/i, /\bnot (?:the|a|an) (?:19|20)\d\d (?:car|truck|model)\b/i,
+];
+// What the second reader writes of one figure that does not stand for this configuration (a braking figure on another
+// trim's tyres, a second-hand forum quote of an older car): that figure alone.
+const NOT_THIS_FIGURE: readonly RegExp[] = [
+  /\b(?:does not|doesn't|do not|fails to|fail to) meet the readme'?s same-configuration rule\b/i,
+];
+
+/** Why a test figure with no check mark is set apart (readResearch). */
+export const NOT_SECOND_READ = 'nobody second-read it (no check mark)';
+
+// Whether the second reader checked a field: confirmed, or tried and failed to refute it (unconfirmed). A refuted
+// figure never gets this far.
+function secondRead(f: ResearchField): boolean {
+  const c = typeof f.check === 'string' ? f.check.trim().toLowerCase() : '';
+  return c === 'confirmed' || c === 'unconfirmed';
+}
+
+// The words of a field's note and the second reader's checkNote (the research format's, not a ResearchField member).
+function remarks(f: ResearchField): string {
+  const check = (f as ResearchField & { checkNote?: unknown }).checkNote;
+  return `${typeof f.note === 'string' ? f.note : ''} | ${typeof check === 'string' ? check : ''}`;
+}
+
+/** The first of these patterns the text matches, as the text matched; null when none does. */
+function flag(text: string, patterns: readonly RegExp[]): string | null {
+  for (const p of patterns) { const m = p.exec(text); if (m) return m[0]; }
+  return null;
+}
+
+/* ------------------------------------------------------------------ a tester's practice */
+
+/**
+ * What a tester does that its figures do not print, from its known practice: whether its 0-60 leaves out the first
+ * foot (Car and Driver and MotorTrend subtract a one-foot rollout; MotorWeek, Edmunds and Consumer Reports time from
+ * rest) and its skidpad circle (Car and Driver 300 ft; MotorTrend and Edmunds 200 ft). Null where the tester's practice
+ * is not known: a tester not on this list has no known practice (some keep the rollout in, Road & Track among them),
+ * and readResearch then writes none. Read from the publisher's name as a research record gives it ("Car and Driver
+ * (syndicated on Yahoo Autos)").
+ */
+export function testerPractice(publisher: string): { name: string; rollout: boolean | null; skidpadFt: number | null } {
+  const t = words(publisher);
+  if (/\bcar and driver\b|\bcaranddriver\b/.test(t)) return { name: 'Car and Driver', rollout: true, skidpadFt: 300 };
+  if (/\bmotor ?trend\b/.test(t)) return { name: 'MotorTrend', rollout: true, skidpadFt: 200 };
+  if (/\bedmunds\b/.test(t)) return { name: 'Edmunds', rollout: false, skidpadFt: 200 };
+  if (/\bmotor ?week\b/.test(t)) return { name: 'MotorWeek', rollout: false, skidpadFt: null };
+  if (/\bconsumer reports\b/.test(t)) return { name: 'Consumer Reports', rollout: false, skidpadFt: null };
+  return { name: publisher, rollout: null, skidpadFt: null };
+}
+
 /* ------------------------------------------------------------------ reading a research record */
 
 function show(f: ResearchField): string {
@@ -481,6 +551,30 @@ export function readResearch(record: ResearchRecord): ResearchReading {
     byKey.delete(key); clashing.push(key);
     drop(key, show(prev), 'more than one figure on file for this key');
     drop(key, show(field), 'more than one figure on file for this key');
+  }
+
+  // Like with like: a test figure of another configuration is not a check of this one. It is set apart, named with the
+  // words that say so; a flag about the test car takes every figure of that test (the same url) with it.
+  const isTest = (key: string): boolean => /^test/.test(key) && key !== 'testRollout' && key !== 'testSkidpadDiameterFt';
+  const carFlags: { url: string; key: string; words: string }[] = [];
+  for (const key of order) {
+    const f = byKey.get(key);
+    if (f === undefined || !isTest(key)) continue;
+    const words = flag(remarks(f), OTHER_CAR);
+    if (words !== null && typeof f.url === 'string' && f.url !== '') carFlags.push({ url: f.url, key, words });
+  }
+  for (const key of order) {
+    const f = byKey.get(key);
+    if (f === undefined || !isTest(key)) continue;
+    const own = flag(remarks(f), OTHER_CAR) ?? flag(remarks(f), NOT_THIS_FIGURE);
+    let reason: string | null = own !== null ? `${SET_APART}: its notes say "${own}"` : null;
+    if (reason === null) {
+      for (const c of carFlags) if (c.url === f.url && c.key !== key) { reason = `${SET_APART}: the same test as ${c.key}, whose notes say "${c.words}"`; break; }
+    }
+    // A test figure nobody second-read is not evidence (the research README: a second reader tries to refute every
+    // figure; the parts exam takes confirmed and unconfirmed cases only): it neither calibrates nor checks the car.
+    if (reason === null && !secondRead(f)) reason = `${SET_APART}: ${NOT_SECOND_READ}`;
+    if (reason !== null) { byKey.delete(key); drop(key, show(f), reason); }
   }
 
   const take = (key: string): ResearchField | null => {
@@ -575,6 +669,22 @@ export function readResearch(record: ResearchRecord): ResearchReading {
 
   sheet.topSpeedGoverned = takeFlag('topSpeedGoverned', /\b(governed|electronically limited|limited|capped|restricted)\b/, /\b(not (governed|limited|restricted)|ungoverned|unrestricted|derestricted|no governor)\b/);
   sheet.tests.rollout = takeFlag('testRollout', /\b(with|1[- ]?ft|one[- ]foot) rollout\b/, /\b(without|no) rollout\b/);
+  // What the record leaves unsaid about how its tester times a 0-60 and how big its skidpad is: the tester's known
+  // practice, named as such, so a check compares like with like (calibrate.ts checkSheet).
+  const practice = (figure: Sourced<number> | null): ReturnType<typeof testerPractice> | null =>
+    figure !== null && typeof figure.source.name === 'string' && figure.source.name !== '' ? testerPractice(figure.source.name) : null;
+  const sixty = practice(sheet.tests.zeroToSixtySec);
+  if (sheet.tests.rollout === null && sixty !== null && sixty.rollout !== null && sheet.tests.zeroToSixtySec !== null) {
+    const note = `Not on file: taken from the tester's known practice (${sixty.name} ${sixty.rollout ? 'subtracts a one-foot rollout from' : 'times from rest'} every 0-60 it publishes).`;
+    sheet.tests.rollout = { value: sixty.rollout, source: { kind: 'reference', name: sheet.tests.zeroToSixtySec.source.name, note } };
+    notes.push({ key: 'testRollout', value: String(sixty.rollout), reason: note });
+  }
+  const skid = practice(sheet.tests.skidpadG);
+  if (sheet.tests.skidpadDiameterFt === null && skid !== null && skid.skidpadFt !== null && sheet.tests.skidpadG !== null) {
+    const note = `Not on file: taken from the tester's known practice (${skid.name}'s skidpad is a ${skid.skidpadFt} ft circle).`;
+    sheet.tests.skidpadDiameterFt = { value: skid.skidpadFt, source: { kind: 'reference', name: sheet.tests.skidpadG.source.name, note } };
+    notes.push({ key: 'testSkidpadDiameterFt', value: String(skid.skidpadFt), reason: note });
+  }
   const flags: readonly FlagKey[] = ['abs', 'tractionControl', 'stabilityControl', 'launchControl'];
   for (const k of flags) sheet[k] = takeFlag(k, null, null);
 

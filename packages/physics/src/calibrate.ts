@@ -38,6 +38,23 @@ function copySheet(sheet: PhysicsSheet): PhysicsSheet {
 }
 
 /**
+ * The sheet as its tests were run: where the tests carry the scale weight of the car that ran them (tests.testWeightLb,
+ * and its front share when given), that is the curb weight; the resolver adds the driver, who was in the car for the
+ * runs. A check compares like with like: on a curb weight from the listings, or the class blank where none is on file,
+ * the bench car is not the car that was timed (the Raptor and the Tacoma ran at the pickup blank's 5,071 lb against
+ * test trucks of 5,947 and 4,794 lb). A sheet without a test weight comes back as it is.
+ */
+export function asTested(sheet: PhysicsSheet): PhysicsSheet {
+  const w = sheet.tests.testWeightLb;
+  if (figure(w) === null) return sheet;
+  const out = copySheet(sheet);
+  out.curbWeightLb = w;
+  const front = sheet.tests.testWeightDistFrontPct;
+  if (figure(front) !== null) out.weightDistFrontPct = front;
+  return out;
+}
+
+/**
  * Finds x in [lo, hi] where f(x) = 0 for an increasing f, by bracketed secant steps (regula falsi, Illinois version):
  * it keeps the root between two points as bisection does, and gets there in a few runs because each figure is close
  * to proportional to what is fitted. Stops within `close` of zero or after FIT_RUNS runs, and returns the best x. When

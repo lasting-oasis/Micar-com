@@ -10,13 +10,18 @@
 //    gentler the slower the reaction, so the delay does not set it weaving. What it feels through the seat, the car
 //    turning more or less than the curvature it asked for, it answers at once: lock off (to opposite lock, catching a
 //    slide) when the car rotates too much, lock on when too little. Never more lock than the outer front tyre's peak
-//    slip angle, as an expert (drivers.ts circleDriver).
+//    slip angle, as an expert (drivers.ts circleDriver). With the rear axle past its own peak slip angle (the car
+//    beginning to turn round) the front wheels are no longer held at their peak toward the slide: the more the rear
+//    slides, the nearer they are pointed along the front axle's own path, so the front stops pushing the car round and
+//    the rear's grip straightens it (held at the peak, the front kept the rotation going, and a fast car that lifted
+//    or braked in a fast bend spun off at 170 km/h).
 //  - Pedals: they follow the pilot's own speed profile, the limit lap's worked out with only `skill` of the car's
 //    cornering and braking (lap.ts lapOn), a little ahead so the brakes come on in time; the throttle and the brake
 //    are set from the acceleration that asks for, through the car's own drag and brake sizes, with a correction for
-//    the speed error. A tyre worked past its peak on its combined slip (the brush's use: slip ratio and slip angle each
-//    over its peak, added as a vector) eases the pedal that put it there: the throttle for a driven or a rear tyre, the
-//    brake for any. In a car with traction control the throttle eases only for a tyre that is also cornering: in a
+//    the speed error. An axle worked past its peak on its tyres' combined slip (the brush's use: slip ratio and slip
+//    angle each over its peak, added as a vector, each tyre weighted by the load it carries) eases the pedal that put
+//    it there: the throttle for a driven or the rear axle, the brake for either. In a car with traction control the
+//    throttle eases only for a tyre that is also cornering: in a
 //    straight line a driver floors it and lets the system hold the wheelspin (easing the pedal there, an automatic
 //    reads a lighter foot, changes up, and kicks down again when the foot returns). The car's own systems stay as
 //    fitted.
@@ -88,9 +93,17 @@ export const PATH_LAG = 0.25;
 /**
  * Lock added per rad/s the car rotates less than the curvature it asked for asks (speed x curvature), as a share of
  * the lock that rotation would take at that speed (wheelbase over speed): the gain of the loop through the car is
- * about this, whatever the speed. Felt, so answered without the reaction time.
+ * about this, whatever the speed. Felt, so answered without the reaction time, and firmly: at 3, a car that turned in
+ * too much under trail braking in a fast bend carried its heading error long enough to run a metre or two past the
+ * apex before the slower correction of its place caught it.
  */
-export const YAW_GAIN = 3;
+export const YAW_GAIN = 10;
+/**
+ * The rear axle's slip angle, as a share of its tyres' peak slip angle, at which the pilot starts to point the front
+ * wheels along the front axle's path, and at which they point all the way along it (steer: catching a slide).
+ */
+export const SLIDE_FROM = 1;
+export const SLIDE_FULL = 1.5;
 /** The corrections are worked at no less than this speed, m/s: below it a metre off would ask for an absurd turn. */
 export const CORRECT_MIN_SPEED = 5;
 /** The curvature steered for is read this far ahead, s of travel: what the steering and the tyres take to respond. */
@@ -322,13 +335,41 @@ function steer(p: Mind, s: VehicleState, c: Controls, speed: number): void {
   // An expert never winds on lock past the outer front tyre's peak slip angle (drivers.ts circleDriver), either way.
   if (s.u > 2) {
     const hf = 0.5 * ch.trackFront, vy = s.v + s.r * ch.a;
-    const right = datan(vy / (s.u + s.r * hf)) + datan(peakSlipTan(m.tyreFront, s.wheelLoad[1], 1));
-    const left = datan(vy / (s.u - s.r * hf)) - datan(peakSlipTan(m.tyreFront, s.wheelLoad[0], 1));
+    // Each front wheel's path, and the angles that put it at its peak slip either way.
+    const pathR = datan(vy / (s.u + s.r * hf)), pathL = datan(vy / (s.u - s.r * hf));
+    let right = pathR + datan(peakSlipTan(m.tyreFront, s.wheelLoad[1], 1));
+    let left = pathL - datan(peakSlipTan(m.tyreFront, s.wheelLoad[0], 1));
+    // A rear sliding out to the left turns the car to the right: the bound that lets the fronts push right comes in
+    // toward their path, and the other way round.
+    const slide = rearSlide(s);
+    if (slide > 0) left += slide * (pathL - left); else if (slide < 0) right += slide * (right - pathR);
     if (angle > right) angle = right; else if (angle < left) angle = left;
   }
   let st = p.maxSteer > 0 ? angle / p.maxSteer : 0;
   if (st > 1) st = 1; else if (st < -1) st = -1;
   c.steer = st;
+}
+
+/**
+ * A car's rear axle slip angle as a share of its tyres' peak slip angle (judged on dry asphalt, at their mean load),
+ * signed: positive when the rear moves to the left of the car's heading (the car turning round to the right). 1 is the
+ * rear at its peak; past it the rear is sliding. 0 below a walk. What a driver feels as the rear letting go: the pilot
+ * and the game's steering assists both stop the front pushing the car round by it.
+ */
+export function rearSlip(s: VehicleState): number {
+  const m = s.model, fz = 0.5 * (s.wheelLoad[2] + s.wheelLoad[3]);
+  const peak = datan(peakSlipTan(m.tyreRear, fz > 0 ? fz : 0, 1));
+  if (!(peak > 0) || !(s.u > 2)) return 0;
+  return datan((s.v - s.r * m.chassis.b) / s.u) / peak;
+}
+
+// How far the rear axle slides, signed: 0 at or under SLIDE_FROM of its tyres' peak slip angle, 1 (or -1) at
+// SLIDE_FULL of it and beyond; positive when the rear moves to the left of the car's heading.
+function rearSlide(s: VehicleState): number {
+  const x = rearSlip(s), a = x < 0 ? -x : x;
+  let k = (a - SLIDE_FROM) / (SLIDE_FULL - SLIDE_FROM);
+  k = k < 0 ? 0 : k > 1 ? 1 : k;
+  return x < 0 ? -k : k;
 }
 
 // The pedals: the acceleration the plan asks for a little ahead, plus a correction for the speed error, through the
@@ -376,18 +417,29 @@ function use(s: VehicleState, i: number): number {
   return Math.sqrt(x * x + y * y);
 }
 
-// The most-used tyre the throttle works: the driven ones, and the rear ones (drive or not, a rear past its peak is the
-// car beginning to turn round). With traction control fitted, only a tyre that is also cornering (CORNERING of its
+// How much of an axle's grip its two tyres are using, 1 at the peak: each tyre's use weighted by the load it carries
+// (a tyre that does not count, `skipLeft` or `skipRight`, adds its load but none of its use). A driver feels the axle,
+// not one wheel: through a long corner the inside wheels go light, and a light tyre peaks at a smaller slip angle and a
+// smaller slip ratio than a loaded one, so it reads past its peak whenever the loaded one is at it, and under braking it
+// is the first to reach its peak slip; but it carries a small share of the axle's grip. Easing a pedal for it (the
+// worst single tyre) left a car braking at a fraction of what its plan asked through a sweeper into a hairpin, and
+// arriving too fast to turn.
+function axleUse(s: VehicleState, left: number, skipLeft: boolean, skipRight: boolean): number {
+  const fl = s.wheelLoad[left], fr = s.wheelLoad[left + 1];
+  const wl = fl > 0 ? fl : 0, wr = fr > 0 ? fr : 0, total = wl + wr;
+  if (!(total > 0)) return 0;
+  return ((skipLeft ? 0 : wl * use(s, left)) + (skipRight ? 0 : wr * use(s, left + 1))) / total;
+}
+
+// The most-used axle the throttle works: the driven ones, and the rear one (drive or not, a rear axle past its peak is
+// the car beginning to turn round). With traction control fitted, only a tyre that is also cornering (CORNERING of its
 // peak slip angle or more) counts: straight-line wheelspin is the system's to hold.
 function throttleUse(s: VehicleState): number {
   const m = s.model, tcs = m.systems.tcs;
-  let worst = 0;
-  for (let i = m.driveline.layout === 'RWD' ? 2 : 0; i < 4; i++) {
-    if (tcs && cornering(s, i) < CORNERING) continue;
-    const u = use(s, i);
-    if (u > worst) worst = u;
-  }
-  return worst;
+  const rear = axleUse(s, 2, tcs && cornering(s, 2) < CORNERING, tcs && cornering(s, 3) < CORNERING);
+  if (m.driveline.layout === 'RWD') return rear;
+  const front = axleUse(s, 0, tcs && cornering(s, 0) < CORNERING, tcs && cornering(s, 1) < CORNERING);
+  return front > rear ? front : rear;
 }
 
 // Tyre i's slip angle as a share of the one at which it alone would peak.
@@ -397,9 +449,8 @@ function cornering(s: VehicleState, i: number): number {
   return y < 0 ? -y : y;
 }
 
-// The most-used tyre of the four, under braking.
+// The more-used axle of the two, under braking.
 function brakeUse(s: VehicleState): number {
-  let worst = 0;
-  for (let i = 0; i < 4; i++) { const u = use(s, i); if (u > worst) worst = u; }
-  return worst;
+  const front = axleUse(s, 0, false, false), rear = axleUse(s, 2, false, false);
+  return front > rear ? front : rear;
 }

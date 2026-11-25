@@ -7,9 +7,9 @@ import type { Controls, VehicleModel } from './types';
 import type { Envelope } from './lap';
 import type { PilotTraits } from './pilot';
 import { PRECISION_HIGH, PRECISION_LOW, REACTION_HIGH, REACTION_LOW, SKILL_HIGH, SKILL_LOW, createPilot, pilotTraits } from './pilot';
-import { limitLap, measureEnvelope } from './lap';
+import { alongAt, limitLap, measureEnvelope } from './lap';
 import type { RacingLine } from './line';
-import { createPlace, placeOnTrack, proofLine } from './line';
+import { arc, centrelineFrom, createPlace, placeOnTrack, proofLine, racingLine, straight } from './line';
 import { PROOF_CARS, proofSheet } from './golden';
 import { resolveModel } from './resolve';
 import { setRolling } from './bench';
@@ -21,9 +21,20 @@ type Name = (typeof PROOF_CARS)[number];
 const models = new Map<string, VehicleModel>(), envelopes = new Map<string, Envelope>();
 const model = (name: Name): VehicleModel => { let m = models.get(name); if (!m) { m = resolveModel(proofSheet(name)).model; models.set(name, m); } return m; };
 const envelope = (name: Name): Envelope => { let e = envelopes.get(name); if (!e) { e = measureEnvelope(model(name)); envelopes.set(name, e); } return e; };
-const lines: Record<string, RacingLine> = { oval: proofLine('oval'), club: proofLine('club') };
+// A sweeper into a hairpin, 10 m wide (the Harbour GP's width): a 400 m straight, a 250 m radius left of 40 degrees
+// (175 m of it) tightening into a 25 m radius hairpin, out the same way, a 400 m straight back and a long 180 degree
+// left home. The braking for the hairpin is done in the sweeper, at 0.5 g and more across the car, where the inside
+// wheels run light: the shape of the Harbour GP's left-hander 300-360 m past its line, where pilots near the top of
+// the skill band ran 5-16 m wide.
+function sweeperLine(): RacingLine {
+  const R1 = 250, turn = 0.7, R2 = 25, L = 400;
+  const across = 2 * R1 * (1 - Math.cos(turn)) + 2 * R2 * Math.cos(turn);
+  const c = centrelineFrom([straight(L), arc(R1, turn), arc(R2, Math.PI - 2 * turn), arc(R1, turn), straight(L), arc(across / 2, Math.PI)], 1);
+  return racingLine(c.x, c.y, 10);
+}
+const lines: Record<string, RacingLine> = { oval: proofLine('oval'), club: proofLine('club'), sweeper: sweeperLine() };
 
-type Run = { laps: number[]; limit: number; beyond: number; hash: number; plan: number };
+type Run = { laps: number[]; limit: number; beyond: number; hash: number; plan: number; over: number };
 
 /**
  * A pilot drives a car round a circuit: from rolling at its own speed on the line's point 0 (or standing still
@@ -46,9 +57,12 @@ function drive(name: Name, circuit: string, traits: PilotTraits, laps: number, b
   const ch = m.chassis, wx = [ch.a, ch.a, -ch.b, -ch.b], wy = [ch.trackFront / 2, -ch.trackFront / 2, ch.trackRear / 2, -ch.trackRear / 2];
   const at = createPlace(), hints = [-1, -1, -1, -1];
   const out: number[] = [];
-  let beyond = -Infinity, t0 = NaN, lastT = 0, lastP = NaN;
+  let beyond = -Infinity, t0 = NaN, lastT = 0, lastP = NaN, over = 0;
   for (let k = 0; k < 120 * 60 * (laps + 1) && out.length < laps; k++) {
     pilot.control(s, c);
+    // How far over its target it is where its plan slows the car, once the first lap is under way: on the brakes or
+    // not (a pilot that has eased its brake to nothing and coasts on at speed is the failure this measures).
+    if (pilot.progress > 0.5 * line.length && alongAt(pilot.plan, pilot.place.s, pilot.place.index) < 0) over = Math.max(over, Math.sqrt(s.u * s.u + s.v * s.v) - pilot.target);
     // The pilot has just read where the car is: the distance it has driven along the line, at this moment.
     const P = pilot.progress, L = line.length;
     if (lastP === lastP && Math.floor(P / L) > Math.floor(lastP / L) && P > 0) {
@@ -65,7 +79,7 @@ function drive(name: Name, circuit: string, traits: PilotTraits, laps: number, b
       beyond = Math.max(beyond, Math.abs(at.offset) - line.width / 2);
     }
   }
-  return { laps: out, limit: limitLap(line, e).lapTime, beyond, hash: hashState(s), plan: pilot.plan.lapTime };
+  return { laps: out, limit: limitLap(line, e).lapTime, beyond, hash: hashState(s), plan: pilot.plan.lapTime, over };
 }
 
 const at = (seed: number, skill: number): PilotTraits => ({ ...pilotTraits(seed), skill });
@@ -103,6 +117,22 @@ describe('a pilot on the proof circuits', () => {
         }
         // It drives to its own plan (the envelope at its skill), and loses no more than 6% more to being human.
         expect(r.laps[2] / r.plan, `${name} ${circuit}`).toBeLessThan(1.06);
+      }
+    }
+  }, LONG);
+
+  it('brakes to its plan through a sweeper into a hairpin at skill 0.97: never more than 4 m/s over its target where its plan slows it, and no wheel more than 0.3 m past the edge', () => {
+    // Braking at 0.5 g and more across the car, the inside wheels carry a fifth of their axle's load; a light tyre
+    // peaks at a smaller slip and reads past its peak whenever the loaded one is at it. Judged by its worst single
+    // tyre, the pilot eased the brakes to a fraction of its plan there, arrived 4-8 m/s too fast and ran 4-27 m wide.
+    for (const name of PROOF_CARS) {
+      for (const seed of [1, 2, 3, 4]) {
+        const r = drive(name, 'sweeper', at(seed, 0.97), 2);
+        expect(r.laps.length, `${name} seed ${seed}`).toBe(2);
+        expect(r.beyond, `${name} seed ${seed}: a wheel ${r.beyond.toFixed(2)} m past the edge`).toBeLessThan(0.3);
+        expect(r.over, `${name} seed ${seed}: ${r.over.toFixed(1)} m/s over its target on the brakes`).toBeLessThan(4);
+        // and it still drives near its plan: within 6% of it.
+        expect(r.laps[1] / r.plan, `${name} seed ${seed}`).toBeLessThan(1.06);
       }
     }
   }, LONG);

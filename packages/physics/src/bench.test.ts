@@ -151,6 +151,22 @@ describe('skidpad', () => {
     expect(Math.abs(bench.skidpad200 / bench.skidpad300 - 1)).toBeLessThan(0.05);
   });
 
+  it('gives every researched car a figure on both circles, under the friction its tyres have at their static loads', () => {
+    // A held lap that runs wide on its very last step once counted as a lap with no time and left the figure NaN
+    // (the Corvette Stingray Z51 on the 300 ft circle), and calibration then fitted its grip to nothing.
+    const bad: string[] = [];
+    for (const id of ['2024-chevrolet-corvette-stingray-z51', '2024-toyota-camry-le', '2024-ford-f-150-raptor']) {
+      const sheet = sheetById(id) as PhysicsSheet;
+      const m = resolveModel({ ...sheet, calibration: { tyreGripScale: 1, dragAreaM2: null } }).model;
+      const limit = frictionLimit(m) / G;
+      for (const ft of [300, 200]) {
+        const g = skidpadAt(m, ft);
+        if (!(g > 0.7 * limit && g < limit)) bad.push(`${id} ${ft} ft: ${g} g against a ${limit.toFixed(3)} g limit`);
+      }
+    }
+    expect(bad).toEqual([]);
+  });
+
   it('corners harder on stickier tyres, in proportion to the friction', () => {
     const sticky = fixtureModel({ tyreFront: { muY0: 1.12 }, tyreRear: { muY0: 1.12 } });
     const gain = skidpadAt(sticky, 300) / bench.skidpad300;
